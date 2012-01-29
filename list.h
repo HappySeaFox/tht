@@ -27,8 +27,6 @@ namespace Ui
     class List;
 }
 
-class QListWidgetItem;
-
 class List : public QWidget
 {
     Q_OBJECT
@@ -39,6 +37,8 @@ public:
 
     void setSectionToSaveTo(const QString &name);
     QString sectionToSaveTo() const;
+
+    void addTicker(const QString &);
 
     QString currentTicker() const;
 
@@ -61,7 +61,7 @@ private slots:
     void slotAdd();
     void slotClear();
     void slotSaveAs();
-    void slotCurrentItemChanged(QListWidgetItem *);
+    void slotSelectedItemChanged();
 
 private:
     Ui::List *ui;
