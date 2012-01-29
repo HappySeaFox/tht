@@ -94,14 +94,17 @@ bool List::eventFilter(QObject *obj, QEvent *event)
             QListWidgetItem *item = ui->list->currentItem();
 
             if(!item)
-                ui->list->item(0);
+                item = ui->list->item(0);
 
             if(item)
             {
                 if(item->isSelected())
                     slotSelectedItemChanged();
                 else
+                {
+                    ui->list->setCurrentItem(item);
                     item->setSelected(true);
+                }
             }
         }
 
@@ -177,6 +180,8 @@ void List::paste()
     QTextStream t(&text);
     QString ticker;
 
+    ui->list->setUpdatesEnabled(false);
+
     while(!t.atEnd())
     {
         t >> ticker;
@@ -184,6 +189,8 @@ void List::paste()
         if(m_rxTicker.exactMatch(ticker))
             ui->list->addItem(ticker.toUpper());
     }
+
+    ui->list->setUpdatesEnabled(true);
 
     numberOfItemsChanged();
     save();
@@ -209,6 +216,8 @@ void List::slotAdd()
 
         QTextStream t(&file);
 
+        ui->list->setUpdatesEnabled(false);
+
         while(!t.atEnd())
         {
             t >> ticker;
@@ -216,6 +225,8 @@ void List::slotAdd()
             if(m_rxTicker.exactMatch(ticker))
                 ui->list->addItem(ticker.toUpper());
         }
+
+        ui->list->setUpdatesEnabled(true);
     }
 
     numberOfItemsChanged();
