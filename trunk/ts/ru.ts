@@ -66,13 +66,13 @@ All suggestions and bug reports please send to our bug tracker, visit&lt;br/&gt;
     <message>
         <location filename="../list.ui" line="50"/>
         <location filename="../list.cpp" line="204"/>
-        <location filename="../list.cpp" line="250"/>
+        <location filename="../list.cpp" line="258"/>
         <source>Save as</source>
         <translation>Сохранить как</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="214"/>
-        <location filename="../list.cpp" line="259"/>
+        <location filename="../list.cpp" line="267"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
@@ -82,7 +82,17 @@ All suggestions and bug reports please send to our bug tracker, visit&lt;br/&gt;
         <translation>Невозможно открыть файл %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="259"/>
+        <location filename="../list.cpp" line="245"/>
+        <source>Clear</source>
+        <translation>Очистить</translation>
+    </message>
+    <message>
+        <location filename="../list.cpp" line="245"/>
+        <source>You won&apos;t be able to undo this. Really clear?</source>
+        <translation>Вы не сможете это отменить. Действительно очистить?</translation>
+    </message>
+    <message>
+        <location filename="../list.cpp" line="267"/>
         <source>Cannot save to file %1</source>
         <translation>Невозможно сохранить в файл %1</translation>
     </message>

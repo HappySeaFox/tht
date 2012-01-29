@@ -238,6 +238,14 @@ void List::slotClear()
 {
     qDebug("THT: Clear tickers");
 
+    // nothing to do
+    if(!ui->list->count())
+        return;
+
+    if(QMessageBox::question(this, tr("Clear"), tr("You won't be able to undo this. Really clear?"),
+                             QMessageBox::Yes, QMessageBox::No) == QMessageBox::No)
+        return;
+
     ui->list->clear();
     numberOfItemsChanged();
     save();
