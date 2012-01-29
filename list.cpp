@@ -34,6 +34,7 @@ List::List(const QString &section, QWidget *parent) :
 {
     ui->setupUi(this);
 
+    setFocusProxy(ui->list);
     ui->pushAdd->setFocusProxy(ui->list);
     ui->pushClear->setFocusProxy(ui->list);
     ui->pushSaveAs->setFocusProxy(ui->list);

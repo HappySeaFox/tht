@@ -16,12 +16,23 @@
  */
 
 #include <QApplication>
+#include <QTranslator>
+#include <QLocale>
+#include <QDir>
 
 #include "tht.h"
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
+    QApplication app(argc, argv);
+
+    QString locale = QLocale::system().name();
+
+    qDebug("THT: Locale \"%s\"", qPrintable(locale));
+
+    QTranslator translator;
+    translator.load(locale, QApplication::applicationDirPath() + QDir::separator() + "ts");
+    app.installTranslator(&translator);
 
     QApplication::setApplicationName("THT");
     QApplication::setOrganizationName("Noname");
@@ -29,5 +40,5 @@ int main(int argc, char *argv[])
     THT w;
     w.show();
     
-    return a.exec();
+    return app.exec();
 }
