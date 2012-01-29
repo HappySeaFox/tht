@@ -37,9 +37,18 @@ Options::~Options()
 void Options::load()
 {
     QSettings settings;
+    bool ok;
 
     settings.beginGroup("settings");
-    ui->comboNumberOfLists->setCurrentIndex(settings.value("number-of-lists", 3).toUInt() - 1);
+    uint lists = settings.value("number-of-lists", 3).toUInt(&ok);
+
+    if(!ok)
+        lists = 3;
+
+    if(lists < 1 || lists > 5)
+        lists = 3;
+
+    ui->comboNumberOfLists->setCurrentIndex(lists - 1);
     settings.endGroup();
 }
 

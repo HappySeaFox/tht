@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>123</width>
+    <width>111</width>
     <height>324</height>
    </rect>
   </property>
@@ -70,7 +70,7 @@
    <item row="3" column="0">
     <widget class="QLabel" name="label">
      <property name="text">
-      <string>Elements:</string>
+      <string>Tickers:</string>
      </property>
     </widget>
    </item>
@@ -178,17 +178,17 @@
   </connection>
   <connection>
    <sender>list</sender>
-   <signal>currentItemChanged(QListWidgetItem*,QListWidgetItem*)</signal>
+   <signal>itemSelectionChanged()</signal>
    <receiver>List</receiver>
-   <slot>slotCurrentItemChanged(QListWidgetItem*)</slot>
+   <slot>slotSelectedItemChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>90</x>
-     <y>171</y>
+     <x>71</x>
+     <y>177</y>
     </hint>
     <hint type="destinationlabel">
-     <x>279</x>
-     <y>165</y>
+     <x>300</x>
+     <y>189</y>
     </hint>
    </hints>
   </connection>
@@ -197,6 +197,6 @@
   <slot>slotClear()</slot>
   <slot>slotAdd()</slot>
   <slot>slotSaveAs()</slot>
-  <slot>slotCurrentItemChanged(QListWidgetItem*)</slot>
+  <slot>slotSelectedItemChanged()</slot>
  </slots>
 </ui>

@@ -28,8 +28,11 @@ namespace Ui
     class THT;
 }
 
+class QGridLayout;
 class QTimer;
 class QMenu;
+
+class List;
 
 class THT : public QWidget
 {
@@ -44,21 +47,33 @@ protected:
 
 private:
     void sendString(const QString &str) const;
+    void rebuildUi();
+    void checkWindows();
+    void loadNextWindow();
 
 private slots:
-    void slotTimer();
     void slotCheckActive();
     void slotAbout();
     void slotAboutQt();
     void slotOptions();
+    void slotMoveLeft(const QString &ticker);
+    void slotMoveRight(const QString &ticker);
+    void slotLoadTicker(const QString &ticker);
+    void slotLoadToNextWindow();
 
 private:
     Ui::THT *ui;
     QList<HWND> m_windows;
+    int m_currentWindow;
     bool m_running;
-    QString m_ticker;
     QTimer *m_timerCheckActive;
+    QTimer *m_timerLoadToNextWindow;
+    uint m_loadToNextInterval;
+    qint64 m_startupTime;
     QMenu *m_menu;
+    QList<List *> m_lists;
+    QGridLayout *m_layout;
+    QString m_ticker;
 };
 
 #endif // THT_H
