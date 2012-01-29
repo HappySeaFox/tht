@@ -10,9 +10,6 @@
     <height>324</height>
    </rect>
   </property>
-  <property name="windowTitle">
-   <string>Form</string>
-  </property>
   <layout class="QGridLayout" name="gridLayout">
    <property name="margin">
     <number>0</number>
@@ -27,6 +24,9 @@
      </property>
      <item>
       <widget class="QPushButton" name="pushClear">
+       <property name="toolTip">
+        <string>Clear list</string>
+       </property>
        <property name="icon">
         <iconset resource="tht.qrc">
          <normaloff>:/images/clear.png</normaloff>:/images/clear.png</iconset>
@@ -35,6 +35,9 @@
      </item>
      <item>
       <widget class="QPushButton" name="pushAdd">
+       <property name="toolTip">
+        <string>Load from file</string>
+       </property>
        <property name="icon">
         <iconset resource="tht.qrc">
          <normaloff>:/images/add.png</normaloff>:/images/add.png</iconset>
@@ -43,6 +46,9 @@
      </item>
      <item>
       <widget class="QPushButton" name="pushSaveAs">
+       <property name="toolTip">
+        <string>Save as</string>
+       </property>
        <property name="icon">
         <iconset resource="tht.qrc">
          <normaloff>:/images/saveas.png</normaloff>:/images/saveas.png</iconset>

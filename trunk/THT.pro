@@ -35,3 +35,5 @@ RC_FILE = tht.rc
 
 OTHER_FILES += \
     tht.rc
+
+TRANSLATIONS += ts/ru.ts
