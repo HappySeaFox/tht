@@ -69,14 +69,43 @@ THT::THT(QWidget *parent) :
     m_windows.append((HWND)2621942);
     m_windows.append((HWND)4719922);
 
+    // layout
     m_layout = new QGridLayout(this);
     setLayout(m_layout);
 
     rebuildUi();
+
+    // restore geometry
+    QSettings settings;
+
+    settings.beginGroup("settings");
+
+    if(settings.value("save-geometry", true).toBool())
+    {
+        QSize sz = settings.value("size").toSize();
+
+        if(sz.isValid())
+            resize(sz);
+
+        QPoint pt = settings.value("position").toPoint();
+
+        if(!pt.isNull())
+            move(pt);
+    }
 }
 
 THT::~THT()
 {
+    QSettings settings;
+
+    settings.beginGroup("settings");
+
+    if(settings.value("save-geometry", true).toBool())
+    {
+        settings.setValue("size", size());
+        settings.setValue("position", pos());
+    }
+
     delete ui;
 }
 
