@@ -15,19 +15,39 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <QApplication>
+#include <QSettings>
 
-#include "tht.h"
+#include "options.h"
+#include "ui_options.h"
 
-int main(int argc, char *argv[])
+Options::Options(QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::Options)
 {
-    QApplication a(argc, argv);
+    ui->setupUi(this);
 
-    QApplication::setApplicationName("THT");
-    QApplication::setOrganizationName("Noname");
+    load();
+}
 
-    THT w;
-    w.show();
-    
-    return a.exec();
+Options::~Options()
+{
+    delete ui;
+}
+
+void Options::load()
+{
+    QSettings settings;
+
+    settings.beginGroup("settings");
+    ui->comboNumberOfLists->setCurrentIndex(settings.value("number-of-lists", 3).toUInt() - 1);
+    settings.endGroup();
+}
+
+void Options::save()
+{
+    QSettings settings;
+
+    settings.beginGroup("settings");
+    settings.setValue("number-of-lists", ui->comboNumberOfLists->currentIndex()+1);
+    settings.endGroup();
 }
