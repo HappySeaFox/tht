@@ -40,6 +40,8 @@ void Options::load()
     bool ok;
 
     settings.beginGroup("settings");
+
+    ui->checkSave->setChecked(settings.value("save-geometry", true).toBool());
     uint lists = settings.value("number-of-lists", 3).toUInt(&ok);
 
     if(!ok)
@@ -58,5 +60,6 @@ void Options::save()
 
     settings.beginGroup("settings");
     settings.setValue("number-of-lists", ui->comboNumberOfLists->currentIndex()+1);
+    settings.setValue("save-geometry", ui->checkSave->isChecked());
     settings.endGroup();
 }
