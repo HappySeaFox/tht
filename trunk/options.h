@@ -15,19 +15,30 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <QApplication>
+#ifndef OPTIONS_H
+#define OPTIONS_H
 
-#include "tht.h"
+#include <QDialog>
 
-int main(int argc, char *argv[])
-{
-    QApplication a(argc, argv);
-
-    QApplication::setApplicationName("THT");
-    QApplication::setOrganizationName("Noname");
-
-    THT w;
-    w.show();
-    
-    return a.exec();
+namespace Ui {
+class Options;
 }
+
+class Options : public QDialog
+{
+    Q_OBJECT
+    
+public:
+    explicit Options(QWidget *parent = 0);
+    ~Options();
+
+    void save();
+
+private:
+    void load();
+
+private:
+    Ui::Options *ui;
+};
+
+#endif // OPTIONS_H
