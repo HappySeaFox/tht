@@ -50,6 +50,7 @@ private:
     void save();
     void load();
     void paste();
+    void showSaved(bool isSaved);
 
 signals:
     void moveLeft(const QString &ticker);
