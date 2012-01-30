@@ -165,6 +165,11 @@ All suggestions and bug reports please send to our bug tracker, visit&lt;br/&gt;
         <source>Automatically save tickers</source>
         <translation>Сохранять тикеры автоматически</translation>
     </message>
+    <message>
+        <location filename="../options.ui" line="110"/>
+        <source>Always on top</source>
+        <translation>Поверх всех окон</translation>
+    </message>
 </context>
 <context>
     <name>THT</name>
