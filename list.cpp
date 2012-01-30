@@ -20,6 +20,7 @@
 #include <QMessageBox>
 #include <QTextStream>
 #include <QClipboard>
+#include <QPalette>
 #include <QKeyEvent>
 #include <QEvent>
 #include <QMenu>
@@ -161,7 +162,11 @@ void List::save()
 {
     // don't save tickers automatically
     if(!m_saveTickers)
+    {
+        qDebug("THT: Autosave is disabled");
+        showSaved(false);
         return;
+    }
 
     slotSave();
 }
@@ -206,6 +211,13 @@ void List::paste()
         numberOfItemsChanged();
         save();
     }
+}
+
+void List::showSaved(bool isSaved)
+{
+    QPalette pal = ui->labelUnsaved->palette();
+    pal.setColor(QPalette::Window, isSaved ? palette().color(QPalette::Window) : Qt::red);
+    ui->labelUnsaved->setPalette(pal);
 }
 
 void List::slotAddFromFile()
@@ -279,6 +291,8 @@ void List::slotSave()
     qDebug("THT: Saving section \"%d\"", m_section);
 
     Settings::instance()->saveTickersForGroup(m_section, toStringList());
+
+    showSaved(true);
 }
 
 void List::slotExportToFile()
