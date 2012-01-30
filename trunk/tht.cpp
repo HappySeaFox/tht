@@ -19,13 +19,13 @@
 #include <QGridLayout>
 #include <QMessageBox>
 #include <QDateTime>
-#include <QSettings>
 #include <QTimer>
 #include <QIcon>
 #include <QMenu>
 
 #include <windows.h>
 
+#include "settings.h"
 #include "options.h"
 #include "about.h"
 #include "list.h"
@@ -76,18 +76,14 @@ THT::THT(QWidget *parent) :
     rebuildUi();
 
     // restore geometry
-    QSettings settings;
-
-    settings.beginGroup("settings");
-
-    if(settings.value("save-geometry", true).toBool())
+    if(Settings::instance()->saveGeometry())
     {
-        QSize sz = settings.value("size").toSize();
+        QSize sz = Settings::instance()->windowSize();
 
         if(sz.isValid())
             resize(sz);
 
-        QPoint pt = settings.value("position").toPoint();
+        QPoint pt = Settings::instance()->windowPosition();
 
         if(!pt.isNull())
             move(pt);
@@ -96,14 +92,10 @@ THT::THT(QWidget *parent) :
 
 THT::~THT()
 {
-    QSettings settings;
-
-    settings.beginGroup("settings");
-
-    if(settings.value("save-geometry", true).toBool())
+    if(Settings::instance()->saveGeometry())
     {
-        settings.setValue("size", size());
-        settings.setValue("position", pos());
+        Settings::instance()->setWindowSize(size());
+        Settings::instance()->setWindowPosition(pos());
     }
 
     delete ui;
@@ -163,25 +155,14 @@ void THT::sendString(const QString &oticker) const
 void THT::rebuildUi()
 {
     // check the number of lists
-    QSettings settings;
-    bool ok;
-
-    settings.beginGroup("settings");
-    int nlists = settings.value("number-of-lists", 3).toUInt(&ok);
-    settings.endGroup();
-
-    if(!ok)
-        nlists = 3;
-
-    if(nlists < 1 || nlists > 5)
-        nlists = 3;
+    int nlists = Settings::instance()->numberOfLists();
 
     // create more
     if(nlists > m_lists.size())
     {
         while(nlists > m_lists.size())
         {
-            List *list = new List(QString("tickers-%1").arg(m_lists.size()+1), this);
+            List *list = new List(m_lists.size()+1, this);
 
             connect(list, SIGNAL(moveLeft(const QString &)), this, SLOT(slotMoveLeft(const QString &)));
             connect(list, SIGNAL(moveRight(const QString &)), this, SLOT(slotMoveRight(const QString &)));
@@ -196,13 +177,18 @@ void THT::rebuildUi()
     {
         while(nlists < m_lists.size())
         {
-            settings.beginGroup(QString("tickers-%1").arg(m_lists.size()));
-            settings.remove(QString());
-            settings.endGroup();
+            Settings::instance()->removeTickers(m_lists.size());
 
             delete m_lists.last();
             m_lists.removeLast();
         }
+    }
+
+    bool saveTickers = Settings::instance()->saveTickers();
+
+    foreach(List *l, m_lists)
+    {
+        l->setSaveTickers(saveTickers);
     }
 }
 

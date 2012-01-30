@@ -15,8 +15,7 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <QSettings>
-
+#include "settings.h"
 #include "options.h"
 #include "ui_options.h"
 
@@ -36,30 +35,14 @@ Options::~Options()
 
 void Options::load()
 {
-    QSettings settings;
-    bool ok;
-
-    settings.beginGroup("settings");
-
-    ui->checkSave->setChecked(settings.value("save-geometry", true).toBool());
-    uint lists = settings.value("number-of-lists", 3).toUInt(&ok);
-
-    if(!ok)
-        lists = 3;
-
-    if(lists < 1 || lists > 5)
-        lists = 3;
-
-    ui->comboNumberOfLists->setCurrentIndex(lists - 1);
-    settings.endGroup();
+    ui->comboNumberOfLists->setCurrentIndex(Settings::instance()->numberOfLists() - 1);
+    ui->checkSave->setChecked(Settings::instance()->saveGeometry());
+    ui->checkSaveTickers->setChecked(Settings::instance()->saveTickers());
 }
 
 void Options::save()
 {
-    QSettings settings;
-
-    settings.beginGroup("settings");
-    settings.setValue("number-of-lists", ui->comboNumberOfLists->currentIndex()+1);
-    settings.setValue("save-geometry", ui->checkSave->isChecked());
-    settings.endGroup();
+    Settings::instance()->setNumberOfLists(ui->comboNumberOfLists->currentIndex()+1);
+    Settings::instance()->setSaveGeometry(ui->checkSave->isChecked());
+    Settings::instance()->setSaveTickers(ui->checkSaveTickers->isChecked());
 }

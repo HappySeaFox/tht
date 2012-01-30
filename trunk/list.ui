@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>111</width>
+    <width>118</width>
     <height>324</height>
    </rect>
   </property>
@@ -45,13 +45,24 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushSaveAs">
+      <widget class="QPushButton" name="pushSave">
        <property name="toolTip">
-        <string>Save as</string>
+        <string>Save</string>
        </property>
        <property name="icon">
         <iconset resource="tht.qrc">
-         <normaloff>:/images/saveas.png</normaloff>:/images/saveas.png</iconset>
+         <normaloff>:/images/save.png</normaloff>:/images/save.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushSaveAs">
+       <property name="toolTip">
+        <string>Export</string>
+       </property>
+       <property name="icon">
+        <iconset resource="tht.qrc">
+         <normaloff>:/images/export.png</normaloff>:/images/export.png</iconset>
        </property>
       </widget>
      </item>
@@ -127,6 +138,7 @@
  <tabstops>
   <tabstop>pushClear</tabstop>
   <tabstop>pushAdd</tabstop>
+  <tabstop>pushSave</tabstop>
   <tabstop>pushSaveAs</tabstop>
   <tabstop>list</tabstop>
  </tabstops>
@@ -173,8 +185,8 @@
    <slot>slotSaveAs()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>84</x>
-     <y>15</y>
+     <x>112</x>
+     <y>16</y>
     </hint>
     <hint type="destinationlabel">
      <x>243</x>
@@ -198,11 +210,28 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushSave</sender>
+   <signal>clicked()</signal>
+   <receiver>List</receiver>
+   <slot>slotSave()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>75</x>
+     <y>17</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>277</x>
+     <y>115</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>slotClear()</slot>
   <slot>slotAdd()</slot>
   <slot>slotSaveAs()</slot>
   <slot>slotSelectedItemChanged()</slot>
+  <slot>slotSave()</slot>
  </slots>
 </ui>
