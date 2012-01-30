@@ -59,40 +59,49 @@ All suggestions and bug reports please send to our bug tracker, visit&lt;br/&gt;
         <translation>Загрузить из файла</translation>
     </message>
     <message>
-        <location filename="../list.ui" line="79"/>
+        <location filename="../list.ui" line="50"/>
+        <source>Save</source>
+        <translation>Сохранить</translation>
+    </message>
+    <message>
+        <location filename="../list.ui" line="61"/>
+        <source>Export</source>
+        <translation>Экспортировать</translation>
+    </message>
+    <message>
+        <location filename="../list.ui" line="90"/>
         <source>Tickers:</source>
         <translation>Тикеров:</translation>
     </message>
     <message>
-        <location filename="../list.ui" line="50"/>
-        <location filename="../list.cpp" line="204"/>
-        <location filename="../list.cpp" line="258"/>
+        <location filename="../list.cpp" line="201"/>
+        <location filename="../list.cpp" line="273"/>
         <source>Save as</source>
         <translation>Сохранить как</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="214"/>
-        <location filename="../list.cpp" line="267"/>
+        <location filename="../list.cpp" line="211"/>
+        <location filename="../list.cpp" line="282"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="214"/>
+        <location filename="../list.cpp" line="211"/>
         <source>Cannot open file %1</source>
         <translation>Невозможно открыть файл %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="245"/>
+        <location filename="../list.cpp" line="242"/>
         <source>Clear</source>
         <translation>Очистить</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="245"/>
+        <location filename="../list.cpp" line="242"/>
         <source>You won&apos;t be able to undo this. Really clear?</source>
         <translation>Вы не сможете это отменить. Действительно очистить?</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="267"/>
+        <location filename="../list.cpp" line="282"/>
         <source>Cannot save to file %1</source>
         <translation>Невозможно сохранить в файл %1</translation>
     </message>
@@ -138,6 +147,11 @@ All suggestions and bug reports please send to our bug tracker, visit&lt;br/&gt;
         <location filename="../options.ui" line="96"/>
         <source>Save position and size</source>
         <translation>Сохранять расположение и размер</translation>
+    </message>
+    <message>
+        <location filename="../options.ui" line="103"/>
+        <source>Automatically save tickers</source>
+        <translation>Сохранять тикеры автоматически</translation>
     </message>
 </context>
 <context>

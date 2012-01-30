@@ -2,11 +2,12 @@
     <qresource prefix="/">
         <file>images/add.png</file>
         <file>images/clear.png</file>
-        <file>images/saveas.png</file>
         <file>images/chart.png</file>
         <file>images/chart_24.png</file>
         <file>images/chart_32.png</file>
         <file>images/chart_48.png</file>
         <file>images/chart_64.png</file>
+        <file>images/save.png</file>
+        <file>images/export.png</file>
     </qresource>
 </RCC>

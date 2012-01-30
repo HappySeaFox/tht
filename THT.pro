@@ -16,12 +16,14 @@ SOURCES += main.cpp\
         tht.cpp \
     list.cpp \
     options.cpp \
-    about.cpp
+    about.cpp \
+    settings.cpp
 
 HEADERS  += tht.h \
     list.h \
     options.h \
-    about.h
+    about.h \
+    settings.h
 
 FORMS    += tht.ui \
     list.ui \

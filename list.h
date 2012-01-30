@@ -32,15 +32,14 @@ class List : public QWidget
     Q_OBJECT
     
 public:
-    explicit List(const QString &section, QWidget *parent = 0);
+    explicit List(int group, QWidget *parent = 0);
     ~List();
-
-    void setSectionToSaveTo(const QString &name);
-    QString sectionToSaveTo() const;
 
     void addTicker(const QString &);
 
     QString currentTicker() const;
+
+    void setSaveTickers(bool);
 
 protected:
     virtual bool eventFilter(QObject *obj, QEvent *event);
@@ -60,19 +59,15 @@ signals:
 private slots:
     void slotAdd();
     void slotClear();
+    void slotSave();
     void slotSaveAs();
     void slotSelectedItemChanged();
 
 private:
     Ui::List *ui;
-    QString m_section;
+    int m_section;
     QRegExp m_rxTicker;
+    bool m_saveTickers;
 };
-
-inline
-QString List::sectionToSaveTo() const
-{
-    return m_section;
-}
 
 #endif // LIST_H

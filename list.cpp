@@ -20,17 +20,17 @@
 #include <QMessageBox>
 #include <QTextStream>
 #include <QClipboard>
-#include <QSettings>
 #include <QKeyEvent>
 #include <QEvent>
 
+#include "settings.h"
 #include "list.h"
 #include "ui_list.h"
 
-List::List(const QString &section, QWidget *parent) :
+List::List(int group, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::List),
-    m_section(section)
+    m_section(group)
 {
     ui->setupUi(this);
 
@@ -53,12 +53,6 @@ List::~List()
     delete ui;
 }
 
-void List::setSectionToSaveTo(const QString &name)
-{
-    m_section = name;
-    save();
-}
-
 void List::addTicker(const QString &ticker)
 {
     if(ui->list->findItems(ticker, Qt::MatchFixedString).size())
@@ -76,6 +70,12 @@ QString List::currentTicker() const
     QListWidgetItem *item = ui->list->currentItem();
 
     return item ? item->text() : QString();
+}
+
+void List::setSaveTickers(bool save)
+{
+    m_saveTickers = save;
+    ui->pushSave->setEnabled(!m_saveTickers);
 }
 
 bool List::eventFilter(QObject *obj, QEvent *event)
@@ -138,38 +138,18 @@ QStringList List::toStringList()
 
 void List::save()
 {
-    qDebug("THT: Saving section \"%s\"", qPrintable(m_section));
-
-    if(m_section.isEmpty())
-    {
-        qWarning("THT: Cannot save to an empty section");
+    // don't save tickers automatically
+    if(!m_saveTickers)
         return;
-    }
 
-    QSettings settings;
-
-    settings.beginGroup(m_section);
-    settings.setValue("tickers", toStringList());
-    settings.endGroup();
-    settings.sync();
+    slotSave();
 }
 
 void List::load()
 {
-    qDebug("THT: Loading from section \"%s\"", qPrintable(m_section));
+    qDebug("THT: Loading from section \"%d\"", m_section);
 
-    if(m_section.isEmpty())
-    {
-        qWarning("THT: Cannot load from an empty section");
-        return;
-    }
-
-    QSettings settings;
-
-    settings.beginGroup(m_section);
-
-    ui->list->addItems(settings.value("tickers").toStringList());
-    numberOfItemsChanged();
+    ui->list->addItems(Settings::instance()->tickersForGroup(m_section));
 }
 
 void List::paste()
@@ -242,13 +222,20 @@ void List::slotClear()
     if(!ui->list->count())
         return;
 
-    if(QMessageBox::question(this, tr("Clear"), tr("You won't be able to undo this. Really clear?"),
+    if(m_saveTickers && QMessageBox::question(this, tr("Clear"), tr("You won't be able to undo this. Really clear?"),
                              QMessageBox::Yes, QMessageBox::No) == QMessageBox::No)
         return;
 
     ui->list->clear();
     numberOfItemsChanged();
     save();
+}
+
+void List::slotSave()
+{
+    qDebug("THT: Saving section \"%d\"", m_section);
+
+    Settings::instance()->saveTickersForGroup(m_section, toStringList());
 }
 
 void List::slotSaveAs()
