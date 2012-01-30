@@ -24,6 +24,12 @@
      </property>
      <item>
       <widget class="QPushButton" name="pushClear">
+       <property name="minimumSize">
+        <size>
+         <width>28</width>
+         <height>24</height>
+        </size>
+       </property>
        <property name="toolTip">
         <string>Clear list</string>
        </property>
@@ -34,20 +40,35 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushAdd">
+      <widget class="QToolButton" name="pushAdd">
+       <property name="minimumSize">
+        <size>
+         <width>28</width>
+         <height>24</height>
+        </size>
+       </property>
        <property name="toolTip">
-        <string>Load from file</string>
+        <string>Load tickers</string>
        </property>
        <property name="icon">
         <iconset resource="tht.qrc">
          <normaloff>:/images/add.png</normaloff>:/images/add.png</iconset>
        </property>
+       <property name="popupMode">
+        <enum>QToolButton::InstantPopup</enum>
+       </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="pushSave">
+       <property name="minimumSize">
+        <size>
+         <width>28</width>
+         <height>24</height>
+        </size>
+       </property>
        <property name="toolTip">
-        <string>Save</string>
+        <string>Save tickers</string>
        </property>
        <property name="icon">
         <iconset resource="tht.qrc">
@@ -56,13 +77,22 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushSaveAs">
+      <widget class="QToolButton" name="pushSaveAs">
+       <property name="minimumSize">
+        <size>
+         <width>28</width>
+         <height>24</height>
+        </size>
+       </property>
        <property name="toolTip">
-        <string>Export</string>
+        <string>Export tickers</string>
        </property>
        <property name="icon">
         <iconset resource="tht.qrc">
          <normaloff>:/images/export.png</normaloff>:/images/export.png</iconset>
+       </property>
+       <property name="popupMode">
+        <enum>QToolButton::InstantPopup</enum>
        </property>
       </widget>
      </item>
@@ -163,38 +193,6 @@
    </hints>
   </connection>
   <connection>
-   <sender>pushAdd</sender>
-   <signal>clicked()</signal>
-   <receiver>List</receiver>
-   <slot>slotAdd()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>51</x>
-     <y>16</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>182</x>
-     <y>12</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushSaveAs</sender>
-   <signal>clicked()</signal>
-   <receiver>List</receiver>
-   <slot>slotSaveAs()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>112</x>
-     <y>16</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>243</x>
-     <y>18</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>list</sender>
    <signal>itemSelectionChanged()</signal>
    <receiver>List</receiver>
@@ -229,8 +227,6 @@
  </connections>
  <slots>
   <slot>slotClear()</slot>
-  <slot>slotAdd()</slot>
-  <slot>slotSaveAs()</slot>
   <slot>slotSelectedItemChanged()</slot>
   <slot>slotSave()</slot>
  </slots>

@@ -14,14 +14,6 @@
         <translation></translation>
     </message>
     <message>
-        <source>THT helps you to do your home task in trading. It can link several Advanced Get windows together and manage a list of tickers.
-
-All suggestions and bug reports please send to our bug tracker, visit &lt;a href=&quot;https://code.google.com/p/traders-home-task-ng&quot;&gt;https://code.google.com/p/traders-home-task-ng/&lt;/a&gt;</source>
-        <translation type="obsolete">THT помогает вам делать свою домашнюю работу в трейдинге. Она может линковать несколько окон Advanced Get и управлять списками тикеров.
-
-Все пожелания и отчёты об ошибках посылайте на наш багтрекер, посетите  &lt;a href=&quot;https://code.google.com/p/traders-home-task-ng&quot;&gt;https://code.google.com/p/traders-home-task-ng/&lt;/a&gt;</translation>
-    </message>
-    <message>
         <location filename="../about.ui" line="57"/>
         <source>THT helps you to do your home task in trading. It can link several Advanced Get windows together and manage a list of tickers.
 
@@ -49,59 +41,79 @@ All suggestions and bug reports please send to our bug tracker, visit&lt;br/&gt;
 <context>
     <name>List</name>
     <message>
-        <location filename="../list.ui" line="28"/>
+        <location filename="../list.ui" line="34"/>
         <source>Clear list</source>
         <translation>Очистить список</translation>
     </message>
     <message>
-        <location filename="../list.ui" line="39"/>
-        <source>Load from file</source>
-        <translation>Загрузить из файла</translation>
+        <location filename="../list.ui" line="51"/>
+        <source>Load tickers</source>
+        <translation>Загрузить тикеры</translation>
     </message>
     <message>
-        <location filename="../list.ui" line="50"/>
-        <source>Save</source>
-        <translation>Сохранить</translation>
+        <location filename="../list.ui" line="71"/>
+        <source>Save tickers</source>
+        <translation>Сохранить тикеры</translation>
     </message>
     <message>
-        <location filename="../list.ui" line="61"/>
-        <source>Export</source>
-        <translation>Экспортировать</translation>
+        <location filename="../list.ui" line="88"/>
+        <source>Export tickers</source>
+        <translation>Экспортировать тикеры</translation>
     </message>
     <message>
-        <location filename="../list.ui" line="90"/>
+        <location filename="../list.ui" line="120"/>
         <source>Tickers:</source>
         <translation>Тикеров:</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="201"/>
-        <location filename="../list.cpp" line="273"/>
+        <location filename="../list.cpp" line="39"/>
+        <source>Load from file...</source>
+        <translation>Загрузить из файла...</translation>
+    </message>
+    <message>
+        <location filename="../list.cpp" line="40"/>
+        <source>Load from clipboard</source>
+        <translation>Загрузить из буфера обмена</translation>
+    </message>
+    <message>
+        <location filename="../list.cpp" line="44"/>
+        <source>Export to file...</source>
+        <translation>Экспортировать в файл...</translation>
+    </message>
+    <message>
+        <location filename="../list.cpp" line="45"/>
+        <source>Export to clipboard</source>
+        <translation>Экспортировать в буфер обмена</translation>
+    </message>
+    <message>
+        <location filename="../list.cpp" line="215"/>
+        <location filename="../list.cpp" line="288"/>
         <source>Save as</source>
         <translation>Сохранить как</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="211"/>
-        <location filename="../list.cpp" line="282"/>
+        <location filename="../list.cpp" line="226"/>
+        <location filename="../list.cpp" line="297"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="211"/>
+        <location filename="../list.cpp" line="226"/>
         <source>Cannot open file %1</source>
         <translation>Невозможно открыть файл %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="242"/>
+        <location filename="../list.cpp" line="268"/>
         <source>Clear</source>
         <translation>Очистить</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="242"/>
+        <location filename="../list.cpp" line="268"/>
         <source>You won&apos;t be able to undo this. Really clear?</source>
         <translation>Вы не сможете это отменить. Действительно очистить?</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="282"/>
+        <location filename="../list.cpp" line="297"/>
         <source>Cannot save to file %1</source>
         <translation>Невозможно сохранить в файл %1</translation>
     </message>

@@ -22,6 +22,7 @@
 #include <QClipboard>
 #include <QKeyEvent>
 #include <QEvent>
+#include <QMenu>
 
 #include "settings.h"
 #include "list.h"
@@ -33,6 +34,16 @@ List::List(int group, QWidget *parent) :
     m_section(group)
 {
     ui->setupUi(this);
+
+    QMenu *menu = new QMenu(this);
+    menu->addAction(tr("Load from file..."), this, SLOT(slotAddFromFile()));
+    menu->addAction(tr("Load from clipboard"), this, SLOT(slotAddFromClipboard()));
+    ui->pushAdd->setMenu(menu);
+
+    menu = new QMenu(this);
+    menu->addAction(tr("Export to file..."), this, SLOT(slotExportToFile()));
+    menu->addAction(tr("Export to clipboard"), this, SLOT(slotExportToClipboard()));
+    ui->pushSaveAs->setMenu(menu);
 
     setFocusProxy(ui->list);
     ui->pushAdd->setFocusProxy(ui->list);
@@ -61,8 +72,12 @@ void List::addTicker(const QString &ticker)
         return;
     }
 
-    ui->list->addItem(ticker);
-    save();
+    if(m_rxTicker.exactMatch(ticker))
+    {
+        ui->list->addItem(ticker);
+        numberOfItemsChanged();
+        save();
+    }
 }
 
 QString List::currentTicker() const
@@ -90,6 +105,12 @@ bool List::eventFilter(QObject *obj, QEvent *event)
             emit moveRight(currentTicker());
         else if(ke->key() == Qt::Key_Left)
             emit moveLeft(currentTicker());
+        else if(ke->key() == Qt::Key_Delete)
+        {
+            delete ui->list->currentItem();
+            numberOfItemsChanged();
+            save();
+        }
         else if(ke->key() == Qt::Key_Return)
         {
             QListWidgetItem *item = ui->list->currentItem();
@@ -150,6 +171,8 @@ void List::load()
     qDebug("THT: Loading from section \"%d\"", m_section);
 
     ui->list->addItems(Settings::instance()->tickersForGroup(m_section));
+
+    numberOfItemsChanged();
 }
 
 void List::paste()
@@ -163,55 +186,75 @@ void List::paste()
 
     ui->list->setUpdatesEnabled(false);
 
+    bool changed = false;
+
     while(!t.atEnd())
     {
         t >> ticker;
 
         if(m_rxTicker.exactMatch(ticker))
+        {
+            changed = true;
             ui->list->addItem(ticker.toUpper());
+        }
     }
 
     ui->list->setUpdatesEnabled(true);
 
-    numberOfItemsChanged();
-    save();
+    if(changed)
+    {
+        numberOfItemsChanged();
+        save();
+    }
 }
 
-void List::slotAdd()
+void List::slotAddFromFile()
 {
-    qDebug("THT: Add new tickers");
+    qDebug("THT: Adding new tickers from file");
 
     QString fileName = QFileDialog::getOpenFileName(this, tr("Save as"));
 
-    if(!fileName.isEmpty())
+    if(fileName.isEmpty())
+        return;
+
+    QString ticker;
+    QFile file(fileName);
+
+    if(!file.open(QIODevice::ReadOnly))
     {
-        QString ticker;
-        QFile file(fileName);
-
-        if(!file.open(QIODevice::ReadOnly))
-        {
-            qWarning("THT: Cannot open file for writing");
-            QMessageBox::warning(this, tr("Error"), tr("Cannot open file %1").arg(fileName));
-            return;
-        }
-
-        QTextStream t(&file);
-
-        ui->list->setUpdatesEnabled(false);
-
-        while(!t.atEnd())
-        {
-            t >> ticker;
-
-            if(m_rxTicker.exactMatch(ticker))
-                ui->list->addItem(ticker.toUpper());
-        }
-
-        ui->list->setUpdatesEnabled(true);
+        qWarning("THT: Cannot open file for writing");
+        QMessageBox::warning(this, tr("Error"), tr("Cannot open file %1").arg(fileName));
+        return;
     }
 
-    numberOfItemsChanged();
-    save();
+    bool changed = false;
+    QTextStream t(&file);
+
+    ui->list->setUpdatesEnabled(false);
+
+    while(!t.atEnd())
+    {
+        t >> ticker;
+
+        if(m_rxTicker.exactMatch(ticker))
+        {
+            changed = true;
+            ui->list->addItem(ticker.toUpper());
+        }
+    }
+
+    ui->list->setUpdatesEnabled(true);
+
+    if(changed)
+    {
+        numberOfItemsChanged();
+        save();
+    }
+}
+
+void List::slotAddFromClipboard()
+{
+    paste();
 }
 
 void List::slotClear()
@@ -238,9 +281,9 @@ void List::slotSave()
     Settings::instance()->saveTickersForGroup(m_section, toStringList());
 }
 
-void List::slotSaveAs()
+void List::slotExportToFile()
 {
-    qDebug("THT: Save tickers as");
+    qDebug("THT: Exporting tickers to file");
 
     QString fileName = QFileDialog::getSaveFileName(this, tr("Save as"));
 
@@ -266,6 +309,13 @@ void List::slotSaveAs()
 
         t.flush();
     }
+}
+
+void List::slotExportToClipboard()
+{
+    qDebug("THT: Exporting tickers to clipboard");
+
+    QApplication::clipboard()->setText(toStringList().join("\n"));
 }
 
 void List::slotSelectedItemChanged()
