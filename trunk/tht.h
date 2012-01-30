@@ -46,6 +46,7 @@ protected:
     virtual void contextMenuEvent(QContextMenuEvent *event);
 
 private:
+    void sendKey(int vkey, bool extended = false) const;
     void sendString(const QString &str) const;
     void rebuildUi();
     void checkWindows();

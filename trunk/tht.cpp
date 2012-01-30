@@ -66,8 +66,9 @@ THT::THT(QWidget *parent) :
     connect(m_timerLoadToNextWindow, SIGNAL(timeout()), this, SLOT(slotLoadToNextWindow()));
 
     // TODO
-    m_windows.append((HWND)2621942);
-    m_windows.append((HWND)4719922);
+    m_windows.append((HWND)4195206);
+    m_windows.append((HWND)263156);
+    m_windows.append((HWND)329598);
 
     // layout
     m_layout = new QGridLayout(this);
@@ -107,49 +108,45 @@ void THT::contextMenuEvent(QContextMenuEvent *event)
     m_menu->exec(event->globalPos());
 }
 
-void THT::sendString(const QString &oticker) const
+void THT::sendKey(int vkey, bool extended) const
 {
-    if(oticker.isEmpty())
-    {
-        qDebug("THT: String is empty, nothing to send");
-        return;
-    }
-
-    QString ticker = oticker + QChar(VK_RETURN);
-
     KEYBDINPUT kb = {0};
-    const int numberOfSymbols = ticker.length()*2 + 2; // letters + return
-    INPUT *input = new INPUT [numberOfSymbols];
+    INPUT input[2] = {{0}, {0}};
 
-    if(!input)
-    {
-        qDebug("THT: Cannot allocate memory");
-        return;
-    }
-
-    for(int i = 0, j = 0;i < ticker.length();i++, j+=2)
-    {
-        memset(&input[j], 0, sizeof(INPUT));
-
-        // assign virtual key
-        kb.wVk = ticker.at(i).toAscii();
-        kb.dwFlags = 0;
-        input[j].type = INPUT_KEYBOARD;
-
-        // generate down
+    // key down
+    if(extended)
         kb.dwFlags = KEYEVENTF_EXTENDEDKEY;
 
-        input[j].ki = kb;
+    kb.wVk = vkey;
 
-        // generate up
-        kb.dwFlags = KEYEVENTF_KEYUP | KEYEVENTF_EXTENDEDKEY;
+    input[0].type = INPUT_KEYBOARD;
+    input[0].ki = kb;
 
-        input[j+1].ki = kb;
+    // key up
+    kb.dwFlags = KEYEVENTF_KEYUP;
+
+    if(extended)
+        kb.dwFlags |= KEYEVENTF_EXTENDEDKEY;
+
+    input[1].type = INPUT_KEYBOARD;
+    input[1].ki = kb;
+
+    // send both combinations
+    SendInput(2, input, sizeof(INPUT));
+}
+
+void THT::sendString(const QString &ticker) const
+{
+    if(ticker.isEmpty())
+    {
+        qDebug("THT: Ticker is empty, nothing to send");
+        return;
     }
 
-    SendInput(numberOfSymbols, input, sizeof(INPUT));
+    for(int i = 0;i < ticker.length();i++)
+        sendKey(ticker.at(i).toAscii());
 
-    delete input;
+    sendKey(VK_RETURN, true);
 }
 
 void THT::rebuildUi()
@@ -216,6 +213,7 @@ void THT::loadNextWindow()
     {
         qDebug("THT: Done for all windows");
         activateWindow();
+        raise();
         m_running = false;
     }
     else
@@ -368,4 +366,3 @@ void THT::slotLoadToNextWindow()
 
     m_timerCheckActive->start();
 }
-

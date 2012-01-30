@@ -57,10 +57,12 @@ signals:
     void loadTicker(const QString &);
 
 private slots:
-    void slotAdd();
+    void slotAddFromFile();
+    void slotAddFromClipboard();
     void slotClear();
     void slotSave();
-    void slotSaveAs();
+    void slotExportToFile();
+    void slotExportToClipboard();
     void slotSelectedItemChanged();
 
 private:
