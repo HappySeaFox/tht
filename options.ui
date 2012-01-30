@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>245</width>
-    <height>121</height>
+    <width>255</width>
+    <height>144</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -67,7 +67,7 @@
      </item>
     </layout>
    </item>
-   <item row="3" column="0">
+   <item row="4" column="0">
     <spacer name="verticalSpacer">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
@@ -80,7 +80,7 @@
      </property>
     </spacer>
    </item>
-   <item row="4" column="0">
+   <item row="5" column="0">
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -90,17 +90,24 @@
      </property>
     </widget>
    </item>
-   <item row="1" column="0">
+   <item row="2" column="0">
     <widget class="QCheckBox" name="checkSave">
      <property name="text">
       <string>Save position and size</string>
      </property>
     </widget>
    </item>
-   <item row="2" column="0">
+   <item row="3" column="0">
     <widget class="QCheckBox" name="checkSaveTickers">
      <property name="text">
       <string>Automatically save tickers</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QCheckBox" name="checkOnTop">
+     <property name="text">
+      <string>Always on top</string>
      </property>
     </widget>
    </item>
@@ -108,6 +115,7 @@
  </widget>
  <tabstops>
   <tabstop>comboNumberOfLists</tabstop>
+  <tabstop>checkOnTop</tabstop>
   <tabstop>checkSave</tabstop>
   <tabstop>checkSaveTickers</tabstop>
   <tabstop>buttonBox</tabstop>

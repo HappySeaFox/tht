@@ -35,7 +35,7 @@
 static const int THT_WINDOW_STARTUP_TIMEOUT = 2000;
 
 THT::THT(QWidget *parent) :
-    QWidget(parent),
+    QWidget(parent, Settings::instance()->onTop() ? Qt::WindowStaysOnTopHint : (Qt::WindowFlags)0),
     ui(new Ui::THT),
     m_running(false)
 {
@@ -274,6 +274,17 @@ void THT::slotOptions()
     {
         opt.save();
         rebuildUi();
+
+        // always on top?
+        Qt::WindowFlags flags = windowFlags();
+
+        if(Settings::instance()->onTop())
+            flags |= Qt::WindowStaysOnTopHint;
+        else
+            flags &= ~Qt::WindowStaysOnTopHint;
+
+        setWindowFlags(flags);
+        show();
     }
 }
 

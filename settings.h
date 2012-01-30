@@ -11,6 +11,9 @@ class Settings
 public:
     static Settings* instance();
 
+    bool onTop();
+    void setOnTop(bool);
+
     void setSaveGeometry(bool);
     bool saveGeometry();
 

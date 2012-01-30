@@ -36,6 +36,7 @@ Options::~Options()
 void Options::load()
 {
     ui->comboNumberOfLists->setCurrentIndex(Settings::instance()->numberOfLists() - 1);
+    ui->checkOnTop->setChecked(Settings::instance()->onTop());
     ui->checkSave->setChecked(Settings::instance()->saveGeometry());
     ui->checkSaveTickers->setChecked(Settings::instance()->saveTickers());
 }
@@ -43,6 +44,7 @@ void Options::load()
 void Options::save()
 {
     Settings::instance()->setNumberOfLists(ui->comboNumberOfLists->currentIndex()+1);
+    Settings::instance()->setOnTop(ui->checkOnTop->isChecked());
     Settings::instance()->setSaveGeometry(ui->checkSave->isChecked());
     Settings::instance()->setSaveTickers(ui->checkSaveTickers->isChecked());
 }

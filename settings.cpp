@@ -4,6 +4,23 @@ Settings::Settings()
 {
 }
 
+bool Settings::onTop()
+{
+    m_settings.beginGroup("settings");
+    bool ontop = m_settings.value("ontop", false).toBool();
+    m_settings.endGroup();
+
+    return ontop;
+}
+
+void Settings::setOnTop(bool ontop)
+{
+    m_settings.beginGroup("settings");
+    m_settings.setValue("ontop", ontop);
+    m_settings.endGroup();
+    m_settings.sync();
+}
+
 void Settings::setSaveGeometry(bool save)
 {
     m_settings.beginGroup("settings");
