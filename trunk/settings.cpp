@@ -21,7 +21,7 @@ void Settings::setHideToTray(bool hide)
 
 bool Settings::hideToTray()
 {
-    return load<bool>("tray", true);
+    return load<bool>("tray", false);
 }
 
 void Settings::setTrayNoticeSeen(bool seen)
