@@ -32,10 +32,9 @@ int main(int argc, char *argv[])
     QString locale = QLocale::system().name();
 
     qDebug("THT: Locale \"%s\"", qPrintable(locale));
-    qDebug("THT: Directory \"%s\"", qPrintable(QApplication::applicationDirPath()));
 
     QTranslator translator;
-    translator.load(locale, QApplication::applicationDirPath() + QDir::separator() + "ts");
+    translator.load(locale, ":/ts");
     app.installTranslator(&translator);
 
     QApplication::setApplicationName("THT");

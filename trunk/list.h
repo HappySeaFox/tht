@@ -41,6 +41,9 @@ public:
 
     void setSaveTickers(bool);
 
+    void setIgnoreInput(bool);
+    bool ignoreInput() const;
+
 protected:
     virtual bool eventFilter(QObject *obj, QEvent *event);
 
@@ -71,6 +74,19 @@ private:
     int m_section;
     QRegExp m_rxTicker;
     bool m_saveTickers;
+    bool m_ignoreInput;
 };
+
+inline
+void List::setIgnoreInput(bool ignore)
+{
+    m_ignoreInput = ignore;
+}
+
+inline
+bool List::ignoreInput() const
+{
+    return m_ignoreInput;
+}
 
 #endif // LIST_H

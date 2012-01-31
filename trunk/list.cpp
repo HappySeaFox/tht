@@ -17,6 +17,7 @@
 
 #include <QListWidgetItem>
 #include <QFileDialog>
+#include <QInputEvent>
 #include <QMessageBox>
 #include <QTextStream>
 #include <QClipboard>
@@ -55,6 +56,7 @@ List::List(int group, QWidget *parent) :
 
     // catch keyboard events
     ui->list->installEventFilter(this);
+    ui->list->viewport()->installEventFilter(this);
 
     // regexp to check for a ticker
     m_rxTicker = QRegExp("$?[a-zA-Z]{1,5}");
@@ -96,7 +98,27 @@ void List::setSaveTickers(bool save)
 
 bool List::eventFilter(QObject *obj, QEvent *event)
 {
-    if(event->type() == QEvent::KeyPress)
+    QEvent::Type type = event->type();
+
+    // eat input events
+    if(m_ignoreInput && (type == QEvent::KeyPress
+                            || type == QEvent::KeyRelease
+                            || type == QEvent::ShortcutOverride
+                            || type == QEvent::MouseButtonPress
+                            || type == QEvent::MouseButtonRelease
+                            || type == QEvent::MouseButtonDblClick
+                            || type == QEvent::MouseMove
+                            || type == QEvent::Wheel
+                            || type == QEvent::TabletPress
+                            || type == QEvent::TabletRelease
+                            || type == QEvent::TabletMove
+                            || type == QEvent::TouchBegin
+                            || type == QEvent::TouchEnd
+                            || type == QEvent::TouchUpdate
+                         ))
+        return true;
+
+    if(type == QEvent::KeyPress)
     {
         QKeyEvent *ke = static_cast<QKeyEvent *>(event);
 
