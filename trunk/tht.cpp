@@ -19,6 +19,7 @@
 #include <QGridLayout>
 #include <QMessageBox>
 #include <QCloseEvent>
+#include <QClipboard>
 #include <QDateTime>
 #include <QTimer>
 #include <QIcon>
@@ -26,6 +27,8 @@
 
 #include <windows.h>
 
+#include "savescreenshot.h"
+#include "regionselect.h"
 #include "settings.h"
 #include "options.h"
 #include "about.h"
@@ -51,9 +54,11 @@ THT::THT(QWidget *parent) :
     ui->setupUi(this);
 
     QIcon icon_quit(":/images/quit.png");
+    QIcon icon_screenshot(":/images/screenshot.png");
 
     m_menu = new QMenu(this);
     m_menu->addAction(QIcon(":/images/options.png"), tr("Options..."), this, SLOT(slotOptions()));
+    m_menu->addAction(icon_screenshot, tr("Take screenshot..."), this, SLOT(slotTakeScreenshot()));
     m_menu->addSeparator();
     m_menu->addAction(tr("About THT"), this, SLOT(slotAbout()));
     m_menu->addAction(tr("About Qt"), this, SLOT(slotAboutQt()));
@@ -99,8 +104,8 @@ THT::THT(QWidget *parent) :
     m_tray = new QSystemTrayIcon(QIcon(":/images/chart.png"), this);
     QMenu *trayMenu = new QMenu(this);
 
-    trayMenu->addAction(QIcon(), tr("Restore"), this, SLOT(activate()));
-    //trayMenu->addAction(actionScreenshot);
+    //trayMenu->addAction(tr("Restore"), this, SLOT(activate()));
+    trayMenu->addAction(icon_screenshot, tr("Take screenshot..."), this, SLOT(slotTakeScreenshot()));
     trayMenu->addSeparator();
     trayMenu->addAction(icon_quit, tr("Quit"), qApp, SLOT(quit()));
 
@@ -135,7 +140,10 @@ void THT::closeEvent(QCloseEvent *e)
         hide();
     }
     else
+    {
         e->accept();
+        qApp->quit();
+    }
 }
 
 void THT::contextMenuEvent(QContextMenuEvent *event)
@@ -437,5 +445,62 @@ void THT::slotTrayActivated(QSystemTrayIcon::ActivationReason reason)
         break;
 
         default: ;
+    }
+}
+
+void THT::slotTakeScreenshot()
+{
+    bool vis = isVisible();
+
+    hide();
+
+    RegionSelect selector;
+    QPixmap px;
+
+    if(selector.exec() != QDialog::Accepted)
+    {
+        if(vis)
+            activate();
+
+        return;
+    }
+
+    px = selector.selection();
+
+    if(px.isNull())
+    {
+        QMessageBox::critical(this, tr("Error"), tr("Cannot take screenshot"));
+
+        if(vis)
+            activate();
+
+        return;
+    }
+
+    if(vis)
+        activate();
+
+    // save screenshot
+    SaveScreenshot s(this);
+
+    if(s.exec() == QDialog::Accepted)
+    {
+        if(s.destination() == SaveScreenshot::SaveScreenshotToClipboard)
+            QApplication::clipboard()->setPixmap(px);
+        else
+        {
+            QString fileName = s.fileName();
+
+            if(!fileName.isEmpty())
+            {
+                if(px.save(fileName))
+                    qDebug("THT: Screenshot has been saved to \"%s\"", qPrintable(fileName));
+                else
+                {
+                    QMessageBox::critical(this, tr("Error"), tr("Cannot save screenshot"));
+                    qDebug("THT: Cannot save screenshot");
+                }
+            }
+        }
     }
 }

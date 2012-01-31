@@ -67,6 +67,7 @@ private slots:
     void slotLoadTicker(const QString &ticker);
     void slotLoadToNextWindow();
     void slotTrayActivated(QSystemTrayIcon::ActivationReason);
+    void slotTakeScreenshot();
 
 private:
     Ui::THT *ui;

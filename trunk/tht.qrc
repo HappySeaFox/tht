@@ -11,5 +11,6 @@
         <file>images/export.png</file>
         <file>images/options.png</file>
         <file>images/quit.png</file>
+        <file>images/screenshot.png</file>
     </qresource>
 </RCC>
