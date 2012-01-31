@@ -177,6 +177,44 @@ All suggestions and bug reports please send to our bug tracker, visit&lt;br/&gt;
     </message>
 </context>
 <context>
+    <name>RegionSelect</name>
+    <message>
+        <location filename="../regionselect.cpp" line="103"/>
+        <source>Use your mouse to select a rectangle or exit pressing
+any key or using the right or middle mouse buttons.</source>
+        <translation>Используйте мышь чтобы выделить прямоугольник, или нажмите
+любую клавишу или правую/среднюю кнопку мыши чтобы отменить.</translation>
+    </message>
+</context>
+<context>
+    <name>SaveScreenshot</name>
+    <message>
+        <location filename="../savescreenshot.ui" line="14"/>
+        <source>Save to</source>
+        <translation>Сохранить в</translation>
+    </message>
+    <message>
+        <location filename="../savescreenshot.ui" line="20"/>
+        <source>Clipboard</source>
+        <translation>Буфер обмена</translation>
+    </message>
+    <message>
+        <location filename="../savescreenshot.ui" line="27"/>
+        <source>File...</source>
+        <translation>Файл...</translation>
+    </message>
+    <message>
+        <location filename="../savescreenshot.cpp" line="35"/>
+        <source>Image %1 (*.%2)</source>
+        <translation>Изображение %1 (*.%2)</translation>
+    </message>
+    <message>
+        <location filename="../savescreenshot.cpp" line="43"/>
+        <source>Save as</source>
+        <translation>Сохранить как</translation>
+    </message>
+</context>
+<context>
     <name>THT</name>
     <message>
         <location filename="../tht.ui" line="14"/>
@@ -184,40 +222,62 @@ All suggestions and bug reports please send to our bug tracker, visit&lt;br/&gt;
         <translation>Домашка трейдера</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="54"/>
+        <location filename="../tht.cpp" line="59"/>
         <source>Options...</source>
         <translation>Настройки...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="56"/>
+        <location filename="../tht.cpp" line="60"/>
+        <location filename="../tht.cpp" line="107"/>
+        <source>Take screenshot...</source>
+        <translation>Снимок экрана...</translation>
+    </message>
+    <message>
+        <location filename="../tht.cpp" line="62"/>
         <source>About THT</source>
         <translation>О THT</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="57"/>
+        <location filename="../tht.cpp" line="63"/>
         <source>About Qt</source>
         <translation>О Qt</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="59"/>
-        <location filename="../tht.cpp" line="103"/>
+        <location filename="../tht.cpp" line="65"/>
+        <location filename="../tht.cpp" line="109"/>
         <source>Quit</source>
         <translation>Выход</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="100"/>
+        <location filename="../tht.cpp" line="106"/>
         <source>Restore</source>
         <translation>Восстановить</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="129"/>
+        <location filename="../tht.cpp" line="135"/>
         <source>Notice</source>
         <translation>Заметка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="129"/>
+        <location filename="../tht.cpp" line="135"/>
         <source>THT will continue to run in a system tray</source>
         <translation>THT продолжит работу в системном лотке</translation>
+    </message>
+    <message>
+        <location filename="../tht.cpp" line="471"/>
+        <location filename="../tht.cpp" line="499"/>
+        <source>Error</source>
+        <translation>Ошибка</translation>
+    </message>
+    <message>
+        <location filename="../tht.cpp" line="471"/>
+        <source>Cannot take screenshot</source>
+        <translation>Невозможно создать снимок экрана</translation>
+    </message>
+    <message>
+        <location filename="../tht.cpp" line="499"/>
+        <source>Cannot save screenshot</source>
+        <translation>Невозможно сохранить снимок экрана</translation>
     </message>
 </context>
 </TS>

@@ -26,7 +26,9 @@ SOURCES += main.cpp\
     qtsingleapplication/qtlockedfile_win.cpp \
     qtsingleapplication/qtlockedfile_unix.cpp \
     qtsingleapplication/qtlockedfile.cpp \
-    qtsingleapplication/qtlocalpeer.cpp
+    qtsingleapplication/qtlocalpeer.cpp \
+    regionselect.cpp \
+    savescreenshot.cpp
 
 HEADERS += tht.h \
     list.h \
@@ -38,12 +40,15 @@ HEADERS += tht.h \
     qtsingleapplication/QtSingleApplication \
     qtsingleapplication/qtlockedfile.h \
     qtsingleapplication/QtLockedFile \
-    qtsingleapplication/qtlocalpeer.h
+    qtsingleapplication/qtlocalpeer.h \
+    regionselect.h \
+    savescreenshot.h
 
 FORMS += tht.ui \
     list.ui \
     options.ui \
-    about.ui
+    about.ui \
+    savescreenshot.ui
 
 RESOURCES += \
     tht.qrc

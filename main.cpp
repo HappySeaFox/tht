@@ -45,6 +45,7 @@ int main(int argc, char *argv[])
     w.show();
 
     app.setActivationWindow(&w);
+    app.setQuitOnLastWindowClosed(false);
 
     QObject::connect(&app, SIGNAL(messageReceived(const QString&)),
                         &w, SLOT(activate()));
