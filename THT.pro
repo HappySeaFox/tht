@@ -12,7 +12,7 @@ TEMPLATE = app
 INCLUDEPATH += . qtsingleapplication qxt
 DEPENDPATH += . qtsingleapplication qxt
 
-# require at least Windows 2000
+# require at least Windows XP
 DEFINES += _WIN32_WINNT=0x0501 WINVER=0x0501
 
 SOURCES += main.cpp\
