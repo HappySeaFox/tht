@@ -18,6 +18,7 @@
 #include <QContextMenuEvent>
 #include <QGridLayout>
 #include <QMessageBox>
+#include <QCloseEvent>
 #include <QDateTime>
 #include <QTimer>
 #include <QIcon>
@@ -49,11 +50,15 @@ THT::THT(QWidget *parent) :
 
     ui->setupUi(this);
 
+    QIcon icon_quit(":/images/quit.png");
+
     m_menu = new QMenu(this);
-    m_menu->addAction(tr("Options..."), this, SLOT(slotOptions()));
+    m_menu->addAction(QIcon(":/images/options.png"), tr("Options..."), this, SLOT(slotOptions()));
     m_menu->addSeparator();
     m_menu->addAction(tr("About THT"), this, SLOT(slotAbout()));
     m_menu->addAction(tr("About Qt"), this, SLOT(slotAboutQt()));
+    m_menu->addSeparator();
+    m_menu->addAction(icon_quit, tr("Quit"), qApp, SLOT(quit()));
 
     m_timerCheckActive = new QTimer(this);
     m_timerCheckActive->setSingleShot(true);
@@ -89,6 +94,20 @@ THT::THT(QWidget *parent) :
         if(!pt.isNull())
             move(pt);
     }
+
+    // tray icon
+    m_tray = new QSystemTrayIcon(QIcon(":/images/chart.png"), this);
+    QMenu *trayMenu = new QMenu(this);
+
+    trayMenu->addAction(QIcon(), tr("Restore"), this, SLOT(activate()));
+    //trayMenu->addAction(actionScreenshot);
+    trayMenu->addSeparator();
+    trayMenu->addAction(icon_quit, tr("Quit"), qApp, SLOT(quit()));
+
+    connect(m_tray, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), this, SLOT(slotTrayActivated(QSystemTrayIcon::ActivationReason)));
+
+    m_tray->setContextMenu(trayMenu);
+    m_tray->setVisible(Settings::instance()->hideToTray());
 }
 
 THT::~THT()
@@ -100,6 +119,23 @@ THT::~THT()
     }
 
     delete ui;
+}
+
+void THT::closeEvent(QCloseEvent *e)
+{
+    if(Settings::instance()->hideToTray())
+    {
+        if(!Settings::instance()->trayNoticeSeen())
+        {
+            Settings::instance()->setTrayNoticeSeen(true);
+            m_tray->showMessage(tr("Notice"), tr("THT will continue to run in a system tray"), QSystemTrayIcon::Information, 7000);
+        }
+
+        e->ignore();
+        hide();
+    }
+    else
+        e->accept();
 }
 
 void THT::contextMenuEvent(QContextMenuEvent *event)
@@ -212,12 +248,19 @@ void THT::loadNextWindow()
     if(m_currentWindow >= m_windows.size())
     {
         qDebug("THT: Done for all windows");
-        activateWindow();
-        raise();
+        activate();
         m_running = false;
     }
     else
         m_timerLoadToNextWindow->start();
+}
+
+void THT::activate()
+{
+    setWindowState((windowState() & ~Qt::WindowMinimized) | Qt::WindowActive);
+    show();
+    activateWindow();
+    raise();
 }
 
 void THT::slotCheckActive()
@@ -285,6 +328,8 @@ void THT::slotOptions()
 
         setWindowFlags(flags);
         show();
+
+        m_tray->setVisible(Settings::instance()->hideToTray());
     }
 }
 
@@ -376,4 +421,21 @@ void THT::slotLoadToNextWindow()
     SetForegroundWindow(window);
 
     m_timerCheckActive->start();
+}
+
+void THT::slotTrayActivated(QSystemTrayIcon::ActivationReason reason)
+{
+    switch(reason)
+    {
+        case QSystemTrayIcon::Trigger:
+        {
+            if(!isVisible() || isMinimized())
+                activate();
+            else
+                hide();
+        }
+        break;
+
+        default: ;
+    }
 }

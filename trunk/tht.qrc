@@ -9,5 +9,7 @@
         <file>images/chart_64.png</file>
         <file>images/save.png</file>
         <file>images/export.png</file>
+        <file>images/options.png</file>
+        <file>images/quit.png</file>
     </qresource>
 </RCC>

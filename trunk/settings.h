@@ -11,8 +11,14 @@ class Settings
 public:
     static Settings* instance();
 
-    bool onTop();
     void setOnTop(bool);
+    bool onTop();
+
+    void setHideToTray(bool);
+    bool hideToTray();
+
+    void setTrayNoticeSeen(bool);
+    bool trayNoticeSeen();
 
     void setSaveGeometry(bool);
     bool saveGeometry();
@@ -36,6 +42,13 @@ public:
 private:
     Settings();
 
+    template <typename T>
+    T load(const QString &key, T def = T());
+
+    template <typename T>
+    void save(const QString &key, const T &value);
+
+private:
     QSettings m_settings;
 };
 

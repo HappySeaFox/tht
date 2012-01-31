@@ -4,46 +4,49 @@ Settings::Settings()
 {
 }
 
-bool Settings::onTop()
-{
-    m_settings.beginGroup("settings");
-    bool ontop = m_settings.value("ontop", false).toBool();
-    m_settings.endGroup();
-
-    return ontop;
-}
-
 void Settings::setOnTop(bool ontop)
 {
-    m_settings.beginGroup("settings");
-    m_settings.setValue("ontop", ontop);
-    m_settings.endGroup();
-    m_settings.sync();
+    save<bool>("ontop", ontop);
 }
 
-void Settings::setSaveGeometry(bool save)
+bool Settings::onTop()
 {
-    m_settings.beginGroup("settings");
-    m_settings.setValue("save-geometry", save);
-    m_settings.endGroup();
-    m_settings.sync();
+    return load<bool>("ontop", false);
+}
+
+void Settings::setHideToTray(bool hide)
+{
+    save<bool>("tray", hide);
+}
+
+bool Settings::hideToTray()
+{
+    return load<bool>("tray", true);
+}
+
+void Settings::setTrayNoticeSeen(bool seen)
+{
+    save<bool>("tray-notice-seen", seen);
+}
+
+bool Settings::trayNoticeSeen()
+{
+    return load<bool>("tray-notice-seen", false);
+}
+
+void Settings::setSaveGeometry(bool s)
+{
+    save<bool>("save-geometry", s);
 }
 
 bool Settings::saveGeometry()
 {
-    m_settings.beginGroup("settings");
-    bool save = m_settings.value("save-geometry", true).toBool();
-    m_settings.endGroup();
-
-    return save;
+    return load<bool>("save-geometry", true);
 }
 
 void Settings::setNumberOfLists(int n)
 {
-    m_settings.beginGroup("settings");
-    m_settings.setValue("number-of-lists", n);
-    m_settings.endGroup();
-    m_settings.sync();
+    save<int>("number-of-lists", n);
 }
 
 int Settings::numberOfLists()
@@ -65,53 +68,32 @@ int Settings::numberOfLists()
 
 void Settings::setWindowSize(const QSize &s)
 {
-    m_settings.beginGroup("settings");
-    m_settings.setValue("size", s);
-    m_settings.endGroup();
-    m_settings.sync();
+    save<QSize>("size", s);
 }
 
 QSize Settings::windowSize()
 {
-    m_settings.beginGroup("settings");
-    QSize sz = m_settings.value("size").toSize();
-    m_settings.endGroup();
-
-    return sz;
+    return load<QSize>("size");
 }
 
 void Settings::setWindowPosition(const QPoint &p)
 {
-    m_settings.beginGroup("settings");
-    m_settings.setValue("position", p);
-    m_settings.endGroup();
-    m_settings.sync();
+    save<QPoint>("position", p);
 }
 
 QPoint Settings::windowPosition()
 {
-    m_settings.beginGroup("settings");
-    QPoint p = m_settings.value("position").toPoint();
-    m_settings.endGroup();
-
-    return p;
+    return load<QPoint>("position");
 }
 
-void Settings::setSaveTickers(bool save)
+void Settings::setSaveTickers(bool s)
 {
-    m_settings.beginGroup("settings");
-    m_settings.setValue("save-tickers", save);
-    m_settings.endGroup();
-    m_settings.sync();
+    save<bool>("save-tickers", s);
 }
 
 bool Settings::saveTickers()
 {
-    m_settings.beginGroup("settings");
-    bool save = m_settings.value("save-tickers", true).toBool();
-    m_settings.endGroup();
-
-    return save;
+    return load<bool>("save-tickers", true);
 }
 
 void Settings::saveTickersForGroup(int group, const QStringList &tickers)
@@ -146,4 +128,23 @@ Settings* Settings::instance()
         m_inst = new Settings;
 
     return m_inst;
+}
+
+template <typename T>
+T Settings::load(const QString &key, T def)
+{
+    m_settings.beginGroup("settings");
+    T value = m_settings.value(key, QVariant(def)).value<T>();
+    m_settings.endGroup();
+
+    return value;
+}
+
+template <typename T>
+void Settings::save(const QString &key, const T &value)
+{
+    m_settings.beginGroup("settings");
+    m_settings.setValue(key, value);
+    m_settings.endGroup();
+    m_settings.sync();
 }
