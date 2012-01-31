@@ -15,7 +15,7 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <QApplication>
+#include <QtSingleApplication>
 #include <QTranslator>
 #include <QLocale>
 #include <QDir>
@@ -24,11 +24,15 @@
 
 int main(int argc, char *argv[])
 {
-    QApplication app(argc, argv);
+    QtSingleApplication app(argc, argv);
+
+    if(app.sendMessage("Wake up!"))
+        return 0;
 
     QString locale = QLocale::system().name();
 
     qDebug("THT: Locale \"%s\"", qPrintable(locale));
+    qDebug("THT: Directory \"%s\"", qPrintable(QApplication::applicationDirPath()));
 
     QTranslator translator;
     translator.load(locale, QApplication::applicationDirPath() + QDir::separator() + "ts");
@@ -39,6 +43,11 @@ int main(int argc, char *argv[])
 
     THT w;
     w.show();
-    
+
+    app.setActivationWindow(&w);
+
+    QObject::connect(&app, SIGNAL(messageReceived(const QString&)),
+                        &w, SLOT(activate()));
+
     return app.exec();
 }

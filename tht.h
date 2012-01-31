@@ -18,6 +18,7 @@
 #ifndef THT_H
 #define THT_H
 
+#include <QSystemTrayIcon>
 #include <QWidget>
 #include <QList>
 
@@ -44,6 +45,7 @@ public:
 
 protected:
     virtual void contextMenuEvent(QContextMenuEvent *event);
+    virtual void closeEvent(QCloseEvent *e);
 
 private:
     void sendKey(int vkey, bool extended = false) const;
@@ -51,6 +53,9 @@ private:
     void rebuildUi();
     void checkWindows();
     void loadNextWindow();
+
+public slots:
+    void activate();
 
 private slots:
     void slotCheckActive();
@@ -61,6 +66,7 @@ private slots:
     void slotMoveRight(const QString &ticker);
     void slotLoadTicker(const QString &ticker);
     void slotLoadToNextWindow();
+    void slotTrayActivated(QSystemTrayIcon::ActivationReason);
 
 private:
     Ui::THT *ui;
@@ -75,6 +81,7 @@ private:
     QList<List *> m_lists;
     QGridLayout *m_layout;
     QString m_ticker;
+    QSystemTrayIcon *m_tray;
 };
 
 #endif // THT_H
