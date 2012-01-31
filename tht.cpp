@@ -15,6 +15,8 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <QxtGlobalShortcut>
+
 #include <QContextMenuEvent>
 #include <QGridLayout>
 #include <QMessageBox>
@@ -113,6 +115,10 @@ THT::THT(QWidget *parent) :
 
     m_tray->setContextMenu(trayMenu);
     m_tray->setVisible(Settings::instance()->hideToTray());
+
+    // global shortcuts
+    QxtGlobalShortcut *takeScreen = new QxtGlobalShortcut(QKeySequence(Qt::CTRL + Qt::ALT + Qt::Key_S), this);
+    connect(takeScreen, SIGNAL(activated()), this, SLOT(slotTakeScreenshot()));
 }
 
 THT::~THT()
