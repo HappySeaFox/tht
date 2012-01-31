@@ -9,8 +9,8 @@ QT += core gui network
 TARGET = THT
 TEMPLATE = app
 
-INCLUDEPATH += . qtsingleapplication
-DEPENDPATH += . qtsingleapplication
+INCLUDEPATH += . qtsingleapplication qxt
+DEPENDPATH += . qtsingleapplication qxt
 
 # require at least Windows 2000
 DEFINES += _WIN32_WINNT=0x0500 WINVER=0x0500
@@ -28,7 +28,10 @@ SOURCES += main.cpp\
     qtsingleapplication/qtlockedfile.cpp \
     qtsingleapplication/qtlocalpeer.cpp \
     regionselect.cpp \
-    savescreenshot.cpp
+    savescreenshot.cpp \
+    qxt/qxtglobalshortcut_win.cpp \
+    qxt/qxtglobalshortcut.cpp \
+    qxt/qxtglobal.cpp
 
 HEADERS += tht.h \
     list.h \
@@ -42,7 +45,12 @@ HEADERS += tht.h \
     qtsingleapplication/QtLockedFile \
     qtsingleapplication/qtlocalpeer.h \
     regionselect.h \
-    savescreenshot.h
+    savescreenshot.h \
+    qxt/qxtglobalshortcut_p.h \
+    qxt/qxtglobalshortcut.h \
+    qxt/qxtglobal.h \
+    qxt/QxtGlobalShortcut \
+    qxt/QxtGlobalShortcut
 
 FORMS += tht.ui \
     list.ui \
