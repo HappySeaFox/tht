@@ -599,7 +599,7 @@ void THT::slotTargetDropped(const QPoint &p)
     pnt.x = p.x();
     pnt.y = p.y();
 
-    HWND hwnd = WindowFromPoint(pnt);
+    HWND hwnd = RealChildWindowFromPoint(GetDesktopWindow(), pnt);
 
     if(!hwnd)
     {
@@ -610,7 +610,34 @@ void THT::slotTargetDropped(const QPoint &p)
     // this window
     if(hwnd == winId())
     {
-        qDebug("THT: Ignore ourselves");
+        qDebug("THT: Ignoring ourselves");
+        return;
+    }
+
+    // desktop window?
+    HWND hwnd2 = WindowFromPoint(pnt);
+
+    QString classname;
+    TCHAR cname[256];
+
+    if(!GetClassName(hwnd2, cname, sizeof(cname)))
+    {
+        qDebug("THT: Cannot get class name for window %d", (int)hwnd);
+    }
+    else
+    {
+        classname =
+#ifdef UNICODE
+        QString::fromWCharArray(cname);
+#else
+        QString::fromUtf8(cname);
+#endif
+    }
+
+    // desktop
+    if(hwnd2 == GetDesktopWindow() || classname == "SysListView32")
+    {
+        qDebug("THT: Ignoring desktop window");
         return;
     }
 
