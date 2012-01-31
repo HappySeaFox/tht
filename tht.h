@@ -30,6 +30,7 @@ namespace Ui
 }
 
 class QGridLayout;
+class QPoint;
 class QTimer;
 class QMenu;
 
@@ -53,6 +54,7 @@ private:
     void rebuildUi();
     void checkWindows();
     void loadNextWindow();
+    void busy(bool);
 
 public slots:
     void activate();
@@ -68,10 +70,27 @@ private slots:
     void slotLoadToNextWindow();
     void slotTrayActivated(QSystemTrayIcon::ActivationReason);
     void slotTakeScreenshot();
+    void slotClearLinks();
+    void slotTargetDropped(const QPoint &);
 
 private:
     Ui::THT *ui;
-    QList<HWND> m_windows;
+
+    enum LinkType { LinkTypeNotInitialized, LinkTypeAdvancedGet, LinkTypeGraybox, LinkTypeOther };
+
+    struct Link
+    {
+        Link(HWND h = (HWND)0, LinkType lt = LinkTypeNotInitialized)
+        {
+            hwnd = h;
+            type = lt;
+        }
+
+        HWND hwnd;
+        LinkType type;
+    };
+
+    QList<Link> m_windows;
     int m_currentWindow;
     bool m_running;
     QTimer *m_timerCheckActive;

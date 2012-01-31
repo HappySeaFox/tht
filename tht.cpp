@@ -22,12 +22,14 @@
 #include <QMessageBox>
 #include <QCloseEvent>
 #include <QClipboard>
+#include <QFileInfo>
 #include <QDateTime>
 #include <QTimer>
 #include <QIcon>
 #include <QMenu>
 
 #include <windows.h>
+#include <psapi.h>
 
 #include "savescreenshot.h"
 #include "regionselect.h"
@@ -61,6 +63,7 @@ THT::THT(QWidget *parent) :
     m_menu = new QMenu(this);
     m_menu->addAction(QIcon(":/images/options.png"), tr("Options..."), this, SLOT(slotOptions()));
     m_menu->addAction(icon_screenshot, tr("Take screenshot..."), this, SLOT(slotTakeScreenshot()));
+    m_menu->addAction(tr("Clear links"), this, SLOT(slotClearLinks()));
     m_menu->addSeparator();
     m_menu->addAction(tr("About THT"), this, SLOT(slotAbout()));
     m_menu->addAction(tr("About Qt"), this, SLOT(slotAboutQt()));
@@ -77,14 +80,10 @@ THT::THT(QWidget *parent) :
     m_timerLoadToNextWindow->setInterval(0);
     connect(m_timerLoadToNextWindow, SIGNAL(timeout()), this, SLOT(slotLoadToNextWindow()));
 
-    // TODO
-    m_windows.append((HWND)4195206);
-    m_windows.append((HWND)263156);
-    m_windows.append((HWND)329598);
-
     // layout
-    m_layout = new QGridLayout(this);
-    setLayout(m_layout);
+    m_layout = new QGridLayout(ui->widgetTickers);
+    m_layout->setContentsMargins(0, 0, 0, 0);
+    ui->widgetTickers->setLayout(m_layout);
 
     rebuildUi();
 
@@ -119,6 +118,8 @@ THT::THT(QWidget *parent) :
     // global shortcuts
     QxtGlobalShortcut *takeScreen = new QxtGlobalShortcut(QKeySequence(Qt::CTRL + Qt::ALT + Qt::Key_S), this);
     connect(takeScreen, SIGNAL(activated()), this, SLOT(slotTakeScreenshot()));
+
+    checkWindows();
 }
 
 THT::~THT()
@@ -243,16 +244,76 @@ void THT::checkWindows()
 {
     RECT rect;
 
-    QList<HWND>::iterator itEnd = m_windows.end();
+    QList<Link>::iterator itEnd = m_windows.end();
 
-    for(QList<HWND>::iterator it = m_windows.begin();it != itEnd;++it)
+    for(QList<Link>::iterator it = m_windows.begin();it != itEnd;++it)
     {
-        if(!GetWindowRect(*it, &rect))
+        // remove dead windows
+        if(!GetWindowRect((*it).hwnd, &rect))
         {
-            qDebug("THT: Window id 0x%x is not valid, removing (%ld)", (uint)(*it), GetLastError());
+            qDebug("THT: Window id %d is not valid, removing (%ld)", (int)(*it).hwnd, GetLastError());
             it = --m_windows.erase(it);
         }
+        else
+        {
+            // try to determine their type
+            if((*it).type == LinkTypeNotInitialized)
+            {
+                DWORD dwProcessId;
+
+                GetWindowThreadProcessId((*it).hwnd, &dwProcessId);
+                HANDLE h = OpenProcess(PROCESS_QUERY_INFORMATION, FALSE, dwProcessId);
+
+                if(!h)
+                {
+                    qDebug("THT: Cannot open process %ld", dwProcessId);
+                    continue;
+                }
+
+                TCHAR name[MAX_PATH];
+
+                if(!GetProcessImageFileName(h, name, sizeof(name)))
+                {
+                    qDebug("THT: Cannot get process info %ld (%ld)", dwProcessId, GetLastError());
+                    continue;
+                }
+
+                QString sname = QFileInfo(
+#ifdef UNICODE
+                QString::fromWCharArray(name)
+#else
+                QString::fromUtf8(name)
+#endif
+                ).fileName().toLower();
+
+                qDebug("THT: Process name of %d is \"%s\"", (int)(*it).hwnd, sname.toAscii().constData());
+
+                if(sname == "advancedget.exe")
+                    (*it).type = LinkTypeAdvancedGet;
+                else if(sname == "graybox.exe")
+                    (*it).type = LinkTypeGraybox;
+                else
+                    (*it).type = LinkTypeOther;
+            }
+        }
     }
+
+    // join window types to a status string
+    int ag = 0, gb = 0, o = 0;
+
+    for(QList<Link>::iterator it = m_windows.begin();it != itEnd;++it)
+    {
+        if((*it).type == LinkTypeAdvancedGet)
+            ag++;
+        else if((*it).type == LinkTypeGraybox)
+            gb++;
+        else if((*it).type == LinkTypeOther)
+            o++;
+    }
+
+    ui->labelAG->setNum(ag);
+    ui->labelGB->setNum(gb);
+    ui->labelO->setNum(o);
 }
 
 void THT::loadNextWindow()
@@ -262,11 +323,20 @@ void THT::loadNextWindow()
     if(m_currentWindow >= m_windows.size())
     {
         qDebug("THT: Done for all windows");
+        busy(false);
         activate();
         m_running = false;
     }
     else
         m_timerLoadToNextWindow->start();
+}
+
+void THT::busy(bool b)
+{
+    foreach(List *l, m_lists)
+        l->setIgnoreInput(b);
+
+    ui->stackBusy->setCurrentIndex(b);
 }
 
 void THT::activate()
@@ -286,7 +356,7 @@ void THT::slotCheckActive()
         return;
     }
 
-    HWND window = m_windows.at(m_currentWindow);
+    HWND window = m_windows.at(m_currentWindow).hwnd;
     WINDOWINFO pwi = {0};
     pwi.cbSize = sizeof(WINDOWINFO);
     GetWindowInfo(window, &pwi);
@@ -413,14 +483,16 @@ void THT::slotLoadTicker(const QString &ticker)
     m_ticker = ticker;
     m_startupTime = QDateTime::currentMSecsSinceEpoch();
 
+    busy(true);
+
     m_timerLoadToNextWindow->start();
 }
 
 void THT::slotLoadToNextWindow()
 {
-    HWND window = m_windows.at(m_currentWindow);
+    HWND window = m_windows.at(m_currentWindow).hwnd;
 
-    qDebug("THT: Trying window 0x%x", (uint)window);
+    qDebug("THT: Trying window %d", (int)window);
 
     // window flags to set
     int flags = SW_SHOWNORMAL;
@@ -463,6 +535,7 @@ void THT::slotTakeScreenshot()
     RegionSelect selector;
     QPixmap px;
 
+    // ignore screenshot
     if(selector.exec() != QDialog::Accepted)
     {
         if(vis)
@@ -509,4 +582,52 @@ void THT::slotTakeScreenshot()
             }
         }
     }
+}
+
+void THT::slotClearLinks()
+{
+    qDebug("THT: Clear links");
+
+    m_windows.clear();
+    checkWindows();
+}
+
+void THT::slotTargetDropped(const QPoint &p)
+{
+    POINT pnt;
+
+    pnt.x = p.x();
+    pnt.y = p.y();
+
+    HWND hwnd = WindowFromPoint(pnt);
+
+    if(!hwnd)
+    {
+        qDebug("THT: Cannot find window under cursor %d,%d", p.x(), p.y());
+        return;
+    }
+
+    // this window
+    if(hwnd == winId())
+    {
+        qDebug("THT: Ignore ourselves");
+        return;
+    }
+
+    QList<Link>::iterator itEnd = m_windows.end();
+
+    for(QList<Link>::iterator it = m_windows.begin();it != itEnd;++it)
+    {
+        if((*it).hwnd == hwnd)
+        {
+            qDebug("THT: Window %d is already linked", (int)hwnd);
+            return;
+        }
+    }
+
+    qDebug("THT: Window under cursor %d", (int)hwnd);
+
+    m_windows.append(Link(hwnd));
+
+    checkWindows();
 }

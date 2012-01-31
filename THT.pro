@@ -13,7 +13,7 @@ INCLUDEPATH += . qtsingleapplication qxt
 DEPENDPATH += . qtsingleapplication qxt
 
 # require at least Windows 2000
-DEFINES += _WIN32_WINNT=0x0500 WINVER=0x0500
+DEFINES += _WIN32_WINNT=0x0501 WINVER=0x0501
 
 SOURCES += main.cpp\
     tht.cpp \
@@ -31,7 +31,8 @@ SOURCES += main.cpp\
     savescreenshot.cpp \
     qxt/qxtglobalshortcut_win.cpp \
     qxt/qxtglobalshortcut.cpp \
-    qxt/qxtglobal.cpp
+    qxt/qxtglobal.cpp \
+    target.cpp
 
 HEADERS += tht.h \
     list.h \
@@ -50,7 +51,8 @@ HEADERS += tht.h \
     qxt/qxtglobalshortcut.h \
     qxt/qxtglobal.h \
     qxt/QxtGlobalShortcut \
-    qxt/QxtGlobalShortcut
+    qxt/QxtGlobalShortcut \
+    target.h
 
 FORMS += tht.ui \
     list.ui \
@@ -61,9 +63,13 @@ FORMS += tht.ui \
 RESOURCES += \
     tht.qrc
 
+LIBS += -lpsapi
+
 RC_FILE = tht.rc
 
 OTHER_FILES += \
-    tht.rc
+    tht.rc \
+    README.txt \
+    LICENSE.txt
 
 TRANSLATIONS += ts/ru.ts
