@@ -675,6 +675,8 @@ void THT::slotTargetDropped(const QPoint &p)
 // IPC message
 void THT::slotMessageReceived(const QString &msg)
 {
+    qDebug("THT: Got message \"%s\"", qPrintable(msg));
+
     if(msg == "wake up")
         activate();
 }
