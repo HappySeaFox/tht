@@ -4,6 +4,16 @@ Settings::Settings()
 {
 }
 
+void Settings::setNyseOnly(bool n)
+{
+    save<bool>("nyse-only", n);
+}
+
+bool Settings::nyseOnly()
+{
+    return load<bool>("nyse-only", false);
+}
+
 void Settings::setOnTop(bool ontop)
 {
     save<bool>("ontop", ontop);

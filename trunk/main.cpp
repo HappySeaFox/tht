@@ -18,6 +18,7 @@
 #include <QtSingleApplication>
 #include <QTranslator>
 #include <QLocale>
+#include <QIcon>
 #include <QDir>
 
 #include "tht.h"
@@ -26,12 +27,15 @@ int main(int argc, char *argv[])
 {
     QtSingleApplication app(argc, argv);
 
-    if(app.sendMessage("Wake up!"))
+    if(app.sendMessage("wake up"))
         return 0;
+
+    // window icon
+    app.setWindowIcon(QIcon(":/images/chart.ico"));
 
     QString locale = QLocale::system().name();
 
-    qDebug("THT: Locale \"%s\"", qPrintable(locale));
+    qDebug("THT: Locale is \"%s\"", qPrintable(locale));
 
     QTranslator translator;
     translator.load(locale, ":/ts");
@@ -46,8 +50,8 @@ int main(int argc, char *argv[])
     app.setActivationWindow(&w);
     app.setQuitOnLastWindowClosed(false);
 
-    QObject::connect(&app, SIGNAL(messageReceived(const QString&)),
-                        &w, SLOT(activate()));
+    QObject::connect(&app, SIGNAL(messageReceived(const QString &)),
+                        &w, SLOT(slotMessageReceived(const QString &)));
 
     return app.exec();
 }

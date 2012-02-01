@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by Qt Creator 2.4.0, 2012-02-01T16:31:09. -->
+<!-- Written by Qt Creator 2.4.0, 2012-02-01T21:56:19. -->
 <qtcreator>
  <data>
   <variable>ProjectExplorer.Project.ActiveTarget</variable>
@@ -110,7 +110,7 @@
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="QString" key="ProjectExplorer.ProcessStep.Arguments">f:\trading\THT\THT.pro -recursive -spec win32-g++ &quot;CONFIG+=release&quot;</value>
-      <value type="QString" key="ProjectExplorer.ProcessStep.Command">F:/qt-4.8.0-static/bin/qmake.exe</value>
+      <value type="QString" key="ProjectExplorer.ProcessStep.Command">qmake.exe</value>
       <value type="bool" key="ProjectExplorer.ProcessStep.Enabled">true</value>
       <value type="QString" key="ProjectExplorer.ProcessStep.WorkingDirectory">F:/trading/THT-build-release</value>
       <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Особый</value>
@@ -125,16 +125,7 @@
       <value type="QString" key="Qt4ProjectManager.MakeStep.MakeArguments"></value>
       <value type="QString" key="Qt4ProjectManager.MakeStep.MakeCommand"></value>
      </valuemap>
-     <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.2">
-      <value type="QString" key="ProjectExplorer.ProcessStep.Arguments"></value>
-      <value type="QString" key="ProjectExplorer.ProcessStep.Command"></value>
-      <value type="bool" key="ProjectExplorer.ProcessStep.Enabled">true</value>
-      <value type="QString" key="ProjectExplorer.ProcessStep.WorkingDirectory">%{buildDir}</value>
-      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Особый</value>
-      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
-      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">ProjectExplorer.ProcessStep</value>
-     </valuemap>
-     <value type="int" key="ProjectExplorer.BuildStepList.StepsCount">3</value>
+     <value type="int" key="ProjectExplorer.BuildStepList.StepsCount">2</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Сборка</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">ProjectExplorer.BuildSteps.Build</value>
@@ -160,7 +151,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4BuildConfiguration</value>
     <value type="int" key="Qt4ProjectManager.Qt4BuildConfiguration.BuildConfiguration">0</value>
-    <value type="QString" key="Qt4ProjectManager.Qt4BuildConfiguration.BuildDirectory">F:/trading/THT-build-release</value>
+    <value type="QString" key="Qt4ProjectManager.Qt4BuildConfiguration.BuildDirectory">F:/trading/THT-build-desktop</value>
     <value type="int" key="Qt4ProjectManager.Qt4BuildConfiguration.QtVersionId">1</value>
     <value type="bool" key="Qt4ProjectManager.Qt4BuildConfiguration.UseShadowBuild">true</value>
    </valuemap>

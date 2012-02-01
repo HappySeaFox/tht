@@ -33,7 +33,8 @@
 List::List(int group, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::List),
-    m_section(group)
+    m_section(group),
+    m_saveTickers(Settings::instance()->saveTickers())
 {
     ui->setupUi(this);
 
@@ -90,10 +91,17 @@ QString List::currentTicker() const
     return item ? item->text() : QString();
 }
 
-void List::setSaveTickers(bool save)
+void List::setSaveTickers(bool dosave)
 {
-    m_saveTickers = save;
+    if(m_saveTickers == dosave)
+        return;
+
+    bool oldsave = m_saveTickers;
+    m_saveTickers = dosave;
     ui->pushSave->setEnabled(!m_saveTickers);
+
+    if(!oldsave)
+        save();
 }
 
 bool List::eventFilter(QObject *obj, QEvent *event)
@@ -195,7 +203,7 @@ void List::save()
 
 void List::load()
 {
-    qDebug("THT: Loading from section \"%d\"", m_section);
+    qDebug("THT: Loading tickers from section \"%d\"", m_section);
 
     ui->list->addItems(Settings::instance()->tickersForGroup(m_section));
 
@@ -299,10 +307,6 @@ void List::slotClear()
     if(!ui->list->count())
         return;
 
-    if(m_saveTickers && QMessageBox::question(this, tr("Clear"), tr("You won't be able to undo this. Really clear?"),
-                             QMessageBox::Yes, QMessageBox::No) == QMessageBox::No)
-        return;
-
     ui->list->clear();
     numberOfItemsChanged();
     save();
@@ -310,7 +314,7 @@ void List::slotClear()
 
 void List::slotSave()
 {
-    qDebug("THT: Saving section \"%d\"", m_section);
+    qDebug("THT: Saving tickers to section \"%d\"", m_section);
 
     Settings::instance()->saveTickersForGroup(m_section, toStringList());
 
