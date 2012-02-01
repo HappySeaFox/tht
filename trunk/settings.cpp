@@ -4,9 +4,14 @@ Settings::Settings()
 {
 }
 
-void Settings::setNyseOnly(bool n)
+void Settings::sync()
 {
-    save<bool>("nyse-only", n);
+    m_settings.sync();
+}
+
+void Settings::setNyseOnly(bool n, SyncType sync)
+{
+    save<bool>("nyse-only", n, sync);
 }
 
 bool Settings::nyseOnly()
@@ -14,9 +19,9 @@ bool Settings::nyseOnly()
     return load<bool>("nyse-only", false);
 }
 
-void Settings::setOnTop(bool ontop)
+void Settings::setOnTop(bool ontop, SyncType sync)
 {
-    save<bool>("ontop", ontop);
+    save<bool>("ontop", ontop, sync);
 }
 
 bool Settings::onTop()
@@ -24,9 +29,9 @@ bool Settings::onTop()
     return load<bool>("ontop", false);
 }
 
-void Settings::setHideToTray(bool hide)
+void Settings::setHideToTray(bool hide, SyncType sync)
 {
-    save<bool>("tray", hide);
+    save<bool>("tray", hide, sync);
 }
 
 bool Settings::hideToTray()
@@ -34,9 +39,9 @@ bool Settings::hideToTray()
     return load<bool>("tray", false);
 }
 
-void Settings::setTrayNoticeSeen(bool seen)
+void Settings::setTrayNoticeSeen(bool seen, SyncType sync)
 {
-    save<bool>("tray-notice-seen", seen);
+    save<bool>("tray-notice-seen", seen, sync);
 }
 
 bool Settings::trayNoticeSeen()
@@ -44,9 +49,9 @@ bool Settings::trayNoticeSeen()
     return load<bool>("tray-notice-seen", false);
 }
 
-void Settings::setSaveGeometry(bool s)
+void Settings::setSaveGeometry(bool s, SyncType sync)
 {
-    save<bool>("save-geometry", s);
+    save<bool>("save-geometry", s, sync);
 }
 
 bool Settings::saveGeometry()
@@ -54,9 +59,9 @@ bool Settings::saveGeometry()
     return load<bool>("save-geometry", true);
 }
 
-void Settings::setNumberOfLists(int n)
+void Settings::setNumberOfLists(int n, SyncType sync)
 {
-    save<int>("number-of-lists", n);
+    save<int>("number-of-lists", n, sync);
 }
 
 int Settings::numberOfLists()
@@ -76,9 +81,9 @@ int Settings::numberOfLists()
     return nlists;
 }
 
-void Settings::setWindowSize(const QSize &s)
+void Settings::setWindowSize(const QSize &s, SyncType sync)
 {
-    save<QSize>("size", s);
+    save<QSize>("size", s, sync);
 }
 
 QSize Settings::windowSize()
@@ -86,9 +91,9 @@ QSize Settings::windowSize()
     return load<QSize>("size");
 }
 
-void Settings::setWindowPosition(const QPoint &p)
+void Settings::setWindowPosition(const QPoint &p, SyncType sync)
 {
-    save<QPoint>("position", p);
+    save<QPoint>("position", p, sync);
 }
 
 QPoint Settings::windowPosition()
@@ -96,9 +101,9 @@ QPoint Settings::windowPosition()
     return load<QPoint>("position");
 }
 
-void Settings::setSaveTickers(bool s)
+void Settings::setSaveTickers(bool s, SyncType sync)
 {
-    save<bool>("save-tickers", s);
+    save<bool>("save-tickers", s, sync);
 }
 
 bool Settings::saveTickers()
@@ -106,11 +111,14 @@ bool Settings::saveTickers()
     return load<bool>("save-tickers", true);
 }
 
-void Settings::saveTickersForGroup(int group, const QStringList &tickers)
+void Settings::saveTickersForGroup(int group, const QStringList &tickers, SyncType sync)
 {
     m_settings.beginGroup(QString("tickers-%1").arg(group));
     m_settings.setValue("tickers", tickers);
     m_settings.endGroup();
+
+    if(sync == SyncTypeSync)
+        m_settings.sync();
 }
 
 QStringList Settings::tickersForGroup(int group)
@@ -122,12 +130,14 @@ QStringList Settings::tickersForGroup(int group)
     return tickers;
 }
 
-void Settings::removeTickers(int group)
+void Settings::removeTickers(int group, SyncType sync)
 {
     m_settings.beginGroup(QString("tickers-%1").arg(group));
     m_settings.remove(QString());
     m_settings.endGroup();
-    m_settings.sync();
+
+    if(sync == SyncTypeSync)
+        m_settings.sync();
 }
 
 Settings* Settings::instance()
@@ -151,10 +161,12 @@ T Settings::load(const QString &key, T def)
 }
 
 template <typename T>
-void Settings::save(const QString &key, const T &value)
+void Settings::save(const QString &key, const T &value, SyncType sync)
 {
     m_settings.beginGroup("settings");
     m_settings.setValue(key, value);
     m_settings.endGroup();
-    m_settings.sync();
+
+    if(sync == SyncTypeSync)
+        m_settings.sync();
 }

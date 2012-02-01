@@ -11,38 +11,42 @@ class Settings
 public:
     static Settings* instance();
 
-    void setNyseOnly(bool);
+    enum SyncType { SyncTypeNoSync, SyncTypeSync };
+
+    void sync();
+
+    void setNyseOnly(bool, SyncType sync = SyncTypeSync);
     bool nyseOnly();
 
-    void setOnTop(bool);
+    void setOnTop(bool, SyncType sync = SyncTypeSync);
     bool onTop();
 
-    void setHideToTray(bool);
+    void setHideToTray(bool, SyncType sync = SyncTypeSync);
     bool hideToTray();
 
-    void setTrayNoticeSeen(bool);
+    void setTrayNoticeSeen(bool, SyncType sync = SyncTypeSync);
     bool trayNoticeSeen();
 
-    void setSaveGeometry(bool);
+    void setSaveGeometry(bool, SyncType sync = SyncTypeSync);
     bool saveGeometry();
 
     int maximumNumberOfLists() const;
 
-    void setNumberOfLists(int);
+    void setNumberOfLists(int, SyncType sync = SyncTypeSync);
     int numberOfLists();
 
-    void setWindowSize(const QSize &);
+    void setWindowSize(const QSize &, SyncType sync = SyncTypeSync);
     QSize windowSize();
 
-    void setWindowPosition(const QPoint &);
+    void setWindowPosition(const QPoint &, SyncType sync = SyncTypeSync);
     QPoint windowPosition();
 
-    void setSaveTickers(bool);
+    void setSaveTickers(bool, SyncType sync = SyncTypeSync);
     bool saveTickers();
 
-    void saveTickersForGroup(int group, const QStringList &tickers);
+    void saveTickersForGroup(int group, const QStringList &tickers, SyncType sync = SyncTypeSync);
     QStringList tickersForGroup(int group);
-    void removeTickers(int group);
+    void removeTickers(int group, SyncType sync = SyncTypeSync);
 
 private:
     Settings();
@@ -51,7 +55,7 @@ private:
     T load(const QString &key, T def = T());
 
     template <typename T>
-    void save(const QString &key, const T &value);
+    void save(const QString &key, const T &value, SyncType sync = SyncTypeSync);
 
 private:
     QSettings m_settings;

@@ -47,9 +47,9 @@ void Options::load()
 
 void Options::save()
 {
-    Settings::instance()->setNumberOfLists(ui->comboNumberOfLists->currentIndex()+1);
-    Settings::instance()->setOnTop(ui->checkOnTop->isChecked());
-    Settings::instance()->setHideToTray(ui->checkTray->isChecked());
-    Settings::instance()->setSaveGeometry(ui->checkSave->isChecked());
-    Settings::instance()->setSaveTickers(ui->checkSaveTickers->isChecked());
+    Settings::instance()->setNumberOfLists(ui->comboNumberOfLists->currentIndex()+1, Settings::SyncTypeNoSync);
+    Settings::instance()->setOnTop(ui->checkOnTop->isChecked(), Settings::SyncTypeNoSync);
+    Settings::instance()->setHideToTray(ui->checkTray->isChecked(), Settings::SyncTypeNoSync);
+    Settings::instance()->setSaveGeometry(ui->checkSave->isChecked(), Settings::SyncTypeNoSync);
+    Settings::instance()->setSaveTickers(ui->checkSaveTickers->isChecked()); // also sync
 }
