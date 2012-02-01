@@ -82,3 +82,7 @@ Yes, THT supports some keyboard shortcuts.
 === Global shortcuts: ===
 
  * *Ctrl+Alt+S* - take screenshot of your trade
+
+=== Graybox warning ===
+
+Graybox is unable to save settings to the remote database if you have decimal point other than "." (dot) in your regional settings. Open your regional settings to be sure it is configured correctly.
