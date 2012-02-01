@@ -41,3 +41,6 @@ http://p.yusukekamiyamane.com/
 
 Author: Yusuke Kamiyamane
 License: Creative Commons Attribution 3.0 License
+
+* Interface layout is based on the original idea by Krupachev
+  Konstantin and his project "Clicker"
