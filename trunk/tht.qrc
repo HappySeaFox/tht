@@ -2,11 +2,6 @@
     <qresource prefix="/">
         <file>images/add.png</file>
         <file>images/clear.png</file>
-        <file>images/chart.png</file>
-        <file>images/chart_24.png</file>
-        <file>images/chart_32.png</file>
-        <file>images/chart_48.png</file>
-        <file>images/chart_64.png</file>
         <file>images/save.png</file>
         <file>images/export.png</file>
         <file>images/options.png</file>
@@ -16,5 +11,6 @@
         <file>images/drag.png</file>
         <file>images/ready.png</file>
         <file>ts/ru.qm</file>
+        <file>images/chart.ico</file>
     </qresource>
 </RCC>
