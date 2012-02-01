@@ -14,17 +14,22 @@ Target::Target(QWidget *parent) :
 
 void Target::mousePressEvent(QMouseEvent *event)
 {
-    qDebug("THT: Start dragging");
-    QApplication::setOverrideCursor(QCursor(*pixmap()));
+    if(event->button() == Qt::LeftButton)
+    {
+        qDebug("THT: Start dragging");
+        QApplication::setOverrideCursor(QCursor(*pixmap()));
+    }
 }
 
 void Target::mouseReleaseEvent(QMouseEvent *event)
 {
+    if(event->button() != Qt::LeftButton)
+        return;
+
     QPoint p = QCursor::pos();
 
     qDebug("THT: Dropped at %d,%d", p.x(), p.y());
     QApplication::restoreOverrideCursor();
-    event->accept();
 
     emit dropped(p);
 }

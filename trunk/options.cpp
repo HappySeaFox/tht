@@ -25,6 +25,9 @@ Options::Options(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    for(int i = 0;i < Settings::instance()->maximumNumberOfLists();i++)
+        ui->comboNumberOfLists->addItem(QString::number(i+1));
+
     load();
 }
 
