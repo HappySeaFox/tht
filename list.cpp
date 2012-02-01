@@ -59,7 +59,7 @@ List::List(int group, QWidget *parent) :
     ui->list->viewport()->installEventFilter(this);
 
     // regexp to check for a ticker
-    m_rxTicker = QRegExp("$?[a-zA-Z]{1,5}");
+    m_rxTicker = QRegExp("$?[a-zA-Z\\-]{1,5}");
 }
 
 List::~List()
