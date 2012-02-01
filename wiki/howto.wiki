@@ -1,0 +1,35 @@
+= THT Howto and FAQ =
+
+== How to link several Advanced Get windows together? ==
+
+Drag a black target with a left mouse button and drop onto a required AG window. If everything is ok, you will hear a confirmation sound.
+
+<a href="http://fastpic.ru/view/31/2012/0201/1fd9e6a32d76146850cd00fb0bbb0434.png.html" target="_blank"><img src="http://i31.fastpic.ru/thumb/2012/0201/34/1fd9e6a32d76146850cd00fb0bbb0434.jpeg" border="0"/>
+
+== How to link Graybox Market Makers window? ==
+
+Drag a black target with a left mouse button and drop onto a required Graybox MM window. If everything is ok, you will hear a confirmation sound.
+
+<a href="http://fastpic.ru/view/31/2012/0201/f3e67fa528ff049f3612a0d4e9e2b896.png.html" target="_blank"><img src="http://i31.fastpic.ru/thumb/2012/0201/96/f3e67fa528ff049f3612a0d4e9e2b896.jpeg" border="0"/>
+
+== How to use ticker lists? ==
+
+Click on a ticker with a left mouse button, or use "up" and "down" arrows on your keyboard to navigate through the list. When the ticker is selected, THT will load it to all linked windows.
+
+== How to export tickers? ==
+
+Click on "Export tickers" button. You can export to a file or clipboard.
+
+<a href="http://fastpic.ru/view/28/2012/0201/4b3ebf4a61d931724186dc2891892f69.png.html" target="_blank"><img src="http://i28.fastpic.ru/thumb/2012/0201/69/4b3ebf4a61d931724186dc2891892f69.jpeg" border="0"/>
+
+== How to add new tickers? ==
+
+Click on "Load tickers" button. You can import from a file or clipboard.
+
+<a href="http://fastpic.ru/view/30/2012/0201/72ac37194d629da34a7fc711ccc1d300.png.html" target="_blank"><img src="http://i30.fastpic.ru/thumb/2012/0201/00/72ac37194d629da34a7fc711ccc1d300.jpeg" border="0"/>
+
+== How to load NYSE-only stocks? ==
+
+Turn on a "=N" option.
+
+http://i32.fastpic.ru/big/2012/0201/ee/323b3271fe64a797121449a793223aee.png
