@@ -2,15 +2,19 @@
 
 == How to link several Advanced Get windows together? ==
 
-Drag a black target with a left mouse button and drop onto a required AG window. If everything is ok, you will hear a confirmation sound.
+Drag a black target with a left mouse button and drop onto a required AG window. If everything is ok, you will hear a confirmation sound. <font color=red>The main AG window must also be visible (not minimized)</font>, otherwise links will be established but won't work correctly.
 
-<a href="http://fastpic.ru/view/31/2012/0201/1fd9e6a32d76146850cd00fb0bbb0434.png.html" target="_blank"><img src="http://i31.fastpic.ru/thumb/2012/0201/34/1fd9e6a32d76146850cd00fb0bbb0434.jpeg" border="0"/>
+<a href="http://i31.fastpic.ru/big/2012/0201/34/1fd9e6a32d76146850cd00fb0bbb0434.png" target="_blank"><img src="http://i31.fastpic.ru/thumb/2012/0201/34/1fd9e6a32d76146850cd00fb0bbb0434.jpeg" border="0"/>
 
 == How to link Graybox Market Makers window? ==
 
 Drag a black target with a left mouse button and drop onto a required Graybox MM window. If everything is ok, you will hear a confirmation sound.
 
-<a href="http://fastpic.ru/view/31/2012/0201/f3e67fa528ff049f3612a0d4e9e2b896.png.html" target="_blank"><img src="http://i31.fastpic.ru/thumb/2012/0201/96/f3e67fa528ff049f3612a0d4e9e2b896.jpeg" border="0"/>
+<a href="http://i31.fastpic.ru/big/2012/0201/96/f3e67fa528ff049f3612a0d4e9e2b896.png" target="_blank"><img src="http://i31.fastpic.ru/thumb/2012/0201/96/f3e67fa528ff049f3612a0d4e9e2b896.jpeg" border="0"/>
+
+== How to reset links? ==
+
+Right click on a THT window and select "Clear links". You can also do a middle click on a black target icon to achieve that.
 
 == How to use ticker lists? ==
 
@@ -20,16 +24,51 @@ Click on a ticker with a left mouse button, or use "up" and "down" arrows on you
 
 Click on "Export tickers" button. You can export to a file or clipboard.
 
-<a href="http://fastpic.ru/view/28/2012/0201/4b3ebf4a61d931724186dc2891892f69.png.html" target="_blank"><img src="http://i28.fastpic.ru/thumb/2012/0201/69/4b3ebf4a61d931724186dc2891892f69.jpeg" border="0"/>
+<a href="http://i28.fastpic.ru/big/2012/0201/69/4b3ebf4a61d931724186dc2891892f69.png" target="_blank"><img src="http://i28.fastpic.ru/thumb/2012/0201/69/4b3ebf4a61d931724186dc2891892f69.jpeg" border="0"/>
 
 == How to add new tickers? ==
 
 Click on "Load tickers" button. You can import from a file or clipboard.
 
-<a href="http://fastpic.ru/view/30/2012/0201/72ac37194d629da34a7fc711ccc1d300.png.html" target="_blank"><img src="http://i30.fastpic.ru/thumb/2012/0201/00/72ac37194d629da34a7fc711ccc1d300.jpeg" border="0"/>
+<a href="http://i30.fastpic.ru/big/2012/0201/00/72ac37194d629da34a7fc711ccc1d300.png" target="_blank"><img src="http://i30.fastpic.ru/thumb/2012/0201/00/72ac37194d629da34a7fc711ccc1d300.jpeg" border="0"/>
 
 == How to load NYSE-only stocks? ==
 
-Turn on a "=N" option.
+Turn on a "=N" option. This option will append "=N" to all tickers when loading to Advanced Get (Graybox MM doesn't support this).
 
 http://i32.fastpic.ru/big/2012/0201/ee/323b3271fe64a797121449a793223aee.png
+
+== Does THT have settings dialog? ==
+
+Yes, please right click on a THT window and select "Options...".
+
+<a href="http://i30.fastpic.ru/big/2012/0201/af/19b23e2e3caa95457c8362b88df70baf.png" target="_blank"><img src="http://i30.fastpic.ru/thumb/2012/0201/af/19b23e2e3caa95457c8362b88df70baf.jpeg" border="0"/>
+
+== What do all THT settings mean? ==
+
+*Number of lists* - the number of ticker lists you prefer.
+
+*Always on top* - THT window will always be on top of other windows (like Graybox).
+
+*Hide to tray* - hide to tray when user closes the THT window.
+
+*Save position and size* - THT will save window position and its size.
+
+*Automatically save tickers* - when you add, delete or move tickers THT will save the ticker lists automatically. Otherwise you need to save them manually. When the ticker list is not saved, you will see a red line on top of it. Click "Save tickers" to save the list in this case.
+
+http://i27.fastpic.ru/big/2012/0201/3b/f77d72cb0730e71596e51ccae288163b.png
+
+== Keyboard shortcuts? ==
+
+Yes, THT supports some keyboard shortcuts.
+
+=== When navigating throught the list: ===
+
+ * *down arrow* - load the next ticker
+ * *up arrow* - load the previous ticker
+ * *left arrow* - copy the current ticker to the list leftwards
+ * *right arrow* - copy the current ticker to the list on the right
+
+=== Global shortcuts: ===
+
+ * *Ctrl+Alt+S* - take screenshot of your trade
