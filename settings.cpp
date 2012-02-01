@@ -60,7 +60,7 @@ int Settings::numberOfLists()
     if(!ok)
         nlists = 3;
 
-    if(nlists < 1 || nlists > 5)
+    if(nlists < 1 || nlists > maximumNumberOfLists())
         nlists = 3;
 
     return nlists;

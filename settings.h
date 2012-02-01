@@ -23,6 +23,8 @@ public:
     void setSaveGeometry(bool);
     bool saveGeometry();
 
+    int maximumNumberOfLists() const;
+
     void setNumberOfLists(int);
     int numberOfLists();
 
@@ -51,5 +53,11 @@ private:
 private:
     QSettings m_settings;
 };
+
+inline
+int Settings::maximumNumberOfLists() const
+{
+    return 5;
+}
 
 #endif // SETTINGS_H
