@@ -87,4 +87,4 @@ Yes, THT supports some keyboard shortcuts.
 
 Graybox is unable to save settings to the remote database if you have decimal point other than "." (dot) in your regional settings. Open your regional settings to be sure it is configured correctly.
 
-<a href="http://fastpic.ru/view/28/2012/0202/3f6566baa157ee88bdff314fbc3afc81.png.html" target="_blank"><img src="http://i28.fastpic.ru/thumb/2012/0202/81/3f6566baa157ee88bdff314fbc3afc81.jpeg" border="0"></img></a>
+<a href="http://fastpic.ru/view/29/2012/0202/ede94416b03e33f70dfb5da8cf2faf30.png.html" target="_blank"><img src="http://i29.fastpic.ru/thumb/2012/0202/30/ede94416b03e33f70dfb5da8cf2faf30.jpeg" border="0"></img></a>
