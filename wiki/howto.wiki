@@ -46,7 +46,7 @@ Yes, please right click on a THT window and select "Options...".
 
 <a href="http://i30.fastpic.ru/big/2012/0201/af/19b23e2e3caa95457c8362b88df70baf.png" target="_blank"><img src="http://i30.fastpic.ru/thumb/2012/0201/af/19b23e2e3caa95457c8362b88df70baf.jpeg" border="0"/>
 
-== What do all THT settings mean? ==
+== What do all these THT settings mean? ==
 
 *Number of lists* - the number of ticker lists you prefer.
 
