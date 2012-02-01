@@ -6,13 +6,13 @@
 
 Drag a black target with a left mouse button and drop onto a required AG window. If everything is ok, you will hear a confirmation sound. <font color=red>The main AG window must also be visible (not minimized)</font>, otherwise links will be established but won't work correctly.
 
-<a href="http://i31.fastpic.ru/big/2012/0201/34/1fd9e6a32d76146850cd00fb0bbb0434.png" target="_blank"><img src="http://i31.fastpic.ru/thumb/2012/0201/34/1fd9e6a32d76146850cd00fb0bbb0434.jpeg" border="0"/>
+<a href="http://i31.fastpic.ru/big/2012/0201/34/1fd9e6a32d76146850cd00fb0bbb0434.png" target="_blank"><img src="http://i31.fastpic.ru/thumb/2012/0201/34/1fd9e6a32d76146850cd00fb0bbb0434.jpeg" border="0"></img></a>
 
 == How to link Graybox Market Makers window? ==
 
 Drag a black target with a left mouse button and drop onto a required Graybox MM window. If everything is ok, you will hear a confirmation sound.
 
-<a href="http://i31.fastpic.ru/big/2012/0201/96/f3e67fa528ff049f3612a0d4e9e2b896.png" target="_blank"><img src="http://i31.fastpic.ru/thumb/2012/0201/96/f3e67fa528ff049f3612a0d4e9e2b896.jpeg" border="0"/>
+<a href="http://i31.fastpic.ru/big/2012/0201/96/f3e67fa528ff049f3612a0d4e9e2b896.png" target="_blank"><img src="http://i31.fastpic.ru/thumb/2012/0201/96/f3e67fa528ff049f3612a0d4e9e2b896.jpeg" border="0"></img></a>
 
 == How to reset links? ==
 
@@ -26,13 +26,17 @@ Click on a ticker with a left mouse button, or use "up" and "down" arrows on you
 
 Click on "Export tickers" button. You can export to a file or clipboard.
 
-<a href="http://i28.fastpic.ru/big/2012/0201/69/4b3ebf4a61d931724186dc2891892f69.png" target="_blank"><img src="http://i28.fastpic.ru/thumb/2012/0201/69/4b3ebf4a61d931724186dc2891892f69.jpeg" border="0"/>
+<a href="http://i28.fastpic.ru/big/2012/0201/69/4b3ebf4a61d931724186dc2891892f69.png" target="_blank"><img src="http://i28.fastpic.ru/thumb/2012/0201/69/4b3ebf4a61d931724186dc2891892f69.jpeg" border="0"></img></a>
 
 == How to add new tickers? ==
 
-Click on "Load tickers" button. You can import from a file or clipboard.
+Click on "Load tickers" button. You can import from a file or clipboard. 
 
-<a href="http://i30.fastpic.ru/big/2012/0201/00/72ac37194d629da34a7fc711ccc1d300.png" target="_blank"><img src="http://i30.fastpic.ru/thumb/2012/0201/00/72ac37194d629da34a7fc711ccc1d300.jpeg" border="0"/>
+<a href="http://i30.fastpic.ru/big/2012/0201/00/72ac37194d629da34a7fc711ccc1d300.png" target="_blank"><img src="http://i30.fastpic.ru/thumb/2012/0201/00/72ac37194d629da34a7fc711ccc1d300.jpeg" border="0"></img></a>
+
+For example, open <a href="http://finviz.com">Finviz</a>, select some filters from the screener and open "Tickers". Select all found tickers, copy them to clipboard, go to THT and paste.
+
+<a href="http://fastpic.ru/view/30/2012/0201/9d75b9da030140e59a1dce18e0c2661d.png.html" target="_blank"><img src="http://i30.fastpic.ru/thumb/2012/0201/1d/9d75b9da030140e59a1dce18e0c2661d.jpeg" border="0"/>
 
 == How to load NYSE-only stocks? ==
 
@@ -44,7 +48,7 @@ http://i32.fastpic.ru/big/2012/0201/ee/323b3271fe64a797121449a793223aee.png
 
 Yes, please right click on a THT window and select "Options...".
 
-<a href="http://i30.fastpic.ru/big/2012/0201/af/19b23e2e3caa95457c8362b88df70baf.png" target="_blank"><img src="http://i30.fastpic.ru/thumb/2012/0201/af/19b23e2e3caa95457c8362b88df70baf.jpeg" border="0"/>
+<a href="http://i30.fastpic.ru/big/2012/0201/af/19b23e2e3caa95457c8362b88df70baf.png" target="_blank"><img src="http://i30.fastpic.ru/thumb/2012/0201/af/19b23e2e3caa95457c8362b88df70baf.jpeg" border="0"></img></a>
 
 == What do all these THT settings mean? ==
 
