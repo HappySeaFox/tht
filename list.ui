@@ -234,22 +234,6 @@
  </resources>
  <connections>
   <connection>
-   <sender>pushClear</sender>
-   <signal>clicked()</signal>
-   <receiver>List</receiver>
-   <slot>slotClear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>15</x>
-     <y>13</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>162</x>
-     <y>24</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>list</sender>
    <signal>itemSelectionChanged()</signal>
    <receiver>List</receiver>
@@ -281,9 +265,25 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushClear</sender>
+   <signal>clicked()</signal>
+   <receiver>List</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>16</x>
+     <y>15</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>185</x>
+     <y>227</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
-  <slot>slotClear()</slot>
+  <slot>clear()</slot>
   <slot>slotSelectedItemChanged()</slot>
   <slot>slotSave()</slot>
  </slots>

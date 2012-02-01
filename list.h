@@ -60,10 +60,12 @@ signals:
     void moveRight(const QString &ticker);
     void loadTicker(const QString &);
 
+public slots:
+    void clear();
+
 private slots:
     void slotAddFromFile();
     void slotAddFromClipboard();
-    void slotClear();
     void slotSave();
     void slotExportToFile();
     void slotExportToClipboard();

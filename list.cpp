@@ -135,7 +135,7 @@ bool List::eventFilter(QObject *obj, QEvent *event)
         if(ke->matches(QKeySequence::Paste))
             paste();
         else if(ke->matches(QKeySequence::New))
-            slotClear();
+            clear();
         else if(ke->key() == Qt::Key_Right)
             emit moveRight(currentTicker());
         else if(ke->key() == Qt::Key_Left)
@@ -303,9 +303,9 @@ void List::slotAddFromClipboard()
     paste();
 }
 
-void List::slotClear()
+void List::clear()
 {
-    qDebug("THT: Clear tickers");
+    qDebug("THT: Clear tickers for section \"%d\"", m_section);
 
     // nothing to do
     if(!ui->list->count())

@@ -59,7 +59,9 @@ THT::THT(QWidget *parent) :
     // context menu
     m_menu = new QMenu(this);
     m_menu->addAction(QIcon(":/images/options.png"), tr("Options..."), this, SLOT(slotOptions()));
+    m_menu->addSeparator();
     m_menu->addAction(icon_screenshot, tr("Take screenshot..."), this, SLOT(slotTakeScreenshot()));
+    m_menu->addAction(tr("Clear ticker lists"), this, SLOT(slotClearLists()));
     m_menu->addAction(tr("Clear links"), this, SLOT(slotClearLinks()));
     m_menu->addSeparator();
     m_menu->addAction(tr("About THT"), this, SLOT(slotAbout()));
@@ -590,6 +592,12 @@ void THT::slotTakeScreenshot()
             }
         }
     }
+}
+
+void THT::slotClearLists()
+{
+    foreach(List *l, m_lists)
+        l->clear();
 }
 
 void THT::slotClearLinks()
