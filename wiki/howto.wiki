@@ -8,6 +8,8 @@
 
 Drag a black target with a left mouse button and drop onto a required AG window. If everything is ok, you will hear a confirmation sound. <font color=red>The main AG window must also be visible (not minimized)</font>, otherwise links will be established but won't work correctly.
 
+For example, you can link together 5min, daily and weekly charts.
+
 <a href="http://i31.fastpic.ru/big/2012/0201/34/1fd9e6a32d76146850cd00fb0bbb0434.png" target="_blank"><img src="http://i31.fastpic.ru/thumb/2012/0201/34/1fd9e6a32d76146850cd00fb0bbb0434.jpeg" border="0"></img></a>
 
 == How to link Graybox Market Makers window? ==
