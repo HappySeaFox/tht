@@ -19,6 +19,8 @@ void Target::mousePressEvent(QMouseEvent *event)
         qDebug("THT: Start dragging");
         QApplication::setOverrideCursor(QCursor(*pixmap()));
     }
+    else if(event->button() == Qt::MiddleButton)
+        emit clear();
 }
 
 void Target::mouseReleaseEvent(QMouseEvent *event)

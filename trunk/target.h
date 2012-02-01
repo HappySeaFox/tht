@@ -16,6 +16,7 @@ protected:
 
 signals:
     void dropped(const QPoint &);
+    void clear();
     
 public slots:
     

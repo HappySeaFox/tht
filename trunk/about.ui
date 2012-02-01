@@ -22,7 +22,7 @@
      <item>
       <widget class="QLabel" name="label">
        <property name="pixmap">
-        <pixmap resource="tht.qrc">:/images/chart_64.png</pixmap>
+        <pixmap>:/images/chart_64.png</pixmap>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -56,7 +56,7 @@
          <property name="text">
           <string>THT helps you to do your home task in trading. It can link several Advanced Get windows together and manage a list of tickers.
 
-All suggestions and bug reports please send to our bug tracker, visit&lt;br/&gt;&lt;a href=&quot;https://code.google.com/p/traders-home-task-ng&quot;&gt;https://code.google.com/p/traders-home-task-ng/&lt;/a&gt;</string>
+All suggestions and bug reports please send to our bug tracker, also visit&lt;br/&gt;&lt;a href=&quot;https://code.google.com/p/traders-home-task-ng&quot;&gt;https://code.google.com/p/traders-home-task-ng/wiki/howto&lt;/a&gt;</string>
          </property>
          <property name="textFormat">
           <enum>Qt::RichText</enum>
@@ -137,9 +137,7 @@ All suggestions and bug reports please send to our bug tracker, visit&lt;br/&gt;
    </item>
   </layout>
  </widget>
- <resources>
-  <include location="tht.qrc"/>
- </resources>
+ <resources/>
  <connections>
   <connection>
    <sender>pushButton</sender>
