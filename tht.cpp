@@ -369,7 +369,7 @@ void THT::slotCheckActive()
 
         QString add;
 
-        //if(m_windows.at(m_currentWindow).type == LinkTypeAdvancedGet && ui->checkNyse->isChecked())
+        if(m_windows.at(m_currentWindow).type == LinkTypeAdvancedGet && ui->checkNyse->isChecked())
             add = "=N";
 
         sendString(m_ticker + add);
