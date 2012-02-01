@@ -38,6 +38,8 @@ List::List(int group, QWidget *parent) :
 {
     ui->setupUi(this);
 
+    ui->pushSave->setEnabled(!m_saveTickers);
+
     QMenu *menu = new QMenu(this);
     menu->addAction(tr("Load from file..."), this, SLOT(slotAddFromFile()));
     menu->addAction(tr("Load from clipboard"), this, SLOT(slotAddFromClipboard()));
@@ -132,6 +134,8 @@ bool List::eventFilter(QObject *obj, QEvent *event)
 
         if(ke->matches(QKeySequence::Paste))
             paste();
+        else if(ke->matches(QKeySequence::New))
+            slotClear();
         else if(ke->key() == Qt::Key_Right)
             emit moveRight(currentTicker());
         else if(ke->key() == Qt::Key_Left)
