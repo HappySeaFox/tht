@@ -14,13 +14,29 @@
         <translation></translation>
     </message>
     <message>
+        <source>THT helps you to do your home task in trading. It can link several Advanced Get windows together and manage a list of tickers.
+
+All suggestions and bug reports please send to our bug tracker, visit&lt;br/&gt;&lt;a href=&quot;https://code.google.com/p/traders-home-task-ng/wiki/howto&quot;&gt;https://code.google.com/p/traders-home-task-ng/wiki/howto&lt;/a&gt;</source>
+        <translation type="obsolete">THT помогает вам делать свою домашнюю работу в трейдинге. Она может линковать несколько окон Advanced Get и управлять списками тикеров.
+
+Все пожелания и отчёты об ошибках посылайте на наш багтрекер, посетите&lt;br/&gt;&lt;a href=&quot;https://code.google.com/p/traders-home-task-ng/wiki/howto&quot;&gt;https://code.google.com/p/traders-home-task-ng/wiki/howto&lt;/a&gt;</translation>
+    </message>
+    <message>
+        <source>THT helps you to do your home task in trading. It can link several Advanced Get windows together and manage a list of tickers.
+
+All suggestions and bug reports please send to our bug tracker, visit&lt;br/&gt;&lt;a href=&quot;https://code.google.com/p/traders-home-task-ng&quot;&gt;https://code.google.com/p/traders-home-task-ng/wiki/howto&lt;/a&gt;</source>
+        <translation type="obsolete">THT помогает вам делать свою домашнюю работу в трейдинге. Она может линковать несколько окон Advanced Get и управлять списками тикеров.
+
+Все пожелания и отчёты об ошибках посылайте на наш багтрекер, посетите&lt;br/&gt;&lt;a href=&quot;https://code.google.com/p/traders-home-task-ng/wiki/howto&quot;&gt;https://code.google.com/p/traders-home-task-ng/wiki/howto&lt;/a&gt;</translation>
+    </message>
+    <message>
         <location filename="../about.ui" line="57"/>
         <source>THT helps you to do your home task in trading. It can link several Advanced Get windows together and manage a list of tickers.
 
-All suggestions and bug reports please send to our bug tracker, visit&lt;br/&gt;&lt;a href=&quot;https://code.google.com/p/traders-home-task-ng&quot;&gt;https://code.google.com/p/traders-home-task-ng/&lt;/a&gt;</source>
+All suggestions and bug reports please send to our bug tracker, also visit&lt;br/&gt;&lt;a href=&quot;https://code.google.com/p/traders-home-task-ng&quot;&gt;https://code.google.com/p/traders-home-task-ng/wiki/howto&lt;/a&gt;</source>
         <translation>THT помогает вам делать свою домашнюю работу в трейдинге. Она может линковать несколько окон Advanced Get и управлять списками тикеров.
 
-Все пожелания и отчёты об ошибках посылайте на наш багтрекер, посетите&lt;br/&gt;&lt;a href=&quot;https://code.google.com/p/traders-home-task-ng&quot;&gt;https://code.google.com/p/traders-home-task-ng/&lt;/a&gt;</translation>
+Все пожелания и отчёты об ошибках посылайте на наш багтрекер, также посетите&lt;br/&gt;&lt;a href=&quot;https://code.google.com/p/traders-home-task-ng/wiki/howto&quot;&gt;https://code.google.com/p/traders-home-task-ng/wiki/howto&lt;/a&gt;</translation>
     </message>
     <message>
         <location filename="../about.ui" line="78"/>
@@ -66,54 +82,52 @@ All suggestions and bug reports please send to our bug tracker, visit&lt;br/&gt;
         <translation>Тикеров:</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="41"/>
+        <location filename="../list.cpp" line="42"/>
         <source>Load from file...</source>
         <translation>Загрузить из файла...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="42"/>
+        <location filename="../list.cpp" line="43"/>
         <source>Load from clipboard</source>
         <translation>Загрузить из буфера обмена</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="46"/>
+        <location filename="../list.cpp" line="47"/>
         <source>Export to file...</source>
         <translation>Экспортировать в файл...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="47"/>
+        <location filename="../list.cpp" line="48"/>
         <source>Export to clipboard</source>
         <translation>Экспортировать в буфер обмена</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="249"/>
-        <location filename="../list.cpp" line="324"/>
+        <location filename="../list.cpp" line="257"/>
+        <location filename="../list.cpp" line="328"/>
         <source>Save as</source>
         <translation>Сохранить как</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="260"/>
-        <location filename="../list.cpp" line="333"/>
+        <location filename="../list.cpp" line="268"/>
+        <location filename="../list.cpp" line="337"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="260"/>
+        <location filename="../list.cpp" line="268"/>
         <source>Cannot open file %1</source>
         <translation>Невозможно открыть файл %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="302"/>
         <source>Clear</source>
-        <translation>Очистить</translation>
+        <translation type="obsolete">Очистить</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="302"/>
         <source>You won&apos;t be able to undo this. Really clear?</source>
-        <translation>Вы не сможете это отменить. Действительно очистить?</translation>
+        <translation type="obsolete">Вы не сможете это отменить. Действительно очистить?</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="333"/>
+        <location filename="../list.cpp" line="337"/>
         <source>Cannot save to file %1</source>
         <translation>Невозможно сохранить в файл %1</translation>
     </message>
@@ -131,47 +145,22 @@ All suggestions and bug reports please send to our bug tracker, visit&lt;br/&gt;
         <translation>Количество списков:</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="30"/>
-        <source>1</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../options.ui" line="35"/>
-        <source>2</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../options.ui" line="40"/>
-        <source>3</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../options.ui" line="45"/>
-        <source>4</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../options.ui" line="50"/>
-        <source>5</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../options.ui" line="96"/>
+        <location filename="../options.ui" line="70"/>
         <source>Save position and size</source>
         <translation>Сохранять расположение и размер</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="103"/>
+        <location filename="../options.ui" line="77"/>
         <source>Automatically save tickers</source>
         <translation>Сохранять тикеры автоматически</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="110"/>
+        <location filename="../options.ui" line="84"/>
         <source>Always on top</source>
         <translation>Поверх всех окон</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="117"/>
+        <location filename="../options.ui" line="91"/>
         <source>Hide to tray</source>
         <translation>Прятаться в трей</translation>
     </message>
@@ -270,60 +259,65 @@ any key or using the right or middle mouse buttons.</source>
         <translation>THT занят</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="64"/>
+        <location filename="../tht.ui" line="229"/>
+        <source>=N</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../tht.cpp" line="61"/>
         <source>Options...</source>
         <translation>Настройки...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="65"/>
-        <location filename="../tht.cpp" line="109"/>
+        <location filename="../tht.cpp" line="62"/>
+        <location filename="../tht.cpp" line="106"/>
         <source>Take screenshot...</source>
         <translation>Снимок экрана...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="66"/>
+        <location filename="../tht.cpp" line="63"/>
         <source>Clear links</source>
         <translation>Очистить ссылки</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="68"/>
+        <location filename="../tht.cpp" line="65"/>
         <source>About THT</source>
         <translation>О THT</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="69"/>
+        <location filename="../tht.cpp" line="66"/>
         <source>About Qt</source>
         <translation>О Qt</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="71"/>
-        <location filename="../tht.cpp" line="111"/>
+        <location filename="../tht.cpp" line="68"/>
+        <location filename="../tht.cpp" line="108"/>
         <source>Quit</source>
         <translation>Выход</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="143"/>
+        <location filename="../tht.cpp" line="142"/>
         <source>Notice</source>
         <translation>Заметка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="143"/>
+        <location filename="../tht.cpp" line="142"/>
         <source>THT will continue to run in a system tray</source>
         <translation>THT продолжит работу в системном лотке</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="551"/>
-        <location filename="../tht.cpp" line="579"/>
+        <location filename="../tht.cpp" line="559"/>
+        <location filename="../tht.cpp" line="587"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="551"/>
+        <location filename="../tht.cpp" line="559"/>
         <source>Cannot take screenshot</source>
         <translation>Невозможно создать снимок экрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="579"/>
+        <location filename="../tht.cpp" line="587"/>
         <source>Cannot save screenshot</source>
         <translation>Невозможно сохранить снимок экрана</translation>
     </message>
