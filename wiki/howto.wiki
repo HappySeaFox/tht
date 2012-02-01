@@ -1,5 +1,7 @@
 = THT Howto and FAQ =
 
+<g:plusone size="medium"></g:plusone>
+
 <wiki:toc max_depth="2" />
 
 == How to link several Advanced Get windows together? ==
