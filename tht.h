@@ -49,7 +49,7 @@ protected:
     virtual void closeEvent(QCloseEvent *e);
 
 private:
-    void sendKey(int vkey, bool extended = false) const;
+    void sendKey(int key, bool extended = false) const;
     void sendString(const QString &str) const;
     void rebuildUi();
     void checkWindows();
@@ -72,6 +72,7 @@ private slots:
     void slotTakeScreenshot();
     void slotClearLinks();
     void slotTargetDropped(const QPoint &);
+    void slotMessageReceived(const QString &);
 
 private:
     Ui::THT *ui;

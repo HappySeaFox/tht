@@ -24,6 +24,7 @@
 #include <QClipboard>
 #include <QFileInfo>
 #include <QDateTime>
+#include <QDebug>
 #include <QTimer>
 #include <QIcon>
 #include <QMenu>
@@ -47,19 +48,15 @@ THT::THT(QWidget *parent) :
     ui(new Ui::THT),
     m_running(false)
 {
-    QIcon icon;
-    icon.addFile(":/images/chart.png");
-    icon.addFile(":/images/chart_24.png");
-    icon.addFile(":/images/chart_32.png");
-    icon.addFile(":/images/chart_48.png");
-    icon.addFile(":/images/chart_64.png");
-    setWindowIcon(icon);
-
     ui->setupUi(this);
+
+    // NYSE only
+    ui->checkNyse->setChecked(Settings::instance()->nyseOnly());
 
     QIcon icon_quit(":/images/quit.png");
     QIcon icon_screenshot(":/images/screenshot.png");
 
+    // context menu
     m_menu = new QMenu(this);
     m_menu->addAction(QIcon(":/images/options.png"), tr("Options..."), this, SLOT(slotOptions()));
     m_menu->addAction(icon_screenshot, tr("Take screenshot..."), this, SLOT(slotTakeScreenshot()));
@@ -124,6 +121,8 @@ THT::THT(QWidget *parent) :
 
 THT::~THT()
 {
+    Settings::instance()->setNyseOnly(ui->checkNyse->isChecked());
+
     if(Settings::instance()->saveGeometry())
     {
         Settings::instance()->setWindowSize(size());
@@ -159,16 +158,19 @@ void THT::contextMenuEvent(QContextMenuEvent *event)
     m_menu->exec(event->globalPos());
 }
 
-void THT::sendKey(int vkey, bool extended) const
+void THT::sendKey(int key, bool extended) const
 {
     KEYBDINPUT kb = {0};
     INPUT input[2] = {{0}, {0}};
+
+    SHORT vkey = VkKeyScan(key);
 
     // key down
     if(extended)
         kb.dwFlags = KEYEVENTF_EXTENDEDKEY;
 
     kb.wVk = vkey;
+    kb.wScan = MapVirtualKey(vkey, 0);
 
     input[0].type = INPUT_KEYBOARD;
     input[0].ki = kb;
@@ -197,7 +199,7 @@ void THT::sendString(const QString &ticker) const
     for(int i = 0;i < ticker.length();i++)
         sendKey(ticker.at(i).toAscii());
 
-    sendKey(VK_RETURN, true);
+    sendKey(VK_RETURN);
 }
 
 void THT::rebuildUi()
@@ -364,7 +366,13 @@ void THT::slotCheckActive()
     if(GetForegroundWindow() == window && pwi.dwWindowStatus == WS_ACTIVECAPTION)
     {
         qDebug("THT: Found window, sending data");
-        sendString(m_ticker);
+
+        QString add;
+
+        //if(m_windows.at(m_currentWindow).type == LinkTypeAdvancedGet && ui->checkNyse->isChecked())
+            add = "=N";
+
+        sendString(m_ticker + add);
         loadNextWindow();
     }
     else
@@ -642,6 +650,7 @@ void THT::slotTargetDropped(const QPoint &p)
         return;
     }
 
+    // already linked?
     QList<Link>::iterator itEnd = m_windows.end();
 
     for(QList<Link>::iterator it = m_windows.begin();it != itEnd;++it)
@@ -655,7 +664,17 @@ void THT::slotTargetDropped(const QPoint &p)
 
     qDebug("THT: Window under cursor %d", (int)hwnd);
 
+    // beep
+    MessageBeep(MB_OK);
+
     m_windows.append(Link(hwnd));
 
     checkWindows();
+}
+
+// IPC message
+void THT::slotMessageReceived(const QString &msg)
+{
+    if(msg == "wake up")
+        activate();
 }

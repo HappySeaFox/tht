@@ -11,6 +11,9 @@ class Settings
 public:
     static Settings* instance();
 
+    void setNyseOnly(bool);
+    bool nyseOnly();
+
     void setOnTop(bool);
     bool onTop();
 
