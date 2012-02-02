@@ -34,7 +34,8 @@ List::List(int group, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::List),
     m_section(group),
-    m_saveTickers(Settings::instance()->saveTickers())
+    m_saveTickers(Settings::instance()->saveTickers()),
+    m_ignoreInput(false)
 {
     ui->setupUi(this);
 
