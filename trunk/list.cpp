@@ -136,6 +136,8 @@ bool List::eventFilter(QObject *obj, QEvent *event)
             paste();
         else if(ke->matches(QKeySequence::New))
             clear();
+        else if(ke->matches(QKeySequence::Open))
+            slotAddFromFile();
         else if(ke->key() == Qt::Key_Right)
             emit moveRight(currentTicker());
         else if(ke->key() == Qt::Key_Left)
