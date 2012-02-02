@@ -17,11 +17,14 @@
 
 #include <QtSingleApplication>
 #include <QTranslator>
+#include <QtPlugin>
 #include <QLocale>
 #include <QIcon>
 #include <QDir>
 
 #include "tht.h"
+
+Q_IMPORT_PLUGIN(qico)
 
 int main(int argc, char *argv[])
 {

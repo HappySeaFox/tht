@@ -22,7 +22,7 @@
      <item>
       <widget class="QLabel" name="label">
        <property name="pixmap">
-        <pixmap>:/images/chart_64.png</pixmap>
+        <pixmap resource="tht.qrc">:/images/chart.ico</pixmap>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -137,7 +137,9 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="tht.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>pushButton</sender>

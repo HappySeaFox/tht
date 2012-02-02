@@ -9,6 +9,8 @@ QT += core gui network
 TARGET = THT
 TEMPLATE = app
 
+QTPLUGIN += qico
+
 INCLUDEPATH += . qtsingleapplication qxt
 DEPENDPATH += . qtsingleapplication qxt
 
