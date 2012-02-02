@@ -40,6 +40,7 @@ int main(int argc, char *argv[])
 
     qDebug("THT: Locale is \"%s\"", qPrintable(locale));
 
+    // load translation
     QTranslator translator;
     translator.load(locale, ":/ts");
     app.installTranslator(&translator);
