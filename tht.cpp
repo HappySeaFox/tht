@@ -76,7 +76,7 @@ THT::THT(QWidget *parent) :
 
     m_timerLoadToNextWindow = new QTimer(this);
     m_timerLoadToNextWindow->setSingleShot(true);
-    m_timerLoadToNextWindow->setInterval(0);
+    m_timerLoadToNextWindow->setInterval(10);
     connect(m_timerLoadToNextWindow, SIGNAL(timeout()), this, SLOT(slotLoadToNextWindow()));
 
     // layout
@@ -386,7 +386,7 @@ void THT::slotCheckActive()
         else
         {
             qDebug("THT: Cannot find window, continuing to search");
-            m_timerLoadToNextWindow->start(m_loadToNextInterval);
+            m_timerLoadToNextWindow->start();
         }
     }
 }
@@ -508,8 +508,6 @@ void THT::slotLoadToNextWindow()
 
     if(IsZoomed(window))
         flags |= SW_SHOWMAXIMIZED;
-
-    m_loadToNextInterval = IsIconic(window) ? 50 : 20;
 
     // try to switch to this window
     ShowWindow(window, flags);

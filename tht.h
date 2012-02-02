@@ -98,7 +98,6 @@ private:
     bool m_running;
     QTimer *m_timerCheckActive;
     QTimer *m_timerLoadToNextWindow;
-    uint m_loadToNextInterval;
     qint64 m_startupTime;
     QMenu *m_menu;
     QList<List *> m_lists;
