@@ -78,6 +78,8 @@ Yes, THT supports some keyboard shortcuts.
  * *up arrow* - load the previous ticker
  * *left arrow* - copy the current ticker to the list leftwards
  * *right arrow* - copy the current ticker to the list on the right
+ * *Ctrl+N* - clear list
+ * *Ctrl+V* - paste tickers from clipboard
 
 === Global shortcuts: ===
 
