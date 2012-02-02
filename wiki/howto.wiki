@@ -10,7 +10,7 @@ Drag a black target with a left mouse button and drop onto a required AG window.
 
 For example, you can link together 5min, daily and weekly charts.
 
-<a href="http://i31.fastpic.ru/big/2012/0201/34/1fd9e6a32d76146850cd00fb0bbb0434.png" target="_blank"><img src="http://i31.fastpic.ru/thumb/2012/0201/34/1fd9e6a32d76146850cd00fb0bbb0434.jpeg" border="0"></img></a>
+<a href="http://fastpic.ru/view/28/2012/0202/7416e132b92afdbb5e5728c17625d49e.png.html" target="_blank"><img src="http://i28.fastpic.ru/thumb/2012/0202/9e/7416e132b92afdbb5e5728c17625d49e.jpeg" border="0"></img></a>
 
 == How to link Graybox Market Makers window? ==
 
