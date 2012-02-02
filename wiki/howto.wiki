@@ -6,11 +6,15 @@
 
 == How to link several Advanced Get windows together? ==
 
-Drag a black target with a left mouse button and drop onto a required AG window. If everything is ok, you will hear a confirmation sound. <font color=red>The main AG window must also be visible (not minimized)</font>, otherwise links will be established but won't work correctly.
-
-For example, you can link together 5min, daily and weekly charts.
+Drag a black target with a left mouse button and drop onto a required AG window. If everything is ok, you will hear a confirmation sound. For example, you can link together 5min, daily and weekly charts.
 
 <a href="http://fastpic.ru/view/28/2012/0202/7416e132b92afdbb5e5728c17625d49e.png.html" target="_blank"><img src="http://i28.fastpic.ru/thumb/2012/0202/9e/7416e132b92afdbb5e5728c17625d49e.jpeg" border="0"></img></a>
+
+Notes:
+
+ * <font color=red>The main Advanced Get window must also be visible (not minimized), otherwise links will be established but won't work correctly.</font>
+
+ * <font color=red>If you run the application you want to link to (Advanced Get, or Graybox, or whatever) as administrator, you need to run as administrator THT too. Otherwise links will be established but won't work correctly.</font>
 
 == How to link Graybox Market Makers window? ==
 
@@ -84,7 +88,7 @@ Yes, THT supports some keyboard shortcuts.
 
 === Global shortcuts: ===
 
- * *Ctrl+Alt+S* - take screenshot of your trade
+ * *Ctrl+Alt+S* - take a screenshot of your trade
 
 == Graybox warning ==
 
