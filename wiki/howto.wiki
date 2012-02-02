@@ -42,7 +42,7 @@ Click on "Export tickers" button. You can export to a file or clipboard.
 
 == How to add new tickers? ==
 
-Click on "Load tickers" button. You can import from a file or clipboard. 
+Click on "Add tickers" button. You can import from a file or clipboard. 
 
 <a href="http://i30.fastpic.ru/big/2012/0201/00/72ac37194d629da34a7fc711ccc1d300.png" target="_blank"><img src="http://i30.fastpic.ru/thumb/2012/0201/00/72ac37194d629da34a7fc711ccc1d300.jpeg" border="0"></img></a>
 
@@ -50,7 +50,7 @@ For example, open <a href="http://finviz.com">Finviz</a>, select some filters fr
 
 <a href="http://fastpic.ru/view/30/2012/0201/9d75b9da030140e59a1dce18e0c2661d.png.html" target="_blank"><img src="http://i30.fastpic.ru/thumb/2012/0201/1d/9d75b9da030140e59a1dce18e0c2661d.jpeg" border="0"/>
 
-== How to load NYSE-only stocks? ==
+== How to show NYSE-only trades? ==
 
 Turn on a "=N" option. This option will append "=N" to all tickers when loading to Advanced Get (Graybox MM doesn't support this).
 
