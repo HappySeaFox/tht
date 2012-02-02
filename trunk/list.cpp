@@ -42,8 +42,8 @@ List::List(int group, QWidget *parent) :
     ui->pushSave->setEnabled(!m_saveTickers);
 
     QMenu *menu = new QMenu(this);
-    menu->addAction(tr("Load from file..."), this, SLOT(slotAddFromFile()));
-    menu->addAction(tr("Load from clipboard"), this, SLOT(slotAddFromClipboard()));
+    menu->addAction(tr("Add from file..."), this, SLOT(slotAddFromFile()));
+    menu->addAction(tr("Add from clipboard"), this, SLOT(slotAddFromClipboard()));
     ui->pushAdd->setMenu(menu);
 
     menu = new QMenu(this);
