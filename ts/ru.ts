@@ -62,9 +62,13 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
         <translation>Очистить список</translation>
     </message>
     <message>
-        <location filename="../list.ui" line="51"/>
         <source>Load tickers</source>
-        <translation>Загрузить тикеры</translation>
+        <translation type="obsolete">Загрузить тикеры</translation>
+    </message>
+    <message>
+        <location filename="../list.ui" line="51"/>
+        <source>Add tickers</source>
+        <translation>Добавить тикеры</translation>
     </message>
     <message>
         <location filename="../list.ui" line="71"/>
@@ -82,39 +86,47 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
         <translation>Тикеров:</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="44"/>
         <source>Load from file...</source>
-        <translation>Загрузить из файла...</translation>
+        <translation type="obsolete">Загрузить из файла...</translation>
+    </message>
+    <message>
+        <source>Load from clipboard</source>
+        <translation type="obsolete">Загрузить из буфера обмена</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="45"/>
-        <source>Load from clipboard</source>
-        <translation>Загрузить из буфера обмена</translation>
+        <source>Add from file...</source>
+        <translation>Добавить из файла...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="49"/>
+        <location filename="../list.cpp" line="46"/>
+        <source>Add from clipboard</source>
+        <translation>Добавить из буфера обмена</translation>
+    </message>
+    <message>
+        <location filename="../list.cpp" line="50"/>
         <source>Export to file...</source>
         <translation>Экспортировать в файл...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="50"/>
+        <location filename="../list.cpp" line="51"/>
         <source>Export to clipboard</source>
         <translation>Экспортировать в буфер обмена</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="261"/>
-        <location filename="../list.cpp" line="332"/>
+        <location filename="../list.cpp" line="264"/>
+        <location filename="../list.cpp" line="335"/>
         <source>Save as</source>
         <translation>Сохранить как</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="272"/>
-        <location filename="../list.cpp" line="341"/>
+        <location filename="../list.cpp" line="275"/>
+        <location filename="../list.cpp" line="344"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="272"/>
+        <location filename="../list.cpp" line="275"/>
         <source>Cannot open file %1</source>
         <translation>Невозможно открыть файл %1</translation>
     </message>
@@ -127,7 +139,7 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
         <translation type="obsolete">Вы не сможете это отменить. Действительно очистить?</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="341"/>
+        <location filename="../list.cpp" line="344"/>
         <source>Cannot save to file %1</source>
         <translation>Невозможно сохранить в файл %1</translation>
     </message>
@@ -269,33 +281,33 @@ any key or using the right or middle mouse buttons.</source>
         <translation>Настройки...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="62"/>
+        <location filename="../tht.cpp" line="63"/>
         <location filename="../tht.cpp" line="107"/>
         <source>Take screenshot...</source>
         <translation>Снимок экрана...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="63"/>
+        <location filename="../tht.cpp" line="64"/>
         <source>Clear ticker lists</source>
         <translation>Очистить списки тикеров</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="64"/>
+        <location filename="../tht.cpp" line="65"/>
         <source>Clear links</source>
         <translation>Очистить ссылки</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="66"/>
+        <location filename="../tht.cpp" line="67"/>
         <source>About THT</source>
         <translation>О THT</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="67"/>
+        <location filename="../tht.cpp" line="68"/>
         <source>About Qt</source>
         <translation>О Qt</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="69"/>
+        <location filename="../tht.cpp" line="70"/>
         <location filename="../tht.cpp" line="109"/>
         <source>Quit</source>
         <translation>Выход</translation>
@@ -311,18 +323,18 @@ any key or using the right or middle mouse buttons.</source>
         <translation>THT продолжит работу в системном лотке</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="560"/>
-        <location filename="../tht.cpp" line="588"/>
+        <location filename="../tht.cpp" line="563"/>
+        <location filename="../tht.cpp" line="591"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="560"/>
+        <location filename="../tht.cpp" line="563"/>
         <source>Cannot take screenshot</source>
         <translation>Невозможно создать снимок экрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="588"/>
+        <location filename="../tht.cpp" line="591"/>
         <source>Cannot save screenshot</source>
         <translation>Невозможно сохранить снимок экрана</translation>
     </message>
