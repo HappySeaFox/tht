@@ -70,6 +70,7 @@ private slots:
     void slotLoadToNextWindow();
     void slotTrayActivated(QSystemTrayIcon::ActivationReason);
     void slotTakeScreenshot();
+    void slotTakeScreenshotReal();
     void slotClearLists();
     void slotClearLinks();
     void slotTargetDropped(const QPoint &);
@@ -104,6 +105,7 @@ private:
     QGridLayout *m_layout;
     QString m_ticker;
     QSystemTrayIcon *m_tray;
+    bool m_wasVisible;
 };
 
 #endif // THT_H
