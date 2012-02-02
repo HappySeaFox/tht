@@ -100,7 +100,6 @@ THT::THT(QWidget *parent) :
             move(pt);
     }
 
-    // tray icon
     m_tray = new QSystemTrayIcon(QIcon(":/images/chart.png"), this);
     QMenu *trayMenu = new QMenu(this);
 
@@ -538,17 +537,22 @@ void THT::slotTrayActivated(QSystemTrayIcon::ActivationReason reason)
 
 void THT::slotTakeScreenshot()
 {
-    bool vis = isVisible();
+    m_wasVisible = isVisible();
 
     hide();
 
+    QTimer::singleShot(0, this, SLOT(slotTakeScreenshotReal()));
+}
+
+void THT::slotTakeScreenshotReal()
+{
     RegionSelect selector;
     QPixmap px;
 
     // ignore screenshot
     if(selector.exec() != QDialog::Accepted)
     {
-        if(vis)
+        if(m_wasVisible)
             activate();
 
         return;
@@ -560,13 +564,13 @@ void THT::slotTakeScreenshot()
     {
         QMessageBox::critical(this, tr("Error"), tr("Cannot take screenshot"));
 
-        if(vis)
+        if(m_wasVisible)
             activate();
 
         return;
     }
 
-    if(vis)
+    if(m_wasVisible)
         activate();
 
     // save screenshot
