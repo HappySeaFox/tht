@@ -52,9 +52,14 @@ RegionSelect::~RegionSelect()
 
 bool RegionSelect::event(QEvent *event)
 {
-    if (event->type() == QEvent::MouseButtonRelease || event->type() == QEvent::KeyPress)
+    if(event->type() == QEvent::KeyPress)
+        reject();
+    else if(event->type() == QEvent::MouseButtonRelease)
     {
-        accept();
+        QMouseEvent *mouseEvent = static_cast<QMouseEvent*> (event);
+
+        if(mouseEvent->button() == Qt::LeftButton)
+            accept();
     }
     else if(event->type() == QEvent::MouseButtonPress)
     {
