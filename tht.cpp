@@ -100,7 +100,7 @@ THT::THT(QWidget *parent) :
             move(pt);
     }
 
-    m_tray = new QSystemTrayIcon(QIcon(":/images/chart.png"), this);
+    m_tray = new QSystemTrayIcon(QIcon(":/images/chart.ico"), this);
     QMenu *trayMenu = new QMenu(this);
 
     //trayMenu->addAction(tr("Restore"), this, SLOT(activate()));
