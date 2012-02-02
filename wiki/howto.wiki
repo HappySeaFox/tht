@@ -10,6 +10,8 @@ Drag a black target with a left mouse button and drop onto a required AG window.
 
 <a href="http://fastpic.ru/view/28/2012/0202/7416e132b92afdbb5e5728c17625d49e.png.html" target="_blank"><img src="http://i28.fastpic.ru/thumb/2012/0202/9e/7416e132b92afdbb5e5728c17625d49e.jpeg" border="0"></img></a>
 
+<wiki:video url="https://www.youtube.com/watch?v=Nn2of8huQsc" width="240" height="170"/>
+
 Notes:
 
  * <font color=red>The main Advanced Get window must also be visible (not minimized), otherwise links will be established but won't work correctly.</font>
@@ -21,6 +23,8 @@ Notes:
 Drag a black target with a left mouse button and drop onto a required Graybox MM window. If everything is ok, you will hear a confirmation sound.
 
 <a href="http://i31.fastpic.ru/big/2012/0201/96/f3e67fa528ff049f3612a0d4e9e2b896.png" target="_blank"><img src="http://i31.fastpic.ru/thumb/2012/0201/96/f3e67fa528ff049f3612a0d4e9e2b896.jpeg" border="0"></img></a>
+
+<wiki:video url="https://www.youtube.com/watch?v=Q12ydFopadU" width="240" height="170"/>
 
 == How to reset links? ==
 
