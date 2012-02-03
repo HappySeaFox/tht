@@ -89,9 +89,16 @@ Yes, THT supports some keyboard shortcuts.
  * *Home* - load the first ticket
  * *End* - load the last ticket
  * *Enter* - reload the current ticket
+ * *Delete* - delete the current ticket
  * *Ctrl+N* - clear list
- * *Ctrl+O* - load tickers from file
- * *Ctrl+V* - paste tickers from clipboard
+ * *Ctrl+O* - add tickers from a file
+ * *Ctrl+V* - paste tickers from a clipboard
+ * *H* - load "$HUI"
+ * *I* - load "$INDU"
+ * *S* - load "$SPX"
+ * *T* - load "$TVOL"
+ * *X* - load "$XOI"
+ * *Y* - open the current ticker in Yahoo Finance
 
 === Global shortcuts: ===
 
