@@ -108,7 +108,7 @@ void Settings::setSaveTickers(bool s, SyncType sync)
 
 bool Settings::saveTickers()
 {
-    return load<bool>("save-tickers", true);
+    return load<bool>("save-tickers", false);
 }
 
 void Settings::saveTickersForGroup(int group, const QStringList &tickers, SyncType sync)

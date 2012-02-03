@@ -15,6 +15,7 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <QDesktopServices>
 #include <QListWidgetItem>
 #include <QFileDialog>
 #include <QInputEvent>
@@ -25,6 +26,7 @@
 #include <QKeyEvent>
 #include <QEvent>
 #include <QMenu>
+#include <QUrl>
 
 #include "settings.h"
 #include "list.h"
@@ -139,41 +141,120 @@ bool List::eventFilter(QObject *obj, QEvent *event)
             clear();
         else if(ke->matches(QKeySequence::Open))
             slotAddFromFile();
-        else if(ke->key() == Qt::Key_Right)
-            emit moveRight(currentTicker());
-        else if(ke->key() == Qt::Key_Left)
-            emit moveLeft(currentTicker());
-        else if(ke->key() == Qt::Key_Delete)
+        else
         {
-            delete ui->list->currentItem();
-            numberOfItemsChanged();
-            save();
-        }
-        else if(ke->key() == Qt::Key_Return)
-        {
-            QListWidgetItem *item = ui->list->currentItem();
-
-            if(!item)
-                item = ui->list->item(0);
-
-            if(item)
+            switch(ke->key())
             {
-                if(item->isSelected())
-                    slotSelectedItemChanged();
-                else
+                case Qt::Key_A:
+                    slotAddFromFile();
+                break;
+
+                case Qt::Key_C:
+                    paste();
+                break;
+
+                case Qt::Key_E:
+                    slotExportToFile();
+                break;
+
+                case Qt::Key_D:
+                    slotExportToClipboard();
+                break;
+
+                case Qt::Key_Right:
+                    emit copyRight(currentTicker());
+                break;
+
+                case Qt::Key_Left:
+                    emit copyLeft(currentTicker());
+                break;
+
+                case Qt::Key_Delete:
+                    delete ui->list->currentItem();
+                    numberOfItemsChanged();
+                    save();
+                break;
+
+                case Qt::Key_Return:
                 {
-                    ui->list->setCurrentItem(item);
-                    item->setSelected(true);
+                    QListWidgetItem *item = ui->list->currentItem();
+
+                    if(!item)
+                        item = ui->list->item(0);
+
+                    if(item)
+                    {
+                        if(item->isSelected())
+                            slotSelectedItemChanged();
+                        else
+                        {
+                            ui->list->setCurrentItem(item);
+                            item->setSelected(true);
+                        }
+                    }
+
+                    break;
                 }
-            }
+
+                case Qt::Key_N:
+                    clear();
+                break;
+
+                // Yahoo finance
+                case Qt::Key_Y:
+                {
+                    QString t = currentTicker();
+
+                    if(!t.isEmpty())
+                        QDesktopServices::openUrl(QUrl(QString("http://finance.yahoo.com/q?s=%1").arg(t)));
+
+                    break;
+                }
+
+                // $INDU
+                case Qt::Key_I:
+                    emit loadTicker("$INDU");
+                break;
+
+                // $SPX
+                case Qt::Key_S:
+                    emit loadTicker("$SPX");
+                break;
+
+                // $TVOL
+                case Qt::Key_T:
+                    emit loadTicker("$TVOL");
+                break;
+
+                // $XOI
+                case Qt::Key_X:
+                    emit loadTicker("$XOI");
+                break;
+
+                // $HUI
+                case Qt::Key_H:
+                    emit loadTicker("$HUI");
+                break;
+
+                // default processing
+                case Qt::Key_Up:
+                case Qt::Key_Down:
+                case Qt::Key_Home:
+                case Qt::Key_End:
+                case Qt::Key_PageUp:
+                case Qt::Key_PageDown:
+                    return QObject::eventFilter(obj, event);
+            } // switch
         }
 
-        return QObject::eventFilter(obj, event);
+        return true;
     }
-    else
-    {
-        return QObject::eventFilter(obj, event);
-    }
+    else if(type == QEvent::FocusIn)
+        ui->list->setAlternatingRowColors(true);
+    else if(type == QEvent::FocusOut)
+        ui->list->setAlternatingRowColors(false);
+
+    return QObject::eventFilter(obj, event);
 }
 
 void List::numberOfItemsChanged()
