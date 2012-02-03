@@ -9,11 +9,6 @@
         <translation>О программе</translation>
     </message>
     <message>
-        <location filename="../about.ui" line="44"/>
-        <source>THT 0.4</source>
-        <translation></translation>
-    </message>
-    <message>
         <source>THT helps you to do your home task in trading. It can link several Advanced Get windows together and manage a list of tickers.
 
 All suggestions and bug reports please send to our bug tracker, visit&lt;br/&gt;&lt;a href=&quot;https://code.google.com/p/traders-home-task-ng/wiki/howto&quot;&gt;https://code.google.com/p/traders-home-task-ng/wiki/howto&lt;/a&gt;</source>
@@ -28,6 +23,11 @@ All suggestions and bug reports please send to our bug tracker, visit&lt;br/&gt;
         <translation type="obsolete">THT помогает вам делать свою домашнюю работу в трейдинге. Она может линковать несколько окон Advanced Get и управлять списками тикеров.
 
 Все пожелания и отчёты об ошибках посылайте на наш багтрекер, посетите&lt;br/&gt;&lt;a href=&quot;https://code.google.com/p/traders-home-task-ng/wiki/howto&quot;&gt;https://code.google.com/p/traders-home-task-ng/wiki/howto&lt;/a&gt;</translation>
+    </message>
+    <message>
+        <location filename="../about.ui" line="44"/>
+        <source>THT 0.5</source>
+        <translation></translation>
     </message>
     <message>
         <location filename="../about.ui" line="57"/>
@@ -94,39 +94,39 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
         <translation type="obsolete">Загрузить из буфера обмена</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="45"/>
+        <location filename="../list.cpp" line="47"/>
         <source>Add from file...</source>
         <translation>Добавить из файла...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="46"/>
+        <location filename="../list.cpp" line="48"/>
         <source>Add from clipboard</source>
         <translation>Добавить из буфера обмена</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="50"/>
+        <location filename="../list.cpp" line="52"/>
         <source>Export to file...</source>
         <translation>Экспортировать в файл...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="51"/>
+        <location filename="../list.cpp" line="53"/>
         <source>Export to clipboard</source>
         <translation>Экспортировать в буфер обмена</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="264"/>
-        <location filename="../list.cpp" line="335"/>
+        <location filename="../list.cpp" line="345"/>
+        <location filename="../list.cpp" line="416"/>
         <source>Save as</source>
         <translation>Сохранить как</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="275"/>
-        <location filename="../list.cpp" line="344"/>
+        <location filename="../list.cpp" line="356"/>
+        <location filename="../list.cpp" line="425"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="275"/>
+        <location filename="../list.cpp" line="356"/>
         <source>Cannot open file %1</source>
         <translation>Невозможно открыть файл %1</translation>
     </message>
@@ -139,7 +139,7 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
         <translation type="obsolete">Вы не сможете это отменить. Действительно очистить?</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="344"/>
+        <location filename="../list.cpp" line="425"/>
         <source>Cannot save to file %1</source>
         <translation>Невозможно сохранить в файл %1</translation>
     </message>
@@ -180,7 +180,7 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
 <context>
     <name>RegionSelect</name>
     <message>
-        <location filename="../regionselect.cpp" line="103"/>
+        <location filename="../regionselect.cpp" line="108"/>
         <source>Use your mouse to select a rectangle or exit pressing
 any key or using the right or middle mouse buttons.</source>
         <translation>Используйте мышь чтобы выделить прямоугольник, или нажмите
@@ -282,7 +282,7 @@ any key or using the right or middle mouse buttons.</source>
     </message>
     <message>
         <location filename="../tht.cpp" line="63"/>
-        <location filename="../tht.cpp" line="107"/>
+        <location filename="../tht.cpp" line="110"/>
         <source>Take screenshot...</source>
         <translation>Снимок экрана...</translation>
     </message>
@@ -308,33 +308,33 @@ any key or using the right or middle mouse buttons.</source>
     </message>
     <message>
         <location filename="../tht.cpp" line="70"/>
-        <location filename="../tht.cpp" line="109"/>
+        <location filename="../tht.cpp" line="112"/>
         <source>Quit</source>
         <translation>Выход</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="143"/>
+        <location filename="../tht.cpp" line="146"/>
         <source>Notice</source>
         <translation>Заметка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="143"/>
+        <location filename="../tht.cpp" line="146"/>
         <source>THT will continue to run in a system tray</source>
         <translation>THT продолжит работу в системном лотке</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="563"/>
-        <location filename="../tht.cpp" line="591"/>
+        <location filename="../tht.cpp" line="569"/>
+        <location filename="../tht.cpp" line="597"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="563"/>
+        <location filename="../tht.cpp" line="569"/>
         <source>Cannot take screenshot</source>
         <translation>Невозможно создать снимок экрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="591"/>
+        <location filename="../tht.cpp" line="597"/>
         <source>Cannot save screenshot</source>
         <translation>Невозможно сохранить снимок экрана</translation>
     </message>
