@@ -56,8 +56,8 @@ private:
     void showSaved(bool isSaved);
 
 signals:
-    void moveLeft(const QString &ticker);
-    void moveRight(const QString &ticker);
+    void copyLeft(const QString &ticker);
+    void copyRight(const QString &ticker);
     void loadTicker(const QString &);
 
 public slots:

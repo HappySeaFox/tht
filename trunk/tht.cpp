@@ -86,6 +86,9 @@ THT::THT(QWidget *parent) :
 
     rebuildUi();
 
+    if(m_lists.size())
+        m_lists.at(0)->setFocus();
+
     // restore geometry
     if(Settings::instance()->saveGeometry())
     {
@@ -215,8 +218,8 @@ void THT::rebuildUi()
         {
             List *list = new List(m_lists.size()+1, this);
 
-            connect(list, SIGNAL(moveLeft(const QString &)), this, SLOT(slotMoveLeft(const QString &)));
-            connect(list, SIGNAL(moveRight(const QString &)), this, SLOT(slotMoveRight(const QString &)));
+            connect(list, SIGNAL(copyLeft(const QString &)), this, SLOT(slotCopyLeft(const QString &)));
+            connect(list, SIGNAL(copyRight(const QString &)), this, SLOT(slotCopyRight(const QString &)));
             connect(list, SIGNAL(loadTicker(const QString &)), this, SLOT(slotLoadTicker(const QString &)));
 
             m_layout->addWidget(list, 0, m_lists.size());
@@ -265,6 +268,7 @@ void THT::checkWindows()
                 DWORD dwProcessId;
 
                 GetWindowThreadProcessId((*it).hwnd, &dwProcessId);
+
                 HANDLE h = OpenProcess(PROCESS_QUERY_INFORMATION, FALSE, dwProcessId);
 
                 if(!h)
@@ -307,11 +311,11 @@ void THT::checkWindows()
     for(QList<Link>::iterator it = m_windows.begin();it != itEnd;++it)
     {
         if((*it).type == LinkTypeAdvancedGet)
-            ag++;
+            ++ag;
         else if((*it).type == LinkTypeGraybox)
-            gb++;
+            ++gb;
         else if((*it).type == LinkTypeOther)
-            o++;
+            ++o;
     }
 
     ui->labelAG->setNum(ag);
@@ -370,7 +374,9 @@ void THT::slotCheckActive()
 
         QString add;
 
-        if(m_windows.at(m_currentWindow).type == LinkTypeAdvancedGet && ui->checkNyse->isChecked())
+        if(m_windows.at(m_currentWindow).type == LinkTypeAdvancedGet
+                && ui->checkNyse->isChecked()
+                && !m_ticker.startsWith(QChar('$')))
             add = "=N";
 
         sendString(m_ticker + add);
@@ -426,42 +432,42 @@ void THT::slotOptions()
     }
 }
 
-void THT::slotMoveLeft(const QString &ticker)
+void THT::slotCopyLeft(const QString &ticker)
 {
-    qDebug("THT: Move ticker \"%s\" left", qPrintable(ticker));
+    qDebug("THT: Copy ticker \"%s\" left", qPrintable(ticker));
 
     int index = m_lists.indexOf(qobject_cast<List *>(sender()));
 
     if(index < 0)
     {
-        qWarning("THT: Cannot find where to move the ticker");
+        qWarning("THT: Cannot find where to copy the ticker");
         return;
     }
 
     if(!index)
     {
-        qWarning("THT: Cannot move from the first list");
+        qWarning("THT: Cannot copy from the first list");
         return;
     }
 
     m_lists[--index]->addTicker(ticker);
 }
 
-void THT::slotMoveRight(const QString &ticker)
+void THT::slotCopyRight(const QString &ticker)
 {
-    qDebug("THT: Move ticker \"%s\" right", qPrintable(ticker));
+    qDebug("THT: Copy ticker \"%s\" right", qPrintable(ticker));
 
     int index = m_lists.indexOf(qobject_cast<List *>(sender()));
 
     if(index < 0)
     {
-        qWarning("THT: Cannot find where to move the ticker");
+        qWarning("THT: Cannot find where to copy the ticker");
         return;
     }
 
     if(index == m_lists.size()-1)
     {
-        qWarning("THT: Cannot move from the last list");
+        qWarning("THT: Cannot copy from the last list");
         return;
     }
 
