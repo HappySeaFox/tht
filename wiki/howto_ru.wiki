@@ -38,13 +38,13 @@
 
 Нажмите на кнопку "Экспортировать тикеры". Вы можете экспортировать в файл или буфер обмена.
 
-<a href="http://i28.fastpic.ru/big/2012/0201/69/4b3ebf4a61d931724186dc2891892f69.png" target="_blank"><img src="http://i28.fastpic.ru/thumb/2012/0201/69/4b3ebf4a61d931724186dc2891892f69.jpeg" border="0"></img></a>
+<a href="http://fastpic.ru/view/27/2012/0204/1292cddfe05d9b5a2c5ad274f957e9e3.png.html" target="_blank"><img src="http://i27.fastpic.ru/thumb/2012/0204/e3/1292cddfe05d9b5a2c5ad274f957e9e3.jpeg" border="0"></img></a>
 
 == Как добавить новые тикеры? ==
 
 Нажмите на кнопку "Добавить тикеры". Вы можете добавлять из файла или буфера обмена.
 
-<a href="http://i30.fastpic.ru/big/2012/0201/00/72ac37194d629da34a7fc711ccc1d300.png" target="_blank"><img src="http://i30.fastpic.ru/thumb/2012/0201/00/72ac37194d629da34a7fc711ccc1d300.jpeg" border="0"></img></a>
+<a href="http://fastpic.ru/view/27/2012/0204/7c7a82aefca9a38484fc995c9e34c5c0.png.html" target="_blank"><img src="http://i27.fastpic.ru/thumb/2012/0204/c0/7c7a82aefca9a38484fc995c9e34c5c0.jpeg" border="0"></img></a>
 
 К примеру, откройте <a href="http://finviz.com">Finviz</a>, выберите несколько фильтров на скринере, и нажмите "Tickers". Выделите мышкой все найденные тикеры, скопируйте в буфер обмена, откройте THT и добавьте их туда.
 
@@ -54,13 +54,13 @@
 
 Поставьте галочку "=N". Эта настройка будет добавлять "=N" ко всем тикерам, отправляемым в Advanced Get (Graybox MM этого не поддерживает).
 
-http://i32.fastpic.ru/big/2012/0201/ee/323b3271fe64a797121449a793223aee.png
+http://i28.fastpic.ru/big/2012/0204/23/1f0704b0d83860a70b4dd86835d61223.png
 
-== Есть ли у THT диалог насторек? ==
+== Есть ли у THT диалог настроек? ==
 
 Да, пожалуйста кликните правой кнопкой по окну THT и выберите"Настройки...".
 
-<a href="http://i30.fastpic.ru/big/2012/0201/af/19b23e2e3caa95457c8362b88df70baf.png" target="_blank"><img src="http://i30.fastpic.ru/thumb/2012/0201/af/19b23e2e3caa95457c8362b88df70baf.jpeg" border="0"></img></a>
+<a href="http://fastpic.ru/view/27/2012/0204/b1b74f58c25a1c314d49fe87630e7c11.png.html" target="_blank"><img src="http://i27.fastpic.ru/thumb/2012/0204/11/b1b74f58c25a1c314d49fe87630e7c11.jpeg" border="0"></img></a>
 
 == Что означают все эти настройки THT? ==
 
@@ -73,8 +73,6 @@ http://i32.fastpic.ru/big/2012/0201/ee/323b3271fe64a797121449a793223aee.png
 *Сохранять расположение и размер* - THT сохранит своё расположение и размер окна.
 
 *Сохранять тикеры автоматически* - когда вы добавляете, удаляете или копируете тикеры, THT сохранит списки тикеров автоматически. В противном случае вам нужно сохранить их вручную. Когда список тикеров не сохранён, вы увидите сверху красную полосу-индикатор. В этом случае нажмите "Сохранить тикеры".
-
-http://i27.fastpic.ru/big/2012/0201/3b/f77d72cb0730e71596e51ccae288163b.png
 
 == Горячие клавиши? ==
 
@@ -110,4 +108,4 @@ http://i27.fastpic.ru/big/2012/0201/3b/f77d72cb0730e71596e51ccae288163b.png
 
 _Это не относится к работе THT, просто для справки._ Graybox не сможет сохранить свои настройки в удалённую базу данных, если символ-разделитель целой и дробной части у вас настроен не на "." (точку) в ваших региональных настройках. Откройте ваши региональные настройки чтобы убедиться, что всё настроено правильно.
 
-<a href="http://fastpic.ru/view/29/2012/0202/ede94416b03e33f70dfb5da8cf2faf30.png.html" target="_blank"><img src="http://i29.fastpic.ru/thumb/2012/0202/30/ede94416b03e33f70dfb5da8cf2faf30.jpeg" border="0"></img></a>
+<a href="http://fastpic.ru/view/27/2012/0204/6f4f440b426e6be6eda8a68dc147c910.png.html" target="_blank"><img src="http://i27.fastpic.ru/thumb/2012/0204/10/6f4f440b426e6be6eda8a68dc147c910.jpeg" border="0"></img></a>
