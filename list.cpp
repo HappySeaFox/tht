@@ -318,7 +318,7 @@ void List::paste()
         if(m_rxTicker.exactMatch(ticker))
         {
             changed = true;
-            ui->list->addItem(ticker.toUpper());
+            ui->list->addItem(ticker.toUpper().replace(QChar('-'), QChar('.')));
         }
     }
 
@@ -342,7 +342,7 @@ void List::slotAddFromFile()
 {
     qDebug("THT: Adding new tickers from file");
 
-    QString fileName = QFileDialog::getOpenFileName(this, tr("Save as"));
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Choose a file"));
 
     if(fileName.isEmpty())
         return;
@@ -369,7 +369,7 @@ void List::slotAddFromFile()
         if(m_rxTicker.exactMatch(ticker))
         {
             changed = true;
-            ui->list->addItem(ticker.toUpper());
+            ui->list->addItem(ticker.toUpper().replace(QChar('-'), QChar('.')));
         }
     }
 
@@ -413,7 +413,7 @@ void List::slotExportToFile()
 {
     qDebug("THT: Exporting tickers to file");
 
-    QString fileName = QFileDialog::getSaveFileName(this, tr("Save as"));
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Choose a file"));
 
     if(!fileName.isEmpty())
     {
