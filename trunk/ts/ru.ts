@@ -116,8 +116,12 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
     <message>
         <location filename="../list.cpp" line="345"/>
         <location filename="../list.cpp" line="416"/>
+        <source>Choose a file</source>
+        <translation>Выберите файл</translation>
+    </message>
+    <message>
         <source>Save as</source>
-        <translation>Сохранить как</translation>
+        <translation type="obsolete">Сохранить как</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="356"/>
@@ -323,18 +327,18 @@ any key or using the right or middle mouse buttons.</source>
         <translation>THT продолжит работу в системном лотке</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="569"/>
-        <location filename="../tht.cpp" line="597"/>
+        <location filename="../tht.cpp" line="570"/>
+        <location filename="../tht.cpp" line="598"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="569"/>
+        <location filename="../tht.cpp" line="570"/>
         <source>Cannot take screenshot</source>
         <translation>Невозможно создать снимок экрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="597"/>
+        <location filename="../tht.cpp" line="598"/>
         <source>Cannot save screenshot</source>
         <translation>Невозможно сохранить снимок экрана</translation>
     </message>
