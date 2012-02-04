@@ -279,6 +279,7 @@ void THT::checkWindows()
 
                 TCHAR name[MAX_PATH];
 
+                // get executable name
                 if(!GetProcessImageFileName(h, name, sizeof(name)))
                 {
                     qDebug("THT: Cannot get process info %ld (%ld)", dwProcessId, GetLastError());
@@ -611,6 +612,8 @@ void THT::slotClearLists()
 void THT::slotClearLinks()
 {
     qDebug("THT: Clear links");
+
+    MessageBeep(MB_OK);
 
     m_windows.clear();
     checkWindows();
