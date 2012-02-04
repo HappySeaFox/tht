@@ -108,6 +108,6 @@ Yes, THT supports some keyboard shortcuts.
 
 == Graybox warning ==
 
-Graybox is unable to save settings to the remote database if you have decimal point other than "." (dot) in your regional settings. Open your regional settings to be sure it is configured correctly.
+_It is nothing to do with THT, just a note._ Graybox is unable to save settings to the remote database if you have decimal point other than "." (dot) in your regional settings. Open your regional settings to be sure it is configured correctly.
 
 <a href="http://fastpic.ru/view/29/2012/0202/ede94416b03e33f70dfb5da8cf2faf30.png.html" target="_blank"><img src="http://i29.fastpic.ru/thumb/2012/0202/30/ede94416b03e33f70dfb5da8cf2faf30.jpeg" border="0"></img></a>
