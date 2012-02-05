@@ -2,7 +2,8 @@ Trader's home task
 ------------------
 
 Author: Dmitry Baryshev <ksquirrel.iv@gmail.com>
-License: GPLv3+ (see LICENSE.txt)
+License: GPLv3+ (see LICENSE.txt), Qxt parts are under LGPL 2.1 (LICENSE-LGPL.txt)
+         or CPL 1.0
 
 Other
 -----
