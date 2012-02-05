@@ -106,6 +106,10 @@ Yes, THT supports some keyboard shortcuts.
 
  * *Ctrl+Alt+S* - take a screenshot of your trade
 
+== What's the difference between installable ad standalone packages? ==
+
+No difference.
+
 == Graybox warning ==
 
 _It is nothing to do with THT, just a note._ Graybox is unable to save settings to the remote database if you have decimal point other than "." (dot) in your regional settings. Open your regional settings to be sure it is configured correctly.
