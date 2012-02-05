@@ -383,10 +383,12 @@ void THT::busy(bool b)
 
 void THT::activate()
 {
+    AllowSetForegroundWindow(ASFW_ANY);
+
     setWindowState((windowState() & ~Qt::WindowMinimized) | Qt::WindowActive);
     show();
-    activateWindow();
     raise();
+    activateWindow();
 }
 
 void THT::slotCheckActive()
