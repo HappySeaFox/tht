@@ -162,37 +162,71 @@ void THT::contextMenuEvent(QContextMenuEvent *event)
     m_menu->exec(event->globalPos());
 }
 
-void THT::sendKey(int key, bool extended) const
+void THT::sendKey(int key, bool extended)
 {
-    KEYBDINPUT kb = {0};
-    INPUT input[2] = {{0}, {0}};
+    memset(&m_kbInput, 0, sizeof(KEYBDINPUT));
+    memset(&m_input, 0, sizeof(KEYBDINPUT) * 4);
 
-    SHORT vkey = VkKeyScan(key);
+    int nelem = 2;
+    int index = 0;
+
+    // do we need SHIFT key? Don't check all the cases, we don't need all of them
+    bool shift = (key >= '!' && key <= '+');
+
+    // send SHIFT down
+    if(shift)
+    {
+        nelem += 2;
+
+        m_kbInput.dwFlags = 0;
+        m_kbInput.wVk = VK_SHIFT;
+        m_kbInput.wScan = MapVirtualKey(VK_SHIFT, 0);
+
+        m_input[index].type = INPUT_KEYBOARD;
+        m_input[index].ki = m_kbInput;
+
+        ++index;
+    }
 
     // key down
+    SHORT vkey = VkKeyScan(key);
+
     if(extended)
-        kb.dwFlags = KEYEVENTF_EXTENDEDKEY;
+        m_kbInput.dwFlags = KEYEVENTF_EXTENDEDKEY;
 
-    kb.wVk = vkey;
-    kb.wScan = MapVirtualKey(vkey, 0);
+    m_kbInput.wVk = vkey;
+    m_kbInput.wScan = MapVirtualKey(vkey, 0);
 
-    input[0].type = INPUT_KEYBOARD;
-    input[0].ki = kb;
+    m_input[index].type = INPUT_KEYBOARD;
+    m_input[index].ki = m_kbInput;
+    ++index;
 
     // key up
-    kb.dwFlags = KEYEVENTF_KEYUP;
+    m_kbInput.dwFlags = KEYEVENTF_KEYUP;
 
     if(extended)
-        kb.dwFlags |= KEYEVENTF_EXTENDEDKEY;
+        m_kbInput.dwFlags |= KEYEVENTF_EXTENDEDKEY;
 
-    input[1].type = INPUT_KEYBOARD;
-    input[1].ki = kb;
+    m_input[index].type = INPUT_KEYBOARD;
+    m_input[index].ki = m_kbInput;
+    ++index;
+
+    // SHIFT up
+    if(shift)
+    {
+        m_kbInput.dwFlags = KEYEVENTF_KEYUP;
+        m_kbInput.wVk = VK_SHIFT;
+        m_kbInput.wScan = MapVirtualKey(VK_SHIFT, 0);
+
+        m_input[index].type = INPUT_KEYBOARD;
+        m_input[index].ki = m_kbInput;
+    }
 
     // send both combinations
-    SendInput(2, input, sizeof(INPUT));
+    SendInput(nelem, m_input, sizeof(INPUT));
 }
 
-void THT::sendString(const QString &ticker) const
+void THT::sendString(const QString &ticker)
 {
     if(ticker.isEmpty())
     {

@@ -49,8 +49,8 @@ protected:
     virtual void closeEvent(QCloseEvent *e);
 
 private:
-    void sendKey(int key, bool extended = false) const;
-    void sendString(const QString &str) const;
+    void sendKey(int key, bool extended = false);
+    void sendString(const QString &str);
     void rebuildUi();
     void checkWindows();
     void loadNextWindow();
@@ -105,6 +105,9 @@ private:
     QString m_ticker;
     QSystemTrayIcon *m_tray;
     bool m_wasVisible;
+    KEYBDINPUT m_kbInput;
+    INPUT m_input[4];
+
 };
 
 #endif // THT_H
