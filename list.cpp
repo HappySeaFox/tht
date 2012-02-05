@@ -243,6 +243,7 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                 case Qt::Key_End:
                 case Qt::Key_PageUp:
                 case Qt::Key_PageDown:
+                case Qt::Key_Tab:
                     return QObject::eventFilter(obj, event);
             } // switch
         }
