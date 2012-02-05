@@ -44,10 +44,17 @@
 static const int THT_WINDOW_STARTUP_TIMEOUT = 2000;
 
 THT::THT(QWidget *parent) :
-    QWidget(parent, Settings::instance()->onTop() ? Qt::WindowStaysOnTopHint : (Qt::WindowFlags)0),
+    QWidget(parent,
+            Qt::Window
+            | Qt::WindowMinimizeButtonHint
+            | Qt::WindowCloseButtonHint
+            | Qt::CustomizeWindowHint),
     ui(new Ui::THT),
     m_running(false)
 {
+    if(Settings::instance()->onTop())
+        setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
+
     ui->setupUi(this);
 
     // NYSE only
