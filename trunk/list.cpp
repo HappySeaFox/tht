@@ -210,7 +210,7 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                     QString t = currentTicker();
 
                     if(!t.isEmpty())
-                        QDesktopServices::openUrl(QUrl(QString("http://finance.yahoo.com/q?s=%1").arg(t)));
+                        QDesktopServices::openUrl(QUrl(QString("http://finance.yahoo.com/q?s=%1").arg(t.replace('.', '-'))));
 
                     break;
                 }
