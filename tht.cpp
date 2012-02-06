@@ -93,8 +93,18 @@ THT::THT(QWidget *parent) :
 
     rebuildUi();
 
+    // set focus
     if(m_lists.size())
-        m_lists.at(0)->setFocus();
+    {
+        foreach(List *l, m_lists)
+        {
+            if(l->haveTickers())
+            {
+                l->setFocus();
+                break;
+            }
+        }
+    }
 
     // restore geometry
     if(Settings::instance()->saveGeometry())

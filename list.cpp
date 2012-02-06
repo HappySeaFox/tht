@@ -74,6 +74,11 @@ List::~List()
     delete ui;
 }
 
+bool List::haveTickers() const
+{
+    return ui->list->count();
+}
+
 void List::addTicker(const QString &ticker)
 {
     if(ui->list->findItems(ticker, Qt::MatchFixedString).size())
