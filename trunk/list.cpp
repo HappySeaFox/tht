@@ -22,6 +22,7 @@
 #include <QMessageBox>
 #include <QTextStream>
 #include <QClipboard>
+#include <QFileInfo>
 #include <QPalette>
 #include <QKeyEvent>
 #include <QEvent>
@@ -365,7 +366,7 @@ void List::slotAddFromFile()
 {
     qDebug("THT: Adding new tickers from file");
 
-    QString fileName = QFileDialog::getOpenFileName(this, tr("Choose a file"));
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Choose a file"), Settings::instance()->lastDirectory());
 
     if(fileName.isEmpty())
         return;
@@ -379,6 +380,8 @@ void List::slotAddFromFile()
         QMessageBox::warning(this, tr("Error"), tr("Cannot open file %1").arg(fileName));
         return;
     }
+
+    Settings::instance()->setLastDirectory(QFileInfo(fileName).canonicalPath());
 
     bool changed = false;
     QTextStream t(&file);
@@ -436,30 +439,32 @@ void List::slotExportToFile()
 {
     qDebug("THT: Exporting tickers to file");
 
-    QString fileName = QFileDialog::getSaveFileName(this, tr("Choose a file"));
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Choose a file"), Settings::instance()->lastDirectory());
 
-    if(!fileName.isEmpty())
+    if(fileName.isEmpty())
+        return;
+
+    QFile file(fileName);
+
+    if(!file.open(QIODevice::WriteOnly | QIODevice::Truncate))
     {
-        QFile file(fileName);
-
-        if(!file.open(QIODevice::WriteOnly | QIODevice::Truncate))
-        {
-            qWarning("THT: Cannot open file for writing");
-            QMessageBox::warning(this, tr("Error"), tr("Cannot save to file %1").arg(fileName));
-            return;
-        }
-
-        QTextStream t(&file);
-
-        QStringList items = toStringList();
-
-        foreach(QString item, items)
-        {
-            t << item << '\n';
-        }
-
-        t.flush();
+        qWarning("THT: Cannot open file for writing");
+        QMessageBox::warning(this, tr("Error"), tr("Cannot save to file %1").arg(fileName));
+        return;
     }
+
+    Settings::instance()->setLastDirectory(QFileInfo(fileName).canonicalPath());
+
+    QTextStream t(&file);
+
+    QStringList items = toStringList();
+
+    foreach(QString item, items)
+    {
+        t << item << '\n';
+    }
+
+    t.flush();
 }
 
 void List::slotExportToClipboard()
