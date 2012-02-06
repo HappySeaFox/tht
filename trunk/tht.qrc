@@ -12,5 +12,6 @@
         <file>images/ready.png</file>
         <file>ts/ru.qm</file>
         <file>images/chart.ico</file>
+        <file>ts/qt_ru.qm</file>
     </qresource>
 </RCC>

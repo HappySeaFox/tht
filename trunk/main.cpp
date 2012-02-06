@@ -43,6 +43,11 @@ int main(int argc, char *argv[])
     // load translation
     QTranslator translator;
     translator.load(locale, ":/ts");
+
+    QTranslator translator_qt;
+    translator_qt.load("qt_" + locale, ":/ts");
+
+    app.installTranslator(&translator_qt);
     app.installTranslator(&translator);
 
     QApplication::setApplicationName("THT");
