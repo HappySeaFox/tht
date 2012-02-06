@@ -287,64 +287,69 @@ void THT::rebuildUi()
     }
 }
 
+THT::Link THT::checkWindow(HWND hwnd)
+{
+    Link link(hwnd);
+
+    // try to determine type
+    DWORD dwProcessId;
+
+    GetWindowThreadProcessId(hwnd, &dwProcessId);
+
+    HANDLE h = OpenProcess(PROCESS_QUERY_INFORMATION, FALSE, dwProcessId);
+
+    if(!h)
+    {
+        qDebug("THT: Cannot open process %ld", dwProcessId);
+        return link;
+    }
+
+    TCHAR name[MAX_PATH];
+
+    // get executable name
+    if(!GetProcessImageFileName(h, name, sizeof(name)))
+    {
+        qDebug("THT: Cannot get process info %ld (%ld)", dwProcessId, GetLastError());
+        return link;
+    }
+
+    QString sname = QFileInfo(
+#ifdef UNICODE
+        QString::fromWCharArray(name)
+#else
+        QString::fromUtf8(name)
+#endif
+        ).fileName().toLower();
+
+    qDebug("THT: Process name of %d is \"%s\"", (int)hwnd, sname.toAscii().constData());
+
+    if(sname == "advancedget.exe")
+        link.type = LinkTypeAdvancedGet;
+    else if(sname == "graybox.exe")
+        link.type = LinkTypeGraybox;
+    else
+        link.type = LinkTypeOther;
+
+    return link;
+}
+
 void THT::checkWindows()
 {
     RECT rect;
 
     QList<Link>::iterator itEnd = m_windows.end();
 
-    for(QList<Link>::iterator it = m_windows.begin();it != itEnd;++it)
+    for(QList<Link>::iterator it = m_windows.begin();it != itEnd;)
     {
         // remove dead windows
         if(!GetWindowRect((*it).hwnd, &rect))
         {
             qDebug("THT: Window id %d is not valid, removing (%ld)", (int)(*it).hwnd, GetLastError());
-            it = --m_windows.erase(it);
+            it = m_windows.erase(it);
+            itEnd = m_windows.end();
         }
         else
-        {
-            // try to determine their type
-            if((*it).type == LinkTypeNotInitialized)
-            {
-                DWORD dwProcessId;
-
-                GetWindowThreadProcessId((*it).hwnd, &dwProcessId);
-
-                HANDLE h = OpenProcess(PROCESS_QUERY_INFORMATION, FALSE, dwProcessId);
-
-                if(!h)
-                {
-                    qDebug("THT: Cannot open process %ld", dwProcessId);
-                    continue;
-                }
-
-                TCHAR name[MAX_PATH];
-
-                // get executable name
-                if(!GetProcessImageFileName(h, name, sizeof(name)))
-                {
-                    qDebug("THT: Cannot get process info %ld (%ld)", dwProcessId, GetLastError());
-                    continue;
-                }
-
-                QString sname = QFileInfo(
-#ifdef UNICODE
-                QString::fromWCharArray(name)
-#else
-                QString::fromUtf8(name)
-#endif
-                ).fileName().toLower();
-
-                qDebug("THT: Process name of %d is \"%s\"", (int)(*it).hwnd, sname.toAscii().constData());
-
-                if(sname == "advancedget.exe")
-                    (*it).type = LinkTypeAdvancedGet;
-                else if(sname == "graybox.exe")
-                    (*it).type = LinkTypeGraybox;
-                else
-                    (*it).type = LinkTypeOther;
-            }
-        }
+            ++it;
     }
 
     // join window types to a status string
@@ -365,9 +370,20 @@ void THT::checkWindows()
     ui->labelO->setNum(o);
 }
 
+void THT::nextLoadableWindowIndex(int startFrom)
+{
+    m_currentWindow += startFrom;
+
+    if(m_ticker.startsWith('$'))
+    {
+        while(m_currentWindow < m_windows.size() && m_windows.at(m_currentWindow).type != LinkTypeAdvancedGet)
+            m_currentWindow++;
+    }
+}
+
 void THT::loadNextWindow()
 {
-    m_currentWindow++;
+    nextLoadableWindowIndex(+1);
 
     if(m_currentWindow >= m_windows.size())
     {
@@ -537,9 +553,17 @@ void THT::slotLoadTicker(const QString &ticker)
         return;
     }
 
-    m_currentWindow = 0;
-    m_running = true;
     m_ticker = ticker;
+    m_currentWindow = 0;
+    nextLoadableWindowIndex();
+
+    if(m_currentWindow >= m_windows.size())
+    {
+        qDebug("Cannot find where to load the ticker");
+        return;
+    }
+
+    m_running = true;
     m_startupTime = QDateTime::currentMSecsSinceEpoch();
 
     busy(true);
@@ -724,12 +748,17 @@ void THT::slotTargetDropped(const QPoint &p)
         }
     }
 
+    Link link = checkWindow(hwnd);
+
+    if(link.type == LinkTypeNotInitialized)
+        return;
+
     qDebug("THT: Window under cursor %d", (int)hwnd);
 
     // beep
     MessageBeep(MB_OK);
 
-    m_windows.append(Link(hwnd));
+    m_windows.append(link);
 
     checkWindows();
 }
