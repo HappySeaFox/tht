@@ -82,4 +82,4 @@ OTHER_FILES += \
     README.txt \
     LICENSE.txt
 
-TRANSLATIONS += ts/ru.ts
+TRANSLATIONS += ts/ru.ts ts/qt_ru.ts

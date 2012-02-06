@@ -287,18 +287,18 @@ any key or using the right or middle mouse buttons.</source>
         <translation>THT продолжит работу в системном лотке</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="613"/>
-        <location filename="../tht.cpp" line="641"/>
+        <location filename="../tht.cpp" line="637"/>
+        <location filename="../tht.cpp" line="665"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="613"/>
+        <location filename="../tht.cpp" line="637"/>
         <source>Cannot take screenshot</source>
         <translation>Невозможно создать снимок экрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="641"/>
+        <location filename="../tht.cpp" line="665"/>
         <source>Cannot save screenshot</source>
         <translation>Невозможно сохранить снимок экрана</translation>
     </message>
