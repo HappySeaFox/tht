@@ -91,6 +91,7 @@ Yes, THT supports some keyboard shortcuts.
  * *Enter* - reload the current ticket
  * *Delete* - delete the current ticket
  * *Ctrl+N*, *N* - clear list
+ * *O* - add one ticker
  * *Ctrl+O*, *A* - add tickers from a file
  * *Ctrl+V*, *C* - paste tickers from a clipboard
  * *E* - export tickers to a file
