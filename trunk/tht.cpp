@@ -613,7 +613,7 @@ void THT::slotTakeScreenshot()
 
     hide();
 
-    QTimer::singleShot(0, this, SLOT(slotTakeScreenshotReal()));
+    QTimer::singleShot(m_wasVisible ? 50 : 0, this, SLOT(slotTakeScreenshotReal()));
 }
 
 void THT::slotTakeScreenshotReal()
