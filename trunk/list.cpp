@@ -366,7 +366,7 @@ void List::slotAddFromFile()
 {
     qDebug("THT: Adding new tickers from file");
 
-    QString fileName = QFileDialog::getOpenFileName(this, tr("Choose a file"), Settings::instance()->lastDirectory());
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Choose a file"), Settings::instance()->lastTickerDirectory());
 
     if(fileName.isEmpty())
         return;
@@ -381,7 +381,7 @@ void List::slotAddFromFile()
         return;
     }
 
-    Settings::instance()->setLastDirectory(QFileInfo(fileName).canonicalPath());
+    Settings::instance()->setLastTickerDirectory(QFileInfo(fileName).canonicalPath());
 
     bool changed = false;
     QTextStream t(&file);
@@ -395,7 +395,7 @@ void List::slotAddFromFile()
         if(Settings::instance()->tickerValidator().exactMatch(ticker))
         {
             changed = true;
-            ui->list->addItem(ticker.toUpper().replace(QChar('-'), QChar('.')));
+            ui->list->addItem(ticker.toUpper().replace('-', '.'));
         }
     }
 
@@ -439,7 +439,7 @@ void List::slotExportToFile()
 {
     qDebug("THT: Exporting tickers to file");
 
-    QString fileName = QFileDialog::getSaveFileName(this, tr("Choose a file"), Settings::instance()->lastDirectory());
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Choose a file"), Settings::instance()->lastTickerDirectory());
 
     if(fileName.isEmpty())
         return;
@@ -453,7 +453,7 @@ void List::slotExportToFile()
         return;
     }
 
-    Settings::instance()->setLastDirectory(QFileInfo(fileName).canonicalPath());
+    Settings::instance()->setLastTickerDirectory(QFileInfo(fileName).canonicalPath());
 
     QTextStream t(&file);
 

@@ -27,14 +27,24 @@ void Settings::sync()
     m_settings.sync();
 }
 
-void Settings::setLastDirectory(QString dir, SyncType sync)
+void Settings::setLastTickerDirectory(QString dir, SyncType sync)
 {
-    save<QString>("last-directory", dir, sync);
+    save<QString>("last-ticker-directory", dir, sync);
 }
 
-QString Settings::lastDirectory()
+QString Settings::lastTickerDirectory()
 {
-    return load<QString>("last-directory");
+    return load<QString>("last-ticker-directory");
+}
+
+void Settings::setLastScreenShotDirectory(QString dir, SyncType sync)
+{
+    save<QString>("last-screenshot-directory", dir, sync);
+}
+
+QString Settings::lastScreenShotDirectory()
+{
+    return load<QString>("last-screenshot-directory");
 }
 
 void Settings::setNyseOnly(bool n, SyncType sync)
