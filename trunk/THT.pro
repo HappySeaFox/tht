@@ -9,6 +9,11 @@ QT += core gui network
 TARGET = THT
 TEMPLATE = app
 
+DEFINES += NVER1=0
+DEFINES += NVER2=5
+DEFINES += NVER3=0
+DEFINES += TARGET=$$TARGET
+
 QTPLUGIN += qico
 
 INCLUDEPATH += . qtsingleapplication qxt
