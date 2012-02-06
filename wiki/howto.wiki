@@ -54,7 +54,7 @@ For example, open <a href="http://finviz.com">Finviz</a>, select some filters fr
 
 Turn on a "=N" option. This option will append "=N" to all tickers when loading to Advanced Get (Graybox MM doesn't support this).
 
-http://ompldr.org/vY256OQ/=n.png
+<a href="http://ompldr.org/vY256OQ/=n.png" target="_blank"><img src="http://ompldr.org/tY256OQ/=n.png" border="0"></img></a>
 
 == Does THT have settings dialog? ==
 
