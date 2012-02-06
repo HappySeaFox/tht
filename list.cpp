@@ -28,6 +28,7 @@
 #include <QMenu>
 #include <QUrl>
 
+#include "tickerinput.h"
 #include "settings.h"
 #include "list.h"
 #include "ui_list.h"
@@ -44,6 +45,7 @@ List::List(int group, QWidget *parent) :
     ui->pushSave->setEnabled(!m_saveTickers);
 
     QMenu *menu = new QMenu(this);
+    menu->addAction(tr("Add one ticker..."), this, SLOT(slotAddOne()));
     menu->addAction(tr("Add from file..."), this, SLOT(slotAddFromFile()));
     menu->addAction(tr("Add from clipboard"), this, SLOT(slotAddFromClipboard()));
     ui->pushAdd->setMenu(menu);
@@ -63,9 +65,6 @@ List::List(int group, QWidget *parent) :
     // catch keyboard events
     ui->list->installEventFilter(this);
     ui->list->viewport()->installEventFilter(this);
-
-    // regexp to check for a ticker
-    m_rxTicker = QRegExp("$?[a-zA-Z\\-]{1,5}");
 }
 
 List::~List()
@@ -81,7 +80,7 @@ void List::addTicker(const QString &ticker)
         return;
     }
 
-    if(m_rxTicker.exactMatch(ticker))
+    if(Settings::instance()->tickerValidator().exactMatch(ticker))
     {
         ui->list->addItem(ticker);
         numberOfItemsChanged();
@@ -159,6 +158,10 @@ bool List::eventFilter(QObject *obj, QEvent *event)
 
                 case Qt::Key_D:
                     slotExportToClipboard();
+                break;
+
+                case Qt::Key_O:
+                    slotAddOne();
                 break;
 
                 case Qt::Key_Right:
@@ -316,7 +319,7 @@ void List::paste()
     {
         t >> ticker;
 
-        if(m_rxTicker.exactMatch(ticker))
+        if(Settings::instance()->tickerValidator().exactMatch(ticker))
         {
             changed = true;
             ui->list->addItem(ticker.toUpper().replace(QChar('-'), QChar('.')));
@@ -337,6 +340,25 @@ void List::showSaved(bool isSaved)
     QPalette pal = ui->labelUnsaved->palette();
     pal.setColor(QPalette::Window, isSaved ? palette().color(QPalette::Window) : Qt::red);
     ui->labelUnsaved->setPalette(pal);
+}
+
+void List::slotAddOne()
+{
+    qDebug("THT: Adding one ticker");
+
+    TickerInput ti(this);
+
+    if(ti.exec() != QDialog::Accepted)
+        return;
+
+    QString ticker = ti.ticker();
+
+    if(Settings::instance()->tickerValidator().exactMatch(ticker))
+    {
+        ui->list->addItem(ticker.toUpper().replace(QChar('-'), QChar('.')));
+        numberOfItemsChanged();
+        save();
+    }
 }
 
 void List::slotAddFromFile()
@@ -367,7 +389,7 @@ void List::slotAddFromFile()
     {
         t >> ticker;
 
-        if(m_rxTicker.exactMatch(ticker))
+        if(Settings::instance()->tickerValidator().exactMatch(ticker))
         {
             changed = true;
             ui->list->addItem(ticker.toUpper().replace(QChar('-'), QChar('.')));

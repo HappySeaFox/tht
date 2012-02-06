@@ -19,6 +19,7 @@
 #define SETTINGS_H
 
 #include <QStringList>
+#include <QRegExp>
 #include <QSettings>
 #include <QPoint>
 #include <QSize>
@@ -31,6 +32,8 @@ public:
     enum SyncType { SyncTypeNoSync, SyncTypeSync };
 
     void sync();
+
+    QRegExp tickerValidator() const;
 
     void setNyseOnly(bool, SyncType sync = SyncTypeSync);
     bool nyseOnly();
@@ -76,7 +79,14 @@ private:
 
 private:
     QSettings m_settings;
+    QRegExp m_rxTicker;
 };
+
+inline
+QRegExp Settings::tickerValidator() const
+{
+    return m_rxTicker;
+}
 
 inline
 int Settings::maximumNumberOfLists() const
