@@ -44,6 +44,21 @@ public:
     explicit THT(QWidget *parent = 0);
     ~THT();
 
+private:
+    enum LinkType { LinkTypeNotInitialized, LinkTypeAdvancedGet, LinkTypeGraybox, LinkTypeOther };
+
+    struct Link
+    {
+        Link(HWND h = (HWND)0, LinkType lt = LinkTypeNotInitialized)
+        {
+            hwnd = h;
+            type = lt;
+        }
+
+        HWND hwnd;
+        LinkType type;
+    };
+
 protected:
     virtual void contextMenuEvent(QContextMenuEvent *event);
     virtual void closeEvent(QCloseEvent *e);
@@ -52,7 +67,9 @@ private:
     void sendKey(int key, bool extended = false);
     void sendString(const QString &str);
     void rebuildUi();
+    Link checkWindow(HWND hwnd);
     void checkWindows();
+    void nextLoadableWindowIndex(int startFrom = 0);
     void loadNextWindow();
     void busy(bool);
 
@@ -78,20 +95,6 @@ private slots:
 
 private:
     Ui::THT *ui;
-
-    enum LinkType { LinkTypeNotInitialized, LinkTypeAdvancedGet, LinkTypeGraybox, LinkTypeOther };
-
-    struct Link
-    {
-        Link(HWND h = (HWND)0, LinkType lt = LinkTypeNotInitialized)
-        {
-            hwnd = h;
-            type = lt;
-        }
-
-        HWND hwnd;
-        LinkType type;
-    };
 
     QList<Link> m_windows;
     int m_currentWindow;
