@@ -61,44 +61,49 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
         <translation>Тикеров:</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="47"/>
+        <location filename="../list.cpp" line="48"/>
+        <source>Add one ticker...</source>
+        <translation>Добавить один тикер...</translation>
+    </message>
+    <message>
+        <location filename="../list.cpp" line="49"/>
         <source>Add from file...</source>
         <translation>Добавить из файла...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="48"/>
+        <location filename="../list.cpp" line="50"/>
         <source>Add from clipboard</source>
         <translation>Добавить из буфера обмена</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="52"/>
+        <location filename="../list.cpp" line="54"/>
         <source>Export to file...</source>
         <translation>Экспортировать в файл...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="53"/>
+        <location filename="../list.cpp" line="55"/>
         <source>Export to clipboard</source>
         <translation>Экспортировать в буфер обмена</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="346"/>
-        <location filename="../list.cpp" line="417"/>
+        <location filename="../list.cpp" line="368"/>
+        <location filename="../list.cpp" line="439"/>
         <source>Choose a file</source>
         <translation>Выберите файл</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="357"/>
-        <location filename="../list.cpp" line="426"/>
+        <location filename="../list.cpp" line="379"/>
+        <location filename="../list.cpp" line="448"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="357"/>
+        <location filename="../list.cpp" line="379"/>
         <source>Cannot open file %1</source>
         <translation>Невозможно открыть файл %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="426"/>
+        <location filename="../list.cpp" line="448"/>
         <source>Cannot save to file %1</source>
         <translation>Невозможно сохранить в файл %1</translation>
     </message>
@@ -296,6 +301,19 @@ any key or using the right or middle mouse buttons.</source>
         <location filename="../tht.cpp" line="641"/>
         <source>Cannot save screenshot</source>
         <translation>Невозможно сохранить снимок экрана</translation>
+    </message>
+</context>
+<context>
+    <name>TickerInput</name>
+    <message>
+        <location filename="../tickerinput.ui" line="14"/>
+        <source>Add a ticker</source>
+        <translation>Добавить тикер</translation>
+    </message>
+    <message>
+        <location filename="../tickerinput.ui" line="20"/>
+        <source>Ticker:</source>
+        <translation>Тикер:</translation>
     </message>
 </context>
 </TS>

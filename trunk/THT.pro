@@ -39,7 +39,8 @@ SOURCES += main.cpp\
     qxt/qxtglobalshortcut_win.cpp \
     qxt/qxtglobalshortcut.cpp \
     qxt/qxtglobal.cpp \
-    target.cpp
+    target.cpp \
+    tickerinput.cpp
 
 HEADERS += tht.h \
     list.h \
@@ -59,13 +60,15 @@ HEADERS += tht.h \
     qxt/qxtglobal.h \
     qxt/QxtGlobalShortcut \
     qxt/QxtGlobalShortcut \
-    target.h
+    target.h \
+    tickerinput.h
 
 FORMS += tht.ui \
     list.ui \
     options.ui \
     about.ui \
-    savescreenshot.ui
+    savescreenshot.ui \
+    tickerinput.ui
 
 RESOURCES += \
     tht.qrc

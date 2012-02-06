@@ -19,7 +19,6 @@
 #define LIST_H
 
 #include <QStringList>
-#include <QRegExp>
 #include <QWidget>
 
 namespace Ui
@@ -64,6 +63,7 @@ public slots:
     void clear();
 
 private slots:
+    void slotAddOne();
     void slotAddFromFile();
     void slotAddFromClipboard();
     void slotSave();
@@ -74,7 +74,6 @@ private slots:
 private:
     Ui::List *ui;
     int m_section;
-    QRegExp m_rxTicker;
     bool m_saveTickers;
     bool m_ignoreInput;
 };

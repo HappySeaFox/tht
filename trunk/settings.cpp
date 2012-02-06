@@ -19,6 +19,7 @@
 
 Settings::Settings()
 {
+    m_rxTicker = QRegExp("\\$?[a-zA-Z\\-]{1,5}");
 }
 
 void Settings::sync()
