@@ -36,6 +36,8 @@ public:
 
     void addTicker(const QString &);
 
+    bool haveTickers() const;
+
     QString currentTicker() const;
 
     void setSaveTickers(bool);
