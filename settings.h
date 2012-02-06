@@ -35,6 +35,9 @@ public:
 
     QRegExp tickerValidator() const;
 
+    void setLastDirectory(QString, SyncType sync = SyncTypeSync);
+    QString lastDirectory();
+
     void setNyseOnly(bool, SyncType sync = SyncTypeSync);
     bool nyseOnly();
 

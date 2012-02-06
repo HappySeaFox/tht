@@ -27,6 +27,16 @@ void Settings::sync()
     m_settings.sync();
 }
 
+void Settings::setLastDirectory(QString dir, SyncType sync)
+{
+    save<QString>("last-directory", dir, sync);
+}
+
+QString Settings::lastDirectory()
+{
+    return load<QString>("last-directory");
+}
+
 void Settings::setNyseOnly(bool n, SyncType sync)
 {
     save<bool>("nyse-only", n, sync);
