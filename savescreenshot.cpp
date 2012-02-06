@@ -17,7 +17,9 @@
 
 #include <QImageWriter>
 #include <QFileDialog>
+#include <QFileInfo>
 
+#include "settings.h"
 #include "savescreenshot.h"
 #include "ui_savescreenshot.h"
 
@@ -57,7 +59,13 @@ void SaveScreenshot::slotFile()
         filter += current + ";;";
     }
 
-    m_fileName = QFileDialog::getSaveFileName(this, tr("Save as"), QString(), filter, &selectedFilter);
+    m_fileName = QFileDialog::getSaveFileName(this, tr("Save as"), Settings::instance()->lastScreenShotDirectory(), filter, &selectedFilter);
 
-    accept();
+    if(m_fileName.isEmpty())
+        reject();
+    else
+    {
+        Settings::instance()->setLastScreenShotDirectory(QFileInfo(m_fileName).canonicalPath());
+        accept();
+    }
 }
