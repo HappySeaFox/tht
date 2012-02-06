@@ -16,7 +16,7 @@ Notes:
 
  * <font color=red>The main Advanced Get window must also be visible (not minimized), otherwise links will be established but won't work correctly.</font>
 
- * <font color=red>If you run the application you want to link to (Advanced Get, or Graybox, or whatever) as administrator, you need to run as administrator THT too. Otherwise links will be established but won't work correctly.</font>
+ * <font color=red>If you run the application you want to link to (Advanced Get, or Graybox, or whatever) as administrator, you need to run as administrator THT too.</font>
 
 == How to link Graybox Market Makers window? ==
 
