@@ -26,9 +26,9 @@ Drag a black target with a left mouse button and drop onto a required Graybox MM
 
 <wiki:video url="https://www.youtube.com/watch?v=Q12ydFopadU" width="240" height="170"/>
 
-== What about input language? ==
+== What about teh input language? ==
 
-The current input language must be English.
+The current input language must be English when loading tickers to the linked windows.
 
 <a href="http://ompldr.org/vY29qcA/input.png" target="_blank"><img src="http://ompldr.org/tY29qcA/input.png" border="0"></img></a>
 
