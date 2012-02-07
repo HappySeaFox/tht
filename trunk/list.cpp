@@ -493,4 +493,3 @@ void List::slotSelectedItemChanged()
             emit loadTicker(first->text());
     }
 }
-

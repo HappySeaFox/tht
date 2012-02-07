@@ -72,6 +72,7 @@ private:
     void nextLoadableWindowIndex(int startFrom = 0);
     void loadNextWindow();
     void busy(bool);
+    void startDelayedScreenshot(bool);
 
 public slots:
     void activate();
@@ -88,6 +89,7 @@ private slots:
     void slotTrayActivated(QSystemTrayIcon::ActivationReason);
     void slotTakeScreenshot();
     void slotTakeScreenshotReal();
+    void slotTakeScreenshotFromGlobal();
     void slotClearLists();
     void slotClearLinks();
     void slotTargetDropped(const QPoint &);
@@ -110,7 +112,7 @@ private:
     bool m_wasVisible;
     KEYBDINPUT m_kbInput;
     INPUT m_input[4];
-
+    bool m_useKeyboardInRegion;
 };
 
 #endif // THT_H
