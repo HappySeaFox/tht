@@ -57,10 +57,6 @@ List::List(int group, QWidget *parent) :
     ui->pushSaveAs->setMenu(menu);
 
     setFocusProxy(ui->list);
-    ui->pushAdd->setFocusProxy(ui->list);
-    ui->pushClear->setFocusProxy(ui->list);
-    ui->pushSave->setFocusProxy(ui->list);
-    ui->pushSaveAs->setFocusProxy(ui->list);
 
     load();
 

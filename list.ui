@@ -30,6 +30,9 @@
          <height>24</height>
         </size>
        </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
        <property name="toolTip">
         <string>Clear list</string>
        </property>
@@ -46,6 +49,9 @@
          <width>28</width>
          <height>24</height>
         </size>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
        </property>
        <property name="toolTip">
         <string>Add tickers</string>
@@ -67,6 +73,9 @@
          <height>24</height>
         </size>
        </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
        <property name="toolTip">
         <string>Save tickers</string>
        </property>
@@ -83,6 +92,9 @@
          <width>28</width>
          <height>24</height>
         </size>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
        </property>
        <property name="toolTip">
         <string>Export tickers</string>
