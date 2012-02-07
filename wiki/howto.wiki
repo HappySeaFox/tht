@@ -26,6 +26,12 @@ Drag a black target with a left mouse button and drop onto a required Graybox MM
 
 <wiki:video url="https://www.youtube.com/watch?v=Q12ydFopadU" width="240" height="170"/>
 
+== What about input language? ==
+
+The current input language must be English.
+
+<a href="http://ompldr.org/vY29qcA/input.png" target="_blank"><img src="http://ompldr.org/tY29qcA/input.png" border="0"></img></a>
+
 == How to reset links? ==
 
 Right click on a THT window and select "Clear links". You can also do a middle click on a black target icon to achieve that.
