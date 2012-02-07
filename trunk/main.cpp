@@ -42,10 +42,10 @@ int main(int argc, char *argv[])
 
     // load translation
     QTranslator translator;
-    translator.load(locale, ":/ts");
+    qDebug("THT: Loading THT translation: %s", translator.load(locale, ":/ts") ? "ok" : "failed");
 
     QTranslator translator_qt;
-    translator_qt.load("qt_" + locale, ":/ts");
+    qDebug("THT: Loading Qt translation: %s", translator_qt.load("qt_" + locale, ":/ts") ? "ok" : "failed");
 
     app.installTranslator(&translator_qt);
     app.installTranslator(&translator);
