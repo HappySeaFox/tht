@@ -31,7 +31,9 @@
 
 #include "regionselect.h"
 
-RegionSelect::RegionSelect(QWidget *parent) : QDialog(parent)
+RegionSelect::RegionSelect(KeyboardInteraction _ki, QWidget *parent)
+    : QDialog(parent),
+    ki(_ki)
 {    
     setWindowFlags(Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
     setWindowState(Qt::WindowFullScreen);
@@ -52,7 +54,7 @@ RegionSelect::~RegionSelect()
 
 bool RegionSelect::event(QEvent *event)
 {
-    if(event->type() == QEvent::KeyPress)
+    if(ki == KeyboardInteractionUseKeyboard && event->type() == QEvent::KeyPress)
         reject();
     else if(event->type() == QEvent::MouseButtonRelease)
     {
@@ -105,7 +107,9 @@ void RegionSelect::drawBackGround()
     painter.drawRect(QApplication::desktop()->rect());
         
     QRect txtRect = QApplication::desktop()->screenGeometry(QApplication::desktop()->primaryScreen());
-    QString txtTip = tr("Use your mouse to select a rectangle or exit pressing\nany key or using the right or middle mouse buttons.");
+    QString txtTip = ki == KeyboardInteractionUseKeyboard
+            ? tr("Use your mouse to select a rectangle or exit pressing\nany key or using the right or middle mouse buttons.")
+            : tr("Use your mouse to select a rectangle or exit pressing\nthe right or middle mouse buttons.");
 
     txtRect.setHeight(qRound(txtRect.height() / 10)); // rounded val of text rect height
 

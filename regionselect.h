@@ -41,7 +41,9 @@ class RegionSelect : public QDialog
     Q_OBJECT
 
     public:
-        explicit RegionSelect(QWidget *parent = 0);
+        enum KeyboardInteraction { KeyboardInteractionUseKeyboard, KeyboardInteractionDontUseKeyboard };
+
+        explicit RegionSelect(KeyboardInteraction, QWidget *parent = 0);
         ~RegionSelect();
 
         QPixmap selection();
@@ -56,6 +58,8 @@ class RegionSelect : public QDialog
         void drawRectSelection(QPainter &painter);
 
     private:
+        KeyboardInteraction ki;
+
         QRect selectRect;
         QSize sizeDesktop;
 

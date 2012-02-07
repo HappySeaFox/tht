@@ -135,7 +135,7 @@ THT::THT(QWidget *parent) :
 
     // global shortcuts
     QxtGlobalShortcut *takeScreen = new QxtGlobalShortcut(QKeySequence(Qt::CTRL + Qt::ALT + Qt::Key_S), this);
-    connect(takeScreen, SIGNAL(activated()), this, SLOT(slotTakeScreenshot()));
+    connect(takeScreen, SIGNAL(activated()), this, SLOT(slotTakeScreenshotFromGlobal()));
 
     checkWindows();
 }
@@ -414,6 +414,16 @@ void THT::busy(bool b)
     ui->stackBusy->setCurrentIndex(b);
 }
 
+void THT::startDelayedScreenshot(bool allowKbd)
+{
+    m_useKeyboardInRegion = allowKbd;
+    m_wasVisible = isVisible();
+
+    hide();
+
+    QTimer::singleShot(m_wasVisible ? 50 : 0, this, SLOT(slotTakeScreenshotReal()));
+}
+
 void THT::activate()
 {
     AllowSetForegroundWindow(ASFW_ANY);
@@ -617,18 +627,23 @@ void THT::slotTrayActivated(QSystemTrayIcon::ActivationReason reason)
     }
 }
 
+void THT::slotTakeScreenshotFromGlobal()
+{
+    QWidget *a = qApp->activeWindow();
+
+    startDelayedScreenshot(a && a->winId() == winId());
+}
+
 void THT::slotTakeScreenshot()
 {
-    m_wasVisible = isVisible();
-
-    hide();
-
-    QTimer::singleShot(m_wasVisible ? 50 : 0, this, SLOT(slotTakeScreenshotReal()));
+    startDelayedScreenshot(true);
 }
 
 void THT::slotTakeScreenshotReal()
 {
-    RegionSelect selector;
+    RegionSelect selector(m_useKeyboardInRegion
+                          ? RegionSelect::KeyboardInteractionUseKeyboard
+                          : RegionSelect::KeyboardInteractionDontUseKeyboard);
     QPixmap px;
 
     // ignore screenshot

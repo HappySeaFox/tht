@@ -61,49 +61,49 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
         <translation>Тикеров:</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="48"/>
+        <location filename="../list.cpp" line="49"/>
         <source>Add one ticker...</source>
         <translation>Добавить один тикер...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="49"/>
+        <location filename="../list.cpp" line="50"/>
         <source>Add from file...</source>
         <translation>Добавить из файла...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="50"/>
+        <location filename="../list.cpp" line="51"/>
         <source>Add from clipboard</source>
         <translation>Добавить из буфера обмена</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="54"/>
+        <location filename="../list.cpp" line="55"/>
         <source>Export to file...</source>
         <translation>Экспортировать в файл...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="55"/>
+        <location filename="../list.cpp" line="56"/>
         <source>Export to clipboard</source>
         <translation>Экспортировать в буфер обмена</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="368"/>
-        <location filename="../list.cpp" line="439"/>
+        <location filename="../list.cpp" line="375"/>
+        <location filename="../list.cpp" line="448"/>
         <source>Choose a file</source>
         <translation>Выберите файл</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="379"/>
-        <location filename="../list.cpp" line="448"/>
+        <location filename="../list.cpp" line="386"/>
+        <location filename="../list.cpp" line="458"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="379"/>
+        <location filename="../list.cpp" line="386"/>
         <source>Cannot open file %1</source>
         <translation>Невозможно открыть файл %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="448"/>
+        <location filename="../list.cpp" line="458"/>
         <source>Cannot save to file %1</source>
         <translation>Невозможно сохранить в файл %1</translation>
     </message>
@@ -144,11 +144,18 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
 <context>
     <name>RegionSelect</name>
     <message>
-        <location filename="../regionselect.cpp" line="108"/>
+        <location filename="../regionselect.cpp" line="111"/>
         <source>Use your mouse to select a rectangle or exit pressing
 any key or using the right or middle mouse buttons.</source>
         <translation>Используйте мышь чтобы выделить прямоугольник, или нажмите
 любую клавишу или правую/среднюю кнопку мыши чтобы отменить.</translation>
+    </message>
+    <message>
+        <location filename="../regionselect.cpp" line="112"/>
+        <source>Use your mouse to select a rectangle or exit pressing
+the right or middle mouse buttons.</source>
+        <translation>Используйте мышь чтобы выделить прямоугольник, или нажмите
+правую/среднюю кнопку мыши чтобы отменить.</translation>
     </message>
 </context>
 <context>
@@ -169,12 +176,12 @@ any key or using the right or middle mouse buttons.</source>
         <translation>Файл...</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="52"/>
+        <location filename="../savescreenshot.cpp" line="54"/>
         <source>Image %1 (*.%2)</source>
         <translation>Изображение %1 (*.%2)</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="60"/>
+        <location filename="../savescreenshot.cpp" line="62"/>
         <source>Save as</source>
         <translation>Сохранить как</translation>
     </message>
@@ -246,7 +253,7 @@ any key or using the right or middle mouse buttons.</source>
     </message>
     <message>
         <location filename="../tht.cpp" line="70"/>
-        <location filename="../tht.cpp" line="117"/>
+        <location filename="../tht.cpp" line="127"/>
         <source>Take screenshot...</source>
         <translation>Снимок экрана...</translation>
     </message>
@@ -272,33 +279,33 @@ any key or using the right or middle mouse buttons.</source>
     </message>
     <message>
         <location filename="../tht.cpp" line="77"/>
-        <location filename="../tht.cpp" line="119"/>
+        <location filename="../tht.cpp" line="129"/>
         <source>Quit</source>
         <translation>Выход</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="153"/>
+        <location filename="../tht.cpp" line="163"/>
         <source>Notice</source>
         <translation>Заметка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="153"/>
+        <location filename="../tht.cpp" line="163"/>
         <source>THT will continue to run in a system tray</source>
         <translation>THT продолжит работу в системном лотке</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="637"/>
-        <location filename="../tht.cpp" line="665"/>
+        <location filename="../tht.cpp" line="660"/>
+        <location filename="../tht.cpp" line="688"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="637"/>
+        <location filename="../tht.cpp" line="660"/>
         <source>Cannot take screenshot</source>
         <translation>Невозможно создать снимок экрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="665"/>
+        <location filename="../tht.cpp" line="688"/>
         <source>Cannot save screenshot</source>
         <translation>Невозможно сохранить снимок экрана</translation>
     </message>
