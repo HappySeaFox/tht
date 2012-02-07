@@ -26,6 +26,12 @@
 
 <wiki:video url="https://www.youtube.com/watch?v=Q12ydFopadU" width="240" height="170"/>
 
+== Что насчёт языка ввода? ==
+
+Язык ввода должен быть установлен в Английский.
+
+<a href="http://ompldr.org/vY29qcA/input.png" target="_blank"><img src="http://ompldr.org/tY29qcA/input.png" border="0"></img></a>
+
 == Как удалить все линки (ссылки)? ==
 
 Правой кнопкой мыши откройте меню и выберите там "Очистить ссылки". Также это можно сделать если щёлкнуть средней кнопкой мыши по чёрной мишени.
