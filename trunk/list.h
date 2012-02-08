@@ -59,6 +59,7 @@ private:
 signals:
     void copyLeft(const QString &ticker);
     void copyRight(const QString &ticker);
+    void copyTo(const QString &t, int index);
     void loadTicker(const QString &);
 
 public slots:

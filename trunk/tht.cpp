@@ -271,6 +271,7 @@ void THT::rebuildUi()
 
             connect(list, SIGNAL(copyLeft(const QString &)), this, SLOT(slotCopyLeft(const QString &)));
             connect(list, SIGNAL(copyRight(const QString &)), this, SLOT(slotCopyRight(const QString &)));
+            connect(list, SIGNAL(copyTo(const QString &, int)), this, SLOT(slotCopyTo(const QString &, int)));
             connect(list, SIGNAL(loadTicker(const QString &)), this, SLOT(slotLoadTicker(const QString &)));
 
             m_layout->addWidget(list, 0, m_lists.size());
@@ -552,6 +553,19 @@ void THT::slotCopyRight(const QString &ticker)
     }
 
     m_lists[++index]->addTicker(ticker);
+}
+
+void THT::slotCopyTo(const QString &ticker, int index)
+{
+    qDebug("THT: Copy ticker \"%s\" to list #%d", qPrintable(ticker), index);
+
+    if(index < 0 || index >= m_lists.size())
+    {
+        qWarning("THT: Cannot find where to copy the ticker");
+        return;
+    }
+
+    m_lists[index]->addTicker(ticker);
 }
 
 void THT::slotLoadTicker(const QString &ticker)

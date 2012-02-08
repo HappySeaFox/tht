@@ -147,6 +147,14 @@ bool List::eventFilter(QObject *obj, QEvent *event)
         {
             switch(ke->key())
             {
+                case Qt::Key_1:
+                case Qt::Key_2:
+                case Qt::Key_3:
+                case Qt::Key_4:
+                case Qt::Key_5:
+                    emit copyTo(currentTicker(), ke->key() - Qt::Key_1);
+                break;
+
                 case Qt::Key_A:
                     slotAddFromFile();
                 break;
