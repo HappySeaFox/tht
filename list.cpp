@@ -232,6 +232,11 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                     emit loadTicker("$TVOL");
                 break;
 
+                // $VIX
+                case Qt::Key_V:
+                    emit loadTicker("$VIX");
+                break;
+
                 // $XOI
                 case Qt::Key_X:
                     emit loadTicker("$XOI");
