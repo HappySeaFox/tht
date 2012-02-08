@@ -84,6 +84,7 @@ private slots:
     void slotOptions();
     void slotCopyLeft(const QString &ticker);
     void slotCopyRight(const QString &ticker);
+    void slotCopyTo(const QString &, int);
     void slotLoadTicker(const QString &ticker);
     void slotLoadToNextWindow();
     void slotTrayActivated(QSystemTrayIcon::ActivationReason);
