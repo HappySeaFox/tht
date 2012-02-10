@@ -49,9 +49,9 @@
       <number>0</number>
      </property>
      <item>
-      <widget class="QLabel" name="label">
+      <widget class="QLabel" name="labelAG_n">
        <property name="toolTip">
-        <string>Advanced Get links</string>
+        <string>Advanced Get and ESignal links</string>
        </property>
        <property name="text">
         <string>AG:</string>
@@ -61,7 +61,7 @@
      <item>
       <widget class="QLabel" name="labelAG">
        <property name="toolTip">
-        <string>Advanced Get links</string>
+        <string>Advanced Get and ESignal links</string>
        </property>
       </widget>
      </item>
@@ -82,7 +82,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QLabel" name="label_2">
+      <widget class="QLabel" name="labelGB_n">
        <property name="toolTip">
         <string>Graybox links</string>
        </property>
@@ -115,7 +115,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QLabel" name="label_3">
+      <widget class="QLabel" name="labelO_n">
        <property name="toolTip">
         <string>Other links</string>
        </property>
@@ -241,7 +241,7 @@
    <container>1</container>
    <slots>
     <signal>dropped(QPoint)</signal>
-    <signal>clear()</signal>
+    <signal>lock()</signal>
    </slots>
   </customwidget>
  </customwidgets>
@@ -267,23 +267,23 @@
   </connection>
   <connection>
    <sender>target</sender>
-   <signal>clear()</signal>
+   <signal>lock()</signal>
    <receiver>THT</receiver>
-   <slot>slotClearLinks()</slot>
+   <slot>slotLockLinks()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>15</x>
-     <y>418</y>
+     <x>18</x>
+     <y>417</y>
     </hint>
     <hint type="destinationlabel">
-     <x>18</x>
-     <y>501</y>
+     <x>20</x>
+     <y>468</y>
     </hint>
    </hints>
   </connection>
  </connections>
  <slots>
   <slot>slotTargetDropped(QPoint)</slot>
-  <slot>slotClearLinks()</slot>
+  <slot>slotLockLinks()</slot>
  </slots>
 </ui>

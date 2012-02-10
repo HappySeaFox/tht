@@ -163,12 +163,16 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                     paste();
                 break;
 
+                case Qt::Key_D:
+                    slotExportToClipboard();
+                break;
+
                 case Qt::Key_E:
                     slotExportToFile();
                 break;
 
-                case Qt::Key_D:
-                    slotExportToClipboard();
+                case Qt::Key_L:
+                    emit lock();
                 break;
 
                 case Qt::Key_O:

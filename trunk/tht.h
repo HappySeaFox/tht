@@ -93,6 +93,7 @@ private slots:
     void slotTakeScreenshotFromGlobal();
     void slotClearLists();
     void slotClearLinks();
+    void slotLockLinks();
     void slotTargetDropped(const QPoint &);
     void slotMessageReceived(const QString &);
 
@@ -114,6 +115,7 @@ private:
     KEYBDINPUT m_kbInput;
     INPUT m_input[4];
     bool m_useKeyboardInRegion;
+    bool m_locked;
 };
 
 #endif // THT_H

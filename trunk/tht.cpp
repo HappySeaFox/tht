@@ -18,12 +18,14 @@
 #include <QxtGlobalShortcut>
 
 #include <QContextMenuEvent>
+#include <QApplication>
 #include <QGridLayout>
 #include <QMessageBox>
 #include <QCloseEvent>
 #include <QClipboard>
 #include <QFileInfo>
 #include <QDateTime>
+#include <QPalette>
 #include <QDebug>
 #include <QTimer>
 #include <QIcon>
@@ -50,7 +52,8 @@ THT::THT(QWidget *parent) :
             | Qt::WindowCloseButtonHint
             | Qt::CustomizeWindowHint),
     ui(new Ui::THT),
-    m_running(false)
+    m_running(false),
+    m_locked(false)
 {
     if(Settings::instance()->onTop())
         setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
@@ -175,6 +178,8 @@ void THT::closeEvent(QCloseEvent *e)
 
 void THT::contextMenuEvent(QContextMenuEvent *event)
 {
+    QApplication::restoreOverrideCursor();
+
     event->accept();
     m_menu->exec(event->globalPos());
 }
@@ -273,6 +278,7 @@ void THT::rebuildUi()
             connect(list, SIGNAL(copyRight(const QString &)), this, SLOT(slotCopyRight(const QString &)));
             connect(list, SIGNAL(copyTo(const QString &, int)), this, SLOT(slotCopyTo(const QString &, int)));
             connect(list, SIGNAL(loadTicker(const QString &)), this, SLOT(slotLoadTicker(const QString &)));
+            connect(list, SIGNAL(lock()), this, SLOT(slotLockLinks()));
 
             m_layout->addWidget(list, 0, m_lists.size());
             m_lists.append(list);
@@ -334,7 +340,7 @@ THT::Link THT::checkWindow(HWND hwnd)
 
     qDebug("THT: Process name of %d is \"%s\"", (int)hwnd, sname.toAscii().constData());
 
-    if(sname == "advancedget.exe")
+    if(sname == "advancedget.exe" || sname == "winsig.exe")
         link.type = LinkTypeAdvancedGet;
     else if(sname == "graybox.exe")
         link.type = LinkTypeGraybox;
@@ -572,6 +578,12 @@ void THT::slotLoadTicker(const QString &ticker)
 {
     qDebug("THT: Load ticker \"%s\"", qPrintable(ticker));
 
+    if(m_locked)
+    {
+        qDebug("THT: Locked");
+        return;
+    }
+
     if(m_running)
     {
         qDebug("THT: In progress, won't load new ticker");
@@ -723,6 +735,34 @@ void THT::slotClearLinks()
 
     m_windows.clear();
     checkWindows();
+}
+
+void THT::slotLockLinks()
+{
+    m_locked = !m_locked;
+
+    static QWidgetList labels = QWidgetList()
+                                << ui->labelAG
+                                << ui->labelAG_n
+                                << ui->labelGB
+                                << ui->labelGB_n
+                                << ui->labelO
+                                << ui->labelO_n;
+
+    QColor color = m_locked ? Qt::red : palette().color(QPalette::WindowText);
+    QPalette pal;
+    QFont font;
+
+    foreach(QWidget *l, labels)
+    {
+        font = l->font();
+        font.setBold(m_locked);
+        l->setFont(font);
+
+        pal = l->palette();
+        pal.setColor(QPalette::WindowText, color);
+        l->setPalette(pal);
+    }
 }
 
 void THT::slotTargetDropped(const QPoint &p)

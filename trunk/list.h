@@ -61,6 +61,7 @@ signals:
     void copyRight(const QString &ticker);
     void copyTo(const QString &t, int index);
     void loadTicker(const QString &);
+    void lock();
 
 public slots:
     void clear();
