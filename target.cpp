@@ -25,6 +25,8 @@
 Target::Target(QWidget *parent) :
     QLabel(parent)
 {
+    m_dragging = false;
+
     setPixmap(QPixmap(":/images/drag.png"));
     setMouseTracking(true);
 }
@@ -35,15 +37,27 @@ void Target::mousePressEvent(QMouseEvent *event)
     {
         qDebug("THT: Start dragging");
         QApplication::setOverrideCursor(QCursor(*pixmap()));
+        m_dragging = true;
     }
     else if(event->button() == Qt::MiddleButton)
-        emit clear();
+        emit lock();
+}
+
+void Target::mouseMoveEvent(QMouseEvent *event)
+{
+    if(m_dragging && event->buttons() == Qt::NoButton)
+    {
+        QApplication::restoreOverrideCursor();
+        m_dragging = false;
+    }
 }
 
 void Target::mouseReleaseEvent(QMouseEvent *event)
 {
     if(event->button() != Qt::LeftButton)
         return;
+
+    m_dragging = false;
 
     QPoint p = QCursor::pos();
 

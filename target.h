@@ -29,13 +29,15 @@ public:
 
 protected:
     virtual void mousePressEvent(QMouseEvent *event);
+    virtual void mouseMoveEvent(QMouseEvent *event);
     virtual void mouseReleaseEvent(QMouseEvent *event);
 
 signals:
     void dropped(const QPoint &);
-    void clear();
+    void lock();
     
-public slots:
+private:
+    bool m_dragging;
     
 };
 
