@@ -334,7 +334,7 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                     QSize dragCursorSize = fm.boundingRect(m_startDragText).adjusted(0,0, 10,4).size();
 
                     QColor textColor = palette().color(QPalette::WindowText);
-                    QColor borderColor = QColor::fromRgb(0xffeeee);
+                    QColor borderColor = QColor::fromRgb(0xffefef);
 
                     QPixmap px(dragCursorSize);
                     px.fill(Qt::transparent);
@@ -345,7 +345,7 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                     // bounding rect, background
                     QLinearGradient gr = QLinearGradient(QPointF(0, 0), QPointF(0, px.height()));
                     gr.setColorAt(0, borderColor);
-                    gr.setColorAt(0.5, QColor::fromRgb(0xff4444));
+                    gr.setColorAt(0.5, QColor::fromRgb(0xe6c207));
                     gr.setColorAt(1, borderColor);
 
                     p.setBrush(gr);
