@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT += core gui network
+QT += core gui network script
 
 TARGET = THT
 TEMPLATE = app
@@ -41,7 +41,8 @@ SOURCES += main.cpp\
     qxt/qxtglobalshortcut.cpp \
     qxt/qxtglobal.cpp \
     target.cpp \
-    tickerinput.cpp
+    tickerinput.cpp \
+    tickerinformationtooltip.cpp
 
 HEADERS += tht.h \
     list.h \
@@ -62,7 +63,8 @@ HEADERS += tht.h \
     qxt/QxtGlobalShortcut \
     qxt/QxtGlobalShortcut \
     target.h \
-    tickerinput.h
+    tickerinput.h \
+    tickerinformationtooltip.h
 
 FORMS += tht.ui \
     list.ui \
