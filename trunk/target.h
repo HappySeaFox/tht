@@ -34,7 +34,7 @@ protected:
 
 signals:
     void dropped(const QPoint &);
-    void lock();
+    void middleClick();
     
 private:
     bool m_dragging;

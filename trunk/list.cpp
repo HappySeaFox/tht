@@ -17,16 +17,22 @@
 
 #include <QDesktopServices>
 #include <QListWidgetItem>
+#include <QApplication>
+#include <QFontMetrics>
 #include <QFileDialog>
 #include <QInputEvent>
 #include <QMessageBox>
 #include <QTextStream>
+#include <QMouseEvent>
 #include <QClipboard>
 #include <QFileInfo>
 #include <QPalette>
 #include <QKeyEvent>
+#include <QPainter>
+#include <QPixmap>
 #include <QEvent>
 #include <QMenu>
+#include <QSize>
 #include <QUrl>
 
 #include "tickerinput.h"
@@ -39,7 +45,8 @@ List::List(int group, QWidget *parent) :
     ui(new Ui::List),
     m_section(group),
     m_saveTickers(Settings::instance()->saveTickers()),
-    m_ignoreInput(false)
+    m_ignoreInput(false),
+    m_dragging(false)
 {
     ui->setupUi(this);
 
@@ -116,7 +123,8 @@ bool List::eventFilter(QObject *obj, QEvent *event)
     QEvent::Type type = event->type();
 
     // eat input events
-    if(m_ignoreInput && (type == QEvent::KeyPress
+    if(m_ignoreInput && obj == ui->list &&
+                            (type == QEvent::KeyPress
                             || type == QEvent::KeyRelease
                             || type == QEvent::ShortcutOverride
                             || type == QEvent::MouseButtonPress
@@ -133,20 +141,22 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                          ))
         return true;
 
-    if(type == QEvent::KeyPress)
+    if(obj == ui->list)
     {
-        QKeyEvent *ke = static_cast<QKeyEvent *>(event);
-
-        if(ke->matches(QKeySequence::Paste))
-            paste();
-        else if(ke->matches(QKeySequence::New))
-            clear();
-        else if(ke->matches(QKeySequence::Open))
-            slotAddFromFile();
-        else
+        if(type == QEvent::KeyPress)
         {
-            switch(ke->key())
+            QKeyEvent *ke = static_cast<QKeyEvent *>(event);
+
+            if(ke->matches(QKeySequence::Paste))
+                paste();
+            else if(ke->matches(QKeySequence::New))
+                clear();
+            else if(ke->matches(QKeySequence::Open))
+                slotAddFromFile();
+            else
             {
+                switch(ke->key())
+                {
                 case Qt::Key_1:
                 case Qt::Key_2:
                 case Qt::Key_3:
@@ -171,10 +181,6 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                     slotExportToFile();
                 break;
 
-                case Qt::Key_L:
-                    emit lock();
-                break;
-
                 case Qt::Key_O:
                     slotAddOne();
                 break;
@@ -188,31 +194,22 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                 break;
 
                 case Qt::Key_Delete:
-                    delete ui->list->currentItem();
-                    numberOfItemsChanged();
-                    save();
+                {
+                    QListWidgetItem *i = ui->list->currentItem();
+
+                    if(i)
+                    {
+                        delete i;
+                        numberOfItemsChanged();
+                        save();
+                        loadItem(LoadItemCurrent);
+                    }
+                }
                 break;
 
                 case Qt::Key_Return:
-                {
-                    QListWidgetItem *item = ui->list->currentItem();
-
-                    if(!item)
-                        item = ui->list->item(0);
-
-                    if(item)
-                    {
-                        if(item->isSelected())
-                            slotSelectedItemChanged();
-                        else
-                        {
-                            ui->list->setCurrentItem(item);
-                            item->setSelected(true);
-                        }
-                    }
-
-                    break;
-                }
+                    loadItem(LoadItemCurrent);
+                break;
 
                 case Qt::Key_N:
                     clear();
@@ -261,22 +258,119 @@ bool List::eventFilter(QObject *obj, QEvent *event)
 
                 // default processing
                 case Qt::Key_Up:
+                    loadItem(LoadItemPrevious);
+                break;
+
                 case Qt::Key_Down:
+                    loadItem(LoadItemNext);
+                break;
+
                 case Qt::Key_Home:
+                    loadItem(LoadItemFirst);
+                break;
+
                 case Qt::Key_End:
+                    loadItem(LoadItemLast);
+                break;
+
                 case Qt::Key_PageUp:
                 case Qt::Key_PageDown:
+                break;
+
                 case Qt::Key_Tab:
                     return QObject::eventFilter(obj, event);
-            } // switch
-        }
+                } // switch
+            }
 
-        return true;
+            return true;
+        }
+        else if(type == QEvent::FocusIn)
+            ui->list->setAlternatingRowColors(true);
+        else if(type == QEvent::FocusOut)
+            ui->list->setAlternatingRowColors(false);
     }
-    else if(type == QEvent::FocusIn)
-        ui->list->setAlternatingRowColors(true);
-    else if(type == QEvent::FocusOut)
-        ui->list->setAlternatingRowColors(false);
+    else if(obj == ui->list->viewport())
+    {
+        if(type == QEvent::MouseButtonPress)
+        {
+            QMouseEvent *me = static_cast<QMouseEvent *>(event);
+
+            if(me->buttons() & Qt::LeftButton)
+            {
+                m_startPos = me->pos();
+
+                QListWidgetItem *i = ui->list->itemAt(m_startPos);
+                m_startDragText = i ? i->text() : QString();
+
+                if(!m_startDragText.isEmpty())
+                    m_startPos = me->pos();
+            }
+        }
+        else if(type == QEvent::MouseMove)
+        {
+            QMouseEvent *me = static_cast<QMouseEvent *>(event);
+
+            if(!m_dragging)
+            {
+                if(!m_startPos.isNull() && (me->pos() - m_startPos).manhattanLength() > QApplication::startDragDistance())
+                {
+                    qDebug("THT: Start dragging \"%s\"", qPrintable(m_startDragText));
+
+                    QFont fnt = ui->list->font();
+                    int size = fnt.pointSize();
+
+                    if(size < 0)
+                        size = fnt.pixelSize();
+
+                    fnt.setPointSize(size+2);
+                    QFontMetrics fm(fnt);
+                    QSize dragCursorSize = fm.boundingRect(m_startDragText).adjusted(0,0, 10,4).size();
+
+                    QPixmap px(dragCursorSize);
+                    px.fill(Qt::white);
+                    QPainter p(&px);
+
+                    p.setFont(fnt);
+                    p.drawText(px.rect(), Qt::AlignCenter, m_startDragText);
+                    p.end();
+
+                    m_dragging = true;
+                    QApplication::setOverrideCursor(QCursor(px, dragCursorSize.width()/2, dragCursorSize.height()/2));
+                }
+            }
+            else
+            {
+                if(me->buttons() == Qt::NoButton)
+                {
+                    QApplication::restoreOverrideCursor();
+                    m_dragging = false;
+                    m_startPos = QPoint();
+                }
+
+                return true;
+            }
+        }
+        else if(type == QEvent::MouseButtonRelease)
+        {
+            QMouseEvent *me = static_cast<QMouseEvent *>(event);
+
+            if(me->button() == Qt::LeftButton || (me->buttons() & Qt::LeftButton))
+            {
+                if(m_dragging)
+                {
+                    QPoint p = QCursor::pos();
+
+                    qDebug("THT: Dropped at %d,%d", p.x(), p.y());
+                    QApplication::restoreOverrideCursor();
+
+                    emit dropped(m_startDragText, p);
+                }
+
+                m_dragging = false;
+                m_startPos = QPoint();
+            }
+        }
+    }
 
     return QObject::eventFilter(obj, event);
 }
@@ -360,6 +454,46 @@ void List::showSaved(bool isSaved)
     QPalette pal = ui->labelUnsaved->palette();
     pal.setColor(QPalette::Window, isSaved ? palette().color(QPalette::Window) : Qt::red);
     ui->labelUnsaved->setPalette(pal);
+}
+
+void List::loadItem(LoadItem litem)
+{
+    QListWidgetItem *item = ui->list->currentItem();
+
+    if(!item)
+        item = ui->list->item(0);
+
+    switch(litem)
+    {
+        case LoadItemCurrent:
+        break;
+
+        case LoadItemNext:
+            item = ui->list->item(ui->list->currentRow()+1);
+        break;
+
+        case LoadItemPrevious:
+            item = ui->list->item(ui->list->currentRow()-1);
+        break;
+
+        case LoadItemFirst:
+            item = ui->list->item(0);
+        break;
+
+        case LoadItemLast:
+            item = ui->list->item(ui->list->count()-1);
+        break;
+    }
+
+    if(!item)
+    {
+        qDebug("THT: Cannot find item to load");
+        return;
+    }
+
+    ui->list->setCurrentItem(item);
+    item->setSelected(true);
+    emit loadTicker(item->text());
 }
 
 void List::slotAddOne()
@@ -491,18 +625,4 @@ void List::slotExportToClipboard()
     qDebug("THT: Exporting tickers to clipboard");
 
     QApplication::clipboard()->setText(toStringList().join("\n"));
-}
-
-void List::slotSelectedItemChanged()
-{
-    QList<QListWidgetItem *> selected = ui->list->selectedItems();
-
-    // load selected ticker
-    if(selected.size())
-    {
-        QListWidgetItem *first = selected.at(0);
-
-        if(first && first == ui->list->currentItem())
-            emit loadTicker(first->text());
-    }
 }

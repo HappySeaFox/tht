@@ -52,6 +52,7 @@ THT::THT(QWidget *parent) :
             | Qt::WindowCloseButtonHint
             | Qt::CustomizeWindowHint),
     ui(new Ui::THT),
+    m_windows(&m_windowsLoad),
     m_running(false),
     m_locked(false)
 {
@@ -274,11 +275,11 @@ void THT::rebuildUi()
         {
             List *list = new List(m_lists.size()+1, this);
 
-            connect(list, SIGNAL(copyLeft(const QString &)), this, SLOT(slotCopyLeft(const QString &)));
-            connect(list, SIGNAL(copyRight(const QString &)), this, SLOT(slotCopyRight(const QString &)));
-            connect(list, SIGNAL(copyTo(const QString &, int)), this, SLOT(slotCopyTo(const QString &, int)));
-            connect(list, SIGNAL(loadTicker(const QString &)), this, SLOT(slotLoadTicker(const QString &)));
-            connect(list, SIGNAL(lock()), this, SLOT(slotLockLinks()));
+            connect(list, SIGNAL(copyLeft(const QString &)),                this, SLOT(slotCopyLeft(const QString &)));
+            connect(list, SIGNAL(copyRight(const QString &)),               this, SLOT(slotCopyRight(const QString &)));
+            connect(list, SIGNAL(copyTo(const QString &, int)),             this, SLOT(slotCopyTo(const QString &, int)));
+            connect(list, SIGNAL(loadTicker(const QString &)),              this, SLOT(slotLoadTicker(const QString &)));
+            connect(list, SIGNAL(dropped(const QString &, const QPoint &)), this, SLOT(slotTickerDropped(const QString &, const QPoint &)));
 
             m_layout->addWidget(list, 0, m_lists.size());
             m_lists.append(list);
@@ -347,32 +348,103 @@ THT::Link THT::checkWindow(HWND hwnd)
     else
         link.type = LinkTypeOther;
 
+    if(link.type != LinkTypeNotInitialized)
+        qDebug("THT: Window under cursor %d", (int)link.hwnd);
+
     return link;
+}
+
+THT::Link THT::checkTargetWindow(const QPoint &p)
+{
+    POINT pnt;
+
+    pnt.x = p.x();
+    pnt.y = p.y();
+
+    HWND hwnd = RealChildWindowFromPoint(GetDesktopWindow(), pnt);
+
+    if(!hwnd)
+    {
+        qDebug("THT: Cannot find window under cursor %d,%d", p.x(), p.y());
+        return Link();
+    }
+
+    // this window
+    if(hwnd == winId())
+    {
+        qDebug("THT: Ignoring ourselves");
+        return Link();
+    }
+
+    // desktop window?
+    bool isDesktop = false;
+    TCHAR classname[256];
+
+    if(!GetClassName(hwnd, classname, sizeof(classname)))
+    {
+        qDebug("THT: Cannot get class name for window %d", (int)hwnd);
+    }
+    else
+    {
+        LONG style = GetWindowLong(hwnd, GWL_STYLE);
+
+        isDesktop = !lstrcmp(classname,
+#ifdef UNICODE
+         L"Progman"
+#else
+        "Progman"
+#endif
+        ) && !(style & WS_CAPTION) && !GetParent(hwnd);
+    }
+
+    // desktop
+    if(hwnd == GetDesktopWindow() || isDesktop)
+    {
+        qDebug("THT: Ignoring desktop window");
+        return Link();
+    }
+
+    // already linked?
+    QList<Link>::iterator itEnd = m_windows->end();
+
+    for(QList<Link>::iterator it = m_windows->begin();it != itEnd;++it)
+    {
+        if((*it).hwnd == hwnd)
+        {
+            qDebug("THT: Window %d is already linked", (int)hwnd);
+            return Link();
+        }
+    }
+
+    return Link(hwnd);
 }
 
 void THT::checkWindows()
 {
     RECT rect;
 
-    QList<Link>::iterator itEnd = m_windows.end();
+    QList<Link>::iterator itEnd = m_windows->end();
 
-    for(QList<Link>::iterator it = m_windows.begin();it != itEnd;)
+    for(QList<Link>::iterator it = m_windows->begin();it != itEnd;)
     {
         // remove dead windows
         if(!GetWindowRect((*it).hwnd, &rect))
         {
             qDebug("THT: Window id %d is not valid, removing (%ld)", (int)(*it).hwnd, GetLastError());
-            it = m_windows.erase(it);
-            itEnd = m_windows.end();
+            it = m_windows->erase(it);
+            itEnd = m_windows->end();
         }
         else
             ++it;
     }
 
+    if(m_windows == &m_windowsDrop)
+        return;
+
     // join window types to a status string
     int ag = 0, gb = 0, o = 0;
 
-    for(QList<Link>::iterator it = m_windows.begin();it != itEnd;++it)
+    for(QList<Link>::iterator it = m_windows->begin();it != itEnd;++it)
     {
         if((*it).type == LinkTypeAdvancedGet)
             ++ag;
@@ -393,7 +465,7 @@ void THT::nextLoadableWindowIndex(int startFrom)
 
     if(m_ticker.startsWith('$'))
     {
-        while(m_currentWindow < m_windows.size() && m_windows.at(m_currentWindow).type != LinkTypeAdvancedGet)
+        while(m_currentWindow < m_windows->size() && m_windows->at(m_currentWindow).type != LinkTypeAdvancedGet)
             m_currentWindow++;
     }
 }
@@ -402,9 +474,16 @@ void THT::loadNextWindow()
 {
     nextLoadableWindowIndex(+1);
 
-    if(m_currentWindow >= m_windows.size())
+    if(m_currentWindow >= m_windows->size())
     {
         qDebug("THT: Done for all windows");
+
+        if(m_windows == &m_windowsDrop)
+        {
+            qDebug("THT: Clearing drop list");
+            m_windows->clear();
+        }
+
         busy(false);
         activate();
         m_running = false;
@@ -419,6 +498,49 @@ void THT::busy(bool b)
         l->setIgnoreInput(b);
 
     ui->stackBusy->setCurrentIndex(b);
+}
+
+void THT::loadTicker(const QString &ticker)
+{
+    qDebug("THT: Load ticker \"%s\"", qPrintable(ticker));
+
+    if(m_locked)
+    {
+        qDebug("THT: Locked");
+        return;
+    }
+
+    if(m_running)
+    {
+        qDebug("THT: In progress, won't load new ticker");
+        return;
+    }
+
+    checkWindows();
+
+    if(m_windows->isEmpty())
+    {
+        qDebug("THT: No windows configured");
+        m_running = false;
+        return;
+    }
+
+    m_ticker = ticker;
+    m_currentWindow = 0;
+    nextLoadableWindowIndex();
+
+    if(m_currentWindow >= m_windows->size())
+    {
+        qDebug("Cannot find where to load the ticker");
+        return;
+    }
+
+    m_running = true;
+    m_startupTime = QDateTime::currentMSecsSinceEpoch();
+
+    busy(true);
+
+    m_timerLoadToNextWindow->start();
 }
 
 void THT::startDelayedScreenshot(bool allowKbd)
@@ -443,14 +565,14 @@ void THT::activate()
 
 void THT::slotCheckActive()
 {
-    if(m_windows.isEmpty())
+    if(m_windows->isEmpty())
     {
         qDebug("THT: Window list is empty");
         m_running = false;
         return;
     }
 
-    HWND window = m_windows.at(m_currentWindow).hwnd;
+    HWND window = m_windows->at(m_currentWindow).hwnd;
     WINDOWINFO pwi = {0};
     pwi.cbSize = sizeof(WINDOWINFO);
     GetWindowInfo(window, &pwi);
@@ -461,7 +583,7 @@ void THT::slotCheckActive()
 
         QString add;
 
-        if(m_windows.at(m_currentWindow).type == LinkTypeAdvancedGet
+        if(m_windows->at(m_currentWindow).type == LinkTypeAdvancedGet
                 && ui->checkNyse->isChecked()
                 && !m_ticker.startsWith(QChar('$')))
             add = "=N";
@@ -576,50 +698,13 @@ void THT::slotCopyTo(const QString &ticker, int index)
 
 void THT::slotLoadTicker(const QString &ticker)
 {
-    qDebug("THT: Load ticker \"%s\"", qPrintable(ticker));
-
-    if(m_locked)
-    {
-        qDebug("THT: Locked");
-        return;
-    }
-
-    if(m_running)
-    {
-        qDebug("THT: In progress, won't load new ticker");
-        return;
-    }
-
-    checkWindows();
-
-    if(m_windows.isEmpty())
-    {
-        qDebug("THT: No windows configured");
-        m_running = false;
-        return;
-    }
-
-    m_ticker = ticker;
-    m_currentWindow = 0;
-    nextLoadableWindowIndex();
-
-    if(m_currentWindow >= m_windows.size())
-    {
-        qDebug("Cannot find where to load the ticker");
-        return;
-    }
-
-    m_running = true;
-    m_startupTime = QDateTime::currentMSecsSinceEpoch();
-
-    busy(true);
-
-    m_timerLoadToNextWindow->start();
+    m_windows = &m_windowsLoad;
+    loadTicker(ticker);
 }
 
 void THT::slotLoadToNextWindow()
 {
-    HWND window = m_windows.at(m_currentWindow).hwnd;
+    HWND window = m_windows->at(m_currentWindow).hwnd;
 
     qDebug("THT: Trying window %d", (int)window);
 
@@ -733,13 +818,18 @@ void THT::slotClearLinks()
 
     MessageBeep(MB_OK);
 
-    m_windows.clear();
+    m_windows = &m_windowsLoad;
+    m_windows->clear();
+
     checkWindows();
 }
 
 void THT::slotLockLinks()
 {
+/*
     m_locked = !m_locked;
+
+    ui->stackBusy->setCurrentIndex(m_locked);
 
     static QWidgetList labels = QWidgetList()
                                 << ui->labelAG
@@ -763,81 +853,47 @@ void THT::slotLockLinks()
         pal.setColor(QPalette::WindowText, color);
         l->setPalette(pal);
     }
+*/
 }
 
-void THT::slotTargetDropped(const QPoint &p)
+void THT::slotTickerDropped(const QString &t, const QPoint &p)
 {
-    POINT pnt;
+    m_windows = &m_windowsDrop;
+    m_windows->clear();
 
-    pnt.x = p.x();
-    pnt.y = p.y();
+    Link link = checkTargetWindow(p);
 
-    HWND hwnd = RealChildWindowFromPoint(GetDesktopWindow(), pnt);
-
-    if(!hwnd)
-    {
-        qDebug("THT: Cannot find window under cursor %d,%d", p.x(), p.y());
+    if(!link.hwnd)
         return;
-    }
 
-    // this window
-    if(hwnd == winId())
-    {
-        qDebug("THT: Ignoring ourselves");
-        return;
-    }
-
-    // desktop window?
-    bool isDesktop = false;
-    TCHAR classname[256];
-
-    if(!GetClassName(hwnd, classname, sizeof(classname)))
-    {
-        qDebug("THT: Cannot get class name for window %d", (int)hwnd);
-    }
-    else
-    {
-        LONG style = GetWindowLong(hwnd, GWL_STYLE);
-
-        isDesktop = !lstrcmp(classname,
-#ifdef UNICODE
-         L"Progman"
-#else
-        "Progman"
-#endif
-        ) && !(style & WS_CAPTION) && !GetParent(hwnd);
-    }
-
-    // desktop
-    if(hwnd == GetDesktopWindow() || isDesktop)
-    {
-        qDebug("THT: Ignoring desktop window");
-        return;
-    }
-
-    // already linked?
-    QList<Link>::iterator itEnd = m_windows.end();
-
-    for(QList<Link>::iterator it = m_windows.begin();it != itEnd;++it)
-    {
-        if((*it).hwnd == hwnd)
-        {
-            qDebug("THT: Window %d is already linked", (int)hwnd);
-            return;
-        }
-    }
-
-    Link link = checkWindow(hwnd);
+    link = checkWindow(link.hwnd);
 
     if(link.type == LinkTypeNotInitialized)
         return;
 
-    qDebug("THT: Window under cursor %d", (int)hwnd);
+    m_windows->append(link);
+
+    loadTicker(t);
+}
+
+void THT::slotTargetDropped(const QPoint &p)
+{
+    m_windows = &m_windowsLoad;
+
+    Link link = checkTargetWindow(p);
+
+    if(!link.hwnd)
+        return;
+
+    link = checkWindow(link.hwnd);
+
+    if(link.type == LinkTypeNotInitialized)
+        return;
 
     // beep
     MessageBeep(MB_OK);
 
-    m_windows.append(link);
+    m_windows->append(link);
 
     checkWindows();
 }

@@ -124,7 +124,11 @@
     </layout>
    </item>
    <item row="4" column="0" colspan="3">
-    <widget class="QListWidget" name="list"/>
+    <widget class="QListWidget" name="list">
+     <property name="mouseTracking">
+      <bool>true</bool>
+     </property>
+    </widget>
    </item>
    <item row="6" column="0">
     <widget class="QLabel" name="label">
@@ -246,22 +250,6 @@
  </resources>
  <connections>
   <connection>
-   <sender>list</sender>
-   <signal>itemSelectionChanged()</signal>
-   <receiver>List</receiver>
-   <slot>slotSelectedItemChanged()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>71</x>
-     <y>177</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>300</x>
-     <y>189</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>pushSave</sender>
    <signal>clicked()</signal>
    <receiver>List</receiver>
@@ -293,10 +281,26 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>list</sender>
+   <signal>itemDoubleClicked(QListWidgetItem*)</signal>
+   <receiver>List</receiver>
+   <slot>loadItem()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>60</x>
+     <y>279</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>182</x>
+     <y>283</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>clear()</slot>
-  <slot>slotSelectedItemChanged()</slot>
   <slot>slotSave()</slot>
+  <slot>loadItem()</slot>
  </slots>
 </ui>

@@ -20,6 +20,7 @@
 
 #include <QStringList>
 #include <QWidget>
+#include <QPoint>
 
 namespace Ui
 {
@@ -56,12 +57,14 @@ private:
     void paste();
     void showSaved(bool isSaved);
 
+    enum LoadItem { LoadItemCurrent, LoadItemNext, LoadItemPrevious, LoadItemFirst, LoadItemLast };
+
 signals:
     void copyLeft(const QString &ticker);
     void copyRight(const QString &ticker);
     void copyTo(const QString &t, int index);
     void loadTicker(const QString &);
-    void lock();
+    void dropped(const QString &, const QPoint &);
 
 public slots:
     void clear();
@@ -73,13 +76,16 @@ private slots:
     void slotSave();
     void slotExportToFile();
     void slotExportToClipboard();
-    void slotSelectedItemChanged();
+    void loadItem(LoadItem = LoadItemCurrent);
 
 private:
     Ui::List *ui;
     int m_section;
     bool m_saveTickers;
     bool m_ignoreInput;
+    bool m_dragging;
+    QPoint m_startPos;
+    QString m_startDragText;
 };
 
 inline
