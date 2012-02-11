@@ -293,6 +293,8 @@ TickerInformationToolTipLabel::~TickerInformationToolTipLabel()
 {
     instance = 0;
 
+    qDebug("THT: Closing ticker info");
+
     if(reply)
     {
         reply->blockSignals(true);
