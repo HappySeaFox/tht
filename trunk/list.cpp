@@ -28,10 +28,9 @@
 #include <QClipboard>
 #include <QGradient>
 #include <QFileInfo>
-#include <QPalette>
 #include <QKeyEvent>
+#include <QPalette>
 #include <QPainter>
-#include <QPixmap>
 #include <QEvent>
 #include <QColor>
 #include <QMenu>
@@ -39,6 +38,7 @@
 #include <QUrl>
 #include <QPen>
 
+#include "tickerinformationtooltip.h"
 #include "tickerinput.h"
 #include "settings.h"
 #include "list.h"
@@ -277,6 +277,10 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                     loadItem(LoadItemLast);
                 break;
 
+                case Qt::Key_Space:
+                    showTickerInfo();
+                break;
+
                 case Qt::Key_PageUp:
                 case Qt::Key_PageDown:
                 break;
@@ -322,47 +326,10 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                 {
                     qDebug("THT: Start dragging \"%s\"", qPrintable(m_startDragText));
 
-                    QFont fnt = ui->list->font();
-                    int size = fnt.pointSize();
-
-                    if(size < 0)
-                        size = fnt.pixelSize();
-
-                    fnt.setPointSize(size+2);
-
-                    QFontMetrics fm(fnt);
-                    QSize dragCursorSize = fm.boundingRect(m_startDragText).adjusted(0,0, 10,4).size();
-
-                    QColor textColor = palette().color(QPalette::WindowText);
-                    QColor borderColor = QColor::fromRgb(0xffefef);
-
-                    QPixmap px(dragCursorSize);
-                    px.fill(Qt::transparent);
-                    QPainter p(&px);
-
-                    p.setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing);
-
-                    // bounding rect, background
-                    QLinearGradient gr = QLinearGradient(QPointF(0, 0), QPointF(0, px.height()));
-                    gr.setColorAt(0, borderColor);
-                    gr.setColorAt(0.5, QColor::fromRgb(0xe6c207));
-                    gr.setColorAt(1, borderColor);
-
-                    p.setBrush(gr);
-                    p.setPen(Qt::NoPen);
-                    p.drawRect(px.rect());
-
-                    p.setPen(QPen(textColor, 1));
-                    p.setBrush(Qt::transparent);
-                    p.drawRect(px.rect());
-
-                    // text
-                    p.setFont(fnt);
-                    p.drawText(px.rect(), Qt::AlignCenter, m_startDragText);
-                    p.end();
+                    QPixmap pix = createDragCursor();
 
                     m_dragging = true;
-                    QApplication::setOverrideCursor(QCursor(px, dragCursorSize.width()/2, dragCursorSize.height()/2));
+                    QApplication::setOverrideCursor(QCursor(pix, pix.width()/2, pix.height()/2));
                 }
             }
             else
@@ -414,9 +381,7 @@ QStringList List::toStringList()
     QListWidgetItem *item;
 
     while((item = ui->list->item(i++)))
-    {
         items.append(item->text());
-    }
 
     return items;
 }
@@ -481,6 +446,71 @@ void List::showSaved(bool isSaved)
     QPalette pal = ui->labelUnsaved->palette();
     pal.setColor(QPalette::Window, isSaved ? palette().color(QPalette::Window) : Qt::red);
     ui->labelUnsaved->setPalette(pal);
+}
+
+void List::showTickerInfo()
+{
+    QListWidgetItem *item = ui->list->currentItem();
+
+    if(!item)
+    {
+        qDebug("THT: Nothing to load");
+        return;
+    }
+
+    QPoint p = ui->list->viewport()->mapToGlobal(ui->list->visualItemRect(item).bottomLeft());
+
+    if(p.isNull())
+    {
+        qDebug("THT: Cannot find where to show the information");
+        return;
+    }
+
+    TickerInformationToolTip::showText(p, item->text().replace('.', '-'));
+}
+
+QPixmap List::createDragCursor()
+{
+    QFont fnt = ui->list->font();
+    int size = fnt.pointSize();
+
+    if(size < 0)
+        size = fnt.pixelSize();
+
+    fnt.setPointSize(size+2);
+
+    QFontMetrics fm(fnt);
+    QSize dragCursorSize = fm.boundingRect(m_startDragText).adjusted(0,0, 10,4).size();
+
+    QColor textColor = palette().color(QPalette::WindowText);
+    QColor borderColor = QColor::fromRgb(0xffefef);
+
+    QPixmap px(dragCursorSize);
+    px.fill(Qt::transparent);
+    QPainter p(&px);
+
+    p.setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing);
+
+    // bounding rect, background
+    QLinearGradient gr = QLinearGradient(QPointF(0, 0), QPointF(0, px.height()));
+    gr.setColorAt(0, borderColor);
+    gr.setColorAt(0.5, QColor::fromRgb(0xe6c207));
+    gr.setColorAt(1, borderColor);
+
+    p.setBrush(gr);
+    p.setPen(Qt::NoPen);
+    p.drawRect(px.rect());
+
+    p.setPen(QPen(textColor, 1));
+    p.setBrush(Qt::transparent);
+    p.drawRect(px.rect());
+
+    // text
+    p.setFont(fnt);
+    p.drawText(px.rect(), Qt::AlignCenter, m_startDragText);
+    p.end();
+
+    return px;
 }
 
 void List::loadItem(LoadItem litem)

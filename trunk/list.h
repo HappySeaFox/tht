@@ -19,6 +19,7 @@
 #define LIST_H
 
 #include <QStringList>
+#include <QPixmap>
 #include <QWidget>
 #include <QPoint>
 
@@ -56,6 +57,8 @@ private:
     void load();
     void paste();
     void showSaved(bool isSaved);
+    void showTickerInfo();
+    QPixmap createDragCursor();
 
     enum LoadItem { LoadItemCurrent, LoadItemNext, LoadItemPrevious, LoadItemFirst, LoadItemLast };
 
