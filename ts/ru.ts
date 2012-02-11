@@ -56,54 +56,54 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
         <translation>Экспортировать тикеры</translation>
     </message>
     <message>
-        <location filename="../list.ui" line="132"/>
+        <location filename="../list.ui" line="136"/>
         <source>Tickers:</source>
         <translation>Тикеров:</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="49"/>
+        <location filename="../list.cpp" line="60"/>
         <source>Add one ticker...</source>
         <translation>Добавить один тикер...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="50"/>
+        <location filename="../list.cpp" line="61"/>
         <source>Add from file...</source>
         <translation>Добавить из файла...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="51"/>
+        <location filename="../list.cpp" line="62"/>
         <source>Add from clipboard</source>
         <translation>Добавить из буфера обмена</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="55"/>
+        <location filename="../list.cpp" line="66"/>
         <source>Export to file...</source>
         <translation>Экспортировать в файл...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="56"/>
+        <location filename="../list.cpp" line="67"/>
         <source>Export to clipboard</source>
         <translation>Экспортировать в буфер обмена</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="388"/>
-        <location filename="../list.cpp" line="461"/>
+        <location filename="../list.cpp" line="579"/>
+        <location filename="../list.cpp" line="652"/>
         <source>Choose a file</source>
         <translation>Выберите файл</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="399"/>
-        <location filename="../list.cpp" line="471"/>
+        <location filename="../list.cpp" line="590"/>
+        <location filename="../list.cpp" line="662"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="399"/>
+        <location filename="../list.cpp" line="590"/>
         <source>Cannot open file %1</source>
         <translation>Невозможно открыть файл %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="471"/>
+        <location filename="../list.cpp" line="662"/>
         <source>Cannot save to file %1</source>
         <translation>Невозможно сохранить в файл %1</translation>
     </message>
@@ -247,67 +247,86 @@ the right or middle mouse buttons.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="71"/>
+        <location filename="../tht.cpp" line="72"/>
         <source>Options...</source>
         <translation>Настройки...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="73"/>
-        <location filename="../tht.cpp" line="130"/>
+        <location filename="../tht.cpp" line="74"/>
+        <location filename="../tht.cpp" line="131"/>
         <source>Take screenshot...</source>
         <translation>Снимок экрана...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="74"/>
+        <location filename="../tht.cpp" line="75"/>
         <source>Clear ticker lists</source>
         <translation>Очистить списки тикеров</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="75"/>
+        <location filename="../tht.cpp" line="76"/>
         <source>Clear links</source>
         <translation>Очистить ссылки</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="77"/>
+        <location filename="../tht.cpp" line="78"/>
         <source>About THT</source>
         <translation>О THT</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="78"/>
+        <location filename="../tht.cpp" line="79"/>
         <source>About Qt</source>
         <translation>О Qt</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="80"/>
-        <location filename="../tht.cpp" line="132"/>
+        <location filename="../tht.cpp" line="81"/>
+        <location filename="../tht.cpp" line="133"/>
         <source>Quit</source>
         <translation>Выход</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="166"/>
+        <location filename="../tht.cpp" line="167"/>
         <source>Notice</source>
         <translation>Заметка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="166"/>
+        <location filename="../tht.cpp" line="167"/>
         <source>THT will continue to run in a system tray</source>
         <translation>THT продолжит работу в системном лотке</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="688"/>
-        <location filename="../tht.cpp" line="716"/>
+        <location filename="../tht.cpp" line="773"/>
+        <location filename="../tht.cpp" line="801"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="688"/>
+        <location filename="../tht.cpp" line="773"/>
         <source>Cannot take screenshot</source>
         <translation>Невозможно создать снимок экрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="716"/>
+        <location filename="../tht.cpp" line="801"/>
         <source>Cannot save screenshot</source>
         <translation>Невозможно сохранить снимок экрана</translation>
+    </message>
+</context>
+<context>
+    <name>TickerInformationToolTipLabel</name>
+    <message>
+        <location filename="../tickerinformationtooltip.cpp" line="220"/>
+        <source>Error #%1</source>
+        <translation>Ошибка #%1</translation>
+    </message>
+    <message>
+        <location filename="../tickerinformationtooltip.cpp" line="234"/>
+        <location filename="../tickerinformationtooltip.cpp" line="261"/>
+        <source>Parse error</source>
+        <translation>Ошибка данных</translation>
+    </message>
+    <message>
+        <location filename="../tickerinformationtooltip.cpp" line="256"/>
+        <source>Not found</source>
+        <translation>Не найдено</translation>
     </message>
 </context>
 <context>

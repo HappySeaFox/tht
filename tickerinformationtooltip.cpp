@@ -209,9 +209,6 @@ void TickerInformationToolTipLabel::reuseTip(const QString &text, bool isTicker)
 void TickerInformationToolTipLabel::slotNetworkError(QNetworkReply::NetworkError err)
 {
     qDebug("THT: Network error #%d", err);
-
-    TickerInformationToolTip::showText(QPoint(), tr("Error #%1").arg(err), false);
-    restartExpireTimer();
 }
 
 void TickerInformationToolTipLabel::slotNetworkDone()
@@ -219,7 +216,11 @@ void TickerInformationToolTipLabel::slotNetworkDone()
     qDebug("THT: Network request done");
 
     if(reply->error() != QNetworkReply::NoError)
+    {
+        TickerInformationToolTip::showText(QPoint(), tr("Error #%1").arg(reply->error()), false);
+        restartExpireTimer();
         return;
+    }
 
     data.replace("YAHOO.Finance.SymbolSuggest.ssCallback(", "(");
 
@@ -251,12 +252,14 @@ void TickerInformationToolTipLabel::slotNetworkDone()
                 return;
             }
         }
+
+        TickerInformationToolTip::showText(QPoint(), tr("Not found"), false);
+        restartExpireTimer();
     }
     else
     {
         TickerInformationToolTip::showText(QPoint(), tr("Parse error"), false);
         restartExpireTimer();
-        return;
     }
 }
 
