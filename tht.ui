@@ -241,7 +241,7 @@
    <container>1</container>
    <slots>
     <signal>dropped(QPoint)</signal>
-    <signal>lock()</signal>
+    <signal>middleClick()</signal>
    </slots>
   </customwidget>
  </customwidgets>
@@ -267,9 +267,9 @@
   </connection>
   <connection>
    <sender>target</sender>
-   <signal>lock()</signal>
+   <signal>middleClick()</signal>
    <receiver>THT</receiver>
-   <slot>slotLockLinks()</slot>
+   <slot>slotClearLinks()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>18</x>
@@ -284,6 +284,6 @@
  </connections>
  <slots>
   <slot>slotTargetDropped(QPoint)</slot>
-  <slot>slotLockLinks()</slot>
+  <slot>slotClearLinks()</slot>
  </slots>
 </ui>

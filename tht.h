@@ -68,10 +68,12 @@ private:
     void sendString(const QString &str);
     void rebuildUi();
     Link checkWindow(HWND hwnd);
+    Link checkTargetWindow(const QPoint &);
     void checkWindows();
     void nextLoadableWindowIndex(int startFrom = 0);
     void loadNextWindow();
     void busy(bool);
+    void loadTicker(const QString &);
     void startDelayedScreenshot(bool);
 
 public slots:
@@ -95,12 +97,15 @@ private slots:
     void slotClearLinks();
     void slotLockLinks();
     void slotTargetDropped(const QPoint &);
+    void slotTickerDropped(const QString &, const QPoint &);
     void slotMessageReceived(const QString &);
 
 private:
     Ui::THT *ui;
 
-    QList<Link> m_windows;
+    QList<Link> m_windowsLoad;
+    QList<Link> m_windowsDrop; // really only one window
+    QList<Link> *m_windows;
     int m_currentWindow;
     bool m_running;
     QTimer *m_timerCheckActive;

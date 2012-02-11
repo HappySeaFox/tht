@@ -40,7 +40,7 @@ void Target::mousePressEvent(QMouseEvent *event)
         m_dragging = true;
     }
     else if(event->button() == Qt::MiddleButton)
-        emit lock();
+        emit middleClick();
 }
 
 void Target::mouseMoveEvent(QMouseEvent *event)
