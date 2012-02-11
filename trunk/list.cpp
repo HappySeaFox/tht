@@ -17,6 +17,7 @@
 
 #include <QDesktopServices>
 #include <QListWidgetItem>
+#include <QLinearGradient>
 #include <QApplication>
 #include <QFontMetrics>
 #include <QFileDialog>
@@ -25,15 +26,18 @@
 #include <QTextStream>
 #include <QMouseEvent>
 #include <QClipboard>
+#include <QGradient>
 #include <QFileInfo>
 #include <QPalette>
 #include <QKeyEvent>
 #include <QPainter>
 #include <QPixmap>
 #include <QEvent>
+#include <QColor>
 #include <QMenu>
 #include <QSize>
 #include <QUrl>
+#include <QPen>
 
 #include "tickerinput.h"
 #include "settings.h"
@@ -312,7 +316,9 @@ bool List::eventFilter(QObject *obj, QEvent *event)
 
             if(!m_dragging)
             {
-                if(!m_startPos.isNull() && (me->pos() - m_startPos).manhattanLength() > QApplication::startDragDistance())
+                if(!m_startPos.isNull()
+                        && (me->buttons() & Qt::LeftButton)
+                        && (me->pos() - m_startPos).manhattanLength() > QApplication::startDragDistance())
                 {
                     qDebug("THT: Start dragging \"%s\"", qPrintable(m_startDragText));
 
@@ -323,13 +329,34 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                         size = fnt.pixelSize();
 
                     fnt.setPointSize(size+2);
+
                     QFontMetrics fm(fnt);
                     QSize dragCursorSize = fm.boundingRect(m_startDragText).adjusted(0,0, 10,4).size();
 
+                    QColor textColor = palette().color(QPalette::WindowText);
+                    QColor borderColor = QColor::fromRgb(0xffeeee);
+
                     QPixmap px(dragCursorSize);
-                    px.fill(Qt::white);
+                    px.fill(Qt::transparent);
                     QPainter p(&px);
 
+                    p.setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing);
+
+                    // bounding rect, background
+                    QLinearGradient gr = QLinearGradient(QPointF(0, 0), QPointF(0, px.height()));
+                    gr.setColorAt(0, borderColor);
+                    gr.setColorAt(0.5, QColor::fromRgb(0xff4444));
+                    gr.setColorAt(1, borderColor);
+
+                    p.setBrush(gr);
+                    p.setPen(Qt::NoPen);
+                    p.drawRect(px.rect());
+
+                    p.setPen(QPen(textColor, 1));
+                    p.setBrush(Qt::transparent);
+                    p.drawRect(px.rect());
+
+                    // text
                     p.setFont(fnt);
                     p.drawText(px.rect(), Qt::AlignCenter, m_startDragText);
                     p.end();
@@ -346,9 +373,9 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                     m_dragging = false;
                     m_startPos = QPoint();
                 }
-
-                return true;
             }
+
+            return true;
         }
         else if(type == QEvent::MouseButtonRelease)
         {
