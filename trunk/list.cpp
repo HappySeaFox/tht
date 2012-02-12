@@ -305,9 +305,7 @@ bool List::eventFilter(QObject *obj, QEvent *event)
 
             if(me->buttons() & Qt::LeftButton)
             {
-                m_startPos = me->pos();
-
-                QListWidgetItem *i = ui->list->itemAt(m_startPos);
+                QListWidgetItem *i = ui->list->itemAt(me->pos());
                 m_startDragText = i ? i->text() : QString();
 
                 if(!m_startDragText.isEmpty())
