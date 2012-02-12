@@ -1,6 +1,6 @@
 == 0.6.0 (unreleased) ==
  * hotkey: press "V" to load "$VIX"
- * hotkey: press "Space" to show a ticker information in a tooltip
+ * hotkey: press "Space" to show the ticker information
  * hotkey: press 1,2,3,4,5 to copy the current ticker to the 1st, 2nd, 3rd, 4th or 5th list
  * drag-and-drop tickers to the other window will load the ticker there (see howto)
  * single click doesn't load the ticker anymore (needed for DND)
