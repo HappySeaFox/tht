@@ -466,7 +466,7 @@ void List::showTickerInfo()
         return;
     }
 
-    TickerInformationToolTip::showText(p, item->text().replace('.', '-'));
+    TickerInformationToolTip::showText(p, item->text());
 }
 
 QPixmap List::createDragCursor()

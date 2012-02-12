@@ -182,7 +182,7 @@ void TickerInformationToolTipLabel::reuseTip(const QString &text, bool isTicker)
         qDebug("THT: Starting a new network request for \"%s\"", qPrintable(text));
 
         QNetworkRequest request(
-            QUrl(QString("http://d.yimg.com/autoc.finance.yahoo.com/autoc?query=%1&callback=YAHOO.Finance.SymbolSuggest.ssCallback")
+            QUrl(QString("http://www.google.com/finance/info?infotype=infoquoteall&q=%1")
                  .arg(text)));
 
         request.setRawHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; rv:10.0) Gecko/20100101 Firefox/10.0");
@@ -206,56 +206,47 @@ void TickerInformationToolTipLabel::slotNetworkDone()
 
     if(reply->error() != QNetworkReply::NoError)
     {
-        TickerInformationToolTip::showText(QPoint(), tr("Error #%1").arg(reply->error()), false);
+        TickerInformationToolTip::showText(QPoint(),
+                                           reply->error() == QNetworkReply::UnknownContentError
+                                                ? tr("Not found")
+                                                : tr("Error #%1").arg(reply->error()),
+                                           false);
         restartExpireTimer();
         return;
     }
 
-    data.replace("YAHOO.Finance.SymbolSuggest.ssCallback(", "(");
-
-    QScriptValue sc;
+    QScriptValue sc, t, name;
     QScriptEngine engine;
 
-    sc = engine.evaluate(data);
+    // remove comment
+    data.replace(QRegExp("^\\s*//"), QString());
+
+    sc = engine.evaluate("(" + data + ")");
 
     if(engine.hasUncaughtException())
     {
+        qDebug("THT: Parse error \"%s\"", qPrintable(engine.uncaughtException().toString()));
         TickerInformationToolTip::showText(QPoint(), tr("Parse error"), false);
         restartExpireTimer();
         return;
     }
 
-    if(sc.property("ResultSet").isObject())
-    {
-        QScriptValueIterator it(sc.property("ResultSet").property("Result"));
+    name = sc.property(0).property("name");
+    t = sc.property(0).property("t");
 
-        while(it.hasNext())
-        {
-            it.next();
+    QString result;
 
-            // found our ticker
-            if(it.value().property("symbol").toString() == ticker)
-            {
-                TickerInformationToolTip::showText(QPoint(), it.value().property("name").toString(), false);
-                restartExpireTimer();
-                return;
-            }
-        }
-
-        TickerInformationToolTip::showText(QPoint(), tr("Not found"), false);
-        restartExpireTimer();
-    }
+    if(!name.isError() && !t.isError())
+        result = (t.toString() == ticker) ? name.toString() : tr("Not found");
     else
-    {
-        TickerInformationToolTip::showText(QPoint(), tr("Parse error"), false);
-        restartExpireTimer();
-    }
+        result = tr("Parse error");
+
+    TickerInformationToolTip::showText(QPoint(), result, false);
+    restartExpireTimer();
 }
 
 void TickerInformationToolTipLabel::slotNetworkData()
 {
-    qDebug("THT: Network request data");
-
     data += reply->readAll();
 }
 
