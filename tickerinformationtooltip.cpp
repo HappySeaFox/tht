@@ -63,9 +63,6 @@
 #include <QDebug>
 #include <QHash>
 
-#include <private/qeffects_p.h>
-#include <private/qstylesheetstyle_p.h>
-
 #include "tickerinformationtooltip.h"
 
 class TickerInformationToolTipLabel : public QLabel
@@ -84,7 +81,7 @@ public:
 
     bool fadingOut;
 
-    void reuseTip(const QString &text, bool ticker);
+    void reuseTip(const QString &text, bool isTicker);
     void hideTip();
     void hideTipImmediately();
     void restartExpireTimer();
@@ -98,16 +95,12 @@ protected:
     void paintEvent(QPaintEvent *e);
     void resizeEvent(QResizeEvent *e);
 
-#ifndef QT_NO_STYLE_STYLESHEET
 public slots:
-    void styleSheetParentDestroyed() {
+    void styleSheetParentDestroyed()
+    {
         setProperty("_q_stylesheet_parent", QVariant());
         styleSheetParent = 0;
     }
-
-private:
-    QWidget *styleSheetParent;
-#endif
 
 private slots:
     void slotNetworkError(QNetworkReply::NetworkError);
@@ -115,6 +108,7 @@ private slots:
     void slotNetworkData();
 
 private:
+    QWidget *styleSheetParent;
     QNetworkAccessManager *manager;
     QNetworkReply *reply;
     QString data;
@@ -125,11 +119,7 @@ private:
 TickerInformationToolTipLabel *TickerInformationToolTipLabel::instance = 0;
 
 TickerInformationToolTipLabel::TickerInformationToolTipLabel(const QString &text, bool ticker, QWidget *w)
-#ifndef QT_NO_STYLE_STYLESHEET
     : QLabel(w, Qt::ToolTip | Qt::BypassGraphicsProxyWidget), styleSheetParent(0)
-#else
-    : QLabel(w, Qt::ToolTip | Qt::BypassGraphicsProxyWidget)
-#endif
 {
     delete instance;
     instance = this;
@@ -161,13 +151,12 @@ void TickerInformationToolTipLabel::restartExpireTimer()
 
 void TickerInformationToolTipLabel::reuseTip(const QString &text, bool isTicker)
 {
-#ifndef QT_NO_STYLE_STYLESHEET
-    if (styleSheetParent){
+    if(styleSheetParent)
+    {
         disconnect(styleSheetParent, SIGNAL(destroyed()),
                    TickerInformationToolTipLabel::instance, SLOT(styleSheetParentDestroyed()));
         styleSheetParent = 0;
     }
-#endif
 
     setWordWrap(Qt::mightBeRichText(text));
     setText(isTicker ? (text + "...") : text);
@@ -364,8 +353,8 @@ int TickerInformationToolTipLabel::getTipScreen(const QPoint &pos)
 
 void TickerInformationToolTipLabel::placeTip(const QPoint &ps)
 {
-#ifndef QT_NO_STYLE_STYLESHEET
-    if (testAttribute(Qt::WA_StyleSheet)) {
+    if (testAttribute(Qt::WA_StyleSheet))
+    {
         //the stylesheet need to know the real parent
         TickerInformationToolTipLabel::instance->setProperty("_q_stylesheet_parent", QVariant::fromValue(0));
         //we force the style to be the QStyleSheetStyle, and force to clear the cache as well.
@@ -374,7 +363,6 @@ void TickerInformationToolTipLabel::placeTip(const QPoint &ps)
         // Set up for cleaning up this later...
         TickerInformationToolTipLabel::instance->styleSheetParent = 0;
     }
-#endif //QT_NO_STYLE_STYLESHEET
 
     QPoint pos = ps.isNull() ? lastPos : ps;
     QRect screen = QApplication::desktop()->screenGeometry(getTipScreen(pos));
@@ -431,17 +419,7 @@ void TickerInformationToolTip::showText(const QPoint &pos, const QString &text, 
 
         TickerInformationToolTipLabel::instance->placeTip(pos);
         TickerInformationToolTipLabel::instance->setObjectName(QLatin1String("qtooltip_label"));
-
-#if !defined(QT_NO_EFFECTS)
-        if (QApplication::isEffectEnabled(Qt::UI_FadeTooltip))
-            qFadeEffect(TickerInformationToolTipLabel::instance);
-        else if (QApplication::isEffectEnabled(Qt::UI_AnimateTooltip))
-            qScrollEffect(TickerInformationToolTipLabel::instance);
-        else
-            TickerInformationToolTipLabel::instance->show();
-#else
         TickerInformationToolTipLabel::instance->show();
-#endif
     }
 }
 
