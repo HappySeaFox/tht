@@ -107,6 +107,7 @@ Yes, THT supports some keyboard shortcuts.
  * *Ctrl+O*, *A* - add tickers from a file
  * *Ctrl+V*, *C* - paste tickers from a clipboard
  * *Space* - show the company name
+ * *1,2,3,4,5* - copy the current ticker to the 1st, 2nd, 3rd, 4th or 5th list respectively
  * *E* - export tickers to a file
  * *D* - export tickers to a clipboard
  * *H* - load "$HUI"
