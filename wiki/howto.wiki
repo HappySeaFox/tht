@@ -26,6 +26,12 @@ Drag a black target with a left mouse button and drop onto a required Graybox MM
 
 <wiki:video url="https://www.youtube.com/watch?v=Q12ydFopadU" width="240" height="170"/>
 
+== How to load my home task into several windows? ==
+
+Drag and drop tickers as it shown in the video.
+
+<wiki:video url="https://www.youtube.com/watch?v=KPKHI8KyauU" width="240" height="170"/>
+
 == What about the input language? ==
 
 The current input language must be English when loading tickers to the linked windows.
@@ -100,12 +106,14 @@ Yes, THT supports some keyboard shortcuts.
  * *O* - add one ticker
  * *Ctrl+O*, *A* - add tickers from a file
  * *Ctrl+V*, *C* - paste tickers from a clipboard
+ * *Space* - show the company name
  * *E* - export tickers to a file
  * *D* - export tickers to a clipboard
  * *H* - load "$HUI"
  * *I* - load "$INDU"
  * *S* - load "$SPX"
  * *T* - load "$TVOL"
+ * *V* - load "$VIX"
  * *X* - load "$XOI"
  * *Y* - open the current ticker in Yahoo Finance
 
