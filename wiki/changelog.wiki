@@ -1,4 +1,4 @@
-== 0.6.0 (unreleased) ==
+== 0.6.0 ==
  * hotkey: press "V" to load "$VIX"
  * hotkey: press "Space" to show the company name
  * hotkey: press 1,2,3,4,5 to copy the current ticker to the 1st, 2nd, 3rd, 4th or 5th list
