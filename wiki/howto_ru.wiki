@@ -8,7 +8,7 @@
 
 Перетащите чёрную иконку мишени левой кнопкой мыши и бросьте на нужное окно AG. Если всё в порядке, вы услышите подтверждающий сигнал. Например, вы можете слинковать 5-ти минутку, дневку и недельку.
 
-<a href="http://ompldr.org/vY256MA/link.png" target="_blank"><img src="http://ompldr.org/tY256MA/link.png" border="0"></img></a>
+<a href="http://i1148.photobucket.com/albums/o561/Dmitry_RK/link.png" target="_blank"><img src="http://i1148.photobucket.com/albums/o561/Dmitry_RK/th_link.png" border="0"></img></a>
 
 <wiki:video url="https://www.youtube.com/watch?v=Nn2of8huQsc" width="240" height="170"/>
 
@@ -22,7 +22,7 @@
 
 Перетащите чёрную иконку мишени левой кнопкой мыши и бросьте на нужное окно Graybox MM. Если всё в порядке, вы услышите подтверждающий сигнал.
 
-<a href="http://ompldr.org/vY256MQ/link-gb.png" target="_blank"><img src="http://ompldr.org/tY256MQ/link-gb.png" border="0"></img></a>
+<a href="http://i1148.photobucket.com/albums/o561/Dmitry_RK/link-gb.png" target="_blank"><img src="http://i1148.photobucket.com/albums/o561/Dmitry_RK/th_link-gb.png" border="0"></img></a>
 
 <wiki:video url="https://www.youtube.com/watch?v=Q12ydFopadU" width="240" height="170"/>
 
@@ -36,7 +36,7 @@
 
 В то время, как THT отсылает тикер в слинкованные окна, язык ввода должен быть установлен в Английский.
 
-<a href="http://ompldr.org/vY29qcA/input.png" target="_blank"><img src="http://ompldr.org/tY29qcA/input.png" border="0"></img></a>
+<a href="http://i1148.photobucket.com/albums/o561/Dmitry_RK/input.png" target="_blank"><img src="http://i1148.photobucket.com/albums/o561/Dmitry_RK/th_input.png" border="0"></img></a>
 
 == Как удалить все линки (ссылки)? ==
 
@@ -50,29 +50,29 @@
 
 Нажмите на кнопку "Экспортировать тикеры". Вы можете экспортировать в файл или буфер обмена.
 
-<a href="http://ompldr.org/vY256Zw/export_ru.png" target="_blank"><img src="http://ompldr.org/tY256Zw/export_ru.png" border="0"></img></a>
+<a href="http://i1148.photobucket.com/albums/o561/Dmitry_RK/export_ru.png" target="_blank"><img src="http://i1148.photobucket.com/albums/o561/Dmitry_RK/th_export_ru.png" border="0"></img></a>
 
 == Как добавить новые тикеры? ==
 
 Нажмите на кнопку "Добавить тикеры". Вы можете добавлять из файла или буфера обмена.
 
-<a href="http://ompldr.org/vY256aA/load_ru.pngl" target="_blank"><img src="http://ompldr.org/tY256aA/load_ru.png" border="0"></img></a>
+<a href="http://i1148.photobucket.com/albums/o561/Dmitry_RK/load_ru.png" target="_blank"><img src="http://i1148.photobucket.com/albums/o561/Dmitry_RK/th_load_ru.png" border="0"></img></a>
 
 К примеру, откройте <a href="http://finviz.com">Finviz</a>, выберите несколько фильтров на скринере, и нажмите "Tickers". Выделите мышкой все найденные тикеры, скопируйте в буфер обмена, откройте THT и добавьте их туда.
 
-<a href="http://ompldr.org/vY256NA/fz.png" target="_blank"><img src="http://ompldr.org/tY256NA/fz.png" border="0"/>
+<a href="http://i1148.photobucket.com/albums/o561/Dmitry_RK/fz.png" target="_blank"><img src="http://i1148.photobucket.com/albums/o561/Dmitry_RK/th_fz.png" border="0"/>
 
 == Как показывать только NYSE сделки? ==
 
 Поставьте галочку "=N". Эта настройка будет добавлять "=N" ко всем тикерам, отправляемым в Advanced Get (Graybox MM этого не поддерживает).
 
-<a href="http://ompldr.org/vY256aQ/=n_ru.png" target="_blank"><img src="http://ompldr.org/tY256aQ/=n_ru.png" border="0"></img></a>
+<a href="http://i1148.photobucket.com/albums/o561/Dmitry_RK/n_ru.png" target="_blank"><img src="http://i1148.photobucket.com/albums/o561/Dmitry_RK/th_n_ru.png" border="0"></img></a>
 
 == Есть ли у THT диалог настроек? ==
 
 Да, пожалуйста кликните правой кнопкой по окну THT и выберите"Настройки...".
 
-<a href="http://ompldr.org/vY256ag/options_ru.png" target="_blank"><img src="http://ompldr.org/tY256ag/options_ru.pngg" border="0"></img></a>
+<a href="http://i1148.photobucket.com/albums/o561/Dmitry_RK/options_ru.png" target="_blank"><img src="http://i1148.photobucket.com/albums/o561/Dmitry_RK/th_options_ru.png" border="0"></img></a>
 
 == Что означают все эти настройки THT? ==
 
@@ -86,7 +86,7 @@
 
 *Сохранять тикеры автоматически* - когда вы добавляете, удаляете или копируете тикеры, THT сохранит списки тикеров автоматически. В противном случае вам нужно сохранить их вручную. Когда список тикеров не сохранён, вы увидите сверху красную полосу-индикатор. В этом случае нажмите "Сохранить тикеры".
 
-http://ompldr.org/vY256Yg/unsaved.png
+http://i1148.photobucket.com/albums/o561/Dmitry_RK/unsaved.png
 
 == Горячие клавиши? ==
 
@@ -124,10 +124,10 @@ http://ompldr.org/vY256Yg/unsaved.png
 
 == Какая разница между installable и standalone пакетами? ==
 
-Никакой разницы.
+Никакой разницы с точки зрения функциональности. Пользуйтесь тем, что вам удобнее.
 
 == Предупреждение для Graybox ==
 
 _Это не относится к работе THT, просто для справки._ Graybox не сможет сохранить свои настройки в удалённую базу данных, если символ-разделитель целой и дробной части у вас настроен не на "." (точку) в ваших региональных настройках. Откройте ваши региональные настройки чтобы убедиться, что всё настроено правильно.
 
-<a href="http://ompldr.org/vY255dg/regional_ru.png" target="_blank"><img src="http://ompldr.org/tY255dg/regional_ru.png" border="0"></img></a>
+<a href="http://i1148.photobucket.com/albums/o561/Dmitry_RK/regional_ru.png" target="_blank"><img src="http://i1148.photobucket.com/albums/o561/Dmitry_RK/th_regional_ru.png" border="0"></img></a>
