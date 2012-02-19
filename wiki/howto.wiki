@@ -8,7 +8,7 @@
 
 Drag a black target with a left mouse button and drop onto a required AG window. If everything is ok, you will hear a confirmation sound. For example, you can link together 5min, daily and weekly charts.
 
-<a href="http://ompldr.org/vY256MA/link.png" target="_blank"><img src="http://ompldr.org/tY256MA/link.png" border="0"></img></a>
+<a href="http://i1148.photobucket.com/albums/o561/Dmitry_RK/link.png" target="_blank"><img src="http://i1148.photobucket.com/albums/o561/Dmitry_RK/th_link.png" border="0"></img></a>
 
 <wiki:video url="https://www.youtube.com/watch?v=Nn2of8huQsc" width="240" height="170"/>
 
@@ -22,7 +22,7 @@ Notes:
 
 Drag a black target with a left mouse button and drop onto a required Graybox MM window. If everything is ok, you will hear a confirmation sound.
 
-<a href="http://ompldr.org/vY256MQ/link-gb.png" target="_blank"><img src="http://ompldr.org/tY256MQ/link-gb.png" border="0"></img></a>
+<a href="http://i1148.photobucket.com/albums/o561/Dmitry_RK/link-gb.png" target="_blank"><img src="http://i1148.photobucket.com/albums/o561/Dmitry_RK/th_link-gb.png" border="0"></img></a>
 
 <wiki:video url="https://www.youtube.com/watch?v=Q12ydFopadU" width="240" height="170"/>
 
@@ -36,7 +36,7 @@ Drag and drop tickers as it shown in the video.
 
 The current input language must be English when loading tickers to the linked windows.
 
-<a href="http://ompldr.org/vY29qcA/input.png" target="_blank"><img src="http://ompldr.org/tY29qcA/input.png" border="0"></img></a>
+<a href="http://i1148.photobucket.com/albums/o561/Dmitry_RK/input.png" target="_blank"><img src="http://i1148.photobucket.com/albums/o561/Dmitry_RK/th_input.png" border="0"></img></a>
 
 == How to reset links? ==
 
@@ -50,29 +50,29 @@ Click on a ticker with a left mouse button, or use "up" and "down" arrows on you
 
 Click on "Export tickers" button. You can export to a file or clipboard.
 
-<a href="http://ompldr.org/vY256Mg/export.png" target="_blank"><img src="http://ompldr.org/tY256Mg/export.png" border="0"></img></a>
+<a href="http://i1148.photobucket.com/albums/o561/Dmitry_RK/export.png" target="_blank"><img src="http://i1148.photobucket.com/albums/o561/Dmitry_RK/th_export.png" border="0"></img></a>
 
 == How to add new tickers? ==
 
 Click on "Add tickers" button. You can import from a file or clipboard. 
 
-<a href="http://ompldr.org/vY256Mw/load.png" target="_blank"><img src="http://ompldr.org/tY256Mw/load.png" border="0"></img></a>
+<a href="http://i1148.photobucket.com/albums/o561/Dmitry_RK/load.png" target="_blank"><img src="http://i1148.photobucket.com/albums/o561/Dmitry_RK/th_load.png" border="0"></img></a>
 
 For example, open <a href="http://finviz.com">Finviz</a>, select some filters from the screener and open "Tickers". Select all found tickers, copy them to clipboard, go to THT and paste.
 
-<a href="http://ompldr.org/vY256NA/fz.png" target="_blank"><img src="http://ompldr.org/tY256NA/fz.png" border="0"/>
+<a href="http://i1148.photobucket.com/albums/o561/Dmitry_RK/fz.png" target="_blank"><img src="http://i1148.photobucket.com/albums/o561/Dmitry_RK/th_fz.png" border="0"/>
 
 == How to show NYSE-only trades? ==
 
 Turn on a "=N" option. This option will append "=N" to all tickers when loading to Advanced Get (Graybox MM doesn't support this).
 
-<a href="http://ompldr.org/vY256OQ/=n.png" target="_blank"><img src="http://ompldr.org/tY256OQ/=n.png" border="0"></img></a>
+<a href="http://i1148.photobucket.com/albums/o561/Dmitry_RK/n.png" target="_blank"><img src="http://i1148.photobucket.com/albums/o561/Dmitry_RK/th_n.png" border="0"></img></a>
 
 == Does THT have settings dialog? ==
 
 Yes, please right click on a THT window and select "Options...".
 
-<a href="http://ompldr.org/vY256YQ/options.png" target="_blank"><img src="http://ompldr.org/tY256YQ/options.png" border="0"></img></a>
+<a href="http://i1148.photobucket.com/albums/o561/Dmitry_RK/options.png" target="_blank"><img src="http://i1148.photobucket.com/albums/o561/Dmitry_RK/th_options.png" border="0"></img></a>
 
 == What do all these THT settings mean? ==
 
@@ -86,7 +86,7 @@ Yes, please right click on a THT window and select "Options...".
 
 *Automatically save tickers* - when you add, delete or move tickers THT will save the ticker lists automatically. Otherwise you need to save them manually. When the ticker list is not saved, you will see a red line on top of it. Click "Save tickers" to save the list in this case.
 
-http://ompldr.org/vY256Yg/unsaved.png
+http://i1148.photobucket.com/albums/o561/Dmitry_RK/unsaved.png
 
 == Keyboard shortcuts? ==
 
@@ -130,4 +130,4 @@ No difference.
 
 _It is nothing to do with THT, just a note._ Graybox is unable to save settings to the remote database if you have decimal point other than "." (dot) in your regional settings. Open your regional settings to be sure it is configured correctly.
 
-<a href="http://ompldr.org/vY256Yw/regional.png" target="_blank"><img src="http://ompldr.org/tY256Yw/regional.png" border="0"></img></a>
+<a href="http://i1148.photobucket.com/albums/o561/Dmitry_RK/regional.png" target="_blank"><img src="http://i1148.photobucket.com/albums/o561/Dmitry_RK/th_regional.png" border="0"></img></a>
