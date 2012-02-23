@@ -90,4 +90,4 @@ TRANSLATIONS += ts/ru.ts
 tr.commands = lrelease $$_PRO_FILE_
 
 QMAKE_EXTRA_TARGETS += tr
-POST_TARGETDEPS += tr
+PRE_TARGETDEPS += tr
