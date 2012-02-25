@@ -47,6 +47,8 @@ public:
     void setIgnoreInput(bool);
     bool ignoreInput() const;
 
+    bool contains(const QPoint &);
+
 protected:
     virtual bool eventFilter(QObject *obj, QEvent *event);
 

@@ -354,7 +354,7 @@ THT::Link THT::checkWindow(HWND hwnd)
     return link;
 }
 
-THT::Link THT::checkTargetWindow(const QPoint &p)
+THT::Link THT::checkTargetWindow(const QPoint &p, bool allowThisWindow)
 {
     POINT pnt;
 
@@ -370,7 +370,7 @@ THT::Link THT::checkTargetWindow(const QPoint &p)
     }
 
     // this window
-    if(hwnd == winId())
+    if(!allowThisWindow && hwnd == winId())
     {
         qDebug("THT: Ignoring ourselves");
         return Link();
@@ -861,10 +861,30 @@ void THT::slotTickerDropped(const QString &t, const QPoint &p)
     m_windows = &m_windowsDrop;
     m_windows->clear();
 
-    Link link = checkTargetWindow(p);
+    Link link = checkTargetWindow(p, true);
 
     if(!link.hwnd)
         return;
+
+    // our window
+    if(link.hwnd == winId())
+    {
+        int index = 0;
+
+        foreach(List *l, m_lists)
+        {
+            if(l->contains(p))
+            {
+                qDebug("THT: Dropped onto a list");
+                slotCopyTo(t, index);
+                break;
+            }
+
+            index++;
+        }
+
+        return;
+    }
 
     link = checkWindow(link.hwnd);
 
@@ -880,7 +900,7 @@ void THT::slotTargetDropped(const QPoint &p)
 {
     m_windows = &m_windowsLoad;
 
-    Link link = checkTargetWindow(p);
+    Link link = checkTargetWindow(p, false);
 
     if(!link.hwnd)
         return;

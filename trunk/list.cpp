@@ -122,6 +122,13 @@ void List::setSaveTickers(bool dosave)
         save();
 }
 
+bool List::contains(const QPoint &p)
+{
+    QPoint l = mapFromGlobal(p);
+
+    return ui->list->geometry().contains(l);
+}
+
 bool List::eventFilter(QObject *obj, QEvent *event)
 {
     QEvent::Type type = event->type();
