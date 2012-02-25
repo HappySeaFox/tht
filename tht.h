@@ -68,7 +68,7 @@ private:
     void sendString(const QString &str);
     void rebuildUi();
     Link checkWindow(HWND hwnd);
-    Link checkTargetWindow(const QPoint &);
+    Link checkTargetWindow(const QPoint &, bool allowThisWindow);
     void checkWindows();
     void nextLoadableWindowIndex(int startFrom = 0);
     void loadNextWindow();
