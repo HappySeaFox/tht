@@ -23,7 +23,7 @@ About::About(QWidget *parent) :
     ui(new Ui::About)
 {
     ui->setupUi(this);
-    ui->labelVersion->setText(QString("THT %1.%2.%3").arg(NVER1).arg(NVER2).arg(NVER3));
+    ui->labelVersion->setText(QString("THT %1").arg(NVER_STRING));
 }
 
 About::~About()
