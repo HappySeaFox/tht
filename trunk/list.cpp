@@ -90,7 +90,7 @@ void List::addTicker(const QString &ticker)
 {
     if(ui->list->findItems(ticker, Qt::MatchFixedString).size())
     {
-        qDebug("THT: Will not add duplicate item");
+        qDebug("Will not add duplicate item");
         return;
     }
 
@@ -329,7 +329,7 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                         && (me->buttons() & Qt::LeftButton)
                         && (me->pos() - m_startPos).manhattanLength() > QApplication::startDragDistance())
                 {
-                    qDebug("THT: Start dragging \"%s\"", qPrintable(m_startDragText));
+                    qDebug("Start dragging \"%s\"", qPrintable(m_startDragText));
 
                     QPixmap pix = createDragCursor();
 
@@ -359,7 +359,7 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                 {
                     QPoint p = QCursor::pos();
 
-                    qDebug("THT: Dropped at %d,%d", p.x(), p.y());
+                    qDebug("Dropped at %d,%d", p.x(), p.y());
                     QApplication::restoreOverrideCursor();
 
                     emit dropped(m_startDragText, p);
@@ -396,7 +396,7 @@ void List::save()
     // don't save tickers automatically
     if(!m_saveTickers)
     {
-        qDebug("THT: Autosave is disabled");
+        qDebug("Autosave is disabled");
         showSaved(false);
         return;
     }
@@ -406,7 +406,7 @@ void List::save()
 
 void List::load()
 {
-    qDebug("THT: Loading tickers from section \"%d\"", m_section);
+    qDebug("Loading tickers from section \"%d\"", m_section);
 
     ui->list->addItems(Settings::instance()->tickersForGroup(m_section));
 
@@ -417,7 +417,7 @@ void List::paste()
 {
     QString text = QApplication::clipboard()->text();
 
-    qDebug("THT: Paste");
+    qDebug("Paste");
 
     QTextStream t(&text);
     QString ticker;
@@ -459,7 +459,7 @@ void List::showTickerInfo()
 
     if(!item)
     {
-        qDebug("THT: Nothing to load");
+        qDebug("Nothing to load");
         return;
     }
 
@@ -467,7 +467,7 @@ void List::showTickerInfo()
 
     if(p.isNull())
     {
-        qDebug("THT: Cannot find where to show the information");
+        qDebug("Cannot find where to show the information");
         return;
     }
 
@@ -549,7 +549,7 @@ void List::loadItem(LoadItem litem)
 
     if(!item)
     {
-        qDebug("THT: Cannot find item to load");
+        qDebug("Cannot find item to load");
         return;
     }
 
@@ -560,7 +560,7 @@ void List::loadItem(LoadItem litem)
 
 void List::slotAddOne()
 {
-    qDebug("THT: Adding one ticker");
+    qDebug("Adding one ticker");
 
     TickerInput ti(this);
 
@@ -579,7 +579,7 @@ void List::slotAddOne()
 
 void List::slotAddFromFile()
 {
-    qDebug("THT: Adding new tickers from file");
+    qDebug("Adding new tickers from file");
 
     QStringList fileNames = QFileDialog::getOpenFileNames(this, tr("Choose a file"), Settings::instance()->lastTickerDirectory());
 
@@ -600,7 +600,7 @@ void List::slotAddFromFile()
 
         if(!file.open(QIODevice::ReadOnly))
         {
-            qWarning("THT: Cannot open file \"%s\" for reading", qPrintable(fileName));
+            qWarning("Cannot open file \"%s\" for reading", qPrintable(fileName));
             error = true;
             errorFiles.append(fileName);
             continue;
@@ -639,7 +639,7 @@ void List::slotAddFromClipboard()
 
 void List::clear()
 {
-    qDebug("THT: Clear tickers for section \"%d\"", m_section);
+    qDebug("Clear tickers for section \"%d\"", m_section);
 
     // nothing to do
     if(!ui->list->count())
@@ -652,7 +652,7 @@ void List::clear()
 
 void List::slotSave()
 {
-    qDebug("THT: Saving tickers to section \"%d\"", m_section);
+    qDebug("Saving tickers to section \"%d\"", m_section);
 
     Settings::instance()->saveTickersForGroup(m_section, toStringList());
 
@@ -661,7 +661,7 @@ void List::slotSave()
 
 void List::slotExportToFile()
 {
-    qDebug("THT: Exporting tickers to file");
+    qDebug("Exporting tickers to file");
 
     QString fileName = QFileDialog::getSaveFileName(this, tr("Choose a file"), Settings::instance()->lastTickerDirectory());
 
@@ -672,7 +672,7 @@ void List::slotExportToFile()
 
     if(!file.open(QIODevice::WriteOnly | QIODevice::Truncate))
     {
-        qWarning("THT: Cannot open file for writing");
+        qWarning("Cannot open file for writing");
         QMessageBox::warning(this, tr("Error"), tr("Cannot save to file %1").arg(fileName));
         return;
     }
@@ -693,7 +693,7 @@ void List::slotExportToFile()
 
 void List::slotExportToClipboard()
 {
-    qDebug("THT: Exporting tickers to clipboard");
+    qDebug("Exporting tickers to clipboard");
 
     QApplication::clipboard()->setText(toStringList().join("\n"));
 }

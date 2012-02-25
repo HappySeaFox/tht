@@ -38,7 +38,7 @@ Settings::Settings()
 
         if(!oldkeys.isEmpty())
         {
-            qDebug("THT: Copying settings from the old configuration");
+            qDebug("Copying settings from the old configuration");
 
             foreach(QString key, oldkeys)
             {

@@ -179,7 +179,7 @@ void TickerInformationToolTipLabel::reuseTip(const QString &text, bool isTicker)
             delete reply;
         }
 
-        qDebug("THT: Starting a new network request for \"%s\"", qPrintable(text));
+        qDebug("Starting a new network request for \"%s\"", qPrintable(text));
 
         QNetworkRequest request(
             QUrl(QString("http://www.google.com/finance/info?infotype=infoquoteall&q=%1")
@@ -197,12 +197,12 @@ void TickerInformationToolTipLabel::reuseTip(const QString &text, bool isTicker)
 
 void TickerInformationToolTipLabel::slotNetworkError(QNetworkReply::NetworkError err)
 {
-    qDebug("THT: Network error #%d", err);
+    qDebug("Network error #%d", err);
 }
 
 void TickerInformationToolTipLabel::slotNetworkDone()
 {
-    qDebug("THT: Network request done");
+    qDebug("Network request done");
 
     if(reply->error() != QNetworkReply::NoError)
     {
@@ -225,7 +225,7 @@ void TickerInformationToolTipLabel::slotNetworkDone()
 
     if(engine.hasUncaughtException())
     {
-        qDebug("THT: Parse error \"%s\"", qPrintable(engine.uncaughtException().toString()));
+        qDebug("Parse error \"%s\"", qPrintable(engine.uncaughtException().toString()));
         TickerInformationToolTip::showText(QPoint(), tr("Parse error"), false);
         restartExpireTimer();
         return;
@@ -276,7 +276,7 @@ TickerInformationToolTipLabel::~TickerInformationToolTipLabel()
 {
     instance = 0;
 
-    qDebug("THT: Closing ticker info");
+    qDebug("Closing ticker info");
 
     if(reply)
     {
