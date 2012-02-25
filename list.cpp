@@ -129,6 +129,18 @@ bool List::contains(const QPoint &p)
     return ui->list->geometry().contains(l);
 }
 
+void List::initialSelect()
+{
+    setFocus();
+
+    QListWidgetItem *item = ui->list->item(0);
+
+    if(!item)
+        return;
+
+    ui->list->setCurrentItem(item, QItemSelectionModel::SelectCurrent);
+}
+
 bool List::eventFilter(QObject *obj, QEvent *event)
 {
     QEvent::Type type = event->type();

@@ -104,7 +104,7 @@ THT::THT(QWidget *parent) :
         {
             if(l->haveTickers())
             {
-                l->setFocus();
+                l->initialSelect();
                 break;
             }
         }
