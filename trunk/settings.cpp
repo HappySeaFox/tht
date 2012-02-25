@@ -15,16 +15,48 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <QCoreApplication>
+
 #include "settings.h"
 
 Settings::Settings()
 {
+    m_settings = new QSettings(QSettings::IniFormat,
+                                QSettings::UserScope,
+                                QCoreApplication::organizationName(),
+                                QCoreApplication::applicationName());
+
+    m_settings->setFallbacksEnabled(false);
+
     m_rxTicker = QRegExp("\\$?[a-zA-Z\\-]{1,5}");
+
+    // migrate from 0.6.0
+    if(m_settings->childGroups().isEmpty())
+    {
+        QSettings old;
+        QStringList oldkeys = old.allKeys();
+
+        if(!oldkeys.isEmpty())
+        {
+            foreach(QString key, oldkeys)
+            {
+                m_settings->setValue(key, old.value(key));
+            }
+
+            m_settings->sync();
+        }
+    }
+}
+
+Settings::~Settings()
+{
+    m_settings->sync();
+    delete m_settings;
 }
 
 void Settings::sync()
 {
-    m_settings.sync();
+    m_settings->sync();
 }
 
 void Settings::setLastTickerDirectory(QString dir, SyncType sync)
@@ -106,9 +138,9 @@ int Settings::numberOfLists()
 {
     bool ok;
 
-    m_settings.beginGroup("settings");
-    int nlists = m_settings.value("number-of-lists", 3).toUInt(&ok);
-    m_settings.endGroup();
+    m_settings->beginGroup("settings");
+    int nlists = m_settings->value("number-of-lists", 3).toUInt(&ok);
+    m_settings->endGroup();
 
     if(!ok)
         nlists = 3;
@@ -151,31 +183,31 @@ bool Settings::saveTickers()
 
 void Settings::saveTickersForGroup(int group, const QStringList &tickers, SyncType sync)
 {
-    m_settings.beginGroup(QString("tickers-%1").arg(group));
-    m_settings.setValue("tickers", tickers);
-    m_settings.endGroup();
+    m_settings->beginGroup(QString("tickers-%1").arg(group));
+    m_settings->setValue("tickers", tickers);
+    m_settings->endGroup();
 
     if(sync == SyncTypeSync)
-        m_settings.sync();
+        m_settings->sync();
 }
 
 QStringList Settings::tickersForGroup(int group)
 {
-    m_settings.beginGroup(QString("tickers-%1").arg(group));
-    QStringList tickers = m_settings.value("tickers").toStringList();
-    m_settings.endGroup();
+    m_settings->beginGroup(QString("tickers-%1").arg(group));
+    QStringList tickers = m_settings->value("tickers").toStringList();
+    m_settings->endGroup();
 
     return tickers;
 }
 
 void Settings::removeTickers(int group, SyncType sync)
 {
-    m_settings.beginGroup(QString("tickers-%1").arg(group));
-    m_settings.remove(QString());
-    m_settings.endGroup();
+    m_settings->beginGroup(QString("tickers-%1").arg(group));
+    m_settings->remove(QString());
+    m_settings->endGroup();
 
     if(sync == SyncTypeSync)
-        m_settings.sync();
+        m_settings->sync();
 }
 
 Settings* Settings::instance()
@@ -191,9 +223,9 @@ Settings* Settings::instance()
 template <typename T>
 T Settings::load(const QString &key, T def)
 {
-    m_settings.beginGroup("settings");
-    T value = m_settings.value(key, QVariant(def)).value<T>();
-    m_settings.endGroup();
+    m_settings->beginGroup("settings");
+    T value = m_settings->value(key, QVariant(def)).value<T>();
+    m_settings->endGroup();
 
     return value;
 }
@@ -201,10 +233,10 @@ T Settings::load(const QString &key, T def)
 template <typename T>
 void Settings::save(const QString &key, const T &value, SyncType sync)
 {
-    m_settings.beginGroup("settings");
-    m_settings.setValue(key, value);
-    m_settings.endGroup();
+    m_settings->beginGroup("settings");
+    m_settings->setValue(key, value);
+    m_settings->endGroup();
 
     if(sync == SyncTypeSync)
-        m_settings.sync();
+        m_settings->sync();
 }

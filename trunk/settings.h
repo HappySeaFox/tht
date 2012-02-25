@@ -19,8 +19,8 @@
 #define SETTINGS_H
 
 #include <QStringList>
-#include <QRegExp>
 #include <QSettings>
+#include <QRegExp>
 #include <QPoint>
 #include <QSize>
 
@@ -28,6 +28,8 @@ class Settings
 {
 public:
     static Settings* instance();
+
+    ~Settings();
 
     enum SyncType { SyncTypeNoSync, SyncTypeSync };
 
@@ -84,7 +86,7 @@ private:
     void save(const QString &key, const T &value, SyncType sync = SyncTypeSync);
 
 private:
-    QSettings m_settings;
+    QSettings *m_settings;
     QRegExp m_rxTicker;
 };
 
