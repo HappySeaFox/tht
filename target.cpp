@@ -35,7 +35,7 @@ void Target::mousePressEvent(QMouseEvent *event)
 {
     if(event->button() == Qt::LeftButton)
     {
-        qDebug("THT: Start dragging");
+        qDebug("Start dragging");
         QApplication::setOverrideCursor(QCursor(*pixmap()));
         m_dragging = true;
     }
@@ -61,7 +61,7 @@ void Target::mouseReleaseEvent(QMouseEvent *event)
 
     QPoint p = QCursor::pos();
 
-    qDebug("THT: Dropped at %d,%d", p.x(), p.y());
+    qDebug("Dropped at %d,%d", p.x(), p.y());
     QApplication::restoreOverrideCursor();
 
     emit dropped(p);

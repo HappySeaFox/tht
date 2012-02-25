@@ -253,7 +253,7 @@ void THT::sendString(const QString &ticker)
 {
     if(ticker.isEmpty())
     {
-        qDebug("THT: Ticker is empty, nothing to send");
+        qDebug("Ticker is empty, nothing to send");
         return;
     }
 
@@ -318,7 +318,7 @@ THT::Link THT::checkWindow(HWND hwnd)
 
     if(!h)
     {
-        qDebug("THT: Cannot open process %ld", dwProcessId);
+        qDebug("Cannot open process %ld", dwProcessId);
         return link;
     }
 
@@ -327,7 +327,7 @@ THT::Link THT::checkWindow(HWND hwnd)
     // get executable name
     if(!GetProcessImageFileName(h, name, sizeof(name)))
     {
-        qDebug("THT: Cannot get process info %ld (%ld)", dwProcessId, GetLastError());
+        qDebug("Cannot get process info %ld (%ld)", dwProcessId, GetLastError());
         return link;
     }
 
@@ -339,7 +339,7 @@ THT::Link THT::checkWindow(HWND hwnd)
 #endif
         ).fileName().toLower();
 
-    qDebug("THT: Process name of %d is \"%s\"", (int)hwnd, sname.toAscii().constData());
+    qDebug("Process name of %d is \"%s\"", (int)hwnd, sname.toAscii().constData());
 
     if(sname == "advancedget.exe" || sname == "winsig.exe")
         link.type = LinkTypeAdvancedGet;
@@ -349,7 +349,7 @@ THT::Link THT::checkWindow(HWND hwnd)
         link.type = LinkTypeOther;
 
     if(link.type != LinkTypeNotInitialized)
-        qDebug("THT: Window under cursor %d", (int)link.hwnd);
+        qDebug("Window under cursor %d", (int)link.hwnd);
 
     return link;
 }
@@ -365,14 +365,14 @@ THT::Link THT::checkTargetWindow(const QPoint &p, bool allowThisWindow)
 
     if(!hwnd)
     {
-        qDebug("THT: Cannot find window under cursor %d,%d", p.x(), p.y());
+        qDebug("Cannot find window under cursor %d,%d", p.x(), p.y());
         return Link();
     }
 
     // this window
     if(!allowThisWindow && hwnd == winId())
     {
-        qDebug("THT: Ignoring ourselves");
+        qDebug("Ignoring ourselves");
         return Link();
     }
 
@@ -382,7 +382,7 @@ THT::Link THT::checkTargetWindow(const QPoint &p, bool allowThisWindow)
 
     if(!GetClassName(hwnd, classname, sizeof(classname)))
     {
-        qDebug("THT: Cannot get class name for window %d", (int)hwnd);
+        qDebug("Cannot get class name for window %d", (int)hwnd);
     }
     else
     {
@@ -400,7 +400,7 @@ THT::Link THT::checkTargetWindow(const QPoint &p, bool allowThisWindow)
     // desktop
     if(hwnd == GetDesktopWindow() || isDesktop)
     {
-        qDebug("THT: Ignoring desktop window");
+        qDebug("Ignoring desktop window");
         return Link();
     }
 
@@ -411,7 +411,7 @@ THT::Link THT::checkTargetWindow(const QPoint &p, bool allowThisWindow)
     {
         if((*it).hwnd == hwnd)
         {
-            qDebug("THT: Window %d is already linked", (int)hwnd);
+            qDebug("Window %d is already linked", (int)hwnd);
             return Link();
         }
     }
@@ -430,7 +430,7 @@ void THT::checkWindows()
         // remove dead windows
         if(!GetWindowRect((*it).hwnd, &rect))
         {
-            qDebug("THT: Window id %d is not valid, removing (%ld)", (int)(*it).hwnd, GetLastError());
+            qDebug("Window id %d is not valid, removing (%ld)", (int)(*it).hwnd, GetLastError());
             it = m_windows->erase(it);
             itEnd = m_windows->end();
         }
@@ -476,11 +476,11 @@ void THT::loadNextWindow()
 
     if(m_currentWindow >= m_windows->size())
     {
-        qDebug("THT: Done for all windows");
+        qDebug("Done for all windows");
 
         if(m_windows == &m_windowsDrop)
         {
-            qDebug("THT: Clearing drop list");
+            qDebug("Clearing drop list");
             m_windows->clear();
         }
 
@@ -502,17 +502,17 @@ void THT::busy(bool b)
 
 void THT::loadTicker(const QString &ticker)
 {
-    qDebug("THT: Load ticker \"%s\"", qPrintable(ticker));
+    qDebug("Load ticker \"%s\"", qPrintable(ticker));
 
     if(m_locked)
     {
-        qDebug("THT: Locked");
+        qDebug("Locked");
         return;
     }
 
     if(m_running)
     {
-        qDebug("THT: In progress, won't load new ticker");
+        qDebug("In progress, won't load new ticker");
         return;
     }
 
@@ -520,7 +520,7 @@ void THT::loadTicker(const QString &ticker)
 
     if(m_windows->isEmpty())
     {
-        qDebug("THT: No windows configured");
+        qDebug("No windows configured");
         m_running = false;
         return;
     }
@@ -567,7 +567,7 @@ void THT::slotCheckActive()
 {
     if(m_windows->isEmpty())
     {
-        qDebug("THT: Window list is empty");
+        qDebug("Window list is empty");
         m_running = false;
         return;
     }
@@ -579,7 +579,7 @@ void THT::slotCheckActive()
 
     if(GetForegroundWindow() == window && pwi.dwWindowStatus == WS_ACTIVECAPTION)
     {
-        qDebug("THT: Found window, sending data");
+        qDebug("Found window, sending data");
 
         QString add;
 
@@ -595,12 +595,12 @@ void THT::slotCheckActive()
     {
         if(QDateTime::currentMSecsSinceEpoch() - m_startupTime > THT_WINDOW_STARTUP_TIMEOUT)
         {
-            qDebug("THT: Failed to wait the window due to timeout");
+            qDebug("Failed to wait the window due to timeout");
             loadNextWindow();
         }
         else
         {
-            qDebug("THT: Cannot find window, continuing to search");
+            qDebug("Cannot find window, continuing to search");
             m_timerLoadToNextWindow->start();
         }
     }
@@ -643,19 +643,19 @@ void THT::slotOptions()
 
 void THT::slotCopyLeft(const QString &ticker)
 {
-    qDebug("THT: Copy ticker \"%s\" left", qPrintable(ticker));
+    qDebug("Copy ticker \"%s\" left", qPrintable(ticker));
 
     int index = m_lists.indexOf(qobject_cast<List *>(sender()));
 
     if(index < 0)
     {
-        qWarning("THT: Cannot find where to copy the ticker");
+        qWarning("Cannot find where to copy the ticker");
         return;
     }
 
     if(!index)
     {
-        qWarning("THT: Cannot copy from the first list");
+        qWarning("Cannot copy from the first list");
         return;
     }
 
@@ -664,19 +664,19 @@ void THT::slotCopyLeft(const QString &ticker)
 
 void THT::slotCopyRight(const QString &ticker)
 {
-    qDebug("THT: Copy ticker \"%s\" right", qPrintable(ticker));
+    qDebug("Copy ticker \"%s\" right", qPrintable(ticker));
 
     int index = m_lists.indexOf(qobject_cast<List *>(sender()));
 
     if(index < 0)
     {
-        qWarning("THT: Cannot find where to copy the ticker");
+        qWarning("Cannot find where to copy the ticker");
         return;
     }
 
     if(index == m_lists.size()-1)
     {
-        qWarning("THT: Cannot copy from the last list");
+        qWarning("Cannot copy from the last list");
         return;
     }
 
@@ -685,11 +685,11 @@ void THT::slotCopyRight(const QString &ticker)
 
 void THT::slotCopyTo(const QString &ticker, int index)
 {
-    qDebug("THT: Copy ticker \"%s\" to list #%d", qPrintable(ticker), index);
+    qDebug("Copy ticker \"%s\" to list #%d", qPrintable(ticker), index);
 
     if(index < 0 || index >= m_lists.size())
     {
-        qWarning("THT: Cannot find where to copy the ticker");
+        qWarning("Cannot find where to copy the ticker");
         return;
     }
 
@@ -706,7 +706,7 @@ void THT::slotLoadToNextWindow()
 {
     HWND window = m_windows->at(m_currentWindow).hwnd;
 
-    qDebug("THT: Trying window %d", (int)window);
+    qDebug("Trying window %d", (int)window);
 
     // window flags to set
     int flags = SW_SHOWNORMAL;
@@ -795,11 +795,11 @@ void THT::slotTakeScreenshotReal()
             if(!fileName.isEmpty())
             {
                 if(px.save(fileName))
-                    qDebug("THT: Screenshot has been saved to \"%s\"", qPrintable(fileName));
+                    qDebug("Screenshot has been saved to \"%s\"", qPrintable(fileName));
                 else
                 {
                     QMessageBox::critical(this, tr("Error"), tr("Cannot save screenshot"));
-                    qDebug("THT: Cannot save screenshot");
+                    qDebug("Cannot save screenshot");
                 }
             }
         }
@@ -814,7 +814,7 @@ void THT::slotClearLists()
 
 void THT::slotClearLinks()
 {
-    qDebug("THT: Clear links");
+    qDebug("Clear links");
 
     MessageBeep(MB_OK);
 
@@ -875,7 +875,7 @@ void THT::slotTickerDropped(const QString &t, const QPoint &p)
         {
             if(l->contains(p))
             {
-                qDebug("THT: Dropped onto a list");
+                qDebug("Dropped onto a list");
                 slotCopyTo(t, index);
                 break;
             }
@@ -921,7 +921,7 @@ void THT::slotTargetDropped(const QPoint &p)
 // IPC message
 void THT::slotMessageReceived(const QString &msg)
 {
-    qDebug("THT: Got message \"%s\"", qPrintable(msg));
+    qDebug("Got message \"%s\"", qPrintable(msg));
 
     if(msg == "wake up")
         activate();
