@@ -581,36 +581,42 @@ void List::slotAddFromFile()
 {
     qDebug("THT: Adding new tickers from file");
 
-    QString fileName = QFileDialog::getOpenFileName(this, tr("Choose a file"), Settings::instance()->lastTickerDirectory());
+    QStringList fileNames = QFileDialog::getOpenFileNames(this, tr("Choose a file"), Settings::instance()->lastTickerDirectory());
 
-    if(fileName.isEmpty())
+    if(fileNames.isEmpty())
         return;
 
-    QString ticker;
-    QFile file(fileName);
+    bool changed = false, error = false;
+    QStringList errorFiles;
 
-    if(!file.open(QIODevice::ReadOnly))
-    {
-        qWarning("THT: Cannot open file for writing");
-        QMessageBox::warning(this, tr("Error"), tr("Cannot open file %1").arg(fileName));
-        return;
-    }
-
-    Settings::instance()->setLastTickerDirectory(QFileInfo(fileName).canonicalPath());
-
-    bool changed = false;
-    QTextStream t(&file);
+    Settings::instance()->setLastTickerDirectory(QFileInfo(fileNames[0]).canonicalPath());
 
     ui->list->setUpdatesEnabled(false);
 
-    while(!t.atEnd())
+    foreach(QString fileName, fileNames)
     {
-        t >> ticker;
+        QString ticker;
+        QFile file(fileName);
 
-        if(Settings::instance()->tickerValidator().exactMatch(ticker))
+        if(!file.open(QIODevice::ReadOnly))
         {
-            changed = true;
-            ui->list->addItem(ticker.toUpper().replace('-', '.'));
+            qWarning("THT: Cannot open file \"%s\" for reading", qPrintable(fileName));
+            error = true;
+            errorFiles.append(fileName);
+            continue;
+        }
+
+        QTextStream t(&file);
+
+        while(!t.atEnd())
+        {
+            t >> ticker;
+
+            if(Settings::instance()->tickerValidator().exactMatch(ticker))
+            {
+                changed = true;
+                ui->list->addItem(ticker.toUpper().replace('-', '.'));
+            }
         }
     }
 
@@ -621,6 +627,9 @@ void List::slotAddFromFile()
         numberOfItemsChanged();
         save();
     }
+
+    if(error)
+        QMessageBox::warning(this, tr("Error"), tr("Cannot open the following files: %1").arg(errorFiles.join(",")));
 }
 
 void List::slotAddFromClipboard()
