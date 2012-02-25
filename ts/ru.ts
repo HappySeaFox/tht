@@ -86,24 +86,24 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
         <translation>Экспортировать в буфер обмена</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="579"/>
-        <location filename="../list.cpp" line="652"/>
+        <location filename="../list.cpp" line="584"/>
+        <location filename="../list.cpp" line="666"/>
         <source>Choose a file</source>
         <translation>Выберите файл</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="590"/>
-        <location filename="../list.cpp" line="662"/>
+        <location filename="../list.cpp" line="632"/>
+        <location filename="../list.cpp" line="676"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="590"/>
-        <source>Cannot open file %1</source>
-        <translation>Невозможно открыть файл %1</translation>
+        <location filename="../list.cpp" line="632"/>
+        <source>Cannot open the following files: %1</source>
+        <translation>Невозможно открыть следующие файлы: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="662"/>
+        <location filename="../list.cpp" line="676"/>
         <source>Cannot save to file %1</source>
         <translation>Невозможно сохранить в файл %1</translation>
     </message>
@@ -313,18 +313,19 @@ the right or middle mouse buttons.</source>
 <context>
     <name>TickerInformationToolTipLabel</name>
     <message>
-        <location filename="../tickerinformationtooltip.cpp" line="220"/>
+        <location filename="../tickerinformationtooltip.cpp" line="212"/>
         <source>Error #%1</source>
         <translation>Ошибка #%1</translation>
     </message>
     <message>
-        <location filename="../tickerinformationtooltip.cpp" line="234"/>
-        <location filename="../tickerinformationtooltip.cpp" line="261"/>
+        <location filename="../tickerinformationtooltip.cpp" line="229"/>
+        <location filename="../tickerinformationtooltip.cpp" line="242"/>
         <source>Parse error</source>
         <translation>Ошибка данных</translation>
     </message>
     <message>
-        <location filename="../tickerinformationtooltip.cpp" line="256"/>
+        <location filename="../tickerinformationtooltip.cpp" line="211"/>
+        <location filename="../tickerinformationtooltip.cpp" line="240"/>
         <source>Not found</source>
         <translation>Не найдено</translation>
     </message>
