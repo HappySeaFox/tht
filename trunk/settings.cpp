@@ -38,6 +38,8 @@ Settings::Settings()
 
         if(!oldkeys.isEmpty())
         {
+            qDebug("THT: Copying settings from the old configuration");
+
             foreach(QString key, oldkeys)
             {
                 m_settings->setValue(key, old.value(key));
