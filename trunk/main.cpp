@@ -25,6 +25,7 @@
 #include <QDir>
 
 #include <cstdlib>
+#include <cstdio>
 
 #include "tht.h"
 
@@ -70,6 +71,8 @@ void myMessageOutput(QtMsgType type, const char *msg)
 
 int main(int argc, char *argv[])
 {
+    setbuf(stderr, 0);
+
     qInstallMsgHandler(myMessageOutput);
 
     QtSingleApplication app(argc, argv);
