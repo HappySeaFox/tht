@@ -10,7 +10,7 @@ Drag a black target with a left mouse button and drop onto a required AG window.
 
 <a href="http://i1148.photobucket.com/albums/o561/Dmitry_RK/link.png" target="_blank"><img src="http://i1148.photobucket.com/albums/o561/Dmitry_RK/th_link.png" border="0"></img></a>
 
-<wiki:video url="https://www.youtube.com/watch?v=O_-7Jdy7pCw" width="240" height="170"/>
+<wiki:video url="https://www.youtube.com/watch?v=sDrnz8cZIDA" width="240" height="170"/>
 
 Notes:
 
@@ -30,7 +30,7 @@ Drag a black target with a left mouse button and drop onto a required Graybox MM
 
 Drag and drop tickers as it shown in the video.
 
-<wiki:video url="https://www.youtube.com/watch?v=sDrnz8cZIDA" width="240" height="170"/>
+<wiki:video url="https://www.youtube.com/watch?v=O_-7Jdy7pCw" width="240" height="170"/>
 
 == What about the input language? ==
 
