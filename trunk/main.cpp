@@ -16,18 +16,59 @@
  */
 
 #include <QtSingleApplication>
+#include <QDesktopServices>
 #include <QTranslator>
 #include <QtPlugin>
 #include <QLocale>
 #include <QIcon>
 #include <QDir>
 
+#include <cstdlib>
+
 #include "tht.h"
 
-Q_IMPORT_PLUGIN(qico)
+void myMessageOutput(QtMsgType type, const char *msg)
+{
+    static QFile log(QDesktopServices::storageLocation(QDesktopServices::TempLocation)
+                     + QDir::separator()
+                     + "tht.log");
+
+    if(!log.isOpen())
+        log.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Unbuffered);
+
+    switch (type)
+    {
+        case QtDebugMsg:
+            fprintf(stderr, "%s\n", msg);
+            log.write(msg);
+            log.write("\n");
+        break;
+
+        case QtWarningMsg:
+            fprintf(stderr, "%s\n", msg);
+            log.write(msg);
+            log.write("\n");
+        break;
+
+        case QtCriticalMsg:
+            fprintf(stderr, "%s\n", msg);
+            log.write(msg);
+            log.write("\n");
+        break;
+
+        case QtFatalMsg:
+            fprintf(stderr, "%s\n", msg);
+            log.write(msg);
+            log.write("\n");
+            abort();
+        break;
+    }
+}
 
 int main(int argc, char *argv[])
 {
+    qInstallMsgHandler(myMessageOutput);
+
     QtSingleApplication app(argc, argv);
 
     if(app.sendMessage("wake up"))
@@ -40,12 +81,16 @@ int main(int argc, char *argv[])
 
     qDebug("THT: Locale is \"%s\"", qPrintable(locale));
 
+    QString dir = QCoreApplication::applicationDirPath() + QDir::separator() + "translations";
+
+    qDebug("THT: Application directory: %s", qPrintable(dir));
+
     // load translation
     QTranslator translator;
-    qDebug("THT: Loading THT translation: %s", translator.load(locale, ":/ts") ? "ok" : "failed");
+    qDebug("THT: Loading THT translation: %s", translator.load(locale, dir) ? "ok" : "failed");
 
     QTranslator translator_qt;
-    qDebug("THT: Loading Qt translation: %s", translator_qt.load("qt_" + locale, ":/ts") ? "ok" : "failed");
+    qDebug("THT: Loading Qt translation: %s", translator_qt.load("qt_" + locale, dir) ? "ok" : "failed");
 
     app.installTranslator(&translator_qt);
     app.installTranslator(&translator);
