@@ -2,6 +2,7 @@
  * allow to drag-and-drop tickers from one list to another
  * use INI file to save settings, it is much faster than registry
  * allow to add tickers from multiple files
+ * switched to the dynamic Qt. This will speed up the program startup and operations with the file dialogs
 
 == 0.6.0 ==
  * hotkey: press "V" to load "$VIX"
