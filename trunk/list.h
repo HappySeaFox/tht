@@ -49,6 +49,8 @@ public:
 
     bool contains(const QPoint &);
 
+    void initialSelect();
+
 protected:
     virtual bool eventFilter(QObject *obj, QEvent *event);
 
