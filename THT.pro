@@ -10,8 +10,8 @@ TARGET = THT
 TEMPLATE = app
 
 NVER1=0
-NVER2=6
-NVER3=1
+NVER2=7
+NVER3=0
 
 DEFINES += NVER1=$$NVER1
 DEFINES += NVER2=$$NVER2
@@ -19,8 +19,6 @@ DEFINES += NVER3=$$NVER3
 DEFINES += NVER_STRING=$$sprintf("\"\\\"%1.%2.%3\\\"\"", $$NVER1, $$NVER2, $$NVER3)
 
 DEFINES += TARGET=$$TARGET
-
-QTPLUGIN += qico
 
 INCLUDEPATH += . qtsingleapplication qxt
 DEPENDPATH += . qtsingleapplication qxt
@@ -95,4 +93,4 @@ TRANSLATIONS += ts/ru.ts
 tr.commands = lrelease $$_PRO_FILE_
 
 QMAKE_EXTRA_TARGETS += tr
-PRE_TARGETDEPS += tr
+POST_TARGETDEPS += tr
