@@ -289,7 +289,11 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                 break;
 
                 case Qt::Key_PageUp:
+                    loadItem(LoadItemPageUp);
+                break;
+
                 case Qt::Key_PageDown:
+                    loadItem(LoadItemPageDown);
                 break;
 
                 case Qt::Key_Tab:
@@ -525,17 +529,19 @@ void List::loadItem(LoadItem litem)
     if(!item)
         item = ui->list->item(0);
 
+    QListWidgetItem *citem = item;
+
     switch(litem)
     {
         case LoadItemCurrent:
         break;
 
         case LoadItemNext:
-            item = ui->list->item(ui->list->currentRow()+1);
+            item = ui->list->item(ui->list->row(item)+1);
         break;
 
         case LoadItemPrevious:
-            item = ui->list->item(ui->list->currentRow()-1);
+            item = ui->list->item(ui->list->row(item)-1);
         break;
 
         case LoadItemFirst:
@@ -545,11 +551,30 @@ void List::loadItem(LoadItem litem)
         case LoadItemLast:
             item = ui->list->item(ui->list->count()-1);
         break;
+
+        case LoadItemPageUp:
+        case LoadItemPageDown:
+            item = ui->list->itemAt(ui->list->visualItemRect(item).adjusted(
+                                        0,
+                                        (litem == LoadItemPageUp ? -ui->list->height() : ui->list->height()),
+                                        0,
+                                        0
+                                        ).topLeft());
+
+            if(!item)
+                item = (litem == LoadItemPageUp) ? ui->list->item(0) : ui->list->item(ui->list->count()-1);
+        break;
     }
 
     if(!item)
     {
         qDebug("Cannot find item to load");
+        return;
+    }
+
+    if(item == citem)
+    {
+        qDebug("Will not load the same item");
         return;
     }
 

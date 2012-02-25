@@ -62,7 +62,10 @@ private:
     void showTickerInfo();
     QPixmap createDragCursor();
 
-    enum LoadItem { LoadItemCurrent, LoadItemNext, LoadItemPrevious, LoadItemFirst, LoadItemLast };
+    enum LoadItem { LoadItemCurrent,
+                    LoadItemNext, LoadItemPrevious,
+                    LoadItemFirst, LoadItemLast,
+                    LoadItemPageUp, LoadItemPageDown };
 
 signals:
     void copyLeft(const QString &ticker);
