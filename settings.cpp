@@ -43,8 +43,11 @@ Settings::Settings()
                 m_settings->setValue(key, old.value(key));
             }
 
-            m_settings->sync();
         }
+
+        // save version for future changes
+        m_settings->setValue("version", NVER_STRING);
+        m_settings->sync();
     }
 }
 
