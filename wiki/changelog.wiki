@@ -3,7 +3,7 @@
  * use INI file to save settings, it is much faster than registry
  * allow to add tickers from multiple files
  * switched to the dynamic Qt. This will speed up the program startup and operations with the file dialogs
- * support PageUp and PageDown hotkeys
+ * support {{{PageUp}}} and {{{PageDown}}} hotkeys
 
 == 0.6.0 ==
  * hotkey: press "V" to load "$VIX"
