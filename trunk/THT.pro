@@ -95,12 +95,19 @@ QMAKE_EXTRA_TARGETS += tr
 POST_TARGETDEPS += tr
 
 # need perl
-SVNROOT=$$system( svn info | perl -ne '\"if ($_ =~ /^Repository Root:(.*)/) {print $1;}\"' )
+PERL=$$system(for %i in (perl.exe) do @echo. %~$PATH:i)
 
-isEmpty( SVNROOT ) {
-    warning( "Cannot determine the repository root" )
+isEmpty(PERL) {
+    error("Cannot find perl in PATH")
+}
+
+# for this
+SVNROOT=$$system(svn info | perl -ne '\"if ($_ =~ /^Repository Root:(.*)/) {print $1;}\"')
+
+isEmpty(SVNROOT) {
+    warning("Cannot determine the repository root")
 } else {
-    message( "Repository root: $$SVNROOT" )
+    message("Repository root: $$SVNROOT")
 
     SVNTAG=$$sprintf("%1.%2.%3", $$NVER1, $$NVER2, $$NVER3)
 
