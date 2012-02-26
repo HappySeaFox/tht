@@ -88,7 +88,7 @@ OTHER_FILES += \
     README.txt \
     LICENSE.txt
 
-TRANSLATIONS += ts/ru.ts
+TRANSLATIONS += ts/ru.ts ts/uk.ts
 
 tr.commands = lrelease $$_PRO_FILE_
 
