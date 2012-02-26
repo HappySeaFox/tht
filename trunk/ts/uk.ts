@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="ru_RU">
+<TS version="2.0" language="uk_UA">
 <context>
     <name>About</name>
     <message>
         <location filename="../about.ui" line="14"/>
         <source>About</source>
-        <translation>О программе</translation>
+        <translation>Про програму</translation>
     </message>
     <message>
         <location filename="../about.ui" line="54"/>
         <source>THT helps you to do your home task in trading. It can link several Advanced Get windows together and manage a list of tickers.
 
 All suggestions and bug reports please send to our bug tracker, also visit&lt;br/&gt;&lt;a href=&quot;https://code.google.com/p/traders-home-task-ng&quot;&gt;https://code.google.com/p/traders-home-task-ng/wiki/howto&lt;/a&gt;</source>
-        <translation>THT помогает вам делать свою домашнюю работу в трейдинге. Она может линковать несколько окон Advanced Get и управлять списками тикеров.
+        <translation>THT допоможе вам зробити ваше домашнє завдання в трейдингу. Вона може лінковані кілька Advanced Get вікон разом і керувати списком токарів.
 
-Все пожелания и отчёты об ошибках посылайте на наш багтрекер, также посетите&lt;br/&gt;&lt;a href=&quot;https://code.google.com/p/traders-home-task-ng/wiki/howto&quot;&gt;https://code.google.com/p/traders-home-task-ng/wiki/howto&lt;/a&gt;</translation>
+Всі побажання та звіти про помилки надсилайте на наш багтрекер, також відвідаєте &lt;br/&gt;&lt;a href=&quot;https://code.google.com/p/traders-home-task-ng/wiki/howto&quot;&gt;https://code.google.com/p/traders-home-task-ng/wiki/howto&lt;/a&gt;</translation>
     </message>
     <message>
         <location filename="../about.ui" line="75"/>
         <source>(C) 2012 Dmitry Baryshev &amp;lt;&lt;a href=&quot;mailto:ksquirrel.iv@gmail.com&quot;&gt;ksquirrel.iv@gmail.com&lt;/a&gt;&amp;gt;</source>
-        <translation>(C) 2012 Барышев Дмитрий &amp;lt;&lt;a href=&quot;mailto:ksquirrel.iv@gmail.com&quot;&gt;ksquirrel.iv@gmail.com&lt;/a&gt;&amp;gt;</translation>
+        <translation>(C) 2012 Баришев Дмитро &amp;lt;&lt;a href=&quot;mailto:ksquirrel.iv@gmail.com&quot;&gt;ksquirrel.iv@gmail.com&lt;/a&gt;&amp;gt;</translation>
     </message>
     <message>
         <location filename="../about.ui" line="88"/>
         <source>THT is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</source>
-        <translation>THT распространяется в надежде, что она будет полезной, но БЕЗО ВСЯКИХ ГАРАНТИЙ; даже без неявной гарантии ТОВАРНОГО ВИДА или ПРИГОДНОСТИ ДЛЯ ОПРЕДЕЛЕННЫХ ЦЕЛЕЙ.</translation>
+        <translation>THT поширюється в надії, що вона буде корисною, але БЕЗ БУДЬ-ЯКИХ ГАРАНТІЙ, навіть без гарантій КОМЕРЦІЙНОЇ ЦІННОСТІ чи ПРИДАТНОСТІ ДЛЯ КОНКРЕТНИХ ЦІЛЕЙ.</translation>
     </message>
     <message>
         <location filename="../about.ui" line="118"/>
@@ -38,74 +38,74 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
     <message>
         <location filename="../list.ui" line="37"/>
         <source>Clear list</source>
-        <translation>Очистить список</translation>
+        <translation>Очистити список</translation>
     </message>
     <message>
         <location filename="../list.ui" line="57"/>
         <source>Add tickers</source>
-        <translation>Добавить тикеры</translation>
+        <translation>Додати тікери</translation>
     </message>
     <message>
         <location filename="../list.ui" line="80"/>
         <source>Save tickers</source>
-        <translation>Сохранить тикеры</translation>
+        <translation>Зберегти тікери</translation>
     </message>
     <message>
         <location filename="../list.ui" line="100"/>
         <source>Export tickers</source>
-        <translation>Экспортировать тикеры</translation>
+        <translation>Експортувати тікери</translation>
     </message>
     <message>
         <location filename="../list.ui" line="136"/>
         <source>Tickers:</source>
-        <translation>Тикеров:</translation>
+        <translation>Токарів:</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="60"/>
         <source>Add one ticker...</source>
-        <translation>Добавить один тикер...</translation>
+        <translation>Додати один тікер...</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="61"/>
         <source>Add from file...</source>
-        <translation>Добавить из файла...</translation>
+        <translation>Додати з файлу...</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="62"/>
         <source>Add from clipboard</source>
-        <translation>Добавить из буфера обмена</translation>
+        <translation>Додати з буфера обміну</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="66"/>
         <source>Export to file...</source>
-        <translation>Экспортировать в файл...</translation>
+        <translation>Експортувати в файл...</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="67"/>
         <source>Export to clipboard</source>
-        <translation>Экспортировать в буфер обмена</translation>
+        <translation>Експортувати в буфер обміну</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="622"/>
         <location filename="../list.cpp" line="704"/>
         <source>Choose a file</source>
-        <translation>Выберите файл</translation>
+        <translation>Виберіть файл</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="670"/>
         <location filename="../list.cpp" line="714"/>
         <source>Error</source>
-        <translation>Ошибка</translation>
+        <translation>Помилка</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="670"/>
         <source>Cannot open the following files: %1</source>
-        <translation>Невозможно открыть следующие файлы: %1</translation>
+        <translation>Неможливо відкрити наступні файли: %1</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="714"/>
         <source>Cannot save to file %1</source>
-        <translation>Невозможно сохранить в файл %1</translation>
+        <translation>Неможливо зберегти в файл %1</translation>
     </message>
 </context>
 <context>
@@ -113,32 +113,32 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
     <message>
         <location filename="../options.ui" line="14"/>
         <source>Options</source>
-        <translation>Настройки</translation>
+        <translation>Параметри</translation>
     </message>
     <message>
         <location filename="../options.ui" line="22"/>
         <source>Number of lists:</source>
-        <translation>Количество списков:</translation>
+        <translation>Кількість списків:</translation>
     </message>
     <message>
         <location filename="../options.ui" line="70"/>
         <source>Save position and size</source>
-        <translation>Сохранять расположение и размер</translation>
+        <translation>Зберегти позицію та розмір</translation>
     </message>
     <message>
         <location filename="../options.ui" line="77"/>
         <source>Automatically save tickers</source>
-        <translation>Сохранять тикеры автоматически</translation>
+        <translation>Зберігати тікери автоматично</translation>
     </message>
     <message>
         <location filename="../options.ui" line="84"/>
         <source>Always on top</source>
-        <translation>Поверх всех окон</translation>
+        <translation>Поверх всіх вікон</translation>
     </message>
     <message>
         <location filename="../options.ui" line="91"/>
         <source>Hide to tray</source>
-        <translation>Прятаться в трей</translation>
+        <translation>Ховатися в трей</translation>
     </message>
 </context>
 <context>
@@ -147,15 +147,15 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
         <location filename="../regionselect.cpp" line="111"/>
         <source>Use your mouse to select a rectangle or exit pressing
 any key or using the right or middle mouse buttons.</source>
-        <translation>Используйте мышь чтобы выделить прямоугольник, или нажмите
-любую клавишу или правую/среднюю кнопку мыши чтобы отменить.</translation>
+        <translation>Використовуйте мишу щоб виділити прямокутник, або натисніть
+будь-яку клавішу або праву / середню кнопку миші щоб скасувати.</translation>
     </message>
     <message>
         <location filename="../regionselect.cpp" line="112"/>
         <source>Use your mouse to select a rectangle or exit pressing
 the right or middle mouse buttons.</source>
-        <translation>Используйте мышь чтобы выделить прямоугольник, или нажмите
-правую/среднюю кнопку мыши чтобы отменить.</translation>
+        <translation>Використовуйте мишу щоб виділити прямокутник, або натисніть
+праву/середню кнопку миші щоб скасувати.</translation>
     </message>
 </context>
 <context>
@@ -163,12 +163,12 @@ the right or middle mouse buttons.</source>
     <message>
         <location filename="../savescreenshot.ui" line="14"/>
         <source>Save to</source>
-        <translation>Сохранить в</translation>
+        <translation>Зберегти в</translation>
     </message>
     <message>
         <location filename="../savescreenshot.ui" line="20"/>
         <source>Clipboard</source>
-        <translation>Буфер обмена</translation>
+        <translation>Буфер обміну</translation>
     </message>
     <message>
         <location filename="../savescreenshot.ui" line="27"/>
@@ -178,12 +178,12 @@ the right or middle mouse buttons.</source>
     <message>
         <location filename="../savescreenshot.cpp" line="54"/>
         <source>Image %1 (*.%2)</source>
-        <translation>Изображение %1 (*.%2)</translation>
+        <translation>Зображення %1 (*.%2)</translation>
     </message>
     <message>
         <location filename="../savescreenshot.cpp" line="62"/>
         <source>Save as</source>
-        <translation>Сохранить как</translation>
+        <translation>Зберегти як</translation>
     </message>
 </context>
 <context>
@@ -196,13 +196,13 @@ the right or middle mouse buttons.</source>
     <message>
         <location filename="../tht.ui" line="42"/>
         <source>Move this pointer to the window with which to establish a link</source>
-        <translation>Перетащите этот указатель на окно, на которое нужно создать ссылку</translation>
+        <translation>Перетягніть цей покажчик на вікно, на яке потрібно створити посилання</translation>
     </message>
     <message>
         <location filename="../tht.ui" line="54"/>
         <location filename="../tht.ui" line="64"/>
         <source>Advanced Get and ESignal links</source>
-        <translation>Ссылки на Advanced Get и ESignal</translation>
+        <translation>Посилання на Advanced Get і ESignal</translation>
     </message>
     <message>
         <location filename="../tht.ui" line="57"/>
@@ -213,7 +213,7 @@ the right or middle mouse buttons.</source>
         <location filename="../tht.ui" line="87"/>
         <location filename="../tht.ui" line="97"/>
         <source>Graybox links</source>
-        <translation>Ссылки на Graybox</translation>
+        <translation>Посилання на Graybox</translation>
     </message>
     <message>
         <location filename="../tht.ui" line="90"/>
@@ -224,7 +224,7 @@ the right or middle mouse buttons.</source>
         <location filename="../tht.ui" line="120"/>
         <location filename="../tht.ui" line="130"/>
         <source>Other links</source>
-        <translation>Другие ссылки</translation>
+        <translation>Інші посилання</translation>
     </message>
     <message>
         <location filename="../tht.ui" line="123"/>
@@ -234,12 +234,12 @@ the right or middle mouse buttons.</source>
     <message>
         <location filename="../tht.ui" line="180"/>
         <source>THT is ready</source>
-        <translation>THT готов к работе</translation>
+        <translation>ТНТ готовий до роботи</translation>
     </message>
     <message>
         <location filename="../tht.ui" line="212"/>
         <source>THT is busy</source>
-        <translation>THT занят</translation>
+        <translation>THT зайнятий</translation>
     </message>
     <message>
         <location filename="../tht.ui" line="229"/>
@@ -249,85 +249,85 @@ the right or middle mouse buttons.</source>
     <message>
         <location filename="../tht.cpp" line="72"/>
         <source>Options...</source>
-        <translation>Настройки...</translation>
+        <translation>Параметри...</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="74"/>
         <location filename="../tht.cpp" line="131"/>
         <source>Take screenshot...</source>
-        <translation>Снимок экрана...</translation>
+        <translation>Знімок екрану...</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="75"/>
         <source>Clear ticker lists</source>
-        <translation>Очистить списки тикеров</translation>
+        <translation>Очистити списки токарів</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="76"/>
         <source>Clear links</source>
-        <translation>Очистить ссылки</translation>
+        <translation>Очистити посилання</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="78"/>
         <source>About THT</source>
-        <translation>О THT</translation>
+        <translation>Про THT</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="79"/>
         <source>About Qt</source>
-        <translation>О Qt</translation>
+        <translation>Про Qt</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="81"/>
         <location filename="../tht.cpp" line="133"/>
         <source>Quit</source>
-        <translation>Выход</translation>
+        <translation>Вихід</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="167"/>
         <source>Notice</source>
-        <translation>Заметка</translation>
+        <translation>Замітка</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="167"/>
         <source>THT will continue to run in a system tray</source>
-        <translation>THT продолжит работу в системном лотке</translation>
+        <translation>ТНТ продовжить роботу в системному лотку</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="773"/>
         <location filename="../tht.cpp" line="801"/>
         <source>Error</source>
-        <translation>Ошибка</translation>
+        <translation>Помилка</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="773"/>
         <source>Cannot take screenshot</source>
-        <translation>Невозможно создать снимок экрана</translation>
+        <translation>Неможливо створити знімок екрана</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="801"/>
         <source>Cannot save screenshot</source>
-        <translation>Невозможно сохранить снимок экрана</translation>
+        <translation>Неможливо зберегти знімок екрана</translation>
     </message>
 </context>
 <context>
     <name>TickerInformationToolTipLabel</name>
     <message>
+        <location filename="../tickerinformationtooltip.cpp" line="211"/>
+        <location filename="../tickerinformationtooltip.cpp" line="240"/>
+        <source>Not found</source>
+        <translation>Не знайдено</translation>
+    </message>
+    <message>
         <location filename="../tickerinformationtooltip.cpp" line="212"/>
         <source>Error #%1</source>
-        <translation>Ошибка #%1</translation>
+        <translation>Помилка #%1</translation>
     </message>
     <message>
         <location filename="../tickerinformationtooltip.cpp" line="229"/>
         <location filename="../tickerinformationtooltip.cpp" line="242"/>
         <source>Parse error</source>
-        <translation>Ошибка данных</translation>
-    </message>
-    <message>
-        <location filename="../tickerinformationtooltip.cpp" line="211"/>
-        <location filename="../tickerinformationtooltip.cpp" line="240"/>
-        <source>Not found</source>
-        <translation>Не найдено</translation>
+        <translation>Помилка даних</translation>
     </message>
 </context>
 <context>
@@ -335,12 +335,12 @@ the right or middle mouse buttons.</source>
     <message>
         <location filename="../tickerinput.ui" line="14"/>
         <source>Add a ticker</source>
-        <translation>Добавить тикер</translation>
+        <translation>Додати тікер</translation>
     </message>
     <message>
         <location filename="../tickerinput.ui" line="20"/>
         <source>Ticker:</source>
-        <translation>Тикер:</translation>
+        <translation>Тікер:</translation>
     </message>
 </context>
 </TS>
