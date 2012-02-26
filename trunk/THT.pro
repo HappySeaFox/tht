@@ -91,6 +91,19 @@ OTHER_FILES += \
 TRANSLATIONS += ts/ru.ts ts/uk.ts
 
 tr.commands = lrelease $$_PRO_FILE_
-
 QMAKE_EXTRA_TARGETS += tr
 POST_TARGETDEPS += tr
+
+# need perl
+SVNROOT=$$system( svn info | perl -ne '\"if ($_ =~ /^Repository Root:(.*)/) {print $1;}\"' )
+
+isEmpty( SVNROOT ) {
+    warning( "Cannot determine the repository root" )
+} else {
+    message( "Repository root: $$SVNROOT" )
+
+    SVNTAG=$$sprintf("%1.%2.%3", $$NVER1, $$NVER2, $$NVER3)
+
+    tag.commands = svn copy "\"$$SVNROOT/trunk\"" "\"$$SVNROOT/tags/$$SVNTAG\""
+    QMAKE_EXTRA_TARGETS += tag
+}
