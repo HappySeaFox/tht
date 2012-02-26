@@ -98,7 +98,6 @@ POST_TARGETDEPS += tr
 PERL=$$system(for %i in (perl.exe) do @echo %~$PATH:i)
 
 !isEmpty(PERL) {
-    # for this
     SVNROOT=$$system(svn info | perl -ne '\"if ($_ =~ /^Repository Root:(.*)/) {print $1;}\"')
 
     isEmpty(SVNROOT) {
