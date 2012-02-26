@@ -231,6 +231,7 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                 break;
 
                 case Qt::Key_Return:
+                case Qt::Key_Enter:
                     loadItem(LoadItemCurrent);
                 break;
 
@@ -584,7 +585,7 @@ void List::loadItem(LoadItem litem)
         return;
     }
 
-    if(item == citem)
+    if(item == citem && litem != LoadItemCurrent)
     {
         qDebug("Will not load the same item");
         return;
