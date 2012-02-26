@@ -147,14 +147,14 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
         <location filename="../regionselect.cpp" line="111"/>
         <source>Use your mouse to select a rectangle or exit pressing
 any key or using the right or middle mouse buttons.</source>
-        <translation>Використовуйте мишу щоб виділити прямокутник, або натисніть
-будь-яку клавішу або праву / середню кнопку миші щоб скасувати.</translation>
+        <translation>Виділіть прямокутник за допомогою миші, або натисніть
+будь-яку клавішу або праву/середню кнопку миші щоб скасувати.</translation>
     </message>
     <message>
         <location filename="../regionselect.cpp" line="112"/>
         <source>Use your mouse to select a rectangle or exit pressing
 the right or middle mouse buttons.</source>
-        <translation>Використовуйте мишу щоб виділити прямокутник, або натисніть
+        <translation>Виділіть прямокутник за допомогою миші, або натисніть
 праву/середню кнопку миші щоб скасувати.</translation>
     </message>
 </context>
