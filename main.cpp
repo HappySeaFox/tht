@@ -37,36 +37,16 @@ void myMessageOutput(QtMsgType type, const char *msg)
 
     static bool failed = false;
 
-    if(!failed && !log.isOpen())
+    if(!log.isOpen() && !failed)
         failed = !log.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Unbuffered);
 
-    switch (type)
-    {
-        case QtDebugMsg:
-            fprintf(stderr, "THT: %s\n", msg);
-            log.write(msg);
-            log.write("\n");
-        break;
+    fprintf(stderr, "THT: %s\n", msg);
 
-        case QtWarningMsg:
-            fprintf(stderr, "THT: %s\n", msg);
-            log.write(msg);
-            log.write("\n");
-        break;
+    log.write(msg);
+    log.write("\n");
 
-        case QtCriticalMsg:
-            fprintf(stderr, "THT: %s\n", msg);
-            log.write(msg);
-            log.write("\n");
-        break;
-
-        case QtFatalMsg:
-            fprintf(stderr, "THT: %s\n", msg);
-            log.write(msg);
-            log.write("\n");
-            abort();
-        break;
-    }
+    if(type == QtFatalMsg)
+        abort();
 }
 
 int main(int argc, char *argv[])
