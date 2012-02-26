@@ -94,23 +94,21 @@ tr.commands = lrelease $$_PRO_FILE_
 QMAKE_EXTRA_TARGETS += tr
 POST_TARGETDEPS += tr
 
-# need perl
-PERL=$$system(for %i in (perl.exe) do @echo. %~$PATH:i)
+# check for perl
+PERL=$$system(for %i in (perl.exe) do @echo %~$PATH:i)
 
-isEmpty(PERL) {
-    error("Cannot find perl in PATH")
-}
+!isEmpty(PERL) {
+    # for this
+    SVNROOT=$$system(svn info | perl -ne '\"if ($_ =~ /^Repository Root:(.*)/) {print $1;}\"')
 
-# for this
-SVNROOT=$$system(svn info | perl -ne '\"if ($_ =~ /^Repository Root:(.*)/) {print $1;}\"')
+    isEmpty(SVNROOT) {
+        warning("Cannot determine the repository root")
+    } else {
+        message("Repository root: $$SVNROOT")
 
-isEmpty(SVNROOT) {
-    warning("Cannot determine the repository root")
-} else {
-    message("Repository root: $$SVNROOT")
+        SVNTAG=$$sprintf("%1.%2.%3", $$NVER1, $$NVER2, $$NVER3)
 
-    SVNTAG=$$sprintf("%1.%2.%3", $$NVER1, $$NVER2, $$NVER3)
-
-    tag.commands = svn copy "\"$$SVNROOT/trunk\"" "\"$$SVNROOT/tags/$$SVNTAG\""
-    QMAKE_EXTRA_TARGETS += tag
+        tag.commands = svn copy "\"$$SVNROOT/trunk\"" "\"$$SVNROOT/tags/$$SVNTAG\""
+        QMAKE_EXTRA_TARGETS += tag
+    }
 }
