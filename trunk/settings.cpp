@@ -59,6 +59,13 @@ Settings::~Settings()
     delete m_settings;
 }
 
+bool Settings::preloadMode() const
+{
+    static bool isPreload = (QCoreApplication::arguments().indexOf("--preload") >= 0);
+
+    return isPreload;
+}
+
 void Settings::sync()
 {
     m_settings->sync();

@@ -27,6 +27,7 @@
 #include <cstdlib>
 #include <cstdio>
 
+#include "settings.h"
 #include "tht.h"
 
 void myMessageOutput(QtMsgType type, const char *msg)
@@ -56,6 +57,9 @@ int main(int argc, char *argv[])
     qInstallMsgHandler(myMessageOutput);
 
     QtSingleApplication app(argc, argv);
+
+    if(Settings::instance()->preloadMode())
+        return 0;
 
     if(app.sendMessage("wake up"))
         return 0;
