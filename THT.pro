@@ -90,9 +90,7 @@ OTHER_FILES += \
 
 TRANSLATIONS += ts/ru.ts ts/uk.ts
 
-tr.commands = lrelease $$_PRO_FILE_
-QMAKE_EXTRA_TARGETS += tr
-POST_TARGETDEPS += tr
+QMAKE_PRE_LINK = lrelease $$_PRO_FILE_
 
 # check for perl
 PERL=$$system(for %i in (perl.exe) do @echo %~$PATH:i)
@@ -110,4 +108,14 @@ PERL=$$system(for %i in (perl.exe) do @echo %~$PATH:i)
         tag.commands = svn copy "\"$$SVNROOT/trunk\"" "\"$$SVNROOT/tags/$$SVNTAG\""
         QMAKE_EXTRA_TARGETS += tag
     }
+}
+
+# check for upx
+UPX=$$system(for %i in (upx.exe) do @echo %~$PATH:i)
+
+!isEmpty(UPX) {
+    message("UPX is found, will pack the executable after linking")
+    QMAKE_POST_LINK = $$UPX -9 $${OUT_PWD}/$(DESTDIR_TARGET) # undocumented feature
+} else {
+    warning("UPX is not found, will not pack the executable")
 }
