@@ -136,7 +136,7 @@ UPX=$$findexe("upx.exe")
 ZIP=$$findexe("7z.exe")
 GCC=$$findexe("gcc.exe")
 
-!isEmpty(ZIP):!isEmpty(GCC):!isEmpty(UPX) {
+!isEmpty(ZIP):!isEmpty(GCC) {
     message("7Z is found, will create custom dist targets")
 
     # source archive
@@ -185,7 +185,6 @@ GCC=$$findexe("gcc.exe")
         distbin.commands += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\$$lc\" \"$$T\")
     }
 
-    distbin.commands += $$mle($$UPX -9 \"$$T/QtGui4.dll\")
     distbin.commands += $$mle($$ZIP a -r -tzip -mx=9 tht-standalone-$${VERSION}.zip \"$$T\")
     distbin.commands += $$mle(rd /S /Q \"$$T\")
 
