@@ -35,6 +35,8 @@ public:
 
     void sync();
 
+    bool preloadMode() const;
+
     QRegExp tickerValidator() const;
 
     void setLastTickerDirectory(QString, SyncType sync = SyncTypeSync);
