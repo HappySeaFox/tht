@@ -9,6 +9,10 @@ QT += core gui network script
 TARGET = THT
 TEMPLATE = app
 
+!win32 {
+    error("$$TARGET requires Windows platform")
+}
+
 NVER1=0
 NVER2=7
 NVER3=0
