@@ -56,6 +56,9 @@ int main(int argc, char *argv[])
 
     qInstallMsgHandler(myMessageOutput);
 
+    QCoreApplication::setApplicationName("THT");
+    QCoreApplication::setOrganizationName("Noname");
+
     QtSingleApplication app(argc, argv);
 
     if(Settings::instance()->preloadMode())
@@ -83,9 +86,6 @@ int main(int argc, char *argv[])
 
     app.installTranslator(&translator_qt);
     app.installTranslator(&translator);
-
-    QApplication::setApplicationName("THT");
-    QApplication::setOrganizationName("Noname");
 
     THT w;
     w.show();
