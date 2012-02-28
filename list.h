@@ -28,6 +28,8 @@ namespace Ui
     class List;
 }
 
+class QListWidgetItem;
+
 class List : public QWidget
 {
     Q_OBJECT
@@ -63,6 +65,7 @@ private:
     void showSaved(bool isSaved);
     void showTickerInfo();
     QPixmap createDragCursor();
+    void addItem(const QString &text, bool fix = false);
 
     enum LoadItem { LoadItemCurrent,
                     LoadItemNext, LoadItemPrevious,

@@ -56,13 +56,18 @@ int main(int argc, char *argv[])
 
     qInstallMsgHandler(myMessageOutput);
 
+    qDebug("Starting at %s", qPrintable(QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss")));
+
     QCoreApplication::setApplicationName("THT");
     QCoreApplication::setOrganizationName("Noname");
 
     QtSingleApplication app(argc, argv);
 
     if(Settings::instance()->preloadMode())
+    {
+        qDebug("Preload mode");
         return 0;
+    }
 
     if(app.sendMessage("wake up"))
         return 0;
@@ -72,7 +77,6 @@ int main(int argc, char *argv[])
 
     QString locale = QLocale::system().name();
 
-    qDebug("Starting at %s", qPrintable(QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss")));
     qDebug("Locale is \"%s\"", qPrintable(locale));
 
     QString dir = QCoreApplication::applicationDirPath() + QDir::separator() + "translations";

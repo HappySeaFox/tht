@@ -96,7 +96,7 @@ void List::addTicker(const QString &ticker)
 
     if(Settings::instance()->tickerValidator().exactMatch(ticker))
     {
-        ui->list->addItem(ticker);
+        addItem(ticker);
         numberOfItemsChanged();
         save();
     }
@@ -205,6 +205,7 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                 break;
 
                 case Qt::Key_O:
+                case Qt::Key_Insert:
                     slotAddOne();
                 break;
 
@@ -425,7 +426,10 @@ void List::load()
 {
     qDebug("Loading tickers from section \"%d\"", m_section);
 
-    ui->list->addItems(Settings::instance()->tickersForGroup(m_section));
+    QStringList items = Settings::instance()->tickersForGroup(m_section);
+
+    foreach(QString t, items)
+        addItem(t);
 
     numberOfItemsChanged();
 }
@@ -450,7 +454,7 @@ void List::paste()
         if(Settings::instance()->tickerValidator().exactMatch(ticker))
         {
             changed = true;
-            ui->list->addItem(ticker.toUpper().replace(QChar('-'), QChar('.')));
+            addItem(ticker, true);
         }
     }
 
@@ -535,6 +539,15 @@ QPixmap List::createDragCursor()
     return px;
 }
 
+void List::addItem(const QString &text, bool fix)
+{
+    ui->list->addItem(new QListWidgetItem(fix
+                                          ? text.toUpper().replace('-', '.')
+                                          : text.toUpper(),
+                                          ui->list)
+                      );
+}
+
 void List::loadItem(LoadItem litem)
 {
     QListWidgetItem *item = ui->list->currentItem();
@@ -609,7 +622,7 @@ void List::slotAddOne()
 
     if(Settings::instance()->tickerValidator().exactMatch(ticker))
     {
-        ui->list->addItem(ticker.toUpper().replace(QChar('-'), QChar('.')));
+        addItem(ticker, true);
         numberOfItemsChanged();
         save();
     }
@@ -653,7 +666,7 @@ void List::slotAddFromFile()
             if(Settings::instance()->tickerValidator().exactMatch(ticker))
             {
                 changed = true;
-                ui->list->addItem(ticker.toUpper().replace('-', '.'));
+                addItem(ticker, true);
             }
         }
     }
