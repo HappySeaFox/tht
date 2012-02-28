@@ -29,7 +29,7 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
     </message>
     <message>
         <location filename="../about.ui" line="118"/>
-        <source>Ok</source>
+        <source>OK</source>
         <translation></translation>
     </message>
 </context>
