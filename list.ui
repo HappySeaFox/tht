@@ -23,7 +23,7 @@
       <number>0</number>
      </property>
      <item>
-      <widget class="QPushButton" name="pushClear">
+      <widget class="QToolButton" name="pushList">
        <property name="minimumSize">
         <size>
          <width>28</width>
@@ -34,11 +34,14 @@
         <enum>Qt::NoFocus</enum>
        </property>
        <property name="toolTip">
-        <string>Clear list</string>
+        <string>List</string>
        </property>
        <property name="icon">
         <iconset resource="tht.qrc">
-         <normaloff>:/images/clear.png</normaloff>:/images/clear.png</iconset>
+         <normaloff>:/images/list.png</normaloff>:/images/list.png</iconset>
+       </property>
+       <property name="popupMode">
+        <enum>QToolButton::InstantPopup</enum>
        </property>
       </widget>
      </item>
@@ -242,7 +245,7 @@
   </layout>
  </widget>
  <tabstops>
-  <tabstop>pushClear</tabstop>
+  <tabstop>pushList</tabstop>
   <tabstop>pushAdd</tabstop>
   <tabstop>pushSave</tabstop>
   <tabstop>pushSaveAs</tabstop>
@@ -269,22 +272,6 @@
    </hints>
   </connection>
   <connection>
-   <sender>pushClear</sender>
-   <signal>clicked()</signal>
-   <receiver>List</receiver>
-   <slot>clear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>16</x>
-     <y>15</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>185</x>
-     <y>227</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>list</sender>
    <signal>itemDoubleClicked(QListWidgetItem*)</signal>
    <receiver>List</receiver>
@@ -302,7 +289,6 @@
   </connection>
  </connections>
  <slots>
-  <slot>clear()</slot>
   <slot>slotSave()</slot>
   <slot>loadItem()</slot>
  </slots>

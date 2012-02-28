@@ -89,6 +89,7 @@ private slots:
     void slotSave();
     void slotExportToFile();
     void slotExportToClipboard();
+    void slotSortList();
     void loadItem(LoadItem = LoadItemCurrent);
 
 private:

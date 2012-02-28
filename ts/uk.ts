@@ -37,73 +37,83 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
     <name>List</name>
     <message>
         <location filename="../list.ui" line="37"/>
-        <source>Clear list</source>
-        <translation>Очистити список</translation>
+        <source>List</source>
+        <translation>Список</translation>
     </message>
     <message>
-        <location filename="../list.ui" line="57"/>
+        <location filename="../list.ui" line="60"/>
         <source>Add tickers</source>
         <translation>Додати тікери</translation>
     </message>
     <message>
-        <location filename="../list.ui" line="80"/>
+        <location filename="../list.ui" line="83"/>
         <source>Save tickers</source>
         <translation>Зберегти тікери</translation>
     </message>
     <message>
-        <location filename="../list.ui" line="100"/>
+        <location filename="../list.ui" line="103"/>
         <source>Export tickers</source>
         <translation>Експортувати тікери</translation>
     </message>
     <message>
-        <location filename="../list.ui" line="136"/>
+        <location filename="../list.ui" line="142"/>
         <source>Tickers:</source>
         <translation>Токарів:</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="60"/>
+        <source>Clear</source>
+        <translation>Очистити</translation>
+    </message>
+    <message>
+        <location filename="../list.cpp" line="61"/>
+        <source>Sort</source>
+        <translation>Відсортувати</translation>
+    </message>
+    <message>
+        <location filename="../list.cpp" line="65"/>
         <source>Add one ticker...</source>
         <translation>Додати один тікер...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="61"/>
+        <location filename="../list.cpp" line="67"/>
         <source>Add from file...</source>
         <translation>Додати з файлу...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="62"/>
+        <location filename="../list.cpp" line="68"/>
         <source>Add from clipboard</source>
         <translation>Додати з буфера обміну</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="66"/>
+        <location filename="../list.cpp" line="72"/>
         <source>Export to file...</source>
         <translation>Експортувати в файл...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="67"/>
+        <location filename="../list.cpp" line="73"/>
         <source>Export to clipboard</source>
         <translation>Експортувати в буфер обміну</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="622"/>
-        <location filename="../list.cpp" line="704"/>
+        <location filename="../list.cpp" line="649"/>
+        <location filename="../list.cpp" line="731"/>
         <source>Choose a file</source>
         <translation>Виберіть файл</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="670"/>
-        <location filename="../list.cpp" line="714"/>
+        <location filename="../list.cpp" line="697"/>
+        <location filename="../list.cpp" line="741"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="670"/>
+        <location filename="../list.cpp" line="697"/>
         <source>Cannot open the following files: %1</source>
         <translation>Неможливо відкрити наступні файли: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="714"/>
+        <location filename="../list.cpp" line="741"/>
         <source>Cannot save to file %1</source>
         <translation>Неможливо зберегти в файл %1</translation>
     </message>
