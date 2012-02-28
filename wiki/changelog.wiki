@@ -5,6 +5,8 @@
  * switched to the dynamic Qt. This will speed up the program startup and operations with the file dialogs
  * hotkey: added {{{PageUp}}} and {{{PageDown}}}
  * hotkey: added {{{Insert}}} (same as {{{O}}}, add new ticker)
+ * hotkey: {{{P}}} pastes tickers from a clipboard instead of {{{C}}}
+ * hotkey: {{{C}}} exports tickers to a clipboard instead of {{{D}}}
 
 == 0.6.0 ==
  * hotkey: press "V" to load "$VIX"
