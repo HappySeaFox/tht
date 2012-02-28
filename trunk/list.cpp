@@ -61,15 +61,17 @@ List::List(int group, QWidget *parent) :
     menu->addAction(tr("Sort") + "\tR", this, SLOT(slotSortList()));
     ui->pushList->setMenu(menu);
 
+    QIcon file_icon(":/images/file.png");
+
     menu = new QMenu(this);
     menu->addAction(tr("Add one ticker...") + "\tO", this, SLOT(slotAddOne()));
     menu->addSeparator();
-    menu->addAction(QIcon(":/images/file.png"), tr("Add from file...") + "\tA", this, SLOT(slotAddFromFile()));
+    menu->addAction(file_icon, tr("Add from file...") + "\tA", this, SLOT(slotAddFromFile()));
     menu->addAction(tr("Add from clipboard") + "\tP", this, SLOT(slotAddFromClipboard()));
     ui->pushAdd->setMenu(menu);
 
     menu = new QMenu(this);
-    menu->addAction(QIcon(":/images/file.png"), tr("Export to file...") + "\tE", this, SLOT(slotExportToFile()));
+    menu->addAction(file_icon, tr("Export to file...") + "\tE", this, SLOT(slotExportToFile()));
     menu->addAction(tr("Export to clipboard") + "\tC", this, SLOT(slotExportToClipboard()));
     ui->pushSaveAs->setMenu(menu);
 
