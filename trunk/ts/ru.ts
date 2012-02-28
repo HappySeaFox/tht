@@ -37,73 +37,83 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
     <name>List</name>
     <message>
         <location filename="../list.ui" line="37"/>
-        <source>Clear list</source>
-        <translation>Очистить список</translation>
+        <source>List</source>
+        <translation>Список</translation>
     </message>
     <message>
-        <location filename="../list.ui" line="57"/>
+        <location filename="../list.ui" line="60"/>
         <source>Add tickers</source>
         <translation>Добавить тикеры</translation>
     </message>
     <message>
-        <location filename="../list.ui" line="80"/>
+        <location filename="../list.ui" line="83"/>
         <source>Save tickers</source>
         <translation>Сохранить тикеры</translation>
     </message>
     <message>
-        <location filename="../list.ui" line="100"/>
+        <location filename="../list.ui" line="103"/>
         <source>Export tickers</source>
         <translation>Экспортировать тикеры</translation>
     </message>
     <message>
-        <location filename="../list.ui" line="136"/>
+        <location filename="../list.ui" line="142"/>
         <source>Tickers:</source>
         <translation>Тикеров:</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="60"/>
+        <source>Clear</source>
+        <translation>Очистить</translation>
+    </message>
+    <message>
+        <location filename="../list.cpp" line="61"/>
+        <source>Sort</source>
+        <translation>Отсортировать</translation>
+    </message>
+    <message>
+        <location filename="../list.cpp" line="65"/>
         <source>Add one ticker...</source>
         <translation>Добавить один тикер...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="61"/>
+        <location filename="../list.cpp" line="67"/>
         <source>Add from file...</source>
         <translation>Добавить из файла...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="62"/>
+        <location filename="../list.cpp" line="68"/>
         <source>Add from clipboard</source>
         <translation>Добавить из буфера обмена</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="66"/>
+        <location filename="../list.cpp" line="72"/>
         <source>Export to file...</source>
         <translation>Экспортировать в файл...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="67"/>
+        <location filename="../list.cpp" line="73"/>
         <source>Export to clipboard</source>
         <translation>Экспортировать в буфер обмена</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="622"/>
-        <location filename="../list.cpp" line="704"/>
+        <location filename="../list.cpp" line="649"/>
+        <location filename="../list.cpp" line="731"/>
         <source>Choose a file</source>
         <translation>Выберите файл</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="670"/>
-        <location filename="../list.cpp" line="714"/>
+        <location filename="../list.cpp" line="697"/>
+        <location filename="../list.cpp" line="741"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="670"/>
+        <location filename="../list.cpp" line="697"/>
         <source>Cannot open the following files: %1</source>
         <translation>Невозможно открыть следующие файлы: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="714"/>
+        <location filename="../list.cpp" line="741"/>
         <source>Cannot save to file %1</source>
         <translation>Невозможно сохранить в файл %1</translation>
     </message>

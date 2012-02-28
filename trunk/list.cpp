@@ -57,14 +57,20 @@ List::List(int group, QWidget *parent) :
     ui->pushSave->setEnabled(!m_saveTickers);
 
     QMenu *menu = new QMenu(this);
-    menu->addAction(tr("Add one ticker..."), this, SLOT(slotAddOne()));
-    menu->addAction(tr("Add from file..."), this, SLOT(slotAddFromFile()));
-    menu->addAction(tr("Add from clipboard"), this, SLOT(slotAddFromClipboard()));
+    menu->addAction(QIcon(":/images/clear.png"), tr("Clear") + "\tN", this, SLOT(clear()));
+    menu->addAction(tr("Sort") + "\tR", this, SLOT(slotSortList()));
+    ui->pushList->setMenu(menu);
+
+    menu = new QMenu(this);
+    menu->addAction(tr("Add one ticker...") + "\tO", this, SLOT(slotAddOne()));
+    menu->addSeparator();
+    menu->addAction(QIcon(":/images/file.png"), tr("Add from file...") + "\tA", this, SLOT(slotAddFromFile()));
+    menu->addAction(tr("Add from clipboard") + "\tP", this, SLOT(slotAddFromClipboard()));
     ui->pushAdd->setMenu(menu);
 
     menu = new QMenu(this);
-    menu->addAction(tr("Export to file..."), this, SLOT(slotExportToFile()));
-    menu->addAction(tr("Export to clipboard"), this, SLOT(slotExportToClipboard()));
+    menu->addAction(QIcon(":/images/file.png"), tr("Export to file...") + "\tE", this, SLOT(slotExportToFile()));
+    menu->addAction(tr("Export to clipboard") + "\tC", this, SLOT(slotExportToClipboard()));
     ui->pushSaveAs->setMenu(menu);
 
     setFocusProxy(ui->list);
@@ -192,11 +198,11 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                     slotAddFromFile();
                 break;
 
-                case Qt::Key_C:
+                case Qt::Key_P:
                     paste();
                 break;
 
-                case Qt::Key_D:
+                case Qt::Key_C:
                     slotExportToClipboard();
                 break;
 
@@ -240,7 +246,11 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                     clear();
                 break;
 
-                // Yahoo finance
+                case Qt::Key_R:
+                    slotSortList();
+                break;
+
+                    // Yahoo finance
                 case Qt::Key_Y:
                 {
                     QString t = currentTicker();
@@ -428,8 +438,12 @@ void List::load()
 
     QStringList items = Settings::instance()->tickersForGroup(m_section);
 
+    ui->list->setUpdatesEnabled(false);
+
     foreach(QString t, items)
         addItem(t);
+
+    ui->list->setUpdatesEnabled(true);
 
     numberOfItemsChanged();
 }
@@ -740,6 +754,11 @@ void List::slotExportToFile()
     }
 
     t.flush();
+}
+
+void List::slotSortList()
+{
+    ui->list->sortItems();
 }
 
 void List::slotExportToClipboard()
