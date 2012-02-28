@@ -39,7 +39,6 @@ SOURCES += main.cpp\
     settings.cpp \
     qtsingleapplication/qtsingleapplication.cpp \
     qtsingleapplication/qtlockedfile_win.cpp \
-    qtsingleapplication/qtlockedfile_unix.cpp \
     qtsingleapplication/qtlockedfile.cpp \
     qtsingleapplication/qtlocalpeer.cpp \
     regionselect.cpp \
