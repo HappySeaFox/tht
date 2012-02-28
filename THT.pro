@@ -37,7 +37,6 @@ SOURCES += main.cpp\
     options.cpp \
     about.cpp \
     settings.cpp \
-    qtsingleapplication/qtsinglecoreapplication.cpp \
     qtsingleapplication/qtsingleapplication.cpp \
     qtsingleapplication/qtlockedfile_win.cpp \
     qtsingleapplication/qtlockedfile_unix.cpp \
@@ -57,7 +56,6 @@ HEADERS += tht.h \
     options.h \
     about.h \
     settings.h \
-    qtsingleapplication/qtsinglecoreapplication.h \
     qtsingleapplication/qtsingleapplication.h \
     qtsingleapplication/QtSingleApplication \
     qtsingleapplication/qtlockedfile.h \
