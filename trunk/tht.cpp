@@ -24,6 +24,7 @@
 #include <QCloseEvent>
 #include <QClipboard>
 #include <QFileInfo>
+#include <QShortcut>
 #include <QDateTime>
 #include <QPalette>
 #include <QDebug>
@@ -68,6 +69,9 @@ THT::THT(QWidget *parent) :
     QIcon icon_screenshot(":/images/screenshot.png");
 
     // context menu
+    QShortcut *help_shortcut = new QShortcut(QKeySequence::HelpContents, this, SLOT(slotAbout()));
+    QShortcut *quit_shortcut = new QShortcut(Qt::CTRL+Qt::Key_Q, this, SLOT(slotQuit()));
+
     m_menu = new QMenu(this);
     m_menu->addAction(QIcon(":/images/options.png"), tr("Options..."), this, SLOT(slotOptions()));
     m_menu->addSeparator();
@@ -75,10 +79,10 @@ THT::THT(QWidget *parent) :
     m_menu->addAction(tr("Clear ticker lists"), this, SLOT(slotClearLists()));
     m_menu->addAction(tr("Clear links"), this, SLOT(slotClearLinks()));
     m_menu->addSeparator();
-    m_menu->addAction(tr("About THT"), this, SLOT(slotAbout()));
+    m_menu->addAction(tr("About THT") + '\t' + help_shortcut->key().toString(), this, SLOT(slotAbout()));
     m_menu->addAction(tr("About Qt"), this, SLOT(slotAboutQt()));
     m_menu->addSeparator();
-    m_menu->addAction(icon_quit, tr("Quit"), qApp, SLOT(quit()));
+    m_menu->addAction(icon_quit, tr("Quit") + '\t' + quit_shortcut->key().toString(), this, SLOT(slotQuit()));
 
     m_timerCheckActive = new QTimer(this);
     m_timerCheckActive->setSingleShot(true);
@@ -615,6 +619,11 @@ void THT::slotAbout()
 void THT::slotAboutQt()
 {
     QMessageBox::aboutQt(this);
+}
+
+void THT::slotQuit()
+{
+    qApp->quit();
 }
 
 void THT::slotOptions()
