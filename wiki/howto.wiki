@@ -94,7 +94,7 @@ Yes, THT supports some keyboard shortcuts.
 
 === When navigating throught the list: ===
 
- * *down arrow* - load the next ticker
+ * *down arrow* - load the next ticker to all linked windows
  * *up arrow* - load the previous ticker
  * *left arrow* - copy the current ticker to the list leftwards
  * *right arrow* - copy the current ticker to the list on the right
