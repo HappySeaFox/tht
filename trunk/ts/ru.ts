@@ -155,14 +155,14 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
     <name>RegionSelect</name>
     <message>
         <location filename="../regionselect.cpp" line="111"/>
-        <source>Use your mouse to select a rectangle or exit pressing
+        <source>Select the rectangle with the mouse or exit pressing
 any key or using the right or middle mouse buttons.</source>
         <translation>Выделите прямоугольник с помощью мыши, или нажмите
 любую клавишу или правую/среднюю кнопку мыши чтобы отменить.</translation>
     </message>
     <message>
         <location filename="../regionselect.cpp" line="112"/>
-        <source>Use your mouse to select a rectangle or exit pressing
+        <source>Select the rectangle with the mouse or exit pressing
 the right or middle mouse buttons.</source>
         <translation>Выделите прямоугольник с помощью мыши, или нажмите
 правую/среднюю кнопку мыши чтобы отменить.</translation>
