@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Trader's Home Task</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout_3">
+  <layout class="QGridLayout" name="gridLayout_5">
    <item row="0" column="0" colspan="5">
     <widget class="QWidget" name="widgetTickers" native="true"/>
    </item>
@@ -44,94 +44,143 @@
     </widget>
    </item>
    <item row="2" column="1">
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <property name="spacing">
+    <widget class="QStackedWidget" name="stackLinks">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="currentIndex">
       <number>0</number>
      </property>
-     <item>
-      <widget class="QLabel" name="labelAG_n">
-       <property name="toolTip">
-        <string>Advanced Get and ESignal links</string>
+     <widget class="QWidget" name="page_5">
+      <layout class="QGridLayout" name="gridLayout_4">
+       <property name="margin">
+        <number>0</number>
        </property>
-       <property name="text">
-        <string>AG:</string>
+       <item row="0" column="0">
+        <widget class="QLabel" name="labelNoLinks">
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>No links</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page_6">
+      <layout class="QGridLayout" name="gridLayout_3">
+       <property name="margin">
+        <number>0</number>
        </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="labelAG">
-       <property name="toolTip">
-        <string>Advanced Get and ESignal links</string>
+       <property name="spacing">
+        <number>0</number>
        </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="horizontalSpacer_2">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Fixed</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>6</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QLabel" name="labelGB_n">
-       <property name="toolTip">
-        <string>Graybox links</string>
-       </property>
-       <property name="text">
-        <string>GB:</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="labelGB">
-       <property name="toolTip">
-        <string>Graybox links</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="horizontalSpacer_3">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Fixed</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>6</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QLabel" name="labelO_n">
-       <property name="toolTip">
-        <string>Other links</string>
-       </property>
-       <property name="text">
-        <string>O:</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="labelO">
-       <property name="toolTip">
-        <string>Other links</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
+       <item row="0" column="0">
+        <widget class="QLabel" name="labelAG_n">
+         <property name="toolTip">
+          <string>Advanced Get and ESignal links</string>
+         </property>
+         <property name="text">
+          <string>AG:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLabel" name="labelAG">
+         <property name="toolTip">
+          <string>Advanced Get and ESignal links</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>6</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="0" column="3">
+        <widget class="QLabel" name="labelGB_n">
+         <property name="toolTip">
+          <string>Graybox links</string>
+         </property>
+         <property name="text">
+          <string>GB:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="4">
+        <widget class="QLabel" name="labelGB">
+         <property name="toolTip">
+          <string>Graybox links</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="5">
+        <spacer name="horizontalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>6</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="0" column="6">
+        <widget class="QLabel" name="labelO_n">
+         <property name="toolTip">
+          <string>Other links</string>
+         </property>
+         <property name="text">
+          <string>O:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="8">
+        <widget class="QLabel" name="labelO">
+         <property name="toolTip">
+          <string>Other links</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="9">
+        <spacer name="horizontalSpacer_4">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </widget>
    </item>
    <item row="2" column="2">
     <spacer name="horizontalSpacer">
@@ -145,6 +194,13 @@
       </size>
      </property>
     </spacer>
+   </item>
+   <item row="2" column="3">
+    <widget class="QCheckBox" name="checkNyse">
+     <property name="text">
+      <string>=N</string>
+     </property>
+    </widget>
    </item>
    <item row="2" column="4">
     <widget class="QStackedWidget" name="stackBusy">
@@ -221,13 +277,6 @@
        </item>
       </layout>
      </widget>
-    </widget>
-   </item>
-   <item row="2" column="3">
-    <widget class="QCheckBox" name="checkNyse">
-     <property name="text">
-      <string>=N</string>
-     </property>
     </widget>
    </item>
   </layout>
