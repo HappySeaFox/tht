@@ -214,50 +214,55 @@ the right or middle mouse buttons.</source>
         <translation>Перетащите этот указатель на окно, на которое нужно создать ссылку</translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="54"/>
-        <location filename="../tht.ui" line="64"/>
+        <location filename="../tht.ui" line="71"/>
+        <source>No links</source>
+        <translation>Нет ссылок</translation>
+    </message>
+    <message>
+        <location filename="../tht.ui" line="88"/>
+        <location filename="../tht.ui" line="98"/>
         <source>Advanced Get and ESignal links</source>
         <translation>Ссылки на Advanced Get и ESignal</translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="57"/>
+        <location filename="../tht.ui" line="91"/>
         <source>AG:</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="87"/>
-        <location filename="../tht.ui" line="97"/>
+        <location filename="../tht.ui" line="121"/>
+        <location filename="../tht.ui" line="131"/>
         <source>Graybox links</source>
         <translation>Ссылки на Graybox</translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="90"/>
+        <location filename="../tht.ui" line="124"/>
         <source>GB:</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="120"/>
-        <location filename="../tht.ui" line="130"/>
+        <location filename="../tht.ui" line="154"/>
+        <location filename="../tht.ui" line="164"/>
         <source>Other links</source>
         <translation>Другие ссылки</translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="123"/>
+        <location filename="../tht.ui" line="157"/>
         <source>O:</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="180"/>
+        <location filename="../tht.ui" line="236"/>
         <source>THT is ready</source>
         <translation>THT готов к работе</translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="212"/>
+        <location filename="../tht.ui" line="268"/>
         <source>THT is busy</source>
         <translation>THT занят</translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="229"/>
+        <location filename="../tht.ui" line="201"/>
         <source>=N</source>
         <translation></translation>
     </message>
@@ -309,18 +314,18 @@ the right or middle mouse buttons.</source>
         <translation>THT продолжит работу в системном лотке</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="782"/>
-        <location filename="../tht.cpp" line="810"/>
+        <location filename="../tht.cpp" line="788"/>
+        <location filename="../tht.cpp" line="816"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="782"/>
+        <location filename="../tht.cpp" line="788"/>
         <source>Cannot take screenshot</source>
         <translation>Невозможно создать снимок экрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="810"/>
+        <location filename="../tht.cpp" line="816"/>
         <source>Cannot save screenshot</source>
         <translation>Невозможно сохранить снимок экрана</translation>
     </message>

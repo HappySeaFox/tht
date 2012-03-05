@@ -458,9 +458,16 @@ void THT::checkWindows()
             ++o;
     }
 
-    ui->labelAG->setNum(ag);
-    ui->labelGB->setNum(gb);
-    ui->labelO->setNum(o);
+    if(ag || gb || o)
+    {
+        ui->stackLinks->setCurrentIndex(1);
+
+        ui->labelAG->setNum(ag);
+        ui->labelGB->setNum(gb);
+        ui->labelO->setNum(o);
+    }
+    else
+        ui->stackLinks->setCurrentIndex(0); // "No links" warning
 }
 
 void THT::nextLoadableWindowIndex(int startFrom)
