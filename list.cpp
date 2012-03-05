@@ -789,6 +789,7 @@ void List::slotExportToFile()
 void List::slotSortList()
 {
     ui->list->sortItems();
+    save();
 }
 
 void List::slotLoadPredefined()
