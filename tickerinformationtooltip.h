@@ -51,6 +51,7 @@
 
 class TickerInformationToolTip
 {
+private:
     TickerInformationToolTip();
 
 public:

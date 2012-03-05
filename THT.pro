@@ -90,7 +90,7 @@ OTHER_FILES += \
     README.txt \
     LICENSE.txt
 
-TRANSLATIONS += ts/ru.ts ts/uk.ts
+TRANSLATIONS += ts/qt_ru.ts ts/qt_uk.ts ts/ru.ts ts/uk.ts
 
 QMAKE_PRE_LINK = lrelease $$_PRO_FILE_
 
