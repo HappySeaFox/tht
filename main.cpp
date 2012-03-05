@@ -30,7 +30,7 @@
 #include "settings.h"
 #include "tht.h"
 
-void myMessageOutput(QtMsgType type, const char *msg)
+static void thtOutput(QtMsgType type, const char *msg)
 {
     static QFile log(QDesktopServices::storageLocation(QDesktopServices::TempLocation)
                      + QDir::separator()
@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
 {
     setbuf(stderr, 0);
 
-    qInstallMsgHandler(myMessageOutput);
+    qInstallMsgHandler(thtOutput);
 
     qDebug("Starting at %s", qPrintable(QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss")));
 
