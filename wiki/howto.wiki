@@ -103,13 +103,15 @@ Yes, THT supports some keyboard shortcuts.
  * *Enter* - reload the current ticket
  * *Delete* - delete the current ticket
  * *Ctrl+N*, *N* - clear list
- * *O* - add one ticker
- * *Ctrl+O*, *A* - add tickers from a file
- * *Ctrl+V*, *C* - paste tickers from a clipboard
+ * *O*, *Insert* - add one ticker
+ * *Ctrl+O*, *A* - add tickers from a file (or from multiple files simultaneously)
+ * *Ctrl+V*, *P* - paste tickers from a clipboard
  * *Space* - show the company name
  * *1,2,3,4,5* - copy the current ticker to the 1st, 2nd, 3rd, 4th or 5th list respectively
+ * *R* - sort list
  * *E* - export tickers to a file
- * *D* - export tickers to a clipboard
+ * *C* - export tickers to a clipboard
+ * *Q* - load "$COMPQ"
  * *H* - load "$HUI"
  * *I* - load "$INDU"
  * *S* - load "$SPX"
@@ -125,6 +127,10 @@ Yes, THT supports some keyboard shortcuts.
 == What's the difference between installable ad standalone packages? ==
 
 No difference.
+
+== How to translate THT into my native language? ==
+
+Download and install Qt Linguist from https://code.google.com/p/qtlinguistdownload/downloads/list . Then ask me to generate a new translation file. I'll generate and send it to you. Translate it with Qt Linguist and send me back.
 
 == Graybox warning ==
 
