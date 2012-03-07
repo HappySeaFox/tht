@@ -116,7 +116,7 @@ PERL=$$findexe("perl.exe")
     } else {
         message("Repository root: $$SVNROOT")
 
-        tag.commands = svn copy "\"$$SVNROOT/trunk\"" "\"$$SVNROOT/tags/$$VERSION\""
+        tag.commands = svn -m "\"$$VERSION tag\"" copy "\"$$SVNROOT/trunk\"" "\"$$SVNROOT/tags/$$VERSION\""
         QMAKE_EXTRA_TARGETS += tag
     }
 }
