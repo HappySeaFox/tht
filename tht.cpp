@@ -332,6 +332,7 @@ THT::Link THT::checkWindow(HWND hwnd)
     if(!GetProcessImageFileName(h, name, sizeof(name)))
     {
         qDebug("Cannot get process info %ld (%ld)", dwProcessId, GetLastError());
+        CloseHandle(h);
         return link;
     }
 
@@ -354,6 +355,8 @@ THT::Link THT::checkWindow(HWND hwnd)
 
     if(link.type != LinkTypeNotInitialized)
         qDebug("Window under cursor %d", (int)link.hwnd);
+
+    CloseHandle(h);
 
     return link;
 }
@@ -566,10 +569,10 @@ void THT::startDelayedScreenshot(bool allowKbd)
 
 void THT::activate()
 {
-    AllowSetForegroundWindow(ASFW_ANY);
+    qDebug("Activating");
 
-    setWindowState((windowState() & ~Qt::WindowMinimized) | Qt::WindowActive);
     show();
+    setWindowState(windowState() & ~Qt::WindowMinimized);
     raise();
     activateWindow();
 }

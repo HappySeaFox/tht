@@ -27,6 +27,8 @@
 #include <cstdlib>
 #include <cstdio>
 
+#include <windows.h>
+
 #include "settings.h"
 #include "tht.h"
 
@@ -69,6 +71,8 @@ int main(int argc, char *argv[])
         return 0;
     }
 
+    AllowSetForegroundWindow(ASFW_ANY);
+
     if(app.sendMessage("wake up"))
         return 0;
 
@@ -94,7 +98,6 @@ int main(int argc, char *argv[])
     THT w;
     w.show();
 
-    app.setActivationWindow(&w);
     app.setQuitOnLastWindowClosed(false);
 
     QObject::connect(&app, SIGNAL(messageReceived(const QString &)),

@@ -321,7 +321,6 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                     emit loadTicker("$HUI");
                 break;
 
-                // default processing
                 case Qt::Key_Up:
                     loadItem(LoadItemPrevious);
                 break;
@@ -350,6 +349,7 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                     loadItem(LoadItemPageDown);
                 break;
 
+                // default processing
                 case Qt::Key_Tab:
                     return QObject::eventFilter(obj, event);
                 } // switch
