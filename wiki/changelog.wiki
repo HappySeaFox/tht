@@ -1,3 +1,7 @@
+== 0.7.1 (not released) ==
+ * fixed small descriptor leak
+ * fixed setting a foreground window when running a second instance
+
 == 0.7.0 ==
  * allow to drag-and-drop tickers from one list to another
  * use INI file to save settings, it is much faster than registry
