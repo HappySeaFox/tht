@@ -13,9 +13,8 @@ TEMPLATE = app
     error("$$TARGET requires Windows platform")
 }
 
-NVER1=0
-NVER2=7
-NVER3=0
+# THT version
+include ( THT-version.pri )
 
 VERSION=$$sprintf("%1.%2.%3", $$NVER1, $$NVER2, $$NVER3)
 
@@ -89,7 +88,8 @@ RC_FILE = tht.rc
 OTHER_FILES += \
     tht.rc \
     README.txt \
-    LICENSE.txt
+    LICENSE.txt \
+    THT-version.pri
 
 TRANSLATIONS += ts/ru.ts ts/uk.ts
 
