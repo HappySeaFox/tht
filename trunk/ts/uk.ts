@@ -10,6 +10,20 @@
     </message>
     <message>
         <location filename="../about.ui" line="54"/>
+        <source>Update available</source>
+        <translation>Доступно оновлення</translation>
+    </message>
+    <message>
+        <location filename="../about.ui" line="57"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://code.google.com/p/traders-home-task-ng/downloads/list&quot;&gt;&lt;img src=&quot;:/images/update.png&quot;&gt;&lt;/img&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../about.ui" line="80"/>
         <source>THT helps you to do your home task in trading. It can link several Advanced Get windows together and manage a list of tickers.
 
 All suggestions and bug reports please send to our bug tracker, also visit&lt;br/&gt;&lt;a href=&quot;https://code.google.com/p/traders-home-task-ng&quot;&gt;https://code.google.com/p/traders-home-task-ng/wiki/howto&lt;/a&gt;</source>
@@ -18,17 +32,17 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
 Всі побажання та звіти про помилки надсилайте на наш багтрекер, також відвідаєте &lt;br/&gt;&lt;a href=&quot;https://code.google.com/p/traders-home-task-ng/wiki/howto&quot;&gt;https://code.google.com/p/traders-home-task-ng/wiki/howto&lt;/a&gt;</translation>
     </message>
     <message>
-        <location filename="../about.ui" line="75"/>
+        <location filename="../about.ui" line="101"/>
         <source>(C) 2012 Dmitry Baryshev &amp;lt;&lt;a href=&quot;mailto:ksquirrel.iv@gmail.com&quot;&gt;ksquirrel.iv@gmail.com&lt;/a&gt;&amp;gt;</source>
         <translation>(C) 2012 Баришев Дмитро &amp;lt;&lt;a href=&quot;mailto:ksquirrel.iv@gmail.com&quot;&gt;ksquirrel.iv@gmail.com&lt;/a&gt;&amp;gt;</translation>
     </message>
     <message>
-        <location filename="../about.ui" line="88"/>
+        <location filename="../about.ui" line="114"/>
         <source>THT is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</source>
         <translation>THT поширюється в надії, що вона буде корисною, але БЕЗ БУДЬ-ЯКИХ ГАРАНТІЙ, навіть без гарантій КОМЕРЦІЙНОЇ ЦІННОСТІ чи ПРИДАТНОСТІ ДЛЯ КОНКРЕТНИХ ЦІЛЕЙ.</translation>
     </message>
     <message>
-        <location filename="../about.ui" line="118"/>
+        <location filename="../about.ui" line="144"/>
         <source>OK</source>
         <translation></translation>
     </message>
@@ -267,65 +281,65 @@ the right or middle mouse buttons.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="76"/>
+        <location filename="../tht.cpp" line="77"/>
         <source>Options...</source>
         <translation>Параметри...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="78"/>
-        <location filename="../tht.cpp" line="135"/>
+        <location filename="../tht.cpp" line="79"/>
+        <location filename="../tht.cpp" line="136"/>
         <source>Take screenshot...</source>
         <translation>Знімок екрану...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="79"/>
+        <location filename="../tht.cpp" line="80"/>
         <source>Clear ticker lists</source>
         <translation>Очистити списки токарів</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="80"/>
+        <location filename="../tht.cpp" line="81"/>
         <source>Clear links</source>
         <translation>Очистити посилання</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="82"/>
+        <location filename="../tht.cpp" line="83"/>
         <source>About THT</source>
         <translation>Про THT</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="83"/>
+        <location filename="../tht.cpp" line="84"/>
         <source>About Qt</source>
         <translation>Про Qt</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="85"/>
-        <location filename="../tht.cpp" line="137"/>
+        <location filename="../tht.cpp" line="86"/>
+        <location filename="../tht.cpp" line="138"/>
         <source>Quit</source>
         <translation>Вихід</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="171"/>
+        <location filename="../tht.cpp" line="174"/>
         <source>Notice</source>
         <translation>Замітка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="171"/>
+        <location filename="../tht.cpp" line="174"/>
         <source>THT will continue to run in a system tray</source>
         <translation>ТНТ продовжить роботу в системному лотку</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="788"/>
-        <location filename="../tht.cpp" line="816"/>
+        <location filename="../tht.cpp" line="795"/>
+        <location filename="../tht.cpp" line="823"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="788"/>
+        <location filename="../tht.cpp" line="795"/>
         <source>Cannot take screenshot</source>
         <translation>Неможливо створити знімок екрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="816"/>
+        <location filename="../tht.cpp" line="823"/>
         <source>Cannot save screenshot</source>
         <translation>Неможливо зберегти знімок екрана</translation>
     </message>

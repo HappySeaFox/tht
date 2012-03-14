@@ -15,8 +15,8 @@ TEMPLATE = app
 
 # THT version
 NVER1=0
-NVER2=7
-NVER3=1
+NVER2=8
+NVER3=0
 
 VERSION=$$sprintf("%1.%2.%3", $$NVER1, $$NVER2, $$NVER3)
 
@@ -50,7 +50,8 @@ SOURCES += main.cpp\
     qxt/qxtglobal.cpp \
     target.cpp \
     tickerinput.cpp \
-    tickerinformationtooltip.cpp
+    tickerinformationtooltip.cpp \
+    updatechecker.cpp
 
 HEADERS += tht.h \
     list.h \
@@ -71,7 +72,8 @@ HEADERS += tht.h \
     qxt/QxtGlobalShortcut \
     target.h \
     tickerinput.h \
-    tickerinformationtooltip.h
+    tickerinformationtooltip.h \
+    updatechecker.h
 
 FORMS += tht.ui \
     list.ui \

@@ -15,18 +15,28 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "updatechecker.h"
 #include "about.h"
 #include "ui_about.h"
 
-About::About(QWidget *parent) :
+About::About(const QString &newVersion, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::About)
 {
     ui->setupUi(this);
     ui->labelVersion->setText(QString("THT %1").arg(NVER_STRING));
+
+    slotNewVersion(newVersion);
+
+    connect(UpdateChecker::instance(), SIGNAL(newVersion(const QString &)), this, SLOT(slotNewVersion(const QString &)));
 }
 
 About::~About()
 {
     delete ui;
+}
+
+void About::slotNewVersion(const QString &newVersion)
+{
+    ui->labelUpdate->setVisible(!newVersion.isEmpty());
 }
