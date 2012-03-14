@@ -14,7 +14,9 @@ TEMPLATE = app
 }
 
 # THT version
-include ( THT-version.pri )
+NVER1=0
+NVER2=7
+NVER3=1
 
 VERSION=$$sprintf("%1.%2.%3", $$NVER1, $$NVER2, $$NVER3)
 
@@ -89,7 +91,7 @@ OTHER_FILES += \
     tht.rc \
     README.txt \
     LICENSE.txt \
-    THT-version.pri
+    THT-version.tag
 
 TRANSLATIONS += ts/ru.ts ts/uk.ts
 
@@ -116,7 +118,9 @@ PERL=$$findexe("perl.exe")
     } else {
         message("Repository root: $$SVNROOT")
 
-        tag.commands = svn -m "\"$$VERSION tag\"" copy "\"$$SVNROOT/trunk\"" "\"$$SVNROOT/tags/$$VERSION\""
+        tag.commands += $$mle(echo "\"$$VERSION\"" > "\"$${_PRO_FILE_PWD_}/THT-version.tag\"")
+        tag.commands += $$mle(svn -m "\"$$VERSION file tag\"" commit "\"$${_PRO_FILE_PWD_}/THT-version.tag\"")
+        tag.commands += $$mle(svn -m "\"$$VERSION tag\"" copy "\"$$SVNROOT/trunk\"" "\"$$SVNROOT/tags/$$VERSION\"")
         QMAKE_EXTRA_TARGETS += tag
     }
 }
