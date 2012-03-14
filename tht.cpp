@@ -36,6 +36,7 @@
 #include <psapi.h>
 
 #include "savescreenshot.h"
+#include "updatechecker.h"
 #include "regionselect.h"
 #include "settings.h"
 #include "options.h"
@@ -146,6 +147,8 @@ THT::THT(QWidget *parent) :
     connect(takeScreen, SIGNAL(activated()), this, SLOT(slotTakeScreenshotFromGlobal()));
 
     checkWindows();
+
+    connect(UpdateChecker::instance(), SIGNAL(newVersion(const QString &)), this, SLOT(slotNewVersion(const QString &)));
 }
 
 THT::~THT()
@@ -622,7 +625,7 @@ void THT::slotCheckActive()
 
 void THT::slotAbout()
 {
-    About about(this);
+    About about(m_newVersion, this);
     about.exec();
 }
 

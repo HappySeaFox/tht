@@ -224,10 +224,7 @@ void Settings::removeTickers(int group, SyncType sync)
 
 Settings* Settings::instance()
 {
-    static Settings *m_inst = 0;
-
-    if(!m_inst)
-        m_inst = new Settings;
+    static Settings *m_inst = new Settings;
 
     return m_inst;
 }

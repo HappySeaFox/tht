@@ -13,5 +13,6 @@
         <file>images/chart.ico</file>
         <file>images/list.png</file>
         <file>images/file.png</file>
+        <file>images/update.png</file>
     </qresource>
 </RCC>

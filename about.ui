@@ -6,19 +6,16 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>405</width>
+    <width>397</width>
     <height>240</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>About</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
+  <layout class="QGridLayout" name="gridLayout_2">
    <item row="0" column="0" colspan="3">
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
-     <property name="spacing">
-      <number>12</number>
-     </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QLabel" name="label">
        <property name="pixmap">
@@ -30,9 +27,15 @@
       </widget>
      </item>
      <item>
-      <layout class="QVBoxLayout" name="verticalLayout">
-       <item>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
         <widget class="QLabel" name="labelVersion">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="font">
           <font>
            <pointsize>11</pointsize>
@@ -40,9 +43,30 @@
            <bold>true</bold>
           </font>
          </property>
+         <property name="openExternalLinks">
+          <bool>false</bool>
+         </property>
         </widget>
        </item>
-       <item>
+       <item row="0" column="1">
+        <widget class="QLabel" name="labelUpdate">
+         <property name="toolTip">
+          <string>Update available</string>
+         </property>
+         <property name="text">
+          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;/head&gt;&lt;body&gt;
+&lt;a href=&quot;https://code.google.com/p/traders-home-task-ng/downloads/list&quot;&gt;&lt;img src=&quot;:/images/update.png&quot;&gt;&lt;/img&gt;&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="openExternalLinks">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0" colspan="2">
         <widget class="QLabel" name="label_2">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
@@ -69,7 +93,7 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
          </property>
         </widget>
        </item>
-       <item>
+       <item row="2" column="0" colspan="2">
         <widget class="QLabel" name="label_4">
          <property name="text">
           <string>(C) 2012 Dmitry Baryshev &amp;lt;&lt;a href=&quot;mailto:ksquirrel.iv@gmail.com&quot;&gt;ksquirrel.iv@gmail.com&lt;/a&gt;&amp;gt;</string>
@@ -82,7 +106,7 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
          </property>
         </widget>
        </item>
-       <item>
+       <item row="3" column="0" colspan="2">
         <widget class="QLabel" name="label_5">
          <property name="text">
           <string>THT is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</string>
@@ -106,7 +130,7 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>132</width>
+       <width>0</width>
        <height>20</height>
       </size>
      </property>
@@ -126,7 +150,7 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>132</width>
+       <width>0</width>
        <height>20</height>
       </size>
      </property>
