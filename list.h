@@ -90,7 +90,6 @@ private slots:
     void slotExportToFile();
     void slotExportToClipboard();
     void slotSortList();
-    void slotLoadPredefined();
     void loadItem(LoadItem = LoadItemCurrent);
 
 private:

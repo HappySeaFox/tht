@@ -20,6 +20,7 @@
 #include <QContextMenuEvent>
 #include <QDesktopWidget>
 #include <QApplication>
+#include <QKeySequence>
 #include <QGridLayout>
 #include <QMessageBox>
 #include <QCloseEvent>
@@ -80,6 +81,9 @@ THT::THT(QWidget *parent) :
     m_menu->addAction(icon_screenshot, tr("Take screenshot..."), this, SLOT(slotTakeScreenshot()));
     m_menu->addAction(tr("Clear ticker lists"), this, SLOT(slotClearLists()));
     m_menu->addAction(tr("Clear links"), this, SLOT(slotClearLinks()));
+
+    QMenu *menu_load = m_menu->addMenu(tr("Load ticker"));
+
     m_menu->addSeparator();
     m_menu->addAction(tr("About THT") + '\t' + help_shortcut->key().toString(), this, SLOT(slotAbout()));
     m_menu->addAction(tr("About Qt"), this, SLOT(slotAboutQt()));
@@ -156,6 +160,27 @@ THT::THT(QWidget *parent) :
     checkWindows();
 
     connect(UpdateChecker::instance(), SIGNAL(newVersion(const QString &)), this, SLOT(slotNewVersion(const QString &)));
+
+    // predefined tickers, menu & shortcuts
+    m_predefined.insert("$COMPQ", Qt::Key_Q);
+    m_predefined.insert("$HUI",   Qt::Key_H);
+    m_predefined.insert("$INDU",  Qt::Key_I);
+    m_predefined.insert("$SPX",   Qt::Key_S);
+    m_predefined.insert("$TVOL",  Qt::Key_T);
+    m_predefined.insert("$VIX",   Qt::Key_V);
+    m_predefined.insert("$XOI",   Qt::Key_X);
+
+    QMap<QString, Qt::Key>::const_iterator itEnd = m_predefined.end();
+
+    for(QMap<QString, Qt::Key>::const_iterator it = m_predefined.begin();it != itEnd;++it)
+    {
+        QShortcut *s = new QShortcut(it.value(), this, SLOT(slotLoadPredefinedTicker()));
+
+        s->setProperty("ticker", it.key());
+
+        menu_load->addAction(it.key() + '\t' + QKeySequence(it.value()).toString(),
+                             s, SIGNAL(activated()));
+    }
 }
 
 THT::~THT()
@@ -954,4 +979,14 @@ void THT::slotMessageReceived(const QString &msg)
 
     if(msg == "wake up")
         activate();
+}
+
+void THT::slotLoadPredefinedTicker()
+{
+    QShortcut *s = qobject_cast<QShortcut *>(sender());
+
+    if(!s)
+        return;
+
+    slotLoadTicker(s->property("ticker").toString());
 }

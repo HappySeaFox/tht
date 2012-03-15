@@ -60,27 +60,6 @@ List::List(int group, QWidget *parent) :
     QMenu *menu = new QMenu(this);
     menu->addAction(QIcon(":/images/clear.png"), tr("Clear") + "\tN", this, SLOT(clear()));
     menu->addAction(tr("Sort") + "\tR", this, SLOT(slotSortList()));
-    menu->addSeparator();
-
-    QMenu *menu_load = menu->addMenu(tr("Load"));
-
-    QStringList predefined = QStringList()
-            << "$COMPQ,Q"
-            << "$HUI,H"
-            << "$INDU,I"
-            << "$SPX,S"
-            << "$TVOL,T"
-            << "$VIX,V"
-            << "$XOI,X";
-    QString t;
-
-    foreach(QString p, predefined)
-    {
-        t = p.section(',', 0, 0);
-
-        menu_load->addAction(t + '\t' + p.section(',', 1, 1),
-                             this, SLOT(slotLoadPredefined()))->setProperty("ticker", t);
-    }
 
     ui->pushList->setMenu(menu);
 
@@ -285,41 +264,6 @@ bool List::eventFilter(QObject *obj, QEvent *event)
 
                     break;
                 }
-
-                // $COMPQ
-                case Qt::Key_Q:
-                    emit loadTicker("$COMPQ");
-                break;
-
-                // $INDU
-                case Qt::Key_I:
-                    emit loadTicker("$INDU");
-                break;
-
-                // $SPX
-                case Qt::Key_S:
-                    emit loadTicker("$SPX");
-                break;
-
-                // $TVOL
-                case Qt::Key_T:
-                    emit loadTicker("$TVOL");
-                break;
-
-                // $VIX
-                case Qt::Key_V:
-                    emit loadTicker("$VIX");
-                break;
-
-                // $XOI
-                case Qt::Key_X:
-                    emit loadTicker("$XOI");
-                break;
-
-                // $HUI
-                case Qt::Key_H:
-                    emit loadTicker("$HUI");
-                break;
 
                 case Qt::Key_Up:
                     loadItem(LoadItemPrevious);
@@ -790,21 +734,6 @@ void List::slotSortList()
 {
     ui->list->sortItems();
     save();
-}
-
-void List::slotLoadPredefined()
-{
-    qDebug("Load predefined");
-
-    QAction *o = qobject_cast<QAction *>(sender());
-
-    if(!o)
-        return;
-
-    QString t = o->property("ticker").toString();
-
-    if(!t.isEmpty())
-        emit loadTicker(t);
 }
 
 void List::slotExportToClipboard()
