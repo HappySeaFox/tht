@@ -1,3 +1,7 @@
+== 0.8.0 (not released) ==
+ * fixed window positioning with broken coordinates
+ * move the predefined tickers from the list to the global THT menu (right click)
+
 == 0.7.1 ==
  * fixed small descriptor leak
  * fixed setting a foreground window when running a second instance
