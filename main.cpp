@@ -61,7 +61,7 @@ int main(int argc, char *argv[])
     qDebug("Starting at %s", qPrintable(QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss")));
 
     QCoreApplication::setApplicationName("THT");
-    QCoreApplication::setOrganizationName("Noname");
+    QCoreApplication::setOrganizationName("THT");
 
     QtSingleApplication app(argc, argv);
 

@@ -157,7 +157,7 @@ THT::~THT()
 
     if(Settings::instance()->saveGeometry())
     {
-        Settings::instance()->setWindowSize(size());
+        Settings::instance()->setWindowSize(size(), Settings::SyncTypeNoSync);
         Settings::instance()->setWindowPosition(pos());
     }
 

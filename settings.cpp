@@ -30,11 +30,32 @@ Settings::Settings()
 
     m_rxTicker = QRegExp("\\$?[a-zA-Z\\-]{1,5}");
 
-    // migrate from 0.6.0
+    // migrate from old settings
     if(m_settings->childGroups().isEmpty())
     {
-        QSettings old;
-        QStringList oldkeys = old.allKeys();
+        QSettings *old = new QSettings;
+
+        if(!old)
+        {
+            qDebug("Cannot allocate memory");
+            return;
+        }
+
+        QStringList oldkeys = old->allKeys();
+
+        if(oldkeys.isEmpty())
+        {
+            delete old;
+            old = new QSettings(QSettings::IniFormat, QSettings::UserScope, "Noname", "THT");
+
+            if(!old)
+            {
+                qDebug("Cannot allocate memory");
+                return;
+            }
+
+            oldkeys = old->allKeys();
+        }
 
         if(!oldkeys.isEmpty())
         {
@@ -42,10 +63,12 @@ Settings::Settings()
 
             foreach(QString key, oldkeys)
             {
-                m_settings->setValue(key, old.value(key));
+                m_settings->setValue(key, old->value(key));
             }
 
         }
+
+        delete old;
 
         // save version for future changes
         m_settings->setValue("version", NVER_STRING);
