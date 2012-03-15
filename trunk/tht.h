@@ -20,7 +20,10 @@
 
 #include <QSystemTrayIcon>
 #include <QWidget>
+#include <QString>
 #include <QList>
+#include <QMap>
+#include <Qt>
 
 #include <windows.h>
 
@@ -101,6 +104,7 @@ private slots:
     void slotTickerDropped(const QString &, const QPoint &);
     void slotMessageReceived(const QString &);
     void slotNewVersion(const QString &);
+    void slotLoadPredefinedTicker();
 
 private:
     Ui::THT *ui;
@@ -124,6 +128,7 @@ private:
     bool m_useKeyboardInRegion;
     bool m_locked;
     QString m_newVersion;
+    QMap<QString, Qt::Key> m_predefined;
 };
 
 inline
