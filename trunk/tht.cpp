@@ -18,6 +18,7 @@
 #include <QxtGlobalShortcut>
 
 #include <QContextMenuEvent>
+#include <QDesktopWidget>
 #include <QApplication>
 #include <QGridLayout>
 #include <QMessageBox>
@@ -125,15 +126,21 @@ THT::THT(QWidget *parent) :
 
         QPoint pt = Settings::instance()->windowPosition();
 
-        if(!pt.isNull())
+        QRect dr = qApp->desktop()->rect();
+        QRect headGeometry = QRect(pt, QSize(sz.width(), 20));
+
+        // move to a valid position
+        if(!pt.isNull() && (dr.contains(headGeometry.topLeft()) || dr.contains(headGeometry.bottomRight())))
             move(pt);
     }
 
     m_tray = new QSystemTrayIcon(QIcon(":/images/chart.ico"), this);
     QMenu *trayMenu = new QMenu(this);
 
-    //trayMenu->addAction(tr("Restore"), this, SLOT(activate()));
+    trayMenu->addAction(tr("Restore"), this, SLOT(activate()));
     trayMenu->addAction(icon_screenshot, tr("Take screenshot..."), this, SLOT(slotTakeScreenshot()));
+    trayMenu->addSeparator();
+    trayMenu->addAction(tr("About THT"), this, SLOT(slotAbout()));
     trayMenu->addSeparator();
     trayMenu->addAction(icon_quit, tr("Quit"), qApp, SLOT(quit()));
 
