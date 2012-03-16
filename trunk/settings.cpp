@@ -33,7 +33,11 @@ Settings::Settings()
     // migrate from old settings
     if(m_settings->childGroups().isEmpty())
     {
-        QSettings *old = new QSettings;
+        qDebug("Trying settings from 0.7.0");
+
+        // 0.7.0
+        QSettings *old = new QSettings(QSettings::IniFormat, QSettings::UserScope, "Noname", "THT");
+        old->setFallbacksEnabled(false);
 
         if(!old)
         {
@@ -46,7 +50,12 @@ Settings::Settings()
         if(oldkeys.isEmpty())
         {
             delete old;
-            old = new QSettings(QSettings::IniFormat, QSettings::UserScope, "Noname", "THT");
+
+            qDebug("Trying settings from 0.6.0");
+
+            // 0.6.0
+            old = new QSettings(QSettings::NativeFormat, QSettings::UserScope, "Noname", "THT");
+            old->setFallbacksEnabled(false);
 
             if(!old)
             {
