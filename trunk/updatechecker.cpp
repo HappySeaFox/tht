@@ -17,7 +17,7 @@ UpdateChecker::UpdateChecker() : QObject()
 {
     m_lastVersion = NVER_STRING;
 
-    m_rxVersion = QRegExp("^\\d+\\.\\d+\\.\\d+$");
+    m_rxVersion = QRegExp("^(\\d+)\\.(\\d+)\\.(\\d+)$");
 
     m_net = new QNetworkAccessManager(this);
 
@@ -61,14 +61,36 @@ void UpdateChecker::slotFinished(QNetworkReply *reply)
     {
         m_lastVersion = list[0];
 
-        qDebug("Update checker: new version is \"%s\"", qPrintable(m_lastVersion));
-        emit newVersion(m_lastVersion);
+        bool okmajor, okminor, okpatch;
 
-        // check every 3 hours
-        QTimer::singleShot(3*3600*1000, this, SLOT(startRequest()));
+        int major = m_rxVersion.cap(1).toInt(&okmajor);
+        int minor = m_rxVersion.cap(2).toInt(&okminor);
+        int patch = m_rxVersion.cap(3).toInt(&okpatch);
+
+        if(okmajor && okminor && okpatch)
+        {
+            if(major > NVER1
+                    || (major == NVER1 && minor > NVER2)
+                    || (major == NVER1 && minor == NVER2 && patch > NVER3)
+                    )
+            {
+                qDebug("Update checker: new version is \"%s\"", qPrintable(m_lastVersion));
+                emit newVersion(m_lastVersion);
+            }
+            else
+                qDebug("Update checker: current version is better than \"%s\"", qPrintable(m_lastVersion));
+        }
+        else
+        {
+            qDebug("Update checker: new version is \"%s\"", qPrintable(m_lastVersion));
+            emit newVersion(m_lastVersion);
+        }
     }
     else
         qDebug("Update checker: version is up-to-date");
+
+    // check every 4 hours
+    QTimer::singleShot(4*3600*1000, this, SLOT(startRequest()));
 }
 
 void UpdateChecker::slotSslErrors(QNetworkReply *reply, const QList<QSslError> &list)
