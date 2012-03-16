@@ -67,7 +67,7 @@ Settings::Settings()
             }
         }
 
-        if(!oldkeys.isEmpty())
+        if(old && !oldkeys.isEmpty())
         {
             qDebug("Copying settings from the old configuration");
 
