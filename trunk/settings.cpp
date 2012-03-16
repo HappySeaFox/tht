@@ -35,17 +35,19 @@ Settings::Settings()
     {
         qDebug("Trying settings from 0.7.0");
 
+        QStringList oldkeys;
+        QSettings *old;
+
         // 0.7.0
-        QSettings *old = new QSettings(QSettings::IniFormat, QSettings::UserScope, "Noname", "THT");
-        old->setFallbacksEnabled(false);
+        old = new QSettings(QSettings::IniFormat, QSettings::UserScope, "Noname", "THT");
 
         if(!old)
-        {
             qDebug("Cannot allocate memory");
-            return;
+        else
+        {
+            old->setFallbacksEnabled(false);
+            oldkeys = old->allKeys();
         }
-
-        QStringList oldkeys = old->allKeys();
 
         if(oldkeys.isEmpty())
         {
@@ -55,15 +57,14 @@ Settings::Settings()
 
             // 0.6.0
             old = new QSettings(QSettings::NativeFormat, QSettings::UserScope, "Noname", "THT");
-            old->setFallbacksEnabled(false);
 
             if(!old)
-            {
                 qDebug("Cannot allocate memory");
-                return;
+            else
+            {
+                old->setFallbacksEnabled(false);
+                oldkeys = old->allKeys();
             }
-
-            oldkeys = old->allKeys();
         }
 
         if(!oldkeys.isEmpty())
