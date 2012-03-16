@@ -43,7 +43,7 @@ void UpdateChecker::slotFinished(QNetworkReply *reply)
         return;
     }
 
-    QStringList list = QString(reply->readAll()).split(QRegExp("(\\r\\n|\\n)"), QString::SkipEmptyParts);
+    QStringList list = QString(reply->readAll()).split(QRegExp("\\r?\\n"), QString::SkipEmptyParts);
 
     if(list.isEmpty())
     {
