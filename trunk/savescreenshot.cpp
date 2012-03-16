@@ -65,7 +65,7 @@ void SaveScreenshot::slotFile()
         reject();
     else
     {
-        Settings::instance()->setLastScreenShotDirectory(QFileInfo(m_fileName).canonicalPath());
+        Settings::instance()->setLastScreenShotDirectory(QFileInfo(m_fileName).absolutePath());
         accept();
     }
 }

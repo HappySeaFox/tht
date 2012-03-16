@@ -628,7 +628,7 @@ void List::slotAddFromFile()
     bool changed = false, error = false;
     QStringList errorFiles;
 
-    Settings::instance()->setLastTickerDirectory(QFileInfo(fileNames[0]).canonicalPath());
+    Settings::instance()->setLastTickerDirectory(QFileInfo(fileNames[0]).absolutePath());
 
     ui->list->setUpdatesEnabled(false);
 
@@ -716,7 +716,7 @@ void List::slotExportToFile()
         return;
     }
 
-    Settings::instance()->setLastTickerDirectory(QFileInfo(fileName).canonicalPath());
+    Settings::instance()->setLastTickerDirectory(QFileInfo(fileName).absolutePath());
 
     QTextStream t(&file);
 
