@@ -1,4 +1,4 @@
-== 0.8.0 (not released) ==
+== 0.7.2 (not released) ==
  * fixed window positioning with broken coordinates
  * move the predefined tickers from the list to the global THT menu (right click)
  * last used directory is saved correctly (when adding tickers from a file and saving screenshots)
