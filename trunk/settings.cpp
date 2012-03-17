@@ -263,7 +263,7 @@ Settings* Settings::instance()
 }
 
 template <typename T>
-T Settings::load(const QString &key, T def)
+T Settings::load(const QString &key, const T &def)
 {
     m_settings->beginGroup("settings");
     T value = m_settings->value(key, QVariant(def)).value<T>();

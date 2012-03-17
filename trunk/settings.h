@@ -82,7 +82,7 @@ private:
     Settings();
 
     template <typename T>
-    T load(const QString &key, T def = T());
+    T load(const QString &key, const T &def = T());
 
     template <typename T>
     void save(const QString &key, const T &value, SyncType sync = SyncTypeSync);
