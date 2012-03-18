@@ -46,14 +46,7 @@ void UpdateChecker::slotFinished(QNetworkReply *reply)
 
     QStringList list = QString(reply->readAll()).split(QRegExp("\\r?\\n"), QString::SkipEmptyParts);
 
-    if(list.isEmpty())
-    {
-        qWarning("Update checker: answer is empty");
-        reply->deleteLater();
-        return;
-    }
-
-    if(!m_rxVersion.exactMatch(list[0]))
+    if(list.isEmpty() || !m_rxVersion.exactMatch(list[0]))
     {
         qWarning("Update checker: answer is broken");
         reply->deleteLater();
