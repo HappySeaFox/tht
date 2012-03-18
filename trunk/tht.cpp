@@ -169,6 +169,7 @@ THT::THT(QWidget *parent) :
     m_predefined.insert("$TVOL",  Qt::Key_T);
     m_predefined.insert("$VIX",   Qt::Key_V);
     m_predefined.insert("$XOI",   Qt::Key_X);
+    m_predefined.insert("SPY",    Qt::Key_F);
 
     QMap<QString, Qt::Key>::const_iterator itEnd = m_predefined.end();
 
