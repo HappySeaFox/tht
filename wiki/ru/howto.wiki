@@ -62,7 +62,7 @@
 
 <a href="http://i1148.photobucket.com/albums/o561/Dmitry_RK/fz.png" target="_blank"><img src="http://i1148.photobucket.com/albums/o561/Dmitry_RK/th_fz.png" border="0"/>
 
-== Как занрузить предопределённые тикеры? ==
+== Как загрузить предопределённые тикеры? ==
 
 Активируйте оконное сочетание клавиш, или выберите тикер из контекстного меню как показано на видео.
 
