@@ -16,7 +16,7 @@ TEMPLATE = app
 # THT version
 NVER1=0
 NVER2=7
-NVER3=2
+NVER3=3
 
 VERSION=$$sprintf("%1.%2.%3", $$NVER1, $$NVER2, $$NVER3)
 
@@ -120,7 +120,7 @@ PERL=$$findexe("perl.exe")
     } else {
         message("Repository root: $$SVNROOT")
 
-        tag.commands += $$mle(echo "\"$$VERSION\"" > "\"$${_PRO_FILE_PWD_}/THT-version.tag\"")
+        tag.commands += $$mle(echo "$$VERSION"> "\"$${_PRO_FILE_PWD_}/THT-version.tag\"")
         tag.commands += $$mle(svn -m "\"$$VERSION file tag\"" commit "\"$${_PRO_FILE_PWD_}/THT-version.tag\"")
         tag.commands += $$mle(svn -m "\"$$VERSION tag\"" copy "\"$$SVNROOT/trunk\"" "\"$$SVNROOT/tags/$$VERSION\"")
         QMAKE_EXTRA_TARGETS += tag
