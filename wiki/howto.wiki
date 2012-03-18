@@ -62,6 +62,12 @@ For example, open <a href="http://finviz.com">Finviz</a>, select some filters fr
 
 <a href="http://i1148.photobucket.com/albums/o561/Dmitry_RK/fz.png" target="_blank"><img src="http://i1148.photobucket.com/albums/o561/Dmitry_RK/th_fz.png" border="0"/>
 
+== How to load predefined tickers? ==
+
+Activate a window shortcut or select a ticker from the context menu as it show on the video.
+
+<wiki:video url="https://www.youtube.com/watch?v=JzzDHJIS72o" width="240" height="170"/>
+
 == How to show NYSE-only trades? ==
 
 Turn on a "=N" option. This option will append "=N" to all tickers when loading to Advanced Get (Graybox MM doesn't support this).
@@ -111,6 +117,10 @@ Yes, THT supports some keyboard shortcuts.
  * *R* - sort list
  * *E* - export tickers to a file
  * *C* - export tickers to a clipboard
+ * *Y* - open the current ticker in Yahoo Finance
+
+=== Window shortcuts: ===
+
  * *Q* - load "$COMPQ"
  * *H* - load "$HUI"
  * *I* - load "$INDU"
@@ -118,7 +128,6 @@ Yes, THT supports some keyboard shortcuts.
  * *T* - load "$TVOL"
  * *V* - load "$VIX"
  * *X* - load "$XOI"
- * *Y* - open the current ticker in Yahoo Finance
 
 === Global shortcuts: ===
 
@@ -131,6 +140,12 @@ No difference.
 == How to translate THT into my native language? ==
 
 Download and install Qt Linguist from https://code.google.com/p/qtlinguistdownload/downloads/list . Then ask me to generate a new translation file. I'll generate and send it to you. Translate it with Qt Linguist and send me back.
+
+== How to check for updates? ==
+
+Open "About" dialog. If updates are available, you will see an exclamation icon on the right as it shown on a picture. If you are in a corporate network with a firewall, this may not work correctly. In this case you need to visit this website by yourself.
+
+<a href="http://i1148.photobucket.com/albums/o561/Dmitry_RK/about_update.png" target="_blank"><img src="http://i1148.photobucket.com/albums/o561/Dmitry_RK/th_about_update.png" border="0"></img></a>
 
 == Graybox warning ==
 

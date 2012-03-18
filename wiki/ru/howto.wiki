@@ -62,6 +62,12 @@
 
 <a href="http://i1148.photobucket.com/albums/o561/Dmitry_RK/fz.png" target="_blank"><img src="http://i1148.photobucket.com/albums/o561/Dmitry_RK/th_fz.png" border="0"/>
 
+== Как занрузить предопределённые тикеры? ==
+
+Активируйте оконное сочетание клавиш, или выберите тикер из контекстного меню как показано на видео.
+
+<wiki:video url="https://www.youtube.com/watch?v=JzzDHJIS72o" width="240" height="170"/>
+
 == Как показывать только NYSE сделки? ==
 
 Поставьте галочку "=N". Эта настройка будет добавлять "=N" ко всем тикерам, отправляемым в Advanced Get (Graybox MM этого не поддерживает).
@@ -111,6 +117,10 @@ http://i1148.photobucket.com/albums/o561/Dmitry_RK/unsaved.png
  * *R* - отсортировать список
  * *E* - экспортировать тикеры в файл
  * *C* - экспортировать тикеры в буфер обмена
+ * *Y* - открыть текущий тикер в Yahoo Finance
+
+=== Оконные сочетания: ===
+
  * *Q* - загрузить "$COMPQ"
  * *H* - загрузить "$HUI"
  * *I* - загрузить "$INDU"
@@ -118,7 +128,6 @@ http://i1148.photobucket.com/albums/o561/Dmitry_RK/unsaved.png
  * *T* - загрузить "$TVOL"
  * *V* - загрузить "$VIX"
  * *X* - загрузить "$XOI"
- * *Y* - открыть текущий тикер в Yahoo Finance
 
 === Глобальные сочетания: ===
 
@@ -131,6 +140,12 @@ http://i1148.photobucket.com/albums/o561/Dmitry_RK/unsaved.png
 == Как перевести THT на мой язык? ==
 
 Скачайте и установите Qt Linguist с https://code.google.com/p/qtlinguistdownload/downloads/list . Потом попросите меня создать новый файл перевода на ваш язык. Я создам этот файл и перешлю вам. Вы должны перевести его с помощью Qt Linguist и отослать обратно мне.
+
+== Как проверить обновления? ==
+
+Откройте диалог "О THT". Если обновления доступны, вы увидите оповещающую иконку справа, как это показано на рисунке. Если вы находитесь в корпоративной сети с межсетевым экраном, проверка обновлений может не работать корректно. В этом случае вам нужно самостоятельно посетить данный сайт.
+
+<a href="http://i1148.photobucket.com/albums/o561/Dmitry_RK/about_update.png" target="_blank"><img src="http://i1148.photobucket.com/albums/o561/Dmitry_RK/th_about_update.png" border="0"></img></a>
 
 == Предупреждение для Graybox ==
 
