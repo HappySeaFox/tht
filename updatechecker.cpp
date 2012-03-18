@@ -40,6 +40,7 @@ void UpdateChecker::slotFinished(QNetworkReply *reply)
     if(reply->error() != QNetworkReply::NoError)
     {
         qDebug("Update checker: Network error #%d (%s)", reply->error(), qPrintable(reply->errorString()));
+        reply->deleteLater();
         return;
     }
 
@@ -48,12 +49,14 @@ void UpdateChecker::slotFinished(QNetworkReply *reply)
     if(list.isEmpty())
     {
         qWarning("Update checker: answer is empty");
+        reply->deleteLater();
         return;
     }
 
     if(!m_rxVersion.exactMatch(list[0]))
     {
         qWarning("Update checker: answer is broken");
+        reply->deleteLater();
         return;
     }
 
@@ -91,6 +94,8 @@ void UpdateChecker::slotFinished(QNetworkReply *reply)
 
     // check every 4 hours
     QTimer::singleShot(4*3600*1000, this, SLOT(startRequest()));
+
+    reply->deleteLater();
 }
 
 void UpdateChecker::slotSslErrors(QNetworkReply *reply, const QList<QSslError> &list)
