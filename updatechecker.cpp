@@ -6,6 +6,8 @@
 
 #include "updatechecker.h"
 
+static const char * const THT_UPDATE_URL = "http://traders-home-task-ng.googlecode.com/svn/trunk/THT-version.tag";
+
 UpdateChecker *UpdateChecker::instance()
 {
     static UpdateChecker *m_inst = new UpdateChecker;
@@ -16,6 +18,8 @@ UpdateChecker *UpdateChecker::instance()
 UpdateChecker::UpdateChecker() : QObject()
 {
     m_lastVersion = NVER_STRING;
+
+    m_url = QUrl(THT_UPDATE_URL);
 
     m_rxVersion = QRegExp("^(\\d+)\\.(\\d+)\\.(\\d+)$");
 
@@ -32,7 +36,7 @@ UpdateChecker::UpdateChecker() : QObject()
 
 void UpdateChecker::startRequest()
 {
-    m_net->get(QNetworkRequest(QUrl("http://traders-home-task-ng.googlecode.com/svn/trunk/THT-version.tag")));
+    m_net->get(QNetworkRequest(m_url));
 }
 
 void UpdateChecker::slotFinished(QNetworkReply *reply)

@@ -1,10 +1,11 @@
 #ifndef UPDATECHECKER_H
 #define UPDATECHECKER_H
 
-#include <QObject>
 #include <QSslError>
-#include <QList>
+#include <QObject>
 #include <QRegExp>
+#include <QList>
+#include <QUrl>
 
 class QNetworkAccessManager;
 class QNetworkReply;
@@ -30,6 +31,7 @@ private:
     QNetworkAccessManager *m_net;
     QString m_lastVersion;
     QRegExp m_rxVersion;
+    QUrl m_url;
 };
 
 #endif // UPDATECHECKER_H
