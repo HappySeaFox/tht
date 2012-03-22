@@ -186,7 +186,8 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                 clear();
             else if(ke->matches(QKeySequence::Open))
                 slotAddFromFile();
-            else if(ke->modifiers() == Qt::NoModifier) // disallow all modifiers
+            else if(ke->modifiers() == Qt::NoModifier
+                    || ke->modifiers() == Qt::KeypadModifier) // disallow all modifiers except keypad
             {
                 switch(ke->key())
                 {
