@@ -108,15 +108,12 @@ THT::THT(QWidget *parent) :
     rebuildUi();
 
     // set focus
-    if(m_lists.size())
+    foreach(List *l, m_lists)
     {
-        foreach(List *l, m_lists)
+        if(l->haveTickers())
         {
-            if(l->haveTickers())
-            {
-                l->initialSelect();
-                break;
-            }
+            l->initialSelect();
+            break;
         }
     }
 
