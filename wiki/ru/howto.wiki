@@ -128,6 +128,7 @@ http://i1148.photobucket.com/albums/o561/Dmitry_RK/unsaved.png
  * *T* - загрузить "$TVOL"
  * *V* - загрузить "$VIX"
  * *X* - загрузить "$XOI"
+ * *F* - загрузить "SPY"
 
 === Глобальные сочетания: ===
 

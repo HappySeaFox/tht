@@ -1,3 +1,7 @@
+== 0.7.4 ==
+ * Added "SPY" predefined ticker
+ * small fixes
+
 == 0.7.3 ==
  * open "About" dialog to check for updates. If updates are available, you will see an exclamation icon on the right. If you are in a corporate network with a firewall, this may not work correctly (see howto)
  * fixed window positioning with broken coordinates
