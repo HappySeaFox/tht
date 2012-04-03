@@ -52,6 +52,7 @@ public:
     bool contains(const QPoint &);
 
     void initialSelect();
+    void resetPriorities();
 
 protected:
     virtual bool eventFilter(QObject *obj, QEvent *event);
@@ -66,6 +67,7 @@ private:
     void showTickerInfo();
     QPixmap createDragCursor();
     void addItem(const QString &text, bool fix = false);
+    void changePriority(int);
 
     enum LoadItem { LoadItemCurrent,
                     LoadItemNext, LoadItemPrevious,
@@ -93,6 +95,8 @@ private slots:
     void slotExportToFile();
     void slotExportToClipboard();
     void slotSortList();
+    void slotResetPriorities();
+    void slotResetPriority();
     void loadItem(LoadItem = LoadItemCurrent);
     void moveItem(MoveItem);
 

@@ -124,6 +124,16 @@ QString Settings::lastScreenShotDirectory()
     return load<QString>("last-screenshot-directory");
 }
 
+void Settings::setUsePriorities(bool p, SyncType sync)
+{
+    save<bool>("use-priorities", p, sync);
+}
+
+bool Settings::usePriorities()
+{
+    return load<bool>("use-priorities", false);
+}
+
 void Settings::setNyseOnly(bool n, SyncType sync)
 {
     save<bool>("nyse-only", n, sync);

@@ -42,6 +42,7 @@
 #include "tickerinformationtooltip.h"
 #include "tickerinput.h"
 #include "settings.h"
+#include "listitem.h"
 #include "list.h"
 #include "ui_list.h"
 
@@ -60,6 +61,8 @@ List::List(int group, QWidget *parent) :
     QMenu *menu = new QMenu(this);
     menu->addAction(QIcon(":/images/clear.png"), tr("Clear") + "\tN", this, SLOT(clear()));
     menu->addAction(tr("Sort") + "\tR", this, SLOT(slotSortList()));
+    menu->addSeparator();
+    menu->addAction(tr("Reset priorities"), this, SLOT(slotResetPriorities()));
 
     ui->pushList->setMenu(menu);
 
@@ -149,6 +152,26 @@ void List::initialSelect()
         return;
 
     ui->list->setCurrentItem(item, QItemSelectionModel::ClearAndSelect);
+}
+
+void List::resetPriorities()
+{
+    int row = 0;
+
+    if(Settings::instance()->usePriorities())
+    {
+        ListItem *i;
+
+        while((i = dynamic_cast<ListItem *>(ui->list->item(row++))))
+            i->setPriority(ListItem::PriorityNormal, true);
+    }
+    else
+    {
+        QListWidgetItem *i;
+
+        while((i = ui->list->item(row++)))
+            i->setIcon(QIcon());
+    }
 }
 
 bool List::eventFilter(QObject *obj, QEvent *event)
@@ -292,6 +315,19 @@ bool List::eventFilter(QObject *obj, QEvent *event)
 
                 case Qt::Key_PageDown:
                     loadItem(LoadItemPageDown);
+                break;
+
+                case Qt::Key_Plus:
+                case Qt::Key_Equal:
+                    changePriority(+1);
+                break;
+
+                case Qt::Key_Minus:
+                    changePriority(-1);
+                break;
+
+                case Qt::Key_U:
+                    slotResetPriority();
                 break;
 
                 // default processing
@@ -551,11 +587,39 @@ QPixmap List::createDragCursor()
 
 void List::addItem(const QString &text, bool fix)
 {
-    ui->list->addItem(new QListWidgetItem(fix
-                                          ? text.toUpper().replace('-', '.')
-                                          : text.toUpper(),
-                                          ui->list)
+    ui->list->addItem(new ListItem(fix
+                                      ? text.toUpper().replace('-', '.')
+                                      : text.toUpper(),
+                                      ui->list)
                       );
+}
+
+void List::changePriority(int p)
+{
+    ListItem *li = dynamic_cast<ListItem *>(ui->list->currentItem());
+
+    if(!li)
+    {
+        qDebug("Cannot find ticker");
+        return;
+    }
+
+    // fix the value
+    if(p < -1)
+        p = -1;
+    else if(p > +1)
+        p = +1;
+
+    if((p < 0 && li->priority() == ListItem::PriorityNormal)
+            || (p > 0 && li->priority() == ListItem::PriorityHighest))
+    {
+        qDebug("Priority is on the edge");
+        return;
+    }
+
+    qDebug("Changing priority %+d", p);
+
+    li->setPriority(static_cast<ListItem::Priority>(li->priority() + p));
 }
 
 void List::loadItem(LoadItem litem)
@@ -813,6 +877,29 @@ void List::slotSortList()
 {
     ui->list->sortItems();
     save();
+}
+
+void List::slotResetPriorities()
+{
+    if(!Settings::instance()->usePriorities())
+        return;
+
+    int row = 0;
+    ListItem *i;
+
+    while((i = dynamic_cast<ListItem *>(ui->list->item(row++))))
+        i->setPriority(ListItem::PriorityNormal);
+}
+
+void List::slotResetPriority()
+{
+    ListItem *i = dynamic_cast<ListItem *>(ui->list->currentItem());
+
+    if(i && Settings::instance()->usePriorities())
+    {
+        qDebug("Resetting priority for ticker \"%s\"", qPrintable(i->text()));
+        i->setPriority(ListItem::PriorityNormal);
+    }
 }
 
 void List::slotExportToClipboard()
