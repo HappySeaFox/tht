@@ -14,5 +14,8 @@
         <file>images/list.png</file>
         <file>images/file.png</file>
         <file>images/update.png</file>
+        <file>images/priority0.png</file>
+        <file>images/priority1.png</file>
+        <file>images/priority2.png</file>
     </qresource>
 </RCC>

@@ -51,7 +51,8 @@ SOURCES += main.cpp\
     target.cpp \
     tickerinput.cpp \
     tickerinformationtooltip.cpp \
-    updatechecker.cpp
+    updatechecker.cpp \
+    listitem.cpp
 
 HEADERS += tht.h \
     list.h \
@@ -73,7 +74,8 @@ HEADERS += tht.h \
     target.h \
     tickerinput.h \
     tickerinformationtooltip.h \
-    updatechecker.h
+    updatechecker.h \
+    listitem.h
 
 FORMS += tht.ui \
     list.ui \

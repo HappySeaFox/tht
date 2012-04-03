@@ -19,6 +19,7 @@
 
 #include <QContextMenuEvent>
 #include <QDesktopWidget>
+#include <QPixmapCache>
 #include <QApplication>
 #include <QKeySequence>
 #include <QGridLayout>
@@ -41,6 +42,7 @@
 #include "updatechecker.h"
 #include "regionselect.h"
 #include "settings.h"
+#include "listitem.h"
 #include "options.h"
 #include "about.h"
 #include "list.h"
@@ -64,6 +66,11 @@ THT::THT(QWidget *parent) :
         setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
 
     ui->setupUi(this);
+
+    // priority pixmaps
+    QPixmapCache::insert(ListItem::priorityToString(ListItem::PriorityNormal),  QPixmap(":/images/priority0.png"));
+    QPixmapCache::insert(ListItem::priorityToString(ListItem::PriorityHigh),    QPixmap(":/images/priority1.png"));
+    QPixmapCache::insert(ListItem::priorityToString(ListItem::PriorityHighest), QPixmap(":/images/priority2.png"));
 
     // NYSE only
     ui->checkNyse->setChecked(Settings::instance()->nyseOnly());
@@ -671,6 +678,8 @@ void THT::slotQuit()
 
 void THT::slotOptions()
 {
+    bool oldPriorities = Settings::instance()->usePriorities();
+
     Options opt(this);
 
     if(opt.exec() == QDialog::Accepted)
@@ -690,6 +699,12 @@ void THT::slotOptions()
         show();
 
         m_tray->setVisible(Settings::instance()->hideToTray());
+
+        if(oldPriorities != Settings::instance()->usePriorities())
+        {
+            foreach(List *l, m_lists)
+                l->resetPriorities();
+        }
     }
 }
 
