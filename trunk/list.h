@@ -72,6 +72,9 @@ private:
                     LoadItemFirst, LoadItemLast,
                     LoadItemPageUp, LoadItemPageDown };
 
+    enum MoveItem { MoveItemNext, MoveItemPreviuos,
+                    MoveItemFirst, MoveItemLast };
+
 signals:
     void copyLeft(const QString &ticker);
     void copyRight(const QString &ticker);
@@ -91,6 +94,7 @@ private slots:
     void slotExportToClipboard();
     void slotSortList();
     void loadItem(LoadItem = LoadItemCurrent);
+    void moveItem(MoveItem);
 
 private:
     Ui::List *ui;
