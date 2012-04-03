@@ -624,18 +624,28 @@ void List::moveItem(MoveItem mi)
     QListWidgetItem *item = ui->list->currentItem();
 
     if(!item)
+    {
+        qDebug("Cannot find the ticker to move");
         return;
+    }
 
+    int crow = ui->list->currentRow();
     int row = -1;
 
     switch(mi)
     {
         case MoveItemNext:
             row = ui->list->row(item)+1;
+
+            if(row >= ui->list->count())
+                row = ui->list->count()-1;
         break;
 
         case MoveItemPreviuos:
             row = ui->list->row(item)-1;
+
+            if(row <= 0)
+                row = 0;
         break;
 
         case MoveItemFirst:
@@ -647,7 +657,15 @@ void List::moveItem(MoveItem mi)
         break;
     }
 
-    item = ui->list->takeItem(ui->list->currentRow());
+    if(row == crow)
+    {
+        qDebug("Won't move to the same position");
+        return;
+    }
+
+    qDebug("Moving ticker from position %d to %d", crow, row);
+
+    item = ui->list->takeItem(crow);
 
     if(row < 0 || !item)
         return;
