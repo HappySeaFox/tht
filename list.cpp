@@ -672,6 +672,8 @@ void List::moveItem(MoveItem mi)
 
     ui->list->insertItem(row, item);
     ui->list->setCurrentItem(item, QItemSelectionModel::ClearAndSelect);
+
+    save();
 }
 
 void List::slotAddOne()
