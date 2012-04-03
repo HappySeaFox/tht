@@ -148,7 +148,7 @@ void List::initialSelect()
     if(!item)
         return;
 
-    ui->list->setCurrentItem(item, QItemSelectionModel::SelectCurrent);
+    ui->list->setCurrentItem(item, QItemSelectionModel::ClearAndSelect);
 }
 
 bool List::eventFilter(QObject *obj, QEvent *event)
@@ -298,6 +298,27 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                 case Qt::Key_Tab:
                     return QObject::eventFilter(obj, event);
                 } // switch
+            }
+            else if(ke->modifiers() == Qt::ControlModifier)
+            {
+                switch(ke->key())
+                {
+                    case Qt::Key_Up:
+                        moveItem(MoveItemPreviuos);
+                    break;
+
+                    case Qt::Key_Down:
+                        moveItem(MoveItemNext);
+                    break;
+
+                    case Qt::Key_Home:
+                        moveItem(MoveItemFirst);
+                    break;
+
+                    case Qt::Key_End:
+                        moveItem(MoveItemLast);
+                    break;
+                }
             }
 
             return true;
@@ -596,6 +617,43 @@ void List::loadItem(LoadItem litem)
     ui->list->setCurrentItem(item);
     item->setSelected(true);
     emit loadTicker(item->text());
+}
+
+void List::moveItem(MoveItem mi)
+{
+    QListWidgetItem *item = ui->list->currentItem();
+
+    if(!item)
+        return;
+
+    int row = -1;
+
+    switch(mi)
+    {
+        case MoveItemNext:
+            row = ui->list->row(item)+1;
+        break;
+
+        case MoveItemPreviuos:
+            row = ui->list->row(item)-1;
+        break;
+
+        case MoveItemFirst:
+            row = 0;
+        break;
+
+        case MoveItemLast:
+            row = ui->list->count()-1;
+        break;
+    }
+
+    item = ui->list->takeItem(ui->list->currentRow());
+
+    if(row < 0 || !item)
+        return;
+
+    ui->list->insertItem(row, item);
+    ui->list->setCurrentItem(item, QItemSelectionModel::ClearAndSelect);
 }
 
 void List::slotAddOne()
