@@ -16,8 +16,8 @@
  */
 
 #include <QPixmapCache>
-#include <QPixmap>
-#include <QIcon>
+#include <QBrush>
+#include <QColor>
 
 #include "listitem.h"
 #include "settings.h"
@@ -38,18 +38,36 @@ ListItem::ListItem(const QString &text, QListWidget *parent) :
 
 void ListItem::setPriority(ListItem::Priority p, bool force)
 {
-    if(!Settings::instance()->usePriorities())
-        return;
-
     if(p == m_priority && !force)
         return;
 
     m_priority = p;
 
-    QPixmap pix;
+    QBrush brush;
 
-    if(QPixmapCache::find(ListItem::priorityToString(m_priority), &pix))
-        setIcon(pix);
-    else
-        setIcon(QIcon());
+    switch(m_priority)
+    {
+        case ListItem::PriorityHigh:
+            brush = QColor(255, 215, 68);
+        break;
+
+        case ListItem::PriorityHighest:
+            brush = QColor(255, 90, 90);
+        break;
+
+        default:
+        break;
+    }
+
+    setBackground(brush);
+}
+
+void ListItem::removePriority()
+{
+    setBackground(QBrush());
+}
+
+void ListItem::resetPriority()
+{
+    setPriority(ListItem::PriorityNormal, true);
 }

@@ -45,9 +45,6 @@ public:
     void setLastScreenShotDirectory(QString, SyncType sync = SyncTypeSync);
     QString lastScreenShotDirectory();
 
-    void setUsePriorities(bool, SyncType sync = SyncTypeSync);
-    bool usePriorities();
-
     void setNyseOnly(bool, SyncType sync = SyncTypeSync);
     bool nyseOnly();
 

@@ -157,21 +157,10 @@ void List::initialSelect()
 void List::resetPriorities()
 {
     int row = 0;
+    ListItem *i;
 
-    if(Settings::instance()->usePriorities())
-    {
-        ListItem *i;
-
-        while((i = dynamic_cast<ListItem *>(ui->list->item(row++))))
-            i->setPriority(ListItem::PriorityNormal, true);
-    }
-    else
-    {
-        QListWidgetItem *i;
-
-        while((i = ui->list->item(row++)))
-            i->setIcon(QIcon());
-    }
+    while((i = static_cast<ListItem *>(ui->list->item(row++))))
+        i->resetPriority();
 }
 
 bool List::eventFilter(QObject *obj, QEvent *event)
@@ -596,7 +585,7 @@ void List::addItem(const QString &text, bool fix)
 
 void List::changePriority(int p)
 {
-    ListItem *li = dynamic_cast<ListItem *>(ui->list->currentItem());
+    ListItem *li = static_cast<ListItem *>(ui->list->currentItem());
 
     if(!li)
     {
@@ -881,25 +870,22 @@ void List::slotSortList()
 
 void List::slotResetPriorities()
 {
-    if(!Settings::instance()->usePriorities())
-        return;
-
     int row = 0;
     ListItem *i;
 
-    while((i = dynamic_cast<ListItem *>(ui->list->item(row++))))
+    while((i = static_cast<ListItem *>(ui->list->item(row++))))
         i->setPriority(ListItem::PriorityNormal);
 }
 
 void List::slotResetPriority()
 {
-    ListItem *i = dynamic_cast<ListItem *>(ui->list->currentItem());
+    ListItem *i = static_cast<ListItem *>(ui->list->currentItem());
 
-    if(i && Settings::instance()->usePriorities())
-    {
-        qDebug("Resetting priority for ticker \"%s\"", qPrintable(i->text()));
-        i->setPriority(ListItem::PriorityNormal);
-    }
+    if(!i)
+        return;
+
+    qDebug("Resetting priority for ticker \"%s\"", qPrintable(i->text()));
+    i->setPriority(ListItem::PriorityNormal);
 }
 
 void List::slotExportToClipboard()
