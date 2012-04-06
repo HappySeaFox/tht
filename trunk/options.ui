@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>297</width>
-    <height>190</height>
+    <height>167</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -41,7 +41,7 @@
      </item>
     </layout>
    </item>
-   <item row="6" column="0">
+   <item row="5" column="0">
     <spacer name="verticalSpacer">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
@@ -54,7 +54,7 @@
      </property>
     </spacer>
    </item>
-   <item row="7" column="0">
+   <item row="6" column="0">
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -92,13 +92,6 @@
      </property>
     </widget>
    </item>
-   <item row="5" column="0">
-    <widget class="QCheckBox" name="checkPriorities">
-     <property name="text">
-      <string>Use priorities for tickers</string>
-     </property>
-    </widget>
-   </item>
   </layout>
  </widget>
  <tabstops>
@@ -107,7 +100,6 @@
   <tabstop>checkTray</tabstop>
   <tabstop>checkSave</tabstop>
   <tabstop>checkSaveTickers</tabstop>
-  <tabstop>checkPriorities</tabstop>
   <tabstop>buttonBox</tabstop>
  </tabstops>
  <resources/>

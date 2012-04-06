@@ -43,7 +43,6 @@ void Options::load()
     ui->checkTray->setChecked(Settings::instance()->hideToTray());
     ui->checkSave->setChecked(Settings::instance()->saveGeometry());
     ui->checkSaveTickers->setChecked(Settings::instance()->saveTickers());
-    ui->checkPriorities->setChecked(Settings::instance()->usePriorities());
 }
 
 void Options::save()
@@ -52,6 +51,5 @@ void Options::save()
     Settings::instance()->setOnTop(ui->checkOnTop->isChecked(), Settings::SyncTypeNoSync);
     Settings::instance()->setHideToTray(ui->checkTray->isChecked(), Settings::SyncTypeNoSync);
     Settings::instance()->setSaveGeometry(ui->checkSave->isChecked(), Settings::SyncTypeNoSync);
-    Settings::instance()->setSaveTickers(ui->checkSaveTickers->isChecked(), Settings::SyncTypeNoSync);
-    Settings::instance()->setUsePriorities(ui->checkPriorities->isChecked()); // also sync
+    Settings::instance()->setSaveTickers(ui->checkSaveTickers->isChecked()); // also sync
 }

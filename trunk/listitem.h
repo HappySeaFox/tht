@@ -35,6 +35,9 @@ public:
 
     static QString priorityToString(Priority);
 
+    void removePriority();
+    void resetPriority();
+
 private:
     Priority m_priority;
 };
