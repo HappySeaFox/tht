@@ -20,6 +20,7 @@
 
 #include <QListWidgetItem>
 #include <QString>
+#include <QBrush>
 
 class ListItem : public QListWidgetItem
 {
@@ -52,6 +53,18 @@ inline
 QString ListItem::priorityToString(ListItem::Priority pr)
 {
     return QString("priority%1").arg(pr);
+}
+
+inline
+void ListItem::removePriority()
+{
+    setBackground(QBrush());
+}
+
+inline
+void ListItem::resetPriority()
+{
+    setPriority(ListItem::PriorityNormal, true);
 }
 
 #endif // LISTITEM_H
