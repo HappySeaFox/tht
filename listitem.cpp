@@ -15,8 +15,6 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <QPixmapCache>
-#include <QBrush>
 #include <QColor>
 
 #include "listitem.h"
@@ -52,7 +50,7 @@ void ListItem::setPriority(ListItem::Priority p, bool force)
         break;
 
         case ListItem::PriorityHighest:
-            brush = QColor(255, 90, 90);
+            brush = QColor(45, 255, 45);
         break;
 
         default:
@@ -60,14 +58,4 @@ void ListItem::setPriority(ListItem::Priority p, bool force)
     }
 
     setBackground(brush);
-}
-
-void ListItem::removePriority()
-{
-    setBackground(QBrush());
-}
-
-void ListItem::resetPriority()
-{
-    setPriority(ListItem::PriorityNormal, true);
 }
