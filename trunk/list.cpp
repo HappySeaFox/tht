@@ -343,6 +343,14 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                     case Qt::Key_End:
                         moveItem(MoveItemLast);
                     break;
+
+                    case Qt::Key_PageUp:
+                        moveItem(MoveItemPageUp);
+                    break;
+
+                    case Qt::Key_PageDown:
+                        moveItem(MoveItemPageDown);
+                    break;
                 }
             }
 
@@ -645,7 +653,7 @@ void List::loadItem(LoadItem litem)
         case LoadItemPageDown:
             item = ui->list->itemAt(ui->list->visualItemRect(item).adjusted(
                                         0,
-                                        (litem == LoadItemPageUp ? -ui->list->height() : ui->list->height()),
+                                        (litem == LoadItemPageUp ? -ui->list->viewport()->height() : ui->list->viewport()->height()),
                                         0,
                                         0
                                         ).topLeft());
@@ -708,6 +716,21 @@ void List::moveItem(MoveItem mi)
         case MoveItemLast:
             row = ui->list->count()-1;
         break;
+
+        case MoveItemPageUp:
+        case MoveItemPageDown:
+            item = ui->list->itemAt(ui->list->visualItemRect(item).adjusted(
+                                        0,
+                                        (mi == MoveItemPageUp ? -ui->list->viewport()->height() : ui->list->viewport()->height()),
+                                        0,
+                                        0
+                                        ).topLeft());
+
+            if(!item)
+                item = (mi == MoveItemPageUp) ? ui->list->item(0) : ui->list->item(ui->list->count()-1);
+
+            row = ui->list->row(item);
+        break;
     }
 
     if(row == crow)
@@ -716,11 +739,17 @@ void List::moveItem(MoveItem mi)
         return;
     }
 
+    if(row < 0)
+    {
+        qDebug("Won't move to the invalid position");
+        return;
+    }
+
     qDebug("Moving ticker from position %d to %d", crow, row);
 
     item = ui->list->takeItem(crow);
 
-    if(row < 0 || !item)
+    if(!item)
         return;
 
     ui->list->insertItem(row, item);
