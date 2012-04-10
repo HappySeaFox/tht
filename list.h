@@ -75,7 +75,8 @@ private:
                     LoadItemPageUp, LoadItemPageDown };
 
     enum MoveItem { MoveItemNext, MoveItemPreviuos,
-                    MoveItemFirst, MoveItemLast };
+                    MoveItemFirst, MoveItemLast,
+                    MoveItemPageUp, MoveItemPageDown };
 
 signals:
     void copyLeft(const QString &ticker);
