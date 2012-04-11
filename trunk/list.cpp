@@ -27,6 +27,7 @@
 #include <QMouseEvent>
 #include <QStringList>
 #include <QClipboard>
+#include <QDateTime>
 #include <QGradient>
 #include <QFileInfo>
 #include <QKeyEvent>
@@ -152,15 +153,6 @@ void List::initialSelect()
         return;
 
     ui->list->setCurrentItem(item, QItemSelectionModel::ClearAndSelect);
-}
-
-void List::resetPriorities()
-{
-    int row = 0;
-    ListItem *i;
-
-    while((i = static_cast<ListItem *>(ui->list->item(row++))))
-        i->resetPriority();
 }
 
 bool List::eventFilter(QObject *obj, QEvent *event)
@@ -436,14 +428,14 @@ void List::numberOfItemsChanged()
     ui->labelElements->setNum(ui->list->count());
 }
 
-QStringList List::toStringList()
+QStringList List::toStringList(bool withPriority)
 {
     int i = 0;
     QStringList items;
-    QListWidgetItem *item;
+    ListItem *item;
 
-    while((item = ui->list->item(i++)))
-        items.append(item->text());
+    while((item = static_cast<ListItem *>(ui->list->item(i++))))
+        items.append(withPriority ? (item->text() + ',' + QString::number(item->priority())) : item->text());
 
     return items;
 }
@@ -584,11 +576,26 @@ QPixmap List::createDragCursor()
 
 void List::addItem(const QString &text, bool fix)
 {
-    ui->list->addItem(new ListItem(fix
-                                      ? text.toUpper().replace('-', '.')
-                                      : text.toUpper(),
-                                      ui->list)
-                      );
+    QStringList txt = text.toUpper().split(',', QString::SkipEmptyParts);
+
+    if(txt.isEmpty())
+        return;
+
+    ListItem *item = new ListItem(fix
+                                  ? txt[0].replace('-', '.')
+                                  : txt[0],
+                                  ui->list);
+
+    if(txt.size() > 1)
+    {
+        bool ok;
+        int p = txt[1].toInt(&ok);
+
+        if(ok)
+            item->setPriority(static_cast<ListItem::Priority>(p));
+    }
+
+    ui->list->addItem(item);
 }
 
 void List::changePriority(int p)
@@ -617,6 +624,8 @@ void List::changePriority(int p)
     qDebug("Changing priority %+d", p);
 
     li->setPriority(static_cast<ListItem::Priority>(li->priority() + p));
+
+    save();
 }
 
 void List::loadItem(LoadItem litem)
@@ -854,9 +863,13 @@ void List::slotSave()
 {
     qDebug("Saving tickers to section \"%d\"", m_section);
 
-    Settings::instance()->saveTickersForGroup(m_section, toStringList());
+    qint64 t = QDateTime::currentMSecsSinceEpoch();
+
+    Settings::instance()->saveTickersForGroup(m_section, toStringList(true));
 
     showSaved(true);
+
+    qDebug("Saved in %ld ms.", static_cast<long int>(QDateTime::currentMSecsSinceEpoch() - t));
 }
 
 void List::slotExportToFile()
@@ -881,7 +894,7 @@ void List::slotExportToFile()
 
     QTextStream t(&file);
 
-    QStringList items = toStringList();
+    QStringList items = toStringList(false);
 
     foreach(QString item, items)
     {
@@ -904,22 +917,26 @@ void List::slotResetPriorities()
 
     while((i = static_cast<ListItem *>(ui->list->item(row++))))
         i->setPriority(ListItem::PriorityNormal);
+
+    save();
 }
 
 void List::slotResetPriority()
 {
     ListItem *i = static_cast<ListItem *>(ui->list->currentItem());
 
-    if(!i)
+    if(!i || i->priority() == ListItem::PriorityNormal)
         return;
 
     qDebug("Resetting priority for ticker \"%s\"", qPrintable(i->text()));
+
     i->setPriority(ListItem::PriorityNormal);
+    save();
 }
 
 void List::slotExportToClipboard()
 {
     qDebug("Exporting tickers to clipboard");
 
-    QApplication::clipboard()->setText(toStringList().join("\n"));
+    QApplication::clipboard()->setText(toStringList(false).join("\n"));
 }
