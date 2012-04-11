@@ -435,7 +435,11 @@ QStringList List::toStringList(bool withPriority)
     ListItem *item;
 
     while((item = static_cast<ListItem *>(ui->list->item(i++))))
-        items.append(withPriority ? (item->text() + ',' + QString::number(item->priority())) : item->text());
+    {
+        items.append((withPriority && item->priority() != ListItem::PriorityNormal)
+                     ? (item->text() + ',' + QString::number(item->priority()))
+                     : item->text());
+    }
 
     return items;
 }
