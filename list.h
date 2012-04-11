@@ -52,14 +52,13 @@ public:
     bool contains(const QPoint &);
 
     void initialSelect();
-    void resetPriorities();
 
 protected:
     virtual bool eventFilter(QObject *obj, QEvent *event);
 
 private:
     void numberOfItemsChanged();
-    QStringList toStringList();
+    QStringList toStringList(bool withPriority);
     void save();
     void load();
     void paste();
