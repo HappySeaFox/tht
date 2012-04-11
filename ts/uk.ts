@@ -73,64 +73,64 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
         <translation>Токарів:</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="62"/>
+        <location filename="../list.cpp" line="63"/>
         <source>Clear</source>
         <translation>Очистити</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="63"/>
+        <location filename="../list.cpp" line="64"/>
         <source>Sort</source>
         <translation>Відсортувати</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="65"/>
+        <location filename="../list.cpp" line="66"/>
         <source>Reset priorities</source>
         <translation>Скинути пріоритети</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="72"/>
+        <location filename="../list.cpp" line="73"/>
         <source>Add one ticker...</source>
         <translation>Додати один тікер...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="74"/>
+        <location filename="../list.cpp" line="75"/>
         <source>Add from file...</source>
         <translation>Додати з файлу...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="75"/>
+        <location filename="../list.cpp" line="76"/>
         <source>Add from clipboard</source>
         <translation>Додати з буфера обміну</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="79"/>
+        <location filename="../list.cpp" line="80"/>
         <source>Export to file...</source>
         <translation>Експортувати в файл...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="80"/>
+        <location filename="../list.cpp" line="81"/>
         <source>Export to clipboard</source>
         <translation>Експортувати в буфер обміну</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="755"/>
-        <location filename="../list.cpp" line="837"/>
+        <location filename="../list.cpp" line="797"/>
+        <location filename="../list.cpp" line="883"/>
         <source>Choose a file</source>
         <translation>Виберіть файл</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="803"/>
-        <location filename="../list.cpp" line="847"/>
+        <location filename="../list.cpp" line="845"/>
+        <location filename="../list.cpp" line="893"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="803"/>
+        <location filename="../list.cpp" line="845"/>
         <source>Cannot open the following files: %1</source>
         <translation>Неможливо відкрити наступні файли: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="847"/>
+        <location filename="../list.cpp" line="893"/>
         <source>Cannot save to file %1</source>
         <translation>Неможливо зберегти в файл %1</translation>
     </message>
