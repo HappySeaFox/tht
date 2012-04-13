@@ -313,11 +313,20 @@ void THT::rebuildUi()
         {
             List *list = new List(m_lists.size()+1, this);
 
-            connect(list, SIGNAL(copyLeft(const QString &)),                this, SLOT(slotCopyLeft(const QString &)));
-            connect(list, SIGNAL(copyRight(const QString &)),               this, SLOT(slotCopyRight(const QString &)));
-            connect(list, SIGNAL(copyTo(const QString &, int)),             this, SLOT(slotCopyTo(const QString &, int)));
-            connect(list, SIGNAL(loadTicker(const QString &)),              this, SLOT(slotLoadTicker(const QString &)));
-            connect(list, SIGNAL(dropped(const QString &, const QPoint &)), this, SLOT(slotTickerDropped(const QString &, const QPoint &)));
+            connect(list, SIGNAL(copyLeft(const QString &, ListItem::Priority)),
+                    this, SLOT(slotCopyLeft(const QString &, ListItem::Priority)));
+
+            connect(list, SIGNAL(copyRight(const QString &, ListItem::Priority)),
+                    this, SLOT(slotCopyRight(const QString &, ListItem::Priority)));
+
+            connect(list, SIGNAL(copyTo(const QString &, ListItem::Priority, int)),
+                    this, SLOT(slotCopyTo(const QString &, ListItem::Priority, int)));
+
+            connect(list, SIGNAL(loadTicker(const QString &)),
+                    this, SLOT(slotLoadTicker(const QString &)));
+
+            connect(list, SIGNAL(dropped(const QString &, ListItem::Priority, const QPoint &)),
+                    this, SLOT(slotTickerDropped(const QString &, ListItem::Priority, const QPoint &)));
 
             m_layout->addWidget(list, 0, m_lists.size());
             m_lists.append(list);
@@ -694,7 +703,7 @@ void THT::slotOptions()
     }
 }
 
-void THT::slotCopyLeft(const QString &ticker)
+void THT::slotCopyLeft(const QString &ticker, ListItem::Priority p)
 {
     qDebug("Copy ticker \"%s\" left", qPrintable(ticker));
 
@@ -712,12 +721,12 @@ void THT::slotCopyLeft(const QString &ticker)
         return;
     }
 
-    m_lists[--index]->addTicker(ticker);
+    m_lists[--index]->addTicker(ticker, p);
 }
 
-void THT::slotCopyRight(const QString &ticker)
+void THT::slotCopyRight(const QString &ticker, ListItem::Priority p)
 {
-    qDebug("Copy ticker \"%s\" right", qPrintable(ticker));
+    qDebug("Copy ticker \"%s\"/%d right", qPrintable(ticker), p);
 
     int index = m_lists.indexOf(qobject_cast<List *>(sender()));
 
@@ -733,10 +742,10 @@ void THT::slotCopyRight(const QString &ticker)
         return;
     }
 
-    m_lists[++index]->addTicker(ticker);
+    m_lists[++index]->addTicker(ticker, p);
 }
 
-void THT::slotCopyTo(const QString &ticker, int index)
+void THT::slotCopyTo(const QString &ticker, ListItem::Priority p, int index)
 {
     qDebug("Copy ticker \"%s\" to list #%d", qPrintable(ticker), index);
 
@@ -746,7 +755,7 @@ void THT::slotCopyTo(const QString &ticker, int index)
         return;
     }
 
-    m_lists[index]->addTicker(ticker);
+    m_lists[index]->addTicker(ticker, p);
 }
 
 void THT::slotLoadTicker(const QString &ticker)
@@ -909,7 +918,7 @@ void THT::slotLockLinks()
 */
 }
 
-void THT::slotTickerDropped(const QString &t, const QPoint &p)
+void THT::slotTickerDropped(const QString &t, ListItem::Priority pr, const QPoint &p)
 {
     m_windows = &m_windowsDrop;
     m_windows->clear();
@@ -929,7 +938,7 @@ void THT::slotTickerDropped(const QString &t, const QPoint &p)
             if(l->contains(p))
             {
                 qDebug("Dropped onto a list");
-                slotCopyTo(t, index);
+                slotCopyTo(t, pr, index);
                 break;
             }
 

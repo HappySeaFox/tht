@@ -23,6 +23,8 @@
 #include <QWidget>
 #include <QPoint>
 
+#include "listitem.h"
+
 namespace Ui
 {
     class List;
@@ -38,11 +40,13 @@ public:
     explicit List(int group, QWidget *parent = 0);
     ~List();
 
-    void addTicker(const QString &);
+    void addTicker(const QString &, ListItem::Priority p = ListItem::PriorityNormal);
 
     bool haveTickers() const;
 
     QString currentTicker() const;
+
+    ListItem::Priority currentPriority() const;
 
     void setSaveTickers(bool);
 
@@ -78,11 +82,11 @@ private:
                     MoveItemPageUp, MoveItemPageDown };
 
 signals:
-    void copyLeft(const QString &ticker);
-    void copyRight(const QString &ticker);
-    void copyTo(const QString &t, int index);
+    void copyLeft(const QString &ticker, ListItem::Priority);
+    void copyRight(const QString &ticker, ListItem::Priority);
+    void copyTo(const QString &t, ListItem::Priority, int index);
     void loadTicker(const QString &);
-    void dropped(const QString &, const QPoint &);
+    void dropped(const QString &, ListItem::Priority, const QPoint &);
 
 public slots:
     void clear();
@@ -108,6 +112,7 @@ private:
     bool m_dragging;
     QPoint m_startPos;
     QString m_startDragText;
+    ListItem::Priority m_startDragPriority;
 };
 
 inline
