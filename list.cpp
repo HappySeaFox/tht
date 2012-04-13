@@ -100,7 +100,7 @@ bool List::haveTickers() const
     return ui->list->count();
 }
 
-void List::addTicker(const QString &ticker)
+void List::addTicker(const QString &ticker, ListItem::Priority p)
 {
     if(ui->list->findItems(ticker, Qt::MatchFixedString).size())
     {
@@ -110,7 +110,7 @@ void List::addTicker(const QString &ticker)
 
     if(Settings::instance()->tickerValidator().exactMatch(ticker))
     {
-        addItem(ticker);
+        addItem(ticker + ',' + QString::number(p));
         numberOfItemsChanged();
         save();
     }
@@ -121,6 +121,13 @@ QString List::currentTicker() const
     QListWidgetItem *item = ui->list->currentItem();
 
     return item ? item->text() : QString();
+}
+
+ListItem::Priority List::currentPriority() const
+{
+    ListItem *item = static_cast<ListItem *>(ui->list->currentItem());
+
+    return item ? item->priority() : ListItem::PriorityNormal;
 }
 
 void List::setSaveTickers(bool dosave)
@@ -200,7 +207,7 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                 case Qt::Key_3:
                 case Qt::Key_4:
                 case Qt::Key_5:
-                    emit copyTo(currentTicker(), ke->key() - Qt::Key_1);
+                    emit copyTo(currentTicker(), currentPriority(), ke->key() - Qt::Key_1);
                 break;
 
                 case Qt::Key_A:
@@ -225,11 +232,11 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                 break;
 
                 case Qt::Key_Right:
-                    emit copyRight(currentTicker());
+                    emit copyRight(currentTicker(), currentPriority());
                 break;
 
                 case Qt::Key_Left:
-                    emit copyLeft(currentTicker());
+                    emit copyLeft(currentTicker(), currentPriority());
                 break;
 
                 case Qt::Key_Delete:
@@ -361,11 +368,14 @@ bool List::eventFilter(QObject *obj, QEvent *event)
 
             if(me->buttons() & Qt::LeftButton)
             {
-                QListWidgetItem *i = ui->list->itemAt(me->pos());
+                ListItem *i = static_cast<ListItem *>(ui->list->itemAt(me->pos()));
                 m_startDragText = i ? i->text() : QString();
 
                 if(!m_startDragText.isEmpty())
+                {
+                    m_startDragPriority = i->priority();
                     m_startPos = me->pos();
+                }
             }
         }
         else if(type == QEvent::MouseMove)
@@ -411,7 +421,7 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                     qDebug("Dropped at %d,%d", p.x(), p.y());
                     QApplication::restoreOverrideCursor();
 
-                    emit dropped(m_startDragText, p);
+                    emit dropped(m_startDragText, m_startDragPriority, p);
                 }
 
                 m_dragging = false;

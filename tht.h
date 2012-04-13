@@ -25,6 +25,8 @@
 #include <QMap>
 #include <Qt>
 
+#include "listitem.h"
+
 #include <windows.h>
 
 namespace Ui
@@ -88,9 +90,9 @@ private slots:
     void slotAboutQt();
     void slotQuit();
     void slotOptions();
-    void slotCopyLeft(const QString &ticker);
-    void slotCopyRight(const QString &ticker);
-    void slotCopyTo(const QString &, int);
+    void slotCopyLeft(const QString &ticker, ListItem::Priority);
+    void slotCopyRight(const QString &ticker, ListItem::Priority);
+    void slotCopyTo(const QString &, ListItem::Priority, int);
     void slotLoadTicker(const QString &ticker);
     void slotLoadToNextWindow();
     void slotTrayActivated(QSystemTrayIcon::ActivationReason);
@@ -101,7 +103,7 @@ private slots:
     void slotClearLinks();
     void slotLockLinks();
     void slotTargetDropped(const QPoint &);
-    void slotTickerDropped(const QString &, const QPoint &);
+    void slotTickerDropped(const QString &, ListItem::Priority, const QPoint &);
     void slotMessageReceived(const QString &);
     void slotNewVersion(const QString &);
     void slotLoadPredefinedTicker();
