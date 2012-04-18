@@ -1,5 +1,5 @@
 == 0.8.0 ==
- * hotkeys: added Ctrl+Up/Down/Home/End/PageUp/PageDown to move the ticker
+ * hotkeys: added {{{Ctrl+Up/Down/Home/End/PageUp/PageDown}}} to move the ticker
  * added ticker priorities (see howto)
  * hotkeys: {{{U}}} to reset ticker's priority
 
