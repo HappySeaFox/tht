@@ -104,6 +104,9 @@ Yes, THT supports some keyboard shortcuts.
  * *up arrow* - load the previous ticker
  * *left arrow* - copy the current ticker to the list leftwards
  * *right arrow* - copy the current ticker to the list on the right
+ * *Ctrl+up arrow/down arrow* - move the ticker up/down
+ * *Ctrl+Home/End* - move the ticker to the top/bottom of the list
+ * *Ctrl+PageUp/PageDown* - move the ticker to the previous/next page
  * *Home* - load the first ticket
  * *End* - load the last ticket
  * *Enter* - reload the current ticket
@@ -114,9 +117,13 @@ Yes, THT supports some keyboard shortcuts.
  * *Ctrl+V*, *P* - paste tickers from a clipboard
  * *Space* - show the company name
  * *1,2,3,4,5* - copy the current ticker to the 1st, 2nd, 3rd, 4th or 5th list respectively
+ * *Plus*, *Equal* - increase priority
+ * *Minus* - decrease priority
+ * *U* - reset priority to the default value
  * *R* - sort list
  * *E* - export tickers to a file
  * *C* - export tickers to a clipboard
+ * *U* - reset ticker's priority
  * *Y* - open the current ticker in Yahoo Finance
 
 === Window shortcuts: ===
