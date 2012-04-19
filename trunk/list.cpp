@@ -63,7 +63,7 @@ List::List(int group, QWidget *parent) :
     menu->addAction(QIcon(":/images/clear.png"), tr("Clear") + "\tN", this, SLOT(clear()));
     menu->addAction(tr("Sort") + "\tR", this, SLOT(slotSortList()));
     menu->addSeparator();
-    menu->addAction(tr("Reset priorities"), this, SLOT(slotResetPriorities()));
+    menu->addAction(tr("Reset priorities") + "\tAlt+U", this, SLOT(slotResetPriorities()));
 
     ui->pushList->setMenu(menu);
 
@@ -349,6 +349,15 @@ bool List::eventFilter(QObject *obj, QEvent *event)
 
                     case Qt::Key_PageDown:
                         moveItem(MoveItemPageDown);
+                    break;
+                }
+            }
+            else if(ke->modifiers() == Qt::AltModifier)
+            {
+                switch(ke->key())
+                {
+                    case Qt::Key_U:
+                        slotResetPriorities();
                     break;
                 }
             }
