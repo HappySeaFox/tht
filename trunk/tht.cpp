@@ -80,8 +80,8 @@ THT::THT(QWidget *parent) :
     m_menu->addAction(QIcon(":/images/options.png"), tr("Options..."), this, SLOT(slotOptions()));
     m_menu->addSeparator();
     m_menu->addAction(icon_screenshot, tr("Take screenshot..."), this, SLOT(slotTakeScreenshot()));
-    m_menu->addAction(tr("Clear ticker lists"), this, SLOT(slotClearLists()));
     m_menu->addAction(tr("Clear links"), this, SLOT(slotClearLinks()));
+    m_menu->addAction(tr("Clear ticker lists"), this, SLOT(slotClearLists()));
 
     QMenu *menu_load = m_menu->addMenu(tr("Load ticker"));
 
@@ -180,6 +180,9 @@ THT::THT(QWidget *parent) :
         menu_load->addAction(it.key() + '\t' + QKeySequence(it.value()).toString(),
                              s, SIGNAL(activated()));
     }
+
+    // lock links
+    new QShortcut(Qt::CTRL+Qt::Key_L, this, SLOT(slotLockLinks()));
 }
 
 THT::~THT()
@@ -888,7 +891,6 @@ void THT::slotClearLinks()
 
 void THT::slotLockLinks()
 {
-/*
     m_locked = !m_locked;
 
     ui->stackBusy->setCurrentIndex(m_locked);
@@ -915,7 +917,6 @@ void THT::slotLockLinks()
         pal.setColor(QPalette::WindowText, color);
         l->setPalette(pal);
     }
-*/
 }
 
 void THT::slotTickerDropped(const QString &t, ListItem::Priority pr, const QPoint &p)
