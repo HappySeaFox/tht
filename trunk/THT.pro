@@ -134,7 +134,7 @@ UPX=$$findexe("upx.exe")
 
 !isEmpty(UPX) {
     message("UPX is found, will pack the executable after linking")
-    QMAKE_POST_LINK = $$UPX -9 $${OUT_PWD}/$(DESTDIR_TARGET) # undocumented feature
+    QMAKE_POST_LINK = $$UPX -9 $${OUT_PWD}/$(DESTDIR_TARGET)
 } else {
     warning("UPX is not found, will not pack the executable")
 }
@@ -197,4 +197,13 @@ GCC=$$findexe("gcc.exe")
     QMAKE_EXTRA_TARGETS += distbin
 } else {
     warning("7Z is not found, will not create custom dist targets")
+}
+
+INNO=$$system(echo %ProgramFiles%)\\Inno Setup 5\\iscc.exe
+
+exists ($$INNO) {
+    message("Inno Setup is found, will create a setup file in a custom dist target")
+    distbin.commands += $$mle(\"$$INNO\" /o. \"$${_PRO_FILE_PWD_}\\private\\tht.iss\")
+} else {
+    warning("Inno Setup is not found, will not create a setup file in a custom dist target")
 }

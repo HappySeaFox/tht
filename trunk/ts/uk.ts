@@ -113,24 +113,24 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
         <translation>Експортувати в буфер обміну</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="797"/>
-        <location filename="../list.cpp" line="883"/>
+        <location filename="../list.cpp" line="816"/>
+        <location filename="../list.cpp" line="902"/>
         <source>Choose a file</source>
         <translation>Виберіть файл</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="845"/>
-        <location filename="../list.cpp" line="893"/>
+        <location filename="../list.cpp" line="864"/>
+        <location filename="../list.cpp" line="912"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="845"/>
+        <location filename="../list.cpp" line="864"/>
         <source>Cannot open the following files: %1</source>
         <translation>Неможливо відкрити наступні файли: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="893"/>
+        <location filename="../list.cpp" line="912"/>
         <source>Cannot save to file %1</source>
         <translation>Неможливо зберегти в файл %1</translation>
     </message>
@@ -290,12 +290,12 @@ the right or middle mouse buttons.</source>
         <translation>Знімок екрану...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="83"/>
+        <location filename="../tht.cpp" line="84"/>
         <source>Clear ticker lists</source>
         <translation>Очистити списки токарів</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="84"/>
+        <location filename="../tht.cpp" line="83"/>
         <source>Clear links</source>
         <translation>Очистити посилання</translation>
     </message>
@@ -327,28 +327,28 @@ the right or middle mouse buttons.</source>
         <translation>Відновити</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="205"/>
+        <location filename="../tht.cpp" line="208"/>
         <source>Notice</source>
         <translation>Замітка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="205"/>
+        <location filename="../tht.cpp" line="208"/>
         <source>THT will continue to run in a system tray</source>
         <translation>ТНТ продовжить роботу в системному лотку</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="826"/>
-        <location filename="../tht.cpp" line="854"/>
+        <location filename="../tht.cpp" line="838"/>
+        <location filename="../tht.cpp" line="866"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="826"/>
+        <location filename="../tht.cpp" line="838"/>
         <source>Cannot take screenshot</source>
         <translation>Неможливо створити знімок екрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="854"/>
+        <location filename="../tht.cpp" line="866"/>
         <source>Cannot save screenshot</source>
         <translation>Неможливо зберегти знімок екрана</translation>
     </message>
