@@ -9,6 +9,7 @@
 #define MyAppExeName "THT.exe"
 
 #define MyAppSrc "F:\trading\soft\THT"
+#define MyAppDist "F:\trading\soft\THT-dist"
 #define MyAppBuildDir "F:\trading\soft\THT-build-desktop"
 #define QtDir "F:\qt-4.8.0\Desktop\Qt\4.8.1\mingw"
 #define MingwDir "C:\MinGW"
@@ -26,8 +27,8 @@ AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
-LicenseFile=F:\trading\soft\THT-dist\license\gpl-3.0-standalone.rtf
-OutputDir=F:\trading\soft\THT-dist
+LicenseFile={#MyAppDist}\license\gpl-3.0-standalone.rtf
+OutputDir={#MyAppDist}
 OutputBaseFilename=tht-setup-{#MyAppVersion}
 SetupIconFile={#MyAppSrc}\images\chart.ico
 Compression=lzma
