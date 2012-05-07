@@ -62,6 +62,12 @@ For example, open <a href="http://finviz.com">Finviz</a>, select some filters fr
 
 <a href="http://i1148.photobucket.com/albums/o561/Dmitry_RK/fz.png" target="_blank"><img src="http://i1148.photobucket.com/albums/o561/Dmitry_RK/th_fz.png" border="0"/>
 
+== How to use priorities? ==
+
+Increase or decrease priorities for tickers with hotkeys. This will help you to remember tickers with interesting support or resistance levels, new highs etc.
+
+<a href="http://i1148.photobucket.com/albums/o561/Dmitry_RK/priorities.png" target="_blank"><img src="http://i1148.photobucket.com/albums/o561/Dmitry_RK/th_priorities.png" border="0"></img></a>
+
 == How to load predefined tickers? ==
 
 Activate a window shortcut or select a ticker from the context menu as it show on the video.
@@ -124,6 +130,8 @@ Yes, THT supports some keyboard shortcuts.
  * *E* - export tickers to a file
  * *C* - export tickers to a clipboard
  * *U* - reset ticker's priority
+ * *Alt+U* - reset tickers' priorities
+ * *Ctrl+L* - lock the links (THT won't load any ticker)
  * *Y* - open the current ticker in Yahoo Finance
 
 === Window shortcuts: ===

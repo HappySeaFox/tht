@@ -1,3 +1,7 @@
+== 0.8.1 ==
+ * hotkeys: {{{Alt+U}}} to reset priorities
+ * hotkeys: {{{Ctrl+L}}} to lock the links
+
 == 0.8.0 ==
  * hotkeys: added {{{Ctrl+Up/Down/Home/End/PageUp/PageDown}}} to move the ticker
  * added ticker priorities (see howto)
