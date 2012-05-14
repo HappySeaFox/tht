@@ -50,7 +50,7 @@ public:
     ~THT();
 
 private:
-    enum LinkType { LinkTypeNotInitialized, LinkTypeAdvancedGet, LinkTypeGraybox, LinkTypeOther };
+    enum LinkType { LinkTypeNotInitialized, LinkTypeAdvancedGet, LinkTypeGraybox, LinkTypeTwinkorswim, LinkTypeOther };
 
     struct Link
     {
@@ -70,7 +70,7 @@ protected:
 
 private:
     void sendKey(int key, bool extended = false);
-    void sendString(const QString &str);
+    void sendString(const QString &str, LinkType = LinkTypeOther);
     void rebuildUi();
     Link checkWindow(HWND hwnd);
     Link checkTargetWindow(const QPoint &, bool allowThisWindow);
