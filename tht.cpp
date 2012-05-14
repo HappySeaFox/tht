@@ -290,7 +290,7 @@ void THT::sendKey(int key, bool extended)
     SendInput(nelem, m_input, sizeof(INPUT));
 }
 
-void THT::sendString(const QString &ticker)
+void THT::sendString(const QString &ticker, LinkType type)
 {
     if(ticker.isEmpty())
     {
@@ -300,6 +300,10 @@ void THT::sendString(const QString &ticker)
 
     for(int i = 0;i < ticker.length();i++)
         sendKey(ticker.at(i).toAscii());
+
+    // Fix for TOS@paperMoney
+    if(type == LinkTypeTwinkorswim)
+        Sleep(5);
 
     sendKey(VK_RETURN);
 }
@@ -396,6 +400,8 @@ THT::Link THT::checkWindow(HWND hwnd)
         link.type = LinkTypeAdvancedGet;
     else if(sname == "graybox.exe")
         link.type = LinkTypeGraybox;
+    else if(sname == "thinkorswim.exe")
+        link.type = LinkTypeTwinkorswim;
     else
         link.type = LinkTypeOther;
 
@@ -503,7 +509,7 @@ void THT::checkWindows()
             ++ag;
         else if((*it).type == LinkTypeGraybox)
             ++gb;
-        else if((*it).type == LinkTypeOther)
+        else
             ++o;
     }
 
@@ -648,7 +654,7 @@ void THT::slotCheckActive()
                 && !m_ticker.startsWith(QChar('$')))
             add = "=N";
 
-        sendString(m_ticker + add);
+        sendString(m_ticker + add, m_windows->at(m_currentWindow).type);
         loadNextWindow();
     }
     else
