@@ -1,4 +1,7 @@
-== 0.8.1 ==
+== 0.8.2 ==
+ * fix for Twinkorswim@paperMoney
+
+ == 0.8.1 ==
  * hotkeys: {{{Alt+U}}} to reset priorities
  * hotkeys: {{{Ctrl+L}}} to lock the links
 
