@@ -26,6 +26,12 @@ Drag a black target with a left mouse button and drop onto a required Graybox MM
 
 <wiki:video url="https://www.youtube.com/watch?v=A5i9MD-6Sec" width="240" height="170"/>
 
+== How to link Twinkorswim window? ==
+
+Drag a black target with a left mouse button and drop onto a required TOS window. If everything is ok, you will hear a confirmation sound.
+
+<wiki:video url="https://www.youtube.com/watch?v=h6dtiE5H5S0" width="240" height="170"/>
+
 == How to load my home task into several windows? ==
 
 Drag and drop tickers as it shown in the video.
