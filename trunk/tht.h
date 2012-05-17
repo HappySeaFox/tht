@@ -66,12 +66,14 @@ private:
             processId = 0;
             threadId = 0;
             postActivate = 0;
+            waitForCaption = true; // true by default
         }
 
         HWND hwnd;
         LinkType type;
         DWORD processId;
         DWORD threadId;
+        bool waitForCaption;
 
         void (*postActivate)(const Link &);
     };
