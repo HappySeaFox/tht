@@ -35,6 +35,7 @@
 #include <QMenu>
 
 #include <windows.h>
+#include <winnt.h>
 #include <psapi.h>
 
 #include "savescreenshot.h"
@@ -392,7 +393,7 @@ THT::Link THT::checkWindow(HWND hwnd)
 #endif
         ).fileName().toLower();
 
-    qDebug("Process name of %d is \"%s\"", (int)hwnd, sname.toAscii().constData());
+    qDebug("Process name of %d is \"%s\"", (int)hwnd, qPrintable(sname));
 
     QString cname;
 
@@ -462,13 +463,7 @@ THT::Link THT::checkTargetWindow(const QPoint &p, bool allowThisWindow)
     {
         LONG style = GetWindowLong(hwnd, GWL_STYLE);
 
-        isDesktop = !lstrcmp(classname,
-#ifdef UNICODE
-         L"Progman"
-#else
-        "Progman"
-#endif
-        ) && !(style & WS_CAPTION) && !GetParent(hwnd);
+        isDesktop = !lstrcmp(classname, TEXT("Progman")) && !(style & WS_CAPTION) && !GetParent(hwnd);
     }
 
     // desktop
@@ -1030,7 +1025,6 @@ void THT::mbtPostActivate(const THT::Link &link)
 {
     HWND after = 0;
     TCHAR cname[MAX_PATH];
-    QString classname;
 
     while((after = FindWindowEx(link.hwnd, after, 0, 0)) != NULL)
     {
@@ -1040,56 +1034,31 @@ void THT::mbtPostActivate(const THT::Link &link)
             continue;
         }
 
-        classname =
-#ifdef UNICODE
-            QString::fromWCharArray(cname);
-#else
-            QString::fromUtf8(cname);
-#endif
+        const TCHAR ctoolbar[] = TEXT("BCGPToolBar:");
+        const int ctoolbar_len = lstrlen(ctoolbar);
 
-        if(classname.startsWith("BCGPToolBar:"))
+        if(CompareString(LOCALE_USER_DEFAULT, 0, cname, ctoolbar_len, ctoolbar, ctoolbar_len) == CSTR_EQUAL)
         {
             qDebug("Found toolbar component");
 
-            after = FindWindowEx(after, 0,
-#ifdef UNICODE
-                                 L"ComboBox",
-#else
-                                 "ComboBox",
-#endif
-                                 0);
-
+            after = FindWindowEx(after, 0, TEXT("ComboBox"), 0);
 
             if(!after)
-            {
                 qWarning("Cannot find a child of toolbar");
-                break;
-            }
 
-            if(!GetClassName(after, cname, sizeof(cname)))
-            {
-                qWarning("Failed to get a class name for window %d", (int)after);
-                break;
-            }
-
-            classname =
-#ifdef UNICODE
-                QString::fromWCharArray(cname);
-#else
-                QString::fromUtf8(cname);
-#endif
-
-            qDebug("Found class %s", qPrintable(classname));
-
-            if(!AttachThreadInput(link.threadId, GetCurrentThreadId(), TRUE))
-            {
-                qWarning("Cannot attach to the thread %ld (%ld)", link.threadId, GetLastError());
-                break;
-            }
-
-            SetFocus(after);
-            AttachThreadInput(link.threadId, GetCurrentThreadId(), FALSE);
             break;
         }
     }
+
+    if(!after)
+        return;
+
+    if(!AttachThreadInput(link.threadId, GetCurrentThreadId(), TRUE))
+    {
+        qWarning("Cannot attach to the thread %ld (%ld)", link.threadId, GetLastError());
+        return;
+    }
+
+    SetFocus(after);
+    AttachThreadInput(link.threadId, GetCurrentThreadId(), FALSE);
 }
