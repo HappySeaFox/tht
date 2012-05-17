@@ -364,15 +364,13 @@ THT::Link THT::checkWindow(HWND hwnd)
     Link link(hwnd);
 
     // try to determine type
-    DWORD dwProcessId;
+    link.threadId = GetWindowThreadProcessId(hwnd, &link.processId);
 
-    GetWindowThreadProcessId(hwnd, &dwProcessId);
-
-    HANDLE h = OpenProcess(PROCESS_QUERY_INFORMATION, FALSE, dwProcessId);
+    HANDLE h = OpenProcess(PROCESS_QUERY_INFORMATION, FALSE, link.processId);
 
     if(!h)
     {
-        qDebug("Cannot open process %ld", dwProcessId);
+        qWarning("Cannot open process %ld", link.processId);
         return link;
     }
 
@@ -381,7 +379,7 @@ THT::Link THT::checkWindow(HWND hwnd)
     // get executable name
     if(!GetProcessImageFileName(h, name, sizeof(name)))
     {
-        qDebug("Cannot get process info %ld (%ld)", dwProcessId, GetLastError());
+        qWarning("Cannot get a process info %ld (%ld)", link.processId, GetLastError());
         CloseHandle(h);
         return link;
     }
@@ -396,12 +394,29 @@ THT::Link THT::checkWindow(HWND hwnd)
 
     qDebug("Process name of %d is \"%s\"", (int)hwnd, sname.toAscii().constData());
 
+    QString cname;
+
+    if(!GetClassName(link.hwnd, name, sizeof(name)))
+        qWarning("Cannot get a class name for window %d (%ld)", (int)link.hwnd, GetLastError());
+    else
+        cname =
+#ifdef UNICODE
+            QString::fromWCharArray(name);
+#else
+            QString::fromUtf8(name);
+#endif
+
     if(sname == "advancedget.exe" || sname == "winsig.exe")
         link.type = LinkTypeAdvancedGet;
     else if(sname == "graybox.exe")
         link.type = LinkTypeGraybox;
     else if(sname == "thinkorswim.exe")
         link.type = LinkTypeTwinkorswim;
+    else if((sname == "mbtdes~1.exe" || sname == "mbtdesktoppro.exe") && (cname.isEmpty() || cname == "MbtNavPro_FloatFrame"))
+    {
+        link.type = LinkTypeMBT;
+        link.postActivate = mbtPostActivate;
+    }
     else
         link.type = LinkTypeOther;
 
@@ -638,23 +653,28 @@ void THT::slotCheckActive()
         return;
     }
 
-    HWND window = m_windows->at(m_currentWindow).hwnd;
+    const Link &link = m_windows->at(m_currentWindow);
+
+    HWND window = link.hwnd;
     WINDOWINFO pwi = {0};
     pwi.cbSize = sizeof(WINDOWINFO);
     GetWindowInfo(window, &pwi);
 
-    if(GetForegroundWindow() == window && pwi.dwWindowStatus == WS_ACTIVECAPTION)
+    if(GetForegroundWindow() == window && (link.type == LinkTypeMBT || pwi.dwWindowStatus == WS_ACTIVECAPTION))
     {
         qDebug("Found window, sending data");
 
         QString add;
 
-        if(m_windows->at(m_currentWindow).type == LinkTypeAdvancedGet
+        if(link.postActivate)
+            link.postActivate(link);
+
+        if(link.type == LinkTypeAdvancedGet
                 && ui->checkNyse->isChecked()
                 && !m_ticker.startsWith(QChar('$')))
             add = "=N";
 
-        sendString(m_ticker + add, m_windows->at(m_currentWindow).type);
+        sendString(m_ticker + add, link.type);
         loadNextWindow();
     }
     else
@@ -1004,4 +1024,74 @@ void THT::slotLoadPredefinedTicker()
         return;
 
     slotLoadTicker(s->property("ticker").toString());
+}
+
+void THT::mbtPostActivate(const THT::Link &link)
+{
+    HWND after = 0;
+    TCHAR cname[MAX_PATH];
+    QString classname;
+
+    while((after = FindWindowEx(link.hwnd, after, 0, 0)) != NULL)
+    {
+        if(!GetClassName(after, cname, sizeof(cname)))
+        {
+            qWarning("Failed to get a class name for window %d (%ld)", (int)after, GetLastError());
+            continue;
+        }
+
+        classname =
+
+#ifdef UNICODE
+            QString::fromWCharArray(cname);
+#else
+            QString::fromUtf8(cname);
+#endif
+
+        if(classname.startsWith("BCGPToolBar:"))
+        {
+            qDebug("Found toolbar component");
+
+            after = FindWindowEx(after, 0,
+#ifdef UNICODE
+                                 L"ComboBox",
+#else
+                                 "ComboBox",
+#endif
+                                 0);
+
+
+            if(!after)
+            {
+                qWarning("Cannot find a child of toolbar");
+                break;
+            }
+
+            if(!GetClassName(after, cname, sizeof(cname)))
+            {
+                qWarning("Failed to get a class name for window %d", (int)after);
+                break;
+            }
+
+            classname =
+
+    #ifdef UNICODE
+                QString::fromWCharArray(cname);
+    #else
+                QString::fromUtf8(cname);
+    #endif
+
+            qDebug("Found class %s", qPrintable(classname));
+
+            if(!AttachThreadInput(link.threadId, GetCurrentThreadId(), TRUE))
+            {
+                qWarning("Cannot attach to the thread %ld (%ld)", link.threadId, GetLastError());
+                break;
+            }
+
+            SetFocus(after);
+            AttachThreadInput(link.threadId, GetCurrentThreadId(), FALSE);
+            break;
+        }
+    }
 }

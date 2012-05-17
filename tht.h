@@ -50,7 +50,12 @@ public:
     ~THT();
 
 private:
-    enum LinkType { LinkTypeNotInitialized, LinkTypeAdvancedGet, LinkTypeGraybox, LinkTypeTwinkorswim, LinkTypeOther };
+    enum LinkType { LinkTypeNotInitialized,
+                    LinkTypeAdvancedGet,
+                    LinkTypeGraybox,
+                    LinkTypeTwinkorswim,
+                    LinkTypeMBT,
+                    LinkTypeOther };
 
     struct Link
     {
@@ -58,10 +63,17 @@ private:
         {
             hwnd = h;
             type = lt;
+            processId = 0;
+            threadId = 0;
+            postActivate = 0;
         }
 
         HWND hwnd;
         LinkType type;
+        DWORD processId;
+        DWORD threadId;
+
+        void (*postActivate)(const Link &);
     };
 
 protected:
@@ -80,6 +92,8 @@ private:
     void busy(bool);
     void loadTicker(const QString &);
     void startDelayedScreenshot(bool);
+
+    static void mbtPostActivate(const THT::Link &);
 
 public slots:
     void activate();

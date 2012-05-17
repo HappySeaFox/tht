@@ -16,7 +16,7 @@ TEMPLATE = app
 # THT version
 NVER1=0
 NVER2=8
-NVER3=2
+NVER3=3
 
 VERSION=$$sprintf("%1.%2.%3", $$NVER1, $$NVER2, $$NVER3)
 
