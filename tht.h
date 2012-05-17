@@ -54,7 +54,7 @@ private:
                     LinkTypeAdvancedGet,
                     LinkTypeGraybox,
                     LinkTypeTwinkorswim,
-                    LinkTypeMBT,
+                    LinkTypeMBTDesktopPro,
                     LinkTypeOther };
 
     struct Link
