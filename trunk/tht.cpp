@@ -414,7 +414,7 @@ THT::Link THT::checkWindow(HWND hwnd)
         link.type = LinkTypeTwinkorswim;
     else if((sname == "mbtdes~1.exe" || sname == "mbtdesktoppro.exe") && (cname.isEmpty() || cname == "MbtNavPro_FloatFrame"))
     {
-        link.type = LinkTypeMBT;
+        link.type = LinkTypeMBTDesktopPro;
         link.postActivate = mbtPostActivate;
     }
     else
@@ -660,7 +660,7 @@ void THT::slotCheckActive()
     pwi.cbSize = sizeof(WINDOWINFO);
     GetWindowInfo(window, &pwi);
 
-    if(GetForegroundWindow() == window && (link.type == LinkTypeMBT || pwi.dwWindowStatus == WS_ACTIVECAPTION))
+    if(GetForegroundWindow() == window && (link.type == LinkTypeMBTDesktopPro || pwi.dwWindowStatus == WS_ACTIVECAPTION))
     {
         qDebug("Found window, sending data");
 
@@ -1041,7 +1041,6 @@ void THT::mbtPostActivate(const THT::Link &link)
         }
 
         classname =
-
 #ifdef UNICODE
             QString::fromWCharArray(cname);
 #else
@@ -1074,12 +1073,11 @@ void THT::mbtPostActivate(const THT::Link &link)
             }
 
             classname =
-
-    #ifdef UNICODE
+#ifdef UNICODE
                 QString::fromWCharArray(cname);
-    #else
+#else
                 QString::fromUtf8(cname);
-    #endif
+#endif
 
             qDebug("Found class %s", qPrintable(classname));
 
