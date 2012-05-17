@@ -650,12 +650,11 @@ void THT::slotCheckActive()
 
     const Link &link = m_windows->at(m_currentWindow);
 
-    HWND window = link.hwnd;
     WINDOWINFO pwi = {0};
     pwi.cbSize = sizeof(WINDOWINFO);
-    GetWindowInfo(window, &pwi);
+    GetWindowInfo(link.hwnd, &pwi);
 
-    if(GetForegroundWindow() == window && (link.type == LinkTypeMBTDesktopPro || pwi.dwWindowStatus == WS_ACTIVECAPTION))
+    if(GetForegroundWindow() == link.hwnd && (link.type == LinkTypeMBTDesktopPro || pwi.dwWindowStatus == WS_ACTIVECAPTION))
     {
         qDebug("Found window, sending data");
 
