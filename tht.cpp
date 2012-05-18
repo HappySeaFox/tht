@@ -416,7 +416,7 @@ THT::Link THT::checkWindow(HWND hwnd)
     else if((sname == "mbtdes~1.exe" || sname == "mbtdesktoppro.exe") && (cname.isEmpty() || cname == "MbtNavPro_FloatFrame"))
     {
         link.type = LinkTypeMBTDesktopPro;
-        link.postActivate = mbtPostActivate;
+        link.postActivate = mbtProPostActivate;
         link.waitForCaption = false;
     }
     else
@@ -1027,7 +1027,7 @@ void THT::slotLoadPredefinedTicker()
     slotLoadTicker(s->property("ticker").toString());
 }
 
-void THT::mbtPostActivate(const THT::Link &link)
+void THT::mbtProPostActivate(const THT::Link &link)
 {
     HWND after = 0;
     TCHAR cname[MAX_PATH];

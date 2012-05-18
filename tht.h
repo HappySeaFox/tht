@@ -95,7 +95,7 @@ private:
     void loadTicker(const QString &);
     void startDelayedScreenshot(bool);
 
-    static void mbtPostActivate(const THT::Link &);
+    static void mbtProPostActivate(const THT::Link &);
 
 public slots:
     void activate();
