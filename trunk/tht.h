@@ -54,6 +54,7 @@ private:
                     LinkTypeAdvancedGet,
                     LinkTypeGraybox,
                     LinkTypeTwinkorswim,
+                    LinkTypeMBTDesktop,
                     LinkTypeMBTDesktopPro,
                     LinkTypeOther };
 
@@ -95,6 +96,8 @@ private:
     void loadTicker(const QString &);
     void startDelayedScreenshot(bool);
 
+    static void setForeignFocus(HWND window, DWORD threadId);
+    static void mbtPostActivate(const THT::Link &);
     static void mbtProPostActivate(const THT::Link &);
 
 public slots:
