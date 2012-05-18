@@ -413,7 +413,12 @@ THT::Link THT::checkWindow(HWND hwnd)
         link.type = LinkTypeGraybox;
     else if(sname == "thinkorswim.exe")
         link.type = LinkTypeTwinkorswim;
-    else if((sname == "mbtdes~1.exe" || sname == "mbtdesktoppro.exe") && (cname.isEmpty() || cname == "MbtNavPro_FloatFrame"))
+    else if((sname == "mbtdes~1.exe" || sname == "mbtdesktop.exe") && cname == "MbtTearFrame")
+    {
+        link.type = LinkTypeMBTDesktop;
+        link.postActivate = mbtPostActivate;
+    }
+    else if((sname == "mbtdes~1.exe" || sname == "mbtdesktoppro.exe") && cname == "MbtNavPro_FloatFrame")
     {
         link.type = LinkTypeMBTDesktopPro;
         link.postActivate = mbtProPostActivate;
@@ -1027,6 +1032,78 @@ void THT::slotLoadPredefinedTicker()
     slotLoadTicker(s->property("ticker").toString());
 }
 
+void THT::setForeignFocus(HWND window, DWORD threadId)
+{
+    const DWORD current = GetCurrentThreadId();
+
+    if(!AttachThreadInput(threadId, current, TRUE))
+    {
+        qWarning("Cannot attach to the thread %ld (%ld)", threadId, GetLastError());
+        return;
+    }
+
+    SetFocus(window);
+    AttachThreadInput(threadId, current, FALSE);
+}
+
+namespace MBTPrivateMethods
+{
+
+static HWND mbtFindEdit(HWND parent)
+{
+    HWND after = 0, r;
+    TCHAR cname[MAX_PATH];
+    bool final = false;
+
+    const TCHAR cedit[] = TEXT("Edit");
+    const int cedit_len = lstrlen(cedit);
+
+    const TCHAR ctoolbar[] = TEXT("ToolbarWindow32");
+    const int ctoolbar_len = lstrlen(ctoolbar);
+
+    if(!GetClassName(parent, cname, sizeof(cname)))
+    {
+        qWarning("Failed to get a class name for window %d (%ld)", (int)parent, GetLastError());
+        return 0;
+    }
+    else if(CompareString(LOCALE_USER_DEFAULT, 0, cname, lstrlen(cname), ctoolbar, ctoolbar_len) == CSTR_EQUAL)
+        final = true;
+
+    while((after = FindWindowEx(parent, after, 0, 0)))
+    {
+        if(!GetClassName(after, cname, sizeof(cname)))
+        {
+            qWarning("Failed to get a class name for window %d (%ld)", (int)after, GetLastError());
+            continue;
+        }
+
+        if(final && CompareString(LOCALE_USER_DEFAULT, 0, cname, lstrlen(cname), cedit, cedit_len) == CSTR_EQUAL)
+        {
+            qDebug("Found a target edit");
+            return after;
+        }
+        else if((r = mbtFindEdit(after)))
+            return r;
+    }
+
+    return 0;
+}
+
+}
+
+void THT::mbtPostActivate(const THT::Link &link)
+{
+    HWND edit = MBTPrivateMethods::mbtFindEdit(link.hwnd);
+
+    if(!edit)
+    {
+        qWarning("Cannot find a target edit");
+        return;
+    }
+
+    setForeignFocus(edit, link.threadId);
+}
+
 void THT::mbtProPostActivate(const THT::Link &link)
 {
     HWND after = 0;
@@ -1059,12 +1136,5 @@ void THT::mbtProPostActivate(const THT::Link &link)
         return;
     }
 
-    if(!AttachThreadInput(link.threadId, GetCurrentThreadId(), TRUE))
-    {
-        qWarning("Cannot attach to the thread %ld (%ld)", link.threadId, GetLastError());
-        return;
-    }
-
-    SetFocus(after);
-    AttachThreadInput(link.threadId, GetCurrentThreadId(), FALSE);
+    setForeignFocus(after, link.threadId);
 }
