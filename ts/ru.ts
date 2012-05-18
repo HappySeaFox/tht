@@ -279,76 +279,76 @@ the right or middle mouse buttons.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="80"/>
+        <location filename="../tht.cpp" line="81"/>
         <source>Options...</source>
         <translation>Настройки...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="82"/>
-        <location filename="../tht.cpp" line="143"/>
+        <location filename="../tht.cpp" line="83"/>
+        <location filename="../tht.cpp" line="144"/>
         <source>Take screenshot...</source>
         <translation>Снимок экрана...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="84"/>
+        <location filename="../tht.cpp" line="85"/>
         <source>Clear ticker lists</source>
         <translation>Очистить списки тикеров</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="83"/>
+        <location filename="../tht.cpp" line="84"/>
         <source>Clear links</source>
         <translation>Очистить ссылки</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="86"/>
+        <location filename="../tht.cpp" line="87"/>
         <source>Load ticker</source>
         <translation>Загрузить тикер</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="89"/>
-        <location filename="../tht.cpp" line="145"/>
+        <location filename="../tht.cpp" line="90"/>
+        <location filename="../tht.cpp" line="146"/>
         <source>About THT</source>
         <translation>О THT</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="90"/>
+        <location filename="../tht.cpp" line="91"/>
         <source>About Qt</source>
         <translation>О Qt</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="92"/>
-        <location filename="../tht.cpp" line="147"/>
+        <location filename="../tht.cpp" line="93"/>
+        <location filename="../tht.cpp" line="148"/>
         <source>Quit</source>
         <translation>Выход</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="142"/>
+        <location filename="../tht.cpp" line="143"/>
         <source>Restore</source>
         <translation>Восстановить</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="208"/>
+        <location filename="../tht.cpp" line="209"/>
         <source>Notice</source>
         <translation>Заметка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="208"/>
+        <location filename="../tht.cpp" line="209"/>
         <source>THT will continue to run in a system tray</source>
         <translation>THT продолжит работу в системном лотке</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="838"/>
-        <location filename="../tht.cpp" line="866"/>
+        <location filename="../tht.cpp" line="870"/>
+        <location filename="../tht.cpp" line="898"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="838"/>
+        <location filename="../tht.cpp" line="870"/>
         <source>Cannot take screenshot</source>
         <translation>Невозможно создать снимок экрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="866"/>
+        <location filename="../tht.cpp" line="898"/>
         <source>Cannot save screenshot</source>
         <translation>Невозможно сохранить снимок экрана</translation>
     </message>
