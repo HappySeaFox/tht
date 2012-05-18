@@ -1032,7 +1032,7 @@ void THT::mbtPostActivate(const THT::Link &link)
     HWND after = 0;
     TCHAR cname[MAX_PATH];
 
-    while((after = FindWindowEx(link.hwnd, after, 0, 0)) != NULL)
+    while((after = FindWindowEx(link.hwnd, after, 0, 0)))
     {
         if(!GetClassName(after, cname, sizeof(cname)))
         {
@@ -1049,15 +1049,15 @@ void THT::mbtPostActivate(const THT::Link &link)
 
             after = FindWindowEx(after, 0, TEXT("ComboBox"), 0);
 
-            if(!after)
-                qWarning("Cannot find a child of toolbar");
-
             break;
         }
     }
 
     if(!after)
+    {
+        qWarning("Cannot find a target combobox");
         return;
+    }
 
     if(!AttachThreadInput(link.threadId, GetCurrentThreadId(), TRUE))
     {
