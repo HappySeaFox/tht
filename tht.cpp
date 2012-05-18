@@ -1109,6 +1109,9 @@ void THT::mbtProPostActivate(const THT::Link &link)
     HWND after = 0;
     TCHAR cname[MAX_PATH];
 
+    const TCHAR *ctoolbar = TEXT("BCGPToolBar:");
+    const int ctoolbar_len = lstrlen(ctoolbar);
+
     while((after = FindWindowEx(link.hwnd, after, 0, 0)))
     {
         if(!GetClassName(after, cname, sizeof(cname)))
@@ -1116,9 +1119,6 @@ void THT::mbtProPostActivate(const THT::Link &link)
             qWarning("Failed to get a class name for window %d (%ld)", (int)after, GetLastError());
             continue;
         }
-
-        const TCHAR *ctoolbar = TEXT("BCGPToolBar:");
-        const int ctoolbar_len = lstrlen(ctoolbar);
 
         if(CompareString(LOCALE_USER_DEFAULT, 0, cname, ctoolbar_len, ctoolbar, ctoolbar_len) == CSTR_EQUAL)
         {
