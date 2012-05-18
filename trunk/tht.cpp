@@ -1055,10 +1055,10 @@ static HWND mbtFindEdit(HWND parent)
     TCHAR cname[MAX_PATH];
     bool final = false;
 
-    const TCHAR cedit[] = TEXT("Edit");
+    const TCHAR *cedit = TEXT("Edit");
     const int cedit_len = lstrlen(cedit);
 
-    const TCHAR ctoolbar[] = TEXT("ToolbarWindow32");
+    const TCHAR *ctoolbar = TEXT("ToolbarWindow32");
     const int ctoolbar_len = lstrlen(ctoolbar);
 
     if(!GetClassName(parent, cname, sizeof(cname)))
@@ -1117,7 +1117,7 @@ void THT::mbtProPostActivate(const THT::Link &link)
             continue;
         }
 
-        const TCHAR ctoolbar[] = TEXT("BCGPToolBar:");
+        const TCHAR *ctoolbar = TEXT("BCGPToolBar:");
         const int ctoolbar_len = lstrlen(ctoolbar);
 
         if(CompareString(LOCALE_USER_DEFAULT, 0, cname, ctoolbar_len, ctoolbar, ctoolbar_len) == CSTR_EQUAL)
