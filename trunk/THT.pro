@@ -40,8 +40,8 @@ SOURCES += main.cpp\
     about.cpp \
     settings.cpp \
     qtsingleapplication/qtsingleapplication.cpp \
-    qtsingleapplication/qtlockedfile_win.cpp \
     qtsingleapplication/qtlockedfile.cpp \
+    qtsingleapplication/qtlockedfile_win.cpp \
     qtsingleapplication/qtlocalpeer.cpp \
     regionselect.cpp \
     savescreenshot.cpp \

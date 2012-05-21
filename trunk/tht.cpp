@@ -416,12 +416,12 @@ THT::Link THT::checkWindow(HWND hwnd)
     else if((sname == "mbtdes~1.exe" || sname == "mbtdesktop.exe") && cname == "MbtTearFrame")
     {
         link.type = LinkTypeMBTDesktop;
-        link.postActivate = mbtPostActivate;
+        link.findSubControl = mbtFindSubControl;
     }
     else if((sname == "mbtdes~1.exe" || sname == "mbtdesktoppro.exe") && cname == "MbtNavPro_FloatFrame")
     {
         link.type = LinkTypeMBTDesktopPro;
-        link.postActivate = mbtProPostActivate;
+        link.findSubControl = mbtProFindSubControl;
         link.waitForCaption = false;
     }
     else
@@ -654,7 +654,7 @@ void THT::slotCheckActive()
         return;
     }
 
-    const Link &link = m_windows->at(m_currentWindow);
+    Link &link = (*m_windows)[m_currentWindow];
 
     WINDOWINFO pwi = {0};
 
@@ -672,8 +672,19 @@ void THT::slotCheckActive()
 
         QString add;
 
-        if(link.postActivate)
-            link.postActivate(link);
+        // set focus to the subcontrol
+        if(link.findSubControl)
+        {
+            HWND sc = link.cachedSubControl ? link.cachedSubControl : link.findSubControl(link.hwnd);
+
+            if(!sc)
+                qWarning("Cannot find a subcontrol");
+            else
+            {
+                link.cachedSubControl = sc;
+                setForeignFocus(sc, link.threadId);
+            }
+        }
 
         if(link.type == LinkTypeAdvancedGet
                 && ui->checkNyse->isChecked()
@@ -1046,10 +1057,7 @@ void THT::setForeignFocus(HWND window, DWORD threadId)
     AttachThreadInput(threadId, current, FALSE);
 }
 
-namespace MBTPrivateMethods
-{
-
-static HWND mbtFindEdit(HWND parent)
+HWND THT::mbtFindSubControl(HWND parent)
 {
     HWND after = 0, r;
     TCHAR cname[MAX_PATH];
@@ -1082,29 +1090,14 @@ static HWND mbtFindEdit(HWND parent)
             qDebug("Found a target edit");
             return after;
         }
-        else if((r = mbtFindEdit(after)))
+        else if((r = mbtFindSubControl(after)))
             return r;
     }
 
     return 0;
 }
 
-}
-
-void THT::mbtPostActivate(const THT::Link &link)
-{
-    HWND edit = MBTPrivateMethods::mbtFindEdit(link.hwnd);
-
-    if(!edit)
-    {
-        qWarning("Cannot find a target edit");
-        return;
-    }
-
-    setForeignFocus(edit, link.threadId);
-}
-
-void THT::mbtProPostActivate(const THT::Link &link)
+HWND THT::mbtProFindSubControl(HWND parent)
 {
     HWND after = 0;
     TCHAR cname[MAX_PATH];
@@ -1112,7 +1105,7 @@ void THT::mbtProPostActivate(const THT::Link &link)
     const TCHAR *ctoolbar = TEXT("BCGPToolBar:");
     const int ctoolbar_len = lstrlen(ctoolbar);
 
-    while((after = FindWindowEx(link.hwnd, after, 0, 0)))
+    while((after = FindWindowEx(parent, after, 0, 0)))
     {
         if(!GetClassName(after, cname, sizeof(cname)))
         {
@@ -1122,7 +1115,7 @@ void THT::mbtProPostActivate(const THT::Link &link)
 
         if(CompareString(LOCALE_USER_DEFAULT, 0, cname, ctoolbar_len, ctoolbar, ctoolbar_len) == CSTR_EQUAL)
         {
-            qDebug("Found toolbar component");
+            qDebug("Found a toolbar component");
 
             after = FindWindowEx(after, 0, TEXT("ComboBox"), 0);
 
@@ -1130,11 +1123,5 @@ void THT::mbtProPostActivate(const THT::Link &link)
         }
     }
 
-    if(!after)
-    {
-        qWarning("Cannot find a target combobox");
-        return;
-    }
-
-    setForeignFocus(after, link.threadId);
+    return after;
 }

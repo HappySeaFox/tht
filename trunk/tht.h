@@ -66,8 +66,9 @@ private:
             type = lt;
             processId = 0;
             threadId = 0;
-            postActivate = 0;
+            findSubControl = 0;
             waitForCaption = true; // true by default
+            cachedSubControl = 0;
         }
 
         HWND hwnd;
@@ -75,8 +76,10 @@ private:
         DWORD processId;
         DWORD threadId;
         bool waitForCaption;
+        HWND cachedSubControl;
 
-        void (*postActivate)(const Link &);
+        // TODO Do we need to redesign the linking process?
+        HWND (*findSubControl)(HWND parent);
     };
 
 protected:
@@ -95,10 +98,10 @@ private:
     void busy(bool);
     void loadTicker(const QString &);
     void startDelayedScreenshot(bool);
+    void setForeignFocus(HWND window, DWORD threadId);
 
-    static void setForeignFocus(HWND window, DWORD threadId);
-    static void mbtPostActivate(const THT::Link &);
-    static void mbtProPostActivate(const THT::Link &);
+    static HWND mbtFindSubControl(HWND);
+    static HWND mbtProFindSubControl(HWND);
 
 public slots:
     void activate();

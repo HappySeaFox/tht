@@ -19,7 +19,6 @@
 #include <QDesktopServices>
 #include <QTranslator>
 #include <QDateTime>
-#include <QtPlugin>
 #include <QLocale>
 #include <QIcon>
 #include <QDir>
@@ -29,32 +28,38 @@
 
 #include <windows.h>
 
+#include "qtlockedfile.h"
 #include "settings.h"
 #include "tht.h"
 
 static void thtOutput(QtMsgType type, const char *msg)
 {
-    static QFile log(QDesktopServices::storageLocation(QDesktopServices::TempLocation)
+    static QtLockedFile log(
+                     QDesktopServices::storageLocation(QDesktopServices::TempLocation)
                      + QDir::separator()
                      + "tht.log");
 
     static bool failed = false;
 
+    fprintf(stderr, "THT: %s\n", msg);
+
     if(!log.isOpen() && !failed)
     {
-        // 100 Kb
-        QIODevice::OpenMode additional = (log.size() > 100*1024) ? QIODevice::Truncate : QIODevice::Append;
+        failed = (!log.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Unbuffered)
+                  || log.isLocked()
+                  || !log.lock(QtLockedFile::WriteLock, false)
+                  || !log.resize(0)
+                  );
 
-        failed = !log.open(QIODevice::WriteOnly | QIODevice::Unbuffered | additional);
-
-        if(!failed && log.size())
-            log.write("\n");
+        if(failed)
+            fprintf(stderr, "THT: Log file is unavailable\n");
     }
 
-    log.write(msg);
-    log.write("\n");
-
-    fprintf(stderr, "THT: %s\n", msg);
+    if(!failed)
+    {
+        log.write(msg);
+        log.write("\n");
+    }
 }
 
 int main(int argc, char *argv[])
