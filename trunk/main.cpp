@@ -41,15 +41,20 @@ static void thtOutput(QtMsgType type, const char *msg)
     static bool failed = false;
 
     if(!log.isOpen() && !failed)
-        failed = !log.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Unbuffered);
+    {
+        // 100 Kb
+        QIODevice::OpenMode additional = (log.size() > 100*1024) ? QIODevice::Truncate : QIODevice::Append;
 
-    fprintf(stderr, "THT: %s\n", msg);
+        failed = !log.open(QIODevice::WriteOnly | QIODevice::Unbuffered | additional);
+
+        if(!failed && log.size())
+            log.write("\n");
+    }
 
     log.write(msg);
     log.write("\n");
 
-    if(type == QtFatalMsg)
-        abort();
+    fprintf(stderr, "THT: %s\n", msg);
 }
 
 int main(int argc, char *argv[])
