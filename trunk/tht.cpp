@@ -681,6 +681,7 @@ void THT::slotCheckActive()
                 qWarning("Cannot find a subcontrol");
             else
             {
+                qDebug("Found the target subcontrol");
                 link.cachedSubControl = sc;
                 setForeignFocus(sc, link.threadId);
             }
@@ -1086,10 +1087,7 @@ HWND THT::mbtFindSubControl(HWND parent)
         }
 
         if(final && CompareString(LOCALE_USER_DEFAULT, 0, cname, lstrlen(cname), cedit, cedit_len) == CSTR_EQUAL)
-        {
-            qDebug("Found a target edit");
             return after;
-        }
         else if((r = mbtFindSubControl(after)))
             return r;
     }
@@ -1115,10 +1113,7 @@ HWND THT::mbtProFindSubControl(HWND parent)
 
         if(CompareString(LOCALE_USER_DEFAULT, 0, cname, ctoolbar_len, ctoolbar, ctoolbar_len) == CSTR_EQUAL)
         {
-            qDebug("Found a toolbar component");
-
             after = FindWindowEx(after, 0, TEXT("ComboBox"), 0);
-
             break;
         }
     }
