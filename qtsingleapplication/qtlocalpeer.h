@@ -37,6 +37,11 @@
 **
 ****************************************************************************/
 
+/**********************************************************************
+ *   Copyright (C) 2012 by Dmitry 'Krasu' Baryshev                    *
+ *   ksquirrel.iv@gmail.com                                           *
+ **********************************************************************/
+
 #ifndef QTLOCALPEER_H
 #define QTLOCALPEER_H
 
@@ -67,7 +72,7 @@ protected:
     QString id;
     QString socketName;
     QLocalServer* server;
-    QtLP_Private::QtLockedFile lockFile;
+    QtLockedFile lockFile;
 
 private:
     static const char* ack;
