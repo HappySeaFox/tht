@@ -32,6 +32,13 @@ Drag a black target with a left mouse button and drop onto a required TOS window
 
 <wiki:video url="https://www.youtube.com/watch?v=h6dtiE5H5S0" width="240" height="170"/>
 
+== How to link MBT Desktop or MBT Desktop Pro window? ==
+
+Drag a black target with a left mouse button and drop onto a required MVT chart window. If everything is ok, you will hear a confirmation sound.
+
+<wiki:video url="https://www.youtube.com/watch?v=NsbnI2sFP2s" width="240" height="170"/>
+<wiki:video url="https://www.youtube.com/watch?v=JhHp4zN-puA" width="240" height="170"/>
+
 == How to load my home task into several windows? ==
 
 Drag and drop tickers as it shown in the video.

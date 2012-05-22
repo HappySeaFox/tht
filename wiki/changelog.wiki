@@ -1,4 +1,7 @@
-== 0.8.2 ==
+== 0.8.3 ==
+ * added support of MBT Desktop and MBT Desktop Pro (see [howto howto])
+
+ == 0.8.2 ==
  * fix for Twinkorswim@paperMoney
 
  == 0.8.1 ==

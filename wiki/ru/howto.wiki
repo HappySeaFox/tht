@@ -32,6 +32,13 @@
 
 <wiki:video url="https://www.youtube.com/watch?v=h6dtiE5H5S0" width="240" height="170"/>
 
+== Как слинковать окно MBT Desktop или MBT Desktop Pro? ==
+
+Перетащите чёрную иконку мишени левой кнопкой мыши и бросьте на нужное окно MBT с графиком. Если всё в порядке, вы услышите подтверждающий сигнал.
+
+<wiki:video url="https://www.youtube.com/watch?v=NsbnI2sFP2s" width="240" height="170"/>
+<wiki:video url="https://www.youtube.com/watch?v=JhHp4zN-puA" width="240" height="170"/>
+
 == Как загрузить мою домашку в несколько окон? ==
 
 Перетащите нужные тикеры в окна как показано на видео.

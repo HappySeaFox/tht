@@ -1,3 +1,6 @@
+== 0.8.3 ==
+ * добавлена поддержка MBT Desktop и MBT Desktop Pro (см. [howto howto])
+
 == 0.8.2 ==
  * исправление для Twinkorswim@paperMoney
 
