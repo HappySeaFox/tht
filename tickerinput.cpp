@@ -27,6 +27,9 @@ TickerInput::TickerInput(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->line->setValidator(new QRegExpValidator(Settings::instance()->tickerValidator()));
+
+    ui->line->setText(Settings::instance()->lastTickerInput());
+    ui->line->selectAll();
 }
 
 TickerInput::~TickerInput()
@@ -37,4 +40,9 @@ TickerInput::~TickerInput()
 QString TickerInput::ticker() const
 {
     return ui->line->text();
+}
+
+void TickerInput::slotAccepted()
+{
+    Settings::instance()->setLastTickerInput(ui->line->text());
 }

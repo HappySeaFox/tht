@@ -39,6 +39,9 @@ public:
 
     QRegExp tickerValidator() const;
 
+    void setLastTickerInput(QString, SyncType sync = SyncTypeSync);
+    QString lastTickerInput();
+
     void setLastTickerDirectory(QString, SyncType sync = SyncTypeSync);
     QString lastTickerDirectory();
 
