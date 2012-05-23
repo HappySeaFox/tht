@@ -84,8 +84,7 @@ FORMS += tht.ui \
     savescreenshot.ui \
     tickerinput.ui
 
-RESOURCES += \
-    tht.qrc
+RESOURCES += tht.qrc
 
 LIBS += -lpsapi
 
