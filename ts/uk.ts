@@ -279,76 +279,76 @@ the right or middle mouse buttons.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="81"/>
+        <location filename="../tht.cpp" line="82"/>
         <source>Options...</source>
         <translation>Параметри...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="83"/>
-        <location filename="../tht.cpp" line="144"/>
+        <location filename="../tht.cpp" line="84"/>
+        <location filename="../tht.cpp" line="145"/>
         <source>Take screenshot...</source>
         <translation>Знімок екрану...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="85"/>
+        <location filename="../tht.cpp" line="86"/>
         <source>Clear ticker lists</source>
         <translation>Очистити списки токарів</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="84"/>
+        <location filename="../tht.cpp" line="85"/>
         <source>Clear links</source>
         <translation>Очистити посилання</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="87"/>
+        <location filename="../tht.cpp" line="88"/>
         <source>Load ticker</source>
         <translation>Завантажити тікер</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="90"/>
-        <location filename="../tht.cpp" line="146"/>
+        <location filename="../tht.cpp" line="91"/>
+        <location filename="../tht.cpp" line="147"/>
         <source>About THT</source>
         <translation>Про THT</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="91"/>
+        <location filename="../tht.cpp" line="92"/>
         <source>About Qt</source>
         <translation>Про Qt</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="93"/>
-        <location filename="../tht.cpp" line="148"/>
+        <location filename="../tht.cpp" line="94"/>
+        <location filename="../tht.cpp" line="149"/>
         <source>Quit</source>
         <translation>Вихід</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="143"/>
+        <location filename="../tht.cpp" line="144"/>
         <source>Restore</source>
         <translation>Відновити</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="209"/>
+        <location filename="../tht.cpp" line="211"/>
         <source>Notice</source>
         <translation>Замітка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="209"/>
+        <location filename="../tht.cpp" line="211"/>
         <source>THT will continue to run in a system tray</source>
         <translation>ТНТ продовжить роботу в системному лотку</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="870"/>
-        <location filename="../tht.cpp" line="898"/>
+        <location filename="../tht.cpp" line="894"/>
+        <location filename="../tht.cpp" line="922"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="870"/>
+        <location filename="../tht.cpp" line="894"/>
         <source>Cannot take screenshot</source>
         <translation>Неможливо створити знімок екрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="898"/>
+        <location filename="../tht.cpp" line="922"/>
         <source>Cannot save screenshot</source>
         <translation>Неможливо зберегти знімок екрана</translation>
     </message>
@@ -377,8 +377,8 @@ the right or middle mouse buttons.</source>
     <name>TickerInput</name>
     <message>
         <location filename="../tickerinput.ui" line="14"/>
-        <source>Add a ticker</source>
-        <translation>Додати тікер</translation>
+        <source>Enter a ticker</source>
+        <translation>Введіть тікер</translation>
     </message>
     <message>
         <location filename="../tickerinput.ui" line="20"/>

@@ -116,6 +116,7 @@ private slots:
     void slotCopyRight(const QString &ticker, ListItem::Priority);
     void slotCopyTo(const QString &, ListItem::Priority, int);
     void slotLoadTicker(const QString &ticker);
+    void slotLoadTicker();
     void slotLoadToNextWindow();
     void slotTrayActivated(QSystemTrayIcon::ActivationReason);
     void slotTakeScreenshot();
