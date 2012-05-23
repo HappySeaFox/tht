@@ -41,6 +41,7 @@
 #include "savescreenshot.h"
 #include "updatechecker.h"
 #include "regionselect.h"
+#include "tickerinput.h"
 #include "settings.h"
 #include "listitem.h"
 #include "options.h"
@@ -184,6 +185,7 @@ THT::THT(QWidget *parent) :
 
     // lock links
     new QShortcut(Qt::CTRL+Qt::Key_L, this, SLOT(slotLockLinks()));
+    new QShortcut(Qt::Key_L, this, SLOT(slotLoadTicker()));
 }
 
 THT::~THT()
@@ -809,6 +811,16 @@ void THT::slotLoadTicker(const QString &ticker)
 {
     m_windows = &m_windowsLoad;
     loadTicker(ticker);
+}
+
+void THT::slotLoadTicker()
+{
+    TickerInput ti(this);
+
+    if(ti.exec() != QDialog::Accepted)
+        return;
+
+    slotLoadTicker(ti.ticker());
 }
 
 void THT::slotLoadToNextWindow()
