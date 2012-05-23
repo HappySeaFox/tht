@@ -412,7 +412,10 @@ THT::Link THT::checkWindow(HWND hwnd)
     if(sname == "advancedget.exe" || sname == "winsig.exe")
         link.type = LinkTypeAdvancedGet;
     else if(sname == "graybox.exe")
+    {
         link.type = LinkTypeGraybox;
+        link.findSubControl = grayBoxFindSubControl;
+    }
     else if(sname == "thinkorswim.exe")
         link.type = LinkTypeTwinkorswim;
     else if((sname == "mbtdes~1.exe" || sname == "mbtdesktop.exe") && cname == "MbtTearFrame")
@@ -1068,6 +1071,11 @@ void THT::setForeignFocus(HWND window, DWORD threadId)
 
     SetFocus(window);
     AttachThreadInput(threadId, current, FALSE);
+}
+
+HWND THT::grayBoxFindSubControl(HWND parent)
+{
+    return FindWindowEx(parent, 0, TEXT("Edit"), 0);
 }
 
 HWND THT::mbtFindSubControl(HWND parent)

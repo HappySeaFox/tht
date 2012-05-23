@@ -100,6 +100,7 @@ private:
     void startDelayedScreenshot(bool);
     void setForeignFocus(HWND window, DWORD threadId);
 
+    static HWND grayBoxFindSubControl(HWND);
     static HWND mbtFindSubControl(HWND);
     static HWND mbtProFindSubControl(HWND);
 
