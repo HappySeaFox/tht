@@ -104,6 +104,16 @@ void Settings::sync()
     m_settings->sync();
 }
 
+void Settings::setLastTickerInput(QString t, SyncType sync)
+{
+    save<QString>("last-ticker-input", t, sync);
+}
+
+QString Settings::lastTickerInput()
+{
+    return load<QString>("last-ticker-input");
+}
+
 void Settings::setLastTickerDirectory(QString dir, SyncType sync)
 {
     save<QString>("last-ticker-directory", dir, sync);

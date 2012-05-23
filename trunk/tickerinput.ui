@@ -49,8 +49,8 @@
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>248</x>
-     <y>254</y>
+     <x>214</x>
+     <y>65</y>
     </hint>
     <hint type="destinationlabel">
      <x>157</x>
@@ -65,8 +65,8 @@
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>316</x>
-     <y>260</y>
+     <x>214</x>
+     <y>65</y>
     </hint>
     <hint type="destinationlabel">
      <x>286</x>
@@ -74,5 +74,24 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>TickerInput</sender>
+   <signal>accepted()</signal>
+   <receiver>TickerInput</receiver>
+   <slot>slotAccepted()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>63</x>
+     <y>75</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>71</x>
+     <y>150</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
+ <slots>
+  <slot>slotAccepted()</slot>
+ </slots>
 </ui>

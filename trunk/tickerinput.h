@@ -34,6 +34,9 @@ public:
 
     QString ticker() const;
 
+private slots:
+    void slotAccepted();
+
 private:
     Ui::TickerInput *ui;
 };
