@@ -104,7 +104,7 @@ void List::addTicker(const QString &ticker, ListItem::Priority p)
 {
     if(ui->list->findItems(ticker, Qt::MatchFixedString).size())
     {
-        qDebug("Will not add duplicate item");
+        qDebug("Will not add a duplicate item");
         return;
     }
 
@@ -799,14 +799,17 @@ void List::slotAddOne()
     if(ti.exec() != QDialog::Accepted)
         return;
 
-    QString ticker = ti.ticker();
+    QString ticker = ti.ticker().toUpper();
 
-    if(Settings::instance()->tickerValidator().exactMatch(ticker))
+    if(ui->list->findItems(ticker, Qt::MatchFixedString).size())
     {
-        addItem(ticker, true);
-        numberOfItemsChanged();
-        save();
+        qDebug("Will not add a duplicate item");
+        return;
     }
+
+    addItem(ticker, true);
+    numberOfItemsChanged();
+    save();
 }
 
 void List::slotAddFromFile()
