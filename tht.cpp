@@ -317,6 +317,8 @@ void THT::sendString(const QString &ticker, LinkType type)
 
 void THT::rebuildUi()
 {
+    bool doResize = m_lists.size();
+
     // check the number of lists
     int nlists = Settings::instance()->numberOfLists();
 
@@ -364,6 +366,9 @@ void THT::rebuildUi()
     {
         l->setSaveTickers(saveTickers);
     }
+
+    if(doResize)
+        QTimer::singleShot(0, this, SLOT(slotAdjustSize()));
 }
 
 THT::Link THT::checkWindow(HWND hwnd)
@@ -652,6 +657,14 @@ void THT::activate()
     setWindowState(windowState() & ~Qt::WindowMinimized);
     raise();
     activateWindow();
+}
+
+void THT::slotAdjustSize()
+{
+    qDebug("Resizing automatically");
+
+    layout()->activate();
+    resize(minimumSizeHint().width(), height());
 }
 
 void THT::slotCheckActive()
