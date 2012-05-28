@@ -3,10 +3,12 @@
 ;
 
 #define MyAppName "Trader's Home Task"
-#define MyAppVersion "0.8.4"
 #define MyAppPublisher "Dmitry Baryshev"
 #define MyAppURL "https://code.google.com/p/traders-home-task-ng"
 #define MyAppExeName "THT.exe"
+
+; NOTE: version must be defined outside with /d
+; #define MyAppVersion "0.8.4"
 
 #define MyAppSrc "F:\trading\soft\THT"
 #define MyAppDist "F:\trading\soft\THT-dist"
