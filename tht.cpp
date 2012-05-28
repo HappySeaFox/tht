@@ -779,13 +779,18 @@ void THT::slotCopyLeft(const QString &ticker, ListItem::Priority p)
         return;
     }
 
-    if(!index)
+    if(m_lists.size() < 2)
     {
-        qWarning("Cannot copy from the first list");
+        qWarning("Cannot copy from the single list");
         return;
     }
 
-    m_lists[--index]->addTicker(ticker, p);
+    if(!index)
+        index = m_lists.size() - 1;
+    else
+        --index;
+
+    m_lists[index]->addTicker(ticker, p);
 }
 
 void THT::slotCopyRight(const QString &ticker, ListItem::Priority p)
@@ -800,13 +805,18 @@ void THT::slotCopyRight(const QString &ticker, ListItem::Priority p)
         return;
     }
 
-    if(index == m_lists.size()-1)
+    if(m_lists.size() < 2)
     {
-        qWarning("Cannot copy from the last list");
+        qWarning("Cannot copy from the single list");
         return;
     }
 
-    m_lists[++index]->addTicker(ticker, p);
+    if(index == m_lists.size()-1)
+        index = 0;
+    else
+        ++index;
+
+    m_lists[index]->addTicker(ticker, p);
 }
 
 void THT::slotCopyTo(const QString &ticker, ListItem::Priority p, int index)
