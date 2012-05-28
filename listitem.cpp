@@ -45,12 +45,16 @@ void ListItem::setPriority(ListItem::Priority p, bool force)
 
     switch(m_priority)
     {
-        case ListItem::PriorityHigh:
+        case ListItem::PriorityMedium:
             brush = QColor(255, 215, 68);
         break;
 
-        case ListItem::PriorityHighest:
+        case ListItem::PriorityHigh:
             brush = QColor(30, 245, 65);
+        break;
+
+        case ListItem::PriorityHighest:
+            brush = QColor(250, 99, 118);
         break;
 
         default:
