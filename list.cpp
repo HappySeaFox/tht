@@ -935,7 +935,7 @@ void List::slotExportToFile()
     QString fileName = QFileDialog::getSaveFileName(this,
                                                     tr("Choose a file"),
                                                     Settings::instance()->lastTickerDirectory(),
-                                                    "Text files (*.txt);;All files (*.*)");
+                                                    tr("Text files (*.txt);;All files (*.*)"));
 
     if(fileName.isEmpty())
         return;

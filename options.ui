@@ -107,6 +107,7 @@
   <tabstop>checkTray</tabstop>
   <tabstop>checkSave</tabstop>
   <tabstop>checkSaveTickers</tabstop>
+  <tabstop>checkAllowDups</tabstop>
   <tabstop>buttonBox</tabstop>
  </tabstops>
  <resources/>
