@@ -932,7 +932,10 @@ void List::slotExportToFile()
 {
     qDebug("Exporting tickers to file");
 
-    QString fileName = QFileDialog::getSaveFileName(this, tr("Choose a file"), Settings::instance()->lastTickerDirectory());
+    QString fileName = QFileDialog::getSaveFileName(this,
+                                                    tr("Choose a file"),
+                                                    Settings::instance()->lastTickerDirectory(),
+                                                    "Text files (*.txt);;All files (*.*)");
 
     if(fileName.isEmpty())
         return;
