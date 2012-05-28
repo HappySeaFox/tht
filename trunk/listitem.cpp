@@ -54,7 +54,7 @@ void ListItem::setPriority(ListItem::Priority p, bool force)
         break;
 
         case ListItem::PriorityHighest:
-            brush = QColor(255, 89, 120);
+            brush = QColor(255, 105, 133);
         break;
 
         default:
