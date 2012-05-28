@@ -28,7 +28,7 @@ public:
     explicit ListItem(QListWidget *parent = 0);
     explicit ListItem(const QString &text, QListWidget *parent = 0);
 
-    enum Priority { PriorityNormal, PriorityHigh, PriorityHighest };
+    enum Priority { PriorityNormal, PriorityMedium, PriorityHigh, PriorityHighest };
 
     Priority priority() const;
 
