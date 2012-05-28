@@ -102,13 +102,11 @@ bool List::haveTickers() const
 
 void List::addTicker(const QString &ticker, ListItem::Priority p)
 {
-    if(Settings::instance()->tickerValidator().exactMatch(ticker))
+    if(Settings::instance()->tickerValidator().exactMatch(ticker)
+            && addItem(ticker + ',' + QString::number(p)))
     {
-        if(addItem(ticker + ',' + QString::number(p)))
-        {
-            numberOfItemsChanged();
-            save();
-        }
+        numberOfItemsChanged();
+        save();
     }
 }
 
@@ -156,6 +154,35 @@ void List::initialSelect()
         return;
 
     ui->list->setCurrentItem(item, QItemSelectionModel::ClearAndSelect);
+}
+
+void List::removeDuplicates()
+{
+    qDebug("Looking for duplicates");
+
+    int row = 0;
+    QListWidgetItem *i;
+    QList<QListWidgetItem *> list;
+    bool changed = false;
+
+    while((i = ui->list->item(row++)))
+    {
+        list = ui->list->findItems(i->text(), Qt::MatchFixedString);
+
+        if(list.size() > 1)
+        {
+            changed = true;
+
+            for(int i = 1;i < list.size();i++)
+                delete list[i];
+        }
+    }
+
+    if(changed)
+    {
+        numberOfItemsChanged();
+        save();
+    }
 }
 
 bool List::eventFilter(QObject *obj, QEvent *event)

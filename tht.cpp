@@ -737,6 +737,8 @@ void THT::slotQuit()
 
 void THT::slotOptions()
 {
+    bool oldDups = Settings::instance()->allowDuplicates();
+
     Options opt(this);
 
     if(opt.exec() == QDialog::Accepted)
@@ -756,6 +758,12 @@ void THT::slotOptions()
         show();
 
         m_tray->setVisible(Settings::instance()->hideToTray());
+
+        if(oldDups && !Settings::instance()->allowDuplicates())
+        {
+            foreach(List *l, m_lists)
+                l->removeDuplicates();
+        }
     }
 }
 

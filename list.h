@@ -57,6 +57,8 @@ public:
 
     void initialSelect();
 
+    void removeDuplicates();
+
 protected:
     virtual bool eventFilter(QObject *obj, QEvent *event);
 
