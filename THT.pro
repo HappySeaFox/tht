@@ -202,7 +202,7 @@ INNO=$$system(echo %ProgramFiles%)\\Inno Setup 5\\iscc.exe
 
 exists ($$INNO) {
     message("Inno Setup is found, will create a setup file in a custom dist target")
-    distbin.commands += $$mle(\"$$INNO\" /o. \"$${_PRO_FILE_PWD_}\\private\\tht.iss\")
+    distbin.commands += $$mle(\"$$INNO\" /o. /dMyAppVersion=\"$$VERSION\" \"$${_PRO_FILE_PWD_}\\private\\tht.iss\")
 } else {
     warning("Inno Setup is not found, will not create a setup file in a custom dist target")
 }
