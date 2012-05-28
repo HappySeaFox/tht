@@ -942,7 +942,7 @@ void List::slotExportToFile()
 
     QFile file(fileName);
 
-    if(!file.open(QIODevice::WriteOnly | QIODevice::Truncate))
+    if(!file.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text))
     {
         qWarning("Cannot open file for writing");
         QMessageBox::warning(this, tr("Error"), tr("Cannot save to file %1").arg(fileName));
