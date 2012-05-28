@@ -102,17 +102,13 @@ bool List::haveTickers() const
 
 void List::addTicker(const QString &ticker, ListItem::Priority p)
 {
-    if(ui->list->findItems(ticker, Qt::MatchFixedString).size())
-    {
-        qDebug("Will not add a duplicate item");
-        return;
-    }
-
     if(Settings::instance()->tickerValidator().exactMatch(ticker))
     {
-        addItem(ticker + ',' + QString::number(p));
-        numberOfItemsChanged();
-        save();
+        if(addItem(ticker + ',' + QString::number(p)))
+        {
+            numberOfItemsChanged();
+            save();
+        }
     }
 }
 
@@ -480,6 +476,8 @@ void List::load()
 {
     qDebug("Loading tickers from section \"%d\"", m_section);
 
+    qint64 t = QDateTime::currentMSecsSinceEpoch();
+
     QStringList items = Settings::instance()->tickersForGroup(m_section);
 
     ui->list->setUpdatesEnabled(false);
@@ -490,6 +488,8 @@ void List::load()
     ui->list->setUpdatesEnabled(true);
 
     numberOfItemsChanged();
+
+    qDebug("Loaded in %ld ms.", static_cast<long int>(QDateTime::currentMSecsSinceEpoch() - t));
 }
 
 void List::paste()
@@ -597,17 +597,24 @@ QPixmap List::createDragCursor()
     return px;
 }
 
-void List::addItem(const QString &text, bool fix)
+bool List::addItem(const QString &text, bool fix)
 {
     QStringList txt = text.toUpper().split(',', QString::SkipEmptyParts);
 
     if(txt.isEmpty())
-        return;
+        return false;
 
-    ListItem *item = new ListItem(fix
-                                  ? txt[0].replace('-', '.')
-                                  : txt[0],
-                                  ui->list);
+    QString t = fix
+            ? txt[0].replace('-', '.')
+            : txt[0];
+
+    if(!Settings::instance()->allowDuplicates() && ui->list->findItems(t, Qt::MatchFixedString).size())
+    {
+        qDebug("Will not add a duplicate item");
+        return false;
+    }
+
+    ListItem *item = new ListItem(t, ui->list);
 
     if(txt.size() > 1)
     {
@@ -619,6 +626,8 @@ void List::addItem(const QString &text, bool fix)
     }
 
     ui->list->addItem(item);
+
+    return true;
 }
 
 void List::changePriority(int p)
@@ -799,15 +808,9 @@ void List::slotAddOne()
     if(ti.exec() != QDialog::Accepted)
         return;
 
-    QString ticker = ti.ticker().toUpper();
-
-    if(ui->list->findItems(ticker, Qt::MatchFixedString).size())
-    {
-        qDebug("Will not add a duplicate item");
+    if(!addItem(ti.ticker().toUpper(), true))
         return;
-    }
 
-    addItem(ticker, true);
     numberOfItemsChanged();
     save();
 }
