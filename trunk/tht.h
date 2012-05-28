@@ -108,6 +108,7 @@ public slots:
     void activate();
 
 private slots:
+    void slotAdjustSize();
     void slotCheckActive();
     void slotAbout();
     void slotAboutQt();
