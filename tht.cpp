@@ -317,7 +317,7 @@ void THT::sendString(const QString &ticker, LinkType type)
 
 void THT::rebuildUi()
 {
-    bool doResize = m_lists.size();
+    const bool doResize = m_lists.size();
 
     // check the number of lists
     int nlists = Settings::instance()->numberOfLists();
