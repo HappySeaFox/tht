@@ -113,24 +113,29 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
         <translation>Экспортировать в буфер обмена</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="822"/>
-        <location filename="../list.cpp" line="908"/>
+        <location filename="../list.cpp" line="849"/>
+        <location filename="../list.cpp" line="936"/>
         <source>Choose a file</source>
         <translation>Выберите файл</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="870"/>
-        <location filename="../list.cpp" line="918"/>
+        <location filename="../list.cpp" line="897"/>
+        <location filename="../list.cpp" line="948"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="870"/>
+        <location filename="../list.cpp" line="897"/>
         <source>Cannot open the following files: %1</source>
         <translation>Невозможно открыть следующие файлы: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="918"/>
+        <location filename="../list.cpp" line="938"/>
+        <source>Text files (*.txt);;All files (*.*)</source>
+        <translation>Текстовые файлы (*.txt);;Все файлы (*.*)</translation>
+    </message>
+    <message>
+        <location filename="../list.cpp" line="948"/>
         <source>Cannot save to file %1</source>
         <translation>Невозможно сохранить в файл %1</translation>
     </message>
@@ -343,18 +348,18 @@ the right or middle mouse buttons.</source>
         <translation>THT продолжит работу в системном лотке</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="901"/>
-        <location filename="../tht.cpp" line="929"/>
+        <location filename="../tht.cpp" line="932"/>
+        <location filename="../tht.cpp" line="960"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="901"/>
+        <location filename="../tht.cpp" line="932"/>
         <source>Cannot take screenshot</source>
         <translation>Невозможно создать снимок экрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="929"/>
+        <location filename="../tht.cpp" line="960"/>
         <source>Cannot save screenshot</source>
         <translation>Невозможно сохранить снимок экрана</translation>
     </message>
