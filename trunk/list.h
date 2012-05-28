@@ -69,7 +69,7 @@ private:
     void showSaved(bool isSaved);
     void showTickerInfo();
     QPixmap createDragCursor();
-    void addItem(const QString &text, bool fix = false);
+    bool addItem(const QString &text, bool fix = false);
     void changePriority(int);
 
     enum LoadItem { LoadItemCurrent,

@@ -134,6 +134,16 @@ QString Settings::lastScreenShotDirectory()
     return load<QString>("last-screenshot-directory");
 }
 
+void Settings::setAllowDuplicates(bool allow, SyncType sync)
+{
+    save<bool>("allow-duplicates", allow, sync);
+}
+
+bool Settings::allowDuplicates()
+{
+    return load<bool>("allow-duplicates", true);
+}
+
 void Settings::setNyseOnly(bool n, SyncType sync)
 {
     save<bool>("nyse-only", n, sync);
