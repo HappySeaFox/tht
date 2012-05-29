@@ -705,9 +705,11 @@ void THT::slotCheckActive()
             else
             {
                 qDebug("Found the target subcontrol");
+
                 link.cachedSubControl = sc;
-                setForeignFocus(sc, link.threadId);
-                okToLoad = true;
+
+                if(setForeignFocus(sc, link.threadId))
+                    okToLoad = true;
             }
         }
         else
@@ -1103,18 +1105,25 @@ void THT::slotLoadPredefinedTicker()
     slotLoadTicker(s->property("ticker").toString());
 }
 
-void THT::setForeignFocus(HWND window, DWORD threadId)
+bool THT::setForeignFocus(HWND window, DWORD threadId)
 {
     const DWORD current = GetCurrentThreadId();
 
     if(!AttachThreadInput(threadId, current, TRUE))
     {
         qWarning("Cannot attach to the thread %ld (%ld)", threadId, GetLastError());
-        return;
+        return false;
     }
 
-    SetFocus(window);
+    if(!SetFocus(window))
+    {
+        qWarning("Cannot set focus to the window %d (%ld)", (int)window, GetLastError());
+        return false;
+    }
+
     AttachThreadInput(threadId, current, FALSE);
+
+    return true;
 }
 
 HWND THT::grayBoxFindSubControl(HWND parent)
