@@ -1107,9 +1107,9 @@ void THT::slotLoadPredefinedTicker()
 
 bool THT::setForeignFocus(HWND window, DWORD threadId)
 {
-    const DWORD current = GetCurrentThreadId();
+    const DWORD currentThreadId = GetCurrentThreadId();
 
-    if(!AttachThreadInput(threadId, current, TRUE))
+    if(!AttachThreadInput(threadId, currentThreadId, TRUE))
     {
         qWarning("Cannot attach to the thread %ld (%ld)", threadId, GetLastError());
         return false;
@@ -1121,7 +1121,7 @@ bool THT::setForeignFocus(HWND window, DWORD threadId)
         return false;
     }
 
-    AttachThreadInput(threadId, current, FALSE);
+    AttachThreadInput(threadId, currentThreadId, FALSE);
 
     return true;
 }
