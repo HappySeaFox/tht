@@ -693,6 +693,7 @@ void THT::slotCheckActive()
         qDebug("Found window, sending data");
 
         QString add;
+        bool okToLoad = false;
 
         // set focus to the subcontrol
         if(link.findSubControl)
@@ -706,15 +707,23 @@ void THT::slotCheckActive()
                 qDebug("Found the target subcontrol");
                 link.cachedSubControl = sc;
                 setForeignFocus(sc, link.threadId);
+                okToLoad = true;
             }
         }
+        else
+            okToLoad = true;
 
-        if(link.type == LinkTypeAdvancedGet
-                && ui->checkNyse->isChecked()
-                && !m_ticker.startsWith(QChar('$')))
-            add = "=N";
+        // load ticker
+        if(okToLoad)
+        {
+            if(link.type == LinkTypeAdvancedGet
+                    && ui->checkNyse->isChecked()
+                    && !m_ticker.startsWith(QChar('$')))
+                add = "=N";
 
-        sendString(m_ticker + add, link.type);
+            sendString(m_ticker + add, link.type);
+        }
+
         loadNextWindow();
     }
     else
