@@ -33,6 +33,7 @@
 #include <QKeyEvent>
 #include <QPalette>
 #include <QPainter>
+#include <QLabel>
 #include <QEvent>
 #include <QColor>
 #include <QMenu>
@@ -56,6 +57,20 @@ List::List(int group, QWidget *parent) :
     m_dragging(false)
 {
     ui->setupUi(this);
+
+    // number of tickers
+    m_number = new QLabel(ui->list);
+    m_number->setMinimumWidth(20);
+    m_number->setFrameShape(QFrame::Box);
+    m_number->setAlignment(Qt::AlignCenter);
+    m_number->setTextFormat(Qt::PlainText);
+    m_number->setStyleSheet
+                ("QLabel{"
+                "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
+                "                                   stop: 0 #ffefef, stop: 0.5 #F2D330, stop: 1 #ffefef);"
+                "color: black;"
+                "border: 1px solid gray;"
+                "}");
 
     ui->pushSave->setEnabled(!m_saveTickers);
 
@@ -467,6 +482,8 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                 m_startPos = QPoint();
             }
         }
+        else if(type == QEvent::Resize)
+            moveNumberLabel();
     }
 
     return QObject::eventFilter(obj, event);
@@ -474,7 +491,8 @@ bool List::eventFilter(QObject *obj, QEvent *event)
 
 void List::numberOfItemsChanged()
 {
-    ui->labelElements->setNum(ui->list->count());
+    m_number->setNum(ui->list->count());
+    resizeNumberLabel();
 }
 
 QStringList List::toStringList(bool withPriority)
@@ -723,6 +741,19 @@ void List::setPriority(int p)
     li->setPriority(pr);
 
     save();
+}
+
+void List::resizeNumberLabel()
+{
+    m_number->ensurePolished();
+    m_number->resize(QFontMetrics(m_number->font()).boundingRect(m_number->text()).adjusted(0,0, 8,4).size());
+
+    moveNumberLabel();
+}
+
+void List::moveNumberLabel()
+{
+    m_number->move(ui->list->viewport()->width() - m_number->width(), ui->list->viewport()->height() - m_number->height());
 }
 
 void List::loadItem(LoadItem litem)
