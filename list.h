@@ -73,6 +73,7 @@ private:
     QPixmap createDragCursor();
     bool addItem(const QString &text, bool fix = false);
     void changePriority(int);
+    void setPriority(int);
 
     enum LoadItem { LoadItemCurrent,
                     LoadItemNext, LoadItemPrevious,

@@ -382,6 +382,12 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                     case Qt::Key_U:
                         slotResetPriorities();
                     break;
+
+                    case Qt::Key_1:
+                    case Qt::Key_2:
+                    case Qt::Key_3:
+                        setPriority(ke->key() - Qt::Key_0);
+                    break;
                 }
             }
 
@@ -683,6 +689,23 @@ void List::changePriority(int p)
     qDebug("Changing priority %+d", p);
 
     li->setPriority(static_cast<ListItem::Priority>(li->priority() + p));
+
+    save();
+}
+
+void List::setPriority(int p)
+{
+    ListItem *li = static_cast<ListItem *>(ui->list->currentItem());
+
+    if(!li)
+    {
+        qDebug("Cannot find ticker");
+        return;
+    }
+
+    qDebug("Setting priority %d", p);
+
+    li->setPriority(static_cast<ListItem::Priority>(p));
 
     save();
 }
