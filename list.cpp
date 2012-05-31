@@ -60,6 +60,7 @@ List::List(int group, QWidget *parent) :
 
     // number of tickers
     m_number = new QLabel(ui->list);
+    m_number->setAttribute(Qt::WA_TransparentForMouseEvents);
     m_number->setMinimumWidth(20);
     m_number->setFrameShape(QFrame::Box);
     m_number->setAlignment(Qt::AlignCenter);
