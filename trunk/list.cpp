@@ -386,7 +386,8 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                     case Qt::Key_1:
                     case Qt::Key_2:
                     case Qt::Key_3:
-                        setPriority(ke->key() - Qt::Key_0);
+                    case Qt::Key_4:
+                        setPriority(ke->key() - Qt::Key_1);
                     break;
                 }
             }
