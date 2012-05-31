@@ -665,6 +665,12 @@ bool List::addItem(const QString &text, bool fix)
 
 void List::changePriority(int p)
 {
+    if(!p)
+    {
+        qDebug("Won't set the same priority");
+        return;
+    }
+
     ListItem *li = static_cast<ListItem *>(ui->list->currentItem());
 
     if(!li)
@@ -703,9 +709,17 @@ void List::setPriority(int p)
         return;
     }
 
+    ListItem::Priority pr = static_cast<ListItem::Priority>(p);
+
+    if(pr == li->priority())
+    {
+        qDebug("Won't set the same priority");
+        return;
+    }
+
     qDebug("Setting priority %d", p);
 
-    li->setPriority(static_cast<ListItem::Priority>(p));
+    li->setPriority(pr);
 
     save();
 }
