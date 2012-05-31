@@ -25,6 +25,8 @@
 
 #include "listitem.h"
 
+class QLabel;
+
 namespace Ui
 {
     class List;
@@ -74,6 +76,8 @@ private:
     bool addItem(const QString &text, bool fix = false);
     void changePriority(int);
     void setPriority(int);
+    void resizeNumberLabel();
+    void moveNumberLabel();
 
     enum LoadItem { LoadItemCurrent,
                     LoadItemNext, LoadItemPrevious,
@@ -116,6 +120,7 @@ private:
     QPoint m_startPos;
     QString m_startDragText;
     ListItem::Priority m_startDragPriority;
+    QLabel *m_number;
 };
 
 inline
