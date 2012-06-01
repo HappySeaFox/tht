@@ -63,6 +63,7 @@ public:
 
 protected:
     virtual bool eventFilter(QObject *obj, QEvent *event);
+    virtual void moveEvent(QMoveEvent *);
 
 private:
     void numberOfItemsChanged();

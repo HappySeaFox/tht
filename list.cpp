@@ -33,6 +33,7 @@
 #include <QKeyEvent>
 #include <QPalette>
 #include <QPainter>
+#include <QTimer>
 #include <QLabel>
 #include <QEvent>
 #include <QColor>
@@ -59,7 +60,7 @@ List::List(int group, QWidget *parent) :
     ui->setupUi(this);
 
     // number of tickers
-    m_number = new QLabel(ui->list);
+    m_number = new QLabel(parent);
     m_number->setAttribute(Qt::WA_TransparentForMouseEvents);
     m_number->setMinimumWidth(20);
     m_number->setFrameShape(QFrame::Box);
@@ -68,7 +69,7 @@ List::List(int group, QWidget *parent) :
     m_number->setStyleSheet
                 ("QLabel{"
                 "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                "                                   stop: 0 #ffefef, stop: 0.5 #F2D330, stop: 1 #ffefef);"
+                "                                   stop: 0 #ffefef, stop: 0.5 #F7DB45, stop: 1 #ffefef);"
                 "color: black;"
                 "border: 1px solid gray;"
                 "}");
@@ -104,10 +105,13 @@ List::List(int group, QWidget *parent) :
     // catch keyboard events
     ui->list->installEventFilter(this);
     ui->list->viewport()->installEventFilter(this);
+
+    m_number->show();
 }
 
 List::~List()
 {
+    delete m_number;
     delete ui;
 }
 
@@ -414,6 +418,8 @@ bool List::eventFilter(QObject *obj, QEvent *event)
             ui->list->setAlternatingRowColors(true);
         else if(type == QEvent::FocusOut)
             ui->list->setAlternatingRowColors(false);
+        else if(type == QEvent::Resize || type == QEvent::Move)
+            moveNumberLabel();
     }
     else if(obj == ui->list->viewport())
     {
@@ -483,11 +489,16 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                 m_startPos = QPoint();
             }
         }
-        else if(type == QEvent::Resize)
+        else if(type == QEvent::Resize || type == QEvent::Move)
             moveNumberLabel();
     }
 
     return QObject::eventFilter(obj, event);
+}
+
+void List::moveEvent(QMoveEvent *)
+{
+    moveNumberLabel();
 }
 
 void List::numberOfItemsChanged()
@@ -751,10 +762,26 @@ void List::resizeNumberLabel()
 
     moveNumberLabel();
 }
-
+#include <QDebug>
 void List::moveNumberLabel()
 {
-    m_number->move(ui->list->viewport()->width() - m_number->width(), ui->list->viewport()->height() - m_number->height());
+    m_number->move(ui->list->viewport()->width() - m_number->width(),
+                   ui->list->viewport()->height() - m_number->height());
+
+    // some magic
+    QWidget *widget = ui->list->viewport();
+    QPoint topLeft = ui->list->viewport()->geometry().topLeft();
+    QPoint bottomRight = ui->list->viewport()->geometry().bottomRight();
+
+    while(widget->parentWidget())
+    {
+        topLeft = widget->mapToParent(topLeft);
+        bottomRight = widget->mapToParent(bottomRight);
+        widget = widget->parentWidget();
+    }
+
+    m_number->move(topLeft.x() + ui->list->viewport()->width() - m_number->width() - 3,
+                   bottomRight.y() - m_number->height()/2 + 2);
 }
 
 void List::loadItem(LoadItem litem)
