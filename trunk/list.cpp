@@ -77,7 +77,7 @@ List::List(int group, QWidget *parent) :
     ui->pushSave->setEnabled(!m_saveTickers);
 
     QMenu *menu = new QMenu(this);
-    menu->addAction(QIcon(":/images/clear.png"), tr("Clear") + "\tN", this, SLOT(clear()));
+    menu->addAction(QIcon(":/images/clear.png"), tr("Clear") + '\t' + QKeySequence(QKeySequence::New).toString(), this, SLOT(clear()));
     menu->addAction(tr("Sort") + "\tR", this, SLOT(slotSortList()));
     menu->addSeparator();
     menu->addAction(tr("Reset priorities") + "\tAlt+U", this, SLOT(slotResetPriorities()));
@@ -299,10 +299,6 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                 case Qt::Key_Return:
                 case Qt::Key_Enter:
                     loadItem(LoadItemCurrent);
-                break;
-
-                case Qt::Key_N:
-                    clear();
                 break;
 
                 case Qt::Key_R:
