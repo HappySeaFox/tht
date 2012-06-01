@@ -28,7 +28,7 @@ Settings::Settings()
 
     m_settings->setFallbacksEnabled(false);
 
-    m_rxTicker = QRegExp("\\$?[a-zA-Z\\-]{1,5}");
+    m_rxTicker = QRegExp("\\$?[a-zA-Z\\-\\.]{1,5}");
 
     // migrate from old settings
     if(m_settings->childGroups().isEmpty())
