@@ -19,6 +19,7 @@
 #define LIST_H
 
 #include <QStringList>
+#include <QPointer>
 #include <QPixmap>
 #include <QWidget>
 #include <QPoint>
@@ -61,6 +62,9 @@ public:
 
     void removeDuplicates();
 
+    void stopSearching();
+    bool searching() const;
+
 protected:
     virtual bool eventFilter(QObject *obj, QEvent *event);
     virtual void moveEvent(QMoveEvent *);
@@ -79,6 +83,7 @@ private:
     void setPriority(int);
     void resizeNumberLabel();
     void moveNumberLabel();
+    QRect viewportMappedGeometry() const;
 
     enum LoadItem { LoadItemCurrent,
                     LoadItemNext, LoadItemPrevious,
@@ -98,6 +103,7 @@ signals:
 
 public slots:
     void clear();
+    void startSearching();
 
 private slots:
     void slotAddOne();
@@ -109,6 +115,8 @@ private slots:
     void slotSortList();
     void slotResetPriorities();
     void slotResetPriority();
+    void slotSearchTicker(const QString &);
+    void slotSearchTickerDestroyed();
     void loadItem(LoadItem = LoadItemCurrent);
     void moveItem(MoveItem);
 
@@ -122,6 +130,8 @@ private:
     QString m_startDragText;
     ListItem::Priority m_startDragPriority;
     QLabel *m_number;
+    QPointer<QWidget> m_searchWidget;
+    QAbstractItemDelegate *m_oldDelegate, *m_persistentDelegate;
 };
 
 inline
@@ -134,6 +144,12 @@ inline
 bool List::ignoreInput() const
 {
     return m_ignoreInput;
+}
+
+inline
+bool List::searching() const
+{
+    return !m_searchWidget.isNull();
 }
 
 #endif // LIST_H

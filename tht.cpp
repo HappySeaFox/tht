@@ -190,6 +190,7 @@ THT::THT(QWidget *parent) :
     // lock links
     new QShortcut(Qt::CTRL+Qt::Key_L, this, SLOT(slotLockLinks()));
     new QShortcut(Qt::Key_L, this, SLOT(slotLoadTicker()));
+    new QShortcut(QKeySequence::Find, this, SLOT(slotOpenOrCloseSearchTicker()));
 }
 
 THT::~THT()
@@ -1103,6 +1104,32 @@ void THT::slotLoadPredefinedTicker()
         return;
 
     slotLoadTicker(s->property("ticker").toString());
+}
+
+void THT::slotOpenOrCloseSearchTicker()
+{
+    bool done = false;
+
+    foreach(List *l, m_lists)
+    {
+        if(l->searching())
+        {
+            l->stopSearching();
+            done = true;
+        }
+    }
+
+    if(done)
+        return;
+
+    foreach(List *l, m_lists)
+    {
+        if(l->hasFocus())
+        {
+            l->startSearching();
+            break;
+        }
+    }
 }
 
 bool THT::setForeignFocus(HWND window, DWORD threadId)
