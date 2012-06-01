@@ -1166,7 +1166,8 @@ void List::slotSearchTickerNext()
     if(index >= m_foundItems.size())
         index = 0;
 
-    ui->list->setCurrentItem(m_foundItems[index], QItemSelectionModel::ClearAndSelect);
+    if(m_foundItems[index])
+        ui->list->setCurrentItem(m_foundItems[index], QItemSelectionModel::ClearAndSelect);
 }
 
 void List::slotExportToClipboard()
