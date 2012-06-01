@@ -37,7 +37,7 @@ protected:
 
 signals:
     void ticker(const QString &);
-    void returnPressed();
+    void next();
 
 private:
     Ui::SearchTicker *ui;
