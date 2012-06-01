@@ -83,7 +83,6 @@ private:
     void setPriority(int);
     void resizeNumberLabel();
     void moveNumberLabel();
-    QRect viewportMappedGeometry() const;
 
     enum LoadItem { LoadItemCurrent,
                     LoadItemNext, LoadItemPrevious,

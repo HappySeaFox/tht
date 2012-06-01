@@ -793,18 +793,10 @@ void List::resizeNumberLabel()
 
 void List::moveNumberLabel()
 {
-    QRect rect = viewportMappedGeometry();
-
-    m_number->move(rect.topLeft().x() + ui->list->viewport()->width() - m_number->width() - 1,
-                   rect.bottomRight().y() - m_number->height()/2 + 1);
-}
-
-QRect List::viewportMappedGeometry() const
-{
     const QWidget *w = ui->list;
 
-    return QRect(w->mapTo(window(), QPoint(0,0)),
-                 w->mapTo(window(), w->rect().bottomRight()));
+    m_number->move(w->mapTo(window(), QPoint(0,0)).x() + ui->list->viewport()->width() - m_number->width() - 1,
+                   w->mapTo(window(), w->rect().bottomRight()).y() - m_number->height()/2 + 1);
 }
 
 void List::loadItem(LoadItem litem)
@@ -1115,27 +1107,25 @@ void List::slotResetPriority()
 
 void List::startSearching()
 {
+    qDebug("Start searching a ticker");
+
     m_number->hide();
 
-    m_searchWidget = new SearchTicker(window());
+    m_searchWidget = new SearchTicker(this);
 
     ui->list->setItemDelegate(m_persistentDelegate);
 
     connect(m_searchWidget, SIGNAL(ticker(const QString &)), this, SLOT(slotSearchTicker(const QString &)));
     connect(m_searchWidget, SIGNAL(destroyed()), this, SLOT(slotSearchTickerDestroyed()));
 
-    QRect rect = viewportMappedGeometry();
-
-    m_searchWidget->move(rect.bottomLeft());
-    m_searchWidget->resize(rect.width(), m_searchWidget->height());
     m_searchWidget->show();
     m_searchWidget->setFocus();
+
+    ui->gridLayout->addWidget(m_searchWidget, 5, 0, 1, 2);
 }
 
 void List::slotSearchTicker(const QString &ticker)
 {
-    qDebug("Searching ticker \"%s\"", qPrintable(ticker));
-
     if(ticker.isEmpty())
         return;
 
