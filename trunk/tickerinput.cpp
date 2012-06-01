@@ -26,7 +26,7 @@ TickerInput::TickerInput(QWidget *parent) :
     ui(new Ui::TickerInput)
 {
     ui->setupUi(this);
-    ui->line->setValidator(new QRegExpValidator(Settings::instance()->tickerValidator()));
+    ui->line->setValidator(new QRegExpValidator(Settings::instance()->tickerValidator(), ui->line));
 
     ui->line->setText(Settings::instance()->lastTickerInput());
     ui->line->selectAll();
