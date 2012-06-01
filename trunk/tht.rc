@@ -31,7 +31,7 @@ BEGIN
           VALUE "LegalCopyright",     "(C) 2012 Dmitry Baryshev"
           VALUE "LegalTrademarks",    ""
           VALUE "OriginalFilename",   quote(TARGET) ".exe"
-          VALUE "ProductName",        "THT"
+          VALUE "ProductName",        "Trader's Home Task"
           VALUE "ProductVersion",     quote(NVER)
           VALUE "PrivateBuild",       ""
           VALUE "SpecialBuild",       ""
