@@ -25,7 +25,7 @@
 #include "ui_searchticker.h"
 
 SearchTicker::SearchTicker(QWidget *parent) :
-    QWidget(parent, Qt::FramelessWindowHint),
+    QWidget(parent),
     ui(new Ui::SearchTicker)
 {
     ui->setupUi(this);
