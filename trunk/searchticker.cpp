@@ -16,6 +16,7 @@
  */
 
 #include <QRegExpValidator>
+#include <QKeySequence>
 #include <QKeyEvent>
 #include <QTimer>
 #include <QEvent>
@@ -62,10 +63,12 @@ bool SearchTicker::eventFilter(QObject *watched, QEvent *e)
             {
                 QKeyEvent *ke = static_cast<QKeyEvent *>(e);
 
-                if(ke->key() == Qt::Key_Escape)
+                if(ke->matches(QKeySequence::FindNext))
+                    emit next();
+                else if(ke->key() == Qt::Key_Escape
+                        || ke->key() == Qt::Key_Return
+                        || ke->key() == Qt::Key_Enter)
                     doit = true;
-                else if(ke->key() == Qt::Key_Return || ke->key() == Qt::Key_Enter)
-                    emit returnPressed();
             }
             break;
 

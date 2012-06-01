@@ -1116,8 +1116,8 @@ void List::startSearching()
     ui->list->setItemDelegate(m_persistentDelegate);
 
     connect(m_searchWidget, SIGNAL(ticker(const QString &)), this, SLOT(slotSearchTicker(const QString &)));
+    connect(m_searchWidget, SIGNAL(next()), this, SLOT(slotSearchTickerNext()));
     connect(m_searchWidget, SIGNAL(destroyed()), this, SLOT(slotSearchTickerDestroyed()));
-    connect(m_searchWidget, SIGNAL(returnPressed()), this, SLOT(slotSearchTickerNext()));
 
     m_searchWidget->show();
     m_searchWidget->setFocus();
