@@ -762,7 +762,7 @@ void List::resizeNumberLabel()
 
     moveNumberLabel();
 }
-#include <QDebug>
+
 void List::moveNumberLabel()
 {
     m_number->move(ui->list->viewport()->width() - m_number->width(),
@@ -781,7 +781,7 @@ void List::moveNumberLabel()
     }
 
     m_number->move(topLeft.x() + ui->list->viewport()->width() - m_number->width() - 3,
-                   bottomRight.y() - m_number->height()/2 + 2);
+                   bottomRight.y() - m_number->height()/2 + 3);
 }
 
 void List::loadItem(LoadItem litem)
