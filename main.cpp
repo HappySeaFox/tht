@@ -113,5 +113,9 @@ int main(int argc, char *argv[])
     QObject::connect(&app, SIGNAL(messageReceived(const QString &)),
                         &w, SLOT(slotMessageReceived(const QString &)));
 
-    return app.exec();
+    int code = app.exec();
+
+    qDebug("Goodbye at %s (exit code %d)", qPrintable(QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss")), code);
+
+    return code;
 }
