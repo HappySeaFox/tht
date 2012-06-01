@@ -62,10 +62,10 @@ bool SearchTicker::eventFilter(QObject *watched, QEvent *e)
             {
                 QKeyEvent *ke = static_cast<QKeyEvent *>(e);
 
-                if(ke->key() == Qt::Key_Escape
-                        || ke->key() == Qt::Key_Return
-                        || ke->key() == Qt::Key_Enter)
+                if(ke->key() == Qt::Key_Escape)
                     doit = true;
+                else if(ke->key() == Qt::Key_Return || ke->key() == Qt::Key_Enter)
+                    emit returnPressed();
             }
             break;
 

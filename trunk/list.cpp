@@ -855,8 +855,7 @@ void List::loadItem(LoadItem litem)
         return;
     }
 
-    ui->list->setCurrentItem(item);
-    item->setSelected(true);
+    ui->list->setCurrentItem(item, QItemSelectionModel::ClearAndSelect);
     emit loadTicker(item->text());
 }
 
@@ -1109,6 +1108,7 @@ void List::startSearching()
 {
     qDebug("Start searching a ticker");
 
+    m_foundItems.clear();
     m_number->hide();
 
     m_searchWidget = new SearchTicker(this);
@@ -1117,6 +1117,7 @@ void List::startSearching()
 
     connect(m_searchWidget, SIGNAL(ticker(const QString &)), this, SLOT(slotSearchTicker(const QString &)));
     connect(m_searchWidget, SIGNAL(destroyed()), this, SLOT(slotSearchTickerDestroyed()));
+    connect(m_searchWidget, SIGNAL(returnPressed()), this, SLOT(slotSearchTickerNext()));
 
     m_searchWidget->show();
     m_searchWidget->setFocus();
@@ -1129,13 +1130,10 @@ void List::slotSearchTicker(const QString &ticker)
     if(ticker.isEmpty())
         return;
 
-    QList<QListWidgetItem *> items = ui->list->findItems(ticker, Qt::MatchStartsWith);
+    m_foundItems = ui->list->findItems(ticker, Qt::MatchStartsWith);
 
-    if(!items.isEmpty() && items[0])
-    {
-        ui->list->setCurrentItem(items[0]);
-        items[0]->setSelected(true);
-    }
+    if(!m_foundItems.isEmpty() && m_foundItems[0])
+        ui->list->setCurrentItem(m_foundItems[0], QItemSelectionModel::ClearAndSelect);
 }
 
 void List::slotSearchTickerDestroyed()
@@ -1145,10 +1143,30 @@ void List::slotSearchTickerDestroyed()
     // revert old delegate
     ui->list->setItemDelegate(m_oldDelegate);
 
+    m_foundItems.clear();
     m_number->show();
 
     if(window()->focusWidget()->objectName() != "list")
         setFocus();
+}
+
+void List::slotSearchTickerNext()
+{
+    // nothing to cycle
+    if(m_foundItems.size() < 2)
+        return;
+
+    int index = m_foundItems.indexOf(ui->list->currentItem());
+
+    if(index < 0)
+        return;
+
+    index++;
+
+    if(index >= m_foundItems.size())
+        index = 0;
+
+    ui->list->setCurrentItem(m_foundItems[index], QItemSelectionModel::ClearAndSelect);
 }
 
 void List::slotExportToClipboard()

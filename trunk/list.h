@@ -23,9 +23,11 @@
 #include <QPixmap>
 #include <QWidget>
 #include <QPoint>
+#include <QList>
 
 #include "listitem.h"
 
+class QListWidgetItem;
 class QLabel;
 
 namespace Ui
@@ -116,6 +118,7 @@ private slots:
     void slotResetPriority();
     void slotSearchTicker(const QString &);
     void slotSearchTickerDestroyed();
+    void slotSearchTickerNext();
     void loadItem(LoadItem = LoadItemCurrent);
     void moveItem(MoveItem);
 
@@ -131,6 +134,7 @@ private:
     QLabel *m_number;
     QPointer<QWidget> m_searchWidget;
     QAbstractItemDelegate *m_oldDelegate, *m_persistentDelegate;
+    QList<QListWidgetItem *> m_foundItems;
 };
 
 inline
