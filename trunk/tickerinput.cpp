@@ -19,6 +19,7 @@
 
 #include "settings.h"
 #include "tickerinput.h"
+#include "uppercasevalidator.h"
 #include "ui_tickerinput.h"
 
 TickerInput::TickerInput(QWidget *parent) :
@@ -26,7 +27,7 @@ TickerInput::TickerInput(QWidget *parent) :
     ui(new Ui::TickerInput)
 {
     ui->setupUi(this);
-    ui->line->setValidator(new QRegExpValidator(Settings::instance()->tickerValidator(), ui->line));
+    ui->line->setValidator(new UpperCaseValidator(ui->line));
 
     ui->line->setText(Settings::instance()->lastTickerInput());
     ui->line->selectAll();

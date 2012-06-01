@@ -15,6 +15,7 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <QStyledItemDelegate>
 #include <QDesktopServices>
 #include <QListWidgetItem>
 #include <QLinearGradient>
@@ -44,10 +45,32 @@
 
 #include "tickerinformationtooltip.h"
 #include "tickerinput.h"
+#include "searchticker.h"
 #include "settings.h"
 #include "listitem.h"
 #include "list.h"
 #include "ui_list.h"
+
+class PersistentSelectionDelegate : public QStyledItemDelegate
+{
+public:
+    PersistentSelectionDelegate(QObject *parent = 0)
+        : QStyledItemDelegate(parent)
+    {}
+
+    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
+    {
+        QStyleOptionViewItemV4 optionV4 =
+                    *qstyleoption_cast<const QStyleOptionViewItemV4 *>(&option);
+
+        if(optionV4.state & QStyle::State_Enabled && optionV4.state & QStyle::State_Selected)
+            optionV4.state |= QStyle::State_Active;
+
+        QStyledItemDelegate::paint(painter, optionV4, index);
+    }
+};
+
+/*****************************************/
 
 List::List(int group, QWidget *parent) :
     QWidget(parent),
@@ -59,8 +82,11 @@ List::List(int group, QWidget *parent) :
 {
     ui->setupUi(this);
 
+    m_persistentDelegate = new PersistentSelectionDelegate;
+    m_oldDelegate = ui->list->itemDelegate();
+
     // number of tickers
-    m_number = new QLabel(parent);
+    m_number = new QLabel(window());
     m_number->setAttribute(Qt::WA_TransparentForMouseEvents);
     m_number->setMinimumWidth(20);
     m_number->setFrameShape(QFrame::Box);
@@ -203,6 +229,12 @@ void List::removeDuplicates()
         numberOfItemsChanged();
         save();
     }
+}
+
+void List::stopSearching()
+{
+    m_searchWidget->close();
+    setFocus();
 }
 
 bool List::eventFilter(QObject *obj, QEvent *event)
@@ -761,23 +793,18 @@ void List::resizeNumberLabel()
 
 void List::moveNumberLabel()
 {
-    m_number->move(ui->list->viewport()->width() - m_number->width(),
-                   ui->list->viewport()->height() - m_number->height());
+    QRect rect = viewportMappedGeometry();
 
-    // some magic
-    QWidget *widget = ui->list->viewport();
-    QPoint topLeft = ui->list->viewport()->geometry().topLeft();
-    QPoint bottomRight = ui->list->viewport()->geometry().bottomRight();
+    m_number->move(rect.topLeft().x() + ui->list->viewport()->width() - m_number->width() - 1,
+                   rect.bottomRight().y() - m_number->height()/2 + 1);
+}
 
-    while(widget->parentWidget())
-    {
-        topLeft = widget->mapToParent(topLeft);
-        bottomRight = widget->mapToParent(bottomRight);
-        widget = widget->parentWidget();
-    }
+QRect List::viewportMappedGeometry() const
+{
+    const QWidget *w = ui->list;
 
-    m_number->move(topLeft.x() + ui->list->viewport()->width() - m_number->width() - 3,
-                   bottomRight.y() - m_number->height()/2 + 3);
+    return QRect(w->mapTo(window(), QPoint(0,0)),
+                 w->mapTo(window(), w->rect().bottomRight()));
 }
 
 void List::loadItem(LoadItem litem)
@@ -1084,6 +1111,54 @@ void List::slotResetPriority()
 
     i->setPriority(ListItem::PriorityNormal);
     save();
+}
+
+void List::startSearching()
+{
+    m_number->hide();
+
+    m_searchWidget = new SearchTicker(window());
+
+    ui->list->setItemDelegate(m_persistentDelegate);
+
+    connect(m_searchWidget, SIGNAL(ticker(const QString &)), this, SLOT(slotSearchTicker(const QString &)));
+    connect(m_searchWidget, SIGNAL(destroyed()), this, SLOT(slotSearchTickerDestroyed()));
+
+    QRect rect = viewportMappedGeometry();
+
+    m_searchWidget->move(rect.bottomLeft());
+    m_searchWidget->resize(rect.width(), m_searchWidget->height());
+    m_searchWidget->show();
+    m_searchWidget->setFocus();
+}
+
+void List::slotSearchTicker(const QString &ticker)
+{
+    qDebug("Searching ticker \"%s\"", qPrintable(ticker));
+
+    if(ticker.isEmpty())
+        return;
+
+    QList<QListWidgetItem *> items = ui->list->findItems(ticker, Qt::MatchStartsWith);
+
+    if(!items.isEmpty() && items[0])
+    {
+        ui->list->setCurrentItem(items[0]);
+        items[0]->setSelected(true);
+    }
+}
+
+void List::slotSearchTickerDestroyed()
+{
+    qDebug("Searching ticker has finished");
+
+    // revert old delegate
+    ui->list->setItemDelegate(m_oldDelegate);
+
+    m_number->show();
+
+    if(window()->focusWidget()->objectName() != "list")
+        setFocus();
 }
 
 void List::slotExportToClipboard()

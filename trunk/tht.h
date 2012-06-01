@@ -132,6 +132,7 @@ private slots:
     void slotMessageReceived(const QString &);
     void slotNewVersion(const QString &);
     void slotLoadPredefinedTicker();
+    void slotOpenOrCloseSearchTicker();
 
 private:
     Ui::THT *ui;
