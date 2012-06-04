@@ -1144,19 +1144,22 @@ void List::startSearching()
 
     m_foundItems.clear();
 
-    if(!Settings::instance()->miniTickerEntry())
-        m_number->hide();
-
     ui->list->setItemDelegate(m_persistentDelegate);
 
     ui->widgetSearch->startSearching();
     ui->stack->setCurrentIndex(1);
     ui->stack->currentWidget()->setFocus();
+
+    if(!Settings::instance()->miniTickerEntry())
+    {
+        m_number->hide();
+        ui->stack->show();
+    }
 }
 
 bool List::searching() const
 {
-    return ui->stack->currentIndex();
+    return Settings::instance()->miniTickerEntry() ? ui->stack->currentIndex() : ui->stack->isVisible();
 }
 
 void List::reconfigureMiniTickerEntry()
