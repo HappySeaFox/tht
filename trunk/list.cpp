@@ -964,6 +964,7 @@ void List::focusMiniTickerEntry()
     {
         ui->stack->setCurrentIndex(0);
         ui->stack->currentWidget()->setFocus();
+        ui->widgetInput->flash();
     }
 }
 

@@ -17,8 +17,11 @@
 
 #include <QKeySequence>
 #include <QKeyEvent>
+#include <QTimer>
+#include <QBrush>
 #include <QEvent>
 
+#include "settings.h"
 #include "tickerminiinput.h"
 #include "uppercasevalidator.h"
 #include "ui_tickerminiinput.h"
@@ -29,6 +32,11 @@ TickerMiniInput::TickerMiniInput(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    m_timer = new QTimer(this);
+    m_timer->setInterval(250);
+    m_timer->setSingleShot(true);
+    connect(m_timer, SIGNAL(timeout()), this, SLOT(slotRevertPalette()));
+
     setFocusProxy(ui->line);
 
     ui->line->setValidator(new UpperCaseValidator(ui->line));
@@ -38,6 +46,15 @@ TickerMiniInput::TickerMiniInput(QWidget *parent) :
 TickerMiniInput::~TickerMiniInput()
 {
     delete ui;
+}
+
+void TickerMiniInput::flash()
+{
+    QPalette p = ui->line->palette();
+    p.setBrush(QPalette::Base, p.brush(QPalette::ToolTipBase));
+    ui->line->setPalette(p);
+
+    m_timer->start();
 }
 
 bool TickerMiniInput::eventFilter(QObject *watched, QEvent *e)
@@ -77,4 +94,9 @@ bool TickerMiniInput::eventFilter(QObject *watched, QEvent *e)
     }
 
     return QWidget::eventFilter(watched, e);
+}
+
+void TickerMiniInput::slotRevertPalette()
+{
+    ui->line->setPalette(QApplication::palette(ui->line->metaObject()->className()));
 }
