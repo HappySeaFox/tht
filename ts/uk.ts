@@ -108,29 +108,29 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
         <translation>Експортувати в буфер обміну</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="996"/>
-        <location filename="../list.cpp" line="1083"/>
+        <location filename="../list.cpp" line="994"/>
+        <location filename="../list.cpp" line="1081"/>
         <source>Choose a file</source>
         <translation>Виберіть файл</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1044"/>
-        <location filename="../list.cpp" line="1095"/>
+        <location filename="../list.cpp" line="1042"/>
+        <location filename="../list.cpp" line="1093"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1044"/>
+        <location filename="../list.cpp" line="1042"/>
         <source>Cannot open the following files: %1</source>
         <translation>Неможливо відкрити наступні файли: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1085"/>
+        <location filename="../list.cpp" line="1083"/>
         <source>Text files (*.txt);;All files (*.*)</source>
         <translation>Текстові файли (*.txt);;Всі файли (*.*)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1095"/>
+        <location filename="../list.cpp" line="1093"/>
         <source>Cannot save to file %1</source>
         <translation>Неможливо зберегти в файл %1</translation>
     </message>
@@ -148,14 +148,19 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
         <translation>Кількість списків:</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="75"/>
+        <location filename="../options.ui" line="61"/>
         <source>Save position and size</source>
         <translation>Зберегти позицію та розмір</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="54"/>
+        <location filename="../options.ui" line="68"/>
         <source>Automatically save tickers</source>
         <translation>Зберігати тікери автоматично</translation>
+    </message>
+    <message>
+        <location filename="../options.ui" line="82"/>
+        <source>Fast ticker entry</source>
+        <translation>Швидке введення тікера</translation>
     </message>
     <message>
         <location filename="../options.ui" line="47"/>
@@ -163,19 +168,14 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
         <translation>Поверх всіх вікон</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="61"/>
+        <location filename="../options.ui" line="54"/>
         <source>Hide to tray</source>
         <translation>Ховатися в трей</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="68"/>
+        <location filename="../options.ui" line="75"/>
         <source>Allow duplicates in a ticker list</source>
         <translation>Дозволити дублікати в списку токарів</translation>
-    </message>
-    <message>
-        <location filename="../options.ui" line="82"/>
-        <source>Mini ticker entry</source>
-        <translation>Міні введення тікера</translation>
     </message>
 </context>
 <context>

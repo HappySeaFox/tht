@@ -25,6 +25,16 @@ Options::Options(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    setStyleSheet(
+                "QDialog{"
+                "background-image: url(:/images/options-background.png);"
+                "background-position: top right;"
+                "background-repeat: no-repeat;"
+                "background-origin: content;"
+                "padding: 12px 12px 0 0;"
+                "}"
+                );
+
     for(int i = 0;i < Settings::instance()->maximumNumberOfLists();i++)
         ui->comboNumberOfLists->addItem(QString::number(i+1));
 
