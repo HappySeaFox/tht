@@ -247,7 +247,6 @@ void List::stopSearching()
     ui->list->setItemDelegate(m_oldDelegate);
 
     m_foundItems.clear();
-    m_number->show();
     ui->widgetSearch->stopSearching();
 
     if(window()->focusWidget()->objectName() != "list")
@@ -964,7 +963,7 @@ void List::focusMiniTickerEntry()
     if(Settings::instance()->miniTickerEntry())
     {
         ui->stack->setCurrentIndex(0);
-        ui->stack->widget(0)->setFocus();
+        ui->stack->currentWidget()->setFocus();
     }
 }
 
@@ -1151,10 +1150,7 @@ void List::startSearching()
     ui->stack->currentWidget()->setFocus();
 
     if(!Settings::instance()->miniTickerEntry())
-    {
-        m_number->hide();
         ui->stack->show();
-    }
 }
 
 bool List::searching() const

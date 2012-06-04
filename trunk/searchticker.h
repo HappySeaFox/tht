@@ -49,12 +49,6 @@ private:
 };
 
 inline
-void SearchTicker::startSearching()
-{
-    m_active = true;
-}
-
-inline
 void SearchTicker::stopSearching()
 {
     m_active = false;
