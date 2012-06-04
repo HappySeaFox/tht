@@ -44,8 +44,8 @@
 #include <QPen>
 
 #include "tickerinformationtooltip.h"
-#include "tickerinput.h"
 #include "searchticker.h"
+#include "tickerinput.h"
 #include "settings.h"
 #include "listitem.h"
 #include "list.h"
