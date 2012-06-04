@@ -24,6 +24,8 @@ namespace Ui {
 class TickerMiniInput;
 }
 
+class QTimer;
+
 class TickerMiniInput : public QFrame
 {
     Q_OBJECT
@@ -32,15 +34,21 @@ public:
     explicit TickerMiniInput(QWidget *parent = 0);
     ~TickerMiniInput();
 
-signals:
-    void addTicker(const QString &);
-    void loadTicker(const QString &);
+    void flash();
 
 protected:
     virtual bool eventFilter(QObject *watched, QEvent *);
 
+signals:
+    void addTicker(const QString &);
+    void loadTicker(const QString &);
+
+private slots:
+    void slotRevertPalette();
+
 private:
     Ui::TickerMiniInput *ui;
+    QTimer *m_timer;
 };
 
 #endif // TICKERMINIINPUT_H
