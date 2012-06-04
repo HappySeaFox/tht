@@ -15,49 +15,32 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef SEARCHTICKER_H
-#define SEARCHTICKER_H
+#ifndef TICKERMINIINPUT_H
+#define TICKERMINIINPUT_H
 
-#include <QWidget>
+#include <QFrame>
 
 namespace Ui {
-class SearchTicker;
+class TickerMiniInput;
 }
 
-class SearchTicker : public QWidget
+class TickerMiniInput : public QFrame
 {
     Q_OBJECT
-
+    
 public:
-    explicit SearchTicker(QWidget *parent = 0);
-    ~SearchTicker();
+    explicit TickerMiniInput(QWidget *parent = 0);
+    ~TickerMiniInput();
 
-    void startSearching();
-    void stopSearching();
+signals:
+    void addTicker(const QString &);
+    void loadTicker(const QString &);
 
 protected:
     virtual bool eventFilter(QObject *watched, QEvent *);
 
-signals:
-    void ticker(const QString &);
-    void next();
-    void cancel();
-
 private:
-    Ui::SearchTicker *ui;
-    bool m_active;
+    Ui::TickerMiniInput *ui;
 };
 
-inline
-void SearchTicker::startSearching()
-{
-    m_active = true;
-}
-
-inline
-void SearchTicker::stopSearching()
-{
-    m_active = false;
-}
-
-#endif // SEARCHTICKER_H
+#endif // TICKERMINIINPUT_H

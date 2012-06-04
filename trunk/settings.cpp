@@ -134,6 +134,16 @@ QString Settings::lastScreenShotDirectory()
     return load<QString>("last-screenshot-directory");
 }
 
+void Settings::setMiniTickerEntry(bool mte, SyncType sync)
+{
+    save<bool>("mini-ticker-entry", mte, sync);
+}
+
+bool Settings::miniTickerEntry()
+{
+    return load<bool>("mini-ticker-entry", true);
+}
+
 void Settings::setAllowDuplicates(bool allow, SyncType sync)
 {
     save<bool>("allow-duplicates", allow, sync);

@@ -44,6 +44,7 @@ void Options::load()
     ui->checkSave->setChecked(Settings::instance()->saveGeometry());
     ui->checkSaveTickers->setChecked(Settings::instance()->saveTickers());
     ui->checkAllowDups->setChecked(Settings::instance()->allowDuplicates());
+    ui->checkMini->setChecked(Settings::instance()->miniTickerEntry());
 }
 
 void Options::save()
@@ -53,5 +54,6 @@ void Options::save()
     Settings::instance()->setHideToTray(ui->checkTray->isChecked(), Settings::SyncTypeNoSync);
     Settings::instance()->setSaveGeometry(ui->checkSave->isChecked(), Settings::SyncTypeNoSync);
     Settings::instance()->setSaveTickers(ui->checkSaveTickers->isChecked(), Settings::SyncTypeNoSync);
-    Settings::instance()->setAllowDuplicates(ui->checkAllowDups->isChecked()); // also sync
+    Settings::instance()->setAllowDuplicates(ui->checkAllowDups->isChecked(), Settings::SyncTypeNoSync);
+    Settings::instance()->setMiniTickerEntry(ui->checkMini->isChecked()); // also sync
 }

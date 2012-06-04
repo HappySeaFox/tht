@@ -763,6 +763,7 @@ void THT::slotQuit()
 void THT::slotOptions()
 {
     bool oldDups = Settings::instance()->allowDuplicates();
+    bool oldMini = Settings::instance()->miniTickerEntry();
 
     Options opt(this);
 
@@ -784,10 +785,18 @@ void THT::slotOptions()
 
         m_tray->setVisible(Settings::instance()->hideToTray());
 
+        // delete duplicates
         if(oldDups && !Settings::instance()->allowDuplicates())
         {
             foreach(List *l, m_lists)
                 l->removeDuplicates();
+        }
+
+        // reconfigure mini ticker entry
+        if(oldMini != Settings::instance()->miniTickerEntry())
+        {
+            foreach(List *l, m_lists)
+                l->reconfigureMiniTickerEntry();
         }
     }
 }
@@ -865,12 +874,35 @@ void THT::slotLoadTicker(const QString &ticker)
 
 void THT::slotLoadTicker()
 {
-    TickerInput ti(this);
+    if(Settings::instance()->miniTickerEntry())
+    {
+        // find where to set the focus
+        const QWidget *focused = focusWidget();
+        List *found = 0;
 
-    if(ti.exec() != QDialog::Accepted)
-        return;
+        foreach(List *l, m_lists)
+        {
+            if(l->isAncestorOf(focused))
+            {
+                found = l;
+                break;
+            }
+        }
 
-    slotLoadTicker(ti.ticker());
+        if(!found && m_lists.size())
+            found = m_lists.at(0);
+
+        found->focusMiniTickerEntry();
+    }
+    else
+    {
+        TickerInput ti(this);
+
+        if(ti.exec() != QDialog::Accepted)
+            return;
+
+        slotLoadTicker(ti.ticker());
+    }
 }
 
 void THT::slotLoadToNextWindow()

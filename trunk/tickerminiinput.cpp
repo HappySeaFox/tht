@@ -15,78 +15,64 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <QRegExpValidator>
 #include <QKeySequence>
 #include <QKeyEvent>
-#include <QTimer>
 #include <QEvent>
 
-#include "searchticker.h"
+#include "tickerminiinput.h"
 #include "uppercasevalidator.h"
-#include "ui_searchticker.h"
+#include "ui_tickerminiinput.h"
 
-SearchTicker::SearchTicker(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::SearchTicker),
-    m_active(false)
+TickerMiniInput::TickerMiniInput(QWidget *parent) :
+    QFrame(parent),
+    ui(new Ui::TickerMiniInput)
 {
     ui->setupUi(this);
 
-    ui->pushClose->setFocusProxy(ui->line);
     setFocusProxy(ui->line);
 
     ui->line->setValidator(new UpperCaseValidator(ui->line));
-
-    connect(ui->pushClose, SIGNAL(clicked()), this, SIGNAL(cancel()));
-    connect(ui->line, SIGNAL(textChanged(const QString &)), this, SIGNAL(ticker(const QString &)));
-
     ui->line->installEventFilter(this);
 }
 
-SearchTicker::~SearchTicker()
+TickerMiniInput::~TickerMiniInput()
 {
     delete ui;
 }
 
-bool SearchTicker::eventFilter(QObject *watched, QEvent *e)
+bool TickerMiniInput::eventFilter(QObject *watched, QEvent *e)
 {
     if(watched == ui->line)
     {
-        bool doClose = false;
-
         switch(e->type())
         {
-            case QEvent::FocusOut:
-                if(m_active)
-                    doClose = true;
-            break;
-
             case QEvent::KeyPress:
             {
                 QKeyEvent *ke = static_cast<QKeyEvent *>(e);
 
                 // search widget
-                if(ke->matches(QKeySequence::FindNext))
-                    emit next();
-                else switch(ke->key())
+                switch(ke->key())
                 {
-                    case Qt::Key_Escape:
+                    case Qt::Key_Space:
+                        emit addTicker(ui->line->text());
+                        ui->line->clear();
+                    break;
+
                     case Qt::Key_Return:
                     case Qt::Key_Enter:
-                        doClose = true;
+                        emit loadTicker(ui->line->text());
+                        ui->line->selectAll();
+                    break;
+
+                    case Qt::Key_Escape:
+                        ui->line->clear();
                     break;
                 }
             }
-            break;
+            break; // event type
 
             default:
             break;
-        }
-
-        if(doClose)
-        {
-            emit cancel();
-            return true;
         }
     }
 

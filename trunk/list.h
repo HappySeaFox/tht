@@ -19,7 +19,6 @@
 #define LIST_H
 
 #include <QStringList>
-#include <QPointer>
 #include <QPixmap>
 #include <QWidget>
 #include <QPoint>
@@ -45,8 +44,6 @@ public:
     explicit List(int group, QWidget *parent = 0);
     ~List();
 
-    void addTicker(const QString &, ListItem::Priority p = ListItem::PriorityNormal);
-
     bool haveTickers() const;
 
     QString currentTicker() const;
@@ -64,8 +61,10 @@ public:
 
     void removeDuplicates();
 
-    void stopSearching();
     bool searching() const;
+
+    void reconfigureMiniTickerEntry();
+    void focusMiniTickerEntry();
 
 protected:
     virtual bool eventFilter(QObject *obj, QEvent *event);
@@ -103,8 +102,10 @@ signals:
     void dropped(const QString &, ListItem::Priority, const QPoint &);
 
 public slots:
+    void addTicker(const QString &, ListItem::Priority p = ListItem::PriorityNormal);
     void clear();
     void startSearching();
+    void stopSearching();
 
 private slots:
     void slotAddOne();
@@ -117,7 +118,6 @@ private slots:
     void slotResetPriorities();
     void slotResetPriority();
     void slotSearchTicker(const QString &);
-    void slotSearchTickerDestroyed();
     void slotSearchTickerNext();
     void loadItem(LoadItem = LoadItemCurrent);
     void moveItem(MoveItem);
@@ -132,7 +132,6 @@ private:
     QString m_startDragText;
     ListItem::Priority m_startDragPriority;
     QLabel *m_number;
-    QPointer<QWidget> m_searchWidget;
     QAbstractItemDelegate *m_oldDelegate, *m_persistentDelegate;
     QList<QListWidgetItem *> m_foundItems;
 };
@@ -147,12 +146,6 @@ inline
 bool List::ignoreInput() const
 {
     return m_ignoreInput;
-}
-
-inline
-bool List::searching() const
-{
-    return !m_searchWidget.isNull();
 }
 
 #endif // LIST_H

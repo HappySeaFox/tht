@@ -68,69 +68,69 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
         <translation>Експортувати тікери</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="77"/>
+        <location filename="../list.cpp" line="114"/>
         <source>Clear</source>
         <translation>Очистити</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="78"/>
+        <location filename="../list.cpp" line="115"/>
         <source>Sort</source>
         <translation>Відсортувати</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="80"/>
+        <location filename="../list.cpp" line="117"/>
         <source>Reset priorities</source>
         <translation>Скинути пріоритети</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="87"/>
+        <location filename="../list.cpp" line="124"/>
         <source>Add one ticker...</source>
         <translation>Додати один тікер...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="89"/>
+        <location filename="../list.cpp" line="126"/>
         <source>Add from file...</source>
         <translation>Додати з файлу...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="90"/>
+        <location filename="../list.cpp" line="127"/>
         <source>Add from clipboard</source>
         <translation>Додати з буфера обміну</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="94"/>
+        <location filename="../list.cpp" line="131"/>
         <source>Export to file...</source>
         <translation>Експортувати в файл...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="95"/>
+        <location filename="../list.cpp" line="132"/>
         <source>Export to clipboard</source>
         <translation>Експортувати в буфер обміну</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="918"/>
-        <location filename="../list.cpp" line="1005"/>
+        <location filename="../list.cpp" line="996"/>
+        <location filename="../list.cpp" line="1083"/>
         <source>Choose a file</source>
         <translation>Виберіть файл</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="966"/>
-        <location filename="../list.cpp" line="1017"/>
+        <location filename="../list.cpp" line="1044"/>
+        <location filename="../list.cpp" line="1095"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="966"/>
+        <location filename="../list.cpp" line="1044"/>
         <source>Cannot open the following files: %1</source>
         <translation>Неможливо відкрити наступні файли: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1007"/>
+        <location filename="../list.cpp" line="1085"/>
         <source>Text files (*.txt);;All files (*.*)</source>
         <translation>Текстові файли (*.txt);;Всі файли (*.*)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1017"/>
+        <location filename="../list.cpp" line="1095"/>
         <source>Cannot save to file %1</source>
         <translation>Неможливо зберегти в файл %1</translation>
     </message>
@@ -148,29 +148,34 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
         <translation>Кількість списків:</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="70"/>
+        <location filename="../options.ui" line="75"/>
         <source>Save position and size</source>
         <translation>Зберегти позицію та розмір</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="77"/>
+        <location filename="../options.ui" line="54"/>
         <source>Automatically save tickers</source>
         <translation>Зберігати тікери автоматично</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="84"/>
+        <location filename="../options.ui" line="47"/>
         <source>Always on top</source>
         <translation>Поверх всіх вікон</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="91"/>
+        <location filename="../options.ui" line="61"/>
         <source>Hide to tray</source>
         <translation>Ховатися в трей</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="98"/>
+        <location filename="../options.ui" line="68"/>
         <source>Allow duplicates in a ticker list</source>
         <translation>Дозволити дублікати в списку токарів</translation>
+    </message>
+    <message>
+        <location filename="../options.ui" line="82"/>
+        <source>Mini ticker entry</source>
+        <translation>Міні введення тікера</translation>
     </message>
 </context>
 <context>
@@ -333,28 +338,28 @@ the right or middle mouse buttons.</source>
         <translation>Відновити</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="215"/>
+        <location filename="../tht.cpp" line="216"/>
         <source>Notice</source>
         <translation>Замітка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="215"/>
+        <location filename="../tht.cpp" line="216"/>
         <source>THT will continue to run in a system tray</source>
         <translation>ТНТ продовжить роботу в системному лотку</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="943"/>
-        <location filename="../tht.cpp" line="971"/>
+        <location filename="../tht.cpp" line="976"/>
+        <location filename="../tht.cpp" line="1004"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="943"/>
+        <location filename="../tht.cpp" line="976"/>
         <source>Cannot take screenshot</source>
         <translation>Неможливо створити знімок екрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="971"/>
+        <location filename="../tht.cpp" line="1004"/>
         <source>Cannot save screenshot</source>
         <translation>Неможливо зберегти знімок екрана</translation>
     </message>
