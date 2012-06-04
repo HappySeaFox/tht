@@ -48,6 +48,12 @@ SearchTicker::~SearchTicker()
     delete ui;
 }
 
+void SearchTicker::startSearching()
+{
+    m_active = true;
+    ui->line->clear();
+}
+
 bool SearchTicker::eventFilter(QObject *watched, QEvent *e)
 {
     if(watched == ui->line)
