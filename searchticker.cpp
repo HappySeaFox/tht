@@ -36,7 +36,6 @@ SearchTicker::SearchTicker(QWidget *parent) :
 
     ui->line->setValidator(new UpperCaseValidator(ui->line));
 
-    connect(ui->pushClose, SIGNAL(clicked()), this, SLOT(close()));
     connect(ui->line, SIGNAL(textChanged(const QString &)), this, SIGNAL(ticker(const QString &)));
 
     ui->line->installEventFilter(this);
@@ -51,24 +50,29 @@ bool SearchTicker::eventFilter(QObject *watched, QEvent *e)
 {
     if(watched == ui->line)
     {
-        bool doit = false;
+        bool doClose = false;
 
         switch(e->type())
         {
             case QEvent::FocusOut:
-                doit = true;
+                doClose = true;
             break;
 
             case QEvent::KeyPress:
             {
                 QKeyEvent *ke = static_cast<QKeyEvent *>(e);
 
+                // search widget
                 if(ke->matches(QKeySequence::FindNext))
                     emit next();
-                else if(ke->key() == Qt::Key_Escape
-                        || ke->key() == Qt::Key_Return
-                        || ke->key() == Qt::Key_Enter)
-                    doit = true;
+                else switch(ke->key())
+                {
+                    case Qt::Key_Escape:
+                    case Qt::Key_Return:
+                    case Qt::Key_Enter:
+                        doClose = true;
+                    break;
+                }
             }
             break;
 
@@ -76,7 +80,7 @@ bool SearchTicker::eventFilter(QObject *watched, QEvent *e)
             break;
         }
 
-        if(doit)
+        if(doClose)
         {
             QTimer::singleShot(0, this, SLOT(close()));
             return true;

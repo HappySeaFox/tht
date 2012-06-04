@@ -48,5 +48,22 @@
  <resources>
   <include location="tht.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushClose</sender>
+   <signal>clicked()</signal>
+   <receiver>SearchTicker</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>88</x>
+     <y>15</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>94</x>
+     <y>83</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
