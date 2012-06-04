@@ -82,6 +82,14 @@ List::List(int group, QWidget *parent) :
 {
     ui->setupUi(this);
 
+    reconfigureMiniTickerEntry();
+
+    connect(ui->widgetInput, SIGNAL(addTicker(const QString &)), this, SLOT(addTicker(const QString &)));
+    connect(ui->widgetInput, SIGNAL(loadTicker(const QString &)), this, SIGNAL(loadTicker(const QString &)));
+
+    ui->stack->widget(0)->setFocusProxy(ui->widgetInput);
+    ui->stack->widget(1)->setFocusProxy(ui->widgetSearch);
+
     m_persistentDelegate = new PersistentSelectionDelegate;
     m_oldDelegate = ui->list->itemDelegate();
 
@@ -95,7 +103,7 @@ List::List(int group, QWidget *parent) :
     m_number->setStyleSheet
                 ("QLabel{"
                 "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                "                                   stop: 0 #ffefef, stop: 0.5 #F7DB45, stop: 1 #ffefef);"
+                "                                   stop: 0 #FFEFEF, stop: 0.5 #F7DB45, stop: 1 #FFEFEF);"
                 "color: black;"
                 "border: 1px solid gray;"
                 "}");
@@ -233,8 +241,22 @@ void List::removeDuplicates()
 
 void List::stopSearching()
 {
-    m_searchWidget->close();
-    setFocus();
+    qDebug("Searching ticker has finished");
+
+    // revert old delegate
+    ui->list->setItemDelegate(m_oldDelegate);
+
+    m_foundItems.clear();
+    m_number->show();
+    ui->widgetSearch->stopSearching();
+
+    if(window()->focusWidget()->objectName() != "list")
+        setFocus();
+
+    if(Settings::instance()->miniTickerEntry())
+        ui->stack->setCurrentIndex(0);
+    else
+        ui->stack->hide();
 }
 
 bool List::eventFilter(QObject *obj, QEvent *event)
@@ -793,10 +815,10 @@ void List::resizeNumberLabel()
 
 void List::moveNumberLabel()
 {
-    const QWidget *w = ui->list;
+    const QWidget *w = ui->list->viewport();
 
-    m_number->move(w->mapTo(window(), QPoint(0,0)).x() + ui->list->viewport()->width() - m_number->width() - 1,
-                   w->mapTo(window(), w->rect().bottomRight()).y() - m_number->height()/2 + 1);
+    m_number->move(w->mapTo(window(), QPoint(w->width(), 0)).x() - m_number->width(),
+                   w->mapTo(window(), QPoint(0, w->height())).y() - m_number->height()/2);
 }
 
 void List::loadItem(LoadItem litem)
@@ -937,20 +959,32 @@ void List::moveItem(MoveItem mi)
     save();
 }
 
+void List::focusMiniTickerEntry()
+{
+    if(Settings::instance()->miniTickerEntry())
+    {
+        ui->stack->setCurrentIndex(0);
+        ui->stack->widget(0)->setFocus();
+    }
+}
+
 void List::slotAddOne()
 {
     qDebug("Adding one ticker");
 
-    TickerInput ti(this);
+    if(Settings::instance()->miniTickerEntry())
+        focusMiniTickerEntry();
+    else
+    {
+        TickerInput ti(this);
 
-    if(ti.exec() != QDialog::Accepted)
-        return;
+        if(ti.exec() != QDialog::Accepted
+                || !addItem(ti.ticker().toUpper(), true))
+            return;
 
-    if(!addItem(ti.ticker().toUpper(), true))
-        return;
-
-    numberOfItemsChanged();
-    save();
+        numberOfItemsChanged();
+        save();
+    }
 }
 
 void List::slotAddFromFile()
@@ -1109,20 +1143,31 @@ void List::startSearching()
     qDebug("Start searching a ticker");
 
     m_foundItems.clear();
-    m_number->hide();
 
-    m_searchWidget = new SearchTicker(this);
+    if(!Settings::instance()->miniTickerEntry())
+        m_number->hide();
 
     ui->list->setItemDelegate(m_persistentDelegate);
 
-    connect(m_searchWidget, SIGNAL(ticker(const QString &)), this, SLOT(slotSearchTicker(const QString &)));
-    connect(m_searchWidget, SIGNAL(next()), this, SLOT(slotSearchTickerNext()));
-    connect(m_searchWidget, SIGNAL(destroyed()), this, SLOT(slotSearchTickerDestroyed()));
+    ui->widgetSearch->startSearching();
+    ui->stack->setCurrentIndex(1);
+    ui->stack->currentWidget()->setFocus();
+}
 
-    m_searchWidget->show();
-    m_searchWidget->setFocus();
+bool List::searching() const
+{
+    return ui->stack->currentIndex();
+}
 
-    ui->gridLayout->addWidget(m_searchWidget, 5, 0, 1, 2);
+void List::reconfigureMiniTickerEntry()
+{
+    if(Settings::instance()->miniTickerEntry())
+    {
+        ui->stack->show();
+        ui->stack->setCurrentIndex(0);
+    }
+    else
+        ui->stack->hide();
 }
 
 void List::slotSearchTicker(const QString &ticker)
@@ -1134,20 +1179,6 @@ void List::slotSearchTicker(const QString &ticker)
 
     if(!m_foundItems.isEmpty() && m_foundItems[0])
         ui->list->setCurrentItem(m_foundItems[0], QItemSelectionModel::ClearAndSelect);
-}
-
-void List::slotSearchTickerDestroyed()
-{
-    qDebug("Searching ticker has finished");
-
-    // revert old delegate
-    ui->list->setItemDelegate(m_oldDelegate);
-
-    m_foundItems.clear();
-    m_number->show();
-
-    if(window()->focusWidget()->objectName() != "list")
-        setFocus();
 }
 
 void List::slotSearchTickerNext()

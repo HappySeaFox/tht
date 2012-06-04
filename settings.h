@@ -48,6 +48,9 @@ public:
     void setLastScreenShotDirectory(QString, SyncType sync = SyncTypeSync);
     QString lastScreenShotDirectory();
 
+    void setMiniTickerEntry(bool, SyncType sync = SyncTypeSync);
+    bool miniTickerEntry();
+
     void setAllowDuplicates(bool, SyncType sync = SyncTypeSync);
     bool allowDuplicates();
 

@@ -54,7 +54,8 @@ SOURCES += main.cpp\
     updatechecker.cpp \
     listitem.cpp \
     searchticker.cpp \
-    uppercasevalidator.cpp
+    uppercasevalidator.cpp \
+    tickerminiinput.cpp
 
 HEADERS += tht.h \
     list.h \
@@ -79,7 +80,8 @@ HEADERS += tht.h \
     updatechecker.h \
     listitem.h \
     searchticker.h \
-    uppercasevalidator.h
+    uppercasevalidator.h \
+    tickerminiinput.h
 
 FORMS += tht.ui \
     list.ui \
@@ -87,7 +89,8 @@ FORMS += tht.ui \
     about.ui \
     savescreenshot.ui \
     tickerinput.ui \
-    searchticker.ui
+    searchticker.ui \
+    tickerminiinput.ui
 
 RESOURCES += tht.qrc
 
