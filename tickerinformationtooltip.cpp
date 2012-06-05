@@ -311,8 +311,10 @@ void TickerInformationToolTipLabel::resizeEvent(QResizeEvent *e)
 {
     QStyleHintReturnMask frameMask;
     QStyleOption option;
+
     option.init(this);
-    if (style()->styleHint(QStyle::SH_ToolTip_Mask, &option, this, &frameMask))
+
+    if(style()->styleHint(QStyle::SH_ToolTip_Mask, &option, this, &frameMask))
         setMask(frameMask.region);
 
     QLabel::resizeEvent(e);
@@ -333,7 +335,7 @@ TickerInformationToolTipLabel::~TickerInformationToolTipLabel()
 
 void TickerInformationToolTipLabel::hideTip()
 {
-    if (!hideTimer.isActive())
+    if(!hideTimer.isActive())
         hideTimer.start(300, this);
 }
 
@@ -345,8 +347,9 @@ void TickerInformationToolTipLabel::hideTipImmediately()
 
 void TickerInformationToolTipLabel::timerEvent(QTimerEvent *e)
 {
-    if (e->timerId() == hideTimer.timerId()
-        || e->timerId() == expireTimer.timerId()){
+    if(e->timerId() == hideTimer.timerId()
+            || e->timerId() == expireTimer.timerId())
+    {
         hideTimer.stop();
         expireTimer.stop();
         hideTipImmediately();
@@ -355,7 +358,7 @@ void TickerInformationToolTipLabel::timerEvent(QTimerEvent *e)
 
 bool TickerInformationToolTipLabel::eventFilter(QObject *o, QEvent *e)
 {
-    switch (e->type())
+    switch(e->type())
     {
         case QEvent::Leave:
             hideTip();
@@ -382,7 +385,7 @@ bool TickerInformationToolTipLabel::eventFilter(QObject *o, QEvent *e)
 
 int TickerInformationToolTipLabel::getTipScreen(const QPoint &pos)
 {
-    if (QApplication::desktop()->isVirtualDesktop())
+    if(QApplication::desktop()->isVirtualDesktop())
         return QApplication::desktop()->screenNumber(pos);
     else
         return QApplication::desktop()->screenNumber();
@@ -390,7 +393,7 @@ int TickerInformationToolTipLabel::getTipScreen(const QPoint &pos)
 
 void TickerInformationToolTipLabel::placeTip(const QPoint &ps)
 {
-    if (testAttribute(Qt::WA_StyleSheet))
+    if(testAttribute(Qt::WA_StyleSheet))
     {
         //the stylesheet need to know the real parent
         TickerInformationToolTipLabel::instance->setProperty("_q_stylesheet_parent", QVariant::fromValue(0));
