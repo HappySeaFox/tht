@@ -17,6 +17,8 @@
 
 #include <QCoreApplication>
 
+#include <windows.h>
+
 #include "settings.h"
 
 Settings::Settings()
@@ -84,6 +86,21 @@ Settings::Settings()
         m_settings->setValue("version", NVER_STRING);
         m_settings->sync();
     }
+
+    ZeroMemory(&m_version, sizeof(OSVERSIONINFO));
+    m_version.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
+
+    if(!GetVersionEx(&m_version))
+    {
+        qDebug("Cannot get system version (%ld), falling back to XP", GetLastError());
+
+        // fallback to XP
+        m_version.dwMajorVersion = 5;
+        m_version.dwMinorVersion = 1;
+        m_version.dwPlatformId = VER_PLATFORM_WIN32_NT;
+    }
+    else
+        qDebug("Windows version %ld.%ld", m_version.dwMajorVersion, m_version.dwMinorVersion);
 }
 
 Settings::~Settings()

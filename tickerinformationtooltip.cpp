@@ -64,6 +64,7 @@
 #include <QHash>
 
 #include "tickerinformationtooltip.h"
+#include "settings.h"
 
 class TickerInformationToolTipLabel : public QLabel
 {
@@ -160,39 +161,48 @@ void TickerInformationToolTipLabel::reuseTip(const QString &text, bool isTicker)
 
     setWordWrap(Qt::mightBeRichText(text));
     setText(isTicker ? (text + "...") : text);
+
     QFontMetrics fm(font());
     QSize extra(1, 0);
+
     // Make it look good with the default ToolTip font on Mac, which has a small descent.
     if (fm.descent() == 2 && fm.ascent() >= 11)
         ++extra.rheight();
+
     resize(sizeHint() + extra);
 
-    if(isTicker)
+    if(!isTicker)
+        return;
+
+    ticker = text;
+
+    if(reply)
     {
-        ticker = text;
-
-        if(reply)
-        {
-            data.clear();
-            reply->blockSignals(true);
-            reply->abort();
-            delete reply;
-        }
-
-        qDebug("Starting a new network request for \"%s\"", qPrintable(text));
-
-        QNetworkRequest request(
-            QUrl(QString("http://www.google.com/finance/info?infotype=infoquoteall&q=%1")
-                 .arg(text)));
-
-        request.setRawHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; rv:10.0) Gecko/20100101 Firefox/10.0");
-
-        reply = manager->get(request);
-
-        connect(reply, SIGNAL(error(QNetworkReply::NetworkError)), this, SLOT(slotNetworkError(QNetworkReply::NetworkError)));
-        connect(reply, SIGNAL(finished()), this, SLOT(slotNetworkDone()));
-        connect(reply, SIGNAL(readyRead()), this, SLOT(slotNetworkData()));
+        data.clear();
+        reply->blockSignals(true);
+        reply->abort();
+        delete reply;
     }
+
+    qDebug("Starting a new network request for \"%s\"", qPrintable(text));
+
+    // http://finance.yahoo.com/q/in?s=A
+    QNetworkRequest request(
+                QUrl(QString("http://www.google.com/finance/info?infotype=infoquoteall&q=%1")
+                     .arg(text)));
+
+    const OSVERSIONINFO version = Settings::instance()->version();
+
+    request.setRawHeader("User-Agent", QString("Mozilla/5.0 (%1 %2.%3; rv:10.0) Gecko/20100101 Firefox/10.0")
+                         .arg(version.dwPlatformId == VER_PLATFORM_WIN32_NT ? "Windows NT" : "Windows")
+                         .arg(version.dwMajorVersion)
+                         .arg(version.dwMinorVersion).toAscii());
+
+    reply = manager->get(request);
+
+    connect(reply, SIGNAL(error(QNetworkReply::NetworkError)), this, SLOT(slotNetworkError(QNetworkReply::NetworkError)));
+    connect(reply, SIGNAL(finished()), this, SLOT(slotNetworkDone()));
+    connect(reply, SIGNAL(readyRead()), this, SLOT(slotNetworkData()));
 }
 
 void TickerInformationToolTipLabel::slotNetworkError(QNetworkReply::NetworkError err)
