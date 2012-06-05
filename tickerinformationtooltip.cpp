@@ -166,8 +166,8 @@ void TickerInformationToolTipLabel::reuseTip(const QString &text, bool isTicker)
     QFontMetrics fm(font());
     QSize extra(1, 0);
 
-    // Make it look good with the default ToolTip font on Mac, which has a small descent.
-    if (fm.descent() == 2 && fm.ascent() >= 11)
+    // make it look good with the default ToolTip font on Mac, which has a small descent.
+    if(fm.descent() == 2 && fm.ascent() >= 11)
         ++extra.rheight();
 
     resize(sizeHint() + extra);
@@ -175,7 +175,7 @@ void TickerInformationToolTipLabel::reuseTip(const QString &text, bool isTicker)
     if(!isTicker)
         return;
 
-    ticker = text;
+    ticker = QString(text).replace('.', '-'); // Yahoo requires '.' to be replaced with '-'
 
     if(reply)
     {
@@ -188,8 +188,7 @@ void TickerInformationToolTipLabel::reuseTip(const QString &text, bool isTicker)
     qDebug("Starting a new network request for \"%s\"", qPrintable(text));
 
     QNetworkRequest request(
-                QUrl(QString("http://finance.yahoo.com/q/in?s=%1")
-                     .arg(QString(text).replace('.', '-')))); // Yahoo requires '.' to be replaced with '-'
+                QUrl(QString("http://finance.yahoo.com/q/in?s=%1").arg(ticker)));
 
     const OSVERSIONINFO version = Settings::instance()->version();
 
@@ -237,24 +236,22 @@ void TickerInformationToolTipLabel::slotNetworkDone()
     page.mainFrame()->setHtml(data);
 
     // ticker name
-    QWebElementCollection tables = page.mainFrame()->findAllElements("table");
+    QWebElementCollection divs = page.mainFrame()->findAllElements("div.title");
     bool found = false;
+    QString tmp;
+    int index;
 
-    foreach(QWebElement table, tables)
+    QRegExp rx("\\s*\\(" + QRegExp::escape(ticker) + "\\)$");
+
+    foreach(QWebElement div, divs)
     {
-        QWebElement tr = table.findFirst("tr");
-        QWebElement th1 = tr.findFirst("th.yfnc_tablehead1");
+        tmp = div.findFirst("h2").toPlainText();
+        index = rx.indexIn(tmp);
 
-        if(th1.toPlainText() == "Name")
+        if(index >= 0)
         {
-            QWebElement th2 = th1.nextSibling();
-
-            if(th2.toPlainText() == "Ticker")
-            {
-                result = tr.nextSibling().findFirst("td").findFirst("a").toPlainText();
-                found = true;
-                break;
-            }
+            result = tmp.left(index);
+            break;
         }
     }
 
