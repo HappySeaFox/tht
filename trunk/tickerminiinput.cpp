@@ -66,6 +66,7 @@ bool TickerMiniInput::eventFilter(QObject *watched, QEvent *e)
             case QEvent::KeyPress:
             {
                 QKeyEvent *ke = static_cast<QKeyEvent *>(e);
+                bool ate = true;
 
                 // search widget
                 switch(ke->key())
@@ -84,7 +85,14 @@ bool TickerMiniInput::eventFilter(QObject *watched, QEvent *e)
                     case Qt::Key_Escape:
                         ui->line->clear();
                     break;
+
+                    default:
+                        ate = false;
+                    break;
                 }
+
+                if(ate)
+                    return true;
             }
             break; // event type
 
