@@ -236,14 +236,14 @@ void TickerInformationToolTipLabel::slotNetworkDone()
     page.mainFrame()->setHtml(data);
 
     // ticker name
-    QWebElementCollection divs = page.mainFrame()->findAllElements("div.title");
+    QWebElementCollection elements = page.mainFrame()->findAllElements("div.title");
     bool found = false;
     QString tmp;
     int index;
 
     QRegExp rx("\\s*\\(" + QRegExp::escape(ticker) + "\\)$");
 
-    foreach(QWebElement div, divs)
+    foreach(QWebElement div, elements)
     {
         tmp = div.findFirst("h2").toPlainText();
         index = rx.indexIn(tmp);
@@ -263,9 +263,9 @@ void TickerInformationToolTipLabel::slotNetworkDone()
     }
 
     // sector & industry
-    QWebElementCollection ths = page.mainFrame()->findAllElements("th.yfnc_tablehead1");
+    elements = page.mainFrame()->findAllElements("th.yfnc_tablehead1");
 
-    foreach(QWebElement th, ths)
+    foreach(QWebElement th, elements)
     {
         if(sector.isEmpty() && th.toPlainText() == "Sector:")
             sector = th.nextSibling().findFirst("a").toPlainText();
