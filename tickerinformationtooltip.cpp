@@ -63,8 +63,6 @@
 #include <QLabel>
 #include <QStyle>
 #include <QTimer>
-#include <QDebug>
-#include <QHash>
 
 #include "tickerinformationtooltip.h"
 #include "settings.h"
@@ -189,7 +187,6 @@ void TickerInformationToolTipLabel::reuseTip(const QString &text, bool isTicker)
 
     qDebug("Starting a new network request for \"%s\"", qPrintable(text));
 
-    // http://finance.yahoo.com/q/in?s=A
     QNetworkRequest request(
                 QUrl(QString("http://finance.yahoo.com/q/in?s=%1")
                      .arg(QString(text).replace('.', '-')))); // Yahoo requires '.' to be replaced with '-'
