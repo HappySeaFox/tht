@@ -24,6 +24,8 @@
 #include <QPoint>
 #include <QSize>
 
+#include <windows.h>
+
 class Settings
 {
 public:
@@ -34,6 +36,8 @@ public:
     enum SyncType { SyncTypeNoSync, SyncTypeSync };
 
     void sync();
+
+    OSVERSIONINFO version() const;
 
     bool preloadMode() const;
 
@@ -99,7 +103,14 @@ private:
 private:
     QSettings *m_settings;
     QRegExp m_rxTicker;
+    OSVERSIONINFO m_version;
 };
+
+inline
+OSVERSIONINFO Settings::version() const
+{
+    return m_version;
+}
 
 inline
 QRegExp Settings::tickerValidator() const
