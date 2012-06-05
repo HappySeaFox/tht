@@ -47,14 +47,17 @@
 // This TU looks like a crap
 
 #include <QNetworkAccessManager>
-#include <QScriptValueIterator>
+#include <QWebElementCollection>
 #include <QDesktopWidget>
 #include <QTextDocument>
 #include <QNetworkReply>
-#include <QScriptEngine>
 #include <QStylePainter>
 #include <QApplication>
 #include <QStyleOption>
+#include <QWebSettings>
+#include <QWebElement>
+#include <QWebFrame>
+#include <QWebPage>
 #include <QPointer>
 #include <QEvent>
 #include <QLabel>
@@ -188,11 +191,12 @@ void TickerInformationToolTipLabel::reuseTip(const QString &text, bool isTicker)
 
     // http://finance.yahoo.com/q/in?s=A
     QNetworkRequest request(
-                QUrl(QString("http://www.google.com/finance/info?infotype=infoquoteall&q=%1")
-                     .arg(text)));
+                QUrl(QString("http://finance.yahoo.com/q/in?s=%1")
+                     .arg(QString(text).replace('.', '-')))); // Yahoo requires '.' to be replaced with '-'
 
     const OSVERSIONINFO version = Settings::instance()->version();
 
+    request.setRawHeader("Dnt", "1");
     request.setRawHeader("User-Agent", QString("Mozilla/5.0 (%1 %2.%3; rv:10.0) Gecko/20100101 Firefox/10.0")
                          .arg(version.dwPlatformId == VER_PLATFORM_WIN32_NT ? "Windows NT" : "Windows")
                          .arg(version.dwMajorVersion)
@@ -225,31 +229,69 @@ void TickerInformationToolTipLabel::slotNetworkDone()
         return;
     }
 
-    QScriptValue sc, t, name;
-    QScriptEngine engine;
+    QWebPage page;
+    QString result, sector, industry;
 
-    // remove comment
-    data.replace(QRegExp("^\\s*//"), QString());
+    page.settings()->setAttribute(QWebSettings::AutoLoadImages, false);
+    page.settings()->setAttribute(QWebSettings::JavascriptEnabled, false);
+    page.settings()->setAttribute(QWebSettings::JavaEnabled, false);
+    page.settings()->setAttribute(QWebSettings::PluginsEnabled, false);
 
-    sc = engine.evaluate("(" + data + ")");
+    page.mainFrame()->setHtml(data);
 
-    if(engine.hasUncaughtException())
+    // ticker name
+    QWebElementCollection tables = page.mainFrame()->findAllElements("table");
+    bool found = false;
+
+    foreach(QWebElement table, tables)
     {
-        qDebug("Parse error \"%s\"", qPrintable(engine.uncaughtException().toString()));
-        TickerInformationToolTip::showText(QPoint(), tr("Parse error"), false);
+        QWebElement tr = table.findFirst("tr");
+        QWebElement th1 = tr.findFirst("th.yfnc_tablehead1");
+
+        if(th1.toPlainText() == "Name")
+        {
+            QWebElement th2 = th1.nextSibling();
+
+            if(th2.toPlainText() == "Ticker")
+            {
+                result = tr.nextSibling().findFirst("td").findFirst("a").toPlainText();
+                found = true;
+                break;
+            }
+        }
+    }
+
+    if(result.isEmpty())
+    {
+        TickerInformationToolTip::showText(QPoint(), found ? tr("Parse error") : tr("Not found"), false);
         restartExpireTimer();
         return;
     }
 
-    name = sc.property(0).property("name");
-    t = sc.property(0).property("t");
+    // sector & industry
+    QWebElementCollection ths = page.mainFrame()->findAllElements("th.yfnc_tablehead1");
 
-    QString result;
+    foreach(QWebElement th, ths)
+    {
+        if(sector.isEmpty() && th.toPlainText() == "Sector:")
+            sector = th.nextSibling().findFirst("a").toPlainText();
 
-    if(!name.isError() && !t.isError())
-        result = (t.toString() == ticker) ? name.toString() : tr("Not found");
-    else
-        result = tr("Parse error");
+        if(industry.isEmpty() && th.toPlainText() == "Industry:")
+            industry = th.nextSibling().findFirst("a").toPlainText();
+
+        // everything is found
+        if(!sector.isEmpty() && !industry.isEmpty())
+            break;
+    }
+
+    // resulting tooltip
+    if(!sector.isEmpty())
+    {
+        result += '\n' + sector;
+
+        if(!industry.isEmpty())
+            result += " / " + industry;
+    }
 
     TickerInformationToolTip::showText(QPoint(), result, false);
     restartExpireTimer();
@@ -338,7 +380,7 @@ bool TickerInformationToolTipLabel::eventFilter(QObject *o, QEvent *e)
         break;
 
         default:
-            break;
+        break;
     }
 
     return false;
@@ -388,7 +430,7 @@ void TickerInformationToolTipLabel::placeTip(const QPoint &ps)
 
 bool TickerInformationToolTipLabel::tipChanged(const QString &text)
 {
-    if (TickerInformationToolTipLabel::instance->text() != text)
+    if(TickerInformationToolTipLabel::instance->text() != text)
         return true;
 
     return false;
@@ -396,25 +438,26 @@ bool TickerInformationToolTipLabel::tipChanged(const QString &text)
 
 void TickerInformationToolTip::showText(const QPoint &pos, const QString &text, bool ticker)
 {
-    if (TickerInformationToolTipLabel::instance && TickerInformationToolTipLabel::instance->isVisible())
+    if(TickerInformationToolTipLabel::instance && TickerInformationToolTipLabel::instance->isVisible())
     {
-        if (text.isEmpty())
+        if(text.isEmpty())
         {
             TickerInformationToolTipLabel::instance->hideTip();
             return;
         }
-        else if (!TickerInformationToolTipLabel::instance->fadingOut)
+        else if(!TickerInformationToolTipLabel::instance->fadingOut)
         {
-            if (TickerInformationToolTipLabel::instance->tipChanged(text))
+            if(TickerInformationToolTipLabel::instance->tipChanged(text))
             {
                 TickerInformationToolTipLabel::instance->reuseTip(text, ticker);
                 TickerInformationToolTipLabel::instance->placeTip(pos);
             }
+
             return;
         }
     }
 
-    if (!text.isEmpty())
+    if(!text.isEmpty())
     {
         new TickerInformationToolTipLabel(text, ticker, QApplication::desktop()->screen(TickerInformationToolTipLabel::getTipScreen(pos)));
 
