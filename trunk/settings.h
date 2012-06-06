@@ -40,6 +40,8 @@ public:
     OSVERSIONINFO version() const;
 
     QString tickersPersistentDatabaseName() const;
+    QString tickersPersistentDatabasePath() const;
+
     QString tickersMutableDatabaseName() const;
     QString tickersMutableDatabasePath() const;
 
@@ -109,6 +111,7 @@ private:
     QRegExp m_rxTicker;
     OSVERSIONINFO m_version;
     QString m_tickersPersistentDatabaseName;
+    QString m_tickersPersistentDatabasePath;
     QString m_tickersMutableDatabaseName;
     QString m_tickersMutableDatabasePath;
 };
@@ -129,6 +132,12 @@ inline
 QString Settings::tickersMutableDatabasePath() const
 {
     return m_tickersMutableDatabasePath;
+}
+
+inline
+QString Settings::tickersPersistentDatabasePath() const
+{
+    return m_tickersPersistentDatabasePath;
 }
 
 inline

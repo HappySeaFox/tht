@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT += core gui network webkit sql
+QT += core gui network sql
 
 TARGET = THT
 TEMPLATE = app
@@ -57,7 +57,8 @@ SOURCES += main.cpp\
     uppercasevalidator.cpp \
     tickerminiinput.cpp \
     networkaccess.cpp \
-    tickerinformationfetcher.cpp
+    tickerinformationfetcher.cpp \
+    tickersdatabaseupdater.cpp
 
 HEADERS += tht.h \
     list.h \
@@ -85,7 +86,8 @@ HEADERS += tht.h \
     uppercasevalidator.h \
     tickerminiinput.h \
     networkaccess.h \
-    tickerinformationfetcher.h
+    tickerinformationfetcher.h \
+    tickersdatabaseupdater.h
 
 FORMS += tht.ui \
     list.ui \
@@ -172,7 +174,7 @@ GCC=$$findexe("gcc.exe")
     # files to copy
     IMAGEPLUGINS=qgif4.dll qico4.dll qjpeg4.dll qtga4.dll qtiff4.dll
     SQLPLUGINS=qsqlite4.dll
-    QTLIBS=QtCore4.dll QtGui4.dll QtNetwork4.dll QtWebkit4.dll QtSql4.dll
+    QTLIBS=QtCore4.dll QtGui4.dll QtNetwork4.dll QtSql4.dll
     MINGWLIBS=libgcc_s_dw2-1.dll libstdc++-6.dll mingwm10.dll
     QMFILES=ru.qm uk.qm qt_ru.qm qt_uk.qm
     LICENSES=LICENSE.txt LICENSE-LGPL.txt

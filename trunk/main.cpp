@@ -18,8 +18,11 @@
 #include <QtSingleApplication>
 #include <QDesktopServices>
 #include <QTranslator>
+#include <QSqlDatabase>
 #include <QDateTime>
+#include <QSqlError>
 #include <QLocale>
+#include <QFile>
 #include <QIcon>
 #include <QDir>
 
@@ -28,6 +31,7 @@
 
 #include <windows.h>
 
+#include "tickersdatabaseupdater.h"
 #include "qtlockedfile.h"
 #include "settings.h"
 #include "tht.h"
@@ -104,6 +108,20 @@ int main(int argc, char *argv[])
 
     app.installTranslator(&translator_qt);
     app.installTranslator(&translator);
+
+    new TickersDatabaseUpdater;
+
+    // open current ticker databases
+    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE", Settings::instance()->tickersMutableDatabaseName());
+    db.setDatabaseName(Settings::instance()->tickersMutableDatabasePath());
+
+    db = QSqlDatabase::addDatabase("QSQLITE", Settings::instance()->tickersPersistentDatabaseName());
+    db.setDatabaseName(Settings::instance()->tickersPersistentDatabasePath());
+
+    if(!QFile::exists(db.databaseName()) || !db.isValid() || !db.open())
+        qDebug("Cannot open persistent database (%s)", qPrintable(db.lastError().text()));
+    else
+        qDebug("Database has been opened");
 
     THT w;
     w.show();

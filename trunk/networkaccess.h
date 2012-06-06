@@ -26,6 +26,8 @@ public:
 
     QByteArray data() const;
 
+    void clearBuffer();
+
     QNetworkReply::NetworkError error() const;
 
 private:
@@ -63,6 +65,12 @@ inline
 QByteArray NetworkAccess::data() const
 {
     return m_data;
+}
+
+inline
+void NetworkAccess::clearBuffer()
+{
+    m_data.clear();
 }
 
 #endif // TICKERINFORMATIONFETCHER_H
