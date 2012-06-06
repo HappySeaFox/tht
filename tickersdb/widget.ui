@@ -14,29 +14,6 @@
    <string>Finviz parser</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0">
-    <spacer name="horizontalSpacer_2">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>171</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="0" column="1">
-    <widget class="QPushButton" name="pushGet">
-     <property name="text">
-      <string>Get data</string>
-     </property>
-     <property name="shortcut">
-      <string>Ctrl+V</string>
-     </property>
-    </widget>
-   </item>
    <item row="0" column="2">
     <spacer name="horizontalSpacer">
      <property name="orientation">
@@ -44,24 +21,11 @@
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>170</width>
+       <width>0</width>
        <height>20</height>
       </size>
      </property>
     </spacer>
-   </item>
-   <item row="0" column="3">
-    <widget class="QLabel" name="label">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="text">
-      <string>0</string>
-     </property>
-    </widget>
    </item>
    <item row="1" column="0" colspan="4">
     <widget class="QPlainTextEdit" name="plainTextLog">
@@ -79,32 +43,40 @@
      </property>
     </widget>
    </item>
+   <item row="0" column="0">
+    <spacer name="horizontalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>0</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="0" column="1">
+    <widget class="QLabel" name="label">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <tabstops>
-  <tabstop>pushGet</tabstop>
   <tabstop>plainTextLog</tabstop>
  </tabstops>
  <resources/>
- <connections>
-  <connection>
-   <sender>pushGet</sender>
-   <signal>clicked()</signal>
-   <receiver>Widget</receiver>
-   <slot>slotGet()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>315</x>
-     <y>31</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>345</x>
-     <y>25</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
  <slots>
   <slot>slotGet()</slot>
  </slots>

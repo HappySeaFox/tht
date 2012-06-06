@@ -19,6 +19,7 @@
 #define WIDGET_H
 
 #include <QSqlDatabase>
+#include <QStringList>
 #include <QWidget>
 
 namespace Ui {
@@ -46,6 +47,7 @@ private:
     Ui::Widget *ui;
     NetworkAccess *m_net;
     QSqlDatabase db;
+    QStringList oldTickers;
 };
 
 #endif // WIDGET_H
