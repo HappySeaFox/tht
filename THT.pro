@@ -208,6 +208,8 @@ GCC=$$findexe("gcc.exe")
         distbin.commands += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\$$lc\" \"$$T\")
     }
 
+    distbin.commands += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickers.sqlite\" \"$$T\")
+
     distbin.commands += $$mle($$ZIP a -r -tzip -mx=9 tht-standalone-$${VERSION}.zip \"$$T\")
     distbin.commands += $$mle(rd /S /Q \"$$T\")
 

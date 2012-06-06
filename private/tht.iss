@@ -71,6 +71,7 @@ Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescrip
 
 [Files]
 Source: "{#MyAppBuildDir}\release\THT.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyAppSrc}\tickers.sqlite"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#MyAppSrc}\LICENSE.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#MyAppSrc}\LICENSE-LGPL.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#MyAppSrc}\ts\ru.qm"; DestDir: "{app}/translations"; Flags: ignoreversion
