@@ -365,24 +365,11 @@ the right or middle mouse buttons.</source>
     </message>
 </context>
 <context>
-    <name>TickerInformationFetcher</name>
-    <message>
-        <location filename="../tickerinformationfetcher.cpp" line="76"/>
-        <source>Not found</source>
-        <translation>Не знайдено</translation>
-    </message>
-    <message>
-        <location filename="../tickerinformationfetcher.cpp" line="77"/>
-        <source>Network error #%1</source>
-        <translation>Помилка мережі #%1</translation>
-    </message>
-</context>
-<context>
     <name>TickerInformationToolTipLabel</name>
     <message>
-        <location filename="../tickerinformationtooltip.cpp" line="191"/>
-        <source>Parse error</source>
-        <translation>Помилка даних</translation>
+        <location filename="../tickerinformationtooltip.cpp" line="179"/>
+        <source>Not found</source>
+        <translation>Не знайдено</translation>
     </message>
 </context>
 <context>
