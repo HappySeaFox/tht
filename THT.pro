@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT += core gui network webkit
+QT += core gui network webkit sql
 
 TARGET = THT
 TEMPLATE = app
@@ -171,7 +171,8 @@ GCC=$$findexe("gcc.exe")
 
     # files to copy
     IMAGEPLUGINS=qgif4.dll qico4.dll qjpeg4.dll qtga4.dll qtiff4.dll
-    QTLIBS=QtCore4.dll QtGui4.dll QtNetwork4.dll QtWebkit4.dll
+    SQLPLUGINS=qsqlite4.dll
+    QTLIBS=QtCore4.dll QtGui4.dll QtNetwork4.dll QtWebkit4.dll QtSql4.dll
     MINGWLIBS=libgcc_s_dw2-1.dll libstdc++-6.dll mingwm10.dll
     QMFILES=ru.qm uk.qm qt_ru.qm qt_uk.qm
     LICENSES=LICENSE.txt LICENSE-LGPL.txt
@@ -179,6 +180,7 @@ GCC=$$findexe("gcc.exe")
     distbin.commands += $$mle(if exist \"$$T\" rd /S /Q \"$$T\")
     distbin.commands += $$mle(mkdir \"$$T\")
     distbin.commands += $$mle(mkdir \"$$T/imageformats\")
+    distbin.commands += $$mle(mkdir \"$$T/sqldrivers\")
     distbin.commands += $$mle(mkdir \"$$T/translations\")
     distbin.commands += $$mle(copy /y \"$${OUT_PWD}/$(DESTDIR_TARGET)\" \"$$T\")
 
@@ -192,6 +194,10 @@ GCC=$$findexe("gcc.exe")
 
     for(ip, IMAGEPLUGINS) {
         distbin.commands += $$mle(copy /y \"$$[QT_INSTALL_PLUGINS]\\imageformats\\$$ip\" \"$$T/imageformats\")
+    }
+
+    for(ip, SQLPLUGINS) {
+        distbin.commands += $$mle(copy /y \"$$[QT_INSTALL_PLUGINS]\\sqldrivers\\$$ip\" \"$$T/sqldrivers\")
     }
 
     for(qm, QMFILES) {
