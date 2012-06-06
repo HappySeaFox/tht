@@ -88,6 +88,7 @@ void NetworkAccess::slotNetworkDone()
     qDebug("Network request done");
 
     m_reply->deleteLater();
+    m_reply = 0;
 
     emit finished();
 }
