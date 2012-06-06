@@ -1,13 +1,11 @@
 #ifndef UPDATECHECKER_H
 #define UPDATECHECKER_H
 
-#include <QSslError>
 #include <QObject>
 #include <QRegExp>
-#include <QList>
 #include <QUrl>
 
-class QNetworkAccessManager;
+class NetworkAccess;
 class QNetworkReply;
 
 class UpdateChecker : public QObject
@@ -22,13 +20,12 @@ signals:
 
 private slots:
     void startRequest();
-    void slotFinished(QNetworkReply *);
-    void slotSslErrors(QNetworkReply*, const QList<QSslError> &list);
+    void slotFinished();
 
 private:
     explicit UpdateChecker();
 
-    QNetworkAccessManager *m_net;
+    NetworkAccess *m_net;
     QString m_lastVersion;
     QRegExp m_rxVersion;
     QUrl m_url;

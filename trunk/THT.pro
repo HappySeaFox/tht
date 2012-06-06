@@ -56,6 +56,7 @@ SOURCES += main.cpp\
     searchticker.cpp \
     uppercasevalidator.cpp \
     tickerminiinput.cpp \
+    networkaccess.cpp \
     tickerinformationfetcher.cpp
 
 HEADERS += tht.h \
@@ -83,6 +84,7 @@ HEADERS += tht.h \
     searchticker.h \
     uppercasevalidator.h \
     tickerminiinput.h \
+    networkaccess.h \
     tickerinformationfetcher.h
 
 FORMS += tht.ui \
