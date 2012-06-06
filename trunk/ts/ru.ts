@@ -365,23 +365,24 @@ the right or middle mouse buttons.</source>
     </message>
 </context>
 <context>
-    <name>TickerInformationToolTipLabel</name>
+    <name>TickerInformationFetcher</name>
     <message>
-        <location filename="../tickerinformationtooltip.cpp" line="212"/>
-        <source>Error #%1</source>
-        <translation>Ошибка #%1</translation>
-    </message>
-    <message>
-        <location filename="../tickerinformationtooltip.cpp" line="229"/>
-        <location filename="../tickerinformationtooltip.cpp" line="242"/>
-        <source>Parse error</source>
-        <translation>Ошибка данных</translation>
-    </message>
-    <message>
-        <location filename="../tickerinformationtooltip.cpp" line="211"/>
-        <location filename="../tickerinformationtooltip.cpp" line="240"/>
+        <location filename="../tickerinformationfetcher.cpp" line="76"/>
         <source>Not found</source>
         <translation>Не найдено</translation>
+    </message>
+    <message>
+        <location filename="../tickerinformationfetcher.cpp" line="77"/>
+        <source>Network error #%1</source>
+        <translation>Ошибка сети #%1</translation>
+    </message>
+</context>
+<context>
+    <name>TickerInformationToolTipLabel</name>
+    <message>
+        <location filename="../tickerinformationtooltip.cpp" line="191"/>
+        <source>Parse error</source>
+        <translation>Ошибка данных</translation>
     </message>
 </context>
 <context>

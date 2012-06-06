@@ -46,11 +46,9 @@
 
 // This TU looks like a crap
 
-#include <QNetworkAccessManager>
 #include <QWebElementCollection>
 #include <QDesktopWidget>
 #include <QTextDocument>
-#include <QNetworkReply>
 #include <QStylePainter>
 #include <QApplication>
 #include <QStyleOption>
@@ -65,7 +63,7 @@
 #include <QTimer>
 
 #include "tickerinformationtooltip.h"
-#include "settings.h"
+#include "tickerinformationfetcher.h"
 
 class TickerInformationToolTipLabel : public QLabel
 {
@@ -105,14 +103,11 @@ public slots:
     }
 
 private slots:
-    void slotNetworkError(QNetworkReply::NetworkError);
-    void slotNetworkDone();
-    void slotNetworkData();
+    void slotFetcherDone(const QString &, const QString &, const QString &, const QString &);
 
 private:
     QWidget *styleSheetParent;
-    QNetworkAccessManager *manager;
-    QNetworkReply *reply;
+    TickerInformationFetcher *fetcher;
     QString data;
     QPoint lastPos;
     QString ticker;
@@ -126,8 +121,10 @@ TickerInformationToolTipLabel::TickerInformationToolTipLabel(const QString &text
     delete instance;
     instance = this;
 
-    manager = new QNetworkAccessManager(this);
-    reply = 0;
+    fetcher = new TickerInformationFetcher(this);
+
+    connect(fetcher, SIGNAL(done(const QString &, const QString &, const QString &, const QString &)),
+            this, SLOT(slotFetcherDone(const QString &, const QString &, const QString &, const QString &)));
 
     setForegroundRole(QPalette::ToolTipText);
     setBackgroundRole(QPalette::ToolTipBase);
@@ -177,106 +174,26 @@ void TickerInformationToolTipLabel::reuseTip(const QString &text, bool isTicker)
 
     ticker = QString(text).replace('.', '-'); // Yahoo requires '.' to be replaced with '-'
 
-    if(reply)
-    {
-        data.clear();
-        reply->blockSignals(true);
-        reply->abort();
-        delete reply;
-    }
-
-    qDebug("Starting a new network request for \"%s\"", qPrintable(text));
-
-    QNetworkRequest request(
-                QUrl(QString("http://finance.yahoo.com/q/in?s=%1").arg(ticker)));
-
-    const OSVERSIONINFO version = Settings::instance()->version();
-
-    request.setRawHeader("Dnt", "1");
-    request.setRawHeader("User-Agent", QString("Mozilla/5.0 (%1 %2.%3; rv:10.0) Gecko/20100101 Firefox/10.0")
-                         .arg(version.dwPlatformId == VER_PLATFORM_WIN32_NT ? "Windows NT" : "Windows")
-                         .arg(version.dwMajorVersion)
-                         .arg(version.dwMinorVersion).toAscii());
-
-    reply = manager->get(request);
-
-    connect(reply, SIGNAL(error(QNetworkReply::NetworkError)), this, SLOT(slotNetworkError(QNetworkReply::NetworkError)));
-    connect(reply, SIGNAL(finished()), this, SLOT(slotNetworkDone()));
-    connect(reply, SIGNAL(readyRead()), this, SLOT(slotNetworkData()));
+    fetcher->fetch(ticker);
 }
 
-void TickerInformationToolTipLabel::slotNetworkError(QNetworkReply::NetworkError err)
+void TickerInformationToolTipLabel::slotFetcherDone(const QString &error, const QString &ticker, const QString &sector, const QString &industry)
 {
-    qDebug("Network error #%d", err);
-}
-
-void TickerInformationToolTipLabel::slotNetworkDone()
-{
-    qDebug("Network request done");
-
-    if(reply->error() != QNetworkReply::NoError)
+    if(!error.isEmpty())
     {
-        TickerInformationToolTip::showText(QPoint(),
-                                           reply->error() == QNetworkReply::UnknownContentError
-                                                ? tr("Not found")
-                                                : tr("Error #%1").arg(reply->error()),
-                                           false);
+        TickerInformationToolTip::showText(QPoint(), error, false);
         restartExpireTimer();
         return;
     }
 
-    QWebPage page;
-    QString result, sector, industry;
-
-    page.settings()->setAttribute(QWebSettings::AutoLoadImages, false);
-    page.settings()->setAttribute(QWebSettings::JavascriptEnabled, false);
-    page.settings()->setAttribute(QWebSettings::JavaEnabled, false);
-    page.settings()->setAttribute(QWebSettings::PluginsEnabled, false);
-
-    page.mainFrame()->setHtml(data);
-
-    // ticker name
-    QWebElementCollection elements = page.mainFrame()->findAllElements("div.title");
-    bool found = false;
-    QString tmp;
-    int index;
-
-    QRegExp rx("\\s*\\(" + QRegExp::escape(ticker) + "\\)$");
-
-    foreach(QWebElement div, elements)
+    if(ticker.isEmpty())
     {
-        tmp = div.findFirst("h2").toPlainText();
-        index = rx.indexIn(tmp);
-
-        if(index >= 0)
-        {
-            result = tmp.left(index);
-            break;
-        }
-    }
-
-    if(result.isEmpty())
-    {
-        TickerInformationToolTip::showText(QPoint(), found ? tr("Parse error") : tr("Not found"), false);
+        TickerInformationToolTip::showText(QPoint(), tr("Parse error"), false);
         restartExpireTimer();
         return;
     }
 
-    // sector & industry
-    elements = page.mainFrame()->findAllElements("th.yfnc_tablehead1");
-
-    foreach(QWebElement th, elements)
-    {
-        if(sector.isEmpty() && th.toPlainText() == "Sector:")
-            sector = th.nextSibling().findFirst("a").toPlainText();
-
-        if(industry.isEmpty() && th.toPlainText() == "Industry:")
-            industry = th.nextSibling().findFirst("a").toPlainText();
-
-        // everything is found
-        if(!sector.isEmpty() && !industry.isEmpty())
-            break;
-    }
+    QString result = ticker;
 
     // resulting tooltip
     if(!sector.isEmpty())
@@ -289,11 +206,6 @@ void TickerInformationToolTipLabel::slotNetworkDone()
 
     TickerInformationToolTip::showText(QPoint(), result, false);
     restartExpireTimer();
-}
-
-void TickerInformationToolTipLabel::slotNetworkData()
-{
-    data += reply->readAll();
 }
 
 void TickerInformationToolTipLabel::paintEvent(QPaintEvent *ev)
@@ -323,14 +235,7 @@ void TickerInformationToolTipLabel::resizeEvent(QResizeEvent *e)
 TickerInformationToolTipLabel::~TickerInformationToolTipLabel()
 {
     instance = 0;
-
     qDebug("Closing ticker info");
-
-    if(reply)
-    {
-        reply->blockSignals(true);
-        reply->abort();
-    }
 }
 
 void TickerInformationToolTipLabel::hideTip()
