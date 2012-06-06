@@ -110,9 +110,10 @@ void TickersDatabaseUpdater::slotFinished()
             return;
         }
 
-        if(m_timestamp != ts)
+        if(m_timestamp >= ts)
         {
             qDebug("No database updates available");
+            QTimer::singleShot(1*3600*1000, this, SLOT(startRequest()));
             return;
         }
 
