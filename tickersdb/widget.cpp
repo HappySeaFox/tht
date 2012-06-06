@@ -37,7 +37,7 @@ Widget::Widget(QWidget *parent) :
     ui->setupUi(this);
 
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("tickers.db");
+    db.setDatabaseName("tickers.sqlite");
 
     if(!db.open())
     {
