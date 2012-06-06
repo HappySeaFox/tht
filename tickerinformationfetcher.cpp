@@ -39,13 +39,20 @@ void TickerInformationFetcher::slotFetch()
     {
         QSqlDatabase dbp = QSqlDatabase::database(Settings::instance()->tickersPersistentDatabaseName());
         QSqlDatabase dbm = QSqlDatabase::database(Settings::instance()->tickersMutableDatabaseName());
-        QString queryString = "SELECT company, sector, industry FROM tickers WHERE ticker = '" + m_ticker + "'";
+        QString queryString = "SELECT company, sector, industry FROM tickers WHERE ticker = :ticker";
 
-        QSqlQuery query(queryString, dbp);
+        QSqlQuery query(dbp);
+
+        query.prepare(queryString);
+        query.bindValue(":ticker", m_ticker);
+        query.exec();
 
         if(!query.next())
         {
-            query = QSqlQuery(queryString, dbm);
+            query = QSqlQuery(dbm);
+            query.prepare(queryString);
+            query.bindValue(":ticker", m_ticker);
+            query.exec();
             query.next();
         }
 
