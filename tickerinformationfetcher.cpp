@@ -53,10 +53,11 @@ void TickerInformationFetcher::slotFetch()
             QString company = query.value(0).toString();
 
             if(!company.isEmpty())
-            {
                 emit done(company, query.value(1).toString(), query.value(2).toString());
-                return;
-            }
+            else
+                emit done();
         }
+        else
+            emit done();
     }
 }

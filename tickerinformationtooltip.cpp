@@ -176,7 +176,7 @@ void TickerInformationToolTipLabel::slotFetcherDone(const QString &name, const Q
 {
     if(name.isEmpty())
     {
-        TickerInformationToolTip::showText(QPoint(), tr("Parse error"), false);
+        TickerInformationToolTip::showText(QPoint(), tr("Not found"), false);
         restartExpireTimer();
         return;
     }
