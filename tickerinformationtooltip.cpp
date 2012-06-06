@@ -46,16 +46,11 @@
 
 // This TU looks like a crap
 
-#include <QWebElementCollection>
 #include <QDesktopWidget>
 #include <QTextDocument>
 #include <QStylePainter>
 #include <QApplication>
 #include <QStyleOption>
-#include <QWebSettings>
-#include <QWebElement>
-#include <QWebFrame>
-#include <QWebPage>
 #include <QPointer>
 #include <QEvent>
 #include <QLabel>

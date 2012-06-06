@@ -1,9 +1,8 @@
-#include <QNetworkAccessManager>
-#include <QNetworkReply>
 #include <QStringList>
 #include <QRegExp>
 #include <QTimer>
 
+#include "networkaccess.h"
 #include "updatechecker.h"
 
 static const char * const THT_UPDATE_URL = "http://traders-home-task-ng.googlecode.com/svn/trunk/THT-version.tag";
@@ -23,37 +22,28 @@ UpdateChecker::UpdateChecker() : QObject()
 
     m_rxVersion = QRegExp("^(\\d+)\\.(\\d+)\\.(\\d+)$");
 
-    m_net = new QNetworkAccessManager(this);
+    m_net = new NetworkAccess(this);
 
-    connect(m_net, SIGNAL(sslErrors(QNetworkReply*, const QList<QSslError> &)),
-            this, SLOT(slotSslErrors(QNetworkReply*, const QList<QSslError> &)));
-
-    connect(m_net, SIGNAL(finished(QNetworkReply *)),
-            this, SLOT(slotFinished(QNetworkReply *)));
+    connect(m_net, SIGNAL(finished()), this, SLOT(slotFinished()));
 
     startRequest();
 }
 
 void UpdateChecker::startRequest()
 {
-    m_net->get(QNetworkRequest(m_url));
+    m_net->get(m_url);
 }
 
-void UpdateChecker::slotFinished(QNetworkReply *reply)
+void UpdateChecker::slotFinished()
 {
-    if(reply->error() != QNetworkReply::NoError)
-    {
-        qDebug("Update checker: Network error #%d (%s)", reply->error(), qPrintable(reply->errorString()));
-        reply->deleteLater();
+    if(m_net->error() != QNetworkReply::NoError)
         return;
-    }
 
-    QStringList list = QString(reply->readAll()).split(QRegExp("\\r?\\n"), QString::SkipEmptyParts);
+    QStringList list = QString(m_net->data()).split(QRegExp("\\r?\\n"), QString::SkipEmptyParts);
 
     if(list.isEmpty() || !m_rxVersion.exactMatch(list[0]))
     {
         qWarning("Update checker: answer is broken");
-        reply->deleteLater();
         return;
     }
 
@@ -91,19 +81,4 @@ void UpdateChecker::slotFinished(QNetworkReply *reply)
 
     // check every 4 hours
     QTimer::singleShot(4*3600*1000, this, SLOT(startRequest()));
-
-    reply->deleteLater();
-}
-
-void UpdateChecker::slotSslErrors(QNetworkReply *reply, const QList<QSslError> &list)
-{
-    // allow self-signed certificates
-    foreach(QSslError error, list)
-    {
-        if(error.error() != QSslError::SelfSignedCertificate
-                && error.error() != QSslError::SelfSignedCertificateInChain)
-            return;
-    }
-
-    reply->ignoreSslErrors();
 }
