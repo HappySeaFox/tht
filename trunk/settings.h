@@ -39,6 +39,10 @@ public:
 
     OSVERSIONINFO version() const;
 
+    QString tickersPersistentDatabaseName() const;
+    QString tickersMutableDatabaseName() const;
+    QString tickersMutableDatabasePath() const;
+
     bool preloadMode() const;
 
     QRegExp tickerValidator() const;
@@ -104,7 +108,28 @@ private:
     QSettings *m_settings;
     QRegExp m_rxTicker;
     OSVERSIONINFO m_version;
+    QString m_tickersPersistentDatabaseName;
+    QString m_tickersMutableDatabaseName;
+    QString m_tickersMutableDatabasePath;
 };
+
+inline
+QString Settings::tickersPersistentDatabaseName() const
+{
+    return m_tickersPersistentDatabaseName;
+}
+
+inline
+QString Settings::tickersMutableDatabaseName() const
+{
+    return m_tickersMutableDatabaseName;
+}
+
+inline
+QString Settings::tickersMutableDatabasePath() const
+{
+    return m_tickersMutableDatabasePath;
+}
 
 inline
 OSVERSIONINFO Settings::version() const

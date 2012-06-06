@@ -16,6 +16,11 @@
  */
 
 #include <QCoreApplication>
+#include <QDesktopServices>
+#include <QSqlDatabase>
+#include <QSqlError>
+#include <QFile>
+#include <QDir>
 
 #include <windows.h>
 
@@ -101,6 +106,26 @@ Settings::Settings()
     }
     else
         qDebug("Windows version %ld.%ld", m_version.dwMajorVersion, m_version.dwMinorVersion);
+
+    // databases
+    QString tickersPersistentDatabasePath = QCoreApplication::applicationDirPath()
+                                                + QDir::separator() + "tickers.sqlite";
+    m_tickersMutableDatabaseName = "mutable";
+    m_tickersPersistentDatabaseName = "persistent";
+
+    m_tickersMutableDatabasePath = QDesktopServices::storageLocation(QDesktopServices::DataLocation)
+                                    + QDir::separator() + "tickers.sqlite";
+
+    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE", m_tickersMutableDatabaseName);
+    db.setDatabaseName(m_tickersMutableDatabasePath);
+
+    db = QSqlDatabase::addDatabase("QSQLITE", m_tickersPersistentDatabaseName);
+    db.setDatabaseName(tickersPersistentDatabasePath);
+
+    if(!QFile::exists(tickersPersistentDatabasePath) || !db.isValid() || !db.open())
+        qDebug("Cannot open persistent database (%s)", qPrintable(db.lastError().text()));
+    else
+        qDebug("Database has been opened");
 }
 
 Settings::~Settings()

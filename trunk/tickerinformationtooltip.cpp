@@ -167,7 +167,7 @@ void TickerInformationToolTipLabel::reuseTip(const QString &text, bool isTicker)
     if(!isTicker)
         return;
 
-    ticker = QString(text).replace('.', '-'); // Yahoo requires '.' to be replaced with '-'
+    ticker = QString(text).replace('.', '-');
 
     fetcher->fetch(ticker);
 }

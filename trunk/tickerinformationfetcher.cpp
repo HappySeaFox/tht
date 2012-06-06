@@ -1,13 +1,18 @@
 #include <QWebElementCollection>
+#include <QSqlDatabase>
+#include <QSqlError>
+#include <QSqlQuery>
 #include <QWebSettings>
 #include <QWebElement>
 #include <QWebFrame>
 #include <QWebPage>
 #include <QRegExp>
+#include <QTimer>
 #include <QUrl>
 
 #include "tickerinformationfetcher.h"
 #include "networkaccess.h"
+#include "settings.h"
 
 TickerInformationFetcher::TickerInformationFetcher(QObject *parent) :
     QObject(parent)
@@ -15,12 +20,48 @@ TickerInformationFetcher::TickerInformationFetcher(QObject *parent) :
     m_net = new NetworkAccess(this);
 
     connect(m_net, SIGNAL(finished()), this, SLOT(slotFinished()));
+
+    m_timer = new QTimer(this);
+    m_timer->setSingleShot(true);
+    m_timer->setInterval(0);
+    connect(m_timer, SIGNAL(timeout()), this, SLOT(slotFetch()));
 }
 
 void TickerInformationFetcher::fetch(const QString &ticker)
 {
     m_ticker = ticker;
-    m_net->get(QUrl(QString("http://finviz.com/quote.ashx?t=%1&ty=l&ta=0&p=d").arg(ticker)));
+    m_timer->start();
+}
+
+void TickerInformationFetcher::slotFetch()
+{
+    // try to get from the database
+    {
+        QSqlDatabase dbp = QSqlDatabase::database(Settings::instance()->tickersPersistentDatabaseName());
+        QSqlDatabase dbm = QSqlDatabase::database(Settings::instance()->tickersMutableDatabaseName());
+        QString queryString = "SELECT company, sector, industry FROM tickers WHERE ticker = '" + m_ticker + "'";
+
+        QSqlQuery query(queryString, dbp);
+
+        if(!query.next())
+        {
+            query = QSqlQuery(queryString, dbm);
+            query.next();
+        }
+
+        if(query.isValid())
+        {
+            QString company = query.value(0).toString();
+
+            if(!company.isEmpty())
+            {
+                emit done(QString(), company, query.value(1).toString(), query.value(2).toString());
+                return;
+            }
+        }
+    }
+
+    m_net->get(QUrl(QString("http://finviz.com/quote.ashx?t=%1&ty=l&ta=0&p=d").arg(m_ticker)));
 }
 
 void TickerInformationFetcher::slotFinished()
