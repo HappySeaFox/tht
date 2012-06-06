@@ -20,7 +20,7 @@ TickerInformationFetcher::TickerInformationFetcher(QObject *parent) :
 void TickerInformationFetcher::fetch(const QString &ticker)
 {
     m_ticker = ticker;
-    m_net->get(QUrl(QString("http://finance.yahoo.com/q/in?s=%1").arg(ticker)));
+    m_net->get(QUrl(QString("http://finviz.com/quote.ashx?t=%1&ty=l&ta=0&p=d").arg(ticker)));
 }
 
 void TickerInformationFetcher::slotFinished()
@@ -37,8 +37,6 @@ void TickerInformationFetcher::slotFinished()
 
     QWebPage page;
     QString name, sector, industry;
-    QString tmp;
-    int index;
 
     page.settings()->setAttribute(QWebSettings::AutoLoadImages, false);
     page.settings()->setAttribute(QWebSettings::JavascriptEnabled, false);
@@ -48,36 +46,28 @@ void TickerInformationFetcher::slotFinished()
     page.mainFrame()->setHtml(m_net->data());
 
     // ticker name
-    QWebElementCollection elements = page.mainFrame()->findAllElements("div.title");
+    QWebElementCollection elements = page.mainFrame()->findAllElements("table.fullview-title");
 
     QRegExp rx("\\s*\\(" + QRegExp::escape(m_ticker) + "\\)$");
 
-    foreach(QWebElement div, elements)
+    foreach(QWebElement table, elements)
     {
-        tmp = div.findFirst("h2").toPlainText();
-        index = rx.indexIn(tmp);
+        QWebElement tr = table.findFirst("tr");
 
-        if(index >= 0)
-        {
-            name = tmp.left(index);
-            break;
-        }
-    }
+        name = tr.findFirst("td").findFirst("a.fullview-ticker").toPlainText();
 
-    // sector & industry
-    elements = page.mainFrame()->findAllElements("th.yfnc_tablehead1");
+        if(name!= m_ticker)
+            continue;
 
-    foreach(QWebElement th, elements)
-    {
-        if(sector.isEmpty() && th.toPlainText() == "Sector:")
-            sector = th.nextSibling().findFirst("a").toPlainText();
+        tr = tr.nextSibling();
+        name = tr.findFirst("td").findFirst("a.tab-link").toPlainText();
 
-        if(industry.isEmpty() && th.toPlainText() == "Industry:")
-            industry = th.nextSibling().findFirst("a").toPlainText();
+        tr = tr.nextSibling();
+        QWebElement a = tr.findFirst("td").findFirst("a.tab-link");
+        sector = a.toPlainText();
+        industry = a.nextSibling().toPlainText();
 
-        // everything is found
-        if(!sector.isEmpty() && !industry.isEmpty())
-            break;
+        break;
     }
 
     emit done(QString(), name, sector, industry);
