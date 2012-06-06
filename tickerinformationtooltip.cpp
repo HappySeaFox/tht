@@ -172,7 +172,7 @@ void TickerInformationToolTipLabel::reuseTip(const QString &text, bool isTicker)
     fetcher->fetch(ticker);
 }
 
-void TickerInformationToolTipLabel::slotFetcherDone(const QString &error, const QString &ticker, const QString &sector, const QString &industry)
+void TickerInformationToolTipLabel::slotFetcherDone(const QString &error, const QString &name, const QString &sector, const QString &industry)
 {
     if(!error.isEmpty())
     {
@@ -181,14 +181,14 @@ void TickerInformationToolTipLabel::slotFetcherDone(const QString &error, const 
         return;
     }
 
-    if(ticker.isEmpty())
+    if(name.isEmpty())
     {
         TickerInformationToolTip::showText(QPoint(), tr("Parse error"), false);
         restartExpireTimer();
         return;
     }
 
-    QString result = ticker;
+    QString result = name;
 
     // resulting tooltip
     if(!sector.isEmpty())
