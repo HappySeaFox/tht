@@ -28,7 +28,7 @@ void NetworkAccess::get(const QUrl &url)
     m_error = QNetworkReply::NoError;
     m_data.clear();
 
-    qDebug("Starting a new network request for \"%s\"", qPrintable(url.toString()));
+    qDebug("Starting a new network request for \"%s\"", qPrintable(url.toString(QUrl::RemovePassword)));
 
     QNetworkRequest request(url);
 
