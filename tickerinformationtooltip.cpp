@@ -98,7 +98,7 @@ public slots:
     }
 
 private slots:
-    void slotFetcherDone(const QString &, const QString &, const QString &, const QString &);
+    void slotFetcherDone(const QString &, const QString &, const QString &);
 
 private:
     QWidget *styleSheetParent;
@@ -118,8 +118,8 @@ TickerInformationToolTipLabel::TickerInformationToolTipLabel(const QString &text
 
     fetcher = new TickerInformationFetcher(this);
 
-    connect(fetcher, SIGNAL(done(const QString &, const QString &, const QString &, const QString &)),
-            this, SLOT(slotFetcherDone(const QString &, const QString &, const QString &, const QString &)));
+    connect(fetcher, SIGNAL(done(const QString &, const QString &, const QString &)),
+            this, SLOT(slotFetcherDone(const QString &, const QString &, const QString &)));
 
     setForegroundRole(QPalette::ToolTipText);
     setBackgroundRole(QPalette::ToolTipBase);
@@ -172,15 +172,8 @@ void TickerInformationToolTipLabel::reuseTip(const QString &text, bool isTicker)
     fetcher->fetch(ticker);
 }
 
-void TickerInformationToolTipLabel::slotFetcherDone(const QString &error, const QString &name, const QString &sector, const QString &industry)
+void TickerInformationToolTipLabel::slotFetcherDone(const QString &name, const QString &sector, const QString &industry)
 {
-    if(!error.isEmpty())
-    {
-        TickerInformationToolTip::showText(QPoint(), error, false);
-        restartExpireTimer();
-        return;
-    }
-
     if(name.isEmpty())
     {
         TickerInformationToolTip::showText(QPoint(), tr("Parse error"), false);

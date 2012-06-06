@@ -4,7 +4,6 @@
 #include <QObject>
 #include <QString>
 
-class NetworkAccess;
 class QTimer;
 
 class TickerInformationFetcher : public QObject
@@ -18,15 +17,13 @@ public:
 
 signals:
     // name is empty on error
-    void done(const QString &error, const QString &name = QString(),
+    void done(const QString &name = QString(),
               const QString &sector = QString(), const QString &industry = QString());
 
 private slots:
     void slotFetch();
-    void slotFinished();
 
 private:
-    NetworkAccess *m_net;
     QString m_ticker;
     QTimer *m_timer;
 };

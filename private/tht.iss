@@ -82,7 +82,6 @@ Source: "{#MyAppSrc}\ts\qt_uk.qm"; DestDir: "{app}/translations"; Flags: ignorev
 Source: "{#QtDir}\bin\QtCore4.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#QtDir}\bin\QtGui4.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#QtDir}\bin\QtNetwork4.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#QtDir}\bin\QtWebkit4.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#QtDir}\bin\QtSql4.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#QtDir}\plugins\imageformats\qgif4.dll"; DestDir: "{app}\imageformats"; Flags: ignoreversion
 Source: "{#QtDir}\plugins\imageformats\qico4.dll"; DestDir: "{app}\imageformats"; Flags: ignoreversion
