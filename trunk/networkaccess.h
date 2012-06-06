@@ -22,6 +22,8 @@ public:
 
     void get(const QUrl &url);
 
+    void abort();
+
     QByteArray data() const;
 
     QNetworkReply::NetworkError error() const;
@@ -44,6 +46,12 @@ private:
     QPointer<QNetworkReply> m_reply;
     QByteArray m_data;
 };
+
+inline
+void NetworkAccess::abort()
+{
+    deleteReply();
+}
 
 inline
 QNetworkReply::NetworkError NetworkAccess::error() const
