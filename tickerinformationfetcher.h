@@ -1,12 +1,10 @@
 #ifndef TICKERINFORMATIONFETCHER_H
 #define TICKERINFORMATIONFETCHER_H
 
-#include <QNetworkReply>
-#include <QPointer>
 #include <QObject>
 #include <QString>
 
-class QNetworkAccessManager;
+class NetworkAccess;
 
 class TickerInformationFetcher : public QObject
 {
@@ -14,12 +12,8 @@ class TickerInformationFetcher : public QObject
 
 public:
     explicit TickerInformationFetcher(QObject *parent = 0);
-    ~TickerInformationFetcher();
 
-    void fetch(const QString &ticker);
-
-private:
-    void deleteReply();
+    void fetch(const QString &);
 
 signals:
     // name is empty on error
@@ -27,14 +21,11 @@ signals:
               const QString &sector = QString(), const QString &industry = QString());
 
 private slots:
-    void slotNetworkError(QNetworkReply::NetworkError);
-    void slotNetworkData();
-    void slotNetworkDone();
+    void slotFinished();
 
 private:
-    QNetworkAccessManager *m_manager;
-    QPointer<QNetworkReply> m_reply;
-    QString m_data, m_ticker;
+    NetworkAccess *m_net;
+    QString m_ticker;
 };
 
 #endif // TICKERINFORMATIONFETCHER_H
