@@ -16,11 +16,14 @@
  */
 
 #include <QApplication>
+#include <QDir>
 
 #include "widget.h"
 
 int main(int argc, char *argv[])
 {
+    QDir::setCurrent(TICKERS_DIR);
+
     QApplication a(argc, argv);
     Widget w;
     w.show();

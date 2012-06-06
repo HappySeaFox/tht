@@ -32,9 +32,9 @@
 #include "networkaccess.h"
 #include "csvreader.h"
 
-static const char * const TICKERS_DB = "tickers.sqlite";
+static const char * const TICKERS_DB     = "tickers.sqlite";
 static const char * const TICKERS_DB_NEW = "tickers.sqlite.new";
-static const char * const TICKERS_DB_TS = "tickers.sqlite.timestamp";
+static const char * const TICKERS_DB_TS  = "tickers.sqlite.timestamp";
 
 Widget::Widget(QWidget *parent) :
     QWidget(parent),
@@ -66,7 +66,6 @@ Widget::Widget(QWidget *parent) :
     qDebug("Loaded %d old values", oldTickers.size());
 
     QFile::remove(TICKERS_DB_NEW);
-    QFile::remove(TICKERS_DB_TS);
 
     db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName(TICKERS_DB_NEW);
