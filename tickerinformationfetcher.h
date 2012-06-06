@@ -5,6 +5,7 @@
 #include <QString>
 
 class NetworkAccess;
+class QTimer;
 
 class TickerInformationFetcher : public QObject
 {
@@ -21,11 +22,13 @@ signals:
               const QString &sector = QString(), const QString &industry = QString());
 
 private slots:
+    void slotFetch();
     void slotFinished();
 
 private:
     NetworkAccess *m_net;
     QString m_ticker;
+    QTimer *m_timer;
 };
 
 #endif // TICKERINFORMATIONFETCHER_H
