@@ -27,37 +27,37 @@ void TickerInformationFetcher::fetch(const QString &ticker)
 void TickerInformationFetcher::slotFetch()
 {
     // try to get from the database
+    QSqlDatabase dbp = QSqlDatabase::database(Settings::instance()->tickersPersistentDatabaseName());
+    QSqlDatabase dbm = QSqlDatabase::database(Settings::instance()->tickersMutableDatabaseName());
+    QString queryString = "SELECT company, sector, industry FROM tickers WHERE ticker = :ticker";
+
+    QSqlQuery query(dbp);
+
+    query.prepare(queryString);
+    query.bindValue(":ticker", m_ticker);
+    query.exec();
+
+    if(!query.next())
     {
-        QSqlDatabase dbp = QSqlDatabase::database(Settings::instance()->tickersPersistentDatabaseName());
-        QSqlDatabase dbm = QSqlDatabase::database(Settings::instance()->tickersMutableDatabaseName());
-        QString queryString = "SELECT company, sector, industry FROM tickers WHERE ticker = :ticker";
-
-        QSqlQuery query(dbp);
-
+        qDebug("Trying mutable database for \"%s\"", qPrintable(m_ticker));
+        query = QSqlQuery(dbm);
         query.prepare(queryString);
         query.bindValue(":ticker", m_ticker);
         query.exec();
-
-        if(!query.next())
-        {
-            qDebug("Trying mutable database for \"%s\"", qPrintable(m_ticker));
-            query = QSqlQuery(dbm);
-            query.prepare(queryString);
-            query.bindValue(":ticker", m_ticker);
-            query.exec();
-            query.next();
-        }
-
-        if(query.isValid())
-        {
-            QString company = query.value(0).toString();
-
-            if(!company.isEmpty())
-                emit done(company, query.value(1).toString(), query.value(2).toString());
-            else
-                emit done();
-        }
-        else
-            emit done();
+        query.next();
     }
+
+    if(query.isValid())
+    {
+        QString company = query.value(0).toString();
+
+        if(!company.isEmpty())
+        {
+            emit done(company, query.value(1).toString(), query.value(2).toString());
+            return;
+        }
+    }
+
+    // error
+    emit done();
 }
