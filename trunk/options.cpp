@@ -60,11 +60,11 @@ void Options::load()
 
 void Options::save()
 {
-    Settings::instance()->setNumberOfLists(ui->comboNumberOfLists->currentIndex()+1, Settings::SyncTypeNoSync);
-    Settings::instance()->setOnTop(ui->checkOnTop->isChecked(), Settings::SyncTypeNoSync);
-    Settings::instance()->setHideToTray(ui->checkTray->isChecked(), Settings::SyncTypeNoSync);
-    Settings::instance()->setSaveGeometry(ui->checkSave->isChecked(), Settings::SyncTypeNoSync);
-    Settings::instance()->setSaveTickers(ui->checkSaveTickers->isChecked(), Settings::SyncTypeNoSync);
-    Settings::instance()->setAllowDuplicates(ui->checkAllowDups->isChecked(), Settings::SyncTypeNoSync);
+    Settings::instance()->setNumberOfLists(ui->comboNumberOfLists->currentIndex()+1, Settings::NoSync);
+    Settings::instance()->setOnTop(ui->checkOnTop->isChecked(), Settings::NoSync);
+    Settings::instance()->setHideToTray(ui->checkTray->isChecked(), Settings::NoSync);
+    Settings::instance()->setSaveGeometry(ui->checkSave->isChecked(), Settings::NoSync);
+    Settings::instance()->setSaveTickers(ui->checkSaveTickers->isChecked(), Settings::NoSync);
+    Settings::instance()->setAllowDuplicates(ui->checkAllowDups->isChecked(), Settings::NoSync);
     Settings::instance()->setMiniTickerEntry(ui->checkMini->isChecked()); // also sync
 }

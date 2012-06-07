@@ -66,8 +66,8 @@ TickerNeighbors::TickerNeighbors(const QString &ticker, QWidget *parent) :
 
 TickerNeighbors::~TickerNeighbors()
 {
-    Settings::instance()->setCheckBoxState(ui->checkNyse->text(), ui->checkNyse->isChecked(), Settings::SyncTypeNoSync);
-    Settings::instance()->setCheckBoxState(ui->checkNasd->text(), ui->checkNasd->isChecked(), Settings::SyncTypeNoSync);
+    Settings::instance()->setCheckBoxState(ui->checkNyse->text(), ui->checkNyse->isChecked(), Settings::NoSync);
+    Settings::instance()->setCheckBoxState(ui->checkNasd->text(), ui->checkNasd->isChecked(), Settings::NoSync);
     Settings::instance()->setCheckBoxState(ui->checkAmex->text(), ui->checkAmex->isChecked());
 
     delete ui;
