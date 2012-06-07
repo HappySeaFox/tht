@@ -6,65 +6,48 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>186</width>
-    <height>333</height>
+    <width>224</width>
+    <height>350</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Industries</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout_3">
+  <layout class="QGridLayout" name="gridLayout_2">
    <item row="0" column="0">
-    <layout class="QGridLayout" name="gridLayout_2">
-     <item row="0" column="0">
-      <widget class="QLineEdit" name="lineTicker"/>
-     </item>
-     <item row="0" column="1">
-      <widget class="QToolButton" name="pushTicker">
-       <property name="icon">
-        <iconset resource="tht.qrc">
-         <normaloff>:/images/query.png</normaloff>:/images/query.png</iconset>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QComboBox" name="comboSector"/>
-     </item>
-     <item row="1" column="1">
-      <widget class="QToolButton" name="pushSector">
-       <property name="icon">
-        <iconset resource="tht.qrc">
-         <normaloff>:/images/query.png</normaloff>:/images/query.png</iconset>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="2">
-      <spacer name="horizontalSpacer">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>0</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="2" column="0">
-      <widget class="QComboBox" name="comboIndustry"/>
-     </item>
-     <item row="2" column="1">
-      <widget class="QToolButton" name="pushIndustry">
-       <property name="icon">
-        <iconset resource="tht.qrc">
-         <normaloff>:/images/query.png</normaloff>:/images/query.png</iconset>
-       </property>
-      </widget>
-     </item>
-    </layout>
+    <widget class="QLineEdit" name="lineTicker"/>
+   </item>
+   <item row="0" column="1">
+    <widget class="QToolButton" name="pushTicker">
+     <property name="icon">
+      <iconset resource="tht.qrc">
+       <normaloff>:/images/query.png</normaloff>:/images/query.png</iconset>
+     </property>
+    </widget>
    </item>
    <item row="1" column="0">
+    <widget class="QComboBox" name="comboSector"/>
+   </item>
+   <item row="1" column="1">
+    <widget class="QToolButton" name="pushSector">
+     <property name="icon">
+      <iconset resource="tht.qrc">
+       <normaloff>:/images/query.png</normaloff>:/images/query.png</iconset>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QComboBox" name="comboIndustry"/>
+   </item>
+   <item row="2" column="1">
+    <widget class="QToolButton" name="pushIndustry">
+     <property name="icon">
+      <iconset resource="tht.qrc">
+       <normaloff>:/images/query.png</normaloff>:/images/query.png</iconset>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0" colspan="2">
     <widget class="QListView" name="list">
      <property name="selectionMode">
       <enum>QAbstractItemView::ExtendedSelection</enum>
@@ -80,7 +63,7 @@
      </property>
     </widget>
    </item>
-   <item row="2" column="0">
+   <item row="4" column="0" colspan="2">
     <layout class="QGridLayout" name="gridLayout">
      <item row="0" column="0">
       <widget class="QCheckBox" name="checkNyse">
@@ -117,14 +100,7 @@
       </spacer>
      </item>
      <item row="0" column="4">
-      <widget class="QPushButton" name="pushCopy">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-         <horstretch>1</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-      </widget>
+      <widget class="QPushButton" name="pushCopy"/>
      </item>
     </layout>
    </item>
@@ -146,22 +122,6 @@
   <include location="tht.qrc"/>
  </resources>
  <connections>
-  <connection>
-   <sender>pushCopy</sender>
-   <signal>clicked()</signal>
-   <receiver>TickerNeighbors</receiver>
-   <slot>slotCopy()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>102</x>
-     <y>323</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>185</x>
-     <y>311</y>
-    </hint>
-   </hints>
-  </connection>
   <connection>
    <sender>lineTicker</sender>
    <signal>returnPressed()</signal>
@@ -271,6 +231,22 @@
     <hint type="destinationlabel">
      <x>267</x>
      <y>181</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushCopy</sender>
+   <signal>clicked()</signal>
+   <receiver>TickerNeighbors</receiver>
+   <slot>slotCopy()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>102</x>
+     <y>323</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>185</x>
+     <y>311</y>
     </hint>
    </hints>
   </connection>
