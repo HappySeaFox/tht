@@ -68,69 +68,69 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
         <translation>Експортувати тікери</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="114"/>
+        <location filename="../list.cpp" line="116"/>
         <source>Clear</source>
         <translation>Очистити</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="115"/>
+        <location filename="../list.cpp" line="117"/>
         <source>Sort</source>
         <translation>Відсортувати</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="117"/>
+        <location filename="../list.cpp" line="119"/>
         <source>Reset priorities</source>
         <translation>Скинути пріоритети</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="124"/>
+        <location filename="../list.cpp" line="126"/>
         <source>Add one ticker...</source>
         <translation>Додати один тікер...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="126"/>
+        <location filename="../list.cpp" line="128"/>
         <source>Add from file...</source>
         <translation>Додати з файлу...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="127"/>
+        <location filename="../list.cpp" line="129"/>
         <source>Add from clipboard</source>
         <translation>Додати з буфера обміну</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="131"/>
+        <location filename="../list.cpp" line="133"/>
         <source>Export to file...</source>
         <translation>Експортувати в файл...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="132"/>
+        <location filename="../list.cpp" line="134"/>
         <source>Export to clipboard</source>
         <translation>Експортувати в буфер обміну</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="994"/>
-        <location filename="../list.cpp" line="1081"/>
+        <location filename="../list.cpp" line="1006"/>
+        <location filename="../list.cpp" line="1093"/>
         <source>Choose a file</source>
         <translation>Виберіть файл</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1042"/>
-        <location filename="../list.cpp" line="1093"/>
+        <location filename="../list.cpp" line="1054"/>
+        <location filename="../list.cpp" line="1105"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1042"/>
+        <location filename="../list.cpp" line="1054"/>
         <source>Cannot open the following files: %1</source>
         <translation>Неможливо відкрити наступні файли: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1083"/>
+        <location filename="../list.cpp" line="1095"/>
         <source>Text files (*.txt);;All files (*.*)</source>
         <translation>Текстові файли (*.txt);;Всі файли (*.*)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1093"/>
+        <location filename="../list.cpp" line="1105"/>
         <source>Cannot save to file %1</source>
         <translation>Неможливо зберегти в файл %1</translation>
     </message>
@@ -213,12 +213,12 @@ the right or middle mouse buttons.</source>
         <translation>Файл...</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="54"/>
+        <location filename="../savescreenshot.cpp" line="55"/>
         <source>Image %1 (*.%2)</source>
         <translation>Зображення %1 (*.%2)</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="62"/>
+        <location filename="../savescreenshot.cpp" line="63"/>
         <source>Save as</source>
         <translation>Зберегти як</translation>
     </message>
@@ -383,6 +383,39 @@ the right or middle mouse buttons.</source>
         <location filename="../tickerinput.ui" line="20"/>
         <source>Ticker:</source>
         <translation>Тікер:</translation>
+    </message>
+</context>
+<context>
+    <name>TickerNeighbors</name>
+    <message>
+        <location filename="../tickerneighbors.ui" line="14"/>
+        <source>Industries</source>
+        <translation>Індустрії</translation>
+    </message>
+    <message>
+        <location filename="../tickerneighbors.ui" line="72"/>
+        <source>NYSE</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../tickerneighbors.ui" line="82"/>
+        <source>NASD</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../tickerneighbors.ui" line="89"/>
+        <source>AMEX</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../tickerneighbors.ui" line="133"/>
+        <source>Copy</source>
+        <translation>Копіювати</translation>
+    </message>
+    <message>
+        <location filename="../tickerneighbors.ui" line="146"/>
+        <source>Found:</source>
+        <translation>Знайдено:</translation>
     </message>
 </context>
 </TS>

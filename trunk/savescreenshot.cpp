@@ -19,8 +19,9 @@
 #include <QFileDialog>
 #include <QFileInfo>
 
-#include "settings.h"
 #include "savescreenshot.h"
+#include "settings.h"
+
 #include "ui_savescreenshot.h"
 
 SaveScreenshot::SaveScreenshot(QWidget *parent) :

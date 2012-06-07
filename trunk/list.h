@@ -84,6 +84,7 @@ private:
     void setPriority(int);
     void resizeNumberLabel();
     void moveNumberLabel();
+    void showNeighbors();
 
     enum LoadItem { LoadItemCurrent,
                     LoadItemNext, LoadItemPrevious,

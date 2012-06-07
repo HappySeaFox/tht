@@ -21,8 +21,9 @@
 #include <QTimer>
 #include <QEvent>
 
-#include "searchticker.h"
 #include "uppercasevalidator.h"
+#include "searchticker.h"
+
 #include "ui_searchticker.h"
 
 SearchTicker::SearchTicker(QWidget *parent) :

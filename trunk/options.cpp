@@ -17,6 +17,7 @@
 
 #include "settings.h"
 #include "options.h"
+
 #include "ui_options.h"
 
 Options::Options(QWidget *parent) :

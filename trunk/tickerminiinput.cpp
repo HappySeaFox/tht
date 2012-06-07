@@ -21,9 +21,10 @@
 #include <QBrush>
 #include <QEvent>
 
-#include "settings.h"
-#include "tickerminiinput.h"
 #include "uppercasevalidator.h"
+#include "tickerminiinput.h"
+#include "settings.h"
+
 #include "ui_tickerminiinput.h"
 
 TickerMiniInput::TickerMiniInput(QWidget *parent) :
