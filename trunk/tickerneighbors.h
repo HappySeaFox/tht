@@ -9,6 +9,7 @@ class TickerNeighbors;
 }
 
 class QStandardItemModel;
+class QCheckBox;
 
 class TickerNeighbors : public QDialog
 {
@@ -17,6 +18,9 @@ class TickerNeighbors : public QDialog
 public:
     explicit TickerNeighbors(const QString &ticker, QWidget *parent = 0);
     ~TickerNeighbors();
+
+private:
+    void silentlyCheck(QCheckBox *, bool check);
 
 private slots:
     void slotFetch();

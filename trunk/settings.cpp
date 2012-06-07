@@ -135,6 +135,16 @@ void Settings::sync()
     m_settings->sync();
 }
 
+void Settings::setCheckBoxState(const QString &checkbox, bool checked, SyncType sync)
+{
+    save<int>("checkbox-" + checkbox, checked, sync);
+}
+
+int Settings::checkBoxState(const QString &checkbox)
+{
+    return load<int>("checkbox-" + checkbox, -1);
+}
+
 void Settings::setLastTickerInput(QString t, SyncType sync)
 {
     save<QString>("last-ticker-input", t, sync);

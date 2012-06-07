@@ -42,12 +42,46 @@ TickerNeighbors::TickerNeighbors(const QString &ticker, QWidget *parent) :
 
     ui->list->setModel(m_model);
 
+    // load checkboxes
+    int nyse = Settings::instance()->checkBoxState(ui->checkNyse->text());
+    int nasd = Settings::instance()->checkBoxState(ui->checkNasd->text());
+    int amex = Settings::instance()->checkBoxState(ui->checkAmex->text());
+
+    if(nyse <= 0 && nasd <= 0 && amex <= 0)
+        silentlyCheck(ui->checkNyse, true);
+    else
+    {
+        if(nyse >= 0)
+            silentlyCheck(ui->checkNyse, nyse);
+
+        if(nasd >= 0)
+            silentlyCheck(ui->checkNasd, nasd);
+
+        if(amex >= 0)
+            silentlyCheck(ui->checkAmex, amex);
+    }
+
     QTimer::singleShot(0, this, SLOT(slotFetch()));
 }
 
 TickerNeighbors::~TickerNeighbors()
 {
+    Settings::instance()->setCheckBoxState(ui->checkNyse->text(), ui->checkNyse->isChecked(), Settings::SyncTypeNoSync);
+    Settings::instance()->setCheckBoxState(ui->checkNasd->text(), ui->checkNasd->isChecked(), Settings::SyncTypeNoSync);
+    Settings::instance()->setCheckBoxState(ui->checkAmex->text(), ui->checkAmex->isChecked());
+
     delete ui;
+}
+
+void TickerNeighbors::silentlyCheck(QCheckBox *box, bool check)
+{
+    if(box)
+    {
+        bool b = box->signalsBlocked();
+        box->blockSignals(true);
+        box->setChecked(check);
+        box->blockSignals(b);
+    }
 }
 
 void TickerNeighbors::slotFetch()

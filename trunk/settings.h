@@ -39,6 +39,9 @@ public:
 
     OSVERSIONINFO version() const;
 
+    void setCheckBoxState(const QString &checkbox, bool checked, SyncType sync = SyncTypeSync);
+    int checkBoxState(const QString &checkbox);
+
     QString tickersPersistentDatabaseName() const;
     QString tickersPersistentDatabasePath() const;
 
