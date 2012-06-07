@@ -9,6 +9,7 @@ class TickerNeighbors;
 }
 
 class QStandardItemModel;
+class QModelIndex;
 class QCheckBox;
 
 class TickerNeighbors : public QDialog
@@ -19,14 +20,20 @@ public:
     explicit TickerNeighbors(const QString &ticker, QWidget *parent = 0);
     ~TickerNeighbors();
 
+    void showTicker(const QString &);
+
 private:
     void silentlyCheck(QCheckBox *, bool check);
+
+signals:
+    void loadTicker(const QString &);
 
 private slots:
     void slotFilterAndFetch();
     void slotFetch();
     void slotCopy();
     void slotSelectionChanged();
+    void slotActivated(const QModelIndex &);
 
 private:
     Ui::TickerNeighbors *ui;

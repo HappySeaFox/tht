@@ -19,12 +19,14 @@
 #define THT_H
 
 #include <QSystemTrayIcon>
+#include <QPointer>
 #include <QWidget>
 #include <QString>
 #include <QList>
 #include <QMap>
 #include <Qt>
 
+#include "tickerneighbors.h"
 #include "listitem.h"
 
 #include <windows.h>
@@ -133,6 +135,7 @@ private slots:
     void slotNewVersion(const QString &);
     void slotLoadPredefinedTicker();
     void slotOpenOrCloseSearchTicker();
+    void slotShowNeighbors(const QString &);
 
 private:
     Ui::THT *ui;
@@ -157,6 +160,7 @@ private:
     bool m_locked;
     QString m_newVersion;
     QMap<QString, Qt::Key> m_predefined;
+    QPointer<TickerNeighbors> m_sectors;
 };
 
 inline

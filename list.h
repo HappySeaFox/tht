@@ -84,7 +84,6 @@ private:
     void setPriority(int);
     void resizeNumberLabel();
     void moveNumberLabel();
-    void showNeighbors();
 
     enum LoadItem { LoadItemCurrent,
                     LoadItemNext, LoadItemPrevious,
@@ -101,6 +100,7 @@ signals:
     void copyTo(const QString &t, ListItem::Priority, int index);
     void loadTicker(const QString &);
     void dropped(const QString &, ListItem::Priority, const QPoint &);
+    void showNeighbors(const QString &);
 
 public slots:
     void addTicker(const QString &, ListItem::Priority p = ListItem::PriorityNormal);
