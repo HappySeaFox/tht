@@ -18,6 +18,7 @@ public:
 private:
     void checkNewData();
     bool writeData(const QString &file, const QByteArray &data);
+    QDateTime readTimestamp(const QString &fileName) const;
 
 private slots:
     void startRequest();
@@ -26,7 +27,7 @@ private slots:
 private:
     NetworkAccess *m_net;
     QString m_baseurl;
-    QDateTime m_timestamp;
+    QDateTime m_timestampP, m_timestampM;
     bool m_downloadingData;
 };
 
