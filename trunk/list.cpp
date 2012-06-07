@@ -151,7 +151,7 @@ List::~List()
     delete ui;
 }
 
-bool List::haveTickers() const
+bool List::hasTickers() const
 {
     return ui->list->count();
 }

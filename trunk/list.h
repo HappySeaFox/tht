@@ -44,7 +44,7 @@ public:
     explicit List(int group, QWidget *parent = 0);
     ~List();
 
-    bool haveTickers() const;
+    bool hasTickers() const;
 
     QString currentTicker() const;
 

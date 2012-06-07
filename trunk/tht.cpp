@@ -117,7 +117,7 @@ THT::THT(QWidget *parent) :
     // set focus
     foreach(List *l, m_lists)
     {
-        if(l->haveTickers())
+        if(l->hasTickers())
         {
             l->initialSelect();
             break;
