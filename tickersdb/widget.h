@@ -36,11 +36,15 @@ public:
     explicit Widget(QWidget *parent = 0);
     ~Widget();
 
+protected:
+    virtual void closeEvent(QCloseEvent *);
+
 private:
-    bool writeData(const QString &, const QString &, const QString &, const QString &);
+    bool writeData(const QString &, const QString &, const QString &, const QString &, const QString &);
 
 private slots:
     void slotFinished();
+    void slotFinishedExchange();
     void slotGet();
 
 private:
@@ -48,6 +52,7 @@ private:
     NetworkAccess *m_net;
     QSqlDatabase db;
     QStringList oldTickers;
+    QString exchange;
 };
 
 #endif // WIDGET_H
