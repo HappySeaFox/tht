@@ -26,6 +26,7 @@ private slots:
     void slotFilterAndFetch();
     void slotFetch();
     void slotCopy();
+    void slotSelectionChanged();
 
 private:
     Ui::TickerNeighbors *ui;
