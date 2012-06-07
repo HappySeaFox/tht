@@ -19,7 +19,6 @@ TickerNeighbors::TickerNeighbors(const QString &ticker, QWidget *parent) :
     ui->setupUi(this);
 
     ui->lineTicker->setValidator(new UpperCaseValidator(ui->lineTicker));
-
     ui->lineTicker->setText(ticker);
 
     // fill sectors & industries
@@ -94,7 +93,7 @@ void TickerNeighbors::slotFetch()
     m_model->clear();
     m_tickers.clear();
 
-    ui->labelFound->setNum(0);
+    ui->pushCopy->setText(tr("Copy (%1)").arg(0));
 
     QList<QStringList> lists;
     QMap<QString, QString> binds;
@@ -199,7 +198,7 @@ void TickerNeighbors::slotFetch()
         }
     }
 
-    ui->labelFound->setNum(m_tickers.size());
+    ui->pushCopy->setText(tr("Copy (%1)").arg(m_tickers.size()));
 
     qDebug("Found neighbors %d", m_tickers.size());
 

@@ -398,24 +398,20 @@ the right or middle mouse buttons.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tickerneighbors.ui" line="82"/>
+        <location filename="../tickerneighbors.ui" line="79"/>
         <source>NASD</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tickerneighbors.ui" line="89"/>
+        <location filename="../tickerneighbors.ui" line="86"/>
         <source>AMEX</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tickerneighbors.ui" line="133"/>
-        <source>Copy</source>
-        <translation>Копіювати</translation>
-    </message>
-    <message>
-        <location filename="../tickerneighbors.ui" line="146"/>
-        <source>Found:</source>
-        <translation>Знайдено:</translation>
+        <location filename="../tickerneighbors.cpp" line="96"/>
+        <location filename="../tickerneighbors.cpp" line="201"/>
+        <source>Copy (%1)</source>
+        <translation>Копіювати (%1)</translation>
     </message>
 </context>
 </TS>
