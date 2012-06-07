@@ -73,6 +73,7 @@ bool TickersDatabaseUpdater::writeData(const QString &fileName, const QByteArray
     if(!file.open(QIODevice::WriteOnly | QIODevice::Truncate))
     {
         qDebug("Cannot open file for writing (%s)", qPrintable(file.errorString()));
+        file.remove();
         return false;
     }
 
@@ -80,8 +81,8 @@ bool TickersDatabaseUpdater::writeData(const QString &fileName, const QByteArray
 
     if(written != data.size())
     {
-        file.close();
-        QFile::remove(file.fileName());
+        qDebug("Not all data written (%ld written, %ld required)", (long)written, (long)data.size());
+        file.remove();
         return false;
     }
 
@@ -109,8 +110,7 @@ void TickersDatabaseUpdater::slotFinished()
 
     if(m_downloadingData)
     {
-        if(!writeData(Settings::instance()->tickersMutableDatabasePath(), m_net->data()))
-            QFile::remove(Settings::instance()->tickersMutableDatabasePath() + ".timestamp.new");
+        writeData(Settings::instance()->tickersMutableDatabasePath(), m_net->data());
 
         m_net->clearBuffer();
     }
