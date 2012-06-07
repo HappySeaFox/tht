@@ -33,13 +33,13 @@ public:
 
     ~Settings();
 
-    enum SyncType { SyncTypeNoSync, SyncTypeSync };
+    enum SyncType { NoSync, Sync };
 
     void sync();
 
     OSVERSIONINFO version() const;
 
-    void setCheckBoxState(const QString &checkbox, bool checked, SyncType sync = SyncTypeSync);
+    void setCheckBoxState(const QString &checkbox, bool checked, SyncType sync = Sync);
     int checkBoxState(const QString &checkbox);
 
     QString tickersPersistentDatabaseName() const;
@@ -52,53 +52,53 @@ public:
 
     QRegExp tickerValidator() const;
 
-    void setLastTickerInput(QString, SyncType sync = SyncTypeSync);
+    void setLastTickerInput(QString, SyncType sync = Sync);
     QString lastTickerInput();
 
-    void setLastTickerDirectory(QString, SyncType sync = SyncTypeSync);
+    void setLastTickerDirectory(QString, SyncType sync = Sync);
     QString lastTickerDirectory();
 
-    void setLastScreenShotDirectory(QString, SyncType sync = SyncTypeSync);
+    void setLastScreenShotDirectory(QString, SyncType sync = Sync);
     QString lastScreenShotDirectory();
 
-    void setMiniTickerEntry(bool, SyncType sync = SyncTypeSync);
+    void setMiniTickerEntry(bool, SyncType sync = Sync);
     bool miniTickerEntry();
 
-    void setAllowDuplicates(bool, SyncType sync = SyncTypeSync);
+    void setAllowDuplicates(bool, SyncType sync = Sync);
     bool allowDuplicates();
 
-    void setNyseOnly(bool, SyncType sync = SyncTypeSync);
+    void setNyseOnly(bool, SyncType sync = Sync);
     bool nyseOnly();
 
-    void setOnTop(bool, SyncType sync = SyncTypeSync);
+    void setOnTop(bool, SyncType sync = Sync);
     bool onTop();
 
-    void setHideToTray(bool, SyncType sync = SyncTypeSync);
+    void setHideToTray(bool, SyncType sync = Sync);
     bool hideToTray();
 
-    void setTrayNoticeSeen(bool, SyncType sync = SyncTypeSync);
+    void setTrayNoticeSeen(bool, SyncType sync = Sync);
     bool trayNoticeSeen();
 
-    void setSaveGeometry(bool, SyncType sync = SyncTypeSync);
+    void setSaveGeometry(bool, SyncType sync = Sync);
     bool saveGeometry();
 
     int maximumNumberOfLists() const;
 
-    void setNumberOfLists(int, SyncType sync = SyncTypeSync);
+    void setNumberOfLists(int, SyncType sync = Sync);
     int numberOfLists();
 
-    void setWindowSize(const QSize &, SyncType sync = SyncTypeSync);
+    void setWindowSize(const QSize &, SyncType sync = Sync);
     QSize windowSize();
 
-    void setWindowPosition(const QPoint &, SyncType sync = SyncTypeSync);
+    void setWindowPosition(const QPoint &, SyncType sync = Sync);
     QPoint windowPosition();
 
-    void setSaveTickers(bool, SyncType sync = SyncTypeSync);
+    void setSaveTickers(bool, SyncType sync = Sync);
     bool saveTickers();
 
-    void saveTickersForGroup(int group, const QStringList &tickers, SyncType sync = SyncTypeSync);
+    void saveTickersForGroup(int group, const QStringList &tickers, SyncType sync = Sync);
     QStringList tickersForGroup(int group);
-    void removeTickers(int group, SyncType sync = SyncTypeSync);
+    void removeTickers(int group, SyncType sync = Sync);
 
 private:
     Settings();
@@ -107,7 +107,7 @@ private:
     T load(const QString &key, const T &def = T());
 
     template <typename T>
-    void save(const QString &key, const T &value, SyncType sync = SyncTypeSync);
+    void save(const QString &key, const T &value, SyncType sync = Sync);
 
 private:
     QSettings *m_settings;

@@ -303,7 +303,7 @@ void Settings::saveTickersForGroup(int group, const QStringList &tickers, SyncTy
     m_settings->setValue("tickers", tickers);
     m_settings->endGroup();
 
-    if(sync == SyncTypeSync)
+    if(sync == Sync)
         m_settings->sync();
 }
 
@@ -322,7 +322,7 @@ void Settings::removeTickers(int group, SyncType sync)
     m_settings->remove(QString());
     m_settings->endGroup();
 
-    if(sync == SyncTypeSync)
+    if(sync == Sync)
         m_settings->sync();
 }
 
@@ -350,6 +350,6 @@ void Settings::save(const QString &key, const T &value, SyncType sync)
     m_settings->setValue(key, value);
     m_settings->endGroup();
 
-    if(sync == SyncTypeSync)
+    if(sync == Sync)
         m_settings->sync();
 }
