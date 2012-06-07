@@ -23,6 +23,7 @@ private:
     void silentlyCheck(QCheckBox *, bool check);
 
 private slots:
+    void slotFilterAndFetch();
     void slotFetch();
     void slotCopy();
 
@@ -30,6 +31,7 @@ private:
     Ui::TickerNeighbors *ui;
     QStringList m_tickers;
     QStandardItemModel *m_model;
+    QObject *m_lastAction;
 };
 
 #endif // TICKERNEIGHBORS_H

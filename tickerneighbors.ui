@@ -172,8 +172,8 @@
    <slot>slotCopy()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>93</x>
-     <y>360</y>
+     <x>102</x>
+     <y>323</y>
     </hint>
     <hint type="destinationlabel">
      <x>185</x>
@@ -245,9 +245,58 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>checkNyse</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>TickerNeighbors</receiver>
+   <slot>slotFilterAndFetch()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>39</x>
+     <y>107</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>252</x>
+     <y>144</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkNasd</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>TickerNeighbors</receiver>
+   <slot>slotFilterAndFetch()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>91</x>
+     <y>108</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>254</x>
+     <y>207</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkAmex</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>TickerNeighbors</receiver>
+   <slot>slotFilterAndFetch()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>138</x>
+     <y>109</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>267</x>
+     <y>181</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>slotCopy()</slot>
   <slot>slotFetch()</slot>
+  <slot>slotFilterAndFetch()</slot>
  </slots>
 </ui>
