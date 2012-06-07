@@ -616,7 +616,7 @@ void THT::loadTicker(const QString &ticker)
         return;
     }
 
-    if(m_sectors)
+    if(m_sectors && sender() != m_sectors)
         m_sectors->showTicker(ticker);
 
     checkWindows();
