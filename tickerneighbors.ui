@@ -198,54 +198,6 @@
    </hints>
   </connection>
   <connection>
-   <sender>checkNyse</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>TickerNeighbors</receiver>
-   <slot>slotFetch()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>43</x>
-     <y>107</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>233</x>
-     <y>48</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>checkNasd</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>TickerNeighbors</receiver>
-   <slot>slotFetch()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>113</x>
-     <y>107</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>260</x>
-     <y>56</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>checkAmex</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>TickerNeighbors</receiver>
-   <slot>slotFetch()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>169</x>
-     <y>107</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>243</x>
-     <y>75</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>pushTicker</sender>
    <signal>clicked()</signal>
    <receiver>TickerNeighbors</receiver>
