@@ -33,6 +33,8 @@ QList<QStringList> SqlTools::query(const QString &s, const QMap<QString, QString
 
     if(!query.next())
     {
+        qDebug("Querying mutable database");
+
         query = QSqlQuery(dbp);
         query.prepare(s);
 
@@ -42,6 +44,8 @@ QList<QStringList> SqlTools::query(const QString &s, const QMap<QString, QString
         query.exec();
         query.next();
     }
+    else
+        qDebug("Querying persistent database");
 
     if(!query.isValid())
         return result;
@@ -57,6 +61,85 @@ QList<QStringList> SqlTools::query(const QString &s, const QMap<QString, QString
 
         result.append(list);
     }while(query.next());
+
+    return result;
+}
+
+QStringList SqlTools::sectors()
+{
+    static QStringList s = SqlTools::sectorsReal();
+    return s;
+}
+
+QStringList SqlTools::industries()
+{
+    static QStringList i = SqlTools::industriesReal();
+    return i;
+}
+
+QMap<QString, QStringList> SqlTools::sectorsAndIndustries()
+{
+    static QMap<QString, QStringList> r = SqlTools::sectorsAndIndustriesReal();
+    return r;
+}
+
+QStringList SqlTools::sectorsReal()
+{
+    QStringList result;
+
+    QList<QStringList> lists = SqlTools::query("SELECT DISTINCT sector FROM tickers");
+
+    foreach(QStringList l, lists)
+    {
+        if(l.isEmpty())
+            continue;
+
+        result.append(l.at(0));
+    }
+
+    return result;
+}
+
+QStringList SqlTools::industriesReal()
+{
+    QStringList result;
+
+    QList<QStringList> lists = SqlTools::query("SELECT DISTINCT industry FROM tickers");
+
+    foreach(QStringList l, lists)
+    {
+        if(l.isEmpty())
+            continue;
+
+        result.append(l.at(0));
+    }
+
+    return result;
+}
+
+QMap<QString, QStringList> SqlTools::sectorsAndIndustriesReal()
+{
+    QMap<QString, QStringList> result;
+
+    QStringList sectors = SqlTools::sectors();
+
+    foreach(QString sector, sectors)
+    {
+        QStringList industries;
+
+        QList<QStringList> lists = SqlTools::query("SELECT DISTINCT industry FROM tickers WHERE sector = :sector",
+                                                   ":sector", sector);
+
+        foreach(QStringList l, lists)
+        {
+            if(l.isEmpty())
+                continue;
+
+            industries.append(l.at(0));
+        }
+
+        result.insert(sector, industries);
+    }
 
     return result;
 }

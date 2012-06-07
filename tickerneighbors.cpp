@@ -24,24 +24,18 @@ TickerNeighbors::TickerNeighbors(const QString &ticker, QWidget *parent) :
 
     qDebug("Getting sectors & industries");
 
-    QList<QStringList> lists = SqlTools::query("SELECT DISTINCT sector FROM tickers");
+    QStringList result = SqlTools::sectors();
 
-    foreach(QStringList l, lists)
+    foreach(QString s, result)
     {
-        if(l.isEmpty())
-            continue;
-
-        ui->comboSector->addItem(l.at(0));
+        ui->comboSector->addItem(s);
     }
 
-    lists = SqlTools::query("SELECT DISTINCT industry FROM tickers");
+    result = SqlTools::industries();
 
-    foreach(QStringList l, lists)
+    foreach(QString i, result)
     {
-        if(l.isEmpty())
-            continue;
-
-        ui->comboIndustry->addItem(l.at(0));
+        ui->comboIndustry->addItem(i);
     }
 
     m_model = new QStandardItemModel(this);
@@ -75,8 +69,7 @@ void TickerNeighbors::slotFetch()
     // ticker info
     if(sender() != ui->pushSector && sender() != ui->pushIndustry)
     {
-        binds.insert(":ticker", ticker);
-        lists = SqlTools::query("SELECT sector, industry FROM tickers WHERE ticker = :ticker", binds);
+        lists = SqlTools::query("SELECT sector, industry FROM tickers WHERE ticker = :ticker", ":ticker", ticker);
 
         if(lists.isEmpty())
             return;
