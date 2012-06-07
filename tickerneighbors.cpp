@@ -96,7 +96,7 @@ void TickerNeighbors::slotFetch()
     QMap<QString, QString> binds;
     QString sector, industry;
 
-    QString ticker = ui->lineTicker->text();
+    QString ticker = ui->lineTicker->text().replace('.', '-');
 
     qDebug("Getting neighbors for ticker \"%s\"", qPrintable(ticker));
 
