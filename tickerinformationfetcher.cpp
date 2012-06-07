@@ -1,12 +1,7 @@
-#include <QSqlDatabase>
-#include <QSqlError>
-#include <QSqlQuery>
-#include <QRegExp>
 #include <QTimer>
-#include <QUrl>
 
 #include "tickerinformationfetcher.h"
-#include "settings.h"
+#include "sqltools.h"
 
 TickerInformationFetcher::TickerInformationFetcher(QObject *parent) :
     QObject(parent)
@@ -26,35 +21,21 @@ void TickerInformationFetcher::fetch(const QString &ticker)
 
 void TickerInformationFetcher::slotFetch()
 {
-    // try to get from the database
-    QSqlDatabase dbp = QSqlDatabase::database(Settings::instance()->tickersPersistentDatabaseName());
-    QSqlDatabase dbm = QSqlDatabase::database(Settings::instance()->tickersMutableDatabaseName());
-    QString queryString = "SELECT company, sector, industry FROM tickers WHERE ticker = :ticker";
+    QList<QStringList> lists = SqlTools::query("SELECT company, sector, industry FROM tickers WHERE ticker = :ticker", ":ticker", m_ticker);
 
-    QSqlQuery query(dbp);
-
-    query.prepare(queryString);
-    query.bindValue(":ticker", m_ticker);
-    query.exec();
-
-    if(!query.next())
+    if(!lists.isEmpty())
     {
-        qDebug("Trying mutable database for \"%s\"", qPrintable(m_ticker));
-        query = QSqlQuery(dbm);
-        query.prepare(queryString);
-        query.bindValue(":ticker", m_ticker);
-        query.exec();
-        query.next();
-    }
+        QStringList values = lists.at(0);
 
-    if(query.isValid())
-    {
-        QString company = query.value(0).toString();
-
-        if(!company.isEmpty())
+        if(values.size() > 2)
         {
-            emit done(company, query.value(1).toString(), query.value(2).toString());
-            return;
+            QString company = values.at(0);
+
+            if(!company.isEmpty())
+            {
+                emit done(company, values.at(1), values.at(2));
+                return;
+            }
         }
     }
 

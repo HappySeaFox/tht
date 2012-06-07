@@ -9,6 +9,7 @@
 class SqlTools
 {
 public:
+    static QList<QStringList> query(const QString &s, const QString &bindTemplate, const QString &bindValue);
     static QList<QStringList> query(const QString &s, const QMap<QString, QString> &binds = QMap<QString, QString>());
 };
 
