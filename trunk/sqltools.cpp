@@ -5,13 +5,22 @@
 #include "settings.h"
 #include "sqltools.h"
 
+QList<QStringList> SqlTools::query(const QString &s, const QString &bindTemplate, const QString &bindValue)
+{
+    QMap<QString, QString> binds;
+
+    binds.insert(bindTemplate, bindValue);
+
+    return SqlTools::query(s, binds);
+}
+
 QList<QStringList> SqlTools::query(const QString &s, const QMap<QString, QString> &binds)
 {
     QSqlDatabase dbp = QSqlDatabase::database(Settings::instance()->tickersPersistentDatabaseName());
     QSqlDatabase dbm = QSqlDatabase::database(Settings::instance()->tickersMutableDatabaseName());
     QList<QStringList> result;
 
-    QSqlQuery query(dbp);
+    QSqlQuery query(dbm);
 
     QMap<QString, QString>::const_iterator itEnd = binds.end();
 
@@ -24,7 +33,7 @@ QList<QStringList> SqlTools::query(const QString &s, const QMap<QString, QString
 
     if(!query.next())
     {
-        query = QSqlQuery(dbm);
+        query = QSqlQuery(dbp);
         query.prepare(s);
 
         for(QMap<QString, QString>::const_iterator it = binds.begin();it != itEnd;++it)
