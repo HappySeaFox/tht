@@ -64,6 +64,9 @@ TickerNeighbors::TickerNeighbors(const QString &ticker, QWidget *parent) :
 
     m_lastAction = ui->pushTicker;
 
+    connect(ui->list->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
+            this, SLOT(slotSelectionChanged()));
+
     QTimer::singleShot(0, this, SLOT(slotFetch()));
 }
 
@@ -233,4 +236,11 @@ void TickerNeighbors::slotCopy()
 void TickerNeighbors::slotFilterAndFetch()
 {
     QMetaObject::invokeMethod(m_lastAction, "clicked");
+}
+
+void TickerNeighbors::slotSelectionChanged()
+{
+    const int count = ui->list->selectionModel()->selectedIndexes().count();
+
+    ui->pushCopy->setText(tr("Copy (%1)").arg(!count ? m_model->rowCount() : count));
 }
