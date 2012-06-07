@@ -19,9 +19,9 @@ TickerNeighbors::TickerNeighbors(const QString &ticker, QWidget *parent) :
 
     ui->lineTicker->setValidator(new UpperCaseValidator(ui->lineTicker));
 
-    QString t = ticker;
-    ui->lineTicker->setText(t.replace('.', '-'));
+    ui->lineTicker->setText(ticker);
 
+    // fill sectors & industries
     qDebug("Getting sectors & industries");
 
     QStringList result = SqlTools::sectors();
@@ -38,6 +38,7 @@ TickerNeighbors::TickerNeighbors(const QString &ticker, QWidget *parent) :
         ui->comboIndustry->addItem(i);
     }
 
+    // model for listview
     m_model = new QStandardItemModel(this);
 
     ui->list->setModel(m_model);
