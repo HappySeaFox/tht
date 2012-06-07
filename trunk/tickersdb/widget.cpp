@@ -15,14 +15,21 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <QWebElementCollection>
+#include <QWebSettings>
 #include <QApplication>
 #include <QMessageBox>
+#include <QWebElement>
+#include <QEventLoop>
 #include <QDateTime>
 #include <QSqlError>
 #include <QSqlQuery>
+#include <QWebFrame>
+#include <QWebPage>
 #include <QTimer>
 #include <QDebug>
 #include <QFile>
+#include <QMap>
 
 #include <cstdlib>
 
@@ -35,6 +42,14 @@
 static const char * const TICKERS_DB     = "tickers.sqlite";
 static const char * const TICKERS_DB_NEW = "tickers.sqlite.new";
 static const char * const TICKERS_DB_TS  = "tickers.sqlite.timestamp";
+
+struct Ticker
+{
+    QString company;
+    QString sector;
+    QString industry;
+    QString exchange;
+};
 
 Widget::Widget(QWidget *parent) :
     QWidget(parent),
@@ -81,12 +96,17 @@ Widget::Widget(QWidget *parent) :
 
     connect(m_net, SIGNAL(finished()), this, SLOT(slotFinished()));
 
-    QTimer::singleShot(0, this, SLOT(slotGet()));
+    QTimer::singleShot(20, this, SLOT(slotGet()));
 }
 
 Widget::~Widget()
 {
     delete ui;
+}
+
+void Widget::closeEvent(QCloseEvent *)
+{
+    exit(0);
 }
 
 void Widget::slotGet()
@@ -98,9 +118,10 @@ void Widget::slotGet()
 
     ok += query.exec("CREATE TABLE IF NOT EXISTS tickers ("
                          "ticker VARCHAR(10) UNIQUE,"
-                         "company VARCHAR(128),"
-                         "sector VARCHAR(128),"
-                         "industry VARCHAR(128)"
+                         "company VARCHAR(64),"
+                         "sector VARCHAR(64),"
+                         "industry VARCHAR(64),"
+                         "exchange VARCHAR(16)"
                          ");");
 
     ok += query.exec("DELETE FROM tickers");
@@ -133,6 +154,8 @@ void Widget::slotFinished()
     csv.parseLine();
     int num = 0;
     QStringList newTickers;
+    QMap<QString, Ticker> map;
+    Ticker t;
 
     while(!(str = csv.parseLine()).isEmpty())
     {
@@ -142,73 +165,130 @@ void Widget::slotFinished()
             return;
         }
 
+        t.company = str[2];
+        t.sector = str[3];
+        t.industry = str[4];
+
         newTickers.append(str[1]);
 
-        if(!writeData(str[1], str[2], str[3], str[4]))
-            return;
+        map.insert(str[1], t);
 
         ui->label->setNum(++num);
+    }
 
-        if(!(num % 100))
-            qApp->processEvents();
+    newTickers.sort();
+
+    if(newTickers == oldTickers)
+    {
+        qDebug("Up-to-date");
+        QFile::remove(TICKERS_DB_NEW);
+        ui->plainTextLog->appendPlainText("Up-to-date");
+        return;
+    }
+
+    disconnect(m_net, SIGNAL(finished()), this, 0);
+    connect(m_net, SIGNAL(finished()), this, SLOT(slotFinishedExchange()));
+
+    num = 0;
+    QMap<QString, Ticker>::iterator itEnd = map.end();
+
+    for(QMap<QString, Ticker>::iterator it = map.begin();it != itEnd;++it)
+    {
+        QEventLoop eventLoop;
+        connect(m_net, SIGNAL(finished()), &eventLoop, SLOT(quit()));
+
+        m_net->get(QUrl(QString("http://finviz.com/quote.ashx?t=%1&ty=l&ta=0&p=d").arg(it.key())));
+
+        exchange.clear();
+        eventLoop.exec();
+
+        if(exchange.isEmpty())
+        {
+            ui->plainTextLog->appendPlainText(QString("Cannot fetch exchange name for %1").arg(it.key()));
+            --it;
+            continue;
+        }
+
+        ui->labelProgress->setNum(++num);
+
+        t = it.value();
+
+        if(!writeData(it.key(), t.company, t.sector, t.industry, exchange))
+            return;
     }
 
     QSqlDatabase::database().commit();
     QSqlDatabase::database().close();
 
-    newTickers.sort();
+    qDebug("Need update");
+    ui->plainTextLog->appendPlainText("Need update");
 
-    if(newTickers != oldTickers)
+    if(!QFile::remove(TICKERS_DB) || !QFile::copy(TICKERS_DB_NEW, TICKERS_DB))
     {
-        qDebug("Need update");
-        ui->plainTextLog->appendPlainText("Need update");
-
-        if(!QFile::remove(TICKERS_DB) || !QFile::copy(TICKERS_DB_NEW, TICKERS_DB))
-        {
-            qDebug("Cannot copy");
-            ui->plainTextLog->appendPlainText("Cannot copy");
-        }
-        else
-        {
-            QFile::remove(TICKERS_DB_NEW);
-
-            QString ts = QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss.zzz");
-            QFile fts(TICKERS_DB_TS);
-
-            if(!fts.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text))
-            {
-                qDebug("Cannot open timestamp file");
-                ui->plainTextLog->appendPlainText(QString("Cannot open timestamp file (%1)").arg(fts.errorString()));
-            }
-            else
-            {
-                fts.write(ts.toAscii());
-                fts.close();
-
-                qDebug("Update done %s", qPrintable(ts));
-                ui->plainTextLog->appendPlainText(QString("Done %1").arg(ts));
-            }
-        }
+        qDebug("Cannot copy");
+        ui->plainTextLog->appendPlainText("Cannot copy");
     }
     else
     {
-        qDebug("Up-to-date");
         QFile::remove(TICKERS_DB_NEW);
-        ui->plainTextLog->appendPlainText("Up-to-date");
+
+        QString ts = QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss.zzz");
+        QFile fts(TICKERS_DB_TS);
+
+        if(!fts.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text))
+        {
+            qDebug("Cannot open timestamp file");
+            ui->plainTextLog->appendPlainText(QString("Cannot open timestamp file (%1)").arg(fts.errorString()));
+        }
+        else
+        {
+            fts.write(ts.toAscii());
+            fts.close();
+
+            qDebug("Update done %s", qPrintable(ts));
+            ui->plainTextLog->appendPlainText(QString("Done %1").arg(ts));
+        }
     }
 }
 
-bool Widget::writeData(const QString &ticker, const QString &company, const QString &sector, const QString &industry)
+void Widget::slotFinishedExchange()
+{
+    if(m_net->error() != QNetworkReply::NoError)
+        return;
+
+    QRegExp rx("^\\[(.*)\\]$");
+    QWebPage page;
+
+    page.settings()->setAttribute(QWebSettings::AutoLoadImages, false);
+    page.settings()->setAttribute(QWebSettings::JavascriptEnabled, false);
+    page.settings()->setAttribute(QWebSettings::JavaEnabled, false);
+    page.settings()->setAttribute(QWebSettings::PluginsEnabled, false);
+
+    page.mainFrame()->setHtml(m_net->data());
+
+    // ticker name
+    QWebElement table = page.mainFrame()->findFirstElement("table.fullview-title");
+
+    QString s = table.findFirst("tr").findFirst("td").findFirst("a.fullview-ticker").nextSibling().toPlainText();
+
+    if(rx.exactMatch(s))
+        exchange = rx.cap(1);
+}
+
+bool Widget::writeData(const QString &ticker, const QString &company,
+                       const QString &sector, const QString &industry,
+                       const QString &exchange)
 {
     QSqlQuery query;
 
-    query.prepare("INSERT INTO tickers (ticker, company, sector, industry) "
-                  "VALUES (:ticker, :company, :sector, :industry)");
+    query.prepare("INSERT INTO tickers (ticker, company, sector, industry, exchange) "
+                  "VALUES (:ticker, :company, :sector, :industry, :exchange)");
 
     query.bindValue(":ticker", ticker);
     query.bindValue(":company", company);
     query.bindValue(":sector", sector);
-    query.bindValue(":undustry", industry);
+    query.bindValue(":industry", industry);
+    query.bindValue(":exchange", exchange);
 
     if(!query.exec())
     {
@@ -217,7 +297,7 @@ bool Widget::writeData(const QString &ticker, const QString &company, const QStr
         return false;
     }
 
-    ui->plainTextLog->appendPlainText(ticker);
+    ui->plainTextLog->appendPlainText(ticker + '/' + exchange);
 
     return true;
 }

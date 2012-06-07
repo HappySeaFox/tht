@@ -14,7 +14,7 @@
    <string>Finviz parser</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="2">
+   <item row="0" column="3">
     <spacer name="horizontalSpacer">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -27,7 +27,7 @@
      </property>
     </spacer>
    </item>
-   <item row="1" column="0" colspan="4">
+   <item row="1" column="0" colspan="5">
     <widget class="QPlainTextEdit" name="plainTextLog">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -68,6 +68,9 @@
       <string>0</string>
      </property>
     </widget>
+   </item>
+   <item row="0" column="2">
+    <widget class="QLabel" name="labelProgress"/>
    </item>
   </layout>
  </widget>

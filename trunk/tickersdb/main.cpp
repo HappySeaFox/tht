@@ -22,7 +22,10 @@
 
 int main(int argc, char *argv[])
 {
-    QDir::setCurrent(TICKERS_DIR);
+    if(argc > 1 && argv[1])
+        QDir::setCurrent(argv[1]);
+    else
+        QDir::setCurrent(TICKERS_DIR);
 
     QApplication a(argc, argv);
     Widget w;
