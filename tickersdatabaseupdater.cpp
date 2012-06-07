@@ -7,6 +7,8 @@
 #include "networkaccess.h"
 #include "settings.h"
 
+static const char * const THT_TIMESTAMP_FORMAT = "yyyy-MM-dd hh:mm:ss.zzz";
+
 TickersDatabaseUpdater::TickersDatabaseUpdater(QObject *parent) :
     QObject(parent),
     m_downloadingData(false)
@@ -15,18 +17,17 @@ TickersDatabaseUpdater::TickersDatabaseUpdater(QObject *parent) :
 
     m_baseurl = "http://traders-home-task-ng.googlecode.com/svn/trunk/tickersdb/";
 
-    QFile file(Settings::instance()->tickersPersistentDatabasePath() + ".timestamp");
+    m_timestampP = readTimestamp(Settings::instance()->tickersPersistentDatabasePath());
+    m_timestampM = readTimestamp(Settings::instance()->tickersMutableDatabasePath());
 
-    if(file.open(QIODevice::ReadOnly))
-        m_timestamp = QDateTime::fromString(file.readAll().trimmed(), "yyyy-MM-dd hh:mm:ss.zzz");
-
-    file.close();
+    qDebug("Database P timestamp: %s", qPrintable(m_timestampP.toString(THT_TIMESTAMP_FORMAT)));
+    qDebug("Database M timestamp: %s", qPrintable(m_timestampM.toString(THT_TIMESTAMP_FORMAT)));
 
     m_net = new NetworkAccess(this);
 
     connect(m_net, SIGNAL(finished()), this, SLOT(slotFinished()));
 
-    if(m_timestamp.isValid())
+    if(m_timestampP.isValid())
         startRequest();
     else
         qDebug("Persistent database timestamp is invalid");
@@ -47,6 +48,9 @@ void TickersDatabaseUpdater::checkNewData()
 
     if(!QFile::exists(newDb) || !QFile::exists(newTs))
     {
+        QFile::remove(newDb);
+        QFile::remove(newTs);
+
         qDebug("No new database found locally");
         return;
     }
@@ -84,6 +88,16 @@ bool TickersDatabaseUpdater::writeData(const QString &fileName, const QByteArray
     return true;
 }
 
+QDateTime TickersDatabaseUpdater::readTimestamp(const QString &fileName) const
+{
+    QFile file(fileName + ".timestamp");
+
+    if(file.open(QIODevice::ReadOnly))
+        return QDateTime::fromString(file.readAll().trimmed(), THT_TIMESTAMP_FORMAT);
+
+    return QDateTime();
+}
+
 void TickersDatabaseUpdater::slotFinished()
 {
     if(m_net->error() != QNetworkReply::NoError)
@@ -102,7 +116,7 @@ void TickersDatabaseUpdater::slotFinished()
     }
     else
     {
-        QDateTime ts = QDateTime::fromString(m_net->data().trimmed(), "yyyy-MM-dd hh:mm:ss.zzz");
+        QDateTime ts = QDateTime::fromString(m_net->data().trimmed(), THT_TIMESTAMP_FORMAT);
 
         if(!ts.isValid())
         {
@@ -110,7 +124,7 @@ void TickersDatabaseUpdater::slotFinished()
             return;
         }
 
-        if(m_timestamp >= ts)
+        if(ts <= m_timestampP && (!m_timestampM.isValid() || ts <= m_timestampM))
         {
             qDebug("No database updates available");
             QTimer::singleShot(1*3600*1000, this, SLOT(startRequest()));
