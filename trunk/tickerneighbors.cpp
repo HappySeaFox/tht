@@ -161,7 +161,7 @@ void TickerNeighbors::slotFetch()
 
     foreach(QString t, m_tickers)
     {
-        QStandardItem *item = new QStandardItem(t);
+        QStandardItem *item = new QStandardItem(t.replace('-', '.'));
         item->setFlags(item->flags() & ~Qt::ItemIsEditable);
         m_model->appendRow(item);
     }
