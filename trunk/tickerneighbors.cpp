@@ -1,6 +1,7 @@
 #include <QItemSelectionModel>
 #include <QStandardItemModel>
 #include <QApplication>
+#include <QMetaObject>
 #include <QClipboard>
 #include <QTimer>
 
@@ -62,6 +63,8 @@ TickerNeighbors::TickerNeighbors(const QString &ticker, QWidget *parent) :
             silentlyCheck(ui->checkAmex, amex);
     }
 
+    m_lastAction = ui->pushTicker;
+
     QTimer::singleShot(0, this, SLOT(slotFetch()));
 }
 
@@ -101,8 +104,14 @@ void TickerNeighbors::slotFetch()
 
     qDebug("Getting neighbors for ticker \"%s\"", qPrintable(ticker));
 
+    QObject *osender = sender();
+
+    // save last action object
+    if(osender == ui->pushTicker || osender == ui->pushSector || osender == ui->pushIndustry)
+        m_lastAction = osender;
+
     // ticker info
-    if(sender() != ui->pushSector && sender() != ui->pushIndustry)
+    if(osender != ui->pushSector && osender != ui->pushIndustry)
     {
         lists = SqlTools::query("SELECT sector, industry FROM tickers WHERE ticker = :ticker", ":ticker", ticker);
 
@@ -172,7 +181,7 @@ void TickerNeighbors::slotFetch()
         add += " )";
 
         // final query
-        if(sender() == ui->pushSector)
+        if(osender == ui->pushSector)
         {
             binds.insert(":sector", sector);
             tickers = SqlTools::query("SELECT ticker FROM tickers WHERE sector = :sector" + add, binds);
@@ -220,4 +229,9 @@ void TickerNeighbors::slotCopy()
     }
 
     QApplication::clipboard()->setText(text);
+}
+
+void TickerNeighbors::slotFilterAndFetch()
+{
+    QMetaObject::invokeMethod(m_lastAction, "clicked");
 }
