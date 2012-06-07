@@ -17,6 +17,7 @@
 
 #include "updatechecker.h"
 #include "about.h"
+
 #include "ui_about.h"
 
 About::About(const QString &newVersion, QWidget *parent) :

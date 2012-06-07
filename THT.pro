@@ -58,7 +58,9 @@ SOURCES += main.cpp\
     tickerminiinput.cpp \
     networkaccess.cpp \
     tickerinformationfetcher.cpp \
-    tickersdatabaseupdater.cpp
+    tickersdatabaseupdater.cpp \
+    tickerneighbors.cpp \
+    sqltools.cpp
 
 HEADERS += tht.h \
     list.h \
@@ -87,7 +89,9 @@ HEADERS += tht.h \
     tickerminiinput.h \
     networkaccess.h \
     tickerinformationfetcher.h \
-    tickersdatabaseupdater.h
+    tickersdatabaseupdater.h \
+    tickerneighbors.h \
+    sqltools.h
 
 FORMS += tht.ui \
     list.ui \
@@ -96,7 +100,8 @@ FORMS += tht.ui \
     savescreenshot.ui \
     tickerinput.ui \
     searchticker.ui \
-    tickerminiinput.ui
+    tickerminiinput.ui \
+    tickerneighbors.ui
 
 RESOURCES += tht.qrc
 

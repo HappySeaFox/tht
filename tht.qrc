@@ -16,5 +16,6 @@
         <file>images/update.png</file>
         <file>images/cancel.png</file>
         <file>images/options-background.png</file>
+        <file>images/query.png</file>
     </qresource>
 </RCC>

@@ -15,11 +15,10 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <QRegExpValidator>
-
-#include "settings.h"
-#include "tickerinput.h"
 #include "uppercasevalidator.h"
+#include "tickerinput.h"
+#include "settings.h"
+
 #include "ui_tickerinput.h"
 
 TickerInput::TickerInput(QWidget *parent) :

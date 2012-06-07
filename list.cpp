@@ -44,11 +44,13 @@
 #include <QPen>
 
 #include "tickerinformationtooltip.h"
+#include "tickerneighbors.h"
 #include "searchticker.h"
 #include "tickerinput.h"
 #include "settings.h"
 #include "listitem.h"
 #include "list.h"
+
 #include "ui_list.h"
 
 class PersistentSelectionDelegate : public QStyledItemDelegate
@@ -408,6 +410,10 @@ bool List::eventFilter(QObject *obj, QEvent *event)
 
                 case Qt::Key_U:
                     slotResetPriority();
+                break;
+
+                case Qt::Key_K:
+                    showNeighbors();
                 break;
 
                 // default processing
@@ -818,6 +824,12 @@ void List::moveNumberLabel()
 
     m_number->move(w->mapTo(window(), QPoint(w->width(), 0)).x() - m_number->width(),
                    w->mapTo(window(), QPoint(0, w->height())).y() - m_number->height()/2);
+}
+
+void List::showNeighbors()
+{
+    TickerNeighbors tn(currentTicker(), window());
+    tn.exec();
 }
 
 void List::loadItem(LoadItem litem)
