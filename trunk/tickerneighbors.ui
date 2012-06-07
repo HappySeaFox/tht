@@ -145,8 +145,8 @@
    <slot>slotFetch()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>154</x>
-     <y>23</y>
+     <x>214</x>
+     <y>30</y>
     </hint>
     <hint type="destinationlabel">
      <x>252</x>
@@ -161,8 +161,8 @@
    <slot>slotFetch()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>148</x>
-     <y>45</y>
+     <x>214</x>
+     <y>58</y>
     </hint>
     <hint type="destinationlabel">
      <x>234</x>
@@ -177,8 +177,8 @@
    <slot>slotFetch()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>159</x>
-     <y>73</y>
+     <x>214</x>
+     <y>86</y>
     </hint>
     <hint type="destinationlabel">
      <x>202</x>
@@ -193,8 +193,8 @@
    <slot>slotFilterAndFetch()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>39</x>
-     <y>107</y>
+     <x>49</x>
+     <y>336</y>
     </hint>
     <hint type="destinationlabel">
      <x>252</x>
@@ -209,8 +209,8 @@
    <slot>slotFilterAndFetch()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>91</x>
-     <y>108</y>
+     <x>113</x>
+     <y>336</y>
     </hint>
     <hint type="destinationlabel">
      <x>254</x>
@@ -225,8 +225,8 @@
    <slot>slotFilterAndFetch()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>138</x>
-     <y>109</y>
+     <x>169</x>
+     <y>336</y>
     </hint>
     <hint type="destinationlabel">
      <x>267</x>
@@ -241,12 +241,28 @@
    <slot>slotCopy()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>102</x>
-     <y>323</y>
+     <x>213</x>
+     <y>339</y>
     </hint>
     <hint type="destinationlabel">
      <x>185</x>
      <y>311</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>list</sender>
+   <signal>activated(QModelIndex)</signal>
+   <receiver>TickerNeighbors</receiver>
+   <slot>slotActivated(QModelIndex)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>116</x>
+     <y>123</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>397</x>
+     <y>125</y>
     </hint>
    </hints>
   </connection>
@@ -255,5 +271,6 @@
   <slot>slotCopy()</slot>
   <slot>slotFetch()</slot>
   <slot>slotFilterAndFetch()</slot>
+  <slot>slotActivated(QModelIndex)</slot>
  </slots>
 </ui>

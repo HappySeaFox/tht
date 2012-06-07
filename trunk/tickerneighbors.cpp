@@ -1,6 +1,7 @@
 #include <QItemSelectionModel>
 #include <QStandardItemModel>
 #include <QApplication>
+#include <QModelIndex>
 #include <QMetaObject>
 #include <QClipboard>
 #include <QTimer>
@@ -16,10 +17,11 @@ TickerNeighbors::TickerNeighbors(const QString &ticker, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::TickerNeighbors)
 {
+    setAttribute(Qt::WA_DeleteOnClose);
+
     ui->setupUi(this);
 
     ui->lineTicker->setValidator(new UpperCaseValidator(ui->lineTicker));
-    ui->lineTicker->setText(ticker);
 
     // fill sectors & industries
     qDebug("Getting sectors & industries");
@@ -62,12 +64,10 @@ TickerNeighbors::TickerNeighbors(const QString &ticker, QWidget *parent) :
             silentlyCheck(ui->checkAmex, amex);
     }
 
-    m_lastAction = ui->pushTicker;
-
     connect(ui->list->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
             this, SLOT(slotSelectionChanged()));
 
-    QTimer::singleShot(0, this, SLOT(slotFetch()));
+    showTicker(ticker);
 }
 
 TickerNeighbors::~TickerNeighbors()
@@ -77,6 +77,13 @@ TickerNeighbors::~TickerNeighbors()
     Settings::instance()->setCheckBoxState(ui->checkAmex->text(), ui->checkAmex->isChecked());
 
     delete ui;
+}
+
+void TickerNeighbors::showTicker(const QString &ticker)
+{
+    ui->lineTicker->setText(ticker);
+    m_lastAction = ui->pushTicker;
+    QTimer::singleShot(0, this, SLOT(slotFetch()));
 }
 
 void TickerNeighbors::silentlyCheck(QCheckBox *box, bool check)
@@ -243,4 +250,12 @@ void TickerNeighbors::slotSelectionChanged()
     const int count = ui->list->selectionModel()->selectedIndexes().count();
 
     ui->pushCopy->setText(tr("Copy (%1)").arg(!count ? m_model->rowCount() : count));
+}
+
+void TickerNeighbors::slotActivated(const QModelIndex &index)
+{
+    if(!index.isValid())
+        return;
+
+    emit loadTicker(index.data().toString());
 }

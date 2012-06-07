@@ -345,6 +345,9 @@ void THT::rebuildUi()
             connect(list, SIGNAL(dropped(const QString &, ListItem::Priority, const QPoint &)),
                     this, SLOT(slotTickerDropped(const QString &, ListItem::Priority, const QPoint &)));
 
+            connect(list, SIGNAL(showNeighbors(const QString &)),
+                    this, SLOT(slotShowNeighbors(const QString &)));
+
             m_layout->addWidget(list, 0, m_lists.size());
             m_lists.append(list);
         }
@@ -613,6 +616,9 @@ void THT::loadTicker(const QString &ticker)
         return;
     }
 
+    if(m_sectors)
+        m_sectors->showTicker(ticker);
+
     checkWindows();
 
     if(m_windows->isEmpty())
@@ -773,15 +779,28 @@ void THT::slotOptions()
         rebuildUi();
 
         // always on top?
-        Qt::WindowFlags flags = windowFlags();
+        QList<QWidget *> widgets = QList<QWidget *>() << this << m_sectors;
 
-        if(Settings::instance()->onTop())
-            flags |= Qt::WindowStaysOnTopHint;
-        else
-            flags &= ~Qt::WindowStaysOnTopHint;
+        foreach(QWidget *w, widgets)
+        {
+            if(!w)
+                continue;
 
-        setWindowFlags(flags);
-        show();
+            Qt::WindowFlags flags = w->windowFlags();
+
+            if(Settings::instance()->onTop())
+                flags |= Qt::WindowStaysOnTopHint;
+            else
+                flags &= ~Qt::WindowStaysOnTopHint;
+
+            w->setWindowFlags(flags);
+            w->show();
+        }
+
+        if(m_sectors)
+        {
+
+        }
 
         m_tray->setVisible(Settings::instance()->hideToTray());
 
@@ -1162,6 +1181,20 @@ void THT::slotOpenOrCloseSearchTicker()
             break;
         }
     }
+}
+
+void THT::slotShowNeighbors(const QString &ticker)
+{
+    if(m_sectors)
+        return;
+
+    m_sectors = new TickerNeighbors(ticker, this);
+
+    if(Settings::instance()->onTop())
+        m_sectors->setWindowFlags(m_sectors->windowFlags() | Qt::WindowStaysOnTopHint);
+
+    connect(m_sectors, SIGNAL(loadTicker(const QString &)), this, SLOT(slotLoadTicker(const QString &)));
+    m_sectors->show();
 }
 
 bool THT::setForeignFocus(HWND window, DWORD threadId)
