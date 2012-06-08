@@ -18,12 +18,12 @@ NetworkAccess::NetworkAccess(QObject *parent) :
 
 NetworkAccess::~NetworkAccess()
 {
-    deleteReply();
+    abort();
 }
 
 void NetworkAccess::get(const QUrl &url)
 {
-    deleteReply();
+    abort();
 
     m_error = QNetworkReply::NoError;
     m_data.clear();
@@ -47,7 +47,7 @@ void NetworkAccess::get(const QUrl &url)
     connect(m_reply, SIGNAL(readyRead()), this, SLOT(slotNetworkData()));
 }
 
-void NetworkAccess::deleteReply()
+void NetworkAccess::abort()
 {
     if(m_reply)
     {
