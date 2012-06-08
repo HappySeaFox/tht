@@ -103,6 +103,8 @@ void TickersDatabaseUpdater::slotFinished()
 {
     if(m_net->error() != QNetworkReply::NoError)
     {
+        m_net->clearBuffer();
+
         // recheck in 1 hour
         QTimer::singleShot(1*3600*1000, this, SLOT(startRequest()));
         return;
@@ -111,7 +113,6 @@ void TickersDatabaseUpdater::slotFinished()
     if(m_downloadingData)
     {
         writeData(Settings::instance()->tickersMutableDatabasePath(), m_net->data());
-
         m_net->clearBuffer();
     }
     else

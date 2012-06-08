@@ -156,56 +156,47 @@ void TickerNeighbors::slotFetch()
     binds.clear();
 
     // exchanges
-    if(ui->checkNyse->isChecked() || ui->checkNasd->isChecked() || ui->checkAmex->isChecked())
+    QList<QCheckBox *> exchanges = QList<QCheckBox *>() << ui->checkNyse << ui->checkNasd << ui->checkAmex;
+
+    add = " AND ( ";
+    bool secondQuery = false;
+    int i = 0;
+
+    foreach(QCheckBox *box, exchanges)
     {
-        add = " AND ( ";
-        bool secondQuery = false;
-
-        if(ui->checkNyse->isChecked())
-        {
-            add += "exchange = :exchange1";
-            binds.insert(":exchange1", "NYSE");
-            secondQuery = true;
-        }
-
-        if(ui->checkNasd->isChecked())
+        if(box->isChecked())
         {
             if(secondQuery)
                 add += " OR ";
 
-            add += "exchange = :exchange2";
-            binds.insert(":exchange2", "NASD");
+            QString ind = QString::number(i++);
+            add += "exchange = :exchange" + ind;
+            binds.insert(":exchange" + ind, box->text());
             secondQuery = true;
         }
+    }
+    add += " )";
 
-        if(ui->checkAmex->isChecked())
-        {
-            if(secondQuery)
-                add += " OR ";
+    // no exchanges
+    if(!secondQuery)
+        return;
 
-            add += "exchange = :exchange3";
-            binds.insert(":exchange3", "AMEX");
-        }
+    // final query
+    if(osender == ui->pushSector)
+    {
+        binds.insert(":sector", sector);
+        tickers = SqlTools::query("SELECT ticker FROM tickers WHERE sector = :sector" + add, binds);
+    }
+    else
+    {
+        binds.insert(":industry", industry);
+        tickers = SqlTools::query("SELECT ticker FROM tickers WHERE industry = :industry" + add, binds);
+    }
 
-        add += " )";
-
-        // final query
-        if(osender == ui->pushSector)
-        {
-            binds.insert(":sector", sector);
-            tickers = SqlTools::query("SELECT ticker FROM tickers WHERE sector = :sector" + add, binds);
-        }
-        else
-        {
-            binds.insert(":industry", industry);
-            tickers = SqlTools::query("SELECT ticker FROM tickers WHERE industry = :industry" + add, binds);
-        }
-
-        foreach(QStringList l, tickers)
-        {
-            if(l.size())
-                m_tickers.append(l.at(0));
-        }
+    foreach(QStringList l, tickers)
+    {
+        if(l.size())
+            m_tickers.append(l.at(0));
     }
 
     ui->pushCopy->setText(tr("Copy (%1)").arg(m_tickers.size()));
