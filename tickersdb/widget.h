@@ -18,7 +18,6 @@
 #ifndef WIDGET_H
 #define WIDGET_H
 
-#include <QSqlDatabase>
 #include <QStringList>
 #include <QWidget>
 
@@ -56,7 +55,7 @@ protected:
 
 private:
     bool writeData(const Ticker &);
-    void error(const QString &);
+    void message(const QString &, bool = true);
 
 private slots:
     void slotFinished();
@@ -67,7 +66,6 @@ private slots:
 private:
     Ui::Widget *ui;
     NetworkAccess *m_net;
-    QSqlDatabase db;
     QStringList oldTickers;
     QString exchange;
     QString m_ts;
