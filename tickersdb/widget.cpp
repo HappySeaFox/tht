@@ -275,7 +275,10 @@ void Widget::slotFinished()
 void Widget::slotCommit()
 {
     if(m_ts.isEmpty())
+    {
+        qDebug("Timestamp is empty");
         return;
+    }
 
     ui->pushCommit->setEnabled(false);
 
@@ -287,6 +290,12 @@ void Widget::slotCommit()
                     << "commit"
                     << THT_TICKERS_DB
                     << THT_TICKERS_DB_TS);
+
+    if(!p.waitForStarted())
+    {
+        error(QString("Commit failed due to process error (%1)").arg(p.error()));
+        return;
+    }
 
     if(!p.waitForFinished())
     {
