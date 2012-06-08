@@ -94,11 +94,6 @@ Widget::Widget(QWidget *parent) :
     m_net = new NetworkAccess(this);
 
     connect(m_net, SIGNAL(finished()), this, SLOT(slotFinished()));
-
-    m_query = new QSqlQuery;
-
-    m_query->prepare("INSERT INTO tickers (ticker, company, sector, industry, exchange, cap) "
-                  "VALUES (:ticker, :company, :sector, :industry, :exchange, :cap)");
 }
 
 Widget::~Widget()
@@ -109,12 +104,7 @@ Widget::~Widget()
 void Widget::closeEvent(QCloseEvent *e)
 {
     if(!m_running || QMessageBox::question(this, "Quit", "Really quit?", QMessageBox::Yes, QMessageBox::No) == QMessageBox::Yes)
-    {
-        delete m_query;
-        delete ui;
-
         exit(0);
-    }
     else
         e->ignore();
 }
@@ -344,14 +334,19 @@ void Widget::slotFinishedExchange()
 
 bool Widget::writeData(const Ticker &t)
 {
-    m_query->bindValue(":ticker", t.ticker);
-    m_query->bindValue(":company", t.company);
-    m_query->bindValue(":sector", t.sector);
-    m_query->bindValue(":industry", t.industry);
-    m_query->bindValue(":exchange", t.exchange);
-    m_query->bindValue(":cap", t.cap);
+    QSqlQuery query;
 
-    if(!m_query->exec())
+    query.prepare("INSERT INTO tickers (ticker, company, sector, industry, exchange, cap) "
+                  "VALUES (:ticker, :company, :sector, :industry, :exchange, :cap)");
+
+    query.bindValue(":ticker", t.ticker);
+    query.bindValue(":company", t.company);
+    query.bindValue(":sector", t.sector);
+    query.bindValue(":industry", t.industry);
+    query.bindValue(":exchange", t.exchange);
+    query.bindValue(":cap", t.cap);
+
+    if(!query.exec())
     {
         error(QString("Cannot query (%1)").arg(qPrintable(db.lastError().text())));
         return false;

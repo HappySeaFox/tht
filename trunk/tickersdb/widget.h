@@ -27,7 +27,6 @@ class Widget;
 }
 
 class NetworkAccess;
-class QSqlQuery;
 
 struct Ticker
 {
@@ -73,7 +72,6 @@ private:
     QString exchange;
     QString m_ts;
     bool m_running;
-    QSqlQuery *m_query;
 };
 
 #endif // WIDGET_H
