@@ -16,20 +16,25 @@
  */
 
 #include <QApplication>
+#include <QIcon>
 #include <QDir>
 
 #include "widget.h"
 
 int main(int argc, char *argv[])
 {
-    if(argc > 1 && argv[1])
-        QDir::setCurrent(argv[1]);
-    else
-        QDir::setCurrent(TICKERS_DIR);
+    QDir::setCurrent(TICKERS_DIR);
 
     QApplication a(argc, argv);
+
+    a.setWindowIcon(QIcon(":/tickersdb.ico"));
+
     Widget w;
-    w.show();
-    
+
+    if(QApplication::arguments().indexOf("auto") >= 0)
+        w.showMinimized();
+    else
+        w.show();
+
     return a.exec();
 }
