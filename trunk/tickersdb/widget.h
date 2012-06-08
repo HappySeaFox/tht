@@ -28,6 +28,21 @@ class Widget;
 
 class NetworkAccess;
 
+struct Ticker
+{
+    Ticker()
+    {
+        cap = 0;
+    }
+
+    QString ticker;
+    QString company;
+    QString sector;
+    QString industry;
+    QString exchange;
+    double cap;
+};
+
 class Widget : public QWidget
 {
     Q_OBJECT
@@ -40,7 +55,7 @@ protected:
     virtual void closeEvent(QCloseEvent *);
 
 private:
-    bool writeData(const QString &, const QString &, const QString &, const QString &, const QString &);
+    bool writeData(const Ticker &);
 
 private slots:
     void slotFinished();

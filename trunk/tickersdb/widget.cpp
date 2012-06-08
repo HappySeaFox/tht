@@ -43,14 +43,6 @@ static const char * const THT_TICKERS_DB     = "tickers.sqlite";
 static const char * const THT_TICKERS_DB_NEW = "tickers.sqlite.new";
 static const char * const THT_TICKERS_DB_TS  = "tickers.sqlite.timestamp";
 
-struct Ticker
-{
-    QString company;
-    QString sector;
-    QString industry;
-    QString exchange;
-};
-
 Widget::Widget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Widget)
@@ -121,7 +113,8 @@ void Widget::slotGet()
                          "company VARCHAR(64),"
                          "sector VARCHAR(64),"
                          "industry VARCHAR(64),"
-                         "exchange VARCHAR(16)"
+                         "exchange VARCHAR(16),"
+                         "cap DOUBLE"
                          ");");
 
     ok += query.exec("DELETE FROM tickers");
@@ -156,18 +149,24 @@ void Widget::slotFinished()
     QStringList newTickers;
     QMap<QString, Ticker> map;
     Ticker t;
+    bool ok;
 
     while(!(str = csv.parseLine()).isEmpty())
     {
-        if(str.size() < 5)
+        if(str.size() < 7)
         {
-            ui->plainTextLog->appendPlainText("Broken data");
+            ui->plainTextLog->appendPlainText(QString("Broken data (%d fields)").arg(str.size()));
             return;
         }
 
+        t.ticker = str[1];
         t.company = str[2];
         t.sector = str[3];
         t.industry = str[4];
+        t.cap = str[6].toDouble(&ok);
+
+        if(!ok)
+            t.cap = 0;
 
         newTickers.append(str[1]);
 
@@ -213,7 +212,9 @@ void Widget::slotFinished()
 
         t = it.value();
 
-        if(!writeData(it.key(), t.company, t.sector, t.industry, exchange))
+        t.exchange = exchange;
+
+        if(!writeData(t))
             return;
     }
 
@@ -275,20 +276,19 @@ void Widget::slotFinishedExchange()
         exchange = rx.cap(1);
 }
 
-bool Widget::writeData(const QString &ticker, const QString &company,
-                       const QString &sector, const QString &industry,
-                       const QString &exchange)
+bool Widget::writeData(const Ticker &t)
 {
     QSqlQuery query;
 
-    query.prepare("INSERT INTO tickers (ticker, company, sector, industry, exchange) "
-                  "VALUES (:ticker, :company, :sector, :industry, :exchange)");
+    query.prepare("INSERT INTO tickers (ticker, company, sector, industry, exchange, cap) "
+                  "VALUES (:ticker, :company, :sector, :industry, :exchange, :cap)");
 
-    query.bindValue(":ticker", ticker);
-    query.bindValue(":company", company);
-    query.bindValue(":sector", sector);
-    query.bindValue(":industry", industry);
-    query.bindValue(":exchange", exchange);
+    query.bindValue(":ticker", t.ticker);
+    query.bindValue(":company", t.company);
+    query.bindValue(":sector", t.sector);
+    query.bindValue(":industry", t.industry);
+    query.bindValue(":exchange", t.exchange);
+    query.bindValue(":cap", t.cap);
 
     if(!query.exec())
     {
@@ -297,7 +297,7 @@ bool Widget::writeData(const QString &ticker, const QString &company,
         return false;
     }
 
-    ui->plainTextLog->appendPlainText(ticker + '/' + exchange);
+    ui->plainTextLog->appendPlainText(t.ticker + '/' + t.exchange + '/' + QString::number(t.cap, 'f'));
 
     return true;
 }
