@@ -283,13 +283,21 @@ void Widget::slotFinished()
         }
     }
 
+    QSqlDatabase::removeDatabase("old");
+
     QSqlDatabase::database().commit();
     QSqlDatabase::database().close();
 
     qDebug("Need update");
     ui->plainTextLog->appendPlainText("Need update");
 
-    if(!QFile::remove(THT_TICKERS_DB) || !QFile::copy(THT_TICKERS_DB_NEW, THT_TICKERS_DB))
+    if(!QFile::remove(THT_TICKERS_DB))
+    {
+        message("Cannot remove old database");
+        return;
+    }
+
+    if(!QFile::copy(THT_TICKERS_DB_NEW, THT_TICKERS_DB))
     {
         message("Cannot copy");
         return;

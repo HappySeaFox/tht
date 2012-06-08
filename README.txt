@@ -15,6 +15,8 @@ http://www.gettyicons.com/free-icon/112/finance-icon-set/free-bar-chart-icon-png
 Author: Visual Pharm
 License: Commercial Use Allowed, Back Link Required 
 
+http://www.visualpharm.com/finance_icon_set/
+
 * "Locked" icon is taken from
 
 http://www.iconarchive.com/show/sigma-general-icons-by-iconshock/lock-icon.html
@@ -35,6 +37,15 @@ http://findicons.com/icon/267728/target?id=427393
 
 Author: Gentleface.com
 License: Creative Commons Attribution Non-commercial (by-nc)
+
+* "Stock" icon for TickersDb is taken from
+
+http://www.iconfinder.com/icondetails/17225/128/analysis_chart_graph_pie_statistics_icon
+
+Author: Visual Pharm
+License: Commercial Use Allowed, Back Link Required 
+
+http://www.visualpharm.com/finance_icon_set/
 
 * Other icons are taken from Fugue Icons theme
 
