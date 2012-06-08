@@ -27,6 +27,7 @@ class Widget;
 }
 
 class NetworkAccess;
+class QSqlQuery;
 
 struct Ticker
 {
@@ -56,11 +57,13 @@ protected:
 
 private:
     bool writeData(const Ticker &);
+    void error(const QString &);
 
 private slots:
     void slotFinished();
     void slotFinishedExchange();
     void slotGet();
+    void slotCommit();
 
 private:
     Ui::Widget *ui;
@@ -68,6 +71,9 @@ private:
     QSqlDatabase db;
     QStringList oldTickers;
     QString exchange;
+    QString m_ts;
+    bool m_running;
+    QSqlQuery *m_query;
 };
 
 #endif // WIDGET_H

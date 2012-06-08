@@ -20,11 +20,13 @@
 #include <QApplication>
 #include <QMessageBox>
 #include <QWebElement>
+#include <QCloseEvent>
 #include <QEventLoop>
 #include <QDateTime>
 #include <QSqlError>
 #include <QSqlQuery>
 #include <QWebFrame>
+#include <QProcess>
 #include <QWebPage>
 #include <QTimer>
 #include <QDebug>
@@ -44,8 +46,13 @@ static const char * const THT_TICKERS_DB_NEW = "tickers.sqlite.new";
 static const char * const THT_TICKERS_DB_TS  = "tickers.sqlite.timestamp";
 
 Widget::Widget(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::Widget)
+    QWidget(parent,
+            Qt::Window
+            | Qt::WindowMinimizeButtonHint
+            | Qt::WindowCloseButtonHint
+            | Qt::CustomizeWindowHint),
+    ui(new Ui::Widget),
+    m_running(false)
 {
     ui->setupUi(this);
 
@@ -88,7 +95,10 @@ Widget::Widget(QWidget *parent) :
 
     connect(m_net, SIGNAL(finished()), this, SLOT(slotFinished()));
 
-    QTimer::singleShot(20, this, SLOT(slotGet()));
+    m_query = new QSqlQuery;
+
+    m_query->prepare("INSERT INTO tickers (ticker, company, sector, industry, exchange, cap) "
+                  "VALUES (:ticker, :company, :sector, :industry, :exchange, :cap)");
 }
 
 Widget::~Widget()
@@ -96,14 +106,26 @@ Widget::~Widget()
     delete ui;
 }
 
-void Widget::closeEvent(QCloseEvent *)
+void Widget::closeEvent(QCloseEvent *e)
 {
-    exit(0);
+    if(!m_running || QMessageBox::question(this, "Quit", "Really quit?", QMessageBox::Yes, QMessageBox::No) == QMessageBox::Yes)
+    {
+        delete m_query;
+        delete ui;
+
+        exit(0);
+    }
+    else
+        e->ignore();
 }
 
 void Widget::slotGet()
 {
+    m_running = true;
+    ui->checkForce->setEnabled(false);
+    ui->pushGet->setEnabled(false);
     ui->plainTextLog->clear();
+    qApp->processEvents();
 
     QSqlQuery query;
     int ok = 0;
@@ -121,6 +143,7 @@ void Widget::slotGet()
 
     if(ok != 2)
     {
+        m_running = false;
         qDebug("Cannot query (%s)", qPrintable(db.lastError().text()));
         ui->plainTextLog->appendPlainText(QString("Cannot query (%1)").arg(qPrintable(db.lastError().text())));
         return;
@@ -135,8 +158,7 @@ void Widget::slotFinished()
 {
     if(m_net->error() != QNetworkReply::NoError)
     {
-        qDebug("Network error #%d", m_net->error());
-        ui->plainTextLog->appendPlainText(QString("Network error #%1").arg(m_net->error()));
+        error(QString("Network error #%1").arg(m_net->error()));
         QSqlDatabase::database().commit();
         return;
     }
@@ -153,9 +175,9 @@ void Widget::slotFinished()
 
     while(!(str = csv.parseLine()).isEmpty())
     {
-        if(str.size() < 7)
+        if(str.size() != 11)
         {
-            ui->plainTextLog->appendPlainText(QString("Broken data (%d fields)").arg(str.size()));
+            error(QString("Broken data (%1 fields)").arg(str.size()));
             return;
         }
 
@@ -177,11 +199,12 @@ void Widget::slotFinished()
 
     newTickers.sort();
 
-    if(newTickers == oldTickers)
+    if(newTickers == oldTickers && !ui->checkForce->isChecked())
     {
-        qDebug("Up-to-date");
         QFile::remove(THT_TICKERS_DB_NEW);
-        ui->plainTextLog->appendPlainText("Up-to-date");
+        error("Up-to-date, will quit in 5 sec");
+        QTimer::singleShot(5000, this, SLOT(close()));
+        QApplication::alert(this);
         return;
     }
 
@@ -215,7 +238,10 @@ void Widget::slotFinished()
         t.exchange = exchange;
 
         if(!writeData(t))
+        {
+            m_running = false;
             return;
+        }
     }
 
     QSqlDatabase::database().commit();
@@ -226,30 +252,70 @@ void Widget::slotFinished()
 
     if(!QFile::remove(THT_TICKERS_DB) || !QFile::copy(THT_TICKERS_DB_NEW, THT_TICKERS_DB))
     {
-        qDebug("Cannot copy");
-        ui->plainTextLog->appendPlainText("Cannot copy");
+        error("Cannot copy");
+        return;
     }
-    else
+
+    QFile::remove(THT_TICKERS_DB_NEW);
+
+    m_ts = QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss.zzz");
+    QFile fts(THT_TICKERS_DB_TS);
+
+    if(!fts.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text))
     {
-        QFile::remove(THT_TICKERS_DB_NEW);
-
-        QString ts = QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss.zzz");
-        QFile fts(THT_TICKERS_DB_TS);
-
-        if(!fts.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text))
-        {
-            qDebug("Cannot open timestamp file");
-            ui->plainTextLog->appendPlainText(QString("Cannot open timestamp file (%1)").arg(fts.errorString()));
-        }
-        else
-        {
-            fts.write(ts.toAscii());
-            fts.close();
-
-            qDebug("Update done %s", qPrintable(ts));
-            ui->plainTextLog->appendPlainText(QString("Done %1").arg(ts));
-        }
+        error(QString("Cannot open timestamp file (%1)").arg(fts.errorString()));
+        return;
     }
+
+    if(fts.write(m_ts.toAscii()) != m_ts.length())
+    {
+        error(QString("Cannot write all the data (%1)").arg(fts.errorString()));
+        return;
+    }
+
+    fts.close();
+
+    qDebug("Update done %s", qPrintable(m_ts));
+    ui->plainTextLog->appendPlainText(QString("Done %1").arg(m_ts));
+    ui->pushCommit->setEnabled(true);
+
+    m_running = false;
+}
+
+void Widget::slotCommit()
+{
+    if(m_ts.isEmpty())
+        return;
+
+    ui->pushCommit->setEnabled(false);
+
+    QProcess p;
+
+    p.start("svn", QStringList()
+                    << "-m"
+                    << ("Database update " + m_ts)
+                    << "commit"
+                    << THT_TICKERS_DB
+                    << THT_TICKERS_DB_TS);
+
+    if(!p.waitForFinished())
+    {
+        error(QString("Commit failed due to process timeout (%1)").arg(p.error()));
+        return;
+    }
+
+    ui->plainTextLog->appendPlainText(p.readAll());
+
+    int code = p.exitCode() || (p.exitStatus() != QProcess::NormalExit);
+
+    if(code)
+    {
+        error(QString("Commit failed (%1)").arg(code));
+        return;
+    }
+
+    qDebug("Commit done");
+    ui->plainTextLog->appendPlainText("Commit done");
 }
 
 void Widget::slotFinishedExchange()
@@ -278,26 +344,29 @@ void Widget::slotFinishedExchange()
 
 bool Widget::writeData(const Ticker &t)
 {
-    QSqlQuery query;
+    m_query->bindValue(":ticker", t.ticker);
+    m_query->bindValue(":company", t.company);
+    m_query->bindValue(":sector", t.sector);
+    m_query->bindValue(":industry", t.industry);
+    m_query->bindValue(":exchange", t.exchange);
+    m_query->bindValue(":cap", t.cap);
 
-    query.prepare("INSERT INTO tickers (ticker, company, sector, industry, exchange, cap) "
-                  "VALUES (:ticker, :company, :sector, :industry, :exchange, :cap)");
-
-    query.bindValue(":ticker", t.ticker);
-    query.bindValue(":company", t.company);
-    query.bindValue(":sector", t.sector);
-    query.bindValue(":industry", t.industry);
-    query.bindValue(":exchange", t.exchange);
-    query.bindValue(":cap", t.cap);
-
-    if(!query.exec())
+    if(!m_query->exec())
     {
-        qDebug("Cannot query (%s)", qPrintable(db.lastError().text()));
-        ui->plainTextLog->appendPlainText(QString("Cannot query (%1)").arg(qPrintable(db.lastError().text())));
+        error(QString("Cannot query (%1)").arg(qPrintable(db.lastError().text())));
         return false;
     }
 
     ui->plainTextLog->appendPlainText(t.ticker + '/' + t.exchange + '/' + QString::number(t.cap, 'f'));
 
     return true;
+}
+
+void Widget::error(const QString &e)
+{
+    qDebug("%s", qPrintable(e));
+
+    m_running = false;
+    ui->plainTextLog->appendPlainText(e);
+    QApplication::alert(this);
 }
