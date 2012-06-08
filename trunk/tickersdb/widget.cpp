@@ -39,9 +39,9 @@
 #include "networkaccess.h"
 #include "csvreader.h"
 
-static const char * const TICKERS_DB     = "tickers.sqlite";
-static const char * const TICKERS_DB_NEW = "tickers.sqlite.new";
-static const char * const TICKERS_DB_TS  = "tickers.sqlite.timestamp";
+static const char * const THT_TICKERS_DB     = "tickers.sqlite";
+static const char * const THT_TICKERS_DB_NEW = "tickers.sqlite.new";
+static const char * const THT_TICKERS_DB_TS  = "tickers.sqlite.timestamp";
 
 struct Ticker
 {
@@ -59,7 +59,7 @@ Widget::Widget(QWidget *parent) :
 
     {
         QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE", "old");
-        db.setDatabaseName(TICKERS_DB);
+        db.setDatabaseName(THT_TICKERS_DB);
 
         if(!db.open())
         {
@@ -80,10 +80,10 @@ Widget::Widget(QWidget *parent) :
 
     qDebug("Loaded %d old values", oldTickers.size());
 
-    QFile::remove(TICKERS_DB_NEW);
+    QFile::remove(THT_TICKERS_DB_NEW);
 
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName(TICKERS_DB_NEW);
+    db.setDatabaseName(THT_TICKERS_DB_NEW);
 
     if(!db.open())
     {
@@ -181,7 +181,7 @@ void Widget::slotFinished()
     if(newTickers == oldTickers)
     {
         qDebug("Up-to-date");
-        QFile::remove(TICKERS_DB_NEW);
+        QFile::remove(THT_TICKERS_DB_NEW);
         ui->plainTextLog->appendPlainText("Up-to-date");
         return;
     }
@@ -223,17 +223,17 @@ void Widget::slotFinished()
     qDebug("Need update");
     ui->plainTextLog->appendPlainText("Need update");
 
-    if(!QFile::remove(TICKERS_DB) || !QFile::copy(TICKERS_DB_NEW, TICKERS_DB))
+    if(!QFile::remove(THT_TICKERS_DB) || !QFile::copy(THT_TICKERS_DB_NEW, THT_TICKERS_DB))
     {
         qDebug("Cannot copy");
         ui->plainTextLog->appendPlainText("Cannot copy");
     }
     else
     {
-        QFile::remove(TICKERS_DB_NEW);
+        QFile::remove(THT_TICKERS_DB_NEW);
 
         QString ts = QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss.zzz");
-        QFile fts(TICKERS_DB_TS);
+        QFile fts(THT_TICKERS_DB_TS);
 
         if(!fts.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text))
         {
