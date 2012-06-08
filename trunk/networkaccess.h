@@ -30,9 +30,6 @@ public:
 
     QNetworkReply::NetworkError error() const;
 
-private:
-    void deleteReply();
-
 signals:
     void finished();
 
@@ -48,12 +45,6 @@ private:
     QPointer<QNetworkReply> m_reply;
     QByteArray m_data;
 };
-
-inline
-void NetworkAccess::abort()
-{
-    deleteReply();
-}
 
 inline
 QNetworkReply::NetworkError NetworkAccess::error() const
