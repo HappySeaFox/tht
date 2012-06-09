@@ -223,7 +223,7 @@ void Widget::slotFinished()
                 continue;
             }
 
-            if(fabs((oldCap - cap) / oldCap) > 5) // more than 5%
+            if((cap && !oldCap) || fabs((oldCap - cap) / oldCap) > 5) // more than 5%
             {
                 qDebug("Capitalization for %s is changed too much (%.1f / %.1f)", qPrintable(ticker), cap, oldCap);
                 needup = true;
