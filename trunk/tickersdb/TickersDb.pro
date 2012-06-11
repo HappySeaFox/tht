@@ -19,4 +19,4 @@ FORMS    += widget.ui
 RESOURCES += \
     tickersdb.qrc
 
-RC_FILE = tickersdb.rc
+win32:RC_FILE = tickersdb.rc
