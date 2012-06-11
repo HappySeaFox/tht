@@ -258,13 +258,13 @@ void Widget::slotFinished()
         foreach(QString s, minus)
         {
             qDebug("-%s", qPrintable(s));
-            ui->plainTextLog->appendPlainText('+' + s);
+            ui->plainTextLog->appendPlainText('-' + s);
         }
 
         foreach(QString s, plus)
         {
             qDebug("+%s", qPrintable(s));
-            ui->plainTextLog->appendPlainText('-' + s);
+            ui->plainTextLog->appendPlainText('+' + s);
         }
     }
 
