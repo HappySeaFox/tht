@@ -34,8 +34,8 @@
 #include <QFile>
 #include <QMap>
 
-#include <cmath>
 #include <cstdlib>
+#include <cmath>
 
 #include "widget.h"
 #include "ui_widget.h"
@@ -108,10 +108,10 @@ Widget::~Widget()
 
 void Widget::closeEvent(QCloseEvent *e)
 {
+    e->ignore();
+
     if(!m_running || QMessageBox::question(this, "Quit", "Really quit?", QMessageBox::Yes, QMessageBox::No) == QMessageBox::Yes)
-        exit(0);
-    else
-        e->ignore();
+        qApp->quit();
 }
 
 void Widget::slotGet()
