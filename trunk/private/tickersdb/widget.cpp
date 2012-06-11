@@ -125,7 +125,7 @@ void Widget::slotGet()
     QSqlQuery query;
 
     if(!query.exec("CREATE TABLE tickers ("
-                         "ticker VARCHAR(10) UNIQUE,"
+                         "ticker VARCHAR(16) UNIQUE,"
                          "company VARCHAR(64),"
                          "sector VARCHAR(64),"
                          "industry VARCHAR(64),"
