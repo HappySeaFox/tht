@@ -35,6 +35,6 @@ win32 {
     T="$${OUT_PWD}/$(DESTDIR_TARGET)/../"
 
     for(ql, QTLIBS) {
-        QMAKE_POST_LINK += $$mle(copy /y \"$$[QT_INSTALL_BINS]\\$$ql\" \"$$T\")
+        QMAKE_POST_LINK += $$mle(@if not exist \"$$T\\$$ql\" copy /y \"$$[QT_INSTALL_BINS]\\$$ql\" \"$$T\")
     }
 }
