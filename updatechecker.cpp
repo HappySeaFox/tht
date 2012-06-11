@@ -5,8 +5,6 @@
 #include "networkaccess.h"
 #include "updatechecker.h"
 
-static const char * const THT_UPDATE_URL = SVNROOT "/trunk/THT-version.tag";
-
 UpdateChecker *UpdateChecker::instance()
 {
     static UpdateChecker *m_inst = new UpdateChecker;
@@ -18,7 +16,7 @@ UpdateChecker::UpdateChecker() : QObject()
 {
     m_lastVersion = NVER_STRING;
 
-    m_url = QUrl(THT_UPDATE_URL);
+    m_url = QUrl(SVNROOT "/trunk/THT-version.tag");
 
     m_rxVersion = QRegExp("^(\\d+)\\.(\\d+)\\.(\\d+)$");
 
