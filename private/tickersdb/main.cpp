@@ -25,6 +25,8 @@ int main(int argc, char *argv[])
 {
     QDir::setCurrent(TICKERS_DIR);
 
+    qDebug("Tckers db dir: \"%s\"", TICKERS_DIR);
+
     QApplication a(argc, argv);
 
     a.setWindowIcon(QIcon(":/tickersdb.ico"));
