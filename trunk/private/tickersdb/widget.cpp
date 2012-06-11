@@ -184,8 +184,9 @@ void Widget::slotFinished()
 
         map.insert(str[1], t);
 
-        ui->label->setNum(++num);
     }
+
+    ui->label->setNum(newTickers.size());
 
     bool needup = false;
     newTickers.sort();
@@ -242,6 +243,10 @@ void Widget::slotFinished()
     {
         QFile::remove(THT_TICKERS_DB_NEW);
         message("Up-to-date", false);
+
+        if(m_auto)
+            QTimer::singleShot(5000, this, SLOT(close()));
+
         return;
     }
 
@@ -273,7 +278,6 @@ void Widget::slotFinished()
 
     QSqlDatabase::database().transaction();
 
-    num = 0;
     QMap<QString, Ticker>::iterator itEnd = map.end();
 
     for(QMap<QString, Ticker>::iterator it = map.begin();it != itEnd;++it)
