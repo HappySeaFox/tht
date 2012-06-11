@@ -189,9 +189,10 @@ void Widget::slotFinished()
 
     bool needup = false;
     newTickers.sort();
+    bool newSymbols = newTickers != oldTickers;
 
     // compare capitalizations
-    if(!ui->checkForce->isChecked() && newTickers == oldTickers)
+    if(!ui->checkForce->isChecked() && !newSymbols)
     {
         qDebug("Checking capitalizations");
 
@@ -240,9 +241,31 @@ void Widget::slotFinished()
     if(!needup)
     {
         QFile::remove(THT_TICKERS_DB_NEW);
-        message("Up-to-date, will quit in 5 sec", false);
-        QTimer::singleShot(5000, this, SLOT(close()));
+        message("Up-to-date", false);
         return;
+    }
+
+    if(newSymbols)
+    {
+        qDebug("Difference by symbol (%d/%d):", oldTickers.size(), newTickers.size());
+
+        QSet<QString> oldSet = oldTickers.toSet();
+        QSet<QString> newSet = newTickers.toSet();
+
+        QSet<QString> minus = oldSet - newSet;
+        QSet<QString> plus = newSet - oldSet;
+
+        foreach(QString s, minus)
+        {
+            qDebug("-%s", qPrintable(s));
+            ui->plainTextLog->appendPlainText('+' + s);
+        }
+
+        foreach(QString s, plus)
+        {
+            qDebug("+%s", qPrintable(s));
+            ui->plainTextLog->appendPlainText('-' + s);
+        }
     }
 
     disconnect(m_net, SIGNAL(finished()), this, 0);
@@ -312,7 +335,7 @@ void Widget::slotFinished()
 
     QFile::remove(THT_TICKERS_DB_NEW);
 
-    m_ts = QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss.zzz");
+    m_ts = QDateTime::currentDateTimeUtc().toString("yyyy-MM-dd hh:mm:ss.zzz");
     QFile fts(THT_TICKERS_DB_TS);
 
     if(!fts.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text))
@@ -336,6 +359,8 @@ void Widget::slotFinished()
         message(QString("Done update to %1, will quit in 5 sec").arg(m_ts));
         QTimer::singleShot(5000, this, SLOT(close()));
     }
+
+    m_running = false;
 }
 
 bool Widget::commit()

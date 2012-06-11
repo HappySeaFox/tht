@@ -24,16 +24,5 @@ RESOURCES += \
     tickersdb.qrc
 
 win32 {
-    defineReplace(mle) {
-        return ( $$1$$escape_expand(\\n\\t) )
-    }
-
     RC_FILE = tickersdb.rc
-
-    T="$${OUT_PWD}/$(DESTDIR_TARGET)/../"
-
-    for(ql, QT) {
-        qln="qt$${ql}$${QT_MAJOR_VERSION}.dll"
-        QMAKE_POST_LINK += $$mle(if not exist \"$$T\\$$qln\" copy /y \"$$[QT_INSTALL_BINS]\\$$qln\" \"$$T\")
-    }
 }
