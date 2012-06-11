@@ -65,8 +65,6 @@ int main(int argc, char *argv[])
 
     QApplication a(argc, argv);
 
-    a.setWindowIcon(QIcon(":/tickersdb.ico"));
-
     Widget w;
 
     if(QApplication::arguments().indexOf("auto") >= 0)
