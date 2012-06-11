@@ -5,7 +5,7 @@
 #include "networkaccess.h"
 #include "updatechecker.h"
 
-static const char * const THT_UPDATE_URL = "http://traders-home-task-ng.googlecode.com/svn/trunk/THT-version.tag";
+static const char * const THT_UPDATE_URL = SVNROOT "/trunk/THT-version.tag";
 
 UpdateChecker *UpdateChecker::instance()
 {

@@ -15,7 +15,7 @@ TickersDatabaseUpdater::TickersDatabaseUpdater(QObject *parent) :
 {
     checkNewData();
 
-    m_baseurl = "http://traders-home-task-ng.googlecode.com/svn/trunk/tickersdb/";
+    m_baseurl = SVNROOT "/trunk/tickersdb/";
 
     m_timestampP = readTimestamp(Settings::instance()->tickersPersistentDatabasePath());
     m_timestampM = readTimestamp(Settings::instance()->tickersMutableDatabasePath());
