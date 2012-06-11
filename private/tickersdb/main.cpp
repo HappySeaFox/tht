@@ -15,14 +15,50 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <QDesktopServices>
 #include <QApplication>
+#include <QDateTime>
 #include <QIcon>
 #include <QDir>
 
+#include <cstdio>
+
 #include "widget.h"
+
+static void tickersDbOutput(QtMsgType type, const char *msg)
+{
+    static QFile log(
+                     QDesktopServices::storageLocation(QDesktopServices::TempLocation)
+                     + QDir::separator()
+                     + "tickersdb.log");
+
+    static bool failed = false;
+
+    fprintf(stderr, "TickersDb: %s\n", msg);
+
+    if(!log.isOpen() && !failed)
+    {
+        failed = !log.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Unbuffered);
+
+        if(failed)
+            fprintf(stderr, "TickersDb: Log file is unavailable\n");
+    }
+
+    if(!failed)
+    {
+        log.write(msg);
+        log.write("\n");
+    }
+}
 
 int main(int argc, char *argv[])
 {
+    setbuf(stderr, 0);
+
+    qInstallMsgHandler(tickersDbOutput);
+
+    qDebug("Starting at %s", qPrintable(QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss")));
+
     QDir::setCurrent(TICKERS_DIR);
 
     qDebug("Tickers db dir: \"%s\"", TICKERS_DIR);
