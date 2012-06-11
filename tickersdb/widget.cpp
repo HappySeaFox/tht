@@ -95,7 +95,9 @@ Widget::Widget(QWidget *parent) :
 
     connect(m_net, SIGNAL(finished()), this, SLOT(slotFinished()));
 
-    if(QApplication::arguments().indexOf("auto") >= 0)
+    m_auto = QApplication::arguments().indexOf("auto") >= 0;
+
+    if(m_auto)
         QTimer::singleShot(0, this, SLOT(slotGet()));
 }
 
@@ -263,11 +265,16 @@ void Widget::slotFinished()
 
         qApp->processEvents();
 
+        if(m_net->error() != QNetworkReply::NoError)
+        {
+            message(QString("Network error #%1").arg(m_net->error()));
+            return;
+        }
+
         if(exchange.isEmpty())
         {
-            ui->plainTextLog->appendPlainText(QString("Cannot fetch exchange name for %1").arg(it.key()));
-            --it;
-            continue;
+            message(QString("Cannot fetch exchange name for %1").arg(it.key()));
+            return;
         }
 
         ui->labelProgress->setNum(++num);
@@ -324,15 +331,19 @@ void Widget::slotFinished()
 
     ui->pushCommit->setEnabled(true);
 
-    message(QString("Done %1").arg(m_ts));
+    if(m_auto && commit())
+    {
+        message(QString("Done update to %1, will quit in 5 sec").arg(m_ts));
+        QTimer::singleShot(5000, this, SLOT(close()));
+    }
 }
 
-void Widget::slotCommit()
+bool Widget::commit()
 {
     if(m_ts.isEmpty())
     {
         qDebug("Timestamp is empty");
-        return;
+        return false;
     }
 
     QProcess p;
@@ -347,13 +358,13 @@ void Widget::slotCommit()
     if(!p.waitForStarted())
     {
         message(QString("Commit failed due to process error (%1)").arg(p.error()));
-        return;
+        return false;
     }
 
     if(!p.waitForFinished())
     {
         message(QString("Commit failed due to process timeout (%1)").arg(p.error()));
-        return;
+        return false;
     }
 
     ui->plainTextLog->appendPlainText(p.readAll());
@@ -363,11 +374,13 @@ void Widget::slotCommit()
     if(code)
     {
         message(QString("Commit failed (%1)").arg(code));
-        return;
+        return false;
     }
 
     qDebug("Commit done");
     ui->plainTextLog->appendPlainText("Commit done");
+
+    return true;
 }
 
 void Widget::slotFinishedExchange()
@@ -426,7 +439,7 @@ void Widget::message(const QString &e, bool activate)
     m_running = false;
     ui->plainTextLog->appendPlainText(e);
 
-    if(activate && QApplication::arguments().indexOf("auto") >= 0)
+    if(activate && m_auto)
     {
         show();
         setWindowState(windowState() & ~Qt::WindowMinimized);

@@ -110,7 +110,7 @@
    <sender>pushCommit</sender>
    <signal>clicked()</signal>
    <receiver>Widget</receiver>
-   <slot>slotCommit()</slot>
+   <slot>commit()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>162</x>
@@ -125,6 +125,6 @@
  </connections>
  <slots>
   <slot>slotGet()</slot>
-  <slot>slotCommit()</slot>
+  <slot>commit()</slot>
  </slots>
 </ui>

@@ -58,10 +58,10 @@ private:
     void message(const QString &, bool = true);
 
 private slots:
+    bool commit();
     void slotFinished();
     void slotFinishedExchange();
     void slotGet();
-    void slotCommit();
 
 private:
     Ui::Widget *ui;
@@ -70,6 +70,7 @@ private:
     QString exchange;
     QString m_ts;
     bool m_running;
+    bool m_auto;
 };
 
 #endif // WIDGET_H
