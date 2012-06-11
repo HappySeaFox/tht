@@ -126,7 +126,7 @@ void Widget::slotGet()
 
     if(!query.exec("CREATE TABLE tickers ("
                          "ticker VARCHAR(16) UNIQUE,"
-                         "company VARCHAR(64),"
+                         "company VARCHAR(128),"
                          "sector VARCHAR(64),"
                          "industry VARCHAR(64),"
                          "exchange VARCHAR(16),"
