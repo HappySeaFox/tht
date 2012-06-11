@@ -123,20 +123,15 @@ void Widget::slotGet()
     qApp->processEvents();
 
     QSqlQuery query;
-    int ok = 0;
 
-    ok += query.exec("CREATE TABLE IF NOT EXISTS tickers ("
+    if(!query.exec("CREATE TABLE tickers ("
                          "ticker VARCHAR(10) UNIQUE,"
                          "company VARCHAR(64),"
                          "sector VARCHAR(64),"
                          "industry VARCHAR(64),"
                          "exchange VARCHAR(16),"
                          "cap DOUBLE"
-                         ");");
-
-    ok += query.exec("DELETE FROM tickers");
-
-    if(ok != 2)
+                         ");"))
     {
         message(QString("Cannot query (%1)").arg(qPrintable(QSqlDatabase::database().lastError().text())));
         return;
