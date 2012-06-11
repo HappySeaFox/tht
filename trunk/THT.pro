@@ -132,20 +132,25 @@ defineReplace(mle) {
 # check for perl
 PERL=$$findexe("perl.exe")
 
-!isEmpty(PERL) {
-    SVNROOT=$$system(svn info | perl -ne '\"if ($_ =~ /^Repository Root:(.*)/) {print $1;}\"')
-
-    isEmpty(SVNROOT) {
-        warning("Cannot determine the repository root")
-    } else {
-        message("Repository root: $$SVNROOT")
-
-        tag.commands += $$mle(echo "$$VERSION"> "\"$${_PRO_FILE_PWD_}/THT-version.tag\"")
-        tag.commands += $$mle(svn -m "\"$$VERSION file tag\"" commit "\"$${_PRO_FILE_PWD_}/THT-version.tag\"")
-        tag.commands += $$mle(svn -m "\"$$VERSION tag\"" copy "\"$$SVNROOT/trunk\"" "\"$$SVNROOT/tags/$$VERSION\"")
-        QMAKE_EXTRA_TARGETS += tag
-    }
+isEmpty(PERL) {
+    error("Perl is not found")
 }
+
+SVNROOT=$$system(svn info | perl -ne '\"if ($_ =~ /^Repository Root:(.*)/) {$sr = $1; $sr =~ s/^\\s*[hH][tT][tT][pP][sS]:/http:/; print $sr;}\"')
+
+isEmpty(SVNROOT) {
+    warning("Cannot determine the repository root")
+    SVNROOT="http://traders-home-task-ng.googlecode.com/svn"
+}
+
+message("Repository root: $$SVNROOT")
+
+DEFINES += SVNROOT=$$sprintf("\"\\\"%1\\\"\"", $$SVNROOT)
+
+tag.commands += $$mle(echo "$$VERSION"> "\"$${_PRO_FILE_PWD_}/THT-version.tag\"")
+tag.commands += $$mle(svn -m "\"$$VERSION file tag\"" commit "\"$${_PRO_FILE_PWD_}/THT-version.tag\"")
+tag.commands += $$mle(svn -m "\"$$VERSION tag\"" copy "\"$$SVNROOT/trunk\"" "\"$$SVNROOT/tags/$$VERSION\"")
+QMAKE_EXTRA_TARGETS += tag
 
 # check for upx
 UPX=$$findexe("upx.exe")
