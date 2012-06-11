@@ -30,11 +30,10 @@ win32 {
 
     RC_FILE = tickersdb.rc
 
-    QTLIBS=QtCore4.dll QtGui4.dll QtNetwork4.dll QtSql4.dll QtWebkit4.dll
-
     T="$${OUT_PWD}/$(DESTDIR_TARGET)/../"
 
-    for(ql, QTLIBS) {
-        QMAKE_POST_LINK += $$mle(@if not exist \"$$T\\$$ql\" copy /y \"$$[QT_INSTALL_BINS]\\$$ql\" \"$$T\")
+    for(ql, QT) {
+        qln="qt$${ql}$${QT_MAJOR_VERSION}.dll"
+        QMAKE_POST_LINK += $$mle(if not exist \"$$T\\$$qln\" copy /y \"$$[QT_INSTALL_BINS]\\$$qln\" \"$$T\")
     }
 }
