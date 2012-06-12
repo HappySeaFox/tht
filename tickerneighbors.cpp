@@ -1,5 +1,6 @@
 #include <QItemSelectionModel>
 #include <QTreeWidgetItem>
+#include <QDesktopWidget>
 #include <QApplication>
 #include <QMetaObject>
 #include <QModelIndex>
@@ -83,6 +84,27 @@ void TickerNeighbors::showTicker(const QString &ticker)
     ui->lineTicker->setText(ticker);
     m_lastAction = ui->pushTicker;
     QTimer::singleShot(0, this, SLOT(slotFetch()));
+}
+
+void TickerNeighbors::setVisible(bool vis)
+{
+    if(!vis)
+        m_pos = pos();
+
+    QDialog::setVisible(vis);
+
+    if(vis)
+    {
+        if(!m_pos.isNull())
+        {
+            QRect dr = qApp->desktop()->availableGeometry();
+            QRect headGeometry = QRect(m_pos, QSize(width(), 20));
+
+            // move to a valid position
+            if(dr.contains(headGeometry.topLeft()) || dr.contains(headGeometry.bottomRight()))
+                move(m_pos);
+        }
+    }
 }
 
 void TickerNeighbors::silentlyCheck(QCheckBox *box, bool check)
