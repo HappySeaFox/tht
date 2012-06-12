@@ -13,8 +13,8 @@
 #define MyAppSrc "F:\trading\soft\THT"
 #define MyAppDist "F:\trading\soft\THT-dist"
 #define MyAppBuildDir "F:\trading\soft\THT-build-desktop"
-#define QtDir "F:\Qt\Desktop\Qt\4.8.1\mingw"
-#define MingwDir "C:\MinGW"
+#define QtDir "F:\Qt"
+#define MingwDir "F:\Qt\mingw"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
