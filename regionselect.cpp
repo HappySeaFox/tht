@@ -54,7 +54,7 @@ RegionSelect::~RegionSelect()
 
 bool RegionSelect::event(QEvent *event)
 {
-    if(ki == KeyboardInteractionUseKeyboard && event->type() == QEvent::KeyPress)
+    if(ki == UseKeyboard && event->type() == QEvent::KeyPress)
         reject();
     else if(event->type() == QEvent::MouseButtonRelease)
     {
@@ -91,7 +91,7 @@ void RegionSelect::mouseMoveEvent(QMouseEvent *event)
 {
     QMouseEvent *mouseEvent = static_cast<QMouseEvent*> (event);
     selectRect = QRect(selStartPoint, mouseEvent->pos()).normalized();
-    selEndPoint  = mouseEvent->pos();
+    selEndPoint = mouseEvent->pos();
     update();
 }
 
@@ -107,7 +107,7 @@ void RegionSelect::drawBackGround()
     painter.drawRect(QApplication::desktop()->rect());
         
     QRect txtRect = QApplication::desktop()->screenGeometry(QApplication::desktop()->primaryScreen());
-    QString txtTip = ki == KeyboardInteractionUseKeyboard
+    QString txtTip = ki == UseKeyboard
             ? tr("Select the rectangle with the mouse or exit pressing\nany key or using the right or middle mouse buttons.")
             : tr("Select the rectangle with the mouse or exit pressing\nthe right or middle mouse buttons.");
 
