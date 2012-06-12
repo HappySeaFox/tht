@@ -21,19 +21,19 @@ void TickerInformationFetcher::fetch(const QString &ticker)
 
 void TickerInformationFetcher::slotFetch()
 {
-    QList<QStringList> lists = SqlTools::query("SELECT company, sector, industry FROM tickers WHERE ticker = :ticker", ":ticker", m_ticker);
+    QList<QVariantList> lists = SqlTools::query("SELECT company, sector, industry FROM tickers WHERE ticker = :ticker", ":ticker", m_ticker);
 
     if(!lists.isEmpty())
     {
-        QStringList values = lists.at(0);
+        QVariantList values = lists.at(0);
 
         if(values.size() > 2)
         {
-            QString company = values.at(0);
+            QString company = values.at(0).toString();
 
             if(!company.isEmpty())
             {
-                emit done(company, values.at(1), values.at(2));
+                emit done(company, values.at(1).toString(), values.at(2).toString());
                 return;
             }
         }

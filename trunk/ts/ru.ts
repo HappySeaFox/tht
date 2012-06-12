@@ -408,9 +408,14 @@ the right or middle mouse buttons.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tickerneighbors.cpp" line="106"/>
-        <location filename="../tickerneighbors.cpp" line="202"/>
-        <location filename="../tickerneighbors.cpp" line="243"/>
+        <location filename="../tickerneighbors.ui" line="115"/>
+        <source>By capitalization</source>
+        <translation>По капитализации</translation>
+    </message>
+    <message>
+        <location filename="../tickerneighbors.cpp" line="105"/>
+        <location filename="../tickerneighbors.cpp" line="214"/>
+        <location filename="../tickerneighbors.cpp" line="248"/>
         <source>Copy (%1)</source>
         <translation>Копировать (%1)</translation>
     </message>

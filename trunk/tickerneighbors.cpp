@@ -1,8 +1,8 @@
 #include <QItemSelectionModel>
-#include <QStandardItemModel>
+#include <QTreeWidgetItem>
 #include <QApplication>
-#include <QModelIndex>
 #include <QMetaObject>
+#include <QModelIndex>
 #include <QClipboard>
 #include <QTimer>
 
@@ -40,15 +40,10 @@ TickerNeighbors::TickerNeighbors(const QString &ticker, QWidget *parent) :
         ui->comboIndustry->addItem(i);
     }
 
-    // model for listview
-    m_model = new QStandardItemModel(this);
-
-    ui->list->setModel(m_model);
-
     // load checkboxes
-    int nyse = Settings::instance()->checkBoxState(ui->checkNyse->text());
-    int nasd = Settings::instance()->checkBoxState(ui->checkNasd->text());
-    int amex = Settings::instance()->checkBoxState(ui->checkAmex->text());
+    int nyse = Settings::instance()->checkBoxState(ui->checkNyse->objectName());
+    int nasd = Settings::instance()->checkBoxState(ui->checkNasd->objectName());
+    int amex = Settings::instance()->checkBoxState(ui->checkAmex->objectName());
 
     if(nyse <= 0 && nasd <= 0 && amex <= 0)
         silentlyCheck(ui->checkNyse, true);
@@ -64,11 +59,10 @@ TickerNeighbors::TickerNeighbors(const QString &ticker, QWidget *parent) :
             silentlyCheck(ui->checkAmex, amex);
     }
 
-    // by capitalization
-    if(Settings::instance()->checkBoxState(ui->checkCap->text()) > 0)
-        silentlyCheck(ui->checkCap, true);
+    if(Settings::instance()->checkBoxState(ui->checkCap->objectName()) > 0)
+            silentlyCheck(ui->checkCap, true);
 
-    connect(ui->list->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
+    connect(ui->listTickers->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
             this, SLOT(slotSelectionChanged()));
 
     showTicker(ticker);
@@ -76,10 +70,10 @@ TickerNeighbors::TickerNeighbors(const QString &ticker, QWidget *parent) :
 
 TickerNeighbors::~TickerNeighbors()
 {
-    Settings::instance()->setCheckBoxState(ui->checkNyse->text(), ui->checkNyse->isChecked(), Settings::NoSync);
-    Settings::instance()->setCheckBoxState(ui->checkNasd->text(), ui->checkNasd->isChecked(), Settings::NoSync);
-    Settings::instance()->setCheckBoxState(ui->checkAmex->text(), ui->checkAmex->isChecked());
-    Settings::instance()->setCheckBoxState(ui->checkCap->text(), ui->checkCap->isChecked());
+    Settings::instance()->setCheckBoxState(ui->checkNyse->objectName(), ui->checkNyse->isChecked(), Settings::NoSync);
+    Settings::instance()->setCheckBoxState(ui->checkNasd->objectName(), ui->checkNasd->isChecked(), Settings::NoSync);
+    Settings::instance()->setCheckBoxState(ui->checkAmex->objectName(), ui->checkAmex->isChecked(), Settings::NoSync);
+    Settings::instance()->setCheckBoxState(ui->checkCap->objectName(), ui->checkCap->isChecked());
 
     delete ui;
 }
@@ -105,12 +99,12 @@ void TickerNeighbors::silentlyCheck(QCheckBox *box, bool check)
 void TickerNeighbors::slotFetch()
 {
     // clear old data
-    m_model->clear();
+    ui->listTickers->clear();
     m_tickers.clear();
 
     ui->pushCopy->setText(tr("Copy (%1)").arg(0));
 
-    QList<QStringList> lists;
+    QList<QVariantList> lists;
     QMap<QString, QString> binds;
     QString sector, industry;
 
@@ -132,13 +126,13 @@ void TickerNeighbors::slotFetch()
         if(lists.isEmpty())
             return;
 
-        QStringList list = lists.at(0);
+        QVariantList list = lists.at(0);
 
         if(list.size() != 2)
             return;
 
-        sector = list.at(0);
-        industry = list.at(1);
+        sector = list.at(0).toString();
+        industry = list.at(1).toString();
 
         if(ui->comboSector->currentText() != sector)
             ui->comboSector->setCurrentIndex(ui->comboSector->findText(sector));
@@ -155,7 +149,7 @@ void TickerNeighbors::slotFetch()
     qDebug("Found neighbors info %s / %s", qPrintable(sector), qPrintable(industry));
 
     // sector & industry
-    QList<QStringList> tickers;
+    QList<QVariantList> tickers;
     QString add;
 
     binds.clear();
@@ -189,7 +183,7 @@ void TickerNeighbors::slotFetch()
     if(ui->checkCap->isChecked())
         add += " ORDER BY cap DESC";
     else
-        add += " ORDER BY ticker";
+        add += " ORDER BY ticker ASC";
 
     // final query
     if(osender == ui->pushSector)
@@ -203,28 +197,29 @@ void TickerNeighbors::slotFetch()
         tickers = SqlTools::query("SELECT ticker FROM tickers WHERE industry = :industry" + add, binds);
     }
 
-    foreach(QStringList l, tickers)
+    foreach(QVariantList l, tickers)
     {
-        if(l.size())
-            m_tickers.append(l.at(0));
+        if(l.isEmpty())
+            continue;
+
+        add = l[0].toString().replace('-', '.');
+
+        m_tickers.append(add);
+
+        QListWidgetItem *item = new QListWidgetItem(add, ui->listTickers);
+
+        item->setFlags(item->flags() & ~Qt::ItemIsEditable);
     }
 
     ui->pushCopy->setText(tr("Copy (%1)").arg(m_tickers.size()));
 
     qDebug("Found neighbors %d", m_tickers.size());
-
-    foreach(QString t, m_tickers)
-    {
-        QStandardItem *item = new QStandardItem(t.replace('-', '.'));
-        item->setFlags(item->flags() & ~Qt::ItemIsEditable);
-        m_model->appendRow(item);
-    }
 }
 
 void TickerNeighbors::slotCopy()
 {
     QString text;
-    QModelIndexList selected = ui->list->selectionModel()->selectedIndexes();
+    QModelIndexList selected = ui->listTickers->selectionModel()->selectedIndexes();
 
     if(selected.isEmpty())
         text = m_tickers.join("\n");
@@ -248,9 +243,9 @@ void TickerNeighbors::slotFilterAndFetch()
 
 void TickerNeighbors::slotSelectionChanged()
 {
-    const int count = ui->list->selectionModel()->selectedIndexes().count();
+    const int count = ui->listTickers->selectionModel()->selectedRows().count();
 
-    ui->pushCopy->setText(tr("Copy (%1)").arg(!count ? m_model->rowCount() : count));
+    ui->pushCopy->setText(tr("Copy (%1)").arg(!count ? ui->listTickers->count() : count));
 }
 
 void TickerNeighbors::slotActivated(const QModelIndex &index)
@@ -258,5 +253,5 @@ void TickerNeighbors::slotActivated(const QModelIndex &index)
     if(!index.isValid())
         return;
 
-    emit loadTicker(index.data().toString());
+    emit loadTicker((index.column() ? index.sibling(index.row(), 0) : index).data().toString());
 }

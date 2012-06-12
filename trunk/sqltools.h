@@ -1,7 +1,7 @@
 #ifndef SQLTOOLS_H
 #define SQLTOOLS_H
 
-#include <QStringList>
+#include <QVariant>
 #include <QString>
 #include <QList>
 #include <QMap>
@@ -9,8 +9,8 @@
 class SqlTools
 {
 public:
-    static QList<QStringList> query(const QString &s, const QString &bindTemplate, const QString &bindValue);
-    static QList<QStringList> query(const QString &s, const QMap<QString, QString> &binds = QMap<QString, QString>());
+    static QList<QVariantList> query(const QString &s, const QString &bindTemplate, const QString &bindValue);
+    static QList<QVariantList> query(const QString &s, const QMap<QString, QString> &binds = QMap<QString, QString>());
 
     static QStringList sectors();
     static QStringList industries();

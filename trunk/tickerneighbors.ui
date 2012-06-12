@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>224</width>
-    <height>350</height>
+    <width>267</width>
+    <height>368</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Industries</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout_2">
+  <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
     <widget class="QLineEdit" name="lineTicker"/>
    </item>
@@ -48,7 +48,7 @@
     </widget>
    </item>
    <item row="3" column="0" colspan="2">
-    <widget class="QListView" name="list">
+    <widget class="QListWidget" name="listTickers">
      <property name="selectionMode">
       <enum>QAbstractItemView::ExtendedSelection</enum>
      </property>
@@ -64,15 +64,29 @@
     </widget>
    </item>
    <item row="4" column="0" colspan="2">
-    <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="0" colspan="3">
-      <widget class="QCheckBox" name="checkCap">
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QCheckBox" name="checkNyse">
        <property name="text">
-        <string>Sort by capitalization</string>
+        <string>NYSE</string>
        </property>
       </widget>
      </item>
-     <item row="0" column="3" rowspan="2">
+     <item>
+      <widget class="QCheckBox" name="checkNasd">
+       <property name="text">
+        <string>NASD</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="checkAmex">
+       <property name="text">
+        <string>AMEX</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <spacer name="horizontalSpacer_2">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -85,31 +99,17 @@
        </property>
       </spacer>
      </item>
-     <item row="1" column="2">
-      <widget class="QCheckBox" name="checkAmex">
-       <property name="text">
-        <string>AMEX</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QCheckBox" name="checkNasd">
-       <property name="text">
-        <string>NASD</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QCheckBox" name="checkNyse">
-       <property name="text">
-        <string>NYSE</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="4">
+     <item>
       <widget class="QPushButton" name="pushCopy"/>
      </item>
     </layout>
+   </item>
+   <item row="5" column="0" colspan="2">
+    <widget class="QCheckBox" name="checkCap">
+     <property name="text">
+      <string>By capitalization</string>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>
@@ -120,11 +120,11 @@
   <tabstop>pushSector</tabstop>
   <tabstop>comboIndustry</tabstop>
   <tabstop>pushIndustry</tabstop>
-  <tabstop>list</tabstop>
-  <tabstop>checkCap</tabstop>
+  <tabstop>listTickers</tabstop>
   <tabstop>checkNyse</tabstop>
   <tabstop>checkNasd</tabstop>
   <tabstop>checkAmex</tabstop>
+  <tabstop>checkCap</tabstop>
   <tabstop>pushCopy</tabstop>
  </tabstops>
  <resources>
@@ -158,7 +158,7 @@
      <y>30</y>
     </hint>
     <hint type="destinationlabel">
-     <x>252</x>
+     <x>245</x>
      <y>15</y>
     </hint>
    </hints>
@@ -202,11 +202,11 @@
    <slot>slotFilterAndFetch()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>49</x>
-     <y>336</y>
+     <x>57</x>
+     <y>324</y>
     </hint>
     <hint type="destinationlabel">
-     <x>252</x>
+     <x>245</x>
      <y>144</y>
     </hint>
    </hints>
@@ -219,10 +219,10 @@
    <hints>
     <hint type="sourcelabel">
      <x>113</x>
-     <y>336</y>
+     <y>324</y>
     </hint>
     <hint type="destinationlabel">
-     <x>254</x>
+     <x>245</x>
      <y>207</y>
     </hint>
    </hints>
@@ -235,10 +235,10 @@
    <hints>
     <hint type="sourcelabel">
      <x>169</x>
-     <y>336</y>
+     <y>324</y>
     </hint>
     <hint type="destinationlabel">
-     <x>267</x>
+     <x>245</x>
      <y>181</y>
     </hint>
    </hints>
@@ -260,34 +260,18 @@
    </hints>
   </connection>
   <connection>
-   <sender>list</sender>
-   <signal>activated(QModelIndex)</signal>
-   <receiver>TickerNeighbors</receiver>
-   <slot>slotActivated(QModelIndex)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>116</x>
-     <y>123</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>397</x>
-     <y>125</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>checkCap</sender>
    <signal>toggled(bool)</signal>
    <receiver>TickerNeighbors</receiver>
    <slot>slotFilterAndFetch()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>76</x>
-     <y>303</y>
+     <x>86</x>
+     <y>343</y>
     </hint>
     <hint type="destinationlabel">
-     <x>295</x>
-     <y>299</y>
+     <x>306</x>
+     <y>342</y>
     </hint>
    </hints>
   </connection>
