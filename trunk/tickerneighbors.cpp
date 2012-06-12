@@ -93,17 +93,14 @@ void TickerNeighbors::setVisible(bool vis)
 
     QDialog::setVisible(vis);
 
-    if(vis)
+    if(vis && !m_pos.isNull())
     {
-        if(!m_pos.isNull())
-        {
-            QRect dr = qApp->desktop()->availableGeometry();
-            QRect headGeometry = QRect(m_pos, QSize(width(), 20));
+        QRect dr = qApp->desktop()->availableGeometry();
+        QRect headGeometry = QRect(m_pos, QSize(width(), 20));
 
-            // move to a valid position
-            if(dr.contains(headGeometry.topLeft()) || dr.contains(headGeometry.bottomRight()))
-                move(m_pos);
-        }
+        // move to a valid position
+        if(dr.contains(headGeometry.topLeft()) || dr.contains(headGeometry.bottomRight()))
+            move(m_pos);
     }
 }
 
