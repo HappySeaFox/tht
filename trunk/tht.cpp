@@ -678,6 +678,8 @@ void THT::activate()
         m_sectors->activateWindow();
     else
         activateWindow();
+
+    m_lastActiveWindow = 0;
 }
 
 void THT::slotAdjustSize()
@@ -1206,6 +1208,7 @@ void THT::slotShowNeighbors(const QString &ticker)
         m_sectors->setWindowFlags(m_sectors->windowFlags() | Qt::WindowStaysOnTopHint);
 
     connect(m_sectors, SIGNAL(loadTicker(const QString &)), this, SLOT(slotLoadTicker(const QString &)));
+
     m_sectors->show();
 }
 
