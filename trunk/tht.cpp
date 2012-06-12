@@ -61,7 +61,8 @@ THT::THT(QWidget *parent) :
     ui(new Ui::THT),
     m_windows(&m_windowsLoad),
     m_running(false),
-    m_locked(false)
+    m_locked(false),
+    m_lastActiveWindow(0)
 {
     if(Settings::instance()->onTop())
         setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
@@ -643,6 +644,8 @@ void THT::loadTicker(const QString &ticker)
 
     busy(true);
 
+    m_lastActiveWindow = qApp->activeWindow();
+
     m_timerLoadToNextWindow->start();
 }
 
@@ -660,10 +663,21 @@ void THT::activate()
 {
     qDebug("Activating");
 
+    if(m_sectors)
+    {
+        m_sectors->show();
+        m_sectors->setWindowState(windowState() & ~Qt::WindowMinimized);
+        m_sectors->raise();
+    }
+
     show();
     setWindowState(windowState() & ~Qt::WindowMinimized);
     raise();
-    activateWindow();
+
+    if(m_sectors && m_lastActiveWindow == m_sectors)
+        m_sectors->activateWindow();
+    else
+        activateWindow();
 }
 
 void THT::slotAdjustSize()
@@ -962,9 +976,7 @@ void THT::slotTrayActivated(QSystemTrayIcon::ActivationReason reason)
 
 void THT::slotTakeScreenshotFromGlobal()
 {
-    QWidget *a = qApp->activeWindow();
-
-    startDelayedScreenshot(a && a->winId() == winId());
+    startDelayedScreenshot(qApp->activeWindow());
 }
 
 void THT::slotTakeScreenshot()
@@ -975,8 +987,8 @@ void THT::slotTakeScreenshot()
 void THT::slotTakeScreenshotReal()
 {
     RegionSelect selector(m_useKeyboardInRegion
-                          ? RegionSelect::KeyboardInteractionUseKeyboard
-                          : RegionSelect::KeyboardInteractionDontUseKeyboard);
+                          ? RegionSelect::UseKeyboard
+                          : RegionSelect::DontUseKeyboard);
     QPixmap px;
 
     // ignore screenshot
@@ -1216,6 +1228,16 @@ bool THT::setForeignFocus(HWND window, DWORD threadId)
     AttachThreadInput(threadId, currentThreadId, FALSE);
 
     return true;
+}
+
+void THT::hide()
+{
+    m_lastActiveWindow = qApp->activeWindow();
+
+    QWidget::hide();
+
+    if(m_sectors)
+        m_sectors->hide();
 }
 
 HWND THT::grayBoxFindSubControl(HWND parent)

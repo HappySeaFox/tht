@@ -154,7 +154,7 @@
    <slot>slotFetch()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>214</x>
+     <x>257</x>
      <y>30</y>
     </hint>
     <hint type="destinationlabel">
@@ -170,7 +170,7 @@
    <slot>slotFetch()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>214</x>
+     <x>257</x>
      <y>58</y>
     </hint>
     <hint type="destinationlabel">
@@ -186,7 +186,7 @@
    <slot>slotFetch()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>214</x>
+     <x>257</x>
      <y>86</y>
     </hint>
     <hint type="destinationlabel">
@@ -250,8 +250,8 @@
    <slot>slotCopy()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>213</x>
-     <y>339</y>
+     <x>256</x>
+     <y>334</y>
     </hint>
     <hint type="destinationlabel">
      <x>185</x>
@@ -272,6 +272,22 @@
     <hint type="destinationlabel">
      <x>306</x>
      <y>342</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>listTickers</sender>
+   <signal>activated(QModelIndex)</signal>
+   <receiver>TickerNeighbors</receiver>
+   <slot>slotActivated(QModelIndex)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>133</x>
+     <y>124</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>324</x>
+     <y>125</y>
     </hint>
    </hints>
   </connection>

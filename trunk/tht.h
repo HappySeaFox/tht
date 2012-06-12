@@ -101,6 +101,7 @@ private:
     void loadTicker(const QString &);
     void startDelayedScreenshot(bool);
     bool setForeignFocus(HWND window, DWORD threadId);
+    void hide();
 
     static HWND grayBoxFindSubControl(HWND);
     static HWND mbtFindSubControl(HWND);
@@ -159,6 +160,7 @@ private:
     bool m_useKeyboardInRegion;
     bool m_locked;
     QString m_newVersion;
+    QWidget *m_lastActiveWindow;
     QMap<QString, Qt::Key> m_predefined;
     QPointer<TickerNeighbors> m_sectors;
 };

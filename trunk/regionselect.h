@@ -41,7 +41,7 @@ class RegionSelect : public QDialog
     Q_OBJECT
 
     public:
-        enum KeyboardInteraction { KeyboardInteractionUseKeyboard, KeyboardInteractionDontUseKeyboard };
+        enum KeyboardInteraction {UseKeyboard, DontUseKeyboard };
 
         explicit RegionSelect(KeyboardInteraction, QWidget *parent = 0);
         ~RegionSelect();
