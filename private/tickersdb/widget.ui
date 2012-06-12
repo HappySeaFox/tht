@@ -29,6 +29,9 @@
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
+     <property name="toolTip">
+      <string>Downloaded tickers</string>
+     </property>
      <property name="text">
       <string>0</string>
      </property>
