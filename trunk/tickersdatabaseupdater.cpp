@@ -7,8 +7,6 @@
 #include "networkaccess.h"
 #include "settings.h"
 
-static const char * const THT_TIMESTAMP_FORMAT = "yyyy-MM-dd hh:mm:ss.zzz";
-
 TickersDatabaseUpdater::TickersDatabaseUpdater(QObject *parent) :
     QObject(parent),
     m_downloadingData(false)
@@ -34,7 +32,7 @@ void TickersDatabaseUpdater::startRequest()
 
 void TickersDatabaseUpdater::checkNewData()
 {
-    QString oldDb = Settings::instance()->tickersMutableDatabasePath();
+    QString oldDb = Settings::instance()->mutableDatabasePath();
     QString newDb = oldDb + ".new";
 
     QString oldTs = oldDb + ".timestamp";
@@ -100,12 +98,12 @@ void TickersDatabaseUpdater::slotFinished()
 
     if(m_downloadingData)
     {
-        writeData(Settings::instance()->tickersMutableDatabasePath(), m_net->data());
+        writeData(Settings::instance()->mutableDatabasePath(), m_net->data());
         m_net->clearBuffer();
     }
     else
     {
-        QDateTime ts = QDateTime::fromString(m_net->data().trimmed(), THT_TIMESTAMP_FORMAT);
+        QDateTime ts = QDateTime::fromString(m_net->data().trimmed(), Settings::instance()->databaseTimestampFormat());
 
         if(!ts.isValid())
         {
@@ -122,7 +120,7 @@ void TickersDatabaseUpdater::slotFinished()
             return;
         }
 
-        if(!writeData(Settings::instance()->tickersMutableDatabasePath() + ".timestamp", m_net->data()))
+        if(!writeData(Settings::instance()->mutableDatabasePath() + ".timestamp", m_net->data()))
             return;
 
         qDebug("Downloading new database");

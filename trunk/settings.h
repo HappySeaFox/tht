@@ -43,14 +43,16 @@ public:
     void setCheckBoxState(const QString &checkbox, bool checked, SyncType sync = Sync);
     int checkBoxState(const QString &checkbox);
 
+    QString databaseTimestampFormat() const;
+
     QDateTime persistentDatabaseTimestamp() const;
     QDateTime mutableDatabaseTimestamp() const;
 
-    QString tickersPersistentDatabaseName() const;
-    QString tickersPersistentDatabasePath() const;
+    QString persistentDatabaseName() const;
+    QString persistentDatabasePath() const;
 
-    QString tickersMutableDatabaseName() const;
-    QString tickersMutableDatabasePath() const;
+    QString mutableDatabaseName() const;
+    QString mutableDatabasePath() const;
 
     bool preloadMode() const;
 
@@ -119,13 +121,20 @@ private:
     QSettings *m_settings;
     QRegExp m_rxTicker;
     OSVERSIONINFO m_version;
-    QString m_tickersPersistentDatabaseName;
-    QString m_tickersPersistentDatabasePath;
-    QString m_tickersMutableDatabaseName;
-    QString m_tickersMutableDatabasePath;
+    QString m_persistentDatabaseName;
+    QString m_persistentDatabasePath;
+    QString m_mutableDatabaseName;
+    QString m_mutableDatabasePath;
     QDateTime m_persistentDatabaseTimestamp;
     QDateTime m_mutableDatabaseTimestamp;
+    QString m_databaseTimestampFormat;
 };
+
+inline
+QString Settings::databaseTimestampFormat() const
+{
+    return m_databaseTimestampFormat;
+}
 
 inline
 QDateTime Settings::persistentDatabaseTimestamp() const
@@ -140,27 +149,27 @@ QDateTime Settings::mutableDatabaseTimestamp() const
 }
 
 inline
-QString Settings::tickersPersistentDatabaseName() const
+QString Settings::persistentDatabaseName() const
 {
-    return m_tickersPersistentDatabaseName;
+    return m_persistentDatabaseName;
 }
 
 inline
-QString Settings::tickersMutableDatabaseName() const
+QString Settings::mutableDatabaseName() const
 {
-    return m_tickersMutableDatabaseName;
+    return m_mutableDatabaseName;
 }
 
 inline
-QString Settings::tickersMutableDatabasePath() const
+QString Settings::mutableDatabasePath() const
 {
-    return m_tickersMutableDatabasePath;
+    return m_mutableDatabasePath;
 }
 
 inline
-QString Settings::tickersPersistentDatabasePath() const
+QString Settings::persistentDatabasePath() const
 {
-    return m_tickersPersistentDatabasePath;
+    return m_persistentDatabasePath;
 }
 
 inline
