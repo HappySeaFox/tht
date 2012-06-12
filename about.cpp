@@ -15,6 +15,7 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <QKeySequence>
 #include <QShortcut>
 
 #include "updatechecker.h"
@@ -50,7 +51,7 @@ About::About(const QString &newVersion, QWidget *parent) :
     setOrientation(Qt::Vertical);
     setExtension(label);
 
-    new QShortcut(Qt::Key_F1, this, SLOT(slotExtendedAbout()));
+    new QShortcut(QKeySequence::HelpContents, this, SLOT(slotExtendedAbout()));
 }
 
 About::~About()
