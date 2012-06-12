@@ -135,7 +135,7 @@ THT::THT(QWidget *parent) :
 
         QPoint pt = Settings::instance()->windowPosition();
 
-        QRect dr = qApp->desktop()->rect();
+        QRect dr = qApp->desktop()->availableGeometry();
         QRect headGeometry = QRect(pt, QSize(sz.width(), 20));
 
         // move to a valid position

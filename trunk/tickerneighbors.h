@@ -3,6 +3,7 @@
 
 #include <QStringList>
 #include <QDialog>
+#include <QPoint>
 
 namespace Ui {
 class TickerNeighbors;
@@ -21,6 +22,8 @@ public:
 
     void showTicker(const QString &);
 
+    virtual void setVisible(bool);
+
 private:
     void silentlyCheck(QCheckBox *, bool check);
 
@@ -33,10 +36,12 @@ private slots:
     void slotCopy();
     void slotSelectionChanged();
     void slotActivated(const QModelIndex &);
+
 private:
     Ui::TickerNeighbors *ui;
     QStringList m_tickers;
     QObject *m_lastAction;
+    QPoint m_pos;
 };
 
 #endif // TICKERNEIGHBORS_H
