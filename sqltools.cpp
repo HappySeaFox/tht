@@ -5,7 +5,7 @@
 #include "settings.h"
 #include "sqltools.h"
 
-QList<QStringList> SqlTools::query(const QString &s, const QString &bindTemplate, const QString &bindValue)
+QList<QVariantList> SqlTools::query(const QString &s, const QString &bindTemplate, const QString &bindValue)
 {
     QMap<QString, QString> binds;
 
@@ -14,11 +14,11 @@ QList<QStringList> SqlTools::query(const QString &s, const QString &bindTemplate
     return SqlTools::query(s, binds);
 }
 
-QList<QStringList> SqlTools::query(const QString &s, const QMap<QString, QString> &binds)
+QList<QVariantList> SqlTools::query(const QString &s, const QMap<QString, QString> &binds)
 {
     QSqlDatabase dbp = QSqlDatabase::database(Settings::instance()->tickersPersistentDatabaseName());
     QSqlDatabase dbm = QSqlDatabase::database(Settings::instance()->tickersMutableDatabaseName());
-    QList<QStringList> result;
+    QList<QVariantList> result;
 
     QSqlQuery query(dbm);
 
@@ -54,10 +54,10 @@ QList<QStringList> SqlTools::query(const QString &s, const QMap<QString, QString
     {
         int index = 0;
         QVariant var;
-        QStringList list;
+        QVariantList list;
 
         while((var = query.value(index++)).isValid())
-            list.append(var.toString());
+            list.append(var);
 
         result.append(list);
     }while(query.next());
@@ -87,14 +87,14 @@ QStringList SqlTools::sectorsReal()
 {
     QStringList result;
 
-    QList<QStringList> lists = SqlTools::query("SELECT DISTINCT sector FROM tickers");
+    QList<QVariantList> lists = SqlTools::query("SELECT DISTINCT sector FROM tickers");
 
-    foreach(QStringList l, lists)
+    foreach(QVariantList l, lists)
     {
         if(l.isEmpty())
             continue;
 
-        result.append(l.at(0));
+        result.append(l.at(0).toString());
     }
 
     return result;
@@ -104,14 +104,14 @@ QStringList SqlTools::industriesReal()
 {
     QStringList result;
 
-    QList<QStringList> lists = SqlTools::query("SELECT DISTINCT industry FROM tickers");
+    QList<QVariantList> lists = SqlTools::query("SELECT DISTINCT industry FROM tickers");
 
-    foreach(QStringList l, lists)
+    foreach(QVariantList l, lists)
     {
         if(l.isEmpty())
             continue;
 
-        result.append(l.at(0));
+        result.append(l.at(0).toString());
     }
 
     return result;
@@ -127,15 +127,15 @@ QMap<QString, QStringList> SqlTools::sectorsAndIndustriesReal()
     {
         QStringList industries;
 
-        QList<QStringList> lists = SqlTools::query("SELECT DISTINCT industry FROM tickers WHERE sector = :sector",
+        QList<QVariantList> lists = SqlTools::query("SELECT DISTINCT industry FROM tickers WHERE sector = :sector",
                                                    ":sector", sector);
 
-        foreach(QStringList l, lists)
+        foreach(QVariantList l, lists)
         {
             if(l.isEmpty())
                 continue;
 
-            industries.append(l.at(0));
+            industries.append(l.at(0).toString());
         }
 
         result.insert(sector, industries);

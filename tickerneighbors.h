@@ -8,7 +8,6 @@ namespace Ui {
 class TickerNeighbors;
 }
 
-class QStandardItemModel;
 class QModelIndex;
 class QCheckBox;
 
@@ -34,11 +33,9 @@ private slots:
     void slotCopy();
     void slotSelectionChanged();
     void slotActivated(const QModelIndex &);
-
 private:
     Ui::TickerNeighbors *ui;
     QStringList m_tickers;
-    QStandardItemModel *m_model;
     QObject *m_lastAction;
 };
 
