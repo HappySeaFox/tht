@@ -19,6 +19,7 @@
 #define SETTINGS_H
 
 #include <QStringList>
+#include <QDateTime>
 #include <QSettings>
 #include <QRegExp>
 #include <QPoint>
@@ -41,6 +42,9 @@ public:
 
     void setCheckBoxState(const QString &checkbox, bool checked, SyncType sync = Sync);
     int checkBoxState(const QString &checkbox);
+
+    QDateTime persistentDatabaseTimestamp() const;
+    QDateTime mutableDatabaseTimestamp() const;
 
     QString tickersPersistentDatabaseName() const;
     QString tickersPersistentDatabasePath() const;
@@ -109,6 +113,8 @@ private:
     template <typename T>
     void save(const QString &key, const T &value, SyncType sync = Sync);
 
+    QDateTime readTimestamp(const QString &fileName) const;
+
 private:
     QSettings *m_settings;
     QRegExp m_rxTicker;
@@ -117,7 +123,21 @@ private:
     QString m_tickersPersistentDatabasePath;
     QString m_tickersMutableDatabaseName;
     QString m_tickersMutableDatabasePath;
+    QDateTime m_persistentDatabaseTimestamp;
+    QDateTime m_mutableDatabaseTimestamp;
 };
+
+inline
+QDateTime Settings::persistentDatabaseTimestamp() const
+{
+    return m_persistentDatabaseTimestamp;
+}
+
+inline
+QDateTime Settings::mutableDatabaseTimestamp() const
+{
+    return m_mutableDatabaseTimestamp;
+}
 
 inline
 QString Settings::tickersPersistentDatabaseName() const

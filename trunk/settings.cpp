@@ -17,11 +17,14 @@
 
 #include <QCoreApplication>
 #include <QDesktopServices>
+#include <QFile>
 #include <QDir>
 
 #include <windows.h>
 
 #include "settings.h"
+
+static const char * const THT_TIMESTAMP_FORMAT = "yyyy-MM-dd hh:mm:ss.zzz";
 
 Settings::Settings()
 {
@@ -115,6 +118,12 @@ Settings::Settings()
 
     if(!QDir().mkpath(mutablePath))
         qDebug("Cannot create a directory for mutable database");
+
+    m_persistentDatabaseTimestamp = readTimestamp(m_tickersPersistentDatabasePath);
+    m_mutableDatabaseTimestamp = readTimestamp(m_tickersMutableDatabasePath);
+
+    qDebug("Database P timestamp: %s", qPrintable(m_persistentDatabaseTimestamp.toString(THT_TIMESTAMP_FORMAT)));
+    qDebug("Database M timestamp: %s", qPrintable(m_mutableDatabaseTimestamp.toString(THT_TIMESTAMP_FORMAT)));
 }
 
 Settings::~Settings()
@@ -352,4 +361,14 @@ void Settings::save(const QString &key, const T &value, SyncType sync)
 
     if(sync == Sync)
         m_settings->sync();
+}
+
+QDateTime Settings::readTimestamp(const QString &fileName) const
+{
+    QFile file(fileName + ".timestamp");
+
+    if(file.open(QIODevice::ReadOnly))
+        return QDateTime::fromString(file.readAll().trimmed(), THT_TIMESTAMP_FORMAT);
+
+    return QDateTime();
 }

@@ -65,28 +65,14 @@
    </item>
    <item row="4" column="0" colspan="2">
     <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="0">
-      <widget class="QCheckBox" name="checkNyse">
+     <item row="0" column="0" colspan="3">
+      <widget class="QCheckBox" name="checkCap">
        <property name="text">
-        <string>NYSE</string>
+        <string>Sort by capitalization</string>
        </property>
       </widget>
      </item>
-     <item row="0" column="1">
-      <widget class="QCheckBox" name="checkNasd">
-       <property name="text">
-        <string>NASD</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="2">
-      <widget class="QCheckBox" name="checkAmex">
-       <property name="text">
-        <string>AMEX</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="3">
+     <item row="0" column="3" rowspan="2">
       <spacer name="horizontalSpacer_2">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -99,7 +85,28 @@
        </property>
       </spacer>
      </item>
-     <item row="0" column="4">
+     <item row="1" column="2">
+      <widget class="QCheckBox" name="checkAmex">
+       <property name="text">
+        <string>AMEX</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QCheckBox" name="checkNasd">
+       <property name="text">
+        <string>NASD</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QCheckBox" name="checkNyse">
+       <property name="text">
+        <string>NYSE</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="4">
       <widget class="QPushButton" name="pushCopy"/>
      </item>
     </layout>
@@ -113,6 +120,8 @@
   <tabstop>pushSector</tabstop>
   <tabstop>comboIndustry</tabstop>
   <tabstop>pushIndustry</tabstop>
+  <tabstop>list</tabstop>
+  <tabstop>checkCap</tabstop>
   <tabstop>checkNyse</tabstop>
   <tabstop>checkNasd</tabstop>
   <tabstop>checkAmex</tabstop>
@@ -263,6 +272,22 @@
     <hint type="destinationlabel">
      <x>397</x>
      <y>125</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkCap</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>TickerNeighbors</receiver>
+   <slot>slotFilterAndFetch()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>76</x>
+     <y>303</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>295</x>
+     <y>299</y>
     </hint>
    </hints>
   </connection>
