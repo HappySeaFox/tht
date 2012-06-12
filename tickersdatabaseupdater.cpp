@@ -17,17 +17,11 @@ TickersDatabaseUpdater::TickersDatabaseUpdater(QObject *parent) :
 
     m_baseurl = SVNROOT "/trunk/tickersdb/";
 
-    m_timestampP = readTimestamp(Settings::instance()->tickersPersistentDatabasePath());
-    m_timestampM = readTimestamp(Settings::instance()->tickersMutableDatabasePath());
-
-    qDebug("Database P timestamp: %s", qPrintable(m_timestampP.toString(THT_TIMESTAMP_FORMAT)));
-    qDebug("Database M timestamp: %s", qPrintable(m_timestampM.toString(THT_TIMESTAMP_FORMAT)));
-
     m_net = new NetworkAccess(this);
 
     connect(m_net, SIGNAL(finished()), this, SLOT(slotFinished()));
 
-    if(m_timestampP.isValid())
+    if(Settings::instance()->persistentDatabaseTimestamp().isValid())
         startRequest();
     else
         qDebug("Persistent database timestamp is invalid");
@@ -93,16 +87,6 @@ bool TickersDatabaseUpdater::writeData(const QString &fileName, const QByteArray
     return true;
 }
 
-QDateTime TickersDatabaseUpdater::readTimestamp(const QString &fileName) const
-{
-    QFile file(fileName + ".timestamp");
-
-    if(file.open(QIODevice::ReadOnly))
-        return QDateTime::fromString(file.readAll().trimmed(), THT_TIMESTAMP_FORMAT);
-
-    return QDateTime();
-}
-
 void TickersDatabaseUpdater::slotFinished()
 {
     if(m_net->error() != QNetworkReply::NoError)
@@ -129,7 +113,9 @@ void TickersDatabaseUpdater::slotFinished()
             return;
         }
 
-        if(ts <= m_timestampP || !m_timestampM.isValid() || ts <= m_timestampM)
+        if(ts <= Settings::instance()->persistentDatabaseTimestamp()
+                || !Settings::instance()->mutableDatabaseTimestamp().isValid()
+                || ts <= Settings::instance()->mutableDatabaseTimestamp())
         {
             qDebug("No database updates available");
             QTimer::singleShot(1*3600*1000, this, SLOT(startRequest()));

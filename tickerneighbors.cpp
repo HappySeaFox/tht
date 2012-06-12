@@ -64,6 +64,10 @@ TickerNeighbors::TickerNeighbors(const QString &ticker, QWidget *parent) :
             silentlyCheck(ui->checkAmex, amex);
     }
 
+    // by capitalization
+    if(Settings::instance()->checkBoxState(ui->checkCap->text()) > 0)
+        silentlyCheck(ui->checkCap, true);
+
     connect(ui->list->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
             this, SLOT(slotSelectionChanged()));
 
@@ -75,6 +79,7 @@ TickerNeighbors::~TickerNeighbors()
     Settings::instance()->setCheckBoxState(ui->checkNyse->text(), ui->checkNyse->isChecked(), Settings::NoSync);
     Settings::instance()->setCheckBoxState(ui->checkNasd->text(), ui->checkNasd->isChecked(), Settings::NoSync);
     Settings::instance()->setCheckBoxState(ui->checkAmex->text(), ui->checkAmex->isChecked());
+    Settings::instance()->setCheckBoxState(ui->checkCap->text(), ui->checkCap->isChecked());
 
     delete ui;
 }
@@ -180,6 +185,11 @@ void TickerNeighbors::slotFetch()
     // no exchanges
     if(!secondQuery)
         return;
+
+    if(ui->checkCap->isChecked())
+        add += " ORDER BY cap DESC";
+    else
+        add += " ORDER BY ticker";
 
     // final query
     if(osender == ui->pushSector)
