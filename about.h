@@ -34,9 +34,11 @@ public:
 
 private slots:
     void slotNewVersion(const QString &);
+    void slotExtendedAbout();
 
 private:
     Ui::About *ui;
+    bool m_showExt;
 };
 
 #endif // ABOUT_H

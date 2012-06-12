@@ -24,8 +24,6 @@
 
 #include "settings.h"
 
-static const char * const THT_TIMESTAMP_FORMAT = "yyyy-MM-dd hh:mm:ss.zzz";
-
 Settings::Settings()
 {
     m_settings = new QSettings(QSettings::IniFormat,
@@ -34,6 +32,8 @@ Settings::Settings()
                                 QCoreApplication::applicationName());
 
     m_settings->setFallbacksEnabled(false);
+
+    m_databaseTimestampFormat = "yyyy-MM-dd hh:mm:ss.zzz";
 
     m_rxTicker = QRegExp("\\$?[a-zA-Z\\-\\.]{1,5}");
 
@@ -108,22 +108,22 @@ Settings::Settings()
         qDebug("Windows version %ld.%ld", m_version.dwMajorVersion, m_version.dwMinorVersion);
 
     // databases
-    m_tickersPersistentDatabaseName = "persistent";
-    m_tickersPersistentDatabasePath = QCoreApplication::applicationDirPath()
+    m_persistentDatabaseName = "persistent";
+    m_persistentDatabasePath = QCoreApplication::applicationDirPath()
                                         + QDir::separator() + "tickers.sqlite";
 
-    m_tickersMutableDatabaseName = "mutable";
+    m_mutableDatabaseName = "mutable";
     QString mutablePath = QDesktopServices::storageLocation(QDesktopServices::DataLocation);
-    m_tickersMutableDatabasePath = mutablePath + QDir::separator() + "tickers.sqlite";
+    m_mutableDatabasePath = mutablePath + QDir::separator() + "tickers.sqlite";
 
     if(!QDir().mkpath(mutablePath))
         qDebug("Cannot create a directory for mutable database");
 
-    m_persistentDatabaseTimestamp = readTimestamp(m_tickersPersistentDatabasePath);
-    m_mutableDatabaseTimestamp = readTimestamp(m_tickersMutableDatabasePath);
+    m_persistentDatabaseTimestamp = readTimestamp(m_persistentDatabasePath);
+    m_mutableDatabaseTimestamp = readTimestamp(m_mutableDatabasePath);
 
-    qDebug("Database P timestamp: %s", qPrintable(m_persistentDatabaseTimestamp.toString(THT_TIMESTAMP_FORMAT)));
-    qDebug("Database M timestamp: %s", qPrintable(m_mutableDatabaseTimestamp.toString(THT_TIMESTAMP_FORMAT)));
+    qDebug("Database P timestamp: %s", qPrintable(m_persistentDatabaseTimestamp.toString(m_databaseTimestampFormat)));
+    qDebug("Database M timestamp: %s", qPrintable(m_mutableDatabaseTimestamp.toString(m_databaseTimestampFormat)));
 }
 
 Settings::~Settings()
@@ -368,7 +368,7 @@ QDateTime Settings::readTimestamp(const QString &fileName) const
     QFile file(fileName + ".timestamp");
 
     if(file.open(QIODevice::ReadOnly))
-        return QDateTime::fromString(file.readAll().trimmed(), THT_TIMESTAMP_FORMAT);
+        return QDateTime::fromString(file.readAll().trimmed(), m_databaseTimestampFormat);
 
     return QDateTime();
 }

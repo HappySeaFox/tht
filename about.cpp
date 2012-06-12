@@ -15,14 +15,18 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <QShortcut>
+
 #include "updatechecker.h"
+#include "settings.h"
 #include "about.h"
 
 #include "ui_about.h"
 
 About::About(const QString &newVersion, QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::About)
+    ui(new Ui::About),
+    m_showExt(true)
 {
     ui->setupUi(this);
     ui->labelVersion->setText(QString("THT %1").arg(NVER_STRING));
@@ -30,6 +34,23 @@ About::About(const QString &newVersion, QWidget *parent) :
     slotNewVersion(newVersion);
 
     connect(UpdateChecker::instance(), SIGNAL(newVersion(const QString &)), this, SLOT(slotNewVersion(const QString &)));
+
+    QLabel *label = new QLabel(QString(
+                                   "<table align=center>"
+                                   "<tr><td><b>Persistent database: </b></td><td>%1</td></tr>"
+                                   "<tr><td><b>Mutable database: </b></td><td>%2</td></tr>"
+                                   "</table>"
+                                   )
+                               .arg(Settings::instance()->persistentDatabaseTimestamp().toString(Settings::instance()->databaseTimestampFormat()))
+                               .arg(Settings::instance()->mutableDatabaseTimestamp().toString(Settings::instance()->databaseTimestampFormat()))
+                               );
+
+    label->setContentsMargins(0, 0, 0, 12);
+
+    setOrientation(Qt::Vertical);
+    setExtension(label);
+
+    new QShortcut(Qt::Key_F1, this, SLOT(slotExtendedAbout()));
 }
 
 About::~About()
@@ -40,4 +61,10 @@ About::~About()
 void About::slotNewVersion(const QString &newVersion)
 {
     ui->labelUpdate->setVisible(!newVersion.isEmpty());
+}
+
+void About::slotExtendedAbout()
+{
+    showExtension(m_showExt);
+    m_showExt = !m_showExt;
 }

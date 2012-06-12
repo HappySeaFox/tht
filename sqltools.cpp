@@ -16,8 +16,8 @@ QList<QVariantList> SqlTools::query(const QString &s, const QString &bindTemplat
 
 QList<QVariantList> SqlTools::query(const QString &s, const QMap<QString, QString> &binds)
 {
-    QSqlDatabase dbp = QSqlDatabase::database(Settings::instance()->tickersPersistentDatabaseName());
-    QSqlDatabase dbm = QSqlDatabase::database(Settings::instance()->tickersMutableDatabaseName());
+    QSqlDatabase dbp = QSqlDatabase::database(Settings::instance()->persistentDatabaseName());
+    QSqlDatabase dbm = QSqlDatabase::database(Settings::instance()->mutableDatabaseName());
     QList<QVariantList> result;
 
     QSqlQuery query(dbm);

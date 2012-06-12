@@ -112,11 +112,11 @@ int main(int argc, char *argv[])
     new TickersDatabaseUpdater;
 
     // open current ticker databases
-    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE", Settings::instance()->tickersMutableDatabaseName());
-    db.setDatabaseName(Settings::instance()->tickersMutableDatabasePath());
+    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE", Settings::instance()->mutableDatabaseName());
+    db.setDatabaseName(Settings::instance()->mutableDatabasePath());
 
-    db = QSqlDatabase::addDatabase("QSQLITE", Settings::instance()->tickersPersistentDatabaseName());
-    db.setDatabaseName(Settings::instance()->tickersPersistentDatabasePath());
+    db = QSqlDatabase::addDatabase("QSQLITE", Settings::instance()->persistentDatabaseName());
+    db.setDatabaseName(Settings::instance()->persistentDatabasePath());
 
     if(!QFile::exists(db.databaseName()) || !db.isValid() || !db.open())
         qDebug("Cannot open persistent database (%s)", qPrintable(db.lastError().text()));
