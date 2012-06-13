@@ -164,8 +164,21 @@ UPX=$$findexe("upx.exe")
 
 ZIP=$$findexe("7z.exe")
 GCC=$$findexe("gcc.exe")
+GCCDIR=$$dirname(GCC)
 
-!isEmpty(ZIP):!isEmpty(GCC) {
+isEmpty(GCC) {
+    error("MinGW is not found in PATH")
+}
+
+# files to copy to the distribution
+IMAGEPLUGINS=qgif4.dll qico4.dll qjpeg4.dll qtga4.dll qtiff4.dll
+SQLPLUGINS=qsqlite4.dll
+QTLIBS=QtCore4.dll QtGui4.dll QtNetwork4.dll QtSql4.dll
+MINGWLIBS=libgcc_s_dw2-1.dll libstdc++-6.dll mingwm10.dll
+QMFILES=ru.qm uk.qm qt_ru.qm qt_uk.qm
+LICENSES=LICENSE.txt LICENSE-LGPL.txt
+
+!isEmpty(ZIP) {
     message("7Z is found, will create custom dist targets")
 
     # source archive
@@ -179,15 +192,6 @@ GCC=$$findexe("gcc.exe")
 
     # standalone binary
     T="$${OUT_PWD}/tht-standalone-$$VERSION"
-    G=$$dirname(GCC)
-
-    # files to copy
-    IMAGEPLUGINS=qgif4.dll qico4.dll qjpeg4.dll qtga4.dll qtiff4.dll
-    SQLPLUGINS=qsqlite4.dll
-    QTLIBS=QtCore4.dll QtGui4.dll QtNetwork4.dll QtSql4.dll
-    MINGWLIBS=libgcc_s_dw2-1.dll libstdc++-6.dll mingwm10.dll
-    QMFILES=ru.qm uk.qm qt_ru.qm qt_uk.qm
-    LICENSES=LICENSE.txt LICENSE-LGPL.txt
 
     distbin.commands += $$mle(if exist \"$$T\" rd /S /Q \"$$T\")
     distbin.commands += $$mle(mkdir \"$$T\")
@@ -201,7 +205,7 @@ GCC=$$findexe("gcc.exe")
     }
 
     for(ml, MINGWLIBS) {
-        distbin.commands += $$mle(copy /y \"$$G\\$$ml\" \"$$T\")
+        distbin.commands += $$mle(copy /y \"$$GCCDIR\\$$ml\" \"$$T\")
     }
 
     for(ip, IMAGEPLUGINS) {
@@ -235,7 +239,111 @@ INNO=$$system(echo %ProgramFiles%)\\Inno Setup 5\\iscc.exe
 
 exists ($$INNO) {
     message("Inno Setup is found, will create a setup file in a custom dist target")
-    distbin.commands += $$mle(\"$$INNO\" /o. /dMyAppVersion=\"$$VERSION\" \"$${_PRO_FILE_PWD_}\\private\\tht.iss\")
+
+    ISS=tht.iss
+
+    iss.commands += $$mle(echo $${LITERAL_HASH}define MyAppName \"Trader\'s Home Task\" > $$ISS)
+    iss.commands += $$mle(echo $${LITERAL_HASH}define MyAppPublisher \"Dmitry Baryshev\" >> $$ISS)
+    iss.commands += $$mle(echo $${LITERAL_HASH}define MyAppURL \"https://code.google.com/p/traders-home-task-ng\" >> $$ISS)
+
+    iss.commands += $$mle(echo [Setup] >> $$ISS)
+    iss.commands += $$mle(echo AppId={{16AE5DDE-D073-4F5F-ABC3-11DD9FBF58E3} >> $$ISS)
+    iss.commands += $$mle(echo AppName={$${LITERAL_HASH}MyAppName} >> $$ISS)
+    iss.commands += $$mle(echo AppVersion=$$VERSION >> $$ISS)
+    iss.commands += $$mle(echo AppPublisher={$${LITERAL_HASH}MyAppPublisher} >> $$ISS)
+    iss.commands += $$mle(echo AppPublisherURL={$${LITERAL_HASH}MyAppURL} >> $$ISS)
+    iss.commands += $$mle(echo AppSupportURL={$${LITERAL_HASH}MyAppURL} >> $$ISS)
+    iss.commands += $$mle(echo AppUpdatesURL={$${LITERAL_HASH}MyAppURL} >> $$ISS)
+    iss.commands += $$mle(echo DefaultDirName={pf}\\{$${LITERAL_HASH}MyAppName} >> $$ISS)
+    iss.commands += $$mle(echo DefaultGroupName={$${LITERAL_HASH}MyAppName} >> $$ISS)
+    iss.commands += $$mle(echo LicenseFile=$${_PRO_FILE_PWD_}\\LICENSE.rtf >> $$ISS)
+    iss.commands += $$mle(echo OutputDir=. >> $$ISS)
+    iss.commands += $$mle(echo OutputBaseFilename=tht-setup-$$VERSION >> $$ISS)
+    iss.commands += $$mle(echo SetupIconFile=$${_PRO_FILE_PWD_}\\images\\chart.ico >> $$ISS)
+    iss.commands += $$mle(echo Compression=lzma >> $$ISS)
+    iss.commands += $$mle(echo SolidCompression=yes >> $$ISS)
+    iss.commands += $$mle(echo UninstallDisplayName={$${LITERAL_HASH}MyAppName} >> $$ISS)
+    iss.commands += $$mle(echo UninstallDisplayIcon={app}\\$${TARGET}.exe >> $$ISS)
+    iss.commands += $$mle(echo MinVersion=0,5.1 >> $$ISS)
+
+    iss.commands += $$mle(echo [Languages] >> $$ISS)
+    iss.commands += $$mle(echo Name: \"english\"; MessagesFile: \"compiler:Default.isl\" >> $$ISS)
+    iss.commands += $$mle(echo Name: \"basque\"; MessagesFile: \"compiler:Languages\\Basque.isl\" >> $$ISS)
+    iss.commands += $$mle(echo Name: \"brazilianportuguese\"; MessagesFile: \"compiler:Languages\\BrazilianPortuguese.isl\" >> $$ISS)
+    iss.commands += $$mle(echo Name: \"catalan\"; MessagesFile: \"compiler:Languages\\Catalan.isl\" >> $$ISS)
+    iss.commands += $$mle(echo Name: \"czech\"; MessagesFile: \"compiler:Languages\\Czech.isl\" >> $$ISS)
+    iss.commands += $$mle(echo Name: \"danish\"; MessagesFile: \"compiler:Languages\\Danish.isl\" >> $$ISS)
+    iss.commands += $$mle(echo Name: \"dutch\"; MessagesFile: \"compiler:Languages\\Dutch.isl\" >> $$ISS)
+    iss.commands += $$mle(echo Name: \"finnish\"; MessagesFile: \"compiler:Languages\\Finnish.isl\" >> $$ISS)
+    iss.commands += $$mle(echo Name: \"french\"; MessagesFile: \"compiler:Languages\\French.isl\" >> $$ISS)
+    iss.commands += $$mle(echo Name: \"german\"; MessagesFile: \"compiler:Languages\\German.isl\" >> $$ISS)
+    iss.commands += $$mle(echo Name: \"hebrew\"; MessagesFile: \"compiler:Languages\\Hebrew.isl\" >> $$ISS)
+    iss.commands += $$mle(echo Name: \"hungarian\"; MessagesFile: \"compiler:Languages\\Hungarian.isl\" >> $$ISS)
+    iss.commands += $$mle(echo Name: \"italian\"; MessagesFile: \"compiler:Languages\\Italian.isl\" >> $$ISS)
+    iss.commands += $$mle(echo Name: \"japanese\"; MessagesFile: \"compiler:Languages\\Japanese.isl\" >> $$ISS)
+    iss.commands += $$mle(echo Name: \"norwegian\"; MessagesFile: \"compiler:Languages\\Norwegian.isl\" >> $$ISS)
+    iss.commands += $$mle(echo Name: \"polish\"; MessagesFile: \"compiler:Languages\\Polish.isl\" >> $$ISS)
+    iss.commands += $$mle(echo Name: \"portuguese\"; MessagesFile: \"compiler:Languages\\Portuguese.isl\" >> $$ISS)
+    iss.commands += $$mle(echo Name: \"russian\"; MessagesFile: \"compiler:Languages\\Russian.isl\" >> $$ISS)
+    iss.commands += $$mle(echo Name: \"serbiancyrillic\"; MessagesFile: \"compiler:Languages\\SerbianCyrillic.isl\" >> $$ISS)
+    iss.commands += $$mle(echo Name: \"serbianlatin\"; MessagesFile: \"compiler:Languages\\SerbianLatin.isl\" >> $$ISS)
+    iss.commands += $$mle(echo Name: \"slovak\"; MessagesFile: \"compiler:Languages\\Slovak.isl\" >> $$ISS)
+    iss.commands += $$mle(echo Name: \"slovenian\"; MessagesFile: \"compiler:Languages\\Slovenian.isl\" >> $$ISS)
+    iss.commands += $$mle(echo Name: \"spanish\"; MessagesFile: \"compiler:Languages\\Spanish.isl\" >> $$ISS)
+    iss.commands += $$mle(echo Name: \"ukrainian\"; MessagesFile: \"compiler:Languages\\Ukrainian.isl\" >> $$ISS)
+
+    iss.commands += $$mle(echo [Tasks] >> $$ISS)
+    iss.commands += $$mle(echo Name: \"desktopicon\"; Description: \"{cm:CreateDesktopIcon}\"; GroupDescription: \"{cm:AdditionalIcons}\"; Flags: unchecked >> $$ISS)
+    iss.commands += $$mle(echo Name: \"quicklaunchicon\"; Description: \"{cm:CreateQuickLaunchIcon}\"; GroupDescription: \"{cm:AdditionalIcons}\"; Flags: unchecked; OnlyBelowVersion: "0,6.1" >> $$ISS)
+
+    iss.commands += $$mle(echo [Files] >> $$ISS)
+    iss.commands += $$mle(echo Source: \"$${OUT_PWD}/$(DESTDIR_TARGET)\"; DestDir: \"{app}\"; Flags: ignoreversion >> $$ISS)
+    iss.commands += $$mle(echo Source: \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite\"; DestDir: \"{app}\"; Flags: ignoreversion >> $$ISS)
+    iss.commands += $$mle(echo Source: \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite.timestamp\"; DestDir: \"{app}\"; Flags: ignoreversion >> $$ISS)
+
+    for(lc, LICENSES) {
+        iss.commands += $$mle(echo Source: \"$${_PRO_FILE_PWD_}\\$$lc\"; DestDir: \"{app}\"; Flags: ignoreversion >> $$ISS)
+    }
+
+    for(qm, QMFILES) {
+        iss.commands += $$mle(echo Source: \"$${_PRO_FILE_PWD_}\\ts\\$$qm\"; DestDir: \"{app}/translations\"; Flags: ignoreversion >> $$ISS)
+    }
+
+    for(ql, QTLIBS) {
+        iss.commands += $$mle(echo Source: \"$$[QT_INSTALL_BINS]\\$$ql\"; DestDir: \"{app}\"; Flags: ignoreversion >> $$ISS)
+    }
+
+    for(ip, IMAGEPLUGINS) {
+        iss.commands += $$mle(echo Source: \"$$[QT_INSTALL_PLUGINS]\\imageformats\\$$ip\"; DestDir: \"{app}\\imageformats\"; Flags: ignoreversion >> $$ISS)
+    }
+
+    for(sp, SQLPLUGINS) {
+        iss.commands += $$mle(echo Source: \"$$[QT_INSTALL_PLUGINS]\\sqldrivers\\$$sp\"; DestDir: \"{app}\\sqldrivers\"; Flags: ignoreversion >> $$ISS)
+    }
+
+    for(ml, MINGWLIBS) {
+        iss.commands += $$mle(echo Source: \"$$GCCDIR\\$$ml\"; DestDir: \"{app}\"; Flags: ignoreversion >> $$ISS)
+    }
+
+    iss.commands += $$mle(echo [Icons] >> $$ISS)
+    iss.commands += $$mle(echo Name: \"{group}\\{$${LITERAL_HASH}MyAppName}\"; Filename: \"{app}\\$${TARGET}.exe\" >> $$ISS)
+    iss.commands += $$mle(echo Name: \"{group}\\{cm:UninstallProgram,{$${LITERAL_HASH}MyAppName}}\"; Filename: \"{uninstallexe}\" >> $$ISS)
+    iss.commands += $$mle(echo Name: \"{commondesktop}\\{$${LITERAL_HASH}MyAppName}\"; Filename: \"{app}\\$${TARGET}.exe\"; Tasks: desktopicon >> $$ISS)
+    iss.commands += $$mle(echo Name: \"{userappdata}\\Microsoft\\Internet Explorer\\Quick Launch\\{$${LITERAL_HASH}MyAppName}\"; Filename: \"{app}\\$${TARGET}.exe\"; Tasks: quicklaunchicon >> $$ISS)
+
+    iss.commands += $$mle(echo [Registry] >> $$ISS)
+    iss.commands += $$mle(echo Root: HKCU32; SubKey: Software\\Microsoft\\Windows\\CurrentVersion\\Run; ValueType: string; ValueName: \"$${TARGET} preloader\"; ValueData: \"{code:AddQuotes|{app}\\$${TARGET}.exe} --preload\"; Flags: uninsdeletevalue >> $$ISS)
+
+    iss.commands += $$mle(echo [Run] >> $$ISS)
+    iss.commands += $$mle(echo ;Filename: \"{app}\\$${TARGET}.exe\"; Description: \"{cm:LaunchProgram,{$${LITERAL_HASH}StringChange(MyAppName, \'&\', \'&&\')}}\"; Flags: nowait postinstall skipifsilent >> $$ISS)
+    iss.commands += $$mle(echo Filename: \"{$${LITERAL_HASH}MyAppURL}/wiki/howto\"; Flags: nowait shellexec >> $$ISS)
+
+    QMAKE_EXTRA_TARGETS += iss
+    QMAKE_EXTRA_TARGETS *= distbin
+
+    distbin.depends += iss
+    distbin.commands += $$mle(\"$$INNO\" /o. \"$$ISS\")
+    distbin.commands += $$mle(del /F /Q \"$$ISS\")
 } else {
     warning("Inno Setup is not found, will not create a setup file in a custom dist target")
 }
