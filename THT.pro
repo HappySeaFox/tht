@@ -6,6 +6,10 @@
 
 QT += core gui network sql
 
+QMAKE_CXXFLAGS_WARN_ON *= -Wextra -Wno-missing-field-initializers
+
+CONFIG += warn_on
+
 TARGET = THT
 TEMPLATE = app
 

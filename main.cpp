@@ -38,6 +38,8 @@
 
 static void thtOutput(QtMsgType type, const char *msg)
 {
+    Q_UNUSED(type)
+
     static QtLockedFile log(
                      QDesktopServices::storageLocation(QDesktopServices::TempLocation)
                      + QDir::separator()
