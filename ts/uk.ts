@@ -44,6 +44,16 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
         <source>OK</source>
         <translation></translation>
     </message>
+    <message>
+        <location filename="../about.cpp" line="45"/>
+        <source>Persistent database</source>
+        <translation>Постійна база</translation>
+    </message>
+    <message>
+        <location filename="../about.cpp" line="47"/>
+        <source>Downloadable database</source>
+        <translation>Викачувана база</translation>
+    </message>
 </context>
 <context>
     <name>List</name>
@@ -181,14 +191,14 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
 <context>
     <name>RegionSelect</name>
     <message>
-        <location filename="../regionselect.cpp" line="111"/>
+        <location filename="../regionselect.cpp" line="113"/>
         <source>Select the rectangle with the mouse or exit pressing
 any key or using the right or middle mouse buttons.</source>
         <translation>Виділіть прямокутник за допомогою миші, або натисніть
 будь-яку клавішу або праву/середню кнопку миші щоб скасувати.</translation>
     </message>
     <message>
-        <location filename="../regionselect.cpp" line="112"/>
+        <location filename="../regionselect.cpp" line="114"/>
         <source>Select the rectangle with the mouse or exit pressing
 the right or middle mouse buttons.</source>
         <translation>Виділіть прямокутник за допомогою миші, або натисніть

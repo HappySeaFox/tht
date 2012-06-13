@@ -38,11 +38,13 @@ About::About(const QString &newVersion, QWidget *parent) :
 
     QLabel *label = new QLabel(QString(
                                    "<table align=center>"
-                                   "<tr><td><b>Persistent database: </b></td><td>%1</td></tr>"
-                                   "<tr><td><b>Mutable database: </b></td><td>%2</td></tr>"
+                                   "<tr><td><b>%1: </b></td><td>%2</td></tr>"
+                                   "<tr><td><b>%3: </b></td><td>%4</td></tr>"
                                    "</table>"
                                    )
+                               .arg(tr("Persistent database"))
                                .arg(Settings::instance()->persistentDatabaseTimestamp().toString(Settings::instance()->databaseTimestampFormat()))
+                               .arg(tr("Downloadable database"))
                                .arg(Settings::instance()->mutableDatabaseTimestamp().toString(Settings::instance()->databaseTimestampFormat()))
                                );
 
