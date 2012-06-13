@@ -84,6 +84,7 @@ private:
     void setPriority(int);
     void resizeNumberLabel();
     void moveNumberLabel();
+    void undo();
 
     enum LoadItem { LoadItemCurrent,
                     LoadItemNext, LoadItemPrevious,
@@ -135,6 +136,7 @@ private:
     QLabel *m_number;
     QAbstractItemDelegate *m_oldDelegate, *m_persistentDelegate;
     QList<QListWidgetItem *> m_foundItems;
+    QStringList m_oldTickers;
 };
 
 inline
