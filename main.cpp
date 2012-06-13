@@ -16,6 +16,7 @@
  */
 
 #include <QtSingleApplication>
+
 #include <QDesktopServices>
 #include <QTranslator>
 #include <QSqlDatabase>
@@ -23,7 +24,6 @@
 #include <QSqlError>
 #include <QLocale>
 #include <QFile>
-#include <QIcon>
 #include <QDir>
 
 #include <cstdlib>
