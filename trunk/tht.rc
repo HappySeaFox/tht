@@ -1,10 +1,9 @@
 #include <winuser.h>
 #include <winnt.h>
 
-#define stringify(v1) #v1
-#define quote(v1)  stringify(v1)
+#define quote(v1) #v1
 
-#define NVER  NVER1.NVER2.NVER3
+#define NVER NVER1.NVER2.NVER3
 
 STRINGTABLE LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
 BEGIN
