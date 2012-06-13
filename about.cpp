@@ -38,8 +38,8 @@ About::About(const QString &newVersion, QWidget *parent) :
 
     QLabel *label = new QLabel(QString(
                                    "<table align=center>"
-                                   "<tr><td><b>%1: </b></td><td>%2</td></tr>"
-                                   "<tr><td><b>%3: </b></td><td>%4</td></tr>"
+                                   "<tr><td align=right><b>%1: </b></td><td>%2</td></tr>"
+                                   "<tr><td align=right><b>%3: </b></td><td>%4</td></tr>"
                                    "</table>"
                                    )
                                .arg(tr("Persistent database"))
