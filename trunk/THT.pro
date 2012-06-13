@@ -119,8 +119,6 @@ OTHER_FILES += \
 
 TRANSLATIONS += ts/ru.ts ts/uk.ts
 
-QMAKE_PRE_LINK = lrelease $$_PRO_FILE_
-
 # search an executable in PATH
 defineReplace(findexe) {
     return ( $$system(for %i in ($$1) do @echo. %~$PATH:i) )
@@ -159,7 +157,7 @@ UPX=$$findexe("upx.exe")
 
 !isEmpty(UPX) {
     message("UPX is found, will pack the executable after linking")
-    QMAKE_POST_LINK = $$UPX -9 $${OUT_PWD}/$(DESTDIR_TARGET)
+    QMAKE_POST_LINK = $$mle($$UPX -9 $${OUT_PWD}/$(DESTDIR_TARGET))
 } else {
     warning("UPX is not found, will not pack the executable")
 }
@@ -180,6 +178,14 @@ MINGWLIBS=libgcc_s_dw2-1.dll libstdc++-6.dll mingwm10.dll
 QMFILES=ru.qm uk.qm
 QTQMFILES=qt_ru.qm qt_uk.qm
 LICENSES=LICENSE.txt LICENSE-LGPL.txt
+
+# copy translations
+QMAKE_POST_LINK += $$mle(lrelease $$_PRO_FILE_)
+QMAKE_POST_LINK += $$mle(if not exist \"$${OUT_PWD}/$(DESTDIR_TARGET)/../translations\" mkdir \"$${OUT_PWD}/$(DESTDIR_TARGET)/../translations\")
+
+for(qm, QMFILES) {
+    QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\ts\\$$qm\" \"$${OUT_PWD}/$(DESTDIR_TARGET)/../translations\")
+}
 
 !isEmpty(ZIP) {
     message("7Z is found, will create custom dist targets")
@@ -242,6 +248,7 @@ LICENSES=LICENSE.txt LICENSE-LGPL.txt
     warning("7Z is not found, will not create custom dist targets")
 }
 
+# INNO setup
 INNO=$$system(echo %ProgramFiles%)\\Inno Setup 5\\iscc.exe
 
 exists ($$INNO) {
