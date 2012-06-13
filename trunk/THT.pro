@@ -240,7 +240,7 @@ INNO=$$system(echo %ProgramFiles%)\\Inno Setup 5\\iscc.exe
 exists ($$INNO) {
     message("Inno Setup is found, will create a setup file in a custom dist target")
 
-    ISS=tht.iss
+    ISS="tht-$${VERSION}.iss"
 
     iss.commands += $$mle(echo $${LITERAL_HASH}define MyAppName \"Trader\'s Home Task\" > $$ISS)
     iss.commands += $$mle(echo $${LITERAL_HASH}define MyAppPublisher \"Dmitry Baryshev\" >> $$ISS)
@@ -264,7 +264,7 @@ exists ($$INNO) {
     iss.commands += $$mle(echo SolidCompression=yes >> $$ISS)
     iss.commands += $$mle(echo UninstallDisplayName={$${LITERAL_HASH}MyAppName} >> $$ISS)
     iss.commands += $$mle(echo UninstallDisplayIcon={app}\\$${TARGET}.exe >> $$ISS)
-    iss.commands += $$mle(echo MinVersion=0,5.1 >> $$ISS)
+    iss.commands += $$mle(echo MinVersion="0,5.1" >> $$ISS)
 
     iss.commands += $$mle(echo [Languages] >> $$ISS)
     iss.commands += $$mle(echo Name: \"english\"; MessagesFile: \"compiler:Default.isl\" >> $$ISS)
