@@ -833,7 +833,10 @@ void List::moveNumberLabel()
 void List::undo()
 {
     if(ui->list->count() || m_oldTickers.isEmpty())
+    {
+        qDebug("Nothing to undo");
         return;
+    }
 
     qDebug("Undo");
 
