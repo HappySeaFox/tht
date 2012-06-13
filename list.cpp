@@ -294,6 +294,8 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                 clear();
             else if(ke->matches(QKeySequence::Open))
                 slotAddFromFile();
+            else if(ke->matches(QKeySequence::Undo))
+                undo();
             else if(ke->modifiers() == Qt::NoModifier
                     || ke->modifiers() == Qt::KeypadModifier) // disallow all modifiers except keypad
             {
@@ -559,6 +561,9 @@ void List::numberOfItemsChanged()
 {
     m_number->setNum(ui->list->count());
     resizeNumberLabel();
+
+    if(ui->list->count())
+        m_oldTickers.clear();
 }
 
 QStringList List::toStringList(bool withPriority)
@@ -825,6 +830,24 @@ void List::moveNumberLabel()
                    w->mapTo(window(), QPoint(0, w->height())).y() - m_number->height()/2);
 }
 
+void List::undo()
+{
+    if(ui->list->count() || m_oldTickers.isEmpty())
+        return;
+
+    qDebug("Undo");
+
+    ui->list->setUpdatesEnabled(false);
+
+    foreach(QString t, m_oldTickers)
+        addItem(t);
+
+    ui->list->setUpdatesEnabled(true);
+
+    numberOfItemsChanged();
+    save();
+}
+
 void List::loadItem(LoadItem litem)
 {
     QListWidgetItem *item = ui->list->currentItem();
@@ -1059,6 +1082,8 @@ void List::clear()
     // nothing to do
     if(!ui->list->count())
         return;
+
+    m_oldTickers = toStringList(true);
 
     ui->list->clear();
     numberOfItemsChanged();
