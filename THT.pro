@@ -4,18 +4,16 @@
 #
 #-------------------------------------------------
 
-QT += core gui network sql
-
-QMAKE_CXXFLAGS_WARN_ON *= -Wextra -Wno-missing-field-initializers
-
-CONFIG += warn_on
-
 TARGET = THT
 TEMPLATE = app
 
 !win32 {
     error("$$TARGET requires Windows platform")
 }
+
+QT += core gui network sql
+CONFIG += warn_on
+QMAKE_CXXFLAGS_WARN_ON *= -Wextra -Wno-missing-field-initializers
 
 # THT version
 NVER1=1
