@@ -1,7 +1,8 @@
 #include <winuser.h>
 #include <winnt.h>
 
-#define quote(v1) #v1
+#define stringify(v1) #v1
+#define quote(v1) stringify(v1)
 
 #define NVER NVER1.NVER2.NVER3
 
