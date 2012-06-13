@@ -108,29 +108,29 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
         <translation>Експортувати в буфер обміну</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="999"/>
-        <location filename="../list.cpp" line="1086"/>
+        <location filename="../list.cpp" line="1025"/>
+        <location filename="../list.cpp" line="1114"/>
         <source>Choose a file</source>
         <translation>Виберіть файл</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1047"/>
-        <location filename="../list.cpp" line="1098"/>
+        <location filename="../list.cpp" line="1073"/>
+        <location filename="../list.cpp" line="1126"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1047"/>
+        <location filename="../list.cpp" line="1073"/>
         <source>Cannot open the following files: %1</source>
         <translation>Неможливо відкрити наступні файли: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1088"/>
+        <location filename="../list.cpp" line="1116"/>
         <source>Text files (*.txt);;All files (*.*)</source>
         <translation>Текстові файли (*.txt);;Всі файли (*.*)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1098"/>
+        <location filename="../list.cpp" line="1126"/>
         <source>Cannot save to file %1</source>
         <translation>Неможливо зберегти в файл %1</translation>
     </message>
@@ -289,77 +289,77 @@ the right or middle mouse buttons.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="83"/>
+        <location filename="../tht.cpp" line="84"/>
         <source>Options...</source>
         <translation>Параметри...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="86"/>
-        <location filename="../tht.cpp" line="149"/>
+        <location filename="../tht.cpp" line="87"/>
+        <location filename="../tht.cpp" line="150"/>
         <source>Take screenshot...</source>
         <translation>Знімок екрану...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="90"/>
+        <location filename="../tht.cpp" line="91"/>
         <source>Clear ticker lists</source>
         <translation>Очистити списки токарів</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="87"/>
+        <location filename="../tht.cpp" line="88"/>
         <source>Clear links</source>
         <translation>Очистити посилання</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="91"/>
         <location filename="../tht.cpp" line="92"/>
+        <location filename="../tht.cpp" line="93"/>
         <source>Load ticker</source>
         <translation>Завантажити тікер</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="95"/>
-        <location filename="../tht.cpp" line="151"/>
+        <location filename="../tht.cpp" line="96"/>
+        <location filename="../tht.cpp" line="152"/>
         <source>About THT</source>
         <translation>Про THT</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="96"/>
+        <location filename="../tht.cpp" line="97"/>
         <source>About Qt</source>
         <translation>Про Qt</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="98"/>
-        <location filename="../tht.cpp" line="153"/>
+        <location filename="../tht.cpp" line="99"/>
+        <location filename="../tht.cpp" line="154"/>
         <source>Quit</source>
         <translation>Вихід</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="148"/>
+        <location filename="../tht.cpp" line="149"/>
         <source>Restore</source>
         <translation>Відновити</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="216"/>
+        <location filename="../tht.cpp" line="217"/>
         <source>Notice</source>
         <translation>Замітка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="216"/>
+        <location filename="../tht.cpp" line="217"/>
         <source>THT will continue to run in a system tray</source>
         <translation>ТНТ продовжить роботу в системному лотку</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="995"/>
-        <location filename="../tht.cpp" line="1023"/>
+        <location filename="../tht.cpp" line="1009"/>
+        <location filename="../tht.cpp" line="1037"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="995"/>
+        <location filename="../tht.cpp" line="1009"/>
         <source>Cannot take screenshot</source>
         <translation>Неможливо створити знімок екрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1023"/>
+        <location filename="../tht.cpp" line="1037"/>
         <source>Cannot save screenshot</source>
         <translation>Неможливо зберегти знімок екрана</translation>
     </message>
@@ -408,14 +408,14 @@ the right or middle mouse buttons.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tickerneighbors.ui" line="115"/>
+        <location filename="../tickerneighbors.ui" line="110"/>
         <source>By capitalization</source>
         <translation>По капіталізації</translation>
     </message>
     <message>
-        <location filename="../tickerneighbors.cpp" line="105"/>
-        <location filename="../tickerneighbors.cpp" line="214"/>
-        <location filename="../tickerneighbors.cpp" line="248"/>
+        <location filename="../tickerneighbors.cpp" line="141"/>
+        <location filename="../tickerneighbors.cpp" line="250"/>
+        <location filename="../tickerneighbors.cpp" line="284"/>
         <source>Copy (%1)</source>
         <translation>Копіювати (%1)</translation>
     </message>
