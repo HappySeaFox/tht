@@ -254,6 +254,8 @@ INNO=$$system(echo %ProgramFiles%)\\Inno Setup 5\\iscc.exe
 exists ($$INNO) {
     message("Inno Setup is found, will create a setup file in a custom dist target")
 
+    LANGS=$$system(dir /B \"$$INNO\\..\\Languages\")
+
     ISS="tht-$${VERSION}.iss"
 
     iss.commands += $$mle(echo $${LITERAL_HASH}define MyAppName \"Trader\'s Home Task\" > $$ISS)
@@ -282,29 +284,16 @@ exists ($$INNO) {
 
     iss.commands += $$mle(echo [Languages] >> $$ISS)
     iss.commands += $$mle(echo Name: \"english\"; MessagesFile: \"compiler:Default.isl\" >> $$ISS)
-    iss.commands += $$mle(echo Name: \"basque\"; MessagesFile: \"compiler:Languages\\Basque.isl\" >> $$ISS)
-    iss.commands += $$mle(echo Name: \"brazilianportuguese\"; MessagesFile: \"compiler:Languages\\BrazilianPortuguese.isl\" >> $$ISS)
-    iss.commands += $$mle(echo Name: \"catalan\"; MessagesFile: \"compiler:Languages\\Catalan.isl\" >> $$ISS)
-    iss.commands += $$mle(echo Name: \"czech\"; MessagesFile: \"compiler:Languages\\Czech.isl\" >> $$ISS)
-    iss.commands += $$mle(echo Name: \"danish\"; MessagesFile: \"compiler:Languages\\Danish.isl\" >> $$ISS)
-    iss.commands += $$mle(echo Name: \"dutch\"; MessagesFile: \"compiler:Languages\\Dutch.isl\" >> $$ISS)
-    iss.commands += $$mle(echo Name: \"finnish\"; MessagesFile: \"compiler:Languages\\Finnish.isl\" >> $$ISS)
-    iss.commands += $$mle(echo Name: \"french\"; MessagesFile: \"compiler:Languages\\French.isl\" >> $$ISS)
-    iss.commands += $$mle(echo Name: \"german\"; MessagesFile: \"compiler:Languages\\German.isl\" >> $$ISS)
-    iss.commands += $$mle(echo Name: \"hebrew\"; MessagesFile: \"compiler:Languages\\Hebrew.isl\" >> $$ISS)
-    iss.commands += $$mle(echo Name: \"hungarian\"; MessagesFile: \"compiler:Languages\\Hungarian.isl\" >> $$ISS)
-    iss.commands += $$mle(echo Name: \"italian\"; MessagesFile: \"compiler:Languages\\Italian.isl\" >> $$ISS)
-    iss.commands += $$mle(echo Name: \"japanese\"; MessagesFile: \"compiler:Languages\\Japanese.isl\" >> $$ISS)
-    iss.commands += $$mle(echo Name: \"norwegian\"; MessagesFile: \"compiler:Languages\\Norwegian.isl\" >> $$ISS)
-    iss.commands += $$mle(echo Name: \"polish\"; MessagesFile: \"compiler:Languages\\Polish.isl\" >> $$ISS)
-    iss.commands += $$mle(echo Name: \"portuguese\"; MessagesFile: \"compiler:Languages\\Portuguese.isl\" >> $$ISS)
-    iss.commands += $$mle(echo Name: \"russian\"; MessagesFile: \"compiler:Languages\\Russian.isl\" >> $$ISS)
-    iss.commands += $$mle(echo Name: \"serbiancyrillic\"; MessagesFile: \"compiler:Languages\\SerbianCyrillic.isl\" >> $$ISS)
-    iss.commands += $$mle(echo Name: \"serbianlatin\"; MessagesFile: \"compiler:Languages\\SerbianLatin.isl\" >> $$ISS)
-    iss.commands += $$mle(echo Name: \"slovak\"; MessagesFile: \"compiler:Languages\\Slovak.isl\" >> $$ISS)
-    iss.commands += $$mle(echo Name: \"slovenian\"; MessagesFile: \"compiler:Languages\\Slovenian.isl\" >> $$ISS)
-    iss.commands += $$mle(echo Name: \"spanish\"; MessagesFile: \"compiler:Languages\\Spanish.isl\" >> $$ISS)
-    iss.commands += $$mle(echo Name: \"ukrainian\"; MessagesFile: \"compiler:Languages\\Ukrainian.isl\" >> $$ISS)
+
+    for(lng, LANGS) {
+        lng = $$find(lng, .isl$)
+
+        !isEmpty(lng) {
+            lngname=$$lng
+            lngname ~= s/\\./x
+            iss.commands += $$mle(echo Name: \"$$lngname\"; MessagesFile: \"compiler:Languages\\$$lng\" >> $$ISS)
+        }
+    }
 
     iss.commands += $$mle(echo [Tasks] >> $$ISS)
     iss.commands += $$mle(echo Name: \"desktopicon\"; Description: \"{cm:CreateDesktopIcon}\"; GroupDescription: \"{cm:AdditionalIcons}\"; Flags: unchecked >> $$ISS)
