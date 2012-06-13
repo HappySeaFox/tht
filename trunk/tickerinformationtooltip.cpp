@@ -251,6 +251,8 @@ void TickerInformationToolTipLabel::timerEvent(QTimerEvent *e)
 
 bool TickerInformationToolTipLabel::eventFilter(QObject *o, QEvent *e)
 {
+    Q_UNUSED(o)
+
     switch(e->type())
     {
         case QEvent::Leave:
