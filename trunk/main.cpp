@@ -90,9 +90,6 @@ int main(int argc, char *argv[])
     if(app.sendMessage("wake up"))
         return 0;
 
-    // window icon
-    app.setWindowIcon(QIcon(":/images/chart.ico"));
-
     QString locale = QLocale::system().name();
 
     qDebug("Locale is \"%s\"", qPrintable(locale));
