@@ -30,6 +30,9 @@ TickersDatabaseUpdater::TickersDatabaseUpdater(QObject *parent) :
 {
     checkNewData();
 
+    // reread database timestamps
+    Settings::instance()->rereadTimestamps();
+
     m_baseurl = SVNROOT "/trunk/tickersdb/";
 
     m_net = new NetworkAccess(this);
@@ -77,9 +80,6 @@ void TickersDatabaseUpdater::checkNewData()
 
     QFile::remove(newDb);
     QFile::remove(newTs);
-
-    // reread database timestamps
-    Settings::instance()->rereadTimestamps();
 }
 
 bool TickersDatabaseUpdater::writeData(const QString &fileName, const QByteArray &data)

@@ -118,8 +118,6 @@ Settings::Settings()
 
     if(!QDir().mkpath(mutablePath))
         qDebug("Cannot create a directory for mutable database");
-
-    rereadTimestamps();
 }
 
 Settings::~Settings()
