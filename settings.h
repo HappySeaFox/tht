@@ -43,6 +43,8 @@ public:
     void setCheckBoxState(const QString &checkbox, bool checked, SyncType sync = Sync);
     int checkBoxState(const QString &checkbox);
 
+    void rereadTimestamps();
+
     QString databaseTimestampFormat() const;
 
     QDateTime persistentDatabaseTimestamp() const;
@@ -129,6 +131,16 @@ private:
     QDateTime m_mutableDatabaseTimestamp;
     QString m_databaseTimestampFormat;
 };
+
+inline
+void Settings::rereadTimestamps()
+{
+    m_persistentDatabaseTimestamp = readTimestamp(m_persistentDatabasePath);
+    m_mutableDatabaseTimestamp = readTimestamp(m_mutableDatabasePath);
+
+    qDebug("Database P timestamp: %s", qPrintable(m_persistentDatabaseTimestamp.toString(m_databaseTimestampFormat)));
+    qDebug("Database M timestamp: %s", qPrintable(m_mutableDatabaseTimestamp.toString(m_databaseTimestampFormat)));
+}
 
 inline
 QString Settings::databaseTimestampFormat() const
