@@ -33,27 +33,20 @@ QList<QVariantList> SqlTools::query(const QString &s, const QString &bindTemplat
 
 QList<QVariantList> SqlTools::query(const QString &s, const QMap<QString, QString> &binds)
 {
-    QSqlDatabase db1 = QSqlDatabase::database(Settings::instance()->persistentDatabaseName());
-    QSqlDatabase db2 = QSqlDatabase::database(Settings::instance()->mutableDatabaseName());
-    QList<QVariantList> result;
-
-    QSqlQuery query(db2);
-
-    if(!query.prepare(s))
-        return result;
+    // databases to query
+    QList<QSqlDatabase> databases =
+            QList<QSqlDatabase>()
+            << QSqlDatabase::database(Settings::instance()->mutableDatabaseName())
+            << QSqlDatabase::database(Settings::instance()->persistentDatabaseName())
+               ;
 
     QMap<QString, QString>::const_iterator itEnd = binds.end();
+    QList<QVariantList> result;
+    QSqlQuery query;
 
-    for(QMap<QString, QString>::const_iterator it = binds.begin();it != itEnd;++it)
-        query.bindValue(it.key(), it.value());
-
-    query.exec();
-
-    if(!query.next())
+    foreach(QSqlDatabase db, databases)
     {
-        qDebug("Querying mutable database");
-
-        query = QSqlQuery(db1);
+        query = QSqlQuery(db);
 
         if(!query.prepare(s))
             return result;
@@ -61,11 +54,16 @@ QList<QVariantList> SqlTools::query(const QString &s, const QMap<QString, QStrin
         for(QMap<QString, QString>::const_iterator it = binds.begin();it != itEnd;++it)
             query.bindValue(it.key(), it.value());
 
-        query.exec();
-        query.next();
+        if(!query.exec())
+            return result;
+
+        // found something
+        if(query.next())
+        {
+            qDebug("Found data in '%s' database", qPrintable(db.connectionName()));
+            break;
+        }
     }
-    else
-        qDebug("Querying persistent database");
 
     if(!query.isValid())
         return result;
