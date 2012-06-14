@@ -713,7 +713,10 @@ void THT::slotCheckActive()
         GetWindowInfo(link.hwnd, &pwi);
     }
     else
+    {
         pwi.dwWindowStatus = WS_ACTIVECAPTION; // nice hack
+        Sleep(5);
+    }
 
     if(GetForegroundWindow() == link.hwnd && pwi.dwWindowStatus == WS_ACTIVECAPTION)
     {
