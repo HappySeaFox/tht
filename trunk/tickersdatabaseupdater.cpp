@@ -70,10 +70,14 @@ void TickersDatabaseUpdater::checkNewData()
     qDebug("Copying new database");
 
     QFile::remove(oldDb);
-    QFile::remove(oldTs);
 
     if(!QFile::copy(newDb, oldDb))
+    {
         qDebug("Cannot copy new database");
+        return;
+    }
+
+    QFile::remove(oldTs);
 
     if(!QFile::copy(newTs, oldTs))
         qDebug("Cannot copy new timestamp");
