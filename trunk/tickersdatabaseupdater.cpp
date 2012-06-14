@@ -106,7 +106,7 @@ void TickersDatabaseUpdater::slotFinished()
         if(!writeData(Settings::instance()->mutableDatabasePath() + ".timestamp", m_net->data()))
             return;
 
-        qDebug("Downloading new database");
+        qDebug("Downloading new database %s", qPrintable(ts.toString(Settings::instance()->databaseTimestampFormat())));
 
         m_downloadingData = true;
 
