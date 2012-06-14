@@ -119,11 +119,7 @@ Settings::Settings()
     if(!QDir().mkpath(mutablePath))
         qDebug("Cannot create a directory for mutable database");
 
-    m_persistentDatabaseTimestamp = readTimestamp(m_persistentDatabasePath);
-    m_mutableDatabaseTimestamp = readTimestamp(m_mutableDatabasePath);
-
-    qDebug("Database P timestamp: %s", qPrintable(m_persistentDatabaseTimestamp.toString(m_databaseTimestampFormat)));
-    qDebug("Database M timestamp: %s", qPrintable(m_mutableDatabaseTimestamp.toString(m_databaseTimestampFormat)));
+    rereadTimestamps();
 }
 
 Settings::~Settings()

@@ -77,6 +77,9 @@ void TickersDatabaseUpdater::checkNewData()
 
     QFile::remove(newDb);
     QFile::remove(newTs);
+
+    // reread database timestamps
+    Settings::instance()->rereadTimestamps();
 }
 
 bool TickersDatabaseUpdater::writeData(const QString &fileName, const QByteArray &data)
@@ -129,8 +132,8 @@ void TickersDatabaseUpdater::slotFinished()
         }
 
         if(ts <= Settings::instance()->persistentDatabaseTimestamp()
-                || !Settings::instance()->mutableDatabaseTimestamp().isValid()
-                || ts <= Settings::instance()->mutableDatabaseTimestamp())
+                || (Settings::instance()->mutableDatabaseTimestamp().isValid()
+                    && ts <= Settings::instance()->mutableDatabaseTimestamp()))
         {
             qDebug("No database updates available");
             QTimer::singleShot(1*3600*1000, this, SLOT(startRequest()));

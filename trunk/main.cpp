@@ -110,9 +110,14 @@ int main(int argc, char *argv[])
 
     new TickersDatabaseUpdater;
 
-    // open current ticker databases
+    // open ticker databases
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE", Settings::instance()->mutableDatabaseName());
     db.setDatabaseName(Settings::instance()->mutableDatabasePath());
+
+    if(!QFile::exists(db.databaseName()) || !db.isValid() || !db.open())
+        qDebug("Cannot open mutable database (%s)", qPrintable(db.lastError().text()));
+    else
+        qDebug("Mutable database has been opened");
 
     db = QSqlDatabase::addDatabase("QSQLITE", Settings::instance()->persistentDatabaseName());
     db.setDatabaseName(Settings::instance()->persistentDatabasePath());
@@ -120,7 +125,7 @@ int main(int argc, char *argv[])
     if(!QFile::exists(db.databaseName()) || !db.isValid() || !db.open())
         qDebug("Cannot open persistent database (%s)", qPrintable(db.lastError().text()));
     else
-        qDebug("Database has been opened");
+        qDebug("Persistent database has been opened");
 
     THT w;
     w.show();
