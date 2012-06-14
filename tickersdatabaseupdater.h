@@ -32,7 +32,6 @@ public:
     explicit TickersDatabaseUpdater(QObject *parent = 0);
 
 private:
-    void checkNewData();
     bool writeData(const QString &file, const QByteArray &data);
 
 private slots:

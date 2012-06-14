@@ -28,11 +28,6 @@ TickersDatabaseUpdater::TickersDatabaseUpdater(QObject *parent) :
     QObject(parent),
     m_downloadingData(false)
 {
-    checkNewData();
-
-    // reread database timestamps
-    Settings::instance()->rereadTimestamps();
-
     m_baseurl = SVNROOT "/trunk/tickersdb/";
 
     m_net = new NetworkAccess(this);
@@ -48,42 +43,6 @@ TickersDatabaseUpdater::TickersDatabaseUpdater(QObject *parent) :
 void TickersDatabaseUpdater::startRequest()
 {
     m_net->get(QUrl(m_baseurl + (m_downloadingData ? "tickers.sqlite" : "tickers.sqlite.timestamp")));
-}
-
-void TickersDatabaseUpdater::checkNewData()
-{
-    QString oldDb = Settings::instance()->mutableDatabasePath();
-    QString newDb = oldDb + ".new";
-
-    QString oldTs = oldDb + ".timestamp";
-    QString newTs = oldTs + ".new";
-
-    if(!QFile::exists(newDb) || !QFile::exists(newTs))
-    {
-        QFile::remove(newDb);
-        QFile::remove(newTs);
-
-        qDebug("No new database found locally");
-        return;
-    }
-
-    qDebug("Copying new database");
-
-    QFile::remove(oldDb);
-
-    if(!QFile::copy(newDb, oldDb))
-    {
-        qDebug("Cannot copy new database");
-        return;
-    }
-
-    QFile::remove(oldTs);
-
-    if(!QFile::copy(newTs, oldTs))
-        qDebug("Cannot copy new timestamp");
-
-    QFile::remove(newDb);
-    QFile::remove(newTs);
 }
 
 bool TickersDatabaseUpdater::writeData(const QString &fileName, const QByteArray &data)

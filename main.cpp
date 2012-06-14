@@ -31,7 +31,6 @@
 
 #include <windows.h>
 
-#include "tickersdatabaseupdater.h"
 #include "qtlockedfile.h"
 #include "settings.h"
 #include "tht.h"
@@ -66,6 +65,66 @@ static void thtOutput(QtMsgType type, const char *msg)
         log.write(msg);
         log.write("\n");
     }
+}
+
+static void copyDb()
+{
+    QString oldDb = Settings::instance()->mutableDatabasePath();
+    QString newDb = oldDb + ".new";
+
+    QString oldTs = oldDb + ".timestamp";
+    QString newTs = oldTs + ".new";
+
+    if(!QFile::exists(newDb) || !QFile::exists(newTs))
+    {
+        QFile::remove(newDb);
+        QFile::remove(newTs);
+
+        qDebug("No new database found locally");
+        return;
+    }
+
+    qDebug("Copying new database");
+
+    QFile::remove(oldDb);
+
+    if(!QFile::copy(newDb, oldDb))
+    {
+        qDebug("Cannot copy new database");
+        return;
+    }
+
+    QFile::remove(oldTs);
+
+    if(!QFile::copy(newTs, oldTs))
+        qDebug("Cannot copy new timestamp");
+
+    QFile::remove(newDb);
+    QFile::remove(newTs);
+
+}
+
+static void initializeDb()
+{
+    // reread database timestamps
+    Settings::instance()->rereadTimestamps();
+
+    // open ticker databases
+    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE", Settings::instance()->mutableDatabaseName());
+    db.setDatabaseName(Settings::instance()->mutableDatabasePath());
+
+    if(!QFile::exists(db.databaseName()) || !db.isValid() || !db.open())
+        qDebug("Cannot open mutable database (%s)", qPrintable(db.lastError().text()));
+    else
+        qDebug("Mutable database has been opened");
+
+    db = QSqlDatabase::addDatabase("QSQLITE", Settings::instance()->persistentDatabaseName());
+    db.setDatabaseName(Settings::instance()->persistentDatabasePath());
+
+    if(!QFile::exists(db.databaseName()) || !db.isValid() || !db.open())
+        qDebug("Cannot open persistent database (%s)", qPrintable(db.lastError().text()));
+    else
+        qDebug("Persistent database has been opened");
 }
 
 int main(int argc, char *argv[])
@@ -108,24 +167,9 @@ int main(int argc, char *argv[])
     app.installTranslator(&translator_qt);
     app.installTranslator(&translator);
 
-    new TickersDatabaseUpdater;
-
-    // open ticker databases
-    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE", Settings::instance()->mutableDatabaseName());
-    db.setDatabaseName(Settings::instance()->mutableDatabasePath());
-
-    if(!QFile::exists(db.databaseName()) || !db.isValid() || !db.open())
-        qDebug("Cannot open mutable database (%s)", qPrintable(db.lastError().text()));
-    else
-        qDebug("Mutable database has been opened");
-
-    db = QSqlDatabase::addDatabase("QSQLITE", Settings::instance()->persistentDatabaseName());
-    db.setDatabaseName(Settings::instance()->persistentDatabasePath());
-
-    if(!QFile::exists(db.databaseName()) || !db.isValid() || !db.open())
-        qDebug("Cannot open persistent database (%s)", qPrintable(db.lastError().text()));
-    else
-        qDebug("Persistent database has been opened");
+    // initialize ticker databases
+    copyDb();
+    initializeDb();
 
     THT w;
     w.show();

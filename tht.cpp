@@ -38,6 +38,7 @@
 #include <winnt.h>
 #include <psapi.h>
 
+#include "tickersdatabaseupdater.h"
 #include "savescreenshot.h"
 #include "updatechecker.h"
 #include "regionselect.h"
@@ -192,6 +193,9 @@ THT::THT(QWidget *parent) :
     new QShortcut(Qt::CTRL+Qt::Key_L, this, SLOT(slotLockLinks()));
     new QShortcut(Qt::Key_L, this, SLOT(slotLoadTicker()));
     new QShortcut(QKeySequence::Find, this, SLOT(slotOpenOrCloseSearchTicker()));
+
+    // db updater
+    new TickersDatabaseUpdater(this);
 }
 
 THT::~THT()
