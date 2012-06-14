@@ -33,15 +33,16 @@ QList<QVariantList> SqlTools::query(const QString &s, const QString &bindTemplat
 
 QList<QVariantList> SqlTools::query(const QString &s, const QMap<QString, QString> &binds)
 {
-    QSqlDatabase dbp = QSqlDatabase::database(Settings::instance()->persistentDatabaseName());
-    QSqlDatabase dbm = QSqlDatabase::database(Settings::instance()->mutableDatabaseName());
+    QSqlDatabase db1 = QSqlDatabase::database(Settings::instance()->persistentDatabaseName());
+    QSqlDatabase db2 = QSqlDatabase::database(Settings::instance()->mutableDatabaseName());
     QList<QVariantList> result;
 
-    QSqlQuery query(dbm);
+    QSqlQuery query(db2);
+
+    if(!query.prepare(s))
+        return result;
 
     QMap<QString, QString>::const_iterator itEnd = binds.end();
-
-    query.prepare(s);
 
     for(QMap<QString, QString>::const_iterator it = binds.begin();it != itEnd;++it)
         query.bindValue(it.key(), it.value());
@@ -52,8 +53,10 @@ QList<QVariantList> SqlTools::query(const QString &s, const QMap<QString, QStrin
     {
         qDebug("Querying mutable database");
 
-        query = QSqlQuery(dbp);
-        query.prepare(s);
+        query = QSqlQuery(db1);
+
+        if(!query.prepare(s))
+            return result;
 
         for(QMap<QString, QString>::const_iterator it = binds.begin();it != itEnd;++it)
             query.bindValue(it.key(), it.value());
