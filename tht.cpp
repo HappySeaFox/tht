@@ -1232,6 +1232,7 @@ bool THT::setForeignFocus(HWND window, DWORD threadId)
     if(!SetFocus(window))
     {
         qWarning("Cannot set focus to the window %d (%ld)", (int)window, GetLastError());
+        AttachThreadInput(threadId, currentThreadId, FALSE);
         return false;
     }
 
