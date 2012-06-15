@@ -142,7 +142,10 @@ UPX=$$findexe("upx.exe")
 
 !isEmpty(UPX) {
     message("UPX is found, will pack the executable after linking")
-    QMAKE_POST_LINK = $$mle($$UPX -9 $${OUT_PWD}/$(DESTDIR_TARGET))
+
+    QMAKE_POST_LINK += $$mle($$UPX -9 \"$${OUT_PWD}/$(DESTDIR_TARGET)\")
+    QMAKE_POST_LINK += $$mle($$UPX -9 \"$$[QT_INSTALL_BINS]\\QtGui$${QT_MAJOR_VERSION}.dll\" || echo.)
+    QMAKE_POST_LINK += $$mle($$UPX -9 \"$$[QT_INSTALL_BINS]\\QtWebkit$${QT_MAJOR_VERSION}.dll\" || echo.)
 } else {
     warning("UPX is not found, will not pack the executable")
 }
