@@ -1022,7 +1022,11 @@ void List::slotAddFromFile()
 {
     qDebug("Adding new tickers from file");
 
-    QStringList fileNames = QFileDialog::getOpenFileNames(this, tr("Choose a file"), Settings::instance()->lastTickerDirectory());
+    QStringList fileNames = QFileDialog::getOpenFileNames(this, tr("Choose a file"),
+                                                          Settings::instance()->lastTickerDirectory(),
+                                                          tr("Text files (*.txt)")
+                                                              + ";;"
+                                                              + tr("All files (*.*)"));
 
     if(fileNames.isEmpty())
         return;
@@ -1113,7 +1117,9 @@ void List::slotExportToFile()
     QString fileName = QFileDialog::getSaveFileName(this,
                                                     tr("Choose a file"),
                                                     Settings::instance()->lastTickerDirectory(),
-                                                    tr("Text files (*.txt);;All files (*.*)"));
+                                                    tr("Text files (*.txt)")
+                                                        + ";;"
+                                                        + tr("All files (*.*)"));
 
     if(fileName.isEmpty())
         return;
