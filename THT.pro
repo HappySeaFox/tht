@@ -129,28 +129,13 @@ defineReplace(mle) {
     return ( $$1$$escape_expand(\\n\\t) )
 }
 
-# check for perl
-PERL=$$findexe("perl.exe")
+# check for gcc
+GCC=$$findexe("gcc.exe")
+GCCDIR=$$dirname(GCC)
 
-isEmpty(PERL) {
-    error("Perl is not found")
+isEmpty(GCC) {
+    error("MinGW is not found in PATH")
 }
-
-SVNROOT=$$system(svn info | perl -ne '\"if ($_ =~ /^Repository Root:(.*)/) {$sr = $1; $sr =~ s/^\\s*[hH][tT][tT][pP][sS]:/http:/; print $sr;}\"')
-
-isEmpty(SVNROOT) {
-    warning("Cannot determine the repository root")
-    SVNROOT="http://traders-home-task-ng.googlecode.com/svn"
-}
-
-message("Repository root: $$SVNROOT")
-
-DEFINES += SVNROOT=$$sprintf("\"\\\"%1\\\"\"", $$SVNROOT)
-
-tag.commands += $$mle(echo "$$VERSION"> "\"$${_PRO_FILE_PWD_}/THT-version.tag\"")
-tag.commands += $$mle(svn -m "\"$$VERSION file tag\"" commit "\"$${_PRO_FILE_PWD_}/THT-version.tag\"")
-tag.commands += $$mle(svn -m "\"$$VERSION tag\"" copy "\"$$SVNROOT/trunk\"" "\"$$SVNROOT/tags/$$VERSION\"")
-QMAKE_EXTRA_TARGETS += tag
 
 # check for upx
 UPX=$$findexe("upx.exe")
@@ -162,13 +147,28 @@ UPX=$$findexe("upx.exe")
     warning("UPX is not found, will not pack the executable")
 }
 
+# check for 7z
 ZIP=$$findexe("7z.exe")
-GCC=$$findexe("gcc.exe")
-GCCDIR=$$dirname(GCC)
 
-isEmpty(GCC) {
-    error("MinGW is not found in PATH")
+SVNROOT=$$system(svn info \"$${_PRO_FILE_PWD_}\" | findstr /B /C:\"Repository Root:\")
+
+SVNROOT ~= s/^Repository\\s*/
+SVNROOT ~= s/^Root:\\s*/
+SVNROOT ~= s/^\\s*[hH][tT][tT][pP][sS]:/http:/
+
+isEmpty(SVNROOT) {
+    warning("Cannot determine the repository root, falling back to hardcoded")
+    SVNROOT="http://traders-home-task-ng.googlecode.com/svn"
 }
+
+message("Repository root: $$SVNROOT")
+
+DEFINES += SVNROOT=$$sprintf("\"\\\"%1\\\"\"", $$SVNROOT)
+
+tag.commands += $$mle(echo "$$VERSION"> "\"$${_PRO_FILE_PWD_}/THT-version.tag\"")
+tag.commands += $$mle(svn -m "\"$$VERSION file tag\"" commit "\"$${_PRO_FILE_PWD_}/THT-version.tag\"")
+tag.commands += $$mle(svn -m "\"$$VERSION tag\"" copy "\"$$SVNROOT/trunk\"" "\"$$SVNROOT/tags/$$VERSION\"")
+QMAKE_EXTRA_TARGETS += tag
 
 # files to copy to the distribution
 IMAGEPLUGINS=qgif4.dll qico4.dll qjpeg4.dll qtga4.dll qtiff4.dll
