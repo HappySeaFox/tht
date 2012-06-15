@@ -251,7 +251,7 @@ for(qm, QMFILES) {
 # INNO setup
 INNO=$$system(echo %ProgramFiles%)\\Inno Setup 5\\iscc.exe
 
-exists ($$INNO) {
+exists($$INNO) {
     message("Inno Setup is found, will create a setup file in a custom dist target")
 
     LANGS=$$system(dir /B \"$$INNO\\..\\Languages\")
