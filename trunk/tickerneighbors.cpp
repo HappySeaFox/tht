@@ -22,6 +22,9 @@
 #include <QMetaObject>
 #include <QModelIndex>
 #include <QClipboard>
+#include <QShortcut>
+#include <QKeyEvent>
+#include <QEvent>
 #include <QTimer>
 
 #include "tickerneighbors.h"
@@ -38,6 +41,19 @@ TickerNeighbors::TickerNeighbors(const QString &ticker, QWidget *parent) :
     setAttribute(Qt::WA_DeleteOnClose);
 
     ui->setupUi(this);
+
+    // Ctrl+C to copy
+    m_copy = QKeySequence::Copy;
+    new QShortcut(m_copy, ui->pushCopy, SLOT(animateClick()));
+
+    // install event filter on all lineedits, because they steal keyboard
+    // focus and block window shortcuts
+    QList<QLineEdit *> list = findChildren<QLineEdit *>();
+
+    foreach(QLineEdit *edit, list)
+    {
+        edit->installEventFilter(this);
+    }
 
     ui->lineTicker->setValidator(new UpperCaseValidator(ui->lineTicker));
 
@@ -119,6 +135,24 @@ void TickerNeighbors::setVisible(bool vis)
         if(dr.contains(headGeometry.topLeft()) || dr.contains(headGeometry.bottomRight()))
             move(m_pos);
     }
+}
+
+bool TickerNeighbors::eventFilter(QObject *obj, QEvent *event)
+{
+    Q_UNUSED(obj)
+
+    if(event->type() == QEvent::KeyPress)
+    {
+        QKeyEvent *ke = static_cast<QKeyEvent *>(event);
+
+        if(ke && ke->matches(m_copy))
+        {
+            ui->pushCopy->animateClick();
+            return true;
+        }
+    }
+
+    return QObject::eventFilter(obj, event);
 }
 
 void TickerNeighbors::silentlyCheck(QCheckBox *box, bool check)
@@ -254,8 +288,10 @@ void TickerNeighbors::slotFetch()
 
 void TickerNeighbors::slotCopy()
 {
+    qDebug("Copy");
+
     QString text;
-    QModelIndexList selected = ui->listTickers->selectionModel()->selectedIndexes();
+    const QModelIndexList selected = ui->listTickers->selectionModel()->selectedIndexes();
 
     if(selected.isEmpty())
         text = m_tickers.join("\n");

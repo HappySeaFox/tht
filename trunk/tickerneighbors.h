@@ -18,6 +18,7 @@
 #ifndef TICKERNEIGHBORS_H
 #define TICKERNEIGHBORS_H
 
+#include <QKeySequence>
 #include <QStringList>
 #include <QDialog>
 #include <QPoint>
@@ -28,6 +29,7 @@ class TickerNeighbors;
 
 class QModelIndex;
 class QCheckBox;
+class QEvent;
 
 class TickerNeighbors : public QDialog
 {
@@ -40,6 +42,9 @@ public:
     void showTicker(const QString &);
 
     virtual void setVisible(bool);
+
+protected:
+    bool eventFilter(QObject *obj, QEvent *event);
 
 private:
     void silentlyCheck(QCheckBox *, bool check);
@@ -59,6 +64,7 @@ private:
     QStringList m_tickers;
     QObject *m_lastAction;
     QPoint m_pos;
+    QKeySequence::StandardKey m_copy;
 };
 
 #endif // TICKERNEIGHBORS_H
