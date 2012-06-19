@@ -169,12 +169,10 @@ THT::THT(QWidget *parent) :
 
     // predefined tickers, menu & shortcuts
     m_predefined.insert("$COMPQ", Qt::Key_Q);
-    m_predefined.insert("$HUI",   Qt::Key_H);
     m_predefined.insert("$INDU",  Qt::Key_I);
     m_predefined.insert("$SPX",   Qt::Key_S);
     m_predefined.insert("$TVOL",  Qt::Key_T);
     m_predefined.insert("$VIX",   Qt::Key_V);
-    m_predefined.insert("$XOI",   Qt::Key_X);
     m_predefined.insert("SPY",    Qt::Key_F);
 
     QMap<QString, Qt::Key>::const_iterator itEnd = m_predefined.end();
