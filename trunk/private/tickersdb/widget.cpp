@@ -233,10 +233,11 @@ void Widget::slotFinished()
     else
         needup = true;
 
+    QSqlDatabase::removeDatabase("old");
+
     // up-to-date
     if(!needup)
     {
-        QFile::remove(THT_TICKERS_DB_NEW);
         message("Up-to-date", false);
 
         if(m_auto)
@@ -311,8 +312,6 @@ void Widget::slotFinished()
             return;
         }
     }
-
-    QSqlDatabase::removeDatabase("old");
 
     QSqlDatabase::database().commit();
     QSqlDatabase::database().close();
