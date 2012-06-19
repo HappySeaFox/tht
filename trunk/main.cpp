@@ -50,7 +50,7 @@ static void thtOutput(QtMsgType type, const char *msg)
 
     if(!log.isOpen() && !failed)
     {
-        failed = (!log.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Unbuffered)
+        failed = (!log.open(QIODevice::WriteOnly | QIODevice::Append)
                   || log.isLocked()
                   || !log.lock(QtLockedFile::WriteLock, false)
                   || !log.resize(0)
