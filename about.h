@@ -27,7 +27,7 @@ class About;
 class About : public QDialog
 {
     Q_OBJECT
-    
+
 public:
     explicit About(const QString &newVersion, QWidget *parent = 0);
     ~About();
