@@ -27,6 +27,8 @@
 
 static void tickersDbOutput(QtMsgType type, const char *msg)
 {
+    Q_UNUSED(type)
+
     static QFile log(
                      QDesktopServices::storageLocation(QDesktopServices::TempLocation)
                      + QDir::separator()
