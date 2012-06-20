@@ -28,7 +28,7 @@ namespace Ui
 class SaveScreenshot : public QDialog
 {
     Q_OBJECT
-    
+
 public:
     enum SaveScreenshotTo { SaveScreenshotToClipboard, SaveScreenshotToFile };
     explicit SaveScreenshot(QWidget *parent = 0);

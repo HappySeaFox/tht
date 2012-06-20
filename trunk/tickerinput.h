@@ -27,7 +27,7 @@ class TickerInput;
 class TickerInput : public QDialog
 {
     Q_OBJECT
-    
+
 public:
     explicit TickerInput(QWidget *parent = 0);
     ~TickerInput();

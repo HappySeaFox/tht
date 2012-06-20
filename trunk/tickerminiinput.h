@@ -29,7 +29,7 @@ class QTimer;
 class TickerMiniInput : public QFrame
 {
     Q_OBJECT
-    
+
 public:
     explicit TickerMiniInput(QWidget *parent = 0);
     ~TickerMiniInput();

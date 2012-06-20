@@ -34,12 +34,10 @@ namespace Ui
     class List;
 }
 
-class QListWidgetItem;
-
 class List : public QWidget
 {
     Q_OBJECT
-    
+
 public:
     explicit List(int group, QWidget *parent = 0);
     ~List();
