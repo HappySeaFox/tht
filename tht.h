@@ -46,7 +46,7 @@ class List;
 class THT : public QWidget
 {
     Q_OBJECT
-    
+
 public:
     explicit THT(QWidget *parent = 0);
     ~THT();
