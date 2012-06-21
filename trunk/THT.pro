@@ -188,6 +188,10 @@ for(qm, QMFILES) {
     QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\ts\\$$qm\" \"$${OUT_PWD}/$(DESTDIR_TARGET)/../translations\")
 }
 
+# copy database
+QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite\" \"$${OUT_PWD}/$(DESTDIR_TARGET)/..\")
+QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite.timestamp\" \"$${OUT_PWD}/$(DESTDIR_TARGET)/..\")
+
 !isEmpty(ZIP) {
     message("7Z is found, will create custom dist targets")
 
