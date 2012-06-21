@@ -46,16 +46,25 @@ QList<QVariantList> SqlTools::query(const QString &s, const QMap<QString, QStrin
 
     foreach(QSqlDatabase db, databases)
     {
+        if(!db.isOpen())
+            continue;
+
         query = QSqlQuery(db);
 
         if(!query.prepare(s))
-            return result;
+        {
+            qDebug("Cannot prepare query for '%s' database", qPrintable(db.connectionName()));
+            continue;
+        }
 
         for(QMap<QString, QString>::const_iterator it = binds.begin();it != itEnd;++it)
             query.bindValue(it.key(), it.value());
 
         if(!query.exec())
-            return result;
+        {
+            qDebug("Cannot execute query for '%s' database", qPrintable(db.connectionName()));
+            continue;
+        }
 
         // found something
         if(query.next())
