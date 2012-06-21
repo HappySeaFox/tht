@@ -151,6 +151,16 @@ UPX=$$findexe("upx.exe")
 # check for 7z
 ZIP=$$findexe("7z.exe")
 
+# check for signtool
+SIGNTOOL=$$findexe("signtool.exe")
+CERT=$${_PRO_FILE_PWD_}\\..\\$${TARGET}-certs\\$${TARGET}.pfx
+
+!isEmpty(SIGNTOOL):exists($$CERT) {
+    message("Signtool and the certificate are found, will sign the $$TARGET executable")
+} else {
+    warning("Signtool or the certificate is not found, will not sign the $$TARGET executable")
+}
+
 SVNROOT=$$system(svn info \"$${_PRO_FILE_PWD_}\" | findstr /B /C:\"Repository Root:\")
 
 SVNROOT ~= s/^Repository\\s*/
@@ -191,6 +201,10 @@ for(qm, QMFILES) {
 # copy database
 QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite\" \"$${OUT_PWD}/$(DESTDIR_TARGET)/..\")
 QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite.timestamp\" \"$${OUT_PWD}/$(DESTDIR_TARGET)/..\")
+
+!isEmpty(SIGNTOOL):exists($$CERT) {
+    distbin.commands += $$mle($$SIGNTOOL sign /d \"Trader\'s Home Task\" /du \"https://code.google.com/p/traders-home-task-ng\" /f \"$$CERT\" /t \"http://timestamp.verisign.com/scripts/timestamp.dll\" /v \"$$T\\$${TARGET}.exe\")
+}
 
 !isEmpty(ZIP) {
     message("7Z is found, will create custom dist targets")
@@ -245,6 +259,7 @@ QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite
     distbin.commands += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite\" \"$$T\")
     distbin.commands += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite.timestamp\" \"$$T\")
 
+    # compress
     distbin.commands += $$mle($$ZIP a -r -tzip -mx=9 tht-standalone-$${VERSION}.zip \"$$T\")
     distbin.commands += $$mle(rd /S /Q \"$$T\")
 
@@ -356,6 +371,10 @@ exists($$INNO) {
     distbin.depends += iss
     distbin.commands += $$mle(\"$$INNO\" /o. \"$$ISS\")
     distbin.commands += $$mle(del /F /Q \"$$ISS\")
+
+    !isEmpty(SIGNTOOL):exists($$CERT) {
+        distbin.commands += $$mle($$SIGNTOOL sign /d \"Trader\'s Home Task\" /du \"https://code.google.com/p/traders-home-task-ng\" /f \"$$CERT\" /t \"http://timestamp.verisign.com/scripts/timestamp.dll\" /v \"tht-setup-$${VERSION}.exe\")
+    }
 } else {
     warning("Inno Setup is not found, will not create a setup file in a custom dist target")
 }
