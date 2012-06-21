@@ -34,11 +34,22 @@ QList<QVariantList> SqlTools::query(const QString &s, const QString &bindTemplat
 QList<QVariantList> SqlTools::query(const QString &s, const QMap<QString, QString> &binds)
 {
     // databases to query
-    QList<QSqlDatabase> databases =
-            QList<QSqlDatabase>()
-            << QSqlDatabase::database(Settings::instance()->mutableDatabaseName())
-            << QSqlDatabase::database(Settings::instance()->persistentDatabaseName())
-               ;
+    QList<QSqlDatabase> databases;
+
+    const QDateTime p_ts = Settings::instance()->persistentDatabaseTimestamp();
+    const QDateTime m_ts = Settings::instance()->mutableDatabaseTimestamp();
+
+    // set database priorities
+    if(p_ts.isValid() && (!m_ts.isValid() || p_ts > m_ts))
+    {
+        databases.append(QSqlDatabase::database(Settings::instance()->persistentDatabaseName()));
+        databases.append(QSqlDatabase::database(Settings::instance()->mutableDatabaseName()));
+    }
+    else
+    {
+        databases.append(QSqlDatabase::database(Settings::instance()->mutableDatabaseName()));
+        databases.append(QSqlDatabase::database(Settings::instance()->persistentDatabaseName()));
+    }
 
     QMap<QString, QString>::const_iterator itEnd = binds.end();
     QList<QVariantList> result;
