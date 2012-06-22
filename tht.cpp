@@ -198,13 +198,15 @@ THT::THT(QWidget *parent) :
 
 THT::~THT()
 {
-    Settings::instance()->setNyseOnly(ui->checkNyse->isChecked());
+    Settings::instance()->setNyseOnly(ui->checkNyse->isChecked(), Settings::NoSync);
 
     if(Settings::instance()->saveGeometry())
     {
         Settings::instance()->setWindowSize(size(), Settings::NoSync);
-        Settings::instance()->setWindowPosition(pos());
+        Settings::instance()->setWindowPosition(pos(), Settings::NoSync);
     }
+
+    Settings::instance()->sync();
 
     delete ui;
 }

@@ -31,12 +31,13 @@ public:
 
     static QStringList sectors();
     static QStringList industries();
+    static QStringList exchanges();
 
     static QMap<QString, QStringList> sectorsAndIndustries();
 
 private:
-    static QStringList sectorsReal();
-    static QStringList industriesReal();
+    static QStringList selectDistinct(const QString &query);
+
     static QMap<QString, QStringList> sectorsAndIndustriesReal();
 };
 

@@ -355,28 +355,28 @@ the right or middle mouse buttons.</source>
         <translation>Восстановить</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="221"/>
+        <location filename="../tht.cpp" line="232"/>
         <source>Notice</source>
         <translation>Заметка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="221"/>
+        <location filename="../tht.cpp" line="232"/>
         <source>THT will continue to run in a system tray</source>
         <translation>THT продолжит работу в системном лотке</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1016"/>
-        <location filename="../tht.cpp" line="1044"/>
+        <location filename="../tht.cpp" line="1027"/>
+        <location filename="../tht.cpp" line="1055"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1016"/>
+        <location filename="../tht.cpp" line="1027"/>
         <source>Cannot take screenshot</source>
         <translation>Невозможно создать снимок экрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1044"/>
+        <location filename="../tht.cpp" line="1055"/>
         <source>Cannot save screenshot</source>
         <translation>Невозможно сохранить снимок экрана</translation>
     </message>
@@ -425,14 +425,14 @@ the right or middle mouse buttons.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tickerneighbors.ui" line="110"/>
+        <location filename="../tickerneighbors.ui" line="114"/>
         <source>By capitalization</source>
         <translation>По капитализации</translation>
     </message>
     <message>
-        <location filename="../tickerneighbors.cpp" line="141"/>
-        <location filename="../tickerneighbors.cpp" line="250"/>
-        <location filename="../tickerneighbors.cpp" line="284"/>
+        <location filename="../tickerneighbors.cpp" line="173"/>
+        <location filename="../tickerneighbors.cpp" line="282"/>
+        <location filename="../tickerneighbors.cpp" line="318"/>
         <source>Copy (%1)</source>
         <translation>Копировать (%1)</translation>
     </message>
