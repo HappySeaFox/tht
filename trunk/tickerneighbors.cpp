@@ -24,6 +24,7 @@
 #include <QClipboard>
 #include <QShortcut>
 #include <QKeyEvent>
+#include <QCheckBox>
 #include <QEvent>
 #include <QTimer>
 
@@ -72,23 +73,29 @@ TickerNeighbors::TickerNeighbors(const QString &ticker, QWidget *parent) :
         ui->comboIndustry->addItem(i);
     }
 
-    // load checkboxes
-    int nyse = Settings::instance()->checkBoxState(ui->checkNyse->objectName());
-    int nasd = Settings::instance()->checkBoxState(ui->checkNasd->objectName());
-    int amex = Settings::instance()->checkBoxState(ui->checkAmex->objectName());
+    // fill exchanges
+    QHBoxLayout *le = new QHBoxLayout;
+    le->setContentsMargins(0, 0, 0, 0);
+    ui->widgetExchanges->setLayout(le);
 
-    if(nyse <= 0 && nasd <= 0 && amex <= 0)
-        silentlyCheck(ui->checkNyse, true);
-    else
+    result = SqlTools::exchanges();
+
+    foreach(QString e, result)
     {
-        if(nyse >= 0)
-            silentlyCheck(ui->checkNyse, nyse);
+        QCheckBox *box = new QCheckBox(e, ui->widgetExchanges);
 
-        if(nasd >= 0)
-            silentlyCheck(ui->checkNasd, nasd);
+        box->setObjectName(e);
 
-        if(amex >= 0)
-            silentlyCheck(ui->checkAmex, amex);
+        connect(box, SIGNAL(toggled(bool)), this, SLOT(slotFetch()));
+        connect(box, SIGNAL(toggled(bool)), this, SLOT(slotCheckboxChanged()));
+
+        le->addWidget(box);
+        m_exchanges.append(box);
+
+        int state = Settings::instance()->checkBoxState(e);
+
+        if(state >= 0)
+            silentlyCheck(box, state);
     }
 
     if(Settings::instance()->checkBoxState(ui->checkCap->objectName()) > 0)
@@ -217,14 +224,11 @@ void TickerNeighbors::slotFetch()
 
     binds.clear();
 
-    // exchanges
-    QList<QCheckBox *> exchanges = QList<QCheckBox *>() << ui->checkNyse << ui->checkNasd << ui->checkAmex;
-
     add = " AND ( ";
     bool secondQuery = false;
     int i = 0;
 
-    foreach(QCheckBox *box, exchanges)
+    foreach(QCheckBox *box, m_exchanges)
     {
         if(box->isChecked())
         {
