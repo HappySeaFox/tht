@@ -833,11 +833,6 @@ void THT::slotOptions()
             w->show();
         }
 
-        if(m_sectors)
-        {
-
-        }
-
         m_tray->setVisible(Settings::instance()->hideToTray());
 
         // delete duplicates
@@ -1224,6 +1219,7 @@ void THT::slotShowNeighbors(const QString &ticker)
         m_sectors->show();
         m_sectors->raise();
         m_sectors->activateWindow();
+        m_sectors->showTicker(ticker);
 
         return;
     }
