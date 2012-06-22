@@ -51,7 +51,7 @@
 #include "tht.h"
 #include "ui_tht.h"
 
-static const int THT_WINDOW_STARTUP_TIMEOUT = 1300;
+static const int THT_WINDOW_STARTUP_TIMEOUT = 1200;
 
 THT::THT(QWidget *parent) :
     QWidget(parent,
