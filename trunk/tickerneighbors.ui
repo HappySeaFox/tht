@@ -295,11 +295,76 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>checkNyse</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>TickerNeighbors</receiver>
+   <slot>slotCheckboxChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>36</x>
+     <y>325</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>40</x>
+     <y>429</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkNasd</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>TickerNeighbors</receiver>
+   <slot>slotCheckboxChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>93</x>
+     <y>322</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>97</x>
+     <y>416</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkAmex</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>TickerNeighbors</receiver>
+   <slot>slotCheckboxChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>148</x>
+     <y>328</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>148</x>
+     <y>402</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkCap</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>TickerNeighbors</receiver>
+   <slot>slotCheckboxChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>20</x>
+     <y>355</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>19</x>
+     <y>392</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>slotCopy()</slot>
   <slot>slotFetch()</slot>
   <slot>slotFilterAndFetch()</slot>
   <slot>slotActivated(QModelIndex)</slot>
+  <slot>slotCheckboxChanged()</slot>
  </slots>
 </ui>

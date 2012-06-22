@@ -102,11 +102,6 @@ TickerNeighbors::TickerNeighbors(const QString &ticker, QWidget *parent) :
 
 TickerNeighbors::~TickerNeighbors()
 {
-    Settings::instance()->setCheckBoxState(ui->checkNyse->objectName(), ui->checkNyse->isChecked(), Settings::NoSync);
-    Settings::instance()->setCheckBoxState(ui->checkNasd->objectName(), ui->checkNasd->isChecked(), Settings::NoSync);
-    Settings::instance()->setCheckBoxState(ui->checkAmex->objectName(), ui->checkAmex->isChecked(), Settings::NoSync);
-    Settings::instance()->setCheckBoxState(ui->checkCap->objectName(), ui->checkCap->isChecked());
-
     delete ui;
 }
 
@@ -324,4 +319,14 @@ void TickerNeighbors::slotActivated(const QModelIndex &index)
         return;
 
     emit loadTicker((index.column() ? index.sibling(index.row(), 0) : index).data().toString());
+}
+
+void TickerNeighbors::slotCheckboxChanged()
+{
+    QCheckBox *box = qobject_cast<QCheckBox *>(sender());
+
+    if(!box)
+        return;
+
+    Settings::instance()->setCheckBoxState(box->objectName(), box->isChecked(), Settings::NoSync);
 }
