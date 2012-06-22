@@ -38,8 +38,6 @@ TickerNeighbors::TickerNeighbors(const QString &ticker, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::TickerNeighbors)
 {
-    setAttribute(Qt::WA_DeleteOnClose);
-
     ui->setupUi(this);
 
     // Ctrl+C to copy
