@@ -22,6 +22,7 @@
 #include <QStringList>
 #include <QDialog>
 #include <QPoint>
+#include <QList>
 
 namespace Ui {
 class TickerNeighbors;
@@ -66,6 +67,7 @@ private:
     QObject *m_lastAction;
     QPoint m_pos;
     QKeySequence::StandardKey m_copy;
+    QList<QCheckBox *> m_exchanges;
 };
 
 #endif // TICKERNEIGHBORS_H

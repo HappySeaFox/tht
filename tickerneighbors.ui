@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>267</width>
+    <width>258</width>
     <height>368</height>
    </rect>
   </property>
@@ -66,25 +66,7 @@
    <item row="4" column="0" colspan="2">
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QCheckBox" name="checkNyse">
-       <property name="text">
-        <string>NYSE</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QCheckBox" name="checkNasd">
-       <property name="text">
-        <string>NASD</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QCheckBox" name="checkAmex">
-       <property name="text">
-        <string>AMEX</string>
-       </property>
-      </widget>
+      <widget class="QWidget" name="widgetExchanges" native="true"/>
      </item>
      <item>
       <spacer name="horizontalSpacer_2">
@@ -93,7 +75,7 @@
        </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>0</width>
+         <width>13</width>
          <height>20</height>
         </size>
        </property>
@@ -125,9 +107,6 @@
   <tabstop>comboIndustry</tabstop>
   <tabstop>pushIndustry</tabstop>
   <tabstop>listTickers</tabstop>
-  <tabstop>checkNyse</tabstop>
-  <tabstop>checkNasd</tabstop>
-  <tabstop>checkAmex</tabstop>
   <tabstop>checkCap</tabstop>
   <tabstop>pushCopy</tabstop>
  </tabstops>
@@ -200,54 +179,6 @@
    </hints>
   </connection>
   <connection>
-   <sender>checkNyse</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>TickerNeighbors</receiver>
-   <slot>slotFilterAndFetch()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>57</x>
-     <y>324</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>245</x>
-     <y>144</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>checkNasd</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>TickerNeighbors</receiver>
-   <slot>slotFilterAndFetch()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>113</x>
-     <y>324</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>245</x>
-     <y>207</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>checkAmex</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>TickerNeighbors</receiver>
-   <slot>slotFilterAndFetch()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>169</x>
-     <y>324</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>245</x>
-     <y>181</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>pushCopy</sender>
    <signal>clicked()</signal>
    <receiver>TickerNeighbors</receiver>
@@ -296,54 +227,6 @@
    </hints>
   </connection>
   <connection>
-   <sender>checkNyse</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>TickerNeighbors</receiver>
-   <slot>slotCheckboxChanged()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>36</x>
-     <y>325</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>40</x>
-     <y>429</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>checkNasd</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>TickerNeighbors</receiver>
-   <slot>slotCheckboxChanged()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>93</x>
-     <y>322</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>97</x>
-     <y>416</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>checkAmex</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>TickerNeighbors</receiver>
-   <slot>slotCheckboxChanged()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>148</x>
-     <y>328</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>148</x>
-     <y>402</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>checkCap</sender>
    <signal>toggled(bool)</signal>
    <receiver>TickerNeighbors</receiver>
@@ -365,6 +248,5 @@
   <slot>slotFetch()</slot>
   <slot>slotFilterAndFetch()</slot>
   <slot>slotActivated(QModelIndex)</slot>
-  <slot>slotCheckboxChanged()</slot>
  </slots>
 </ui>
