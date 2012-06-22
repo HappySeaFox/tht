@@ -100,7 +100,11 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="pushCopy"/>
+      <widget class="QPushButton" name="pushCopy">
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>

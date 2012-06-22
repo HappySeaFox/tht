@@ -1220,6 +1220,9 @@ void THT::slotShowNeighbors(const QString &ticker)
     if(m_sectors)
     {
         m_sectors->show();
+        m_sectors->raise();
+        m_sectors->activateWindow();
+
         return;
     }
 
