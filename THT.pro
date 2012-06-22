@@ -153,7 +153,7 @@ ZIP=$$findexe("7z.exe")
 
 # check for signtool
 SIGNTOOL=$$findexe("signtool.exe")
-CERT=$${_PRO_FILE_PWD_}\\..\\$${TARGET}-certs\\$${TARGET}.pfx
+CERT=$${_PRO_FILE_PWD_}\\..\\$${TARGET}-certs\\cert.pfx
 
 !isEmpty(SIGNTOOL):exists($$CERT) {
     message("Signtool and the certificate are found, will sign the $$TARGET executable")
@@ -204,7 +204,7 @@ QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite
 
 # sign
 !isEmpty(SIGNTOOL):exists($$CERT) {
-    distbin.commands += $$mle($$SIGNTOOL sign /d \"Trader\'s Home Task\" /du \"https://code.google.com/p/traders-home-task-ng\" /f \"$$CERT\" /t \"http://timestamp.verisign.com/scripts/timestamp.dll\" /v \"$$T\\$${TARGET}.exe\")
+    distbin.commands += $$mle($$SIGNTOOL sign /d \"Trader\'s Home Task\" /du \"https://code.google.com/p/traders-home-task-ng\" /f \"$$CERT\" /t \"http://timestamp.verisign.com/scripts/timestamp.dll\" /v \"$${OUT_PWD}/$(DESTDIR_TARGET)\")
 }
 
 !isEmpty(ZIP) {
