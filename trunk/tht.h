@@ -51,6 +51,8 @@ public:
     explicit THT(QWidget *parent = 0);
     ~THT();
 
+    virtual void setVisible(bool);
+
 private:
     enum LinkType { LinkTypeNotInitialized,
                     LinkTypeAdvancedGet,
@@ -101,7 +103,6 @@ private:
     void loadTicker(const QString &);
     void startDelayedScreenshot(bool);
     bool setForeignFocus(HWND window, DWORD threadId);
-    void hide();
 
     static HWND grayBoxFindSubControl(HWND);
     static HWND mbtFindSubControl(HWND);

@@ -209,6 +209,19 @@ THT::~THT()
     delete ui;
 }
 
+void THT::setVisible(bool vis)
+{
+    if(!vis)
+    {
+        m_lastActiveWindow = qApp->activeWindow();
+
+        if(m_sectors)
+            m_sectors->hide();
+    }
+
+    QWidget::setVisible(vis);
+}
+
 void THT::closeEvent(QCloseEvent *e)
 {
     if(Settings::instance()->hideToTray())
@@ -1205,7 +1218,10 @@ void THT::slotOpenOrCloseSearchTicker()
 void THT::slotShowNeighbors(const QString &ticker)
 {
     if(m_sectors)
+    {
+        m_sectors->show();
         return;
+    }
 
     m_sectors = new TickerNeighbors(ticker, this);
 
@@ -1238,16 +1254,6 @@ bool THT::setForeignFocus(HWND window, DWORD threadId)
     }
 
     return true;
-}
-
-void THT::hide()
-{
-    m_lastActiveWindow = qApp->activeWindow();
-
-    QWidget::hide();
-
-    if(m_sectors)
-        m_sectors->hide();
 }
 
 HWND THT::grayBoxFindSubControl(HWND parent)
