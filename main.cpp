@@ -163,7 +163,7 @@ int main(int argc, char *argv[])
 
     qDebug("Locale \"%s\", translation \"%s\"", qPrintable(locale), qPrintable(ts));
 
-    ts = (ts.isEmpty() ? locale : (ts + ".qm"));
+    ts = ts.isEmpty() ? locale : (ts + ".qm");
 
     QTranslator translator;
     qDebug("Loading THT translation: %s", translator.load("tht_" + ts, dir) ? "ok" : "failed");
