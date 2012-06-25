@@ -160,39 +160,62 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
         <translation>Настройки</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="22"/>
+        <location filename="../options.ui" line="37"/>
+        <source>&lt;System&gt;</source>
+        <translation>&lt;Системный&gt;</translation>
+    </message>
+    <message>
+        <location filename="../options.ui" line="48"/>
         <source>Number of lists:</source>
         <translation>Количество списков:</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="61"/>
+        <location filename="../options.ui" line="55"/>
+        <source>Language:</source>
+        <translation>Язык:</translation>
+    </message>
+    <message>
+        <location filename="../options.ui" line="27"/>
         <source>Save position and size</source>
         <translation>Сохранять расположение и размер</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="68"/>
+        <location filename="../options.ui" line="77"/>
         <source>Automatically save tickers</source>
         <translation>Сохранять тикеры автоматически</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="82"/>
+        <location filename="../options.ui" line="121"/>
         <source>Fast ticker entry</source>
         <translation>Быстрый ввод тикера</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="47"/>
+        <location filename="../options.ui" line="20"/>
         <source>Always on top</source>
         <translation>Поверх всех окон</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="54"/>
+        <location filename="../options.ui" line="94"/>
         <source>Hide to tray</source>
         <translation>Прятаться в трей</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="75"/>
+        <location filename="../options.ui" line="101"/>
         <source>Allow duplicates in a ticker list</source>
         <translation>Разрешить дубликаты в списке тикеров</translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <location filename="../settings.cpp" line="383"/>
+        <source>Russian</source>
+        <translation>Русский</translation>
+    </message>
+    <message>
+        <location filename="../settings.cpp" line="384"/>
+        <source>Ukrainian</source>
+        <translation>Украинский</translation>
     </message>
 </context>
 <context>
@@ -355,28 +378,28 @@ the right or middle mouse buttons.</source>
         <translation>Восстановить</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="232"/>
+        <location filename="../tht.cpp" line="234"/>
         <source>Notice</source>
         <translation>Заметка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="232"/>
+        <location filename="../tht.cpp" line="234"/>
         <source>THT will continue to run in a system tray</source>
         <translation>THT продолжит работу в системном лотке</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1027"/>
-        <location filename="../tht.cpp" line="1055"/>
+        <location filename="../tht.cpp" line="1026"/>
+        <location filename="../tht.cpp" line="1054"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1027"/>
+        <location filename="../tht.cpp" line="1026"/>
         <source>Cannot take screenshot</source>
         <translation>Невозможно создать снимок экрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1055"/>
+        <location filename="../tht.cpp" line="1054"/>
         <source>Cannot save screenshot</source>
         <translation>Невозможно сохранить снимок экрана</translation>
     </message>
@@ -410,29 +433,14 @@ the right or middle mouse buttons.</source>
         <translation>Индустрии</translation>
     </message>
     <message>
-        <location filename="../tickerneighbors.ui" line="71"/>
-        <source>NYSE</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../tickerneighbors.ui" line="78"/>
-        <source>NASD</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../tickerneighbors.ui" line="85"/>
-        <source>AMEX</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../tickerneighbors.ui" line="114"/>
+        <location filename="../tickerneighbors.ui" line="96"/>
         <source>By capitalization</source>
         <translation>По капитализации</translation>
     </message>
     <message>
-        <location filename="../tickerneighbors.cpp" line="173"/>
-        <location filename="../tickerneighbors.cpp" line="282"/>
-        <location filename="../tickerneighbors.cpp" line="318"/>
+        <location filename="../tickerneighbors.cpp" line="183"/>
+        <location filename="../tickerneighbors.cpp" line="289"/>
+        <location filename="../tickerneighbors.cpp" line="325"/>
         <source>Copy (%1)</source>
         <translation>Копировать (%1)</translation>
     </message>

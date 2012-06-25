@@ -17,6 +17,7 @@
 
 #include <QCoreApplication>
 #include <QDesktopServices>
+#include <QObject>
 #include <QFile>
 #include <QDir>
 
@@ -146,6 +147,16 @@ void Settings::setCheckBoxState(const QString &checkbox, bool checked, SyncType 
 int Settings::checkBoxState(const QString &checkbox)
 {
     return load<int>("checkbox-" + checkbox, -1);
+}
+
+void Settings::setTranslation(QString t, SyncType sync)
+{
+    save<QString>("translation", t, sync);
+}
+
+QString Settings::translation()
+{
+    return load<QString>("translation");
 }
 
 void Settings::setLastTickerInput(QString t, SyncType sync)
@@ -365,4 +376,10 @@ QDateTime Settings::readTimestamp(const QString &fileName) const
         return QDateTime::fromString(file.readAll().trimmed(), m_databaseTimestampFormat);
 
     return QDateTime();
+}
+
+void Settings::fillTranslations()
+{
+    m_translations.insert("ru", QObject::tr("Russian"));
+    m_translations.insert("uk", QObject::tr("Ukrainian"));
 }
