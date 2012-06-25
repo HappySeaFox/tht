@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>330</width>
+    <width>312</width>
     <height>239</height>
    </rect>
   </property>
@@ -14,22 +14,25 @@
    <string>Options</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
-   <item row="1" column="0">
-    <widget class="QCheckBox" name="checkOnTop">
-     <property name="text">
-      <string>Always on top</string>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="0">
-    <widget class="QCheckBox" name="checkSave">
-     <property name="text">
-      <string>Save position and size</string>
-     </property>
-    </widget>
-   </item>
    <item row="0" column="0" colspan="2">
     <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Lists:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QComboBox" name="comboNumberOfLists"/>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>Language:</string>
+       </property>
+      </widget>
+     </item>
      <item row="1" column="1">
       <widget class="QComboBox" name="comboLang">
        <item>
@@ -39,31 +42,14 @@
        </item>
       </widget>
      </item>
-     <item row="0" column="1">
-      <widget class="QComboBox" name="comboNumberOfLists"/>
-     </item>
-     <item row="0" column="0">
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>Number of lists:</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="label_2">
-       <property name="text">
-        <string>Language:</string>
-       </property>
-      </widget>
-     </item>
      <item row="0" column="2" rowspan="2">
-      <spacer name="horizontalSpacer">
+      <spacer name="horizontalSpacer_2">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>0</width>
+         <width>13</width>
          <height>20</height>
         </size>
        </property>
@@ -71,20 +57,10 @@
      </item>
     </layout>
    </item>
-   <item row="4" column="0" colspan="2">
-    <widget class="QCheckBox" name="checkSaveTickers">
+   <item row="1" column="0">
+    <widget class="QCheckBox" name="checkOnTop">
      <property name="text">
-      <string>Automatically save tickers</string>
-     </property>
-    </widget>
-   </item>
-   <item row="8" column="0" colspan="2">
-    <widget class="QDialogButtonBox" name="buttonBox">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="standardButtons">
-      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+      <string>Always on top</string>
      </property>
     </widget>
    </item>
@@ -95,10 +71,31 @@
      </property>
     </widget>
    </item>
-   <item row="5" column="0" colspan="2">
+   <item row="3" column="0">
+    <widget class="QCheckBox" name="checkSave">
+     <property name="text">
+      <string>Save position and size</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0">
+    <widget class="QCheckBox" name="checkSaveTickers">
+     <property name="text">
+      <string>Automatically save tickers</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="0">
     <widget class="QCheckBox" name="checkAllowDups">
      <property name="text">
       <string>Allow duplicates in a ticker list</string>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="0">
+    <widget class="QCheckBox" name="checkMini">
+     <property name="text">
+      <string>Fast ticker entry</string>
      </property>
     </widget>
    </item>
@@ -115,10 +112,13 @@
      </property>
     </spacer>
    </item>
-   <item row="6" column="0">
-    <widget class="QCheckBox" name="checkMini">
-     <property name="text">
-      <string>Fast ticker entry</string>
+   <item row="8" column="0" colspan="2">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
      </property>
     </widget>
    </item>

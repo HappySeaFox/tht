@@ -160,47 +160,47 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
         <translation>Настройки</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="37"/>
+        <location filename="../options.ui" line="40"/>
         <source>&lt;System&gt;</source>
         <translation>&lt;Системный&gt;</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="48"/>
-        <source>Number of lists:</source>
-        <translation>Количество списков:</translation>
-    </message>
-    <message>
-        <location filename="../options.ui" line="55"/>
+        <location filename="../options.ui" line="32"/>
         <source>Language:</source>
         <translation>Язык:</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="27"/>
+        <location filename="../options.ui" line="77"/>
         <source>Save position and size</source>
         <translation>Сохранять расположение и размер</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="77"/>
+        <location filename="../options.ui" line="84"/>
         <source>Automatically save tickers</source>
         <translation>Сохранять тикеры автоматически</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="121"/>
+        <location filename="../options.ui" line="98"/>
         <source>Fast ticker entry</source>
         <translation>Быстрый ввод тикера</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="20"/>
+        <location filename="../options.ui" line="63"/>
         <source>Always on top</source>
         <translation>Поверх всех окон</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="94"/>
+        <location filename="../options.ui" line="22"/>
+        <source>Lists:</source>
+        <translation>Списков:</translation>
+    </message>
+    <message>
+        <location filename="../options.ui" line="70"/>
         <source>Hide to tray</source>
         <translation>Прятаться в трей</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="101"/>
+        <location filename="../options.ui" line="91"/>
         <source>Allow duplicates in a ticker list</source>
         <translation>Разрешить дубликаты в списке тикеров</translation>
     </message>
