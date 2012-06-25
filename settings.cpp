@@ -382,4 +382,5 @@ void Settings::fillTranslations()
 {
     m_translations.insert("ru", QObject::tr("Russian"));
     m_translations.insert("uk", QObject::tr("Ukrainian"));
+    m_translations.insert("en_US", QObject::tr("English"));
 }

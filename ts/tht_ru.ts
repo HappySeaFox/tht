@@ -217,6 +217,11 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
         <source>Ukrainian</source>
         <translation>Украинский</translation>
     </message>
+    <message>
+        <location filename="../settings.cpp" line="385"/>
+        <source>English</source>
+        <translation>Английский</translation>
+    </message>
 </context>
 <context>
     <name>RegionSelect</name>
