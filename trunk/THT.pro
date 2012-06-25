@@ -117,7 +117,7 @@ OTHER_FILES += \
     LICENSE.txt \
     THT-version.tag
 
-TRANSLATIONS += ts/tht_ru.ts ts/tht_uk.ts
+TRANSLATIONS += ts/tht_ru.ts ts/tht_uk.ts ts/tht_en_US.ts
 
 # search an executable in PATH
 defineReplace(findexe) {
@@ -186,7 +186,7 @@ IMAGEPLUGINS=qgif4.dll qico4.dll qjpeg4.dll qtga4.dll qtiff4.dll
 SQLPLUGINS=qsqlite4.dll
 QTLIBS=QtCore4.dll QtGui4.dll QtNetwork4.dll QtSql4.dll
 MINGWLIBS=libgcc_s_dw2-1.dll libstdc++-6.dll mingwm10.dll
-QMFILES=tht_ru.qm tht_uk.qm
+QMFILES=tht_ru.qm tht_uk.qm tht_en_US.qm
 QTQMFILES=qt_ru.qm qt_uk.qm
 LICENSES=LICENSE.txt LICENSE-LGPL.txt
 
