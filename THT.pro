@@ -303,6 +303,10 @@ exists($$INNO) {
     iss.commands += $$mle(echo UninstallDisplayIcon={app}\\$${TARGET}.exe >> $$ISS)
     iss.commands += $$mle(echo MinVersion="0,5.1" >> $$ISS)
 
+    !isEmpty(SIGNTOOL):exists($$CERT) {
+        iss.commands += $$mle(echo SignTool=bps sign /d \$\$qTrader\'s Home Task\$\$q /du \$\$qhttps://code.google.com/p/traders-home-task-ng\$\$q /f \$\$q$$CERT\$\$q /t \$\$qhttp://timestamp.verisign.com/scripts/timestamp.dll\$\$q /v \$\$q\$\$f\$\$q >> $$ISS)
+    }
+
     iss.commands += $$mle(echo [Languages] >> $$ISS)
     iss.commands += $$mle(echo Name: \"english\"; MessagesFile: \"compiler:Default.isl\" >> $$ISS)
 
@@ -369,13 +373,13 @@ exists($$INNO) {
     QMAKE_EXTRA_TARGETS += iss
     QMAKE_EXTRA_TARGETS *= distbin
 
-    distbin.depends += iss
-    distbin.commands += $$mle(\"$$INNO\" /o. \"$$ISS\")
-    distbin.commands += $$mle(del /F /Q \"$$ISS\")
-
     !isEmpty(SIGNTOOL):exists($$CERT) {
-        distbin.commands += $$mle($$SIGNTOOL sign /d \"Trader\'s Home Task\" /du \"https://code.google.com/p/traders-home-task-ng\" /f \"$$CERT\" /t \"http://timestamp.verisign.com/scripts/timestamp.dll\" /v \"tht-setup-$${VERSION}.exe\")
+        ADD="\"/sbps=$$SIGNTOOL \$\$p\""
     }
+
+    distbin.depends += iss
+    distbin.commands += $$mle(\"$$INNO\" /o. $$ADD \"$$ISS\")
+    distbin.commands += $$mle(del /F /Q \"$$ISS\")
 } else {
     warning("Inno Setup is not found, will not create a setup file in a custom dist target")
 }
