@@ -21,9 +21,11 @@
 #include <QStringList>
 #include <QDateTime>
 #include <QSettings>
+#include <QString>
 #include <QRegExp>
 #include <QPoint>
 #include <QSize>
+#include <QMap>
 
 #include <windows.h>
 
@@ -37,6 +39,8 @@ public:
     enum SyncType { NoSync, Sync };
 
     void sync();
+
+    QMap<QString, QString> translations();
 
     OSVERSIONINFO version() const;
 
@@ -59,6 +63,9 @@ public:
     bool preloadMode() const;
 
     QRegExp tickerValidator() const;
+
+    void setTranslation(QString, SyncType sync = Sync);
+    QString translation();
 
     void setLastTickerInput(QString, SyncType sync = Sync);
     QString lastTickerInput();
@@ -119,6 +126,8 @@ private:
 
     QDateTime readTimestamp(const QString &fileName) const;
 
+    void fillTranslations();
+
 private:
     QSettings *m_settings;
     QRegExp m_rxTicker;
@@ -130,6 +139,7 @@ private:
     QDateTime m_persistentDatabaseTimestamp;
     QDateTime m_mutableDatabaseTimestamp;
     QString m_databaseTimestampFormat;
+    QMap<QString, QString> m_translations;
 };
 
 inline
@@ -200,6 +210,15 @@ inline
 int Settings::maximumNumberOfLists() const
 {
     return 7;
+}
+
+inline
+QMap<QString, QString> Settings::translations()
+{
+    if(m_translations.isEmpty())
+        fillTranslations();
+
+    return m_translations;
 }
 
 #endif // SETTINGS_H

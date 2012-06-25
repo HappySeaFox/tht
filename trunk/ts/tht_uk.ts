@@ -160,39 +160,62 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
         <translation>Параметри</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="22"/>
+        <location filename="../options.ui" line="37"/>
+        <source>&lt;System&gt;</source>
+        <translation>&lt;Системи&gt;</translation>
+    </message>
+    <message>
+        <location filename="../options.ui" line="48"/>
         <source>Number of lists:</source>
         <translation>Кількість списків:</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="61"/>
+        <location filename="../options.ui" line="55"/>
+        <source>Language:</source>
+        <translation>Мова:</translation>
+    </message>
+    <message>
+        <location filename="../options.ui" line="27"/>
         <source>Save position and size</source>
         <translation>Зберегти позицію та розмір</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="68"/>
+        <location filename="../options.ui" line="77"/>
         <source>Automatically save tickers</source>
         <translation>Зберігати тікери автоматично</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="82"/>
+        <location filename="../options.ui" line="121"/>
         <source>Fast ticker entry</source>
         <translation>Швидке введення тікера</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="47"/>
+        <location filename="../options.ui" line="20"/>
         <source>Always on top</source>
         <translation>Поверх всіх вікон</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="54"/>
+        <location filename="../options.ui" line="94"/>
         <source>Hide to tray</source>
         <translation>Ховатися в трей</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="75"/>
+        <location filename="../options.ui" line="101"/>
         <source>Allow duplicates in a ticker list</source>
         <translation>Дозволити дублікати в списку токарів</translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <location filename="../settings.cpp" line="383"/>
+        <source>Russian</source>
+        <translation>Російська</translation>
+    </message>
+    <message>
+        <location filename="../settings.cpp" line="384"/>
+        <source>Ukrainian</source>
+        <translation>Українська</translation>
     </message>
 </context>
 <context>
@@ -355,28 +378,28 @@ the right or middle mouse buttons.</source>
         <translation>Відновити</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="232"/>
+        <location filename="../tht.cpp" line="234"/>
         <source>Notice</source>
         <translation>Замітка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="232"/>
+        <location filename="../tht.cpp" line="234"/>
         <source>THT will continue to run in a system tray</source>
         <translation>ТНТ продовжить роботу в системному лотку</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1027"/>
-        <location filename="../tht.cpp" line="1055"/>
+        <location filename="../tht.cpp" line="1026"/>
+        <location filename="../tht.cpp" line="1054"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1027"/>
+        <location filename="../tht.cpp" line="1026"/>
         <source>Cannot take screenshot</source>
         <translation>Неможливо створити знімок екрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1055"/>
+        <location filename="../tht.cpp" line="1054"/>
         <source>Cannot save screenshot</source>
         <translation>Неможливо зберегти знімок екрана</translation>
     </message>
@@ -410,29 +433,14 @@ the right or middle mouse buttons.</source>
         <translation>Індустрії</translation>
     </message>
     <message>
-        <location filename="../tickerneighbors.ui" line="71"/>
-        <source>NYSE</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../tickerneighbors.ui" line="78"/>
-        <source>NASD</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../tickerneighbors.ui" line="85"/>
-        <source>AMEX</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../tickerneighbors.ui" line="114"/>
+        <location filename="../tickerneighbors.ui" line="96"/>
         <source>By capitalization</source>
         <translation>По капіталізації</translation>
     </message>
     <message>
-        <location filename="../tickerneighbors.cpp" line="173"/>
-        <location filename="../tickerneighbors.cpp" line="282"/>
-        <location filename="../tickerneighbors.cpp" line="318"/>
+        <location filename="../tickerneighbors.cpp" line="183"/>
+        <location filename="../tickerneighbors.cpp" line="289"/>
+        <location filename="../tickerneighbors.cpp" line="325"/>
         <source>Copy (%1)</source>
         <translation>Копіювати (%1)</translation>
     </message>

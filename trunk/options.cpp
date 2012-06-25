@@ -15,6 +15,13 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <QCoreApplication>
+#include <QStringList>
+#include <QRegExp>
+#include <QString>
+#include <QMap>
+#include <QDir>
+
 #include "settings.h"
 #include "options.h"
 
@@ -56,6 +63,33 @@ void Options::load()
     ui->checkSaveTickers->setChecked(Settings::instance()->saveTickers());
     ui->checkAllowDups->setChecked(Settings::instance()->allowDuplicates());
     ui->checkMini->setChecked(Settings::instance()->miniTickerEntry());
+
+    const QMap<QString, QString> tsmap = Settings::instance()->translations();
+    QString ts = Settings::instance()->translation(), d;
+    QMap<QString, QString>::const_iterator it;
+
+    QRegExp rx("tht_(.*)\\.qm");
+
+    QStringList qms = QDir(QCoreApplication::applicationDirPath() + QDir::separator() + "translations")
+                        .entryList(QStringList() << "*.qm", QDir::Files | QDir::Readable, QDir::Name);
+
+    foreach(QString qm, qms)
+    {
+        if(!rx.exactMatch(qm))
+            continue;
+
+        d = rx.cap(1);
+
+        it = tsmap.find(d);
+
+        if(it == tsmap.end())
+            continue;
+
+        ui->comboLang->addItem(it.value(), d);
+
+        if(d == ts)
+            ui->comboLang->setCurrentIndex(ui->comboLang->count()-1);
+    }
 }
 
 void Options::save()
@@ -66,5 +100,6 @@ void Options::save()
     Settings::instance()->setSaveGeometry(ui->checkSave->isChecked(), Settings::NoSync);
     Settings::instance()->setSaveTickers(ui->checkSaveTickers->isChecked(), Settings::NoSync);
     Settings::instance()->setAllowDuplicates(ui->checkAllowDups->isChecked(), Settings::NoSync);
+    Settings::instance()->setTranslation(ui->comboLang->itemData(ui->comboLang->currentIndex()).toString(), Settings::NoSync);
     Settings::instance()->setMiniTickerEntry(ui->checkMini->isChecked()); // also sync
 }

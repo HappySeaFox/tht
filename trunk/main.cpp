@@ -151,26 +151,28 @@ int main(int argc, char *argv[])
     if(app.sendMessage("wake up"))
         return 0;
 
-    QString locale = QLocale::system().name();
-
-    qDebug("Locale is \"%s\"", qPrintable(locale));
-
-    QString dir = QCoreApplication::applicationDirPath() + QDir::separator() + "translations";
-
-    // load translation
-    QTranslator translator;
-    qDebug("Loading THT translation: %s", translator.load("tht_" + locale, dir) ? "ok" : "failed");
-
-    QTranslator translator_qt;
-    qDebug("Loading Qt translation: %s", translator_qt.load("qt_" + locale, dir) ? "ok" : "failed");
-
-    app.installTranslator(&translator_qt);
-    app.installTranslator(&translator);
-
     // initialize ticker databases
     copyDb();
     initializeDb();
 
+    // load translations
+    QString locale = QLocale::system().name();
+
+    QString ts = Settings::instance()->translation();
+    QString dir = QCoreApplication::applicationDirPath() + QDir::separator() + "translations";
+
+    qDebug("Locale \"%s\", translation \"%s\"", qPrintable(locale), qPrintable(ts));
+
+    QTranslator translator;
+    qDebug("Loading THT translation: %s", translator.load("tht_" + (ts.isEmpty() ? locale : (ts + ".qm")), dir) ? "ok" : "failed");
+
+    QTranslator translator_qt;
+    qDebug("Loading Qt translation: %s", translator_qt.load("qt_" + (ts.isEmpty() ? locale : (ts + ".qm")), dir) ? "ok" : "failed");
+
+    app.installTranslator(&translator_qt);
+    app.installTranslator(&translator);
+
+    // main window
     THT w;
     w.show();
 
