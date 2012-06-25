@@ -35,11 +35,15 @@
 
 #include "ui_tickerneighbors.h"
 
+QPoint TickerNeighbors::s_pos;
+
 TickerNeighbors::TickerNeighbors(const QString &ticker, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::TickerNeighbors)
 {
     ui->setupUi(this);
+
+    setAttribute(Qt::WA_DeleteOnClose);
 
     // Ctrl+C to copy
     m_copy = QKeySequence::Copy;
@@ -104,11 +108,15 @@ TickerNeighbors::TickerNeighbors(const QString &ticker, QWidget *parent) :
     connect(ui->listTickers->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
             this, SLOT(slotSelectionChanged()));
 
+    m_pos = TickerNeighbors::s_pos;
+
     showTicker(ticker);
 }
 
 TickerNeighbors::~TickerNeighbors()
 {
+    TickerNeighbors::s_pos = pos();
+
     delete ui;
 }
 
@@ -124,8 +132,6 @@ void TickerNeighbors::setVisible(bool vis)
     if(!vis)
         m_pos = pos();
 
-    QDialog::setVisible(vis);
-
     if(vis && !m_pos.isNull())
     {
         QRect dr = qApp->desktop()->availableGeometry();
@@ -135,6 +141,8 @@ void TickerNeighbors::setVisible(bool vis)
         if(dr.contains(headGeometry.topLeft()) || dr.contains(headGeometry.bottomRight()))
             move(m_pos);
     }
+
+    QDialog::setVisible(vis);
 }
 
 bool TickerNeighbors::eventFilter(QObject *obj, QEvent *event)

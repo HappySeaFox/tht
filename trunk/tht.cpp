@@ -336,7 +336,7 @@ void THT::sendString(const QString &ticker, LinkType type)
 
 void THT::rebuildUi()
 {
-    const bool doResize = m_lists.size();
+    bool doResize = true;
 
     // check the number of lists
     int nlists = Settings::instance()->numberOfLists();
@@ -381,6 +381,8 @@ void THT::rebuildUi()
             m_lists.removeLast();
         }
     }
+    else
+        doResize = false;
 
     bool saveTickers = Settings::instance()->saveTickers();
 
@@ -1215,14 +1217,7 @@ void THT::slotOpenOrCloseSearchTicker()
 void THT::slotShowNeighbors(const QString &ticker)
 {
     if(m_sectors)
-    {
-        m_sectors->show();
-        m_sectors->raise();
-        m_sectors->activateWindow();
-        m_sectors->showTicker(ticker);
-
         return;
-    }
 
     m_sectors = new TickerNeighbors(ticker, this);
 
