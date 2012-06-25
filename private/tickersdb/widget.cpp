@@ -286,8 +286,6 @@ void Widget::slotFinished()
         exchange.clear();
         eventLoop.exec();
 
-        qApp->processEvents();
-
         if(m_net->error() != QNetworkReply::NoError)
         {
             message(QString("Network error #%1").arg(m_net->error()));
@@ -311,6 +309,8 @@ void Widget::slotFinished()
             m_running = false;
             return;
         }
+
+        qApp->processEvents();
     }
 
     QSqlDatabase::database().commit();
