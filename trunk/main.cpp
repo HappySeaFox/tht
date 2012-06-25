@@ -163,11 +163,13 @@ int main(int argc, char *argv[])
 
     qDebug("Locale \"%s\", translation \"%s\"", qPrintable(locale), qPrintable(ts));
 
+    ts = (ts.isEmpty() ? locale : (ts + ".qm"));
+
     QTranslator translator;
-    qDebug("Loading THT translation: %s", translator.load("tht_" + (ts.isEmpty() ? locale : (ts + ".qm")), dir) ? "ok" : "failed");
+    qDebug("Loading THT translation: %s", translator.load("tht_" + ts, dir) ? "ok" : "failed");
 
     QTranslator translator_qt;
-    qDebug("Loading Qt translation: %s", translator_qt.load("qt_" + (ts.isEmpty() ? locale : (ts + ".qm")), dir) ? "ok" : "failed");
+    qDebug("Loading Qt translation: %s", translator_qt.load("qt_" + ts, dir) ? "ok" : "failed");
 
     app.installTranslator(&translator_qt);
     app.installTranslator(&translator);

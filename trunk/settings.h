@@ -209,7 +209,7 @@ QRegExp Settings::tickerValidator() const
 inline
 int Settings::maximumNumberOfLists() const
 {
-    return 7;
+    return 8;
 }
 
 inline
