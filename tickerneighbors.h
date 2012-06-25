@@ -68,6 +68,7 @@ private:
     QPoint m_pos;
     QKeySequence::StandardKey m_copy;
     QList<QCheckBox *> m_exchanges;
+    static QPoint s_pos;
 };
 
 #endif // TICKERNEIGHBORS_H

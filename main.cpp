@@ -159,7 +159,7 @@ int main(int argc, char *argv[])
 
     // load translation
     QTranslator translator;
-    qDebug("Loading THT translation: %s", translator.load(locale, dir) ? "ok" : "failed");
+    qDebug("Loading THT translation: %s", translator.load("tht_" + locale, dir) ? "ok" : "failed");
 
     QTranslator translator_qt;
     qDebug("Loading Qt translation: %s", translator_qt.load("qt_" + locale, dir) ? "ok" : "failed");
