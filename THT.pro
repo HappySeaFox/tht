@@ -202,11 +202,6 @@ for(qm, QMFILES) {
 QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite\" \"$${OUT_PWD}/$(DESTDIR_TARGET)/..\")
 QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite.timestamp\" \"$${OUT_PWD}/$(DESTDIR_TARGET)/..\")
 
-# sign
-!isEmpty(SIGNTOOL):exists($$CERT) {
-    QMAKE_POST_LINK += $$mle($$SIGNTOOL sign /d \"Trader\'s Home Task\" /du \"https://code.google.com/p/traders-home-task-ng\" /f \"$$CERT\" /t \"http://timestamp.verisign.com/scripts/timestamp.dll\" /v \"$${OUT_PWD}/$(DESTDIR_TARGET)\")
-}
-
 !isEmpty(ZIP) {
     message("7Z is found, will create custom dist targets")
 
@@ -228,6 +223,11 @@ QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite
     distbin.commands += $$mle(mkdir \"$$T/sqldrivers\")
     distbin.commands += $$mle(mkdir \"$$T/translations\")
     distbin.commands += $$mle(copy /y \"$${OUT_PWD}/$(DESTDIR_TARGET)\" \"$$T\")
+
+    # sign
+    !isEmpty(SIGNTOOL):exists($$CERT) {
+        distbin.commands += $$mle($$SIGNTOOL sign /d \"Trader\'s Home Task\" /du \"https://code.google.com/p/traders-home-task-ng\" /f \"$$CERT\" /t \"http://timestamp.verisign.com/scripts/timestamp.dll\" /v \"$$T/$${TARGET}.exe\")
+    }
 
     for(ql, QTLIBS) {
         distbin.commands += $$mle(copy /y \"$$[QT_INSTALL_BINS]\\$$ql\" \"$$T\")
