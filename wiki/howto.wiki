@@ -4,13 +4,21 @@
 
 <wiki:toc max_depth="2" />
 
+== Tutorial on YouTube ==
+
+<wiki:video url="https://www.youtube.com/watch?v=RbC0iCtW-X8" width="240" height="170"/>
+
+== How does THT link windows? ==
+
+THT emulates a keyboard input. Please don't assign latin letters to be hotkeys in Graybox and other software you want to link to. If you assign some letter in Graybox (or other software you want to link to), say "B", to open a new position, and try to link "BWA" ticker, Graybox will open a new position, and will try to load "WA" ticker.
+
 == How to link several Advanced Get windows together? ==
 
 Drag a black target with a left mouse button and drop onto a required AG window. If everything is ok, you will hear a confirmation sound. For example, you can link together 5min, daily and weekly charts.
 
 <a href="http://i1148.photobucket.com/albums/o561/Dmitry_RK/link.png" target="_blank"><img src="http://i1148.photobucket.com/albums/o561/Dmitry_RK/th_link.png" border="0"></img></a>
 
-<wiki:video url="https://www.youtube.com/watch?v=sDrnz8cZIDA" width="240" height="170"/>
+Also see Tutorial.
 
 Notes:
 
@@ -24,26 +32,19 @@ Drag a black target with a left mouse button and drop onto a required Graybox MM
 
 <a href="http://i1148.photobucket.com/albums/o561/Dmitry_RK/link-gb.png" target="_blank"><img src="http://i1148.photobucket.com/albums/o561/Dmitry_RK/th_link-gb.png" border="0"></img></a>
 
-<wiki:video url="https://www.youtube.com/watch?v=A5i9MD-6Sec" width="240" height="170"/>
+Also see Tutorial.
 
 == How to link Twinkorswim window? ==
 
 Drag a black target with a left mouse button and drop onto a required TOS window. If everything is ok, you will hear a confirmation sound.
 
-<wiki:video url="https://www.youtube.com/watch?v=h6dtiE5H5S0" width="240" height="170"/>
+Also see Tutorial.
 
 == How to link MBT Desktop or MBT Desktop Pro window? ==
 
 Drag a black target with a left mouse button and drop onto a required MVT chart window. If everything is ok, you will hear a confirmation sound.
 
-<wiki:video url="https://www.youtube.com/watch?v=NsbnI2sFP2s" width="240" height="170"/>
-<wiki:video url="https://www.youtube.com/watch?v=JhHp4zN-puA" width="240" height="170"/>
-
-== How to load my home task into several windows? ==
-
-Drag and drop tickers as it shown in the video.
-
-<wiki:video url="https://www.youtube.com/watch?v=O_-7Jdy7pCw" width="240" height="170"/>
+Also see Tutorial.
 
 == What about the input language? ==
 
@@ -83,9 +84,7 @@ Increase or decrease priorities for tickers with hotkeys. This will help you to 
 
 == How to load predefined tickers? ==
 
-Activate a window shortcut or select a ticker from the context menu as it show on the video.
-
-<wiki:video url="https://www.youtube.com/watch?v=JzzDHJIS72o" width="240" height="170"/>
+Activate a window shortcut or select a ticker from the context menu.
 
 == How to show NYSE-only trades? ==
 
@@ -111,6 +110,10 @@ Yes, please right click on a THT window and select "Options...".
 
 *Automatically save tickers* - when you add, delete or move tickers THT will save the ticker lists automatically. Otherwise you need to save them manually. When the ticker list is not saved, you will see a red line on top of it. Click "Save tickers" to save the list in this case.
 
+*Allow duplicates in a ticker list* - if checked, THT will allow to add the same ticker multiple times
+
+*Fast ticker entry* - show a small ticker entry window below the ticker list
+
 http://i1148.photobucket.com/albums/o561/Dmitry_RK/unsaved.png
 
 == Keyboard shortcuts? ==
@@ -130,33 +133,45 @@ Yes, THT supports some keyboard shortcuts.
  * *End* - load the last ticket
  * *Enter* - reload the current ticket
  * *Delete* - delete the current ticket
- * *Ctrl+N*, *N* - clear list
+ * *Ctrl+N* - clear the list
+ * *Ctrl+Z* - undo clearing the list
  * *O*, *Insert* - add one ticker
  * *Ctrl+O*, *A* - add tickers from a file (or from multiple files simultaneously)
  * *Ctrl+V*, *P* - paste tickers from a clipboard
  * *Space* - show the company name
- * *1,2,3,4,5* - copy the current ticker to the 1st, 2nd, 3rd, 4th or 5th list respectively
+ * *1,2,3,4,5,6,7,8* - copy the current ticker to the 1st, 2nd, 3rd, 4th, 5th, 6th, 7th or 8th list respectively
  * *Plus*, *Equal* - increase priority
  * *Minus* - decrease priority
+ * *Alt+1* - set normal priority
+ * *Alt+2* - set medium priority
+ * *Alt+3* - set high priority
+ * *Alt+4* - set the highest priority
  * *U* - reset priority to the default value
  * *R* - sort list
  * *E* - export tickers to a file
  * *C* - export tickers to a clipboard
- * *U* - reset ticker's priority
+ * *K* - show or search industry & sector information
  * *Alt+U* - reset tickers' priorities
- * *Ctrl+L* - lock the links (THT won't load any ticker)
  * *Y* - open the current ticker in Yahoo Finance
 
 === Window shortcuts: ===
 
  * *Q* - load "$COMPQ"
- * *H* - load "$HUI"
  * *I* - load "$INDU"
  * *S* - load "$SPX"
  * *T* - load "$TVOL"
  * *V* - load "$VIX"
- * *X* - load "$XOI"
  * *F* - load "SPY"
+ * *L* - load a special ticker
+ * *Alt+N* - clear the ticker lists
+ * *Ctrl+L* - lock the links (THT won't load any ticker)
+ * *Ctrl+F* - search the ticker in the current list
+
+=== Mini ticker entry shortcuts: ===
+
+ * *Space* - add ticker to the current list
+ * *Enter* - load the ticker
+ * *Escape* - clear
 
 === Global shortcuts: ===
 

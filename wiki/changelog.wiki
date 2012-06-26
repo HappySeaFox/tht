@@ -1,10 +1,29 @@
+== 1.0.0 ==
+ * hotkeys: {{{N}}} has been removed, use Ctrl+N instead
+ * hotkeys: {{{X}}} and {{{H}}} have been removed
+ * hotkeys: {{{L}}} to load a special ticker
+ * hotkeys: {{{K}}} to show or search industry & sector information
+ * hotkeys: {{{Alt+N}}} to clear the ticker lists
+ * hotkeys: {{{Alt+1}}} to set normal priority, {{{Alt+2}}} - medium, {{{Alt+3}}} - high, {{{Alt+4}}} - the highest
+ * hotkeys: {{{Ctrl+F}}} to search the ticker in the current list
+ * hotkeys: if you clear the list by mistake, you can undo with {{{Ctrl+Z}}}
+ * added a setting for duplicate tickers, visit Options
+ * added a new priority level
+ * allow to copy tickers from the first list to last and from the last to first
+ * fixed exporting to file
+ * new way to show the number of tickers
+ * added mini ticker entry (see [howto howto])
+ * added sector & industry information (press Space)
+ * added ability to select a language
+ * the maximum number of ticker lists is 8
+
 == 0.8.3 ==
  * added support of MBT Desktop and MBT Desktop Pro (see [howto howto])
 
  == 0.8.2 ==
  * fix for Twinkorswim@paperMoney
 
- == 0.8.1 ==
+== 0.8.1 ==
  * hotkeys: {{{Alt+U}}} to reset priorities
  * hotkeys: {{{Ctrl+L}}} to lock the links
 
