@@ -306,6 +306,9 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                 case Qt::Key_3:
                 case Qt::Key_4:
                 case Qt::Key_5:
+                case Qt::Key_6:
+                case Qt::Key_7:
+                case Qt::Key_8:
                     emit copyTo(currentTicker(), currentPriority(), ke->key() - Qt::Key_1);
                 break;
 
