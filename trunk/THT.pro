@@ -165,10 +165,12 @@ SVNROOT=$$system(svn info \"$${_PRO_FILE_PWD_}\" | findstr /B /C:\"Repository Ro
 
 SVNROOT ~= s/^Repository\\s*/
 SVNROOT ~= s/^Root:\\s*/
+SVNROOTORIG=$$SVNROOT
 SVNROOT ~= s/^\\s*[hH][tT][tT][pP][sS]:/http:/
 
 isEmpty(SVNROOT) {
     warning("Cannot determine the repository root, falling back to hardcoded")
+    SVNROOTORIG="https://traders-home-task-ng.googlecode.com/svn"
     SVNROOT="http://traders-home-task-ng.googlecode.com/svn"
 }
 
@@ -178,7 +180,7 @@ DEFINES += SVNROOT=$$sprintf("\"\\\"%1\\\"\"", $$SVNROOT)
 
 tag.commands += $$mle(echo "$$VERSION"> "\"$${_PRO_FILE_PWD_}/THT-version.tag\"")
 tag.commands += $$mle(svn -m "\"$$VERSION file tag\"" commit "\"$${_PRO_FILE_PWD_}/THT-version.tag\"")
-tag.commands += $$mle(svn -m "\"$$VERSION tag\"" copy "\"$$SVNROOT/trunk\"" "\"$$SVNROOT/tags/$$VERSION\"")
+tag.commands += $$mle(svn -m "\"$$VERSION tag\"" copy "\"$$SVNROOTORIG/trunk\"" "\"$$SVNROOTORIG/tags/$$VERSION\"")
 QMAKE_EXTRA_TARGETS += tag
 
 # files to copy to the distribution
