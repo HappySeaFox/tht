@@ -38,7 +38,7 @@ Drag a black target with a left mouse button and drop onto a required TOS window
 
 == How to link MBT Desktop or MBT Desktop Pro window? ==
 
-Drag a black target with a left mouse button and drop onto a required MVT chart window. If everything is ok, you will hear a confirmation sound.
+Drag a black target with a left mouse button and drop onto a required MBT chart window. If everything is ok, you will hear a confirmation sound.
 
 == What about the input language? ==
 
