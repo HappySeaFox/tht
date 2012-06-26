@@ -301,128 +301,128 @@ bool List::eventFilter(QObject *obj, QEvent *event)
             {
                 switch(ke->key())
                 {
-                case Qt::Key_1:
-                case Qt::Key_2:
-                case Qt::Key_3:
-                case Qt::Key_4:
-                case Qt::Key_5:
-                case Qt::Key_6:
-                case Qt::Key_7:
-                case Qt::Key_8:
-                    emit copyTo(currentTicker(), currentPriority(), ke->key() - Qt::Key_1);
-                break;
+                    case Qt::Key_1:
+                    case Qt::Key_2:
+                    case Qt::Key_3:
+                    case Qt::Key_4:
+                    case Qt::Key_5:
+                    case Qt::Key_6:
+                    case Qt::Key_7:
+                    case Qt::Key_8:
+                        emit copyTo(currentTicker(), currentPriority(), ke->key() - Qt::Key_1);
+                    break;
 
-                case Qt::Key_A:
-                    slotAddFromFile();
-                break;
+                    case Qt::Key_A:
+                        slotAddFromFile();
+                    break;
 
-                case Qt::Key_P:
-                    paste();
-                break;
+                    case Qt::Key_P:
+                        paste();
+                    break;
 
-                case Qt::Key_C:
-                    slotExportToClipboard();
-                break;
+                    case Qt::Key_C:
+                        slotExportToClipboard();
+                    break;
 
-                case Qt::Key_E:
-                    slotExportToFile();
-                break;
+                    case Qt::Key_E:
+                        slotExportToFile();
+                    break;
 
-                case Qt::Key_O:
-                case Qt::Key_Insert:
-                    slotAddOne();
-                break;
+                    case Qt::Key_O:
+                    case Qt::Key_Insert:
+                        slotAddOne();
+                    break;
 
-                case Qt::Key_Right:
-                    emit copyRight(currentTicker(), currentPriority());
-                break;
+                    case Qt::Key_Right:
+                        emit copyRight(currentTicker(), currentPriority());
+                    break;
 
-                case Qt::Key_Left:
-                    emit copyLeft(currentTicker(), currentPriority());
-                break;
+                    case Qt::Key_Left:
+                        emit copyLeft(currentTicker(), currentPriority());
+                    break;
 
-                case Qt::Key_Delete:
-                {
-                    QListWidgetItem *i = ui->list->currentItem();
-
-                    if(i)
+                    case Qt::Key_Delete:
                     {
-                        delete i;
-                        numberOfItemsChanged();
-                        save();
-                        loadItem(LoadItemCurrent);
+                        QListWidgetItem *i = ui->list->currentItem();
+
+                        if(i)
+                        {
+                            delete i;
+                            numberOfItemsChanged();
+                            save();
+                            loadItem(LoadItemCurrent);
+                        }
                     }
-                }
-                break;
+                    break;
 
-                case Qt::Key_Return:
-                case Qt::Key_Enter:
-                    loadItem(LoadItemCurrent);
-                break;
+                    case Qt::Key_Return:
+                    case Qt::Key_Enter:
+                        loadItem(LoadItemCurrent);
+                    break;
 
-                case Qt::Key_R:
-                    slotSortList();
-                break;
+                    case Qt::Key_R:
+                        slotSortList();
+                    break;
 
                     // Yahoo finance
-                case Qt::Key_Y:
-                {
-                    QString t = currentTicker();
+                    case Qt::Key_Y:
+                    {
+                        QString t = currentTicker();
 
-                    if(!t.isEmpty())
-                        QDesktopServices::openUrl(QUrl(QString("http://finance.yahoo.com/q?s=%1").arg(t.replace('.', '-'))));
+                        if(!t.isEmpty())
+                            QDesktopServices::openUrl(QUrl(QString("http://finance.yahoo.com/q?s=%1").arg(t.replace('.', '-'))));
 
+                        break;
+                    }
+
+                    case Qt::Key_Up:
+                        loadItem(LoadItemPrevious);
                     break;
-                }
 
-                case Qt::Key_Up:
-                    loadItem(LoadItemPrevious);
-                break;
+                    case Qt::Key_Down:
+                        loadItem(LoadItemNext);
+                    break;
 
-                case Qt::Key_Down:
-                    loadItem(LoadItemNext);
-                break;
+                    case Qt::Key_Home:
+                        loadItem(LoadItemFirst);
+                    break;
 
-                case Qt::Key_Home:
-                    loadItem(LoadItemFirst);
-                break;
+                    case Qt::Key_End:
+                        loadItem(LoadItemLast);
+                    break;
 
-                case Qt::Key_End:
-                    loadItem(LoadItemLast);
-                break;
+                    case Qt::Key_Space:
+                        showTickerInfo();
+                    break;
 
-                case Qt::Key_Space:
-                    showTickerInfo();
-                break;
+                    case Qt::Key_PageUp:
+                        loadItem(LoadItemPageUp);
+                    break;
 
-                case Qt::Key_PageUp:
-                    loadItem(LoadItemPageUp);
-                break;
+                    case Qt::Key_PageDown:
+                        loadItem(LoadItemPageDown);
+                    break;
 
-                case Qt::Key_PageDown:
-                    loadItem(LoadItemPageDown);
-                break;
+                    case Qt::Key_Plus:
+                    case Qt::Key_Equal:
+                        changePriority(+1);
+                    break;
 
-                case Qt::Key_Plus:
-                case Qt::Key_Equal:
-                    changePriority(+1);
-                break;
+                    case Qt::Key_Minus:
+                        changePriority(-1);
+                    break;
 
-                case Qt::Key_Minus:
-                    changePriority(-1);
-                break;
+                    case Qt::Key_U:
+                        slotResetPriority();
+                    break;
 
-                case Qt::Key_U:
-                    slotResetPriority();
-                break;
+                    case Qt::Key_K:
+                        emit showNeighbors(currentTicker());
+                    break;
 
-                case Qt::Key_K:
-                    emit showNeighbors(currentTicker());
-                break;
-
-                // default processing
-                case Qt::Key_Tab:
-                    return QObject::eventFilter(obj, event);
+                    // default processing
+                    case Qt::Key_Tab:
+                        return QObject::eventFilter(obj, event);
                 } // switch
             }
             else if(ke->modifiers() == Qt::ControlModifier)
