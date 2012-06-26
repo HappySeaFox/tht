@@ -4,7 +4,7 @@
 
 <wiki:toc max_depth="2" />
 
-== Руководство на YouTube ==
+== Видео-руководство ==
 
 <wiki:video url="https://www.youtube.com/watch?v=RbC0iCtW-X8" width="240" height="170"/>
 

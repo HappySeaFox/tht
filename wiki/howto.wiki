@@ -4,7 +4,7 @@
 
 <wiki:toc max_depth="2" />
 
-== Tutorial on YouTube ==
+== Video tutorial ==
 
 <wiki:video url="https://www.youtube.com/watch?v=RbC0iCtW-X8" width="240" height="170"/>
 
