@@ -90,7 +90,7 @@ TickerNeighbors::TickerNeighbors(const QString &ticker, QWidget *parent) :
 
         box->setObjectName(e);
 
-        connect(box, SIGNAL(toggled(bool)), this, SLOT(slotFetch()));
+        connect(box, SIGNAL(toggled(bool)), this, SLOT(slotFilterAndFetch()));
         connect(box, SIGNAL(toggled(bool)), this, SLOT(slotCheckboxChanged()));
 
         le->addWidget(box);
@@ -315,6 +315,7 @@ void TickerNeighbors::slotCopy()
 
 void TickerNeighbors::slotFilterAndFetch()
 {
+    // emulate click
     QMetaObject::invokeMethod(m_lastAction, "clicked");
 }
 
