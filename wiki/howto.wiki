@@ -40,8 +40,6 @@ Drag a black target with a left mouse button and drop onto a required TOS window
 
 Drag a black target with a left mouse button and drop onto a required MVT chart window. If everything is ok, you will hear a confirmation sound.
 
-Also see Tutorial.
-
 == What about the input language? ==
 
 The current input language must be English when loading tickers to the linked windows.
