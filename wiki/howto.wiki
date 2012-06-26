@@ -104,11 +104,11 @@ Yes, please right click on a THT window and select "Options...".
 
 *Automatically save tickers* - when you add, delete or move tickers THT will save the ticker lists automatically. Otherwise you need to save them manually. When the ticker list is not saved, you will see a red line on top of it. Click "Save tickers" to save the list in this case.
 
+http://i1148.photobucket.com/albums/o561/Dmitry_RK/unsaved.png
+
 *Allow duplicates in a ticker list* - if checked, THT will allow to add the same ticker multiple times
 
 *Fast ticker entry* - show a small ticker entry window below the ticker list
-
-http://i1148.photobucket.com/albums/o561/Dmitry_RK/unsaved.png
 
 == Keyboard shortcuts? ==
 
