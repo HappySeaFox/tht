@@ -4,10 +4,6 @@
 
 <wiki:toc max_depth="2" />
 
-== Video tutorial ==
-
-<wiki:video url="https://www.youtube.com/watch?v=RbC0iCtW-X8" width="240" height="170"/>
-
 == How does THT link windows? ==
 
 THT emulates a keyboard input. Please don't assign latin letters to be hotkeys in Graybox and other software you want to link to. If you assign some letter in Graybox (or other software you want to link to), say "B", to open a new position, and try to link "BWA" ticker, Graybox will open a new position, and will try to load "WA" ticker.
@@ -18,7 +14,7 @@ Drag a black target with a left mouse button and drop onto a required AG window.
 
 <a href="http://i1148.photobucket.com/albums/o561/Dmitry_RK/link.png" target="_blank"><img src="http://i1148.photobucket.com/albums/o561/Dmitry_RK/th_link.png" border="0"></img></a>
 
-Also see Tutorial.
+<wiki:video url="https://www.youtube.com/watch?v=sDrnz8cZIDA" width="240" height="170"/>
 
 Notes:
 
@@ -32,13 +28,13 @@ Drag a black target with a left mouse button and drop onto a required Graybox MM
 
 <a href="http://i1148.photobucket.com/albums/o561/Dmitry_RK/link-gb.png" target="_blank"><img src="http://i1148.photobucket.com/albums/o561/Dmitry_RK/th_link-gb.png" border="0"></img></a>
 
-Also see Tutorial.
+<wiki:video url="https://www.youtube.com/watch?v=A5i9MD-6Sec" width="240" height="170"/>
 
 == How to link Twinkorswim window? ==
 
 Drag a black target with a left mouse button and drop onto a required TOS window. If everything is ok, you will hear a confirmation sound.
 
-Also see Tutorial.
+<wiki:video url="https://www.youtube.com/watch?v=O_-7Jdy7pCw" width="240" height="170"/>
 
 == How to link MBT Desktop or MBT Desktop Pro window? ==
 
