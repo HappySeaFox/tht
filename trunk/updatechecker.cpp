@@ -94,6 +94,6 @@ void UpdateChecker::slotFinished()
     else
         qDebug("Update checker: version is up-to-date");
 
-    // check every 4 hours
-    QTimer::singleShot(4*3600*1000, this, SLOT(startRequest()));
+    // check every 2 hours
+    QTimer::singleShot(2*3600*1000, this, SLOT(startRequest()));
 }
