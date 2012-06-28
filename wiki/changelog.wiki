@@ -1,4 +1,7 @@
-== 1.0.0 ==
+== 1.0.1 ==
+ * fixed screenshot tool with multiple monitors
+
+ == 1.0.0 ==
  * hotkeys: {{{N}}} has been removed, use Ctrl+N instead
  * hotkeys: {{{X}}} and {{{H}}} have been removed
  * hotkeys: {{{L}}} to load a special ticker
