@@ -23,10 +23,11 @@
  *   ksquirrel.iv@gmail.com                                                *
  ***************************************************************************/
 
-#include <QApplication>
 #include <QDesktopWidget>
-#include <QPainter>
+#include <QApplication>
 #include <QMouseEvent>
+#include <QCursor>
+#include <QPainter>
 #include <QEvent>
 
 #include "regionselect.h"
@@ -39,13 +40,17 @@ RegionSelect::RegionSelect(KeyboardInteraction _ki, QWidget *parent)
     setWindowState(Qt::WindowFullScreen);
     setCursor(Qt::CrossCursor);
 
-    sizeDesktop = QApplication::desktop()->size();
+    QRect rc = QApplication::desktop()->screenGeometry(QCursor::pos());
+
+    sizeDesktop = rc.size();
     resize(sizeDesktop);
 
-    desktopPixmapBkg = QPixmap::grabWindow(QApplication::desktop()->winId());
+    desktopPixmapBkg = QPixmap::grabWindow(QApplication::desktop()->winId(),
+                                           rc.x(), rc.y(), rc.width(), rc.height());
+
     desktopPixmapClr = desktopPixmapBkg;
 
-    move(0, 0);
+    move(rc.topLeft());
     drawBackGround();
 }
 
