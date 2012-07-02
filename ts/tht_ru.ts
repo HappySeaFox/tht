@@ -118,36 +118,36 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
         <translation>Экспортировать в буфер обмена</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1025"/>
-        <location filename="../list.cpp" line="1118"/>
+        <location filename="../list.cpp" line="1028"/>
+        <location filename="../list.cpp" line="1121"/>
         <source>Choose a file</source>
         <translation>Выберите файл</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1027"/>
-        <location filename="../list.cpp" line="1120"/>
+        <location filename="../list.cpp" line="1030"/>
+        <location filename="../list.cpp" line="1123"/>
         <source>Text files (*.txt)</source>
         <translation>Текстовые файлы (*.txt)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1029"/>
-        <location filename="../list.cpp" line="1122"/>
+        <location filename="../list.cpp" line="1032"/>
+        <location filename="../list.cpp" line="1125"/>
         <source>All files (*.*)</source>
         <translation>Все файлы (*.*)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1077"/>
-        <location filename="../list.cpp" line="1132"/>
+        <location filename="../list.cpp" line="1080"/>
+        <location filename="../list.cpp" line="1135"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1077"/>
+        <location filename="../list.cpp" line="1080"/>
         <source>Cannot open the following files: %1</source>
         <translation>Невозможно открыть следующие файлы: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1132"/>
+        <location filename="../list.cpp" line="1135"/>
         <source>Cannot save to file %1</source>
         <translation>Невозможно сохранить в файл %1</translation>
     </message>
@@ -160,47 +160,47 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
         <translation>Настройки</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="40"/>
+        <location filename="../options.ui" line="30"/>
         <source>&lt;System&gt;</source>
         <translation>&lt;Системный&gt;</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="32"/>
+        <location filename="../options.ui" line="22"/>
         <source>Language:</source>
         <translation>Язык:</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="77"/>
+        <location filename="../options.ui" line="87"/>
         <source>Save position and size</source>
         <translation>Сохранять расположение и размер</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="84"/>
+        <location filename="../options.ui" line="94"/>
         <source>Automatically save tickers</source>
         <translation>Сохранять тикеры автоматически</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="98"/>
+        <location filename="../options.ui" line="108"/>
         <source>Fast ticker entry</source>
         <translation>Быстрый ввод тикера</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="63"/>
+        <location filename="../options.ui" line="73"/>
         <source>Always on top</source>
         <translation>Поверх всех окон</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="22"/>
+        <location filename="../options.ui" line="51"/>
         <source>Lists:</source>
         <translation>Списков:</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="70"/>
+        <location filename="../options.ui" line="80"/>
         <source>Hide to tray</source>
         <translation>Прятаться в трей</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="91"/>
+        <location filename="../options.ui" line="101"/>
         <source>Allow duplicates in a ticker list</source>
         <translation>Разрешить дубликаты в списке тикеров</translation>
     </message>
@@ -226,14 +226,14 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
 <context>
     <name>RegionSelect</name>
     <message>
-        <location filename="../regionselect.cpp" line="113"/>
+        <location filename="../regionselect.cpp" line="118"/>
         <source>Select the rectangle with the mouse or exit pressing
 any key or using the right or middle mouse buttons.</source>
         <translation>Выделите прямоугольник с помощью мыши, или нажмите
 любую клавишу или правую/среднюю кнопку мыши чтобы отменить.</translation>
     </message>
     <message>
-        <location filename="../regionselect.cpp" line="114"/>
+        <location filename="../regionselect.cpp" line="119"/>
         <source>Select the rectangle with the mouse or exit pressing
 the right or middle mouse buttons.</source>
         <translation>Выделите прямоугольник с помощью мыши, или нажмите
@@ -316,7 +316,7 @@ the right or middle mouse buttons.</source>
     <message>
         <location filename="../tht.ui" line="157"/>
         <source>O:</source>
-        <translation></translation>
+        <translation>ДР:</translation>
     </message>
     <message>
         <location filename="../tht.ui" line="236"/>
@@ -438,14 +438,14 @@ the right or middle mouse buttons.</source>
         <translation>Индустрии</translation>
     </message>
     <message>
-        <location filename="../tickerneighbors.ui" line="96"/>
+        <location filename="../tickerneighbors.ui" line="99"/>
         <source>By capitalization</source>
         <translation>По капитализации</translation>
     </message>
     <message>
         <location filename="../tickerneighbors.cpp" line="183"/>
         <location filename="../tickerneighbors.cpp" line="289"/>
-        <location filename="../tickerneighbors.cpp" line="325"/>
+        <location filename="../tickerneighbors.cpp" line="326"/>
         <source>Copy (%1)</source>
         <translation>Копировать (%1)</translation>
     </message>

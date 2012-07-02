@@ -118,36 +118,36 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
         <translation>Експортувати в буфер обміну</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1025"/>
-        <location filename="../list.cpp" line="1118"/>
+        <location filename="../list.cpp" line="1028"/>
+        <location filename="../list.cpp" line="1121"/>
         <source>Choose a file</source>
         <translation>Виберіть файл</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1027"/>
-        <location filename="../list.cpp" line="1120"/>
+        <location filename="../list.cpp" line="1030"/>
+        <location filename="../list.cpp" line="1123"/>
         <source>Text files (*.txt)</source>
         <translation>Текстові файли (*.txt)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1029"/>
-        <location filename="../list.cpp" line="1122"/>
+        <location filename="../list.cpp" line="1032"/>
+        <location filename="../list.cpp" line="1125"/>
         <source>All files (*.*)</source>
         <translation>Всі файли (*.*)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1077"/>
-        <location filename="../list.cpp" line="1132"/>
+        <location filename="../list.cpp" line="1080"/>
+        <location filename="../list.cpp" line="1135"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1077"/>
+        <location filename="../list.cpp" line="1080"/>
         <source>Cannot open the following files: %1</source>
         <translation>Неможливо відкрити наступні файли: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1132"/>
+        <location filename="../list.cpp" line="1135"/>
         <source>Cannot save to file %1</source>
         <translation>Неможливо зберегти в файл %1</translation>
     </message>
@@ -160,47 +160,47 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
         <translation>Параметри</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="40"/>
+        <location filename="../options.ui" line="30"/>
         <source>&lt;System&gt;</source>
         <translation>&lt;Системи&gt;</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="32"/>
+        <location filename="../options.ui" line="22"/>
         <source>Language:</source>
         <translation>Мова:</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="77"/>
+        <location filename="../options.ui" line="87"/>
         <source>Save position and size</source>
         <translation>Зберегти позицію та розмір</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="84"/>
+        <location filename="../options.ui" line="94"/>
         <source>Automatically save tickers</source>
         <translation>Зберігати тікери автоматично</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="98"/>
+        <location filename="../options.ui" line="108"/>
         <source>Fast ticker entry</source>
         <translation>Швидке введення тікера</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="63"/>
+        <location filename="../options.ui" line="73"/>
         <source>Always on top</source>
         <translation>Поверх всіх вікон</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="22"/>
+        <location filename="../options.ui" line="51"/>
         <source>Lists:</source>
         <translation>Списків:</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="70"/>
+        <location filename="../options.ui" line="80"/>
         <source>Hide to tray</source>
         <translation>Ховатися в трей</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="91"/>
+        <location filename="../options.ui" line="101"/>
         <source>Allow duplicates in a ticker list</source>
         <translation>Дозволити дублікати в списку тікерів</translation>
     </message>
@@ -226,14 +226,14 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
 <context>
     <name>RegionSelect</name>
     <message>
-        <location filename="../regionselect.cpp" line="113"/>
+        <location filename="../regionselect.cpp" line="118"/>
         <source>Select the rectangle with the mouse or exit pressing
 any key or using the right or middle mouse buttons.</source>
         <translation>Виділіть прямокутник за допомогою миші, або натисніть
 будь-яку клавішу або праву/середню кнопку миші щоб скасувати.</translation>
     </message>
     <message>
-        <location filename="../regionselect.cpp" line="114"/>
+        <location filename="../regionselect.cpp" line="119"/>
         <source>Select the rectangle with the mouse or exit pressing
 the right or middle mouse buttons.</source>
         <translation>Виділіть прямокутник за допомогою миші, або натисніть
@@ -316,7 +316,7 @@ the right or middle mouse buttons.</source>
     <message>
         <location filename="../tht.ui" line="157"/>
         <source>O:</source>
-        <translation></translation>
+        <translation>ІН:</translation>
     </message>
     <message>
         <location filename="../tht.ui" line="236"/>
@@ -438,14 +438,14 @@ the right or middle mouse buttons.</source>
         <translation>Індустрії</translation>
     </message>
     <message>
-        <location filename="../tickerneighbors.ui" line="96"/>
+        <location filename="../tickerneighbors.ui" line="99"/>
         <source>By capitalization</source>
         <translation>По капіталізації</translation>
     </message>
     <message>
         <location filename="../tickerneighbors.cpp" line="183"/>
         <location filename="../tickerneighbors.cpp" line="289"/>
-        <location filename="../tickerneighbors.cpp" line="325"/>
+        <location filename="../tickerneighbors.cpp" line="326"/>
         <source>Copy (%1)</source>
         <translation>Копіювати (%1)</translation>
     </message>
