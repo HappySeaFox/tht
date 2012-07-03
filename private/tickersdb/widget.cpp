@@ -130,6 +130,7 @@ void Widget::slotGet()
                          "sector VARCHAR(64),"
                          "industry VARCHAR(64),"
                          "exchange VARCHAR(16),"
+                         "country VARCHAR(64),"
                          "cap DOUBLE"
                          ");"))
     {
@@ -170,6 +171,7 @@ void Widget::slotFinished()
         t.company = str[2];
         t.sector = str[3];
         t.industry = str[4];
+        t.country = str[5];
         t.cap = str[6].toDouble(&ok);
 
         if(!ok)
@@ -178,7 +180,6 @@ void Widget::slotFinished()
         newTickers.append(str[1]);
 
         map.insert(str[1], t);
-
     }
 
     ui->label->setNum(newTickers.size());
@@ -196,6 +197,17 @@ void Widget::slotFinished()
         {
             QSqlQuery query(QSqlDatabase::database("old"));
 
+            query.prepare("SELECT country FROM tickers WHERE ticker = :ticker");
+            query.bindValue(":ticker", ticker);
+
+            if(!query.exec() || !query.next())
+            {
+                message(QString("Cannot query (%1)").arg(qPrintable(QSqlDatabase::database().lastError().text())));
+                return;
+            }
+
+            QString oldCountry = query.value(0).toString();
+
             query.prepare("SELECT cap FROM tickers WHERE ticker = :ticker");
             query.bindValue(":ticker", ticker);
 
@@ -205,8 +217,15 @@ void Widget::slotFinished()
                 return;
             }
 
+            if(oldCountry != map[ticker].country)
+            {
+                qDebug("Country for %s is changed (%s / %s)", qPrintable(ticker), qPrintable(map[ticker].country), qPrintable(oldCountry));
+                needup = true;
+                break;
+            }
+
             bool ok;
-            double cap = query.value(0).toDouble(&ok);
+            double oldCap = query.value(0).toDouble(&ok);
 
             if(!ok)
             {
@@ -214,7 +233,7 @@ void Widget::slotFinished()
                 return;
             }
 
-            double oldCap = map[ticker].cap;
+            double cap = map[ticker].cap;
 
             if(!oldCap && !cap)
             {
@@ -434,14 +453,15 @@ bool Widget::writeData(const Ticker &t)
 {
     QSqlQuery query;
 
-    query.prepare("INSERT INTO tickers (ticker, company, sector, industry, exchange, cap) "
-                  "VALUES (:ticker, :company, :sector, :industry, :exchange, :cap)");
+    query.prepare("INSERT INTO tickers (ticker, company, sector, industry, exchange, country, cap) "
+                  "VALUES (:ticker, :company, :sector, :industry, :exchange, :country, :cap)");
 
     query.bindValue(":ticker", t.ticker);
     query.bindValue(":company", t.company);
     query.bindValue(":sector", t.sector);
     query.bindValue(":industry", t.industry);
     query.bindValue(":exchange", t.exchange);
+    query.bindValue(":country", t.country);
     query.bindValue(":cap", t.cap);
 
     if(!query.exec())
@@ -450,7 +470,7 @@ bool Widget::writeData(const Ticker &t)
         return false;
     }
 
-    ui->plainTextLog->appendPlainText(t.ticker + '/' + t.exchange + '/' + QString::number(t.cap, 'f', 2));
+    ui->plainTextLog->appendPlainText(t.ticker + '/' + t.exchange + '/' + t.country + '/' + QString::number(t.cap, 'f', 2));
 
     return true;
 }

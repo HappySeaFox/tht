@@ -443,9 +443,14 @@ the right or middle mouse buttons.</source>
         <translation>По капитализации</translation>
     </message>
     <message>
-        <location filename="../tickerneighbors.cpp" line="183"/>
-        <location filename="../tickerneighbors.cpp" line="289"/>
-        <location filename="../tickerneighbors.cpp" line="326"/>
+        <location filename="../tickerneighbors.ui" line="112"/>
+        <source>U.S. only</source>
+        <translation>Только США</translation>
+    </message>
+    <message>
+        <location filename="../tickerneighbors.cpp" line="186"/>
+        <location filename="../tickerneighbors.cpp" line="301"/>
+        <location filename="../tickerneighbors.cpp" line="338"/>
         <source>Copy (%1)</source>
         <translation>Копировать (%1)</translation>
     </message>
