@@ -39,6 +39,8 @@ struct Ticker
     QString sector;
     QString industry;
     QString exchange;
+    QString country;
+
     double cap;
 };
 

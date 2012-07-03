@@ -105,6 +105,9 @@ TickerNeighbors::TickerNeighbors(const QString &ticker, QWidget *parent) :
     if(Settings::instance()->checkBoxState(ui->checkCap->objectName()) > 0)
             silentlyCheck(ui->checkCap, true);
 
+    if(Settings::instance()->checkBoxState(ui->checkUSA->objectName()) > 0)
+            silentlyCheck(ui->checkUSA, true);
+
     connect(ui->listTickers->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
             this, SLOT(slotSelectionChanged()));
 
@@ -236,6 +239,7 @@ void TickerNeighbors::slotFetch()
     bool secondQuery = false;
     int i = 0;
 
+    // exchanges
     foreach(QCheckBox *box, m_exchanges)
     {
         if(box->isChecked())
@@ -249,11 +253,19 @@ void TickerNeighbors::slotFetch()
             secondQuery = true;
         }
     }
+
     add += " )";
 
     // no exchanges
     if(!secondQuery)
         return;
+
+    // USA
+    if(ui->checkUSA->isChecked())
+    {
+        add += " AND country = :country";
+        binds.insert(":country", "USA");
+    }
 
     if(ui->checkCap->isChecked())
         add += " ORDER BY cap DESC";

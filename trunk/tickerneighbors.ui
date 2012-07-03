@@ -94,11 +94,28 @@
     </layout>
    </item>
    <item row="5" column="0" colspan="2">
-    <widget class="QCheckBox" name="checkCap">
-     <property name="text">
-      <string>By capitalization</string>
-     </property>
-    </widget>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QCheckBox" name="checkCap">
+       <property name="text">
+        <string>By capitalization</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="checkUSA">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+         <horstretch>1</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>U.S. only</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
   </layout>
  </widget>
@@ -111,6 +128,7 @@
   <tabstop>pushIndustry</tabstop>
   <tabstop>listTickers</tabstop>
   <tabstop>checkCap</tabstop>
+  <tabstop>checkUSA</tabstop>
   <tabstop>pushCopy</tabstop>
  </tabstops>
  <resources>
@@ -140,7 +158,7 @@
    <slot>slotFetch()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>257</x>
+     <x>248</x>
      <y>30</y>
     </hint>
     <hint type="destinationlabel">
@@ -156,7 +174,7 @@
    <slot>slotFetch()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>257</x>
+     <x>248</x>
      <y>58</y>
     </hint>
     <hint type="destinationlabel">
@@ -172,7 +190,7 @@
    <slot>slotFetch()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>257</x>
+     <x>248</x>
      <y>86</y>
     </hint>
     <hint type="destinationlabel">
@@ -188,7 +206,7 @@
    <slot>slotCopy()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>256</x>
+     <x>247</x>
      <y>334</y>
     </hint>
     <hint type="destinationlabel">
@@ -245,11 +263,44 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>checkUSA</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>TickerNeighbors</receiver>
+   <slot>slotFilterAndFetch()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>152</x>
+     <y>350</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>155</x>
+     <y>408</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkUSA</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>TickerNeighbors</receiver>
+   <slot>slotCheckboxChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>131</x>
+     <y>354</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>134</x>
+     <y>406</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>slotCopy()</slot>
   <slot>slotFetch()</slot>
   <slot>slotFilterAndFetch()</slot>
   <slot>slotActivated(QModelIndex)</slot>
+  <slot>slotCheckboxChanged()</slot>
  </slots>
 </ui>
