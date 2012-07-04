@@ -191,7 +191,7 @@ void Widget::slotFinished()
     // compare capitalizations
     if(!ui->checkForce->isChecked() && !newSymbols)
     {
-        qDebug("Checking capitalizations");
+        qDebug("Checking capitalizations and countries");
 
         foreach(QString ticker, newTickers)
         {
