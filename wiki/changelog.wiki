@@ -1,3 +1,6 @@
+== 1.0.2 ==
+ * added "U.S. only" filter in Industries window
+
 == 1.0.1 ==
  * fixed screenshot tool with multiple monitors
 
