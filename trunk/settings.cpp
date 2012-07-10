@@ -74,6 +74,12 @@ Settings::Settings()
                 oldkeys = old->allKeys();
             }
         }
+        else
+        {
+            // clear useless 0.6.0 settings
+            QSettings old060(QSettings::NativeFormat, QSettings::UserScope, "Noname", "THT");
+            old060.clear();
+        }
 
         if(old && !oldkeys.isEmpty())
         {
