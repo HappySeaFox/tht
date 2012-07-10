@@ -84,6 +84,8 @@ Settings::Settings()
                 m_settings->setValue(key, old->value(key));
             }
 
+            // remove old settings
+            old->clear();
         }
 
         delete old;
