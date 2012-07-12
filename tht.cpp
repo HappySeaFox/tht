@@ -116,12 +116,15 @@ THT::THT(QWidget *parent) :
 
     rebuildUi();
 
+    QString startupTicker;
+
     // set focus
     foreach(List *l, m_lists)
     {
         if(l->hasTickers())
         {
             l->initialSelect();
+            startupTicker = l->currentTicker();
             break;
         }
     }
@@ -194,6 +197,10 @@ THT::THT(QWidget *parent) :
 
     // db updater
     new TickersDatabaseUpdater(this);
+
+    // sectors
+    if(Settings::instance()->showNeighborsAtStartup())
+        slotShowNeighbors(startupTicker);
 }
 
 THT::~THT()
@@ -205,6 +212,8 @@ THT::~THT()
         Settings::instance()->setWindowSize(size(), Settings::NoSync);
         Settings::instance()->setWindowPosition(pos(), Settings::NoSync);
     }
+
+    Settings::instance()->setShowNeighborsAtStartup(m_sectors, Settings::NoSync);
 
     Settings::instance()->sync();
 

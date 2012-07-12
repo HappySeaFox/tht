@@ -197,6 +197,16 @@ QString Settings::lastScreenShotDirectory()
     return load<QString>("last-screenshot-directory");
 }
 
+void Settings::setShowNeighborsAtStartup(bool s, SyncType sync)
+{
+    save<bool>("neighbors-at-startup", s, sync);
+}
+
+bool Settings::showNeighborsAtStartup()
+{
+    return load<bool>("neighbors-at-startup", false);
+}
+
 void Settings::setMiniTickerEntry(bool mte, SyncType sync)
 {
     save<bool>("mini-ticker-entry", mte, sync);
