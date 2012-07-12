@@ -199,7 +199,7 @@ THT::THT(QWidget *parent) :
     new TickersDatabaseUpdater(this);
 
     // sectors
-    if(Settings::instance()->showNeighborsAtStartup())
+    if(Settings::instance()->restoreNeighborsAtStartup() && Settings::instance()->showNeighborsAtStartup())
         slotShowNeighbors(startupTicker);
 }
 

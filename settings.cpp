@@ -197,6 +197,16 @@ QString Settings::lastScreenShotDirectory()
     return load<QString>("last-screenshot-directory");
 }
 
+void Settings::setRestoreNeighborsAtStartup(bool s, SyncType sync)
+{
+    save<bool>("restore-neighbors-at-startup", s, sync);
+}
+
+bool Settings::restoreNeighborsAtStartup()
+{
+    return load<bool>("restore-neighbors-at-startup", true);
+}
+
 void Settings::setShowNeighborsAtStartup(bool s, SyncType sync)
 {
     save<bool>("neighbors-at-startup", s, sync);

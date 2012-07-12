@@ -76,6 +76,9 @@ public:
     void setLastScreenShotDirectory(QString, SyncType sync = Sync);
     QString lastScreenShotDirectory();
 
+    void setRestoreNeighborsAtStartup(bool, SyncType sync = Sync);
+    bool restoreNeighborsAtStartup();
+
     void setShowNeighborsAtStartup(bool, SyncType sync = Sync);
     bool showNeighborsAtStartup();
 

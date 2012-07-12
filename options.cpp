@@ -59,6 +59,7 @@ void Options::load()
     ui->comboNumberOfLists->setCurrentIndex(Settings::instance()->numberOfLists() - 1);
     ui->checkOnTop->setChecked(Settings::instance()->onTop());
     ui->checkTray->setChecked(Settings::instance()->hideToTray());
+    ui->checkRestore->setChecked(Settings::instance()->restoreNeighborsAtStartup());
     ui->checkSave->setChecked(Settings::instance()->saveGeometry());
     ui->checkSaveTickers->setChecked(Settings::instance()->saveTickers());
     ui->checkAllowDups->setChecked(Settings::instance()->allowDuplicates());
@@ -97,6 +98,7 @@ void Options::save()
     Settings::instance()->setNumberOfLists(ui->comboNumberOfLists->currentIndex()+1, Settings::NoSync);
     Settings::instance()->setOnTop(ui->checkOnTop->isChecked(), Settings::NoSync);
     Settings::instance()->setHideToTray(ui->checkTray->isChecked(), Settings::NoSync);
+    Settings::instance()->setRestoreNeighborsAtStartup(ui->checkRestore->isChecked(), Settings::NoSync);
     Settings::instance()->setSaveGeometry(ui->checkSave->isChecked(), Settings::NoSync);
     Settings::instance()->setSaveTickers(ui->checkSaveTickers->isChecked(), Settings::NoSync);
     Settings::instance()->setAllowDuplicates(ui->checkAllowDups->isChecked(), Settings::NoSync);

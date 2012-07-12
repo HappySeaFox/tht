@@ -35,12 +35,12 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
         <translation>(C) 2012 Баришев Дмитро &amp;lt;&lt;a href=&quot;mailto:ksquirrel.iv@gmail.com&quot;&gt;ksquirrel.iv@gmail.com&lt;/a&gt;&amp;gt;</translation>
     </message>
     <message>
-        <location filename="../about.ui" line="167"/>
+        <location filename="../about.ui" line="170"/>
         <source>THT is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</source>
         <translation>THT поширюється в надії, що вона буде корисною, але БЕЗ БУДЬ-ЯКИХ ГАРАНТІЙ, навіть без гарантій КОМЕРЦІЙНОЇ ЦІННОСТІ чи ПРИДАТНОСТІ ДЛЯ КОНКРЕТНИХ ЦІЛЕЙ.</translation>
     </message>
     <message>
-        <location filename="../about.ui" line="210"/>
+        <location filename="../about.ui" line="213"/>
         <source>OK</source>
         <translation></translation>
     </message>
@@ -185,6 +185,11 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
         <translation>Швидке введення тікера</translation>
     </message>
     <message>
+        <location filename="../options.ui" line="138"/>
+        <source>Restore &quot;Industries&quot; window at startup</source>
+        <translation>Відновлювати вікно &quot;Індустрії&quot; при старті</translation>
+    </message>
+    <message>
         <location filename="../options.ui" line="73"/>
         <source>Always on top</source>
         <translation>Поверх всіх вікон</translation>
@@ -208,17 +213,17 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../settings.cpp" line="383"/>
+        <location filename="../settings.cpp" line="431"/>
         <source>Russian</source>
         <translation>Російська</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="384"/>
+        <location filename="../settings.cpp" line="432"/>
         <source>Ukrainian</source>
         <translation>Українська</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="385"/>
+        <location filename="../settings.cpp" line="433"/>
         <source>English</source>
         <translation>Англійська</translation>
     </message>
@@ -340,7 +345,7 @@ the right or middle mouse buttons.</source>
     </message>
     <message>
         <location filename="../tht.cpp" line="88"/>
-        <location filename="../tht.cpp" line="151"/>
+        <location filename="../tht.cpp" line="154"/>
         <source>Take screenshot...</source>
         <translation>Знімок екрану...</translation>
     </message>
@@ -362,7 +367,7 @@ the right or middle mouse buttons.</source>
     </message>
     <message>
         <location filename="../tht.cpp" line="97"/>
-        <location filename="../tht.cpp" line="153"/>
+        <location filename="../tht.cpp" line="156"/>
         <source>About THT</source>
         <translation>Про THT</translation>
     </message>
@@ -373,38 +378,38 @@ the right or middle mouse buttons.</source>
     </message>
     <message>
         <location filename="../tht.cpp" line="100"/>
-        <location filename="../tht.cpp" line="155"/>
+        <location filename="../tht.cpp" line="158"/>
         <source>Quit</source>
         <translation>Вихід</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="150"/>
+        <location filename="../tht.cpp" line="153"/>
         <source>Restore</source>
         <translation>Відновити</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="234"/>
+        <location filename="../tht.cpp" line="241"/>
         <source>Notice</source>
         <translation>Замітка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="234"/>
+        <location filename="../tht.cpp" line="241"/>
         <source>THT will continue to run in a system tray</source>
         <translation>ТНТ продовжить роботу в системному лотку</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1026"/>
-        <location filename="../tht.cpp" line="1054"/>
+        <location filename="../tht.cpp" line="1043"/>
+        <location filename="../tht.cpp" line="1071"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1026"/>
+        <location filename="../tht.cpp" line="1043"/>
         <source>Cannot take screenshot</source>
         <translation>Неможливо створити знімок екрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1054"/>
+        <location filename="../tht.cpp" line="1071"/>
         <source>Cannot save screenshot</source>
         <translation>Неможливо зберегти знімок екрана</translation>
     </message>
@@ -438,19 +443,19 @@ the right or middle mouse buttons.</source>
         <translation>Індустрії</translation>
     </message>
     <message>
-        <location filename="../tickerneighbors.ui" line="99"/>
+        <location filename="../tickerneighbors.ui" line="101"/>
         <source>By capitalization</source>
         <translation>По капіталізації</translation>
     </message>
     <message>
-        <location filename="../tickerneighbors.ui" line="112"/>
+        <location filename="../tickerneighbors.ui" line="114"/>
         <source>U.S. only</source>
         <translation>Тільки США</translation>
     </message>
     <message>
-        <location filename="../tickerneighbors.cpp" line="186"/>
-        <location filename="../tickerneighbors.cpp" line="301"/>
-        <location filename="../tickerneighbors.cpp" line="338"/>
+        <location filename="../tickerneighbors.cpp" line="196"/>
+        <location filename="../tickerneighbors.cpp" line="311"/>
+        <location filename="../tickerneighbors.cpp" line="348"/>
         <source>Copy (%1)</source>
         <translation>Копіювати (%1)</translation>
     </message>
