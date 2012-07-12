@@ -213,9 +213,7 @@ THT::~THT()
         Settings::instance()->setWindowPosition(pos(), Settings::NoSync);
     }
 
-    Settings::instance()->setShowNeighborsAtStartup(m_sectors, Settings::NoSync);
-
-    Settings::instance()->sync();
+    Settings::instance()->setShowNeighborsAtStartup(m_sectors);
 
     delete ui;
 }
