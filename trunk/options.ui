@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>312</width>
-    <height>239</height>
+    <width>338</width>
+    <height>262</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -81,35 +81,35 @@
      </property>
     </widget>
    </item>
-   <item row="3" column="0" colspan="2">
+   <item row="4" column="0" colspan="2">
     <widget class="QCheckBox" name="checkSave">
      <property name="text">
       <string>Save position and size</string>
      </property>
     </widget>
    </item>
-   <item row="4" column="0" colspan="2">
+   <item row="5" column="0" colspan="2">
     <widget class="QCheckBox" name="checkSaveTickers">
      <property name="text">
       <string>Automatically save tickers</string>
      </property>
     </widget>
    </item>
-   <item row="5" column="0" colspan="2">
+   <item row="6" column="0" colspan="2">
     <widget class="QCheckBox" name="checkAllowDups">
      <property name="text">
       <string>Allow duplicates in a ticker list</string>
      </property>
     </widget>
    </item>
-   <item row="6" column="0" colspan="2">
+   <item row="7" column="0" colspan="2">
     <widget class="QCheckBox" name="checkMini">
      <property name="text">
       <string>Fast ticker entry</string>
      </property>
     </widget>
    </item>
-   <item row="7" column="1">
+   <item row="8" column="1">
     <spacer name="verticalSpacer">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
@@ -122,13 +122,20 @@
      </property>
     </spacer>
    </item>
-   <item row="8" column="0" colspan="2">
+   <item row="9" column="0" colspan="2">
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
      <property name="standardButtons">
       <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0" colspan="2">
+    <widget class="QCheckBox" name="checkRestore">
+     <property name="text">
+      <string>Restore &quot;Industries&quot; window at startup</string>
      </property>
     </widget>
    </item>
@@ -139,6 +146,7 @@
   <tabstop>comboNumberOfLists</tabstop>
   <tabstop>checkOnTop</tabstop>
   <tabstop>checkTray</tabstop>
+  <tabstop>checkRestore</tabstop>
   <tabstop>checkSave</tabstop>
   <tabstop>checkSaveTickers</tabstop>
   <tabstop>checkAllowDups</tabstop>
