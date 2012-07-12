@@ -108,6 +108,12 @@ public:
     void setWindowPosition(const QPoint &, SyncType sync = Sync);
     QPoint windowPosition();
 
+    void setNeighborsWindowSize(const QSize &, SyncType sync = Sync);
+    QSize neighborsWindowSize();
+
+    void setNeighborsWindowPosition(const QPoint &, SyncType sync = Sync);
+    QPoint neighborsWindowPosition();
+
     void setSaveTickers(bool, SyncType sync = Sync);
     bool saveTickers();
 

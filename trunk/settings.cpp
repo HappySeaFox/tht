@@ -309,6 +309,26 @@ QPoint Settings::windowPosition()
     return load<QPoint>("position");
 }
 
+void Settings::setNeighborsWindowSize(const QSize &s, SyncType sync)
+{
+    save<QSize>("neighbors-size", s, sync);
+}
+
+QSize Settings::neighborsWindowSize()
+{
+    return load<QSize>("neighbors-size");
+}
+
+void Settings::setNeighborsWindowPosition(const QPoint &p, SyncType sync)
+{
+    save<QPoint>("neighbors-position", p, sync);
+}
+
+QPoint Settings::neighborsWindowPosition()
+{
+    return load<QPoint>("neighbors-position");
+}
+
 void Settings::setSaveTickers(bool s, SyncType sync)
 {
     save<bool>("save-tickers", s, sync);

@@ -850,6 +850,16 @@ void THT::slotOptions()
             foreach(List *l, m_lists)
                 l->reconfigureMiniTickerEntry();
         }
+
+        // reset geometry
+        if(!Settings::instance()->saveGeometry())
+        {
+            Settings::instance()->setWindowSize(QSize(), Settings::NoSync);
+            Settings::instance()->setWindowPosition(QPoint(), Settings::NoSync);
+
+            Settings::instance()->setNeighborsWindowSize(QSize(), Settings::NoSync);
+            Settings::instance()->setNeighborsWindowPosition(QPoint(), Settings::Sync);
+        }
     }
 }
 

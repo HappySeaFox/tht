@@ -35,8 +35,6 @@
 
 #include "ui_tickerneighbors.h"
 
-QPoint TickerNeighbors::s_pos;
-
 TickerNeighbors::TickerNeighbors(const QString &ticker, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::TickerNeighbors)
@@ -111,14 +109,26 @@ TickerNeighbors::TickerNeighbors(const QString &ticker, QWidget *parent) :
     connect(ui->listTickers->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
             this, SLOT(slotSelectionChanged()));
 
-    m_pos = TickerNeighbors::s_pos;
+    if(Settings::instance()->saveGeometry())
+    {
+        m_pos = Settings::instance()->neighborsWindowPosition();
+
+        QSize sz = Settings::instance()->neighborsWindowSize();
+
+        if(sz.isValid())
+            resize(sz);
+    }
 
     showTicker(ticker);
 }
 
 TickerNeighbors::~TickerNeighbors()
 {
-    TickerNeighbors::s_pos = pos();
+    if(Settings::instance()->saveGeometry())
+    {
+        Settings::instance()->setNeighborsWindowSize(size(), Settings::NoSync);
+        Settings::instance()->setNeighborsWindowPosition(pos(), Settings::Sync);
+    }
 
     delete ui;
 }
