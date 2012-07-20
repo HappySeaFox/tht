@@ -50,7 +50,7 @@ static void thtOutput(QtMsgType type, const char *msg)
 
     if(!log.isOpen() && !failed)
     {
-        failed = (!log.open(QIODevice::WriteOnly | QIODevice::Append)
+        failed = (!log.open(QIODevice::ReadWrite | QIODevice::Append)
                   || log.isLocked()
                   || !log.lock(QtLockedFile::WriteLock, false)
                   || !log.resize(0)
@@ -62,6 +62,34 @@ static void thtOutput(QtMsgType type, const char *msg)
 
     if(!failed)
     {
+        // truncate
+        if(log.size() > 1*1024*1024) // 1 Mb
+        {
+            fprintf(stderr, "THT: Truncating log\n");
+
+            log.seek(0);
+
+            char buf[1024];
+            int lines = 0;
+            char c = 'x';
+
+            while(log.readLine(buf, sizeof(buf)) > 0 && lines++ < 30)
+            {}
+
+            log.resize(log.pos());
+
+            // check if '\n' is last
+            if(log.seek(log.pos()-1))
+            {
+                log.getChar(&c);
+
+                if(c != '\n')
+                    log.write("\n");
+            }
+
+            log.write("...\n<overwrite>\n...\n");
+        }
+
         log.write(msg);
         log.write("\n");
     }
