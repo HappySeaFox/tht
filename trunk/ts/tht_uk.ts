@@ -213,17 +213,17 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../settings.cpp" line="431"/>
+        <location filename="../settings.cpp" line="445"/>
         <source>Russian</source>
         <translation>Російська</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="432"/>
+        <location filename="../settings.cpp" line="446"/>
         <source>Ukrainian</source>
         <translation>Українська</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="433"/>
+        <location filename="../settings.cpp" line="447"/>
         <source>English</source>
         <translation>Англійська</translation>
     </message>
@@ -281,60 +281,60 @@ the right or middle mouse buttons.</source>
         <translation>Домашка трейдера</translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="42"/>
+        <location filename="../tht.ui" line="49"/>
         <source>Move this pointer to the window with which to establish a link</source>
         <translation>Перетягніть цей покажчик на вікно, на яке потрібно створити посилання</translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="71"/>
+        <location filename="../tht.ui" line="78"/>
         <source>No links</source>
         <translation>Посилання відсутні</translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="88"/>
-        <location filename="../tht.ui" line="98"/>
+        <location filename="../tht.ui" line="95"/>
+        <location filename="../tht.ui" line="105"/>
         <source>Advanced Get and ESignal links</source>
         <translation>Посилання на Advanced Get і ESignal</translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="91"/>
+        <location filename="../tht.ui" line="98"/>
         <source>AG:</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="121"/>
-        <location filename="../tht.ui" line="131"/>
+        <location filename="../tht.ui" line="128"/>
+        <location filename="../tht.ui" line="138"/>
         <source>Graybox links</source>
         <translation>Посилання на Graybox</translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="124"/>
+        <location filename="../tht.ui" line="131"/>
         <source>GB:</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="154"/>
-        <location filename="../tht.ui" line="164"/>
+        <location filename="../tht.ui" line="161"/>
+        <location filename="../tht.ui" line="171"/>
         <source>Other links</source>
         <translation>Інші посилання</translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="157"/>
+        <location filename="../tht.ui" line="164"/>
         <source>O:</source>
         <translation>ІН:</translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="236"/>
+        <location filename="../tht.ui" line="266"/>
         <source>THT is ready</source>
         <translation>ТНТ готовий до роботи</translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="268"/>
+        <location filename="../tht.ui" line="298"/>
         <source>THT is busy</source>
         <translation>THT зайнятий</translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="201"/>
+        <location filename="../tht.ui" line="231"/>
         <source>=N</source>
         <translation></translation>
     </message>
@@ -388,30 +388,60 @@ the right or middle mouse buttons.</source>
         <translation>Відновити</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="241"/>
+        <location filename="../tht.cpp" line="242"/>
         <source>Notice</source>
         <translation>Замітка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="241"/>
+        <location filename="../tht.cpp" line="242"/>
         <source>THT will continue to run in a system tray</source>
         <translation>ТНТ продовжить роботу в системному лотку</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1043"/>
-        <location filename="../tht.cpp" line="1071"/>
+        <location filename="../tht.cpp" line="590"/>
+        <source>No links to save</source>
+        <translation>Немає посилань щоб зберегти</translation>
+    </message>
+    <message>
+        <location filename="../tht.cpp" line="593"/>
+        <source>Save the link points:</source>
+        <translation>Зберегти точки лінковки:</translation>
+    </message>
+    <message>
+        <location filename="../tht.cpp" line="1060"/>
+        <location filename="../tht.cpp" line="1088"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1043"/>
+        <location filename="../tht.cpp" line="1060"/>
         <source>Cannot take screenshot</source>
         <translation>Неможливо створити знімок екрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1071"/>
+        <location filename="../tht.cpp" line="1088"/>
         <source>Cannot save screenshot</source>
         <translation>Неможливо зберегти знімок екрана</translation>
+    </message>
+    <message>
+        <location filename="../tht.cpp" line="1321"/>
+        <source>No saved links</source>
+        <translation>Немає збережених посилань</translation>
+    </message>
+    <message>
+        <location filename="../tht.cpp" line="1324"/>
+        <source>Load the link points:</source>
+        <translation>Завантажити точки лінковки:</translation>
+    </message>
+    <message>
+        <location filename="../tht.cpp" line="1339"/>
+        <source>Window #%1</source>
+        <translation>Вікно #%1</translation>
+    </message>
+    <message>
+        <location filename="../tht.cpp" line="1341"/>
+        <source>at %2,%3</source>
+        <translation>в %2,%3</translation>
     </message>
 </context>
 <context>

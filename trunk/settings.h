@@ -25,6 +25,7 @@
 #include <QRegExp>
 #include <QPoint>
 #include <QSize>
+#include <QList>
 #include <QMap>
 
 #include <windows.h>
@@ -81,6 +82,9 @@ public:
 
     void setShowNeighborsAtStartup(bool, SyncType sync = Sync);
     bool showNeighborsAtStartup();
+
+    void setLinks(const QList<QPoint> &, SyncType sync = Sync);
+    QList<QPoint> links();
 
     void setMiniTickerEntry(bool, SyncType sync = Sync);
     bool miniTickerEntry();

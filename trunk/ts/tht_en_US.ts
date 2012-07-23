@@ -211,17 +211,17 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../settings.cpp" line="431"/>
+        <location filename="../settings.cpp" line="445"/>
         <source>Russian</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="432"/>
+        <location filename="../settings.cpp" line="446"/>
         <source>Ukrainian</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="433"/>
+        <location filename="../settings.cpp" line="447"/>
         <source>English</source>
         <translation></translation>
     </message>
@@ -277,60 +277,60 @@ the right or middle mouse buttons.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="42"/>
+        <location filename="../tht.ui" line="49"/>
         <source>Move this pointer to the window with which to establish a link</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="71"/>
+        <location filename="../tht.ui" line="78"/>
         <source>No links</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="88"/>
-        <location filename="../tht.ui" line="98"/>
+        <location filename="../tht.ui" line="95"/>
+        <location filename="../tht.ui" line="105"/>
         <source>Advanced Get and ESignal links</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="91"/>
+        <location filename="../tht.ui" line="98"/>
         <source>AG:</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="121"/>
-        <location filename="../tht.ui" line="131"/>
+        <location filename="../tht.ui" line="128"/>
+        <location filename="../tht.ui" line="138"/>
         <source>Graybox links</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="124"/>
+        <location filename="../tht.ui" line="131"/>
         <source>GB:</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="154"/>
-        <location filename="../tht.ui" line="164"/>
+        <location filename="../tht.ui" line="161"/>
+        <location filename="../tht.ui" line="171"/>
         <source>Other links</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="157"/>
+        <location filename="../tht.ui" line="164"/>
         <source>O:</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="201"/>
+        <location filename="../tht.ui" line="231"/>
         <source>=N</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="236"/>
+        <location filename="../tht.ui" line="266"/>
         <source>THT is ready</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="268"/>
+        <location filename="../tht.ui" line="298"/>
         <source>THT is busy</source>
         <translation></translation>
     </message>
@@ -384,29 +384,59 @@ the right or middle mouse buttons.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="241"/>
+        <location filename="../tht.cpp" line="242"/>
         <source>Notice</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="241"/>
+        <location filename="../tht.cpp" line="242"/>
         <source>THT will continue to run in a system tray</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1043"/>
-        <location filename="../tht.cpp" line="1071"/>
+        <location filename="../tht.cpp" line="590"/>
+        <source>No links to save</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../tht.cpp" line="593"/>
+        <source>Save the link points:</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../tht.cpp" line="1060"/>
+        <location filename="../tht.cpp" line="1088"/>
         <source>Error</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1043"/>
+        <location filename="../tht.cpp" line="1060"/>
         <source>Cannot take screenshot</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1071"/>
+        <location filename="../tht.cpp" line="1088"/>
         <source>Cannot save screenshot</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../tht.cpp" line="1321"/>
+        <source>No saved links</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../tht.cpp" line="1324"/>
+        <source>Load the link points:</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../tht.cpp" line="1339"/>
+        <source>Window #%1</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../tht.cpp" line="1341"/>
+        <source>at %2,%3</source>
         <translation></translation>
     </message>
 </context>

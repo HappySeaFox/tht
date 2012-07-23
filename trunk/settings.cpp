@@ -25,12 +25,16 @@
 
 #include "settings.h"
 
+Q_DECLARE_METATYPE(QList<QPoint>)
+
 Settings::Settings()
 {
     m_settings = new QSettings(QSettings::IniFormat,
                                 QSettings::UserScope,
                                 QCoreApplication::organizationName(),
                                 QCoreApplication::applicationName());
+
+    qRegisterMetaTypeStreamOperators<QList<QPoint> >();
 
     m_settings->setFallbacksEnabled(false);
 
@@ -227,6 +231,16 @@ bool Settings::miniTickerEntry()
     return load<bool>("mini-ticker-entry", true);
 }
 
+void Settings::setLinks(const QList<QPoint> &links, SyncType sync)
+{
+    save<QList<QPoint> >("links", links, sync);
+}
+
+QList<QPoint> Settings::links()
+{
+    return load<QList<QPoint> >("links");
+}
+
 void Settings::setAllowDuplicates(bool allow, SyncType sync)
 {
     save<bool>("allow-duplicates", allow, sync);
@@ -399,17 +413,17 @@ template <typename T>
 T Settings::load(const QString &key, const T &def)
 {
     m_settings->beginGroup("settings");
-    T value = m_settings->value(key, QVariant(def)).value<T>();
+    QVariant value = m_settings->value(key, QVariant::fromValue(def));
     m_settings->endGroup();
 
-    return value;
+    return value.value<T>();
 }
 
 template <typename T>
 void Settings::save(const QString &key, const T &value, SyncType sync)
 {
     m_settings->beginGroup("settings");
-    m_settings->setValue(key, value);
+    m_settings->setValue(key, QVariant::fromValue(value));
     m_settings->endGroup();
 
     if(sync == Sync)
