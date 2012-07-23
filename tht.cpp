@@ -167,6 +167,7 @@ THT::THT(QWidget *parent) :
     connect(takeScreen, SIGNAL(activated()), this, SLOT(slotTakeScreenshotFromGlobal()));
 
     checkWindows();
+    savedLinksChanged();
 
     connect(UpdateChecker::instance(), SIGNAL(newVersion(const QString &)), this, SLOT(slotNewVersion(const QString &)));
 
@@ -584,6 +585,22 @@ void THT::checkWindows()
     }
     else
         ui->stackLinks->setCurrentIndex(0); // "No links" warning
+
+    if(m_windowsLoad.isEmpty())
+        ui->pushSaveLinks->setToolTip(tr("No links to save"));
+    else
+    {
+        QString tip = "<p><nobr>" + tr("Save the link points:") + "</nobr></p>\n<table>";
+        int i = 1;
+        itEnd = m_windowsLoad.end();
+
+        for(QList<Link>::iterator it = m_windowsLoad.begin();it != itEnd;++it)
+        {
+            tip += formatLinkString(i++, (*it).dropPoint);
+        }
+
+        ui->pushSaveLinks->setToolTip(tip + "</table>");
+    }
 }
 
 void THT::nextLoadableWindowIndex(int startFrom)
@@ -639,7 +656,7 @@ void THT::loadTicker(const QString &ticker)
 
     if(m_running)
     {
-        qDebug("In progress, won't load new ticker");
+        qDebug("In progress, won't load a new ticker");
         return;
     }
 
@@ -1094,6 +1111,31 @@ void THT::slotClearLinks()
     checkWindows();
 }
 
+void THT::slotSaveLinks()
+{
+    QList<QPoint> links;
+
+    foreach(Link l, m_windowsLoad)
+    {
+        links.append(l.dropPoint);
+    }
+
+    Settings::instance()->setLinks(links);
+    savedLinksChanged(links);
+
+    qDebug("Saved links: %d", links.size());
+}
+
+void THT::slotLoadLinks()
+{
+    QList<QPoint> links = Settings::instance()->links();
+
+    foreach(QPoint p, links)
+    {
+        slotTargetDropped(p);
+    }
+}
+
 void THT::slotLockLinks()
 {
     m_locked = !m_locked;
@@ -1177,6 +1219,8 @@ void THT::slotTargetDropped(const QPoint &p)
 
     if(link.type == LinkTypeNotInitialized)
         return;
+
+    link.dropPoint = p;
 
     // beep
     MessageBeep(MB_OK);
@@ -1267,6 +1311,35 @@ bool THT::setForeignFocus(HWND window, DWORD threadId)
     }
 
     return true;
+}
+
+void THT::savedLinksChanged(const QList<QPoint> &useThisList)
+{
+    QList<QPoint> points = useThisList.isEmpty() ? Settings::instance()->links() : useThisList;
+
+    if(points.isEmpty())
+        ui->pushLoadLinks->setToolTip(tr("No saved links"));
+    else
+    {
+        QString tip = "<p><nobr>" + tr("Load the link points:") + "</nobr></p>\n<table>";
+        int i = 1;
+
+        foreach(QPoint p, points)
+        {
+            tip += formatLinkString(i++, p);
+        }
+
+        ui->pushLoadLinks->setToolTip(tip + "</table>");
+    }
+}
+
+QString THT::formatLinkString(int i, const QPoint &p)
+{
+    return "<tr><td><nobr>"
+                + tr("Window #%1").arg(i) + "</nobr>"
+                + "</td><td>"
+                + "<nobr>" + tr("at %2,%3").arg(p.x()).arg(p.y()) + "</nobr>"
+                + "</td></tr>";
 }
 
 HWND THT::grayBoxFindSubControl(HWND parent)

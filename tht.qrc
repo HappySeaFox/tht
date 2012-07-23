@@ -17,5 +17,7 @@
         <file>images/cancel.png</file>
         <file>images/options-background.png</file>
         <file>images/query.png</file>
+        <file>images/links-load.png</file>
+        <file>images/links-save.png</file>
     </qresource>
 </RCC>
