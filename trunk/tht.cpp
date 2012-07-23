@@ -587,9 +587,14 @@ void THT::checkWindows()
         ui->stackLinks->setCurrentIndex(0); // "No links" warning
 
     if(m_windowsLoad.isEmpty())
-        ui->pushSaveLinks->setToolTip(tr("No links to save"));
+    {
+        ui->pushSaveLinks->setToolTip(QString());
+        ui->pushSaveLinks->setEnabled(false);
+    }
     else
     {
+        ui->pushSaveLinks->setEnabled(true);
+
         QString tip = "<p><nobr>" + tr("Save the link points:") + "</nobr></p>\n<table>";
         int i = 1;
         itEnd = m_windowsLoad.end();
@@ -1318,10 +1323,15 @@ void THT::savedLinksChanged(const QList<QPoint> &useThisList)
     QList<QPoint> points = useThisList.isEmpty() ? Settings::instance()->links() : useThisList;
 
     if(points.isEmpty())
-        ui->pushLoadLinks->setToolTip(tr("No saved links"));
+    {
+        ui->pushLoadLinks->setToolTip(tr("No saved link points"));
+        ui->pushLoadLinks->setEnabled(false);
+    }
     else
     {
-        QString tip = "<p><nobr>" + tr("Load the link points:") + "</nobr></p>\n<table>";
+        ui->pushLoadLinks->setEnabled(true);
+
+        QString tip = "<p><nobr>" + tr("Add the link points:") + "</nobr></p>\n<table>";
         int i = 1;
 
         foreach(QPoint p, points)
