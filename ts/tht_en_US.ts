@@ -394,48 +394,43 @@ the right or middle mouse buttons.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="590"/>
-        <source>No links to save</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../tht.cpp" line="593"/>
+        <location filename="../tht.cpp" line="598"/>
         <source>Save the link points:</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1060"/>
-        <location filename="../tht.cpp" line="1088"/>
+        <location filename="../tht.cpp" line="1065"/>
+        <location filename="../tht.cpp" line="1093"/>
         <source>Error</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1060"/>
+        <location filename="../tht.cpp" line="1065"/>
         <source>Cannot take screenshot</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1088"/>
+        <location filename="../tht.cpp" line="1093"/>
         <source>Cannot save screenshot</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1321"/>
-        <source>No saved links</source>
+        <location filename="../tht.cpp" line="1327"/>
+        <source>No saved link points</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1324"/>
-        <source>Load the link points:</source>
+        <location filename="../tht.cpp" line="1334"/>
+        <source>Add the link points:</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1339"/>
+        <location filename="../tht.cpp" line="1349"/>
         <source>Window #%1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1341"/>
+        <location filename="../tht.cpp" line="1351"/>
         <source>at %2,%3</source>
         <translation></translation>
     </message>
