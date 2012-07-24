@@ -1088,9 +1088,13 @@ void THT::slotClearLinks()
 {
     qDebug("Clear links");
 
+    m_windows = &m_windowsLoad;
+
+    if(m_windows->isEmpty())
+        return;
+
     MessageBeep(MB_OK);
 
-    m_windows = &m_windowsLoad;
     m_windows->clear();
 
     checkWindows();
