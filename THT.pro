@@ -17,8 +17,8 @@ QMAKE_CXXFLAGS_WARN_ON *= -Wextra -Wno-missing-field-initializers
 
 # THT version
 NVER1=1
-NVER2=0
-NVER3=4
+NVER2=1
+NVER3=0
 
 VERSION=$$sprintf("%1.%2.%3", $$NVER1, $$NVER2, $$NVER3)
 
