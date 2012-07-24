@@ -11,6 +11,8 @@ namespace Ui {
 class LinkPointManager;
 }
 
+class QTreeWidgetItem;
+
 class LinkPointManager : public QDialog
 {
     Q_OBJECT
@@ -25,10 +27,13 @@ public:
 
 private:
     void addItem(const LinkPoint &, bool edit = false);
+    void moveItem(QTreeWidgetItem *, int index, int diff);
 
 private slots:
     void slotAdd();
     void slotDelete();
+    void slotUp();
+    void slotDown();
     void slotClear();
     void slotItemChanged();
 

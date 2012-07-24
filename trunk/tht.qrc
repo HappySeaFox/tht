@@ -19,5 +19,7 @@
         <file>images/query.png</file>
         <file>images/links-load.png</file>
         <file>images/links-customize.png</file>
+        <file>images/arrow-down.png</file>
+        <file>images/arrow-up.png</file>
     </qresource>
 </RCC>

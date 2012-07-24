@@ -31,6 +31,8 @@ LinkPointManager::LinkPointManager(const QList<QPoint> &currentLinks, QWidget *p
 {
     ui->setupUi(this);
 
+    ui->pushClear->setShortcut(QKeySequence::New);
+
     ui->tree->setItemDelegateForColumn(1, new NoEditorDelegate(ui->tree));
     ui->tree->header()->setResizeMode(QHeaderView::ResizeToContents);
 
@@ -91,6 +93,15 @@ void LinkPointManager::addItem(const LinkPoint &lp, bool edit)
     }
 }
 
+void LinkPointManager::moveItem(QTreeWidgetItem *i, int index, int diff)
+{
+    ui->tree->takeTopLevelItem(index);
+    ui->tree->insertTopLevelItem(index+diff, i);
+    ui->tree->setCurrentItem(i, QItemSelectionModel::ClearAndSelect);
+
+    m_changed = true;
+}
+
 void LinkPointManager::slotAdd()
 {
     addItem(LinkPoint(tr("New points"), m_currentLinks), true);
@@ -114,6 +125,28 @@ void LinkPointManager::slotDelete()
     ui->tree->setCurrentItem(i, QItemSelectionModel::ClearAndSelect);
 
     m_changed = true;
+}
+
+void LinkPointManager::slotUp()
+{
+    QTreeWidgetItem *i = ui->tree->currentItem();
+    int index = ui->tree->indexOfTopLevelItem(i);
+
+    if(!i || index <= 0)
+        return;
+
+    moveItem(i, index, -1);
+}
+
+void LinkPointManager::slotDown()
+{
+    QTreeWidgetItem *i = ui->tree->currentItem();
+    int index = ui->tree->indexOfTopLevelItem(i);
+
+    if(!i || index < 0 || index >= ui->tree->topLevelItemCount()-1)
+        return;
+
+    moveItem(i, index, +1);
 }
 
 void LinkPointManager::slotClear()
