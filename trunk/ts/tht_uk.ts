@@ -352,27 +352,22 @@ the right or middle mouse buttons.</source>
         <translation>ІН:</translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="200"/>
-        <source>Manage link points...</source>
-        <translation>Управління точками лінковки...</translation>
-    </message>
-    <message>
-        <location filename="../tht.cpp" line="1333"/>
+        <location filename="../tht.ui" line="195"/>
         <source>Link points</source>
         <translation>Точки лінковки</translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="275"/>
+        <location filename="../tht.ui" line="260"/>
         <source>THT is ready</source>
         <translation>ТНТ готовий до роботи</translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="307"/>
+        <location filename="../tht.ui" line="292"/>
         <source>THT is busy</source>
         <translation>THT зайнятий</translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="240"/>
+        <location filename="../tht.ui" line="225"/>
         <source>=N</source>
         <translation></translation>
     </message>
@@ -452,9 +447,9 @@ the right or middle mouse buttons.</source>
         <translation>Неможливо зберегти знімок екрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1315"/>
-        <source>No saved link points</source>
-        <translation>Немає збережених точок лінковки</translation>
+        <location filename="../tht.cpp" line="1332"/>
+        <source>Customize...</source>
+        <translation>Налаштувати...</translation>
     </message>
 </context>
 <context>

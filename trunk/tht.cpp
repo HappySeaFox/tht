@@ -1310,19 +1310,15 @@ void THT::rebuildLinkPoints()
 {
     QList<LinkPoint> linkpoints = Settings::instance()->links();
 
-    if(linkpoints.isEmpty())
+    if(!ui->pushLinks->menu())
     {
-        ui->pushLoadLinks->setToolTip(tr("No saved link points"));
-        ui->pushLoadLinks->setEnabled(false);
-
-        // re-set menu
-        delete ui->pushLoadLinks->menu();
-        ui->pushLoadLinks->setMenu(0);
-
-        return;
+        QMenu *menu = new QMenu(ui->pushLinks);
+        ui->pushLinks->setMenu(menu);
     }
 
-    QMenu *menu = new QMenu(ui->pushLoadLinks);
+    QMenu *menu = ui->pushLinks->menu();
+
+    menu->clear();
 
     foreach(LinkPoint lp, linkpoints)
     {
@@ -1330,9 +1326,10 @@ void THT::rebuildLinkPoints()
         a->setData(QVariant::fromValue(lp.points));
     }
 
-    ui->pushLoadLinks->setToolTip(tr("Link points"));
-    ui->pushLoadLinks->setEnabled(true);
-    ui->pushLoadLinks->setMenu(menu);
+    if(!linkpoints.isEmpty())
+        menu->addSeparator();
+
+    menu->addAction(QIcon(":/images/links-customize.png"), tr("Customize..."), this, SLOT(slotManageLinks()));
 }
 
 HWND THT::grayBoxFindSubControl(HWND parent)

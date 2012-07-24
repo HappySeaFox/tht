@@ -190,36 +190,21 @@
     </widget>
    </item>
    <item row="2" column="2">
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <property name="spacing">
-      <number>2</number>
+    <widget class="QToolButton" name="pushLinks">
+     <property name="toolTip">
+      <string>Link points</string>
      </property>
-     <item>
-      <widget class="QToolButton" name="pushManageLinks">
-       <property name="toolTip">
-        <string>Manage link points...</string>
-       </property>
-       <property name="icon">
-        <iconset resource="tht.qrc">
-         <normaloff>:/images/links-save.png</normaloff>:/images/links-save.png</iconset>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QToolButton" name="pushLoadLinks">
-       <property name="styleSheet">
-        <string notr="true">QToolButton::menu-indicator { image: none; }</string>
-       </property>
-       <property name="icon">
-        <iconset resource="tht.qrc">
-         <normaloff>:/images/links-load.png</normaloff>:/images/links-load.png</iconset>
-       </property>
-       <property name="popupMode">
-        <enum>QToolButton::InstantPopup</enum>
-       </property>
-      </widget>
-     </item>
-    </layout>
+     <property name="styleSheet">
+      <string notr="true">QToolButton::menu-indicator { image: none; }</string>
+     </property>
+     <property name="icon">
+      <iconset resource="tht.qrc">
+       <normaloff>:/images/links-load.png</normaloff>:/images/links-load.png</iconset>
+     </property>
+     <property name="popupMode">
+      <enum>QToolButton::InstantPopup</enum>
+     </property>
+    </widget>
    </item>
    <item row="2" column="3">
     <spacer name="horizontalSpacer">
@@ -334,8 +319,7 @@
   </customwidget>
  </customwidgets>
  <tabstops>
-  <tabstop>pushManageLinks</tabstop>
-  <tabstop>pushLoadLinks</tabstop>
+  <tabstop>pushLinks</tabstop>
   <tabstop>checkNyse</tabstop>
  </tabstops>
  <resources>
@@ -374,26 +358,9 @@
     </hint>
    </hints>
   </connection>
-  <connection>
-   <sender>pushManageLinks</sender>
-   <signal>clicked()</signal>
-   <receiver>THT</receiver>
-   <slot>slotManageLinks()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>138</x>
-     <y>416</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>137</x>
-     <y>455</y>
-    </hint>
-   </hints>
-  </connection>
  </connections>
  <slots>
   <slot>slotTargetDropped(QPoint)</slot>
   <slot>slotClearLinks()</slot>
-  <slot>slotManageLinks()</slot>
  </slots>
 </ui>
