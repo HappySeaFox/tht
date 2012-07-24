@@ -12,11 +12,11 @@ void Tools::moveWindow(QWidget *w, const QPoint &pt)
         return;
 
     const int sn = qApp->desktop()->screenCount();
+    const QRect headGeometry = QRect(pt, QSize(w->width(), 20));
 
     for(int screen = 0;screen < sn;screen++)
     {
         QRect dr = qApp->desktop()->availableGeometry(screen);
-        QRect headGeometry = QRect(pt, QSize(w->width(), 20));
 
         // move to a valid position
         if(dr.contains(headGeometry.topLeft()) || dr.contains(headGeometry.bottomRight()))

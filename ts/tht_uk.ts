@@ -68,17 +68,37 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
         <translation>Додати поточні</translation>
     </message>
     <message>
-        <location filename="../linkpointmanager.ui" line="56"/>
+        <location filename="../linkpointmanager.ui" line="52"/>
+        <source>Ins</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../linkpointmanager.ui" line="59"/>
         <source>Delete</source>
         <translation>Видалити</translation>
     </message>
     <message>
-        <location filename="../linkpointmanager.ui" line="63"/>
+        <location filename="../linkpointmanager.ui" line="62"/>
+        <source>Del</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../linkpointmanager.ui" line="73"/>
+        <source>Ctrl+Up</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../linkpointmanager.ui" line="84"/>
+        <source>Ctrl+Down</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../linkpointmanager.ui" line="98"/>
         <source>Clear</source>
         <translation>Очистити</translation>
     </message>
     <message>
-        <location filename="../linkpointmanager.cpp" line="96"/>
+        <location filename="../linkpointmanager.cpp" line="107"/>
         <source>New points</source>
         <translation>Нові точки</translation>
     </message>
@@ -378,7 +398,7 @@ the right or middle mouse buttons.</source>
     </message>
     <message>
         <location filename="../tht.cpp" line="89"/>
-        <location filename="../tht.cpp" line="155"/>
+        <location filename="../tht.cpp" line="148"/>
         <source>Take screenshot...</source>
         <translation>Знімок екрану...</translation>
     </message>
@@ -400,7 +420,7 @@ the right or middle mouse buttons.</source>
     </message>
     <message>
         <location filename="../tht.cpp" line="98"/>
-        <location filename="../tht.cpp" line="157"/>
+        <location filename="../tht.cpp" line="150"/>
         <source>About THT</source>
         <translation>Про THT</translation>
     </message>
@@ -411,43 +431,43 @@ the right or middle mouse buttons.</source>
     </message>
     <message>
         <location filename="../tht.cpp" line="101"/>
-        <location filename="../tht.cpp" line="159"/>
+        <location filename="../tht.cpp" line="152"/>
         <source>Quit</source>
         <translation>Вихід</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="154"/>
+        <location filename="../tht.cpp" line="147"/>
         <source>Restore</source>
         <translation>Відновити</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="243"/>
+        <location filename="../tht.cpp" line="236"/>
         <source>Notice</source>
         <translation>Замітка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="243"/>
+        <location filename="../tht.cpp" line="236"/>
         <source>THT will continue to run in a system tray</source>
         <translation>ТНТ продовжить роботу в системному лотку</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1045"/>
-        <location filename="../tht.cpp" line="1073"/>
+        <location filename="../tht.cpp" line="1038"/>
+        <location filename="../tht.cpp" line="1066"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1045"/>
+        <location filename="../tht.cpp" line="1038"/>
         <source>Cannot take screenshot</source>
         <translation>Неможливо створити знімок екрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1073"/>
+        <location filename="../tht.cpp" line="1066"/>
         <source>Cannot save screenshot</source>
         <translation>Неможливо зберегти знімок екрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1332"/>
+        <location filename="../tht.cpp" line="1333"/>
         <source>Customize...</source>
         <translation>Налаштувати...</translation>
     </message>
@@ -491,9 +511,9 @@ the right or middle mouse buttons.</source>
         <translation>Тільки США</translation>
     </message>
     <message>
-        <location filename="../tickerneighbors.cpp" line="196"/>
-        <location filename="../tickerneighbors.cpp" line="311"/>
-        <location filename="../tickerneighbors.cpp" line="348"/>
+        <location filename="../tickerneighbors.cpp" line="189"/>
+        <location filename="../tickerneighbors.cpp" line="304"/>
+        <location filename="../tickerneighbors.cpp" line="341"/>
         <source>Copy (%1)</source>
         <translation>Копіювати (%1)</translation>
     </message>
