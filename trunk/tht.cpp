@@ -1123,6 +1123,8 @@ void THT::slotLoadLinks()
 
     QList<QPoint> links = a->data().value<QList<QPoint> >();
 
+    slotClearLinks();
+
     foreach(QPoint p, links)
     {
         slotTargetDropped(p);
@@ -1308,6 +1310,8 @@ bool THT::setForeignFocus(HWND window, DWORD threadId)
 
 void THT::rebuildLinkPoints()
 {
+    qDebug("Rebuild link menu");
+
     QList<LinkPoint> linkpoints = Settings::instance()->links();
 
     if(!ui->pushLinks->menu())
