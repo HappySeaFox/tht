@@ -195,7 +195,10 @@
       <number>2</number>
      </property>
      <item>
-      <widget class="QToolButton" name="pushSaveLinks">
+      <widget class="QToolButton" name="pushManageLinks">
+       <property name="toolTip">
+        <string>Manage link points...</string>
+       </property>
        <property name="icon">
         <iconset resource="tht.qrc">
          <normaloff>:/images/links-save.png</normaloff>:/images/links-save.png</iconset>
@@ -204,9 +207,15 @@
      </item>
      <item>
       <widget class="QToolButton" name="pushLoadLinks">
+       <property name="styleSheet">
+        <string notr="true">QToolButton::menu-indicator { image: none; }</string>
+       </property>
        <property name="icon">
         <iconset resource="tht.qrc">
          <normaloff>:/images/links-load.png</normaloff>:/images/links-load.png</iconset>
+       </property>
+       <property name="popupMode">
+        <enum>QToolButton::InstantPopup</enum>
        </property>
       </widget>
      </item>
@@ -325,7 +334,7 @@
   </customwidget>
  </customwidgets>
  <tabstops>
-  <tabstop>pushSaveLinks</tabstop>
+  <tabstop>pushManageLinks</tabstop>
   <tabstop>pushLoadLinks</tabstop>
   <tabstop>checkNyse</tabstop>
  </tabstops>
@@ -366,10 +375,10 @@
    </hints>
   </connection>
   <connection>
-   <sender>pushSaveLinks</sender>
+   <sender>pushManageLinks</sender>
    <signal>clicked()</signal>
    <receiver>THT</receiver>
-   <slot>slotSaveLinks()</slot>
+   <slot>slotManageLinks()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>138</x>
@@ -381,27 +390,10 @@
     </hint>
    </hints>
   </connection>
-  <connection>
-   <sender>pushLoadLinks</sender>
-   <signal>clicked()</signal>
-   <receiver>THT</receiver>
-   <slot>slotLoadLinks()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>160</x>
-     <y>407</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>158</x>
-     <y>454</y>
-    </hint>
-   </hints>
-  </connection>
  </connections>
  <slots>
   <slot>slotTargetDropped(QPoint)</slot>
   <slot>slotClearLinks()</slot>
-  <slot>slotSaveLinks()</slot>
-  <slot>slotLoadLinks()</slot>
+  <slot>slotManageLinks()</slot>
  </slots>
 </ui>

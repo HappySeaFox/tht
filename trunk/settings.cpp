@@ -25,7 +25,18 @@
 
 #include "settings.h"
 
-Q_DECLARE_METATYPE(QList<QPoint>)
+QDataStream &operator<<(QDataStream &out, const LinkPoint &lp)
+{
+    out << lp.name << lp.points;
+
+    return out;
+}
+
+QDataStream &operator>>(QDataStream &in, LinkPoint &lp)
+{
+    in >> lp.name >> lp.points;
+    return in;
+}
 
 Settings::Settings()
 {
@@ -34,9 +45,11 @@ Settings::Settings()
                                 QCoreApplication::organizationName(),
                                 QCoreApplication::applicationName());
 
-    qRegisterMetaTypeStreamOperators<QList<QPoint> >();
-
     m_settings->setFallbacksEnabled(false);
+
+    qRegisterMetaTypeStreamOperators<QList<QPoint> >("QList<QPoint>");
+    qRegisterMetaTypeStreamOperators<LinkPoint>("LinkPoint");
+    qRegisterMetaTypeStreamOperators<QList<LinkPoint> >("QList<LinkPoint>");
 
     m_databaseTimestampFormat = "yyyy-MM-dd hh:mm:ss.zzz";
 
@@ -231,14 +244,14 @@ bool Settings::miniTickerEntry()
     return load<bool>("mini-ticker-entry", true);
 }
 
-void Settings::setLinks(const QList<QPoint> &links, SyncType sync)
+void Settings::setLinks(const QList<LinkPoint> &links, SyncType sync)
 {
-    save<QList<QPoint> >("links", links, sync);
+    save<QList<LinkPoint> >("links", links, sync);
 }
 
-QList<QPoint> Settings::links()
+QList<LinkPoint> Settings::links()
 {
-    return load<QList<QPoint> >("links");
+    return load<QList<LinkPoint> >("links");
 }
 
 void Settings::setAllowDuplicates(bool allow, SyncType sync)

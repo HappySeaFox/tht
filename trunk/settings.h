@@ -30,6 +30,21 @@
 
 #include <windows.h>
 
+struct LinkPoint
+{
+    LinkPoint(const QString &_name = QString(), const QList<QPoint> &_points = QList<QPoint>())
+        : name(_name),
+          points(_points)
+    {}
+
+    QString name;
+    QList<QPoint> points;
+};
+
+Q_DECLARE_METATYPE(QList<QPoint>)
+Q_DECLARE_METATYPE(LinkPoint)
+Q_DECLARE_METATYPE(QList<LinkPoint>)
+
 class Settings
 {
 public:
@@ -83,8 +98,8 @@ public:
     void setShowNeighborsAtStartup(bool, SyncType sync = Sync);
     bool showNeighborsAtStartup();
 
-    void setLinks(const QList<QPoint> &, SyncType sync = Sync);
-    QList<QPoint> links();
+    void setLinks(const QList<LinkPoint> &, SyncType sync = Sync);
+    QList<LinkPoint> links();
 
     void setMiniTickerEntry(bool, SyncType sync = Sync);
     bool miniTickerEntry();

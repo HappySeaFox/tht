@@ -62,7 +62,8 @@ SOURCES += main.cpp\
     tickerinformationfetcher.cpp \
     tickersdatabaseupdater.cpp \
     tickerneighbors.cpp \
-    sqltools.cpp
+    sqltools.cpp \
+    linkpointmanager.cpp
 
 HEADERS += tht.h \
     list.h \
@@ -93,7 +94,8 @@ HEADERS += tht.h \
     tickerinformationfetcher.h \
     tickersdatabaseupdater.h \
     tickerneighbors.h \
-    sqltools.h
+    sqltools.h \
+    linkpointmanager.h
 
 FORMS += tht.ui \
     list.ui \
@@ -103,7 +105,8 @@ FORMS += tht.ui \
     tickerinput.ui \
     searchticker.ui \
     tickerminiinput.ui \
-    tickerneighbors.ui
+    tickerneighbors.ui \
+    linkpointmanager.ui
 
 RESOURCES += tht.qrc
 
