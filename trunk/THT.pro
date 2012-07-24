@@ -63,7 +63,8 @@ SOURCES += main.cpp\
     tickersdatabaseupdater.cpp \
     tickerneighbors.cpp \
     sqltools.cpp \
-    linkpointmanager.cpp
+    linkpointmanager.cpp \
+    tools.cpp
 
 HEADERS += tht.h \
     list.h \
@@ -95,7 +96,8 @@ HEADERS += tht.h \
     tickersdatabaseupdater.h \
     tickerneighbors.h \
     sqltools.h \
-    linkpointmanager.h
+    linkpointmanager.h \
+    tools.h
 
 FORMS += tht.ui \
     list.ui \

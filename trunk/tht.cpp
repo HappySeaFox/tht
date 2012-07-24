@@ -18,7 +18,6 @@
 #include <QxtGlobalShortcut>
 
 #include <QContextMenuEvent>
-#include <QDesktopWidget>
 #include <QApplication>
 #include <QKeySequence>
 #include <QGridLayout>
@@ -48,6 +47,7 @@
 #include "listitem.h"
 #include "options.h"
 #include "about.h"
+#include "tools.h"
 #include "list.h"
 #include "tht.h"
 #include "ui_tht.h"
@@ -138,14 +138,7 @@ THT::THT(QWidget *parent) :
         if(sz.isValid())
             resize(sz);
 
-        QPoint pt = Settings::instance()->windowPosition();
-
-        QRect dr = qApp->desktop()->availableGeometry();
-        QRect headGeometry = QRect(pt, QSize(sz.width(), 20));
-
-        // move to a valid position
-        if(!pt.isNull() && (dr.contains(headGeometry.topLeft()) || dr.contains(headGeometry.bottomRight())))
-            move(pt);
+        Tools::moveWindow(this, Settings::instance()->windowPosition());
     }
 
     m_tray = new QSystemTrayIcon(QIcon(":/images/chart.ico"), this);

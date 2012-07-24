@@ -17,7 +17,6 @@
 
 #include <QItemSelectionModel>
 #include <QTreeWidgetItem>
-#include <QDesktopWidget>
 #include <QApplication>
 #include <QMetaObject>
 #include <QModelIndex>
@@ -32,6 +31,7 @@
 #include "uppercasevalidator.h"
 #include "settings.h"
 #include "sqltools.h"
+#include "tools.h"
 
 #include "ui_tickerneighbors.h"
 
@@ -145,15 +145,8 @@ void TickerNeighbors::setVisible(bool vis)
     if(!vis)
         m_pos = pos();
 
-    if(vis && !m_pos.isNull())
-    {
-        QRect dr = qApp->desktop()->availableGeometry();
-        QRect headGeometry = QRect(m_pos, QSize(width(), 20));
-
-        // move to a valid position
-        if(dr.contains(headGeometry.topLeft()) || dr.contains(headGeometry.bottomRight()))
-            move(m_pos);
-    }
+    if(vis)
+        Tools::moveWindow(this, m_pos);
 
     QDialog::setVisible(vis);
 }
