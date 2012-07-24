@@ -104,8 +104,7 @@ private:
     void loadTicker(const QString &);
     void startDelayedScreenshot(bool);
     bool setForeignFocus(HWND window, DWORD threadId);
-    void savedLinksChanged(const QList<QPoint> &useThisList = QList<QPoint>());
-    QString formatLinkString(int i, const QPoint &p);
+    void rebuildLinkPoints();
 
     static HWND grayBoxFindSubControl(HWND);
     static HWND mbtFindSubControl(HWND);
@@ -133,7 +132,7 @@ private slots:
     void slotTakeScreenshotFromGlobal();
     void slotClearLists();
     void slotClearLinks();
-    void slotSaveLinks();
+    void slotManageLinks();
     void slotLoadLinks();
     void slotLockLinks();
     void slotTargetDropped(const QPoint &);

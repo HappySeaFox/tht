@@ -39,6 +39,7 @@
 #include <psapi.h>
 
 #include "tickersdatabaseupdater.h"
+#include "linkpointmanager.h"
 #include "savescreenshot.h"
 #include "updatechecker.h"
 #include "regionselect.h"
@@ -167,7 +168,7 @@ THT::THT(QWidget *parent) :
     connect(takeScreen, SIGNAL(activated()), this, SLOT(slotTakeScreenshotFromGlobal()));
 
     checkWindows();
-    savedLinksChanged();
+    rebuildLinkPoints();
 
     connect(UpdateChecker::instance(), SIGNAL(newVersion(const QString &)), this, SLOT(slotNewVersion(const QString &)));
 
@@ -585,27 +586,6 @@ void THT::checkWindows()
     }
     else
         ui->stackLinks->setCurrentIndex(0); // "No links" warning
-
-    if(m_windowsLoad.isEmpty())
-    {
-        ui->pushSaveLinks->setToolTip(QString());
-        ui->pushSaveLinks->setEnabled(false);
-    }
-    else
-    {
-        ui->pushSaveLinks->setEnabled(true);
-
-        QString tip = "<p><nobr>" + tr("Save the link points:") + "</nobr></p>\n<table>";
-        int i = 1;
-        itEnd = m_windowsLoad.end();
-
-        for(QList<Link>::iterator it = m_windowsLoad.begin();it != itEnd;++it)
-        {
-            tip += formatLinkString(i++, (*it).dropPoint);
-        }
-
-        ui->pushSaveLinks->setToolTip(tip + "</table>");
-    }
 }
 
 void THT::nextLoadableWindowIndex(int startFrom)
@@ -1116,7 +1096,7 @@ void THT::slotClearLinks()
     checkWindows();
 }
 
-void THT::slotSaveLinks()
+void THT::slotManageLinks()
 {
     QList<QPoint> links;
 
@@ -1125,15 +1105,23 @@ void THT::slotSaveLinks()
         links.append(l.dropPoint);
     }
 
-    Settings::instance()->setLinks(links);
-    savedLinksChanged(links);
+    LinkPointManager mgr(links, this);
 
-    qDebug("Saved links: %d", links.size());
+    if(mgr.exec() == QDialog::Accepted && mgr.changed())
+    {
+        Settings::instance()->setLinks(mgr.links());
+        rebuildLinkPoints();
+    }
 }
 
 void THT::slotLoadLinks()
 {
-    QList<QPoint> links = Settings::instance()->links();
+    QAction *a = qobject_cast<QAction *>(sender());
+
+    if(!a)
+        return;
+
+    QList<QPoint> links = a->data().value<QList<QPoint> >();
 
     foreach(QPoint p, links)
     {
@@ -1318,38 +1306,33 @@ bool THT::setForeignFocus(HWND window, DWORD threadId)
     return true;
 }
 
-void THT::savedLinksChanged(const QList<QPoint> &useThisList)
+void THT::rebuildLinkPoints()
 {
-    QList<QPoint> points = useThisList.isEmpty() ? Settings::instance()->links() : useThisList;
+    QList<LinkPoint> linkpoints = Settings::instance()->links();
 
-    if(points.isEmpty())
+    if(linkpoints.isEmpty())
     {
         ui->pushLoadLinks->setToolTip(tr("No saved link points"));
         ui->pushLoadLinks->setEnabled(false);
+
+        // re-set menu
+        delete ui->pushLoadLinks->menu();
+        ui->pushLoadLinks->setMenu(0);
+
+        return;
     }
-    else
+
+    QMenu *menu = new QMenu(ui->pushLoadLinks);
+
+    foreach(LinkPoint lp, linkpoints)
     {
-        ui->pushLoadLinks->setEnabled(true);
-
-        QString tip = "<p><nobr>" + tr("Add the link points:") + "</nobr></p>\n<table>";
-        int i = 1;
-
-        foreach(QPoint p, points)
-        {
-            tip += formatLinkString(i++, p);
-        }
-
-        ui->pushLoadLinks->setToolTip(tip + "</table>");
+        QAction *a = menu->addAction(lp.name, this, SLOT(slotLoadLinks()));
+        a->setData(QVariant::fromValue(lp.points));
     }
-}
 
-QString THT::formatLinkString(int i, const QPoint &p)
-{
-    return "<tr><td><nobr>"
-                + tr("Window #%1").arg(i) + "</nobr>"
-                + "</td><td>"
-                + "<nobr>" + tr("at %2,%3").arg(p.x()).arg(p.y()) + "</nobr>"
-                + "</td></tr>";
+    ui->pushLoadLinks->setToolTip(tr("Link points"));
+    ui->pushLoadLinks->setEnabled(true);
+    ui->pushLoadLinks->setMenu(menu);
 }
 
 HWND THT::grayBoxFindSubControl(HWND parent)
