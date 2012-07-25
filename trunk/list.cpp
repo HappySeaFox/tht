@@ -997,7 +997,7 @@ void List::focusMiniTickerEntry()
     if(Settings::instance()->miniTickerEntry())
     {
         ui->stack->setCurrentIndex(0);
-        ui->stack->currentWidget()->setFocus();
+        ui->widgetInput->setFocusAndSelect();
         ui->widgetInput->flash();
     }
 }

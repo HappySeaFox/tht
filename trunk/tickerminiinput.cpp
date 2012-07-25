@@ -58,6 +58,12 @@ void TickerMiniInput::flash()
     m_timer->start();
 }
 
+void TickerMiniInput::setFocusAndSelect()
+{
+    setFocus();
+    ui->line->selectAll();
+}
+
 bool TickerMiniInput::eventFilter(QObject *watched, QEvent *e)
 {
     if(watched == ui->line)
