@@ -35,6 +35,7 @@ public:
     ~TickerMiniInput();
 
     void flash();
+    void setFocusAndSelect();
 
 protected:
     virtual bool eventFilter(QObject *watched, QEvent *);
