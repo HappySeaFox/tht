@@ -78,6 +78,10 @@ bool TickerMiniInput::eventFilter(QObject *watched, QEvent *e)
                 // search widget
                 switch(ke->key())
                 {
+                    case Qt::Key_Up:
+                        emit focusUp();
+                    break;
+
                     case Qt::Key_Space:
                         emit addTicker(ui->line->text());
                         ui->line->clear();

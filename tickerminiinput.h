@@ -41,6 +41,7 @@ protected:
     virtual bool eventFilter(QObject *watched, QEvent *);
 
 signals:
+    void focusUp();
     void addTicker(const QString &);
     void loadTicker(const QString &);
 
