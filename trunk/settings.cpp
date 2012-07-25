@@ -25,18 +25,20 @@
 
 #include "settings.h"
 
-QDataStream &operator<<(QDataStream &out, const LinkPoint &lp)
+// serialize/deserialize LinkPoint
+static QDataStream &operator<<(QDataStream &out, const LinkPoint &lp)
 {
     out << lp.name << lp.points;
-
     return out;
 }
 
-QDataStream &operator>>(QDataStream &in, LinkPoint &lp)
+static QDataStream &operator>>(QDataStream &in, LinkPoint &lp)
 {
     in >> lp.name >> lp.points;
     return in;
 }
+
+/*******************************************************/
 
 Settings::Settings()
 {
