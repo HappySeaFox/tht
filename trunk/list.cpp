@@ -85,6 +85,7 @@ List::List(int group, QWidget *parent) :
 
     reconfigureMiniTickerEntry();
 
+    connect(ui->widgetInput, SIGNAL(focusUp()), this, SLOT(slotFocusUp()));
     connect(ui->widgetInput, SIGNAL(addTicker(const QString &)), this, SLOT(addTicker(const QString &)));
     connect(ui->widgetInput, SIGNAL(loadTicker(const QString &)), this, SIGNAL(loadTicker(const QString &)));
 
@@ -1241,6 +1242,11 @@ void List::slotSearchTickerNext()
 
     if(m_foundItems[index])
         ui->list->setCurrentItem(m_foundItems[index], QItemSelectionModel::ClearAndSelect);
+}
+
+void List::slotFocusUp()
+{
+    setFocus();
 }
 
 void List::slotExportToClipboard()

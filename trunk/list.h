@@ -119,6 +119,7 @@ private slots:
     void slotResetPriority();
     void slotSearchTicker(const QString &);
     void slotSearchTickerNext();
+    void slotFocusUp();
     void loadItem(LoadItem = LoadItemCurrent);
     void moveItem(MoveItem);
 
