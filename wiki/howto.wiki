@@ -50,6 +50,10 @@ The current input language must be English when loading tickers to the linked wi
 
 Right click on a THT window and select "Clear links". You can also do a middle click on a black target icon to achieve that.
 
+== How to save and add link points? ==
+
+<wiki:video url="https://www.youtube.com/watch?v=FnXsTW3RQVI" width="240" height="170"/>
+
 == How to use ticker lists? ==
 
 Click on a ticker with a left mouse button, or use "up" and "down" arrows on your keyboard to navigate through the list. When the ticker is selected, THT will load it to all linked windows.
@@ -163,6 +167,7 @@ Yes, THT supports some keyboard shortcuts.
 
 === Mini ticker entry shortcuts: ===
 
+ * *up arrow* - set focus to the ticker list
  * *Space* - add ticker to the current list
  * *Enter* - load the ticker
  * *Escape* - clear

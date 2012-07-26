@@ -1,3 +1,8 @@
+== 1.1.0 ==
+ * ability to save & load link points (see [howto howto])
+ * fixed support of the slave monitors in a multi-monitor configuration
+ * hotkeys: press "Up" in the ticker mini-input to set focus to the ticker list
+
 == 1.0.3 ==
  * save Industries position and size
  * added option to restore "Industries" window at startup
