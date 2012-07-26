@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TickerNeighbors</class>
+ <widget class="QWidget" name="TickerNeighbors">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>258</width>
+    <height>368</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Industries</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QLineEdit" name="lineTicker"/>
+   </item>
+   <item row="0" column="1">
+    <widget class="QToolButton" name="pushTicker">
+     <property name="icon">
+      <iconset resource="tht.qrc">
+       <normaloff>:/images/query.png</normaloff>:/images/query.png</iconset>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QComboBox" name="comboSector"/>
+   </item>
+   <item row="1" column="1">
+    <widget class="QToolButton" name="pushSector">
+     <property name="icon">
+      <iconset resource="tht.qrc">
+       <normaloff>:/images/query.png</normaloff>:/images/query.png</iconset>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QComboBox" name="comboIndustry"/>
+   </item>
+   <item row="2" column="1">
+    <widget class="QToolButton" name="pushIndustry">
+     <property name="icon">
+      <iconset resource="tht.qrc">
+       <normaloff>:/images/query.png</normaloff>:/images/query.png</iconset>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0" colspan="2">
+    <widget class="QListWidget" name="listTickers">
+     <property name="selectionMode">
+      <enum>QAbstractItemView::ExtendedSelection</enum>
+     </property>
+     <property name="movement">
+      <enum>QListView::Static</enum>
+     </property>
+     <property name="flow">
+      <enum>QListView::TopToBottom</enum>
+     </property>
+     <property name="resizeMode">
+      <enum>QListView::Adjust</enum>
+     </property>
+     <property name="viewMode">
+      <enum>QListView::IconMode</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0" colspan="2">
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QWidget" name="widgetExchanges" native="true"/>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>13</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushCopy">
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="5" column="0" colspan="2">
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QCheckBox" name="checkCap">
+       <property name="text">
+        <string>By capitalization</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="checkUSA">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+         <horstretch>1</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>U.S. only</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>lineTicker</tabstop>
+  <tabstop>pushTicker</tabstop>
+  <tabstop>comboSector</tabstop>
+  <tabstop>pushSector</tabstop>
+  <tabstop>comboIndustry</tabstop>
+  <tabstop>pushIndustry</tabstop>
+  <tabstop>listTickers</tabstop>
+  <tabstop>checkCap</tabstop>
+  <tabstop>checkUSA</tabstop>
+  <tabstop>pushCopy</tabstop>
+ </tabstops>
+ <resources>
+  <include location="tht.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>lineTicker</sender>
+   <signal>returnPressed()</signal>
+   <receiver>TickerNeighbors</receiver>
+   <slot>slotFetch()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>113</x>
+     <y>21</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>185</x>
+     <y>22</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushTicker</sender>
+   <signal>clicked()</signal>
+   <receiver>TickerNeighbors</receiver>
+   <slot>slotFetch()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>30</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>245</x>
+     <y>15</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushSector</sender>
+   <signal>clicked()</signal>
+   <receiver>TickerNeighbors</receiver>
+   <slot>slotFetch()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>58</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>234</x>
+     <y>226</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushIndustry</sender>
+   <signal>clicked()</signal>
+   <receiver>TickerNeighbors</receiver>
+   <slot>slotFetch()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>86</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>202</x>
+     <y>257</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushCopy</sender>
+   <signal>clicked()</signal>
+   <receiver>TickerNeighbors</receiver>
+   <slot>slotCopy()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>247</x>
+     <y>334</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>185</x>
+     <y>311</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkCap</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>TickerNeighbors</receiver>
+   <slot>slotFilterAndFetch()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>86</x>
+     <y>343</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>306</x>
+     <y>342</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>listTickers</sender>
+   <signal>activated(QModelIndex)</signal>
+   <receiver>TickerNeighbors</receiver>
+   <slot>slotActivated(QModelIndex)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>133</x>
+     <y>124</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>324</x>
+     <y>125</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkCap</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>TickerNeighbors</receiver>
+   <slot>slotCheckboxChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>20</x>
+     <y>355</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>19</x>
+     <y>392</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkUSA</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>TickerNeighbors</receiver>
+   <slot>slotFilterAndFetch()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>152</x>
+     <y>350</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>155</x>
+     <y>408</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkUSA</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>TickerNeighbors</receiver>
+   <slot>slotCheckboxChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>131</x>
+     <y>354</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>134</x>
+     <y>406</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>slotCopy()</slot>
+  <slot>slotFetch()</slot>
+  <slot>slotFilterAndFetch()</slot>
+  <slot>slotActivated(QModelIndex)</slot>
+  <slot>slotCheckboxChanged()</slot>
+ </slots>
+</ui>

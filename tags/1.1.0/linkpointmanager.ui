@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>LinkPointManager</class>
+ <widget class="QDialog" name="LinkPointManager">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>410</width>
+    <height>217</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Link points</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0" rowspan="7">
+    <widget class="QTreeWidget" name="tree">
+     <property name="alternatingRowColors">
+      <bool>true</bool>
+     </property>
+     <property name="itemsExpandable">
+      <bool>false</bool>
+     </property>
+     <property name="allColumnsShowFocus">
+      <bool>true</bool>
+     </property>
+     <property name="columnCount">
+      <number>2</number>
+     </property>
+     <attribute name="headerVisible">
+      <bool>false</bool>
+     </attribute>
+     <column>
+      <property name="text">
+       <string/>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string/>
+      </property>
+     </column>
+    </widget>
+   </item>
+   <item row="0" column="1" colspan="2">
+    <widget class="QPushButton" name="pushAdd">
+     <property name="text">
+      <string>Add current</string>
+     </property>
+     <property name="shortcut">
+      <string>Ins</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1" colspan="2">
+    <widget class="QPushButton" name="pushDelete">
+     <property name="text">
+      <string>Delete</string>
+     </property>
+     <property name="shortcut">
+      <string>Del</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QPushButton" name="pushUp">
+     <property name="icon">
+      <iconset resource="tht.qrc">
+       <normaloff>:/images/arrow-up.png</normaloff>:/images/arrow-up.png</iconset>
+     </property>
+     <property name="shortcut">
+      <string>Ctrl+Up</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="2">
+    <widget class="QPushButton" name="pushDown">
+     <property name="icon">
+      <iconset resource="tht.qrc">
+       <normaloff>:/images/arrow-down.png</normaloff>:/images/arrow-down.png</iconset>
+     </property>
+     <property name="shortcut">
+      <string>Ctrl+Down</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1" colspan="2">
+    <widget class="Line" name="line">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="1" colspan="2">
+    <widget class="QPushButton" name="pushClear">
+     <property name="text">
+      <string>Clear</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="2">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>0</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="6" column="1" colspan="2">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>tree</tabstop>
+  <tabstop>pushAdd</tabstop>
+  <tabstop>pushDelete</tabstop>
+  <tabstop>pushUp</tabstop>
+  <tabstop>pushDown</tabstop>
+  <tabstop>pushClear</tabstop>
+  <tabstop>buttonBox</tabstop>
+ </tabstops>
+ <resources>
+  <include location="tht.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>pushAdd</sender>
+   <signal>clicked()</signal>
+   <receiver>LinkPointManager</receiver>
+   <slot>slotAdd()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>384</x>
+     <y>31</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>409</x>
+     <y>22</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushDelete</sender>
+   <signal>clicked()</signal>
+   <receiver>LinkPointManager</receiver>
+   <slot>slotDelete()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>384</x>
+     <y>60</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>409</x>
+     <y>51</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushClear</sender>
+   <signal>clicked()</signal>
+   <receiver>LinkPointManager</receiver>
+   <slot>slotClear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>400</x>
+     <y>128</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>409</x>
+     <y>78</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>LinkPointManager</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>349</x>
+     <y>166</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>349</x>
+     <y>194</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>LinkPointManager</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>331</x>
+     <y>163</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>328</x>
+     <y>208</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tree</sender>
+   <signal>itemChanged(QTreeWidgetItem*,int)</signal>
+   <receiver>LinkPointManager</receiver>
+   <slot>slotItemChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>149</x>
+     <y>111</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>158</x>
+     <y>216</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushUp</sender>
+   <signal>clicked()</signal>
+   <receiver>LinkPointManager</receiver>
+   <slot>slotUp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>345</x>
+     <y>84</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>349</x>
+     <y>263</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushDown</sender>
+   <signal>clicked()</signal>
+   <receiver>LinkPointManager</receiver>
+   <slot>slotDown()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>378</x>
+     <y>80</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>367</x>
+     <y>273</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>slotAdd()</slot>
+  <slot>slotDelete()</slot>
+  <slot>slotClear()</slot>
+  <slot>slotItemChanged()</slot>
+  <slot>slotUp()</slot>
+  <slot>slotDown()</slot>
+ </slots>
+</ui>
