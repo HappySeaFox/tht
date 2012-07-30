@@ -17,10 +17,10 @@
         <location filename="../about.ui" line="93"/>
         <source>THT helps you to do your home task in trading. It can link several Advanced Get windows together and manage a list of tickers.
 
-All suggestions and bug reports please send to our bug tracker, also visit&lt;br/&gt;&lt;a href=&quot;https://code.google.com/p/traders-home-task-ng&quot;&gt;https://code.google.com/p/traders-home-task-ng/wiki/howto&lt;/a&gt;</source>
+All suggestions and bug reports please send to our bug tracker, also visit&lt;br/&gt;&lt;a href=&quot;http://code.google.com/p/traders-home-task-ng&quot;&gt;http://code.google.com/p/traders-home-task-ng/wiki/howto&lt;/a&gt;</source>
         <translation>THT помогает вам делать свою домашнюю работу в трейдинге. Она может линковать несколько окон Advanced Get и управлять списками тикеров.
 
-Все пожелания и отчёты об ошибках посылайте на наш багтрекер, также посетите&lt;br/&gt;&lt;a href=&quot;https://code.google.com/p/traders-home-task-ng/wiki/howto&quot;&gt;https://code.google.com/p/traders-home-task-ng/wiki/howto&lt;/a&gt;</translation>
+Все пожелания и отчёты об ошибках посылайте на наш багтрекер, также посетите&lt;br/&gt;&lt;a href=&quot;http://code.google.com/p/traders-home-task-ng/wiki/howto&quot;&gt;http://code.google.com/p/traders-home-task-ng/wiki/howto&lt;/a&gt;</translation>
     </message>
     <message>
         <location filename="../about.ui" line="130"/>
