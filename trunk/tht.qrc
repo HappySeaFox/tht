@@ -21,5 +21,8 @@
         <file>images/links-customize.png</file>
         <file>images/arrow-down.png</file>
         <file>images/arrow-up.png</file>
+        <file>images/ok.png</file>
+        <file>images/error.png</file>
+        <file>images/wait.gif</file>
     </qresource>
 </RCC>

@@ -22,14 +22,7 @@
 #include "networkaccess.h"
 #include "updatechecker.h"
 
-UpdateChecker *UpdateChecker::instance()
-{
-    static UpdateChecker *m_inst = new UpdateChecker;
-
-    return m_inst;
-}
-
-UpdateChecker::UpdateChecker() : QObject()
+UpdateChecker::UpdateChecker(QObject *parent) : QObject(parent)
 {
     m_lastVersion = NVER_STRING;
 
@@ -40,11 +33,9 @@ UpdateChecker::UpdateChecker() : QObject()
     m_net = new NetworkAccess(this);
 
     connect(m_net, SIGNAL(finished()), this, SLOT(slotFinished()));
-
-    startRequest();
 }
 
-void UpdateChecker::startRequest()
+void UpdateChecker::start()
 {
     m_net->get(m_url);
 }
@@ -52,13 +43,17 @@ void UpdateChecker::startRequest()
 void UpdateChecker::slotFinished()
 {
     if(m_net->error() != QNetworkReply::NoError)
+    {
+        emit error(tr("Network error #%1").arg(m_net->error()));
         return;
+    }
 
     QStringList list = QString(m_net->data()).split(QRegExp("\\r?\\n"), QString::SkipEmptyParts);
 
     if(list.isEmpty() || !m_rxVersion.exactMatch(list[0]))
     {
         qWarning("Update checker: answer is broken");
+        emit error(tr("Server answer is broken"));
         return;
     }
 
@@ -83,7 +78,10 @@ void UpdateChecker::slotFinished()
                 emit newVersion(m_lastVersion);
             }
             else
+            {
                 qDebug("Update checker: current version is better than \"%s\"", qPrintable(m_lastVersion));
+                emit newVersion(QString());
+            }
         }
         else
         {
@@ -92,8 +90,8 @@ void UpdateChecker::slotFinished()
         }
     }
     else
+    {
         qDebug("Update checker: version is up-to-date");
-
-    // check every 2 hours
-    QTimer::singleShot(2*3600*1000, this, SLOT(startRequest()));
+        emit newVersion(QString());
+    }
 }

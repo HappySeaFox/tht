@@ -30,13 +30,15 @@ class UpdateChecker : public QObject
     Q_OBJECT
 
 public:
-    static UpdateChecker *instance();
+    explicit UpdateChecker(QObject *parent = 0);
+
+    void start();
 
 signals:
-    void newVersion(const QString &);
+    void newVersion(const QString &); // empty if no updates
+    void error(const QString &);
 
 private slots:
-    void startRequest();
     void slotFinished();
 
 private:

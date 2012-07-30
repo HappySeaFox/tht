@@ -43,9 +43,13 @@ License: Creative Commons Attribution Non-commercial (by-nc)
 http://www.iconfinder.com/icondetails/17225/128/analysis_chart_graph_pie_statistics_icon
 
 Author: Visual Pharm
-License: Commercial Use Allowed, Back Link Required 
+License: Commercial Use Allowed, Back Link Required
 
 http://www.visualpharm.com/finance_icon_set/
+
+* "Wait" icon in "About" dialog is generated at http://ajaxload.info/
+
+License: Free for use
 
 * Other icons are taken from Fugue Icons theme
 

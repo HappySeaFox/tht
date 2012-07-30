@@ -40,7 +40,6 @@
 #include "tickersdatabaseupdater.h"
 #include "linkpointmanager.h"
 #include "savescreenshot.h"
-#include "updatechecker.h"
 #include "regionselect.h"
 #include "tickerinput.h"
 #include "settings.h"
@@ -162,8 +161,6 @@ THT::THT(QWidget *parent) :
 
     checkWindows();
     rebuildLinkPoints();
-
-    connect(UpdateChecker::instance(), SIGNAL(newVersion(const QString &)), this, SLOT(slotNewVersion(const QString &)));
 
     // predefined tickers, menu & shortcuts
     m_predefined.insert("$COMPQ", Qt::Key_Q);
@@ -792,7 +789,7 @@ void THT::slotCheckActive()
 
 void THT::slotAbout()
 {
-    About about(m_newVersion, this);
+    About about(this);
     about.exec();
 }
 

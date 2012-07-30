@@ -20,25 +20,33 @@
 
 #include <QDialog>
 
+class UpdateChecker;
+
 namespace Ui {
 class About;
 }
+
+class QTimer;
 
 class About : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit About(const QString &newVersion, QWidget *parent = 0);
+    explicit About(QWidget *parent = 0);
     ~About();
 
 private slots:
     void slotNewVersion(const QString &);
+    void slotError(const QString &);
     void slotExtendedAbout();
+    void slotSetWaitIcon();
 
 private:
     Ui::About *ui;
     bool m_showExt;
+    UpdateChecker *m_checker;
+    QTimer *m_timer;
 };
 
 #endif // ABOUT_H
