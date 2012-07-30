@@ -9,19 +9,12 @@
         <translation>Про програму</translation>
     </message>
     <message>
-        <location filename="../about.ui" line="59"/>
+        <location filename="../about.cpp" line="94"/>
         <source>Update available</source>
         <translation>Доступно оновлення</translation>
     </message>
     <message>
-        <location filename="../about.ui" line="62"/>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;/head&gt;&lt;body&gt;
-&lt;a href=&quot;https://code.google.com/p/traders-home-task-ng/downloads/list&quot;&gt;&lt;img src=&quot;:/images/update.png&quot;&gt;&lt;/img&gt;&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../about.ui" line="101"/>
+        <location filename="../about.ui" line="93"/>
         <source>THT helps you to do your home task in trading. It can link several Advanced Get windows together and manage a list of tickers.
 
 All suggestions and bug reports please send to our bug tracker, also visit&lt;br/&gt;&lt;a href=&quot;https://code.google.com/p/traders-home-task-ng&quot;&gt;https://code.google.com/p/traders-home-task-ng/wiki/howto&lt;/a&gt;</source>
@@ -30,29 +23,44 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
 Всі побажання та звіти про помилки надсилайте на наш багтрекер, також відвідаєте &lt;br/&gt;&lt;a href=&quot;https://code.google.com/p/traders-home-task-ng/wiki/howto&quot;&gt;https://code.google.com/p/traders-home-task-ng/wiki/howto&lt;/a&gt;</translation>
     </message>
     <message>
-        <location filename="../about.ui" line="138"/>
+        <location filename="../about.ui" line="130"/>
         <source>(C) 2012 Dmitry Baryshev &amp;lt;&lt;a href=&quot;mailto:ksquirrel.iv@gmail.com&quot;&gt;ksquirrel.iv@gmail.com&lt;/a&gt;&amp;gt;</source>
         <translation>(C) 2012 Баришев Дмитро &amp;lt;&lt;a href=&quot;mailto:ksquirrel.iv@gmail.com&quot;&gt;ksquirrel.iv@gmail.com&lt;/a&gt;&amp;gt;</translation>
     </message>
     <message>
-        <location filename="../about.ui" line="170"/>
+        <location filename="../about.ui" line="162"/>
         <source>THT is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</source>
         <translation>THT поширюється в надії, що вона буде корисною, але БЕЗ БУДЬ-ЯКИХ ГАРАНТІЙ, навіть без гарантій КОМЕРЦІЙНОЇ ЦІННОСТІ чи ПРИДАТНОСТІ ДЛЯ КОНКРЕТНИХ ЦІЛЕЙ.</translation>
     </message>
     <message>
-        <location filename="../about.ui" line="213"/>
+        <location filename="../about.ui" line="205"/>
         <source>OK</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="45"/>
+        <location filename="../about.cpp" line="52"/>
         <source>Persistent database</source>
         <translation>Постійна база</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="47"/>
+        <location filename="../about.cpp" line="54"/>
         <source>Downloadable database</source>
         <translation>Викачувана база</translation>
+    </message>
+    <message>
+        <location filename="../about.cpp" line="102"/>
+        <source>THT is up to date</source>
+        <translation>Маєте найновішу версію THT</translation>
+    </message>
+    <message>
+        <location filename="../about.cpp" line="114"/>
+        <source>Cannot check for updates (%1)</source>
+        <translation>Неможливо перевірити оновлення (%1)</translation>
+    </message>
+    <message>
+        <location filename="../about.cpp" line="129"/>
+        <source>Checking for updates...</source>
+        <translation>Перевірка оновлень...</translation>
     </message>
 </context>
 <context>
@@ -392,82 +400,82 @@ the right or middle mouse buttons.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="86"/>
+        <location filename="../tht.cpp" line="85"/>
         <source>Options...</source>
         <translation>Параметри...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="89"/>
-        <location filename="../tht.cpp" line="148"/>
+        <location filename="../tht.cpp" line="88"/>
+        <location filename="../tht.cpp" line="147"/>
         <source>Take screenshot...</source>
         <translation>Знімок екрану...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="93"/>
+        <location filename="../tht.cpp" line="92"/>
         <source>Clear ticker lists</source>
         <translation>Очистити списки тікерів</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="90"/>
+        <location filename="../tht.cpp" line="89"/>
         <source>Clear links</source>
         <translation>Очистити посилання</translation>
     </message>
     <message>
+        <location filename="../tht.cpp" line="93"/>
         <location filename="../tht.cpp" line="94"/>
-        <location filename="../tht.cpp" line="95"/>
         <source>Load ticker</source>
         <translation>Завантажити тікер</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="98"/>
-        <location filename="../tht.cpp" line="150"/>
+        <location filename="../tht.cpp" line="97"/>
+        <location filename="../tht.cpp" line="149"/>
         <source>About THT</source>
         <translation>Про THT</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="99"/>
+        <location filename="../tht.cpp" line="98"/>
         <source>About Qt</source>
         <translation>Про Qt</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="101"/>
-        <location filename="../tht.cpp" line="152"/>
+        <location filename="../tht.cpp" line="100"/>
+        <location filename="../tht.cpp" line="151"/>
         <source>Quit</source>
         <translation>Вихід</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="147"/>
+        <location filename="../tht.cpp" line="146"/>
         <source>Restore</source>
         <translation>Відновити</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="236"/>
+        <location filename="../tht.cpp" line="233"/>
         <source>Notice</source>
         <translation>Замітка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="236"/>
+        <location filename="../tht.cpp" line="233"/>
         <source>THT will continue to run in a system tray</source>
         <translation>ТНТ продовжить роботу в системному лотку</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1038"/>
-        <location filename="../tht.cpp" line="1066"/>
+        <location filename="../tht.cpp" line="1035"/>
+        <location filename="../tht.cpp" line="1063"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1038"/>
+        <location filename="../tht.cpp" line="1035"/>
         <source>Cannot take screenshot</source>
         <translation>Неможливо створити знімок екрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1066"/>
+        <location filename="../tht.cpp" line="1063"/>
         <source>Cannot save screenshot</source>
         <translation>Неможливо зберегти знімок екрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1333"/>
+        <location filename="../tht.cpp" line="1330"/>
         <source>Customize...</source>
         <translation>Налаштувати...</translation>
     </message>
@@ -516,6 +524,19 @@ the right or middle mouse buttons.</source>
         <location filename="../tickerneighbors.cpp" line="341"/>
         <source>Copy (%1)</source>
         <translation>Копіювати (%1)</translation>
+    </message>
+</context>
+<context>
+    <name>UpdateChecker</name>
+    <message>
+        <location filename="../updatechecker.cpp" line="47"/>
+        <source>Network error #%1</source>
+        <translation>Помилка мережі #%1</translation>
+    </message>
+    <message>
+        <location filename="../updatechecker.cpp" line="56"/>
+        <source>Server answer is broken</source>
+        <translation>Некоректний відповідь від сервера</translation>
     </message>
 </context>
 </TS>

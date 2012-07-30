@@ -138,7 +138,6 @@ private slots:
     void slotTargetDropped(const QPoint &);
     void slotTickerDropped(const QString &, ListItem::Priority, const QPoint &);
     void slotMessageReceived(const QString &);
-    void slotNewVersion(const QString &);
     void slotLoadPredefinedTicker();
     void slotOpenOrCloseSearchTicker();
     void slotShowNeighbors(const QString &);
@@ -164,16 +163,9 @@ private:
     INPUT m_input[4];
     bool m_useKeyboardInRegion;
     bool m_locked;
-    QString m_newVersion;
     QWidget *m_lastActiveWindow;
     QMap<QString, Qt::Key> m_predefined;
     QPointer<TickerNeighbors> m_sectors;
 };
-
-inline
-void THT::slotNewVersion(const QString &nv)
-{
-    m_newVersion = nv;
-}
 
 #endif // THT_H

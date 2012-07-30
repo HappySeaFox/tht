@@ -17,6 +17,8 @@
 
 #include <QKeySequence>
 #include <QShortcut>
+#include <QTimer>
+#include <QMovie>
 
 #include "updatechecker.h"
 #include "settings.h"
@@ -24,7 +26,7 @@
 
 #include "ui_about.h"
 
-About::About(const QString &newVersion, QWidget *parent) :
+About::About(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::About),
     m_showExt(true)
@@ -32,10 +34,15 @@ About::About(const QString &newVersion, QWidget *parent) :
     ui->setupUi(this);
     ui->labelVersion->setText(QString("THT %1").arg(NVER_STRING));
 
-    slotNewVersion(newVersion);
+    // set "wait" icon
+    m_timer = new QTimer(this);
 
-    connect(UpdateChecker::instance(), SIGNAL(newVersion(const QString &)), this, SLOT(slotNewVersion(const QString &)));
+    m_timer->setSingleShot(true);
+    m_timer->setInterval(500);
 
+    connect(m_timer, SIGNAL(timeout()), this, SLOT(slotSetWaitIcon()));
+
+    // extension
     QLabel *label = new QLabel(QString(
                                    "<table align=center>"
                                    "<tr><td align=right><b>%1: </b></td><td>%2</td></tr>"
@@ -54,6 +61,15 @@ About::About(const QString &newVersion, QWidget *parent) :
     setExtension(label);
 
     new QShortcut(QKeySequence::HelpContents, this, SLOT(slotExtendedAbout()));
+
+    // update checker
+    m_checker = new UpdateChecker(this);
+
+    connect(m_checker, SIGNAL(newVersion(const QString &)), this, SLOT(slotNewVersion(const QString &)));
+    connect(m_checker, SIGNAL(error(const QString &)), this, SLOT(slotError(const QString &)));
+
+    m_checker->start();
+    m_timer->start();
 }
 
 About::~About()
@@ -63,11 +79,52 @@ About::~About()
 
 void About::slotNewVersion(const QString &newVersion)
 {
-    ui->labelUpdate->setVisible(!newVersion.isEmpty());
+    QString tooltip;
+    QString text;
+
+    m_timer->stop();
+
+    if(!newVersion.isEmpty())
+    {
+        text = "<html><head><meta name=\"qrichtext\" content=\"1\" /></head>"
+                "<body><a href=\"http://code.google.com/p/traders-home-task-ng/downloads/list\">"
+                    "<img src=\":/images/update.png\"></img>"
+                "</a>"
+                "</body></html>";
+        tooltip = tr("Update available");
+    }
+    else
+    {
+        text = "<html><head><meta name=\"qrichtext\" content=\"1\" /></head>"
+                "<body>"
+                "<img src=\":/images/ok.png\"></img>"
+                "</body></html>";
+        tooltip = tr("THT is up to date");
+    }
+
+    ui->labelUpdate->setText(text);
+    ui->labelUpdate->setToolTip(tooltip);
+}
+
+void About::slotError(const QString &err)
+{
+    m_timer->stop();
+
+    ui->labelUpdate->setPixmap(QPixmap(":/images/error.png"));
+    ui->labelUpdate->setToolTip(tr("Cannot check for updates (%1)").arg(err));
 }
 
 void About::slotExtendedAbout()
 {
     showExtension(m_showExt);
     m_showExt = !m_showExt;
+}
+
+void About::slotSetWaitIcon()
+{
+    QMovie *movie = new QMovie(":/images/wait.gif", "GIF", this);
+    ui->labelUpdate->setMovie(movie);
+    movie->start();
+
+    ui->labelUpdate->setToolTip(tr("Checking for updates..."));
 }

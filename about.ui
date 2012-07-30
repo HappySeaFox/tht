@@ -55,14 +55,6 @@
          </item>
          <item>
           <widget class="QLabel" name="labelUpdate">
-           <property name="toolTip">
-            <string>Update available</string>
-           </property>
-           <property name="text">
-            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;/head&gt;&lt;body&gt;
-&lt;a href=&quot;https://code.google.com/p/traders-home-task-ng/downloads/list&quot;&gt;&lt;img src=&quot;:/images/update.png&quot;&gt;&lt;/img&gt;&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
            </property>
