@@ -38,7 +38,7 @@ About::About(QWidget *parent) :
     m_timer = new QTimer(this);
 
     m_timer->setSingleShot(true);
-    m_timer->setInterval(500);
+    m_timer->setInterval(750);
 
     connect(m_timer, SIGNAL(timeout()), this, SLOT(slotSetWaitIcon()));
 
