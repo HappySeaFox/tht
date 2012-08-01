@@ -1,0 +1,28 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/add.png</file>
+        <file>images/clear.png</file>
+        <file>images/save.png</file>
+        <file>images/export.png</file>
+        <file>images/options.png</file>
+        <file>images/quit.png</file>
+        <file>images/screenshot.png</file>
+        <file>images/locked.png</file>
+        <file>images/drag.png</file>
+        <file>images/ready.png</file>
+        <file>images/chart.ico</file>
+        <file>images/list.png</file>
+        <file>images/file.png</file>
+        <file>images/update.png</file>
+        <file>images/cancel.png</file>
+        <file>images/options-background.png</file>
+        <file>images/query.png</file>
+        <file>images/links-load.png</file>
+        <file>images/links-customize.png</file>
+        <file>images/arrow-down.png</file>
+        <file>images/arrow-up.png</file>
+        <file>images/ok.png</file>
+        <file>images/error.png</file>
+        <file>images/wait.gif</file>
+    </qresource>
+</RCC>
