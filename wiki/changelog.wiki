@@ -1,3 +1,6 @@
+== 1.1.1 ==
+ * check for updates only when "About" dialog is opened
+
 == 1.1.0 ==
  * ability to save & load link points (see [howto howto])
  * fixed support of the slave monitors in a multi-monitor configuration
