@@ -130,6 +130,7 @@ private slots:
     void slotTakeScreenshot();
     void slotTakeScreenshotReal();
     void slotTakeScreenshotFromGlobal();
+    void slotLockScreen();
     void slotClearLists();
     void slotClearLinks();
     void slotManageLinks();
