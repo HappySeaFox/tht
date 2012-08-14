@@ -51,6 +51,10 @@ http://www.visualpharm.com/finance_icon_set/
 
 License: Free for use
 
+* "transparent" icon in "About" dialog is generated with QImage
+
+License: Free for use
+
 * Other icons are taken from Fugue Icons theme
 
 http://p.yusukekamiyamane.com/
