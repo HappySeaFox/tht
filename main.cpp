@@ -155,6 +155,8 @@ static void initializeDb()
         qDebug("Persistent database has been opened");
 }
 
+/******************************************/
+
 int main(int argc, char *argv[])
 {
     setbuf(stderr, 0);

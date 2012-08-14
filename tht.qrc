@@ -24,5 +24,6 @@
         <file>images/ok.png</file>
         <file>images/error.png</file>
         <file>images/wait.gif</file>
+        <file>images/transparent.png</file>
     </qresource>
 </RCC>
