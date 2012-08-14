@@ -92,7 +92,7 @@ THT::THT(QWidget *parent) :
     m_menu->addAction(QIcon(":/images/options.png"), tr("Options..."), this, SLOT(slotOptions()));
     m_menu->addSeparator();
 
-    m_menu->addAction(QIcon(":/images/lock.png"), tr("Lock the workstation") + '\t' + lockScreen->shortcut().toString(),
+    m_menu->addAction(QIcon(":/images/lockworkstation.png"), tr("Lock the workstation") + '\t' + lockScreen->shortcut().toString(),
                       this, SLOT(slotLockScreen()));
     m_menu->addAction(icon_screenshot, tr("Take screenshot...") + '\t' + takeScreen->shortcut().toString(),
                       this, SLOT(slotTakeScreenshot()));
