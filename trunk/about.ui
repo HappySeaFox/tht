@@ -55,6 +55,9 @@
          </item>
          <item>
           <widget class="QLabel" name="labelUpdate">
+           <property name="pixmap">
+            <pixmap resource="tht.qrc">:/images/transparent.png</pixmap>
+           </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
            </property>
