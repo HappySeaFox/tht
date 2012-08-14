@@ -14,24 +14,24 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../about.ui" line="93"/>
+        <location filename="../about.ui" line="96"/>
         <source>THT helps you to do your home task in trading. It can link several Advanced Get windows together and manage a list of tickers.
 
 All suggestions and bug reports please send to our bug tracker, also visit&lt;br/&gt;&lt;a href=&quot;http://code.google.com/p/traders-home-task-ng&quot;&gt;http://code.google.com/p/traders-home-task-ng/wiki/howto&lt;/a&gt;</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../about.ui" line="130"/>
+        <location filename="../about.ui" line="133"/>
         <source>(C) 2012 Dmitry Baryshev &amp;lt;&lt;a href=&quot;mailto:ksquirrel.iv@gmail.com&quot;&gt;ksquirrel.iv@gmail.com&lt;/a&gt;&amp;gt;</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../about.ui" line="162"/>
+        <location filename="../about.ui" line="165"/>
         <source>THT is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../about.ui" line="205"/>
+        <location filename="../about.ui" line="208"/>
         <source>OK</source>
         <translation></translation>
     </message>
@@ -396,82 +396,87 @@ the right or middle mouse buttons.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="85"/>
+        <location filename="../tht.cpp" line="92"/>
         <source>Options...</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="88"/>
-        <location filename="../tht.cpp" line="147"/>
-        <source>Take screenshot...</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../tht.cpp" line="89"/>
-        <source>Clear links</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../tht.cpp" line="92"/>
-        <source>Clear ticker lists</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../tht.cpp" line="93"/>
-        <location filename="../tht.cpp" line="94"/>
-        <source>Load ticker</source>
+        <location filename="../tht.cpp" line="95"/>
+        <source>Lock the workstation</source>
         <translation></translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="97"/>
-        <location filename="../tht.cpp" line="149"/>
+        <location filename="../tht.cpp" line="157"/>
+        <source>Take screenshot...</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../tht.cpp" line="99"/>
+        <source>Clear links</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../tht.cpp" line="102"/>
+        <source>Clear ticker lists</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../tht.cpp" line="103"/>
+        <location filename="../tht.cpp" line="104"/>
+        <source>Load ticker</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../tht.cpp" line="107"/>
+        <location filename="../tht.cpp" line="159"/>
         <source>About THT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="98"/>
+        <location filename="../tht.cpp" line="108"/>
         <source>About Qt</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="100"/>
-        <location filename="../tht.cpp" line="151"/>
+        <location filename="../tht.cpp" line="110"/>
+        <location filename="../tht.cpp" line="161"/>
         <source>Quit</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="146"/>
+        <location filename="../tht.cpp" line="156"/>
         <source>Restore</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="233"/>
+        <location filename="../tht.cpp" line="239"/>
         <source>Notice</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="233"/>
+        <location filename="../tht.cpp" line="239"/>
         <source>THT will continue to run in a system tray</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1035"/>
-        <location filename="../tht.cpp" line="1063"/>
+        <location filename="../tht.cpp" line="1049"/>
+        <location filename="../tht.cpp" line="1077"/>
         <source>Error</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1035"/>
+        <location filename="../tht.cpp" line="1049"/>
         <source>Cannot take screenshot</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1063"/>
+        <location filename="../tht.cpp" line="1077"/>
         <source>Cannot save screenshot</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1330"/>
+        <location filename="../tht.cpp" line="1344"/>
         <source>Customize...</source>
         <translation></translation>
     </message>
@@ -515,9 +520,9 @@ the right or middle mouse buttons.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tickerneighbors.cpp" line="189"/>
-        <location filename="../tickerneighbors.cpp" line="304"/>
-        <location filename="../tickerneighbors.cpp" line="341"/>
+        <location filename="../tickerneighbors.cpp" line="208"/>
+        <location filename="../tickerneighbors.cpp" line="323"/>
+        <location filename="../tickerneighbors.cpp" line="354"/>
         <source>Copy (%1)</source>
         <translation></translation>
     </message>
