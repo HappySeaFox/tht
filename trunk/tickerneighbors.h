@@ -49,12 +49,12 @@ protected:
 
 private:
     void silentlyCheck(QCheckBox *, bool check);
+    void filterAndFetch();
 
 signals:
     void loadTicker(const QString &);
 
 private slots:
-    void slotFilterAndFetch();
     void slotFetch();
     void slotCopy();
     void slotSelectionChanged();
