@@ -81,6 +81,7 @@ TickerNeighbors::TickerNeighbors(const QString &ticker, QWidget *parent) :
     ui->widgetExchanges->setLayout(le);
 
     result = SqlTools::exchanges();
+    int anystate = 0;
 
     foreach(QString e, result)
     {
@@ -88,7 +89,6 @@ TickerNeighbors::TickerNeighbors(const QString &ticker, QWidget *parent) :
 
         box->setObjectName(e);
 
-        connect(box, SIGNAL(toggled(bool)), this, SLOT(slotFilterAndFetch()));
         connect(box, SIGNAL(toggled(bool)), this, SLOT(slotCheckboxChanged()));
 
         le->addWidget(box);
@@ -97,7 +97,20 @@ TickerNeighbors::TickerNeighbors(const QString &ticker, QWidget *parent) :
         int state = Settings::instance()->checkBoxState(e);
 
         if(state >= 0)
+        {
             silentlyCheck(box, state);
+            anystate++;
+        }
+    }
+
+    // no exchanges selected at all, select all of them
+    if(!anystate)
+    {
+        foreach(QCheckBox *box, m_exchanges)
+        {
+            silentlyCheck(box, 1);
+            Settings::instance()->setCheckBoxState(box->objectName(), box->isChecked(), Settings::NoSync);
+        }
     }
 
     if(Settings::instance()->checkBoxState(ui->checkCap->objectName()) > 0)
@@ -178,6 +191,12 @@ void TickerNeighbors::silentlyCheck(QCheckBox *box, bool check)
         box->setChecked(check);
         box->blockSignals(b);
     }
+}
+
+void TickerNeighbors::filterAndFetch()
+{
+    // emulate click
+    QMetaObject::invokeMethod(m_lastAction, "clicked");
 }
 
 void TickerNeighbors::slotFetch()
@@ -328,12 +347,6 @@ void TickerNeighbors::slotCopy()
     QApplication::clipboard()->setText(text);
 }
 
-void TickerNeighbors::slotFilterAndFetch()
-{
-    // emulate click
-    QMetaObject::invokeMethod(m_lastAction, "clicked");
-}
-
 void TickerNeighbors::slotSelectionChanged()
 {
     const int count = ui->listTickers->selectionModel()->selectedRows().count();
@@ -357,4 +370,6 @@ void TickerNeighbors::slotCheckboxChanged()
         return;
 
     Settings::instance()->setCheckBoxState(box->objectName(), box->isChecked(), Settings::NoSync);
+
+    filterAndFetch();
 }

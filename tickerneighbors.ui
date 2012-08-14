@@ -207,27 +207,11 @@
    <hints>
     <hint type="sourcelabel">
      <x>247</x>
-     <y>334</y>
+     <y>332</y>
     </hint>
     <hint type="destinationlabel">
      <x>185</x>
      <y>311</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>checkCap</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>TickerNeighbors</receiver>
-   <slot>slotFilterAndFetch()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>86</x>
-     <y>343</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>306</x>
-     <y>342</y>
     </hint>
    </hints>
   </connection>
@@ -267,22 +251,6 @@
    <sender>checkUSA</sender>
    <signal>toggled(bool)</signal>
    <receiver>TickerNeighbors</receiver>
-   <slot>slotFilterAndFetch()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>152</x>
-     <y>350</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>155</x>
-     <y>408</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>checkUSA</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>TickerNeighbors</receiver>
    <slot>slotCheckboxChanged()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -299,7 +267,6 @@
  <slots>
   <slot>slotCopy()</slot>
   <slot>slotFetch()</slot>
-  <slot>slotFilterAndFetch()</slot>
   <slot>slotActivated(QModelIndex)</slot>
   <slot>slotCheckboxChanged()</slot>
  </slots>
