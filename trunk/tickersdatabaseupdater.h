@@ -41,6 +41,7 @@ private slots:
 private:
     NetworkAccess *m_net;
     QString m_baseurl;
+    QByteArray m_downloadedTimestamp;
     bool m_downloadingData;
 };
 
