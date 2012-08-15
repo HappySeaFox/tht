@@ -15,20 +15,15 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <QWebElementCollection>
-#include <QWebSettings>
 #include <QApplication>
 #include <QSqlDatabase>
 #include <QMessageBox>
-#include <QWebElement>
 #include <QCloseEvent>
 #include <QEventLoop>
 #include <QDateTime>
 #include <QSqlError>
 #include <QSqlQuery>
-#include <QWebFrame>
 #include <QProcess>
-#include <QWebPage>
 #include <QTimer>
 #include <QDebug>
 #include <QFile>
@@ -72,12 +67,12 @@ Widget::Widget(QWidget *parent) :
         QSqlQuery query("SELECT * FROM tickers", db);
 
         while(query.next())
-            oldTickers.append(query.value(0).toString());
+            m_oldTickers.append(query.value(0).toString());
     }
 
-    oldTickers.sort();
+    m_oldTickers.sort();
 
-    qDebug("Loaded %d old values", oldTickers.size());
+    qDebug("Loaded %d old values", m_oldTickers.size());
 
     QFile::remove(THT_TICKERS_DB_NEW);
 
@@ -153,7 +148,6 @@ void Widget::slotFinished()
     CsvParser csv(ba);
     QStringList str;
     csv.parseLine();
-    int num = 0;
     QStringList newTickers;
     QMap<QString, Ticker> map;
     Ticker t;
@@ -186,7 +180,7 @@ void Widget::slotFinished()
 
     bool needup = false;
     newTickers.sort();
-    bool newSymbols = newTickers != oldTickers;
+    bool newSymbols = newTickers != m_oldTickers;
 
     // compare capitalizations
     if(!ui->checkForce->isChecked() && !newSymbols)
@@ -267,9 +261,9 @@ void Widget::slotFinished()
 
     if(newSymbols)
     {
-        qDebug("Difference by symbol (%d/%d):", oldTickers.size(), newTickers.size());
+        qDebug("Difference by symbol (%d/%d):", m_oldTickers.size(), newTickers.size());
 
-        QSet<QString> oldSet = oldTickers.toSet();
+        QSet<QString> oldSet = m_oldTickers.toSet();
         QSet<QString> newSet = newTickers.toSet();
 
         QSet<QString> minus = oldSet - newSet;
@@ -293,16 +287,18 @@ void Widget::slotFinished()
 
     QSqlDatabase::database().transaction();
 
-    QMap<QString, Ticker>::iterator itEnd = map.end();
+    const QStringList exchanges = QStringList() << "NYSE" << "NASD" << "AMEX";
+    QMap<QString, Ticker>::iterator it;
 
-    for(QMap<QString, Ticker>::iterator it = map.begin();it != itEnd;++it)
+    foreach(QString ex, exchanges)
     {
         QEventLoop eventLoop;
         connect(m_net, SIGNAL(finished()), &eventLoop, SLOT(quit()));
 
-        m_net->get(QUrl(QString("http://finviz.com/quote.ashx?t=%1&ty=l&ta=0&p=d").arg(it.key())));
+        m_tickersForExchange.clear();
 
-        exchange.clear();
+        m_net->get(QUrl(QString("http://finviz.com/export.ashx?v=110&f=exch_%1").arg(ex.toLower())));
+
         eventLoop.exec();
 
         if(m_net->error() != QNetworkReply::NoError)
@@ -311,25 +307,40 @@ void Widget::slotFinished()
             return;
         }
 
-        if(exchange.isEmpty())
+        if(m_tickersForExchange.isEmpty())
         {
-            message(QString("Cannot fetch exchange name for %1").arg(it.key()));
+            message(QString("Ticker list is empty for exchange %1").arg(ex));
             return;
         }
 
-        ui->labelProgress->setNum(++num);
+        ui->labelProgress->setText(ex);
 
-        t = it.value();
+        qApp->processEvents();
 
-        t.exchange = exchange;
+        foreach(QString ticker, m_tickersForExchange)
+        {
+            it = map.find(ticker);
 
-        if(!writeData(t))
+            if(it == map.end())
+            {
+                message(QString("Ticker %1 is not found in map").arg(ticker));
+                return;
+            }
+
+            it.value().exchange = ex;
+        }
+    }
+
+    // save tickers & commit
+    it = map.end();
+
+    for(QMap<QString, Ticker>::iterator i = map.begin();i != it;++i)
+    {
+        if(!writeData(i.value()))
         {
             m_running = false;
             return;
         }
-
-        qApp->processEvents();
     }
 
     QSqlDatabase::database().commit();
@@ -430,23 +441,21 @@ void Widget::slotFinishedExchange()
     if(m_net->error() != QNetworkReply::NoError)
         return;
 
-    QRegExp rx("^\\[(.*)\\]$");
-    QWebPage page;
+    QByteArray ba = m_net->data();
+    CsvParser csv(ba);
+    QStringList str;
+    csv.parseLine();
 
-    page.settings()->setAttribute(QWebSettings::AutoLoadImages, false);
-    page.settings()->setAttribute(QWebSettings::JavascriptEnabled, false);
-    page.settings()->setAttribute(QWebSettings::JavaEnabled, false);
-    page.settings()->setAttribute(QWebSettings::PluginsEnabled, false);
+    while(!(str = csv.parseLine()).isEmpty())
+    {
+        if(str.size() != 11)
+        {
+            message(QString("Broken data (%1 fields)").arg(str.size()));
+            return;
+        }
 
-    page.mainFrame()->setHtml(m_net->data());
-
-    // ticker name
-    QWebElement table = page.mainFrame()->findFirstElement("table.fullview-title");
-
-    QString s = table.findFirst("tr").findFirst("td").findFirst("a.fullview-ticker").nextSibling().toPlainText();
-
-    if(rx.exactMatch(s))
-        exchange = rx.cap(1);
+        m_tickersForExchange.append(str[1]);
+    }
 }
 
 bool Widget::writeData(const Ticker &t)
