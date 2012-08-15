@@ -1,4 +1,4 @@
-QT += core gui network sql webkit
+QT += core gui network sql
 
 TARGET = TickersDb
 TEMPLATE = app

@@ -68,8 +68,8 @@ private slots:
 private:
     Ui::Widget *ui;
     NetworkAccess *m_net;
-    QStringList oldTickers;
-    QString exchange;
+    QStringList m_oldTickers;
+    QStringList m_tickersForExchange;
     QString m_ts;
     bool m_running;
     bool m_auto;
