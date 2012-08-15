@@ -74,6 +74,8 @@ void TickersDatabaseUpdater::slotFinished()
     {
         m_net->clearBuffer();
 
+        m_downloadingData = false;
+
         // recheck in 1 hour
         QTimer::singleShot(1*3600*1000, this, SLOT(startRequest()));
         return;
@@ -81,12 +83,16 @@ void TickersDatabaseUpdater::slotFinished()
 
     if(m_downloadingData)
     {
-        writeData(Settings::instance()->mutableDatabasePath(), m_net->data());
+        if(writeData(Settings::instance()->mutableDatabasePath(), m_net->data()))
+            writeData(Settings::instance()->mutableDatabasePath() + ".timestamp", m_downloadedTimestamp);
+
         m_net->clearBuffer();
     }
     else
     {
-        QDateTime ts = QDateTime::fromString(m_net->data().trimmed(), Settings::instance()->databaseTimestampFormat());
+        m_downloadedTimestamp = m_net->data().trimmed();
+
+        QDateTime ts = QDateTime::fromString(m_downloadedTimestamp, Settings::instance()->databaseTimestampFormat());
 
         if(!ts.isValid())
         {
@@ -103,10 +109,7 @@ void TickersDatabaseUpdater::slotFinished()
             return;
         }
 
-        if(!writeData(Settings::instance()->mutableDatabasePath() + ".timestamp", m_net->data()))
-            return;
-
-        qDebug("Downloading new database %s", qPrintable(ts.toString(Settings::instance()->databaseTimestampFormat())));
+        qDebug("Downloading new database %s", m_downloadedTimestamp.constData());
 
         m_downloadingData = true;
 
