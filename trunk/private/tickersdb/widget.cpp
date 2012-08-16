@@ -340,8 +340,10 @@ void Widget::slotFinished()
         return;
     }
 
-    // save tickers & commit
+    // save tickers
     it = map.end();
+
+    ui->plainTextLog->setUpdatesEnabled(false);
 
     for(QMap<QString, Ticker>::iterator i = map.begin();i != it;++i)
     {
@@ -352,6 +354,9 @@ void Widget::slotFinished()
         }
     }
 
+    ui->plainTextLog->setUpdatesEnabled(true);
+
+    // commit
     QSqlDatabase::database().commit();
     QSqlDatabase::database().close();
 
