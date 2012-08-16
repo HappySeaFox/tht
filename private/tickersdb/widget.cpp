@@ -289,6 +289,7 @@ void Widget::slotFinished()
 
     const QStringList exchanges = QStringList() << "NYSE" << "NASD" << "AMEX";
     QMap<QString, Ticker>::iterator it;
+    int foundTickers = 0;
 
     foreach(QString ex, exchanges)
     {
@@ -313,6 +314,8 @@ void Widget::slotFinished()
             return;
         }
 
+        foundTickers += m_tickersForExchange.size();
+
         ui->labelProgress->setText(ex);
 
         qApp->processEvents();
@@ -329,6 +332,12 @@ void Widget::slotFinished()
 
             it.value().exchange = ex;
         }
+    }
+
+    if(foundTickers != newTickers.size())
+    {
+        message(QString("Not all tickers filled (%1 needed, %2 filled)").arg(newTickers.size()).arg(foundTickers));
+        return;
     }
 
     // save tickers & commit
