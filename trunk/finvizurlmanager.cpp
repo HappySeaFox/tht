@@ -35,7 +35,7 @@ QList<FinvizUrl> FinvizUrlManager::urls() const
 
     while(i)
     {
-        urls.append(FinvizUrl(i->text(0), i->data(0, Qt::UserRole).value<QUrl>()));
+        urls.append(FinvizUrl(i->text(0), QUrl::fromUserInput(i->text(1))));
         i = ui->tree->itemBelow(i);
     }
 
@@ -44,7 +44,7 @@ QList<FinvizUrl> FinvizUrlManager::urls() const
 
 void FinvizUrlManager::addFinvizUrl(const FinvizUrl &fu, bool edit)
 {
-    addItem(QStringList() << fu.name << fu.url.toString(), fu.url, edit);
+    addItem(QStringList() << fu.name << fu.url.toString(), QVariant(), edit);
 }
 
 void FinvizUrlManager::slotAdd()
