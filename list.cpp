@@ -1344,7 +1344,7 @@ void List::slotManageFinvizUrls()
     if(mgr.exec() == QDialog::Accepted && mgr.changed())
     {
         Settings::instance()->setFinvizUrls(mgr.urls());
-        rebuildFinvizMenu();
+        emit needRebuildFinvizMenu();
     }
 }
 
