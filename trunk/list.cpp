@@ -746,10 +746,7 @@ bool List::addItem(const QString &text, bool fix)
             : txt[0];
 
     if(!Settings::instance()->allowDuplicates() && ui->list->findItems(t, Qt::MatchFixedString).size())
-    {
-        qDebug("Will not add a duplicate item");
         return false;
-    }
 
     ListItem *item = new ListItem(t, ui->list);
 
