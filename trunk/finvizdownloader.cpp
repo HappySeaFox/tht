@@ -40,9 +40,13 @@ FinvizDownloader::FinvizDownloader(const QUrl &url, QWidget *parent) :
 
         if(pair.first == "v")
         {
-            pair.second = "151";
-            i.setValue(pair);
-            u.setQueryItems(items);
+            if(pair.second != "151")
+            {
+                pair.second = "151";
+                i.setValue(pair);
+                u.setQueryItems(items);
+            }
+
             break;
         }
     }
