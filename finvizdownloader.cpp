@@ -1,7 +1,6 @@
 #include <QMutableListIterator>
 #include <QCloseEvent>
 #include <QByteArray>
-#include <QDebug>
 #include <QUrl>
 
 #include "finvizdownloader.h"
