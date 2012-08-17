@@ -65,6 +65,8 @@ public:
     void reconfigureMiniTickerEntry();
     void focusMiniTickerEntry();
 
+    void rebuildFinvizMenu();
+
 protected:
     virtual bool eventFilter(QObject *obj, QEvent *event);
     virtual void moveEvent(QMoveEvent *);
@@ -84,7 +86,6 @@ private:
     void resizeNumberLabel();
     void moveNumberLabel();
     void undo();
-    void rebuildFinvizMenu();
     void addFromFinviz(const QUrl &);
     void showFinvizSelector();
 
@@ -104,6 +105,7 @@ signals:
     void loadTicker(const QString &);
     void dropped(const QString &, ListItem::Priority, const QPoint &);
     void showNeighbors(const QString &);
+    void needRebuildFinvizMenu();
 
 public slots:
     void addTicker(const QString &, ListItem::Priority p = ListItem::PriorityNormal);

@@ -371,6 +371,9 @@ void THT::rebuildUi()
             connect(list, SIGNAL(showNeighbors(const QString &)),
                     this, SLOT(slotShowNeighbors(const QString &)));
 
+            connect(list, SIGNAL(needRebuildFinvizMenu()),
+                    this, SLOT(slotNeedRebuildFinvizMenu()));
+
             m_layout->addWidget(list, 0, m_lists.size());
             m_lists.append(list);
         }
@@ -1291,6 +1294,14 @@ void THT::slotShowNeighbors(const QString &ticker)
     connect(m_sectors, SIGNAL(loadTicker(const QString &)), this, SLOT(slotLoadTicker(const QString &)));
 
     m_sectors->show();
+}
+
+void THT::slotNeedRebuildFinvizMenu()
+{
+    foreach(List *l, m_lists)
+    {
+        l->rebuildFinvizMenu();
+    }
 }
 
 bool THT::setForeignFocus(HWND window, DWORD threadId)
