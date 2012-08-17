@@ -44,6 +44,9 @@
 #include <QPen>
 
 #include "tickerinformationtooltip.h"
+#include "finvizlinkselector.h"
+#include "finvizurlmanager.h"
+#include "finvizdownloader.h"
 #include "searchticker.h"
 #include "tickerinput.h"
 #include "settings.h"
@@ -127,6 +130,9 @@ List::List(int group, QWidget *parent) :
     menu->addSeparator();
     menu->addAction(file_icon, tr("Add from file...") + "\tA", this, SLOT(slotAddFromFile()));
     menu->addAction(tr("Add from clipboard") + "\tP", this, SLOT(slotAddFromClipboard()));
+    menu->addSeparator();
+    m_finvizMenu = menu->addMenu(QIcon(":/images/finviz.png"), tr("Add from Finviz"));
+    rebuildFinvizMenu();
     ui->pushAdd->setMenu(menu);
 
     menu = new QMenu(this);
@@ -419,6 +425,10 @@ bool List::eventFilter(QObject *obj, QEvent *event)
 
                     case Qt::Key_K:
                         emit showNeighbors(currentTicker());
+                    break;
+
+                    case Qt::Key_Z:
+                        showFinvizSelector();
                     break;
 
                     // default processing
@@ -855,6 +865,67 @@ void List::undo()
     save();
 }
 
+void List::rebuildFinvizMenu()
+{
+    qDebug("Rebuild finviz menu");
+
+    QList<FinvizUrl> urls = Settings::instance()->finvizUrls();
+
+    m_finvizMenu->clear();
+
+    foreach(FinvizUrl fu, urls)
+    {
+        QAction *a = m_finvizMenu->addAction(fu.name, this, SLOT(slotAddFromFinviz()));
+        a->setData(fu.url);
+    }
+
+    if(!urls.isEmpty())
+        m_finvizMenu->addSeparator();
+
+    m_finvizMenu->addAction(QIcon(":/images/finviz-customize.png"), tr("Customize..."), this, SLOT(slotManageFinvizUrls()));
+}
+
+void List::addFromFinviz(const QUrl &u)
+{
+    FinvizDownloader dn(u, this);
+
+    if(dn.exec() != QDialog::Accepted)
+        return;
+
+    QStringList tickers = dn.tickers();
+
+    ui->list->setUpdatesEnabled(false);
+
+    bool changed = false;
+
+    foreach(QString ticker, tickers)
+    {
+        if(Settings::instance()->tickerValidator().exactMatch(ticker))
+        {
+            changed = true;
+            addItem(ticker, true);
+        }
+    }
+
+    ui->list->setUpdatesEnabled(true);
+
+    if(changed)
+    {
+        numberOfItemsChanged();
+        save();
+    }
+}
+
+void List::showFinvizSelector()
+{
+    FinvizLinkSelector ls(this);
+
+    if(ls.exec() != QDialog::Accepted)
+        return;
+
+    addFromFinviz(ls.url());
+}
+
 void List::loadItem(LoadItem litem)
 {
     QListWidgetItem *item = ui->list->currentItem();
@@ -1247,6 +1318,37 @@ void List::slotSearchTickerNext()
 void List::slotFocusUp()
 {
     setFocus();
+}
+
+void List::slotAddFromFinviz()
+{
+    qDebug("Add from Finviz");
+
+    QAction *a = qobject_cast<QAction *>(sender());
+
+    if(!a)
+        return;
+
+    QUrl u = a->data().toUrl();
+
+    if(!u.isValid())
+    {
+        qDebug("Url \"%s\" is not valid", qPrintable(u.toString(QUrl::RemovePassword)));
+        return;
+    }
+
+    addFromFinviz(u);
+}
+
+void List::slotManageFinvizUrls()
+{
+    FinvizUrlManager mgr(this);
+
+    if(mgr.exec() == QDialog::Accepted && mgr.changed())
+    {
+        Settings::instance()->setFinvizUrls(mgr.urls());
+        rebuildFinvizMenu();
+    }
 }
 
 void List::slotExportToClipboard()

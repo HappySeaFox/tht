@@ -17,8 +17,8 @@ QMAKE_CXXFLAGS_WARN_ON *= -Wextra -Wno-missing-field-initializers
 
 # THT version
 NVER1=1
-NVER2=1
-NVER3=2
+NVER2=2
+NVER3=0
 
 VERSION=$$sprintf("%1.%2.%3", $$NVER1, $$NVER2, $$NVER3)
 
@@ -64,7 +64,12 @@ SOURCES += main.cpp\
     tickerneighbors.cpp \
     sqltools.cpp \
     linkpointmanager.cpp \
-    tools.cpp
+    tools.cpp \
+    finvizurlmanager.cpp \
+    datamanagerbase.cpp \
+    finvizdownloader.cpp \
+    csvreader.cpp \
+    finvizlinkselector.cpp
 
 HEADERS += tht.h \
     list.h \
@@ -97,7 +102,12 @@ HEADERS += tht.h \
     tickerneighbors.h \
     sqltools.h \
     linkpointmanager.h \
-    tools.h
+    tools.h \
+    finvizurlmanager.h \
+    datamanagerbase.h \
+    finvizdownloader.h \
+    csvreader.h \
+    finvizlinkselector.h
 
 FORMS += tht.ui \
     list.ui \
@@ -108,7 +118,9 @@ FORMS += tht.ui \
     searchticker.ui \
     tickerminiinput.ui \
     tickerneighbors.ui \
-    linkpointmanager.ui
+    datamanagerbase.ui \
+    finvizdownloader.ui \
+    finvizlinkselector.ui
 
 RESOURCES += tht.qrc
 

@@ -62,49 +62,127 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
     </message>
 </context>
 <context>
-    <name>LinkPointManager</name>
+    <name>DataManagerBase</name>
     <message>
-        <location filename="../linkpointmanager.ui" line="14"/>
-        <source>Link points</source>
+        <location filename="../datamanagerbase.ui" line="33"/>
+        <source>Name</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../linkpointmanager.ui" line="49"/>
-        <source>Add current</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../linkpointmanager.ui" line="52"/>
+        <location filename="../datamanagerbase.ui" line="46"/>
         <source>Ins</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../linkpointmanager.ui" line="59"/>
+        <location filename="../datamanagerbase.ui" line="53"/>
         <source>Delete</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../linkpointmanager.ui" line="62"/>
+        <location filename="../datamanagerbase.ui" line="56"/>
         <source>Del</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../linkpointmanager.ui" line="73"/>
+        <location filename="../datamanagerbase.ui" line="67"/>
         <source>Ctrl+Up</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../linkpointmanager.ui" line="84"/>
+        <location filename="../datamanagerbase.ui" line="78"/>
         <source>Ctrl+Down</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../linkpointmanager.ui" line="98"/>
+        <location filename="../datamanagerbase.ui" line="92"/>
         <source>Clear</source>
         <translation></translation>
     </message>
+</context>
+<context>
+    <name>FinvizDownloader</name>
     <message>
-        <location filename="../linkpointmanager.cpp" line="107"/>
+        <location filename="../finvizdownloader.ui" line="14"/>
+        <source>Finviz</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../finvizdownloader.ui" line="30"/>
+        <source>Close</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../finvizdownloader.ui" line="50"/>
+        <source>Downloading tickers...</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../finvizdownloader.cpp" line="80"/>
+        <source>Network error #%1</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../finvizdownloader.cpp" line="94"/>
+        <source>Broken data (fields: %1, required: %2)</source>
+        <translation></translation>
+    </message>
+</context>
+<context>
+    <name>FinvizLinkSelector</name>
+    <message>
+        <location filename="../finvizlinkselector.ui" line="14"/>
+        <source>Add from Finviz</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../finvizlinkselector.ui" line="23"/>
+        <source>Add</source>
+        <translation></translation>
+    </message>
+</context>
+<context>
+    <name>FinvizUrlManager</name>
+    <message>
+        <location filename="../finvizurlmanager.cpp" line="8"/>
+        <source>Finviz links</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../finvizurlmanager.cpp" line="9"/>
+        <source>Add</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../finvizurlmanager.cpp" line="10"/>
+        <source>Link</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../finvizurlmanager.cpp" line="48"/>
+        <source>Tickers</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../finvizurlmanager.cpp" line="48"/>
+        <source>&lt;Paste url here&gt;</source>
+        <translation></translation>
+    </message>
+</context>
+<context>
+    <name>LinkPointManager</name>
+    <message>
+        <location filename="../linkpointmanager.cpp" line="32"/>
+        <location filename="../linkpointmanager.cpp" line="34"/>
+        <source>Link points</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../linkpointmanager.cpp" line="33"/>
+        <source>Add current</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../linkpointmanager.cpp" line="85"/>
         <source>New points</source>
         <translation></translation>
     </message>
@@ -132,76 +210,86 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
         <translation></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="116"/>
+        <location filename="../list.cpp" line="119"/>
         <source>Clear</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="117"/>
+        <location filename="../list.cpp" line="120"/>
         <source>Sort</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="119"/>
+        <location filename="../list.cpp" line="122"/>
         <source>Reset priorities</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="126"/>
+        <location filename="../list.cpp" line="129"/>
         <source>Add one ticker...</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="128"/>
+        <location filename="../list.cpp" line="131"/>
         <source>Add from file...</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="129"/>
+        <location filename="../list.cpp" line="132"/>
         <source>Add from clipboard</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="133"/>
+        <location filename="../list.cpp" line="134"/>
+        <source>Add from Finviz</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../list.cpp" line="139"/>
         <source>Export to file...</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="134"/>
+        <location filename="../list.cpp" line="140"/>
         <source>Export to clipboard</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1029"/>
-        <location filename="../list.cpp" line="1122"/>
+        <location filename="../list.cpp" line="885"/>
+        <source>Customize...</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../list.cpp" line="1100"/>
+        <location filename="../list.cpp" line="1193"/>
         <source>Choose a file</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1031"/>
-        <location filename="../list.cpp" line="1124"/>
+        <location filename="../list.cpp" line="1102"/>
+        <location filename="../list.cpp" line="1195"/>
         <source>Text files (*.txt)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1033"/>
-        <location filename="../list.cpp" line="1126"/>
+        <location filename="../list.cpp" line="1104"/>
+        <location filename="../list.cpp" line="1197"/>
         <source>All files (*.*)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1081"/>
-        <location filename="../list.cpp" line="1136"/>
+        <location filename="../list.cpp" line="1152"/>
+        <location filename="../list.cpp" line="1207"/>
         <source>Error</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1081"/>
+        <location filename="../list.cpp" line="1152"/>
         <source>Cannot open the following files: %1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1136"/>
+        <location filename="../list.cpp" line="1207"/>
         <source>Cannot save to file %1</source>
         <translation></translation>
     </message>
@@ -267,17 +355,17 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../settings.cpp" line="460"/>
+        <location filename="../settings.cpp" line="497"/>
         <source>Russian</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="461"/>
+        <location filename="../settings.cpp" line="498"/>
         <source>Ukrainian</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="462"/>
+        <location filename="../settings.cpp" line="499"/>
         <source>English</source>
         <translation></translation>
     </message>

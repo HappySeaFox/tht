@@ -1,58 +1,30 @@
 #ifndef LINKPOINTMANAGER_H
 #define LINKPOINTMANAGER_H
 
-#include <QDialog>
 #include <QPoint>
 #include <QList>
 
+#include "datamanagerbase.h"
 #include "settings.h"
 
-namespace Ui {
-class LinkPointManager;
-}
-
-class QTreeWidgetItem;
-
-class LinkPointManager : public QDialog
+class LinkPointManager : public DataManagerBase
 {
     Q_OBJECT
-    
+
 public:
     explicit LinkPointManager(const QList<QPoint> &currentLinks, QWidget *parent = 0);
     ~LinkPointManager();
 
-    bool changed() const;
-
     QList<LinkPoint> links() const;
 
 private:
-    void addItem(const LinkPoint &, bool edit = false);
-    void moveItem(QTreeWidgetItem *, int index, int diff);
+    void addLinkPoint(const LinkPoint &, bool edit = false);
 
 private slots:
-    void slotAdd();
-    void slotDelete();
-    void slotUp();
-    void slotDown();
-    void slotClear();
-    void slotItemChanged();
+    virtual void slotAdd();
 
 private:
-    Ui::LinkPointManager *ui;
     QList<QPoint> m_currentLinks;
-    bool m_changed;
 };
-
-inline
-bool LinkPointManager::changed() const
-{
-    return m_changed;
-}
-
-inline
-void LinkPointManager::slotItemChanged()
-{
-    m_changed = true;
-}
 
 #endif // LINKPOINTMANAGER_H
