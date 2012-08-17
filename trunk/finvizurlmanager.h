@@ -5,6 +5,7 @@
 
 #include "datamanagerbase.h"
 
+class QTreeWidgetItem;
 class FinvizUrl;
 
 class FinvizUrlManager : public DataManagerBase
@@ -22,6 +23,7 @@ private:
 
 private slots:
     virtual void slotAdd();
+    void slotCheckItem(QTreeWidgetItem *, int);
 };
 
 #endif // FINVIZURLMANAGER_H

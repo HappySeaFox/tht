@@ -1,3 +1,5 @@
+#include <QUrl>
+
 #include "finvizurlmanager.h"
 #include "settings.h"
 #include "ui_datamanagerbase.h"
@@ -17,6 +19,8 @@ FinvizUrlManager::FinvizUrlManager(QWidget *parent) :
     }
 
     ui->tree->setCurrentItem(ui->tree->topLevelItem(0), QItemSelectionModel::ClearAndSelect);
+
+    connect(ui->tree, SIGNAL(itemChanged(QTreeWidgetItem *, int)), this, SLOT(slotCheckItem(QTreeWidgetItem *, int)));
 }
 
 FinvizUrlManager::~FinvizUrlManager()
@@ -47,4 +51,16 @@ void FinvizUrlManager::slotAdd()
 {
     addFinvizUrl(FinvizUrl(tr("Tickers"), tr("<Paste url here>")), true);
     m_changed = true;
+}
+
+void FinvizUrlManager::slotCheckItem(QTreeWidgetItem *i, int column)
+{
+    if(!i || column != 1)
+        return;
+
+    // check host
+    QUrl u = i->text(1);
+
+    if(u.host().toLower() != "finviz.com")
+        i->setText(1, tr("<Paste url here>"));
 }
