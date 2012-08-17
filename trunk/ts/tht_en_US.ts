@@ -117,12 +117,12 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
         <translation></translation>
     </message>
     <message>
-        <location filename="../finvizdownloader.cpp" line="80"/>
+        <location filename="../finvizdownloader.cpp" line="83"/>
         <source>Network error #%1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../finvizdownloader.cpp" line="94"/>
+        <location filename="../finvizdownloader.cpp" line="97"/>
         <source>Broken data (fields: %1, required: %2)</source>
         <translation></translation>
     </message>
@@ -143,27 +143,28 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
 <context>
     <name>FinvizUrlManager</name>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="8"/>
+        <location filename="../finvizurlmanager.cpp" line="10"/>
         <source>Finviz links</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="9"/>
+        <location filename="../finvizurlmanager.cpp" line="11"/>
         <source>Add</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="10"/>
+        <location filename="../finvizurlmanager.cpp" line="12"/>
         <source>Link</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="48"/>
+        <location filename="../finvizurlmanager.cpp" line="52"/>
         <source>Tickers</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="48"/>
+        <location filename="../finvizurlmanager.cpp" line="52"/>
+        <location filename="../finvizurlmanager.cpp" line="65"/>
         <source>&lt;Paste url here&gt;</source>
         <translation></translation>
     </message>
@@ -255,41 +256,41 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
         <translation></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="885"/>
+        <location filename="../list.cpp" line="882"/>
         <source>Customize...</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1100"/>
-        <location filename="../list.cpp" line="1193"/>
+        <location filename="../list.cpp" line="1097"/>
+        <location filename="../list.cpp" line="1190"/>
         <source>Choose a file</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1102"/>
-        <location filename="../list.cpp" line="1195"/>
+        <location filename="../list.cpp" line="1099"/>
+        <location filename="../list.cpp" line="1192"/>
         <source>Text files (*.txt)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1104"/>
-        <location filename="../list.cpp" line="1197"/>
+        <location filename="../list.cpp" line="1101"/>
+        <location filename="../list.cpp" line="1194"/>
         <source>All files (*.*)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1152"/>
-        <location filename="../list.cpp" line="1207"/>
+        <location filename="../list.cpp" line="1149"/>
+        <location filename="../list.cpp" line="1204"/>
         <source>Error</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1152"/>
+        <location filename="../list.cpp" line="1149"/>
         <source>Cannot open the following files: %1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1207"/>
+        <location filename="../list.cpp" line="1204"/>
         <source>Cannot save to file %1</source>
         <translation></translation>
     </message>
@@ -355,17 +356,17 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../settings.cpp" line="497"/>
+        <location filename="../settings.cpp" line="501"/>
         <source>Russian</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="498"/>
+        <location filename="../settings.cpp" line="502"/>
         <source>Ukrainian</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="499"/>
+        <location filename="../settings.cpp" line="503"/>
         <source>English</source>
         <translation></translation>
     </message>
@@ -548,23 +549,23 @@ the right or middle mouse buttons.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1049"/>
-        <location filename="../tht.cpp" line="1077"/>
+        <location filename="../tht.cpp" line="1052"/>
+        <location filename="../tht.cpp" line="1080"/>
         <source>Error</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1049"/>
+        <location filename="../tht.cpp" line="1052"/>
         <source>Cannot take screenshot</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1077"/>
+        <location filename="../tht.cpp" line="1080"/>
         <source>Cannot save screenshot</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1344"/>
+        <location filename="../tht.cpp" line="1355"/>
         <source>Customize...</source>
         <translation></translation>
     </message>
