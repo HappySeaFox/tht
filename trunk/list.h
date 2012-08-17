@@ -28,6 +28,7 @@
 
 class QListWidgetItem;
 class QLabel;
+class QMenu;
 
 namespace Ui
 {
@@ -83,6 +84,9 @@ private:
     void resizeNumberLabel();
     void moveNumberLabel();
     void undo();
+    void rebuildFinvizMenu();
+    void addFromFinviz(const QUrl &);
+    void showFinvizSelector();
 
     enum LoadItem { LoadItemCurrent,
                     LoadItemNext, LoadItemPrevious,
@@ -120,6 +124,8 @@ private slots:
     void slotSearchTicker(const QString &);
     void slotSearchTickerNext();
     void slotFocusUp();
+    void slotAddFromFinviz();
+    void slotManageFinvizUrls();
     void loadItem(LoadItem = LoadItemCurrent);
     void moveItem(MoveItem);
 
@@ -136,6 +142,7 @@ private:
     QAbstractItemDelegate *m_oldDelegate, *m_persistentDelegate;
     QList<QListWidgetItem *> m_foundItems;
     QStringList m_oldTickers;
+    QMenu *m_finvizMenu;
 };
 
 inline

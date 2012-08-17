@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>LinkPointManager</class>
- <widget class="QDialog" name="LinkPointManager">
+ <class>DataManagerBase</class>
+ <widget class="QDialog" name="DataManagerBase">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>410</width>
-    <height>217</height>
+    <width>477</width>
+    <height>218</height>
    </rect>
-  </property>
-  <property name="windowTitle">
-   <string>Link points</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0" rowspan="7">
@@ -29,11 +26,11 @@
       <number>2</number>
      </property>
      <attribute name="headerVisible">
-      <bool>false</bool>
+      <bool>true</bool>
      </attribute>
      <column>
       <property name="text">
-       <string/>
+       <string>Name</string>
       </property>
      </column>
      <column>
@@ -45,9 +42,6 @@
    </item>
    <item row="0" column="1" colspan="2">
     <widget class="QPushButton" name="pushAdd">
-     <property name="text">
-      <string>Add current</string>
-     </property>
      <property name="shortcut">
       <string>Ins</string>
      </property>
@@ -107,7 +101,7 @@
      <property name="sizeHint" stdset="0">
       <size>
        <width>20</width>
-       <height>0</height>
+       <height>13</height>
       </size>
      </property>
     </spacer>
@@ -130,144 +124,135 @@
    </item>
   </layout>
  </widget>
- <tabstops>
-  <tabstop>tree</tabstop>
-  <tabstop>pushAdd</tabstop>
-  <tabstop>pushDelete</tabstop>
-  <tabstop>pushUp</tabstop>
-  <tabstop>pushDown</tabstop>
-  <tabstop>pushClear</tabstop>
-  <tabstop>buttonBox</tabstop>
- </tabstops>
  <resources>
   <include location="tht.qrc"/>
  </resources>
  <connections>
   <connection>
-   <sender>pushAdd</sender>
-   <signal>clicked()</signal>
-   <receiver>LinkPointManager</receiver>
-   <slot>slotAdd()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>384</x>
-     <y>31</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>409</x>
-     <y>22</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushDelete</sender>
-   <signal>clicked()</signal>
-   <receiver>LinkPointManager</receiver>
-   <slot>slotDelete()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>384</x>
-     <y>60</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>409</x>
-     <y>51</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>pushClear</sender>
    <signal>clicked()</signal>
-   <receiver>LinkPointManager</receiver>
+   <receiver>DataManagerBase</receiver>
    <slot>slotClear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>400</x>
-     <y>128</y>
+     <x>370</x>
+     <y>151</y>
     </hint>
     <hint type="destinationlabel">
-     <x>409</x>
-     <y>78</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>buttonBox</sender>
-   <signal>accepted()</signal>
-   <receiver>LinkPointManager</receiver>
-   <slot>accept()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>349</x>
-     <y>166</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>349</x>
-     <y>194</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>buttonBox</sender>
-   <signal>rejected()</signal>
-   <receiver>LinkPointManager</receiver>
-   <slot>reject()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>331</x>
-     <y>163</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>328</x>
-     <y>208</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>tree</sender>
-   <signal>itemChanged(QTreeWidgetItem*,int)</signal>
-   <receiver>LinkPointManager</receiver>
-   <slot>slotItemChanged()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>149</x>
-     <y>111</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>158</x>
-     <y>216</y>
+     <x>596</x>
+     <y>145</y>
     </hint>
    </hints>
   </connection>
   <connection>
    <sender>pushUp</sender>
    <signal>clicked()</signal>
-   <receiver>LinkPointManager</receiver>
+   <receiver>DataManagerBase</receiver>
    <slot>slotUp()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>345</x>
-     <y>84</y>
+     <x>348</x>
+     <y>111</y>
     </hint>
     <hint type="destinationlabel">
-     <x>349</x>
-     <y>263</y>
+     <x>355</x>
+     <y>359</y>
     </hint>
    </hints>
   </connection>
   <connection>
    <sender>pushDown</sender>
    <signal>clicked()</signal>
-   <receiver>LinkPointManager</receiver>
+   <receiver>DataManagerBase</receiver>
    <slot>slotDown()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>378</x>
-     <y>80</y>
+     <x>387</x>
+     <y>110</y>
     </hint>
     <hint type="destinationlabel">
+     <x>405</x>
+     <y>383</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushDelete</sender>
+   <signal>clicked()</signal>
+   <receiver>DataManagerBase</receiver>
+   <slot>slotDelete()</slot>
+   <hints>
+    <hint type="sourcelabel">
      <x>367</x>
-     <y>273</y>
+     <y>78</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>646</x>
+     <y>72</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushAdd</sender>
+   <signal>clicked()</signal>
+   <receiver>DataManagerBase</receiver>
+   <slot>slotAdd()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>377</x>
+     <y>49</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>612</x>
+     <y>54</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>DataManagerBase</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>360</x>
+     <y>223</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>361</x>
+     <y>422</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>DataManagerBase</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>378</x>
+     <y>231</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>375</x>
+     <y>369</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tree</sender>
+   <signal>itemChanged(QTreeWidgetItem*,int)</signal>
+   <receiver>DataManagerBase</receiver>
+   <slot>slotItemChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>198</x>
+     <y>193</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>213</x>
+     <y>337</y>
     </hint>
    </hints>
   </connection>
@@ -275,9 +260,9 @@
  <slots>
   <slot>slotAdd()</slot>
   <slot>slotDelete()</slot>
-  <slot>slotClear()</slot>
-  <slot>slotItemChanged()</slot>
   <slot>slotUp()</slot>
   <slot>slotDown()</slot>
+  <slot>slotClear()</slot>
+  <slot>slotItemChanged()</slot>
  </slots>
 </ui>

@@ -64,49 +64,127 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
     </message>
 </context>
 <context>
-    <name>LinkPointManager</name>
+    <name>DataManagerBase</name>
     <message>
-        <location filename="../linkpointmanager.ui" line="14"/>
-        <source>Link points</source>
-        <translation>Точки лінковки</translation>
+        <location filename="../datamanagerbase.ui" line="33"/>
+        <source>Name</source>
+        <translation>Ім&apos;я</translation>
     </message>
     <message>
-        <location filename="../linkpointmanager.ui" line="49"/>
-        <source>Add current</source>
-        <translation>Додати поточні</translation>
-    </message>
-    <message>
-        <location filename="../linkpointmanager.ui" line="52"/>
+        <location filename="../datamanagerbase.ui" line="46"/>
         <source>Ins</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../linkpointmanager.ui" line="59"/>
+        <location filename="../datamanagerbase.ui" line="53"/>
         <source>Delete</source>
         <translation>Видалити</translation>
     </message>
     <message>
-        <location filename="../linkpointmanager.ui" line="62"/>
+        <location filename="../datamanagerbase.ui" line="56"/>
         <source>Del</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../linkpointmanager.ui" line="73"/>
+        <location filename="../datamanagerbase.ui" line="67"/>
         <source>Ctrl+Up</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../linkpointmanager.ui" line="84"/>
+        <location filename="../datamanagerbase.ui" line="78"/>
         <source>Ctrl+Down</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../linkpointmanager.ui" line="98"/>
+        <location filename="../datamanagerbase.ui" line="92"/>
         <source>Clear</source>
         <translation>Очистити</translation>
     </message>
+</context>
+<context>
+    <name>FinvizDownloader</name>
     <message>
-        <location filename="../linkpointmanager.cpp" line="107"/>
+        <location filename="../finvizdownloader.ui" line="14"/>
+        <source>Finviz</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../finvizdownloader.ui" line="30"/>
+        <source>Close</source>
+        <translation>Закрити</translation>
+    </message>
+    <message>
+        <location filename="../finvizdownloader.ui" line="50"/>
+        <source>Downloading tickers...</source>
+        <translation>Завантаження тікерів...</translation>
+    </message>
+    <message>
+        <location filename="../finvizdownloader.cpp" line="80"/>
+        <source>Network error #%1</source>
+        <translation>Помилка мережі #%1</translation>
+    </message>
+    <message>
+        <location filename="../finvizdownloader.cpp" line="94"/>
+        <source>Broken data (fields: %1, required: %2)</source>
+        <translation>Зараховано (поля: %1, необхідно: %2)</translation>
+    </message>
+</context>
+<context>
+    <name>FinvizLinkSelector</name>
+    <message>
+        <location filename="../finvizlinkselector.ui" line="14"/>
+        <source>Add from Finviz</source>
+        <translation>Додати з Finviz</translation>
+    </message>
+    <message>
+        <location filename="../finvizlinkselector.ui" line="23"/>
+        <source>Add</source>
+        <translation>Додати</translation>
+    </message>
+</context>
+<context>
+    <name>FinvizUrlManager</name>
+    <message>
+        <location filename="../finvizurlmanager.cpp" line="8"/>
+        <source>Finviz links</source>
+        <translation>Посилання Finviz</translation>
+    </message>
+    <message>
+        <location filename="../finvizurlmanager.cpp" line="9"/>
+        <source>Add</source>
+        <translation>Додати</translation>
+    </message>
+    <message>
+        <location filename="../finvizurlmanager.cpp" line="10"/>
+        <source>Link</source>
+        <translation>Посилання</translation>
+    </message>
+    <message>
+        <location filename="../finvizurlmanager.cpp" line="48"/>
+        <source>Tickers</source>
+        <translation>Тікери</translation>
+    </message>
+    <message>
+        <location filename="../finvizurlmanager.cpp" line="48"/>
+        <source>&lt;Paste url here&gt;</source>
+        <translation>&lt;Вставте сюди посилання&gt;</translation>
+    </message>
+</context>
+<context>
+    <name>LinkPointManager</name>
+    <message>
+        <location filename="../linkpointmanager.cpp" line="32"/>
+        <location filename="../linkpointmanager.cpp" line="34"/>
+        <source>Link points</source>
+        <translation>Точки лінковки</translation>
+    </message>
+    <message>
+        <location filename="../linkpointmanager.cpp" line="33"/>
+        <source>Add current</source>
+        <translation>Додати поточні</translation>
+    </message>
+    <message>
+        <location filename="../linkpointmanager.cpp" line="85"/>
         <source>New points</source>
         <translation>Нові точки</translation>
     </message>
@@ -134,76 +212,86 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
         <translation>Експортувати тікери</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="116"/>
+        <location filename="../list.cpp" line="119"/>
         <source>Clear</source>
         <translation>Очистити</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="117"/>
+        <location filename="../list.cpp" line="120"/>
         <source>Sort</source>
         <translation>Відсортувати</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="119"/>
+        <location filename="../list.cpp" line="122"/>
         <source>Reset priorities</source>
         <translation>Скинути пріоритети</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="126"/>
+        <location filename="../list.cpp" line="129"/>
         <source>Add one ticker...</source>
         <translation>Додати один тікер...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="128"/>
+        <location filename="../list.cpp" line="131"/>
         <source>Add from file...</source>
         <translation>Додати з файлу...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="129"/>
+        <location filename="../list.cpp" line="132"/>
         <source>Add from clipboard</source>
         <translation>Додати з буфера обміну</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="133"/>
+        <location filename="../list.cpp" line="134"/>
+        <source>Add from Finviz</source>
+        <translation>Додати з Finviz</translation>
+    </message>
+    <message>
+        <location filename="../list.cpp" line="139"/>
         <source>Export to file...</source>
         <translation>Експортувати в файл...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="134"/>
+        <location filename="../list.cpp" line="140"/>
         <source>Export to clipboard</source>
         <translation>Експортувати в буфер обміну</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1029"/>
-        <location filename="../list.cpp" line="1122"/>
+        <location filename="../list.cpp" line="885"/>
+        <source>Customize...</source>
+        <translation>Налаштувати...</translation>
+    </message>
+    <message>
+        <location filename="../list.cpp" line="1100"/>
+        <location filename="../list.cpp" line="1193"/>
         <source>Choose a file</source>
         <translation>Виберіть файл</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1031"/>
-        <location filename="../list.cpp" line="1124"/>
+        <location filename="../list.cpp" line="1102"/>
+        <location filename="../list.cpp" line="1195"/>
         <source>Text files (*.txt)</source>
         <translation>Текстові файли (*.txt)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1033"/>
-        <location filename="../list.cpp" line="1126"/>
+        <location filename="../list.cpp" line="1104"/>
+        <location filename="../list.cpp" line="1197"/>
         <source>All files (*.*)</source>
         <translation>Всі файли (*.*)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1081"/>
-        <location filename="../list.cpp" line="1136"/>
+        <location filename="../list.cpp" line="1152"/>
+        <location filename="../list.cpp" line="1207"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1081"/>
+        <location filename="../list.cpp" line="1152"/>
         <source>Cannot open the following files: %1</source>
         <translation>Неможливо відкрити наступні файли: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1136"/>
+        <location filename="../list.cpp" line="1207"/>
         <source>Cannot save to file %1</source>
         <translation>Неможливо зберегти в файл %1</translation>
     </message>
@@ -269,17 +357,17 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../settings.cpp" line="460"/>
+        <location filename="../settings.cpp" line="497"/>
         <source>Russian</source>
         <translation>Російська</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="461"/>
+        <location filename="../settings.cpp" line="498"/>
         <source>Ukrainian</source>
         <translation>Українська</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="462"/>
+        <location filename="../settings.cpp" line="499"/>
         <source>English</source>
         <translation>Англійська</translation>
     </message>

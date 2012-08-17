@@ -26,6 +26,7 @@
 #include <QPoint>
 #include <QSize>
 #include <QList>
+#include <QUrl>
 #include <QMap>
 
 #include <windows.h>
@@ -44,6 +45,20 @@ struct LinkPoint
 Q_DECLARE_METATYPE(QList<QPoint>)
 Q_DECLARE_METATYPE(LinkPoint)
 Q_DECLARE_METATYPE(QList<LinkPoint>)
+
+struct FinvizUrl
+{
+    FinvizUrl(const QString &_name = QString(), const QUrl &_url = QUrl())
+        : name(_name),
+          url(_url)
+    {}
+
+    QString name;
+    QUrl url;
+};
+
+Q_DECLARE_METATYPE(FinvizUrl)
+Q_DECLARE_METATYPE(QList<FinvizUrl>)
 
 class Settings
 {
@@ -100,6 +115,9 @@ public:
 
     void setLinks(const QList<LinkPoint> &, SyncType sync = Sync);
     QList<LinkPoint> links();
+
+    void setFinvizUrls(const QList<FinvizUrl> &, SyncType sync = Sync);
+    QList<FinvizUrl> finvizUrls();
 
     void setMiniTickerEntry(bool, SyncType sync = Sync);
     bool miniTickerEntry();

@@ -55,6 +55,11 @@ License: Free for use
 
 License: Free for use
 
+* "Finviz" icon is created with GIMP
+
+Author: Dmitry Baryshev
+License: Free for use
+
 * Other icons are taken from Fugue Icons theme
 
 http://p.yusukekamiyamane.com/

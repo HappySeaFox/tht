@@ -26,5 +26,7 @@
         <file>images/wait.gif</file>
         <file>images/transparent.png</file>
         <file>images/lockworkstation.png</file>
+        <file>images/finviz.png</file>
+        <file>images/finviz-customize.png</file>
     </qresource>
 </RCC>

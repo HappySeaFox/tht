@@ -38,6 +38,19 @@ static QDataStream &operator>>(QDataStream &in, LinkPoint &lp)
     return in;
 }
 
+// serialize/deserialize FinvizUrl
+static QDataStream &operator<<(QDataStream &out, const FinvizUrl &fu)
+{
+    out << fu.name << fu.url;
+    return out;
+}
+
+static QDataStream &operator>>(QDataStream &in, FinvizUrl &fu)
+{
+    in >> fu.name >> fu.url;
+    return in;
+}
+
 /*******************************************************/
 
 Settings::Settings()
@@ -52,6 +65,9 @@ Settings::Settings()
     qRegisterMetaTypeStreamOperators<QList<QPoint> >("QList<QPoint>");
     qRegisterMetaTypeStreamOperators<LinkPoint>("LinkPoint");
     qRegisterMetaTypeStreamOperators<QList<LinkPoint> >("QList<LinkPoint>");
+
+    qRegisterMetaTypeStreamOperators<FinvizUrl>("FinvizUrl");
+    qRegisterMetaTypeStreamOperators<QList<FinvizUrl> >("QList<FinvizUrl>");
 
     m_databaseTimestampFormat = "yyyy-MM-dd hh:mm:ss.zzz";
 
@@ -146,6 +162,17 @@ Settings::Settings()
 
     if(!QDir().mkpath(mutablePath))
         qDebug("Cannot create a directory for mutable database");
+
+    // default Finviz urls
+    if(!m_settings->contains("finviz-urls"))
+    {
+        setFinvizUrls(QList<FinvizUrl>()
+                      << FinvizUrl("NYSE >1$ >300k", QUrl("http://finviz.com/screener.ashx?v=411&f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=ticker"))
+                      << FinvizUrl("NYSE >1$ >300k New High", QUrl("http://finviz.com/screener.ashx?v=411&s=ta_newhigh&f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=ticker"))
+                      << FinvizUrl("NYSE >1$ >300k New Low", QUrl("http://finviz.com/screener.ashx?v=411&s=ta_newlow&f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=ticker"))
+                      << FinvizUrl("NYSE >1$ >300k Volume>1.5", QUrl("http://finviz.com/screener.ashx?v=411&f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1,sh_relvol_o1.5&o=-change"))
+                      );
+    }
 }
 
 Settings::~Settings()
@@ -254,6 +281,16 @@ void Settings::setLinks(const QList<LinkPoint> &links, SyncType sync)
 QList<LinkPoint> Settings::links()
 {
     return load<QList<LinkPoint> >("links");
+}
+
+void Settings::setFinvizUrls(const QList<FinvizUrl> &fu, SyncType sync)
+{
+    save<QList<FinvizUrl> >("finviz-urls", fu, sync);
+}
+
+QList<FinvizUrl> Settings::finvizUrls()
+{
+    return load<QList<FinvizUrl> >("finviz-urls");
 }
 
 void Settings::setAllowDuplicates(bool allow, SyncType sync)

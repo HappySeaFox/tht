@@ -1,10 +1,12 @@
 #include <QStyledItemDelegate>
+#include <QStringList>
 #include <QHeaderView>
+#include <QVariant>
 
 #include "linkpointmanager.h"
 #include "settings.h"
 
-#include "ui_linkpointmanager.h"
+#include "ui_datamanagerbase.h"
 
 class NoEditorDelegate : public QStyledItemDelegate
 {
@@ -24,17 +26,14 @@ public:
 };
 
 LinkPointManager::LinkPointManager(const QList<QPoint> &currentLinks, QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::LinkPointManager),
-    m_currentLinks(currentLinks),
-    m_changed(false)
+    DataManagerBase(parent),
+    m_currentLinks(currentLinks)
 {
-    ui->setupUi(this);
-
-    ui->pushClear->setShortcut(QKeySequence::New);
+    setWindowTitle(tr("Link points"));
+    ui->pushAdd->setText(tr("Add current"));
+    ui->tree->headerItem()->setText(1, tr("Link points"));
 
     ui->tree->setItemDelegateForColumn(1, new NoEditorDelegate(ui->tree));
-    ui->tree->header()->setResizeMode(QHeaderView::ResizeToContents);
 
     if(m_currentLinks.isEmpty())
         ui->pushAdd->setEnabled(false);
@@ -43,16 +42,14 @@ LinkPointManager::LinkPointManager(const QList<QPoint> &currentLinks, QWidget *p
 
     foreach(LinkPoint lp, linkpoints)
     {
-        addItem(lp);
+        addLinkPoint(lp);
     }
 
     ui->tree->setCurrentItem(ui->tree->topLevelItem(0), QItemSelectionModel::ClearAndSelect);
 }
 
 LinkPointManager::~LinkPointManager()
-{
-    delete ui;
-}
+{}
 
 QList<LinkPoint> LinkPointManager::links() const
 {
@@ -69,7 +66,7 @@ QList<LinkPoint> LinkPointManager::links() const
     return linkpoints;
 }
 
-void LinkPointManager::addItem(const LinkPoint &lp, bool edit)
+void LinkPointManager::addLinkPoint(const LinkPoint &lp, bool edit)
 {
     QString points;
 
@@ -80,77 +77,11 @@ void LinkPointManager::addItem(const LinkPoint &lp, bool edit)
 
     points.chop(1);
 
-    QTreeWidgetItem *i = new QTreeWidgetItem(ui->tree, QStringList() << lp.name << points);
-    i->setData(0, Qt::UserRole, QVariant::fromValue(lp.points));
-    i->setFlags(i->flags() | Qt::ItemIsEditable);
-
-    ui->tree->addTopLevelItem(i);
-
-    if(edit)
-    {
-        ui->tree->setCurrentItem(i, QItemSelectionModel::ClearAndSelect);
-        ui->tree->editItem(i);
-    }
-}
-
-void LinkPointManager::moveItem(QTreeWidgetItem *i, int index, int diff)
-{
-    ui->tree->takeTopLevelItem(index);
-    ui->tree->insertTopLevelItem(index+diff, i);
-    ui->tree->setCurrentItem(i, QItemSelectionModel::ClearAndSelect);
-
-    m_changed = true;
+    addItem(QStringList() << lp.name << points, QVariant::fromValue(lp.points), edit);
 }
 
 void LinkPointManager::slotAdd()
 {
-    addItem(LinkPoint(tr("New points"), m_currentLinks), true);
-    m_changed = true;
-}
-
-void LinkPointManager::slotDelete()
-{
-    QTreeWidgetItem *ci = ui->tree->currentItem();
-
-    if(!ci)
-        return;
-
-    QTreeWidgetItem *i = ui->tree->itemBelow(ci);
-
-    if(!i)
-        i = ui->tree->itemAbove(ci);
-
-    delete ci;
-
-    ui->tree->setCurrentItem(i, QItemSelectionModel::ClearAndSelect);
-
-    m_changed = true;
-}
-
-void LinkPointManager::slotUp()
-{
-    QTreeWidgetItem *i = ui->tree->currentItem();
-    int index = ui->tree->indexOfTopLevelItem(i);
-
-    if(!i || index <= 0)
-        return;
-
-    moveItem(i, index, -1);
-}
-
-void LinkPointManager::slotDown()
-{
-    QTreeWidgetItem *i = ui->tree->currentItem();
-    int index = ui->tree->indexOfTopLevelItem(i);
-
-    if(!i || index < 0 || index >= ui->tree->topLevelItemCount()-1)
-        return;
-
-    moveItem(i, index, +1);
-}
-
-void LinkPointManager::slotClear()
-{
-    ui->tree->clear();
+    addLinkPoint(LinkPoint(tr("New points"), m_currentLinks), true);
     m_changed = true;
 }
