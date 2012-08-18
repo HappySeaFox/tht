@@ -14,12 +14,12 @@ DEFINES += TICKERS_DIR=$$sprintf("\"\\\"%1\\\"\"", $${_PRO_FILE_PWD_}/../../tick
 
 SOURCES += main.cpp\
         widget.cpp \
-        networkaccess.cpp \
-    ../../csvreader.cpp
+    ../../csvreader.cpp \
+    ../../networkaccess.cpp
 
 HEADERS  += widget.h \
-        networkaccess.h \
-    ../../csvreader.h
+    ../../csvreader.h \
+    ../../networkaccess.h
 
 FORMS    += widget.ui
 

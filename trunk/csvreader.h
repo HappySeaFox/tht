@@ -50,7 +50,4 @@ private:
     QString altTerm;
 };
 
-QString toCsv(const QString& plainText, const QChar& delimiter);
-QString toCsv(const QList<QStringList>& plainText, const QChar& delimiter);
-
 #endif // CSV_H

@@ -138,20 +138,20 @@ Settings::Settings()
         m_settings->sync();
     }
 
-    ZeroMemory(&m_version, sizeof(OSVERSIONINFO));
-    m_version.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
+    ZeroMemory(&m_windowsVersion, sizeof(OSVERSIONINFO));
+    m_windowsVersion.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
 
-    if(!GetVersionEx(&m_version))
+    if(!GetVersionEx(&m_windowsVersion))
     {
         qDebug("Cannot get system version (%ld), falling back to XP", GetLastError());
 
         // fallback to XP
-        m_version.dwMajorVersion = 5;
-        m_version.dwMinorVersion = 1;
-        m_version.dwPlatformId = VER_PLATFORM_WIN32_NT;
+        m_windowsVersion.dwMajorVersion = 5;
+        m_windowsVersion.dwMinorVersion = 1;
+        m_windowsVersion.dwPlatformId = VER_PLATFORM_WIN32_NT;
     }
     else
-        qDebug("Windows version %ld.%ld", m_version.dwMajorVersion, m_version.dwMinorVersion);
+        qDebug("Windows version %ld.%ld", m_windowsVersion.dwMajorVersion, m_windowsVersion.dwMinorVersion);
 
     // databases
     m_persistentDatabaseName = "persistent";

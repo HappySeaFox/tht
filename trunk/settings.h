@@ -73,7 +73,7 @@ public:
 
     QMap<QString, QString> translations();
 
-    OSVERSIONINFO version() const;
+    OSVERSIONINFO windowsVersion() const;
 
     void setCheckBoxState(const QString &checkbox, bool checked, SyncType sync = Sync);
     int checkBoxState(const QString &checkbox);
@@ -180,7 +180,7 @@ private:
 private:
     QSettings *m_settings;
     QRegExp m_rxTicker;
-    OSVERSIONINFO m_version;
+    OSVERSIONINFO m_windowsVersion;
     QString m_persistentDatabaseName;
     QString m_persistentDatabasePath;
     QString m_mutableDatabaseName;
@@ -244,9 +244,9 @@ QString Settings::persistentDatabasePath() const
 }
 
 inline
-OSVERSIONINFO Settings::version() const
+OSVERSIONINFO Settings::windowsVersion() const
 {
-    return m_version;
+    return m_windowsVersion;
 }
 
 inline
