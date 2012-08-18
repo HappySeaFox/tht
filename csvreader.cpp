@@ -294,33 +294,3 @@ QStringList CsvParser::parseLine(bool trimSpace)
     }
     return resultRow;
 }
-
-
-QString toCsv(const QString &plainText, const QChar& delimiter)
-{
-    QString result = plainText;
-    result.replace("\"", "\"\"");
-    result.replace("\t", QString("\"%1 \"").arg(delimiter));
-    result.replace("\n", "\"\n\"");
-    result.prepend("\"");
-    result.append("\"");
-    return result;
-}
-
-QString toCsv(const QList<QStringList>& plainText, const QChar& delimiter)
-{
-    QString result;
-    foreach(QStringList row, plainText) {
-        foreach(QString value, row) {
-            value.replace("\"", "\"\"");
-            value.replace(QRegExp("(\r\n|\n)"), " ");
-            result.append("\"");
-            result.append(value);
-            result.append("\"");
-            result.append(delimiter);
-        }
-        result.chop(1);
-        result.append("\n");
-    }
-    return result;
-}
