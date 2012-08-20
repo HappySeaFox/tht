@@ -131,7 +131,7 @@ List::List(int group, QWidget *parent) :
     menu->addAction(file_icon, tr("Add from file...") + "\tA", this, SLOT(slotAddFromFile()));
     menu->addAction(tr("Add from clipboard") + "\tP", this, SLOT(slotAddFromClipboard()));
     menu->addSeparator();
-    m_finvizMenu = menu->addMenu(QIcon(":/images/finviz.png"), tr("Add from Finviz"));
+    m_finvizMenu = menu->addMenu(QIcon(":/images/finviz.png"), tr("Add from Finviz") + "\tZ");
     rebuildFinvizMenu();
     ui->pushAdd->setMenu(menu);
 
@@ -759,7 +759,12 @@ bool List::addItem(const QString &text, bool fix)
             item->setPriority(static_cast<ListItem::Priority>(p));
     }
 
+    bool wasEmpty = ui->list->count() == 1;
+
     ui->list->addItem(item);
+
+    if(wasEmpty)
+        initialSelect();
 
     return true;
 }
