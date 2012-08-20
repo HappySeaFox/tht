@@ -56,7 +56,7 @@ public:
 
     bool contains(const QPoint &);
 
-    void initialSelect();
+    void initialSelect(bool alsoSetFocus = true);
 
     void removeDuplicates();
 
