@@ -59,8 +59,10 @@ void FinvizUrlManager::slotCheckItem(QTreeWidgetItem *i, int column)
         return;
 
     // check host
-    QUrl u = i->text(1);
+    QUrl u = QUrl::fromUserInput(i->text(1));
 
     if(u.host().toLower() != "finviz.com")
         i->setText(1, tr("<Paste url here>"));
+    else
+        i->setText(1, u.toString());
 }
