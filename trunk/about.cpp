@@ -33,6 +33,7 @@ About::About(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->labelVersion->setText(QString("THT %1").arg(NVER_STRING));
+    ui->labelUrl->setText(QString("<a href=\"%1\">%2</a>").arg(HTTPROOT).arg(HTTPROOT));
 
     // set "wait" icon
     m_timer = new QTimer(this);
@@ -87,7 +88,7 @@ void About::slotNewVersion(const QString &newVersion)
     if(!newVersion.isEmpty())
     {
         text = "<html><head><meta name=\"qrichtext\" content=\"1\" /></head>"
-                "<body><a href=\"http://code.google.com/p/traders-home-task-ng/downloads/list\">"
+                "<body><a href=\"" HTTPROOT "/downloads/list\">"
                     "<img src=\":/images/update.png\"></img>"
                 "</a>"
                 "</body></html>";

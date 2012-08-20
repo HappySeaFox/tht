@@ -95,7 +95,7 @@
          <property name="text">
           <string>THT helps you to do your home task in trading. It can link several Advanced Get windows together and manage a list of tickers.
 
-All suggestions and bug reports please send to our bug tracker, also visit&lt;br/&gt;&lt;a href=&quot;http://code.google.com/p/traders-home-task-ng&quot;&gt;http://code.google.com/p/traders-home-task-ng/wiki/howto&lt;/a&gt;</string>
+All suggestions and bug reports please send to our bug tracker, also visit</string>
          </property>
          <property name="textFormat">
           <enum>Qt::RichText</enum>
@@ -103,11 +103,15 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
          <property name="wordWrap">
           <bool>true</bool>
          </property>
-         <property name="openExternalLinks">
-          <bool>true</bool>
-         </property>
          <property name="textInteractionFlags">
           <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="labelUrl">
+         <property name="openExternalLinks">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
