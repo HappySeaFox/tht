@@ -55,6 +55,9 @@
 
 #include "ui_list.h"
 
+namespace
+{
+
 class PersistentSelectionDelegate : public QStyledItemDelegate
 {
 public:
@@ -73,6 +76,27 @@ public:
         QStyledItemDelegate::paint(painter, optionV4, index);
     }
 };
+
+class NumberLabel : public QLabel
+{
+public:
+    NumberLabel(QWidget *parent = 0) : QLabel(parent)
+    {
+        setAttribute(Qt::WA_TransparentForMouseEvents);
+        setMinimumWidth(20);
+        setFrameShape(QFrame::Box);
+        setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+        setTextFormat(Qt::PlainText);
+        setStyleSheet("QLabel{"
+                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
+                        "                                   stop: 0 #FFEFEF, stop: 0.5 #F7DB45, stop: 1 #FFEFEF);"
+                        "color: black;"
+                        "border: 1px solid gray;"
+                        "}");
+    }
+};
+
+} // namespace
 
 /*****************************************/
 
@@ -99,19 +123,10 @@ List::List(int group, QWidget *parent) :
     m_oldDelegate = ui->list->itemDelegate();
 
     // number of tickers
-    m_number = new QLabel(window());
-    m_number->setAttribute(Qt::WA_TransparentForMouseEvents);
-    m_number->setMinimumWidth(20);
-    m_number->setFrameShape(QFrame::Box);
-    m_number->setAlignment(Qt::AlignCenter);
-    m_number->setTextFormat(Qt::PlainText);
-    m_number->setStyleSheet
-                ("QLabel{"
-                "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                "                                   stop: 0 #FFEFEF, stop: 0.5 #F7DB45, stop: 1 #FFEFEF);"
-                "color: black;"
-                "border: 1px solid gray;"
-                "}");
+    m_number = new NumberLabel(window());
+
+    // current ticker
+    m_current = new NumberLabel(window());
 
     ui->pushSave->setEnabled(!m_saveTickers);
 
@@ -149,10 +164,12 @@ List::List(int group, QWidget *parent) :
     ui->list->viewport()->installEventFilter(this);
 
     m_number->show();
+    m_current->show();
 }
 
 List::~List()
 {
+    delete m_current;
     delete m_number;
     delete ui;
 }
@@ -490,7 +507,7 @@ bool List::eventFilter(QObject *obj, QEvent *event)
         else if(type == QEvent::FocusOut)
             ui->list->setAlternatingRowColors(false);
         else if(type == QEvent::Resize || type == QEvent::Move)
-            moveNumberLabel();
+            moveNumberLabels();
     }
     else if(obj == ui->list->viewport())
     {
@@ -561,7 +578,7 @@ bool List::eventFilter(QObject *obj, QEvent *event)
             }
         }
         else if(type == QEvent::Resize || type == QEvent::Move)
-            moveNumberLabel();
+            moveNumberLabels();
     }
 
     return QObject::eventFilter(obj, event);
@@ -569,12 +586,16 @@ bool List::eventFilter(QObject *obj, QEvent *event)
 
 void List::moveEvent(QMoveEvent *)
 {
-    moveNumberLabel();
+    moveNumberLabels();
 }
 
 void List::numberOfItemsChanged()
 {
     m_number->setNum(ui->list->count());
+
+    // also change the current row
+    slotCurrentRowChanged(ui->list->currentRow());
+
     resizeNumberLabel();
 
     if(ui->list->count())
@@ -834,17 +855,21 @@ void List::setPriority(int p)
 void List::resizeNumberLabel()
 {
     m_number->ensurePolished();
-    m_number->resize(QFontMetrics(m_number->font()).boundingRect(m_number->text()).adjusted(0,0, 8,4).size());
+    m_number->resize(QFontMetrics(m_number->font()).size(0, m_number->text()) + QSize(8, 4));
 
-    moveNumberLabel();
+    m_current->resize(m_number->size());
+
+    moveNumberLabels();
 }
 
-void List::moveNumberLabel()
+void List::moveNumberLabels()
 {
     const QWidget *w = ui->list->viewport();
 
     m_number->move(w->mapTo(window(), QPoint(w->width(), 0)).x() - m_number->width(),
                    w->mapTo(window(), QPoint(0, w->height())).y() - m_number->height()/2);
+
+    m_current->move(m_number->x(), m_number->y() - m_current->height() + 1); // +1 to simulate 1-pixel border
 }
 
 void List::undo()
@@ -1352,6 +1377,11 @@ void List::slotManageFinvizUrls()
         Settings::instance()->setFinvizUrls(mgr.urls());
         emit needRebuildFinvizMenu();
     }
+}
+
+void List::slotCurrentRowChanged(int row)
+{
+    m_current->setNum(row+1);
 }
 
 void List::slotExportToClipboard()

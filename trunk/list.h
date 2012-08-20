@@ -84,7 +84,7 @@ private:
     void changePriority(int);
     void setPriority(int);
     void resizeNumberLabel();
-    void moveNumberLabel();
+    void moveNumberLabels();
     void undo();
     void addFromFinviz(const QUrl &);
     void showFinvizSelector();
@@ -128,6 +128,7 @@ private slots:
     void slotFocusUp();
     void slotAddFromFinviz();
     void slotManageFinvizUrls();
+    void slotCurrentRowChanged(int);
     void loadItem(LoadItem = LoadItemCurrent);
     void moveItem(MoveItem);
 
@@ -140,7 +141,7 @@ private:
     QPoint m_startPos;
     QString m_startDragText;
     ListItem::Priority m_startDragPriority;
-    QLabel *m_number;
+    QLabel *m_number, *m_current;
     QAbstractItemDelegate *m_oldDelegate, *m_persistentDelegate;
     QList<QListWidgetItem *> m_foundItems;
     QStringList m_oldTickers;
