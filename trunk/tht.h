@@ -23,6 +23,7 @@
 #include <QWidget>
 #include <QString>
 #include <QList>
+#include <QHash>
 #include <QMap>
 #include <Qt>
 
@@ -85,6 +86,19 @@ private:
 
         // TODO Do we need to redesign the linking process?
         HWND (*findSubControl)(HWND parent);
+    };
+
+    typedef QHash<LinkType, QString> PredefinedTickerMappings;
+
+    struct PredefinedTicker
+    {
+        PredefinedTicker(const Qt::Key &_key, const PredefinedTickerMappings &_mappings = PredefinedTickerMappings())
+            : key(_key),
+              mappings(_mappings)
+        {}
+
+        Qt::Key key;
+        PredefinedTickerMappings mappings;
     };
 
 protected:
@@ -166,7 +180,8 @@ private:
     bool m_useKeyboardInRegion;
     bool m_locked;
     QWidget *m_lastActiveWindow;
-    QMap<QString, Qt::Key> m_predefined;
+    typedef QMap<QString, PredefinedTicker> PredefinedTickers;
+    PredefinedTickers m_predefined;
     QPointer<TickerNeighbors> m_sectors;
 };
 
