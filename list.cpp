@@ -864,7 +864,7 @@ void List::undo()
 
 void List::rebuildFinvizMenu()
 {
-    qDebug("Rebuild finviz menu");
+    qDebug("Rebuild finviz menu for list \"%d\"", m_section);
 
     QList<FinvizUrl> urls = Settings::instance()->finvizUrls();
 
