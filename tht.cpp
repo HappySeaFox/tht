@@ -51,7 +51,8 @@
 #include "tht.h"
 #include "ui_tht.h"
 
-static const int THT_WINDOW_STARTUP_TIMEOUT = 1200;
+static const int          THT_WINDOW_STARTUP_TIMEOUT = 1200;
+static const char * const THT_PRIVATE_TICKER_PREFIX = "=THT=";
 
 THT::THT(QWidget *parent) :
     QWidget(parent,
@@ -169,23 +170,44 @@ THT::THT(QWidget *parent) :
     rebuildLinkPoints();
 
     // predefined tickers, menu & shortcuts
-    m_predefined.insert("$COMPQ", Qt::Key_Q);
-    m_predefined.insert("$INDU",  Qt::Key_I);
-    m_predefined.insert("$SPX",   Qt::Key_S);
-    m_predefined.insert("$TVOL",  Qt::Key_T);
-    m_predefined.insert("$VIX",   Qt::Key_V);
-    m_predefined.insert("SPY",    Qt::Key_F);
+    PredefinedTickerMappings mappings;
 
-    QMap<QString, Qt::Key>::const_iterator itEnd = m_predefined.end();
+    // NASDAQ Composite
+    mappings.insert(LinkTypeTwinkorswim, "COMP");
+    m_predefined.insert("$COMPQ", PredefinedTicker(Qt::Key_Q, mappings));
 
-    for(QMap<QString, Qt::Key>::const_iterator it = m_predefined.begin();it != itEnd;++it)
+    // DOW JONES
+    mappings.clear();
+    mappings.insert(LinkTypeMBTDesktop,    "$DJI");
+    mappings.insert(LinkTypeMBTDesktopPro, "$DJI");
+    mappings.insert(LinkTypeTwinkorswim,   "DJX");
+    m_predefined.insert("$INDU", PredefinedTicker(Qt::Key_I, mappings));
+
+    // S&P 500 Index
+    mappings.clear();
+    mappings.insert(LinkTypeTwinkorswim, "SPX");
+    m_predefined.insert("$SPX", PredefinedTicker(Qt::Key_S, mappings));
+
+    // NYSE Volume
+    m_predefined.insert("$TVOL", PredefinedTicker(Qt::Key_T));
+
+    // Volatility S&P 500
+    mappings.clear();
+    mappings.insert(LinkTypeTwinkorswim, "VIX");
+    m_predefined.insert("$VIX", PredefinedTicker(Qt::Key_V, mappings));
+
+    // S&P 500 Fund
+    m_predefined.insert("SPY", PredefinedTicker(Qt::Key_F));
+
+    PredefinedTickers::const_iterator itEnd = m_predefined.end();
+
+    for(PredefinedTickers::const_iterator it = m_predefined.begin();it != itEnd;++it)
     {
-        QShortcut *s = new QShortcut(it.value(), this, SLOT(slotLoadPredefinedTicker()));
+        QShortcut *s = new QShortcut(it.value().key, this, SLOT(slotLoadPredefinedTicker()));
 
-        s->setProperty("ticker", it.key());
+        s->setProperty("predefined-ticker-key", it.key());
 
-        menu_load->addAction(it.key() + '\t' + QKeySequence(it.value()).toString(),
-                             s, SIGNAL(activated()));
+        menu_load->addAction(it.key() + '\t' + QKeySequence(it.value().key).toString(), s, SIGNAL(activated()));
     }
 
     // lock links
@@ -768,15 +790,49 @@ void THT::slotCheckActive()
         else
             okToLoad = true;
 
+        // real ticker to load
+        QString ticker;
+
+        // determine the real ticker from the private ticker
+        if(m_ticker.startsWith(THT_PRIVATE_TICKER_PREFIX))
+        {
+            ticker = m_ticker.right(m_ticker.length() - qstrlen(THT_PRIVATE_TICKER_PREFIX));
+
+            // find mapping [ticker] => [predefined ticker data]
+            PredefinedTickers::const_iterator it = m_predefined.find(ticker);
+
+            if(it != m_predefined.end())
+            {
+                // find mapping [link type] => [ticker to load]
+                PredefinedTickerMappings::const_iterator itm = it.value().mappings.find(link.type);
+
+                // real ticker
+                if(itm != it.value().mappings.end())
+                {
+                    if(!itm.value().isEmpty())
+                        ticker = itm.value();
+                }
+
+                okToLoad = true;
+            }
+            else
+                qWarning("Private ticker \"%s\" doesn't have a mapping", qPrintable(m_ticker));
+        }
+        else
+        {
+            ticker = m_ticker;
+            okToLoad = true;
+        }
+
         // load ticker
         if(okToLoad)
         {
             if(link.type == LinkTypeAdvancedGet
-                    && ui->checkNyse->isChecked()
-                    && !m_ticker.startsWith(QChar('$')))
-                add = "=N";
+                && ui->checkNyse->isChecked()
+                && !m_ticker.startsWith(QChar('$')))
+            add = "=N";
 
-            sendString(m_ticker + add, link.type);
+            sendString(ticker + add, link.type);
         }
 
         loadNextWindow();
@@ -1252,7 +1308,12 @@ void THT::slotLoadPredefinedTicker()
     if(!s)
         return;
 
-    slotLoadTicker(s->property("ticker").toString());
+    QString ticker = s->property("predefined-ticker-key").toString();
+
+    if(ticker.isEmpty())
+        return;
+
+    slotLoadTicker(THT_PRIVATE_TICKER_PREFIX + ticker);
 }
 
 void THT::slotOpenOrCloseSearchTicker()
