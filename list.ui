@@ -354,6 +354,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>list</sender>
+   <signal>currentRowChanged(int)</signal>
+   <receiver>List</receiver>
+   <slot>slotCurrentRowChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>82</x>
+     <y>242</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>174</x>
+     <y>242</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>slotSave()</slot>
@@ -361,5 +377,6 @@
   <slot>stopSearching()</slot>
   <slot>slotSearchTickerNext()</slot>
   <slot>slotSearchTicker(QString)</slot>
+  <slot>slotCurrentRowChanged(int)</slot>
  </slots>
 </ui>
