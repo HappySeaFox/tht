@@ -39,14 +39,19 @@ static void thtOutput(QtMsgType type, const char *msg)
 {
     Q_UNUSED(type)
 
+    static bool noLog = qgetenv("THT_NO_LOG") == "1";
+
+    fprintf(stderr, "THT: %s\n", msg);
+
+    if(noLog)
+        return;
+
     static QtLockedFile log(
                      QDesktopServices::storageLocation(QDesktopServices::TempLocation)
                      + QDir::separator()
                      + "tht.log");
 
     static bool failed = false;
-
-    fprintf(stderr, "THT: %s\n", msg);
 
     if(!log.isOpen() && !failed)
     {
