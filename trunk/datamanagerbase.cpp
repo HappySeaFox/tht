@@ -7,7 +7,8 @@
 
 DataManagerBase::DataManagerBase(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::DataManagerBase)
+    ui(new Ui::DataManagerBase),
+    m_changed(false)
 {
     ui->setupUi(this);
 
@@ -22,7 +23,7 @@ DataManagerBase::~DataManagerBase()
 
 void DataManagerBase::addItem(const QStringList &strings, const QVariant &data, bool edit)
 {
-    QTreeWidgetItem *i = new QTreeWidgetItem(ui->tree, strings);
+    QTreeWidgetItem *i = new QTreeWidgetItem(strings);
     i->setData(0, Qt::UserRole, data);
     i->setFlags(i->flags() | Qt::ItemIsEditable);
 
