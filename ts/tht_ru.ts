@@ -9,7 +9,7 @@
         <translation>О программе</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="94"/>
+        <location filename="../about.cpp" line="95"/>
         <source>Update available</source>
         <translation>Доступно обновление</translation>
     </message>
@@ -17,48 +17,48 @@
         <location filename="../about.ui" line="96"/>
         <source>THT helps you to do your home task in trading. It can link several Advanced Get windows together and manage a list of tickers.
 
-All suggestions and bug reports please send to our bug tracker, also visit&lt;br/&gt;&lt;a href=&quot;http://code.google.com/p/traders-home-task-ng&quot;&gt;http://code.google.com/p/traders-home-task-ng/wiki/howto&lt;/a&gt;</source>
+All suggestions and bug reports please send to our bug tracker, also visit</source>
         <translation>THT помогает вам делать свою домашнюю работу в трейдинге. Она может линковать несколько окон Advanced Get и управлять списками тикеров.
 
-Все пожелания и отчёты об ошибках посылайте на наш багтрекер, также посетите&lt;br/&gt;&lt;a href=&quot;http://code.google.com/p/traders-home-task-ng/wiki/howto&quot;&gt;http://code.google.com/p/traders-home-task-ng/wiki/howto&lt;/a&gt;</translation>
+Все пожелания и отчёты об ошибках посылайте на наш багтрекер, также посетите</translation>
     </message>
     <message>
-        <location filename="../about.ui" line="133"/>
+        <location filename="../about.ui" line="137"/>
         <source>(C) 2012 Dmitry Baryshev &amp;lt;&lt;a href=&quot;mailto:ksquirrel.iv@gmail.com&quot;&gt;ksquirrel.iv@gmail.com&lt;/a&gt;&amp;gt;</source>
         <translation>(C) 2012 Барышев Дмитрий &amp;lt;&lt;a href=&quot;mailto:ksquirrel.iv@gmail.com&quot;&gt;ksquirrel.iv@gmail.com&lt;/a&gt;&amp;gt;</translation>
     </message>
     <message>
-        <location filename="../about.ui" line="165"/>
+        <location filename="../about.ui" line="169"/>
         <source>THT is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</source>
         <translation>THT распространяется в надежде, что она будет полезной, но БЕЗО ВСЯКИХ ГАРАНТИЙ; даже без неявной гарантии ТОВАРНОГО ВИДА или ПРИГОДНОСТИ ДЛЯ ОПРЕДЕЛЕННЫХ ЦЕЛЕЙ.</translation>
     </message>
     <message>
-        <location filename="../about.ui" line="208"/>
+        <location filename="../about.ui" line="212"/>
         <source>OK</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="52"/>
+        <location filename="../about.cpp" line="53"/>
         <source>Persistent database</source>
         <translation>Постоянная база</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="54"/>
+        <location filename="../about.cpp" line="55"/>
         <source>Downloadable database</source>
         <translation>Скачиваемая база</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="102"/>
+        <location filename="../about.cpp" line="103"/>
         <source>THT is up to date</source>
         <translation>Установлена последняя версия THT</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="114"/>
+        <location filename="../about.cpp" line="115"/>
         <source>Cannot check for updates (%1)</source>
         <translation>Невозможно проверить обновления (%1)</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="129"/>
+        <location filename="../about.cpp" line="130"/>
         <source>Checking for updates...</source>
         <translation>Проверка обновлений...</translation>
     </message>
@@ -258,41 +258,41 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
         <translation>Экспортировать в буфер обмена</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="882"/>
+        <location filename="../list.cpp" line="887"/>
         <source>Customize...</source>
         <translation>Настроить...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1097"/>
-        <location filename="../list.cpp" line="1190"/>
+        <location filename="../list.cpp" line="1102"/>
+        <location filename="../list.cpp" line="1195"/>
         <source>Choose a file</source>
         <translation>Выберите файл</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1099"/>
-        <location filename="../list.cpp" line="1192"/>
+        <location filename="../list.cpp" line="1104"/>
+        <location filename="../list.cpp" line="1197"/>
         <source>Text files (*.txt)</source>
         <translation>Текстовые файлы (*.txt)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1101"/>
-        <location filename="../list.cpp" line="1194"/>
+        <location filename="../list.cpp" line="1106"/>
+        <location filename="../list.cpp" line="1199"/>
         <source>All files (*.*)</source>
         <translation>Все файлы (*.*)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1149"/>
-        <location filename="../list.cpp" line="1204"/>
+        <location filename="../list.cpp" line="1154"/>
+        <location filename="../list.cpp" line="1209"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1149"/>
+        <location filename="../list.cpp" line="1154"/>
         <source>Cannot open the following files: %1</source>
         <translation>Невозможно открыть следующие файлы: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1204"/>
+        <location filename="../list.cpp" line="1209"/>
         <source>Cannot save to file %1</source>
         <translation>Невозможно сохранить в файл %1</translation>
     </message>
@@ -358,17 +358,17 @@ All suggestions and bug reports please send to our bug tracker, also visit&lt;br
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../settings.cpp" line="501"/>
+        <location filename="../settings.cpp" line="503"/>
         <source>Russian</source>
         <translation>Русский</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="502"/>
+        <location filename="../settings.cpp" line="504"/>
         <source>Ukrainian</source>
         <translation>Украинский</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="503"/>
+        <location filename="../settings.cpp" line="505"/>
         <source>English</source>
         <translation>Английский</translation>
     </message>

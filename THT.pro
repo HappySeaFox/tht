@@ -178,22 +178,12 @@ CERT=$${_PRO_FILE_PWD_}\\..\\$${TARGET}-certs\\cert.pfx
     warning("Signtool or the certificate is not found, will not sign the $$TARGET executable")
 }
 
-SVNROOT=$$system(svn info \"$${_PRO_FILE_PWD_}\" | findstr /B /C:\"Repository Root:\")
-
-SVNROOT ~= s/^Repository\\s*/
-SVNROOT ~= s/^Root:\\s*/
-SVNROOTORIG=$$SVNROOT
-SVNROOT ~= s/^\\s*[hH][tT][tT][pP][sS]:/http:/
-
-isEmpty(SVNROOT) {
-    warning("Cannot determine the repository root, falling back to hardcoded")
-    SVNROOTORIG="https://traders-home-task-ng.googlecode.com/svn"
-    SVNROOT="http://traders-home-task-ng.googlecode.com/svn"
-}
-
-message("Repository root: $$SVNROOT")
+SVNROOTORIG="https://traders-home-task-ng.googlecode.com/svn"
+SVNROOT="http://traders-home-task-ng.googlecode.com/svn"
+HTTPROOT="http://code.google.com/p/traders-home-task-ng"
 
 DEFINES += SVNROOT=$$sprintf("\"\\\"%1\\\"\"", $$SVNROOT)
+DEFINES += HTTPROOT=$$sprintf("\"\\\"%1\\\"\"", $$HTTPROOT)
 
 tag.commands += $$mle(echo "$$VERSION"> "\"$${_PRO_FILE_PWD_}/THT-version.tag\"")
 tag.commands += $$mle(svn -m "\"$$VERSION file tag\"" commit "\"$${_PRO_FILE_PWD_}/THT-version.tag\"")
@@ -223,7 +213,7 @@ QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite
 
 # sign
 !isEmpty(SIGNTOOL):exists($$CERT) {
-    QMAKE_POST_LINK += $$mle($$SIGNTOOL sign /d \"Trader\'s Home Task\" /du \"https://code.google.com/p/traders-home-task-ng\" /f \"$$CERT\" /t \"http://timestamp.verisign.com/scripts/timestamp.dll\" /v \"$${OUT_PWD}/$(DESTDIR_TARGET)\")
+    QMAKE_POST_LINK += $$mle($$SIGNTOOL sign /d \"Trader\'s Home Task\" /du \"$$HTTPROOT\" /f \"$$CERT\" /t \"http://timestamp.verisign.com/scripts/timestamp.dll\" /v \"$${OUT_PWD}/$(DESTDIR_TARGET)\")
 }
 
 !isEmpty(ZIP) {
@@ -300,7 +290,7 @@ exists($$INNO) {
 
     iss.commands += $$mle(echo $${LITERAL_HASH}define MyAppName \"Trader\'s Home Task\" > $$ISS)
     iss.commands += $$mle(echo $${LITERAL_HASH}define MyAppPublisher \"Dmitry Baryshev\" >> $$ISS)
-    iss.commands += $$mle(echo $${LITERAL_HASH}define MyAppURL \"https://code.google.com/p/traders-home-task-ng\" >> $$ISS)
+    iss.commands += $$mle(echo $${LITERAL_HASH}define MyAppURL \"$$HTTPROOT\" >> $$ISS)
 
     iss.commands += $$mle(echo [Setup] >> $$ISS)
     iss.commands += $$mle(echo AppId={{16AE5DDE-D073-4F5F-ABC3-11DD9FBF58E3} >> $$ISS)
@@ -323,7 +313,7 @@ exists($$INNO) {
     iss.commands += $$mle(echo MinVersion="0,5.1" >> $$ISS)
 
     !isEmpty(SIGNTOOL):exists($$CERT) {
-        iss.commands += $$mle(echo SignTool=bps sign /d \$\$qTrader\'s Home Task\$\$q /du \$\$qhttps://code.google.com/p/traders-home-task-ng\$\$q /f \$\$q$$CERT\$\$q /t \$\$qhttp://timestamp.verisign.com/scripts/timestamp.dll\$\$q /v \$\$q\$\$f\$\$q >> $$ISS)
+        iss.commands += $$mle(echo SignTool=bps sign /d \$\$qTrader\'s Home Task\$\$q /du \$\$q$$HTTPROOT\$\$q /f \$\$q$$CERT\$\$q /t \$\$qhttp://timestamp.verisign.com/scripts/timestamp.dll\$\$q /v \$\$q\$\$f\$\$q >> $$ISS)
     }
 
     iss.commands += $$mle(echo [Languages] >> $$ISS)
