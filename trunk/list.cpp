@@ -759,7 +759,7 @@ bool List::addItem(const QString &text, bool fix)
             item->setPriority(static_cast<ListItem::Priority>(p));
     }
 
-    bool wasEmpty = ui->list->count() == 1;
+    bool wasEmpty = ui->list->count() == 1; // 1 invisible item by default
 
     ui->list->addItem(item);
 
