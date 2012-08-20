@@ -25,8 +25,6 @@
 
 #include "settings.h"
 
-#define FINVIZ "http://finviz.com/screener.ashx?v=411&"
-
 // serialize/deserialize LinkPoint
 static QDataStream &operator<<(QDataStream &out, const LinkPoint &lp)
 {
@@ -165,24 +163,27 @@ Settings::Settings()
     if(!QDir().mkpath(mutablePath))
         qDebug("Cannot create a directory for mutable database");
 
+#define FINVIZ "http://finviz.com/screener.ashx?v=411&"
+
     // default Finviz urls
     if(!m_settings->contains("settings/finviz-urls"))
     {
         setFinvizUrls(QList<FinvizUrl>()
-                      << FinvizUrl("NYSE >1$ >300k",            QUrl(FINVIZ "f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=ticker"))
-                      << FinvizUrl("NYSE >1$ >300k Change",     QUrl(FINVIZ "f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-change"))
+                      << FinvizUrl("NYSE >1$ >300k By Ticker",  QUrl(FINVIZ "f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=ticker"))
+                      << FinvizUrl("NYSE >1$ >300k By Change",  QUrl(FINVIZ "f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-change"))
                       << FinvizUrl("NYSE >1$ >300k New High",   QUrl(FINVIZ "s=ta_newhigh&f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-change"))
                       << FinvizUrl("NYSE >1$ >300k New Low",    QUrl(FINVIZ "s=ta_newlow&f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-change"))
                       << FinvizUrl("NYSE >1$ >300k Volume>1.5", QUrl(FINVIZ "f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1,sh_relvol_o1.5&o=-change"))
-                      << FinvizUrl("NYSE >1$ >300k Earn Yesterday After Close", QUrl(FINVIZ "f=earningsdate_yesterdayafter,exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-change"))
-                      << FinvizUrl("NYSE >1$ >300k Earn Today Before Open",     QUrl(FINVIZ "f=earningsdate_todaybefore,exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-change"))
+                      << FinvizUrl("NYSE >1$ >300k Earn Yest After Close",  QUrl(FINVIZ "f=earningsdate_yesterdayafter,exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-change"))
+                      << FinvizUrl("NYSE >1$ >300k Earn Today Before Open", QUrl(FINVIZ "f=earningsdate_todaybefore,exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-change"))
                       );
     }
+
+#undef FINVIZ
 }
 
 Settings::~Settings()
 {
-    m_settings->sync();
     delete m_settings;
 }
 
