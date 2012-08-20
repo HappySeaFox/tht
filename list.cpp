@@ -206,9 +206,10 @@ bool List::contains(const QPoint &p)
     return ui->list->geometry().contains(l);
 }
 
-void List::initialSelect()
+void List::initialSelect(bool alsoSetFocus)
 {
-    setFocus();
+    if(alsoSetFocus)
+        setFocus();
 
     QListWidgetItem *item = ui->list->item(0);
 
@@ -764,7 +765,7 @@ bool List::addItem(const QString &text, bool fix)
     ui->list->addItem(item);
 
     if(wasEmpty)
-        initialSelect();
+        initialSelect(ui->list->hasFocus());
 
     return true;
 }
