@@ -147,8 +147,9 @@ List::List(int group, QWidget *parent) :
     menu->addAction(tr("Add from clipboard") + "\tP", this, SLOT(slotAddFromClipboard()));
     menu->addSeparator();
     m_finvizMenu = menu->addMenu(QIcon(":/images/finviz.png"), tr("Add from Finviz") + "\tZ");
-    rebuildFinvizMenu();
     ui->pushAdd->setMenu(menu);
+
+    rebuildFinvizMenu();
 
     menu = new QMenu(this);
     menu->addAction(file_icon, tr("Export to file...") + "\tE", this, SLOT(slotExportToFile()));
