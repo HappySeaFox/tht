@@ -16,7 +16,7 @@ class DataManagerBase : public QDialog
 
 public:
     explicit DataManagerBase(QWidget *parent = 0);
-    ~DataManagerBase();
+    virtual ~DataManagerBase();
 
     bool changed() const;
 
