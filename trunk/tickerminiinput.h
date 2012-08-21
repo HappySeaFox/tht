@@ -20,11 +20,12 @@
 
 #include <QFrame>
 
-namespace Ui {
-class TickerMiniInput;
-}
-
 class QTimer;
+
+namespace Ui
+{
+    class TickerMiniInput;
+}
 
 class TickerMiniInput : public QFrame
 {

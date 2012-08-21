@@ -20,13 +20,14 @@
 
 #include <QDialog>
 
+class QTimer;
+
 class UpdateChecker;
 
-namespace Ui {
-class About;
+namespace Ui
+{
+    class About;
 }
-
-class QTimer;
 
 class About : public QDialog
 {

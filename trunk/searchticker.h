@@ -20,8 +20,9 @@
 
 #include <QWidget>
 
-namespace Ui {
-class SearchTicker;
+namespace Ui
+{
+    class SearchTicker;
 }
 
 class SearchTicker : public QWidget

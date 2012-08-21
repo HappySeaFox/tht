@@ -24,13 +24,14 @@
 #include <QPoint>
 #include <QList>
 
-namespace Ui {
-class TickerNeighbors;
-}
-
 class QModelIndex;
 class QCheckBox;
 class QEvent;
+
+namespace Ui
+{
+    class TickerNeighbors;
+}
 
 class TickerNeighbors : public QDialog
 {

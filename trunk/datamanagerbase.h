@@ -6,8 +6,9 @@
 class QStringList;
 class QVariant;
 
-namespace Ui {
-class DataManagerBase;
+namespace Ui
+{
+    class DataManagerBase;
 }
 
 class DataManagerBase : public QDialog

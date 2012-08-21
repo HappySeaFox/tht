@@ -34,6 +34,7 @@
 #include <QKeyEvent>
 #include <QPalette>
 #include <QPainter>
+#include <QFrame>
 #include <QTimer>
 #include <QLabel>
 #include <QEvent>
@@ -77,26 +78,67 @@ public:
     }
 };
 
-class NumberLabel : public QLabel
+}
+
+class NumberLabel : public QFrame
 {
 public:
-    NumberLabel(QWidget *parent = 0) : QLabel(parent)
+    NumberLabel(QWidget *parent = 0) : QFrame(parent)
     {
+        setObjectName("NumberLabel");
+
+        QVBoxLayout *l = new QVBoxLayout(this);
+        l->setSpacing(2);
+        l->setContentsMargins(2, 2, 2, 2);
+        setLayout(l);
+
         setAttribute(Qt::WA_TransparentForMouseEvents);
         setMinimumWidth(20);
         setFrameShape(QFrame::Box);
-        setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-        setTextFormat(Qt::PlainText);
-        setStyleSheet("QLabel{"
+        setStyleSheet("QFrame#NumberLabel{"
                         "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                        "                                   stop: 0 #FFEFEF, stop: 0.5 #F7DB45, stop: 1 #FFEFEF);"
+                        "                                   stop: 0 #FFEFEF, stop: 0.35 #F7DB45,"
+                        "                                   stop: 0.65 #F7DB45, stop: 1 #FFEFEF);"
                         "color: black;"
                         "border: 1px solid gray;"
                         "}");
-    }
-};
 
-} // namespace
+        m_current = new QLabel(this);
+        m_current->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+        m_current->setTextFormat(Qt::PlainText);
+        l->addWidget(m_current);
+
+        QFrame *line = new QFrame(this);
+        line->setStyleSheet("QFrame { background-color: gray; }");
+        line->setFrameShape(QFrame::HLine);
+        line->setFrameShadow(QFrame::Sunken);
+        line->setFixedHeight(1);
+        l->addWidget(line);
+
+        m_total = new QLabel(this);
+        m_total->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+        m_total->setTextFormat(Qt::PlainText);
+        l->addWidget(m_total);
+    }
+
+    QString totalText() const
+    {
+        return m_total->text();
+    }
+
+    void setTotal(int total)
+    {
+        m_total->setNum(total);
+    }
+
+    void setCurrent(int current)
+    {
+        m_current->setNum(current);
+    }
+
+private:
+    QLabel *m_total, *m_current;
+};
 
 /*****************************************/
 
@@ -123,10 +165,7 @@ List::List(int group, QWidget *parent) :
     m_oldDelegate = ui->list->itemDelegate();
 
     // number of tickers
-    m_number = new NumberLabel(window());
-
-    // current ticker
-    m_current = new NumberLabel(window());
+    m_numbers = new NumberLabel(window());
 
     ui->pushSave->setEnabled(!m_saveTickers);
 
@@ -164,14 +203,12 @@ List::List(int group, QWidget *parent) :
     ui->list->installEventFilter(this);
     ui->list->viewport()->installEventFilter(this);
 
-    m_number->show();
-    m_current->show();
+    m_numbers->show();
 }
 
 List::~List()
 {
-    delete m_current;
-    delete m_number;
+    delete m_numbers;
     delete ui;
 }
 
@@ -508,7 +545,7 @@ bool List::eventFilter(QObject *obj, QEvent *event)
         else if(type == QEvent::FocusOut)
             ui->list->setAlternatingRowColors(false);
         else if(type == QEvent::Resize || type == QEvent::Move)
-            moveNumberLabels();
+            moveNumbersLabel();
     }
     else if(obj == ui->list->viewport())
     {
@@ -579,7 +616,7 @@ bool List::eventFilter(QObject *obj, QEvent *event)
             }
         }
         else if(type == QEvent::Resize || type == QEvent::Move)
-            moveNumberLabels();
+            moveNumbersLabel();
     }
 
     return QObject::eventFilter(obj, event);
@@ -587,12 +624,12 @@ bool List::eventFilter(QObject *obj, QEvent *event)
 
 void List::moveEvent(QMoveEvent *)
 {
-    moveNumberLabels();
+    moveNumbersLabel();
 }
 
 void List::numberOfItemsChanged()
 {
-    m_number->setNum(ui->list->count());
+    m_numbers->setTotal(ui->list->count());
 
     // also change the current row
     slotCurrentRowChanged(ui->list->currentRow());
@@ -855,22 +892,28 @@ void List::setPriority(int p)
 
 void List::resizeNumberLabel()
 {
-    m_number->ensurePolished();
-    m_number->resize(QFontMetrics(m_number->font()).size(0, m_number->text()) + QSize(8, 4));
+    m_numbers->ensurePolished();
 
-    m_current->resize(m_number->size());
+    // basic size
+    QSize size = QFontMetrics(m_numbers->font()).size(0, m_numbers->totalText());
+    size.setHeight(size.height()*2);
 
-    moveNumberLabels();
+    // plus margins
+    int left = 0, top = 0, right = 0, bottom = 0;
+
+    m_numbers->layout()->getContentsMargins(&left, &top, &right, &bottom);
+
+    m_numbers->resize(size + QSize(left + right, top + bottom + m_numbers->layout()->spacing() + 2));
+
+    moveNumbersLabel();
 }
 
-void List::moveNumberLabels()
+void List::moveNumbersLabel()
 {
     const QWidget *w = ui->list->viewport();
 
-    m_number->move(w->mapTo(window(), QPoint(w->width(), 0)).x() - m_number->width(),
-                   w->mapTo(window(), QPoint(0, w->height())).y() - 3);
-
-    m_current->move(m_number->x(), m_number->y() - m_current->height() + 1); // +1 to simulate 1-pixel border
+    m_numbers->move(w->mapTo(window(), QPoint(w->width(), 0)).x() - m_numbers->width(),
+                   w->mapTo(window(), QPoint(0, w->height())).y() - m_numbers->height()/2 + 1);
 }
 
 void List::undo()
@@ -1382,7 +1425,7 @@ void List::slotManageFinvizUrls()
 
 void List::slotCurrentRowChanged(int row)
 {
-    m_current->setNum(row+1);
+    m_numbers->setCurrent(row+1);
 }
 
 void List::slotExportToClipboard()

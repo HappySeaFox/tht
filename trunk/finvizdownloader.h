@@ -4,12 +4,13 @@
 #include <QStringList>
 #include <QDialog>
 
-class NetworkAccess;
-
 class QUrl;
 
-namespace Ui {
-class FinvizDownloader;
+class NetworkAccess;
+
+namespace Ui
+{
+    class FinvizDownloader;
 }
 
 class FinvizDownloader : public QDialog

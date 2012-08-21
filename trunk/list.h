@@ -30,6 +30,8 @@ class QListWidgetItem;
 class QLabel;
 class QMenu;
 
+class NumberLabel;
+
 namespace Ui
 {
     class List;
@@ -84,7 +86,7 @@ private:
     void changePriority(int);
     void setPriority(int);
     void resizeNumberLabel();
-    void moveNumberLabels();
+    void moveNumbersLabel();
     void undo();
     void addFromFinviz(const QUrl &);
     void showFinvizSelector();
@@ -141,7 +143,7 @@ private:
     QPoint m_startPos;
     QString m_startDragText;
     ListItem::Priority m_startDragPriority;
-    QLabel *m_number, *m_current;
+    NumberLabel *m_numbers;
     QAbstractItemDelegate *m_oldDelegate, *m_persistentDelegate;
     QList<QListWidgetItem *> m_foundItems;
     QStringList m_oldTickers;

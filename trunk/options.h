@@ -20,8 +20,9 @@
 
 #include <QDialog>
 
-namespace Ui {
-class Options;
+namespace Ui
+{
+    class Options;
 }
 
 class Options : public QDialog
