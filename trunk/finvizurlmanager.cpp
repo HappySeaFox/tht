@@ -24,9 +24,7 @@ FinvizUrlManager::FinvizUrlManager(QWidget *parent) :
 }
 
 FinvizUrlManager::~FinvizUrlManager()
-{
-    delete ui;
-}
+{}
 
 QList<FinvizUrl> FinvizUrlManager::urls() const
 {
