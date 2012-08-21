@@ -867,7 +867,7 @@ void List::moveNumberLabels()
     const QWidget *w = ui->list->viewport();
 
     m_number->move(w->mapTo(window(), QPoint(w->width(), 0)).x() - m_number->width(),
-                   w->mapTo(window(), QPoint(0, w->height())).y() - m_number->height()/2);
+                   w->mapTo(window(), QPoint(0, w->height())).y() - 3);
 
     m_current->move(m_number->x(), m_number->y() - m_current->height() + 1); // +1 to simulate 1-pixel border
 }
