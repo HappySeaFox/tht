@@ -32,17 +32,17 @@
 
 #include <windows.h>
 
-namespace Ui
-{
-    class THT;
-}
-
 class QGridLayout;
 class QPoint;
 class QTimer;
 class QMenu;
 
 class List;
+
+namespace Ui
+{
+    class THT;
+}
 
 class THT : public QWidget
 {

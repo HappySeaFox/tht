@@ -7,8 +7,9 @@
 
 class FinvizUrl;
 
-namespace Ui {
-class FinvizLinkSelector;
+namespace Ui
+{
+    class FinvizLinkSelector;
 }
 
 class FinvizLinkSelector : public QDialog

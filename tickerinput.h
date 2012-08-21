@@ -20,8 +20,9 @@
 
 #include <QDialog>
 
-namespace Ui {
-class TickerInput;
+namespace Ui
+{
+    class TickerInput;
 }
 
 class TickerInput : public QDialog
