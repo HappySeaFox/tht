@@ -93,7 +93,7 @@ public:
         setLayout(l);
 
         setAttribute(Qt::WA_TransparentForMouseEvents);
-        setMinimumWidth(20);
+        setMinimumWidth(18);
         setFrameShape(QFrame::Box);
         setStyleSheet("QFrame#NumberLabel{"
                         "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
@@ -902,8 +902,7 @@ void List::resizeNumberLabel()
     int left = 0, top = 0, right = 0, bottom = 0;
 
     m_numbers->layout()->getContentsMargins(&left, &top, &right, &bottom);
-
-    m_numbers->resize(size + QSize(left + right, top + bottom + m_numbers->layout()->spacing() + 2));
+    m_numbers->resize(size + QSize(left + right + 2, top + bottom + m_numbers->layout()->spacing() + 2));
 
     moveNumbersLabel();
 }
