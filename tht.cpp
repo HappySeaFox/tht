@@ -80,6 +80,7 @@ THT::THT(QWidget *parent) :
 
     QIcon icon_quit(":/images/quit.png");
     QIcon icon_screenshot(":/images/screenshot.png");
+    QIcon icon_chart(":/images/chart.ico");
 
     // context menu
     QShortcut *help_shortcut = new QShortcut(QKeySequence::HelpContents, this, SLOT(slotAbout()));
@@ -100,7 +101,7 @@ THT::THT(QWidget *parent) :
     QMenu *menu_load = m_menu->addMenu(tr("Load ticker"));
 
     m_menu->addSeparator();
-    m_menu->addAction(tr("About THT") + '\t' + help_shortcut->key().toString(), this, SLOT(slotAbout()));
+    m_menu->addAction(icon_chart, tr("About THT") + '\t' + help_shortcut->key().toString(), this, SLOT(slotAbout()));
     m_menu->addAction(tr("About Qt"), this, SLOT(slotAboutQt()));
     m_menu->addSeparator();
     m_menu->addAction(icon_quit, tr("Quit") + '\t' + quit_shortcut->key().toString(), this, SLOT(slotQuit()));
@@ -146,7 +147,7 @@ THT::THT(QWidget *parent) :
         Tools::moveWindow(this, Settings::instance()->windowPosition());
     }
 
-    m_tray = new QSystemTrayIcon(QIcon(":/images/chart.ico"), this);
+    m_tray = new QSystemTrayIcon(icon_chart, this);
     QMenu *trayMenu = new QMenu(this);
 
     trayMenu->addAction(tr("Restore"), this, SLOT(activate()));
