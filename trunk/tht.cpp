@@ -78,9 +78,6 @@ THT::THT(QWidget *parent) :
     QxtGlobalShortcut *takeScreen = new QxtGlobalShortcut(QKeySequence(Qt::CTRL + Qt::ALT + Qt::Key_S), this);
     connect(takeScreen, SIGNAL(activated()), this, SLOT(slotTakeScreenshotFromGlobal()));
 
-    QxtGlobalShortcut *lockScreen = new QxtGlobalShortcut(QKeySequence(Qt::CTRL + Qt::ALT + Qt::Key_L), this);
-    connect(lockScreen, SIGNAL(activated()), this, SLOT(slotLockScreen()));
-
     QIcon icon_quit(":/images/quit.png");
     QIcon icon_screenshot(":/images/screenshot.png");
 
@@ -93,8 +90,6 @@ THT::THT(QWidget *parent) :
     m_menu->addAction(QIcon(":/images/options.png"), tr("Options..."), this, SLOT(slotOptions()));
     m_menu->addSeparator();
 
-    m_menu->addAction(QIcon(":/images/lockworkstation.png"), tr("Lock the workstation") + '\t' + lockScreen->shortcut().toString(),
-                      this, SLOT(slotLockScreen()));
     m_menu->addAction(icon_screenshot, tr("Take screenshot...") + '\t' + takeScreen->shortcut().toString(),
                       this, SLOT(slotTakeScreenshot()));
     m_menu->addAction(tr("Clear links"), this, SLOT(slotClearLinks()));
@@ -1070,14 +1065,6 @@ void THT::slotTrayActivated(QSystemTrayIcon::ActivationReason reason)
 void THT::slotTakeScreenshotFromGlobal()
 {
     startDelayedScreenshot(qApp->activeWindow());
-}
-
-void THT::slotLockScreen()
-{
-    if(!LockWorkStation())
-        qDebug("Cannot lock the workstation (%ld)", GetLastError());
-    else
-        qDebug("Workstation has been locked");
 }
 
 void THT::slotTakeScreenshot()
