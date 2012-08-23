@@ -33,7 +33,9 @@ About::About(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->labelVersion->setText(QString("THT %1").arg(NVER_STRING));
-    ui->labelUrl->setText(QString("<a href=\"%1\">%2</a>").arg(HTTPROOT).arg(HTTPROOT));
+
+    const char * const http = HTTPROOT "/wiki/howto";
+    ui->labelUrl->setText(QString("<a href=\"%1\">%2</a>").arg(http).arg(http));
 
     // set "wait" icon
     m_timer = new QTimer(this);
