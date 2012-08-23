@@ -32,6 +32,7 @@ LinkPointManager::LinkPointManager(const QList<QPoint> &currentLinks, QWidget *p
     setWindowTitle(tr("Link points"));
     ui->pushAdd->setText(tr("Add current"));
     ui->tree->headerItem()->setText(1, tr("Link points"));
+    ui->tree->setWhatsThis(QString("<a href=\"http://www.youtube.com/watch?v=FnXsTW3RQVI\">%1</a>").arg(tr("Open YouTube tutorial")));
 
     ui->tree->setItemDelegateForColumn(1, new NoEditorDelegate(ui->tree));
 

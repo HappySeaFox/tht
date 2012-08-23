@@ -145,28 +145,33 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
 <context>
     <name>FinvizUrlManager</name>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="10"/>
+        <location filename="../finvizurlmanager.cpp" line="8"/>
         <source>Finviz links</source>
         <translation>Ссылки Finviz</translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="11"/>
+        <location filename="../finvizurlmanager.cpp" line="9"/>
         <source>Add</source>
         <translation>Добавить</translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="12"/>
+        <location filename="../finvizurlmanager.cpp" line="10"/>
         <source>Link</source>
         <translation>Ссылка</translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="52"/>
+        <location filename="../finvizurlmanager.cpp" line="11"/>
+        <source>Open YouTube tutorial</source>
+        <translation>Открыть урок на YouTube</translation>
+    </message>
+    <message>
+        <location filename="../finvizurlmanager.cpp" line="49"/>
         <source>Tickers</source>
         <translation>Тикеры</translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="52"/>
-        <location filename="../finvizurlmanager.cpp" line="65"/>
+        <location filename="../finvizurlmanager.cpp" line="49"/>
+        <location filename="../finvizurlmanager.cpp" line="62"/>
         <source>&lt;Paste url here&gt;</source>
         <translation>&lt;Вставьте сюда ссылку&gt;</translation>
     </message>
@@ -185,7 +190,12 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
         <translation>Добавить текущие</translation>
     </message>
     <message>
-        <location filename="../linkpointmanager.cpp" line="85"/>
+        <location filename="../linkpointmanager.cpp" line="35"/>
+        <source>Open YouTube tutorial</source>
+        <translation>Открыть урок на YouTube</translation>
+    </message>
+    <message>
+        <location filename="../linkpointmanager.cpp" line="86"/>
         <source>New points</source>
         <translation>Новые точки</translation>
     </message>
@@ -213,86 +223,86 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
         <translation>Экспортировать тикеры</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="119"/>
+        <location filename="../list.cpp" line="173"/>
         <source>Clear</source>
         <translation>Очистить</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="120"/>
+        <location filename="../list.cpp" line="174"/>
         <source>Sort</source>
         <translation>Отсортировать</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="122"/>
+        <location filename="../list.cpp" line="176"/>
         <source>Reset priorities</source>
         <translation>Сбросить приоритеты</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="129"/>
+        <location filename="../list.cpp" line="183"/>
         <source>Add one ticker...</source>
         <translation>Добавить один тикер...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="131"/>
+        <location filename="../list.cpp" line="185"/>
         <source>Add from file...</source>
         <translation>Добавить из файла...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="132"/>
+        <location filename="../list.cpp" line="186"/>
         <source>Add from clipboard</source>
         <translation>Добавить из буфера обмена</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="134"/>
+        <location filename="../list.cpp" line="188"/>
         <source>Add from Finviz</source>
         <translation>Добавить из Finviz</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="139"/>
+        <location filename="../list.cpp" line="194"/>
         <source>Export to file...</source>
         <translation>Экспортировать в файл...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="140"/>
+        <location filename="../list.cpp" line="195"/>
         <source>Export to clipboard</source>
         <translation>Экспортировать в буфер обмена</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="887"/>
+        <location filename="../list.cpp" line="956"/>
         <source>Customize...</source>
         <translation>Настроить...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1102"/>
-        <location filename="../list.cpp" line="1195"/>
+        <location filename="../list.cpp" line="1171"/>
+        <location filename="../list.cpp" line="1264"/>
         <source>Choose a file</source>
         <translation>Выберите файл</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1104"/>
-        <location filename="../list.cpp" line="1197"/>
+        <location filename="../list.cpp" line="1173"/>
+        <location filename="../list.cpp" line="1266"/>
         <source>Text files (*.txt)</source>
         <translation>Текстовые файлы (*.txt)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1106"/>
-        <location filename="../list.cpp" line="1199"/>
+        <location filename="../list.cpp" line="1175"/>
+        <location filename="../list.cpp" line="1268"/>
         <source>All files (*.*)</source>
         <translation>Все файлы (*.*)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1154"/>
-        <location filename="../list.cpp" line="1209"/>
+        <location filename="../list.cpp" line="1223"/>
+        <location filename="../list.cpp" line="1278"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1154"/>
+        <location filename="../list.cpp" line="1223"/>
         <source>Cannot open the following files: %1</source>
         <translation>Невозможно открыть следующие файлы: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1209"/>
+        <location filename="../list.cpp" line="1278"/>
         <source>Cannot save to file %1</source>
         <translation>Невозможно сохранить в файл %1</translation>
     </message>
@@ -358,17 +368,17 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../settings.cpp" line="503"/>
+        <location filename="../settings.cpp" line="504"/>
         <source>Russian</source>
         <translation>Русский</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="504"/>
+        <location filename="../settings.cpp" line="505"/>
         <source>Ukrainian</source>
         <translation>Украинский</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="505"/>
+        <location filename="../settings.cpp" line="506"/>
         <source>English</source>
         <translation>Английский</translation>
     </message>
@@ -489,87 +499,82 @@ the right or middle mouse buttons.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="92"/>
+        <location filename="../tht.cpp" line="91"/>
         <source>Options...</source>
         <translation>Настройки...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="97"/>
-        <location filename="../tht.cpp" line="157"/>
+        <location filename="../tht.cpp" line="94"/>
+        <location filename="../tht.cpp" line="154"/>
         <source>Take screenshot...</source>
         <translation>Снимок экрана...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="102"/>
+        <location filename="../tht.cpp" line="99"/>
         <source>Clear ticker lists</source>
         <translation>Очистить списки тикеров</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="99"/>
+        <location filename="../tht.cpp" line="96"/>
         <source>Clear links</source>
         <translation>Очистить ссылки</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="95"/>
-        <source>Lock the workstation</source>
-        <translation>Блокировать компьютер</translation>
-    </message>
-    <message>
-        <location filename="../tht.cpp" line="103"/>
-        <location filename="../tht.cpp" line="104"/>
+        <location filename="../tht.cpp" line="100"/>
+        <location filename="../tht.cpp" line="101"/>
         <source>Load ticker</source>
         <translation>Загрузить тикер</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="107"/>
-        <location filename="../tht.cpp" line="159"/>
+        <location filename="../tht.cpp" line="104"/>
+        <location filename="../tht.cpp" line="156"/>
         <source>About THT</source>
         <translation>О THT</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="108"/>
+        <location filename="../tht.cpp" line="105"/>
         <source>About Qt</source>
         <translation>О Qt</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="110"/>
-        <location filename="../tht.cpp" line="161"/>
+        <location filename="../tht.cpp" line="107"/>
+        <location filename="../tht.cpp" line="158"/>
         <source>Quit</source>
         <translation>Выход</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="156"/>
+        <location filename="../tht.cpp" line="153"/>
         <source>Restore</source>
         <translation>Восстановить</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="239"/>
+        <location filename="../tht.cpp" line="257"/>
         <source>Notice</source>
         <translation>Заметка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="239"/>
+        <location filename="../tht.cpp" line="257"/>
         <source>THT will continue to run in a system tray</source>
         <translation>THT продолжит работу в системном лотке</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1052"/>
-        <location filename="../tht.cpp" line="1080"/>
+        <location filename="../tht.cpp" line="1096"/>
+        <location filename="../tht.cpp" line="1124"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1052"/>
+        <location filename="../tht.cpp" line="1096"/>
         <source>Cannot take screenshot</source>
         <translation>Невозможно создать снимок экрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1080"/>
+        <location filename="../tht.cpp" line="1124"/>
         <source>Cannot save screenshot</source>
         <translation>Невозможно сохранить снимок экрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1355"/>
+        <location filename="../tht.cpp" line="1404"/>
         <source>Customize...</source>
         <translation>Настроить...</translation>
     </message>
