@@ -172,7 +172,7 @@ bool TickerNeighbors::eventFilter(QObject *obj, QEvent *event)
     {
         QKeyEvent *ke = static_cast<QKeyEvent *>(event);
 
-        if(ke && ke->matches(m_copy))
+        if(ke && ke->matches(m_copy) && !ui->lineTicker->hasSelectedText())
         {
             ui->pushCopy->animateClick();
             return true;
