@@ -157,8 +157,7 @@ void TickerNeighbors::setVisible(bool vis)
 {
     if(!vis)
         m_pos = pos();
-
-    if(vis)
+    else if(!isVisible())
         Tools::moveWindow(this, m_pos);
 
     QDialog::setVisible(vis);
