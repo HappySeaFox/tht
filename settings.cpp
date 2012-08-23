@@ -175,6 +175,7 @@ Settings::Settings()
                       << FinvizUrl("NYSE >1$ >300k New High",               QUrl(FINVIZ "s=ta_newhigh&f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-change"))
                       << FinvizUrl("NYSE >1$ >300k New Low",                QUrl(FINVIZ "s=ta_newlow&f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-change"))
                       << FinvizUrl("NYSE >1$ >300k Volume>1.5",             QUrl(FINVIZ "f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1,sh_relvol_o1.5&o=-change"))
+                      << FinvizUrl("NYSE >1$ >300k Average True Range>1",   QUrl(FINVIZ "f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1,ta_averagetruerange_o1&ft=3&o=-change"))
                       << FinvizUrl("NYSE >1$ >300k Earn Yest After Close",  QUrl(FINVIZ "f=earningsdate_yesterdayafter,exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-change"))
                       << FinvizUrl("NYSE >1$ >300k Earn Today Before Open", QUrl(FINVIZ "f=earningsdate_todaybefore,exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-change"))
                       );
