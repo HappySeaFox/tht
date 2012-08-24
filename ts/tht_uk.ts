@@ -9,7 +9,7 @@
         <translation>Про програму</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="95"/>
+        <location filename="../about.cpp" line="97"/>
         <source>Update available</source>
         <translation>Доступно оновлення</translation>
     </message>
@@ -38,27 +38,27 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
         <translation></translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="53"/>
+        <location filename="../about.cpp" line="55"/>
         <source>Persistent database</source>
         <translation>Постійна база</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="55"/>
+        <location filename="../about.cpp" line="57"/>
         <source>Downloadable database</source>
         <translation>Викачувана база</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="103"/>
+        <location filename="../about.cpp" line="105"/>
         <source>THT is up to date</source>
         <translation>Маєте найновішу версію THT</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="115"/>
+        <location filename="../about.cpp" line="117"/>
         <source>Cannot check for updates (%1)</source>
         <translation>Неможливо перевірити оновлення (%1)</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="130"/>
+        <location filename="../about.cpp" line="132"/>
         <source>Checking for updates...</source>
         <translation>Перевірка оновлень...</translation>
     </message>
@@ -145,33 +145,33 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
 <context>
     <name>FinvizUrlManager</name>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="8"/>
+        <location filename="../finvizurlmanager.cpp" line="10"/>
         <source>Finviz links</source>
         <translation>Посилання Finviz</translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="9"/>
+        <location filename="../finvizurlmanager.cpp" line="11"/>
         <source>Add</source>
         <translation>Додати</translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="10"/>
+        <location filename="../finvizurlmanager.cpp" line="12"/>
         <source>Link</source>
         <translation>Посилання</translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="11"/>
+        <location filename="../finvizurlmanager.cpp" line="13"/>
         <source>Open YouTube tutorial</source>
         <translation>Відкрити урок на YouTube</translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="49"/>
+        <location filename="../finvizurlmanager.cpp" line="51"/>
         <source>Tickers</source>
         <translation>Тікери</translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="49"/>
-        <location filename="../finvizurlmanager.cpp" line="62"/>
+        <location filename="../finvizurlmanager.cpp" line="51"/>
+        <location filename="../finvizurlmanager.cpp" line="64"/>
         <source>&lt;Paste url here&gt;</source>
         <translation>&lt;Вставте сюди посилання&gt;</translation>
     </message>
@@ -179,23 +179,24 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
 <context>
     <name>LinkPointManager</name>
     <message>
-        <location filename="../linkpointmanager.cpp" line="32"/>
-        <location filename="../linkpointmanager.cpp" line="34"/>
+        <location filename="../linkpointmanager.cpp" line="37"/>
+        <location filename="../linkpointmanager.cpp" line="42"/>
         <source>Link points</source>
         <translation>Точки лінковки</translation>
     </message>
     <message>
-        <location filename="../linkpointmanager.cpp" line="33"/>
+        <location filename="../linkpointmanager.cpp" line="40"/>
         <source>Add current</source>
+        <extracomment>Means &quot;Add current link points (in the plural)&quot;</extracomment>
         <translation>Додати поточні</translation>
     </message>
     <message>
-        <location filename="../linkpointmanager.cpp" line="35"/>
+        <location filename="../linkpointmanager.cpp" line="43"/>
         <source>Open YouTube tutorial</source>
         <translation>Відкрити урок на YouTube</translation>
     </message>
     <message>
-        <location filename="../linkpointmanager.cpp" line="86"/>
+        <location filename="../linkpointmanager.cpp" line="94"/>
         <source>New points</source>
         <translation>Нові точки</translation>
     </message>
@@ -368,17 +369,17 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../settings.cpp" line="504"/>
+        <location filename="../settings.cpp" line="505"/>
         <source>Russian</source>
         <translation>Російська</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="505"/>
+        <location filename="../settings.cpp" line="506"/>
         <source>Ukrainian</source>
         <translation>Українська</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="506"/>
+        <location filename="../settings.cpp" line="507"/>
         <source>English</source>
         <translation>Англійська</translation>
     </message>
@@ -618,9 +619,9 @@ the right or middle mouse buttons.</source>
         <translation>Тільки США</translation>
     </message>
     <message>
-        <location filename="../tickerneighbors.cpp" line="208"/>
-        <location filename="../tickerneighbors.cpp" line="323"/>
-        <location filename="../tickerneighbors.cpp" line="354"/>
+        <location filename="../tickerneighbors.cpp" line="207"/>
+        <location filename="../tickerneighbors.cpp" line="322"/>
+        <location filename="../tickerneighbors.cpp" line="353"/>
         <source>Copy (%1)</source>
         <translation>Копіювати (%1)</translation>
     </message>
