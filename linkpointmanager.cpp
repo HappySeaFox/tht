@@ -8,6 +8,9 @@
 
 #include "ui_datamanagerbase.h"
 
+namespace
+{
+
 class NoEditorDelegate : public QStyledItemDelegate
 {
 public:
@@ -24,6 +27,8 @@ public:
         return 0;
     }
 };
+
+}
 
 LinkPointManager::LinkPointManager(const QList<QPoint> &currentLinks, QWidget *parent) :
     DataManagerBase(parent),
