@@ -33,9 +33,6 @@ NetworkAccess::NetworkAccess(QObject *parent) :
     m_manager = new QNetworkAccessManager(this);
     m_reply = 0;
     m_error = QNetworkReply::NoError;
-
-    connect(m_manager, SIGNAL(sslErrors(QNetworkReply*, const QList<QSslError> &)),
-            this, SLOT(slotSslErrors(QNetworkReply*, const QList<QSslError> &)));
 }
 
 NetworkAccess::~NetworkAccess()
@@ -92,20 +89,6 @@ void NetworkAccess::slotNetworkError(QNetworkReply::NetworkError err)
     m_error = err;
 
     qDebug("Network error #%d", err);
-}
-
-void NetworkAccess::slotSslErrors(QNetworkReply *reply, const QList<QSslError> &list)
-{
-    // allow self-signed certificates
-    foreach(QSslError error, list)
-    {
-        if(error.error() != QSslError::SelfSignedCertificate
-                && error.error() != QSslError::SelfSignedCertificateInChain)
-            return;
-    }
-
-    if(reply)
-        reply->ignoreSslErrors();
 }
 
 void NetworkAccess::slotNetworkData()
