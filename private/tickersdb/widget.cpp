@@ -114,7 +114,7 @@ void Widget::slotGet()
     m_running = true;
     ui->checkForce->setEnabled(false);
     ui->pushGet->setEnabled(false);
-    ui->plainTextLog->clear();
+    ui->list->clear();
     qApp->processEvents();
 
     QSqlQuery query;
@@ -272,13 +272,13 @@ void Widget::slotFinished()
         foreach(QString s, minus)
         {
             qDebug("-%s", qPrintable(s));
-            ui->plainTextLog->appendPlainText('-' + s);
+            ui->list->addItem('-' + s);
         }
 
         foreach(QString s, plus)
         {
             qDebug("+%s", qPrintable(s));
-            ui->plainTextLog->appendPlainText('+' + s);
+            ui->list->addItem('+' + s);
         }
     }
 
@@ -343,7 +343,7 @@ void Widget::slotFinished()
     // save tickers
     it = map.end();
 
-    ui->plainTextLog->setUpdatesEnabled(false);
+    ui->list->setUpdatesEnabled(false);
 
     for(QMap<QString, Ticker>::iterator i = map.begin();i != it;++i)
     {
@@ -354,14 +354,15 @@ void Widget::slotFinished()
         }
     }
 
-    ui->plainTextLog->setUpdatesEnabled(true);
+    ui->list->setUpdatesEnabled(true);
 
     // commit
     QSqlDatabase::database().commit();
     QSqlDatabase::database().close();
 
     qDebug("Need update");
-    ui->plainTextLog->appendPlainText("Need update");
+    ui->list->addItem("Need update");
+    ui->list->scrollToBottom();
 
     if(!QFile::remove(THT_TICKERS_DB))
     {
@@ -434,7 +435,7 @@ bool Widget::commit()
         return false;
     }
 
-    ui->plainTextLog->appendPlainText(p.readAll());
+    ui->list->addItems(QString(p.readAll()).split('\n'));
 
     int code = p.exitCode() || (p.exitStatus() != QProcess::NormalExit);
 
@@ -445,7 +446,8 @@ bool Widget::commit()
     }
 
     qDebug("Commit done");
-    ui->plainTextLog->appendPlainText("Commit done");
+    ui->list->addItem("Commit done");
+    ui->list->scrollToBottom();
 
     return true;
 }
@@ -493,7 +495,7 @@ bool Widget::writeData(const Ticker &t)
         return false;
     }
 
-    ui->plainTextLog->appendPlainText(t.ticker + '/' + t.exchange + '/' + t.country + '/' + QString::number(t.cap, 'f', 2));
+    ui->list->addItem(t.ticker + '/' + t.exchange + '/' + t.country + '/' + QString::number(t.cap, 'f', 2));
 
     return true;
 }
@@ -503,7 +505,8 @@ void Widget::message(const QString &e, bool activate)
     qDebug("%s", qPrintable(e));
 
     m_running = false;
-    ui->plainTextLog->appendPlainText(e);
+    ui->list->addItem(e);
+    ui->list->scrollToBottom();
 
     if(activate && m_auto)
     {
