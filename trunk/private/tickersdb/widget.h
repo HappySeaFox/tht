@@ -21,11 +21,11 @@
 #include <QStringList>
 #include <QWidget>
 
+class NetworkAccess;
+
 namespace Ui {
 class Widget;
 }
-
-class NetworkAccess;
 
 struct Ticker
 {
