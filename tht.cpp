@@ -709,15 +709,9 @@ void THT::activate()
     qDebug("Activating");
 
     if(m_sectors)
-    {
-        m_sectors->show();
-        m_sectors->setWindowState(windowState() & ~Qt::WindowMinimized);
-        m_sectors->raise();
-    }
+        raiseWindow(m_sectors);
 
-    show();
-    setWindowState(windowState() & ~Qt::WindowMinimized);
-    raise();
+    raiseWindow(this);
 
     if(m_sectors && m_lastActiveWindow == m_sectors)
         m_sectors->activateWindow();
@@ -1333,7 +1327,12 @@ void THT::slotOpenOrCloseSearchTicker()
 void THT::slotShowNeighbors(const QString &ticker)
 {
     if(m_sectors)
+    {
+        m_sectors->showTicker(ticker);
+        raiseWindow(m_sectors);
+        m_sectors->activateWindow();
         return;
+    }
 
     m_sectors = new TickerNeighbors(ticker, this);
 
@@ -1402,6 +1401,16 @@ void THT::rebuildLinkPoints()
         menu->addSeparator();
 
     menu->addAction(QIcon(":/images/links-customize.png"), tr("Customize..."), this, SLOT(slotManageLinks()));
+}
+
+void THT::raiseWindow(QWidget *w)
+{
+    if(!w)
+        return;
+
+    w->show();
+    w->setWindowState(w->windowState() & ~Qt::WindowMinimized);
+    w->raise();
 }
 
 HWND THT::grayBoxFindSubControl(HWND parent)

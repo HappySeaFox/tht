@@ -119,6 +119,7 @@ private:
     void startDelayedScreenshot(bool);
     bool setForeignFocus(HWND window, DWORD threadId);
     void rebuildLinkPoints();
+    void raiseWindow(QWidget *);
 
     static HWND grayBoxFindSubControl(HWND);
     static HWND mbtFindSubControl(HWND);
