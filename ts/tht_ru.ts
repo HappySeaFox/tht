@@ -559,23 +559,23 @@ the right or middle mouse buttons.</source>
         <translation>THT продолжит работу в системном лотке</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1096"/>
-        <location filename="../tht.cpp" line="1124"/>
+        <location filename="../tht.cpp" line="1090"/>
+        <location filename="../tht.cpp" line="1118"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1096"/>
+        <location filename="../tht.cpp" line="1090"/>
         <source>Cannot take screenshot</source>
         <translation>Невозможно создать снимок экрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1124"/>
+        <location filename="../tht.cpp" line="1118"/>
         <source>Cannot save screenshot</source>
         <translation>Невозможно сохранить снимок экрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1404"/>
+        <location filename="../tht.cpp" line="1403"/>
         <source>Customize...</source>
         <translation>Настроить...</translation>
     </message>
