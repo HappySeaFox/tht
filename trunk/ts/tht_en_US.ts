@@ -555,23 +555,23 @@ the right or middle mouse buttons.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1096"/>
-        <location filename="../tht.cpp" line="1124"/>
+        <location filename="../tht.cpp" line="1090"/>
+        <location filename="../tht.cpp" line="1118"/>
         <source>Error</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1096"/>
+        <location filename="../tht.cpp" line="1090"/>
         <source>Cannot take screenshot</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1124"/>
+        <location filename="../tht.cpp" line="1118"/>
         <source>Cannot save screenshot</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1404"/>
+        <location filename="../tht.cpp" line="1403"/>
         <source>Customize...</source>
         <translation></translation>
     </message>
