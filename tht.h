@@ -32,6 +32,8 @@
 
 #include <windows.h>
 
+class QxtGlobalShortcut;
+
 class QGridLayout;
 class QPoint;
 class QTimer;
@@ -183,6 +185,7 @@ private:
     typedef QMap<QString, PredefinedTicker> PredefinedTickers;
     PredefinedTickers m_predefined;
     QPointer<TickerNeighbors> m_sectors;
+    QxtGlobalShortcut *m_takeScreen;
 };
 
 #endif // THT_H
