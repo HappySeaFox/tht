@@ -30,8 +30,8 @@
         <file>images/align-center.png</file>
         <file>images/align-left.png</file>
         <file>images/align-right.png</file>
-        <file>images/cursor-long.png</file>
-        <file>images/cursor-short.png</file>
         <file>images/cursor-stop.png</file>
+        <file>images/cursor-buy.png</file>
+        <file>images/cursor-sail.png</file>
     </qresource>
 </RCC>

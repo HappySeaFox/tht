@@ -13,8 +13,8 @@ ScreenshotEditorWidget::ScreenshotEditorWidget(QWidget *parent) :
     m_editType(None),
     m_wasPress(false)
 {
-    m_pixmaps[0] = QPixmap(":/images/cursor-long.png");
-    m_pixmaps[1] = QPixmap(":/images/cursor-short.png");
+    m_pixmaps[0] = QPixmap(":/images/cursor-buy.png");
+    m_pixmaps[1] = QPixmap(":/images/cursor-sail.png");
     m_pixmaps[2] = QPixmap(":/images/cursor-stop.png");
 }
 
