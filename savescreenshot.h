@@ -18,6 +18,7 @@
 #ifndef SAVESCREENSHOT_H
 #define SAVESCREENSHOT_H
 
+#include <QPixmap>
 #include <QDialog>
 
 namespace Ui
@@ -31,21 +32,25 @@ class SaveScreenshot : public QDialog
 
 public:
     enum SaveScreenshotTo { SaveScreenshotToClipboard, SaveScreenshotToFile };
-    explicit SaveScreenshot(QWidget *parent = 0);
+    explicit SaveScreenshot(const QPixmap &px, QWidget *parent = 0);
     ~SaveScreenshot();
 
     SaveScreenshotTo destination() const;
 
     QString fileName() const;
 
+    QPixmap pixmap() const;
+
 private slots:
     void slotClipboard();
     void slotFile();
+    void slotEdit();
 
 private:
     Ui::SaveScreenshot *ui;
     SaveScreenshotTo m_dest;
     QString m_fileName;
+    QPixmap m_pixmap;
 };
 
 inline
@@ -58,6 +63,12 @@ inline
 QString SaveScreenshot::fileName() const
 {
     return m_fileName;
+}
+
+inline
+QPixmap SaveScreenshot::pixmap() const
+{
+    return m_pixmap;
 }
 
 #endif // SAVESCREENSHOT_H

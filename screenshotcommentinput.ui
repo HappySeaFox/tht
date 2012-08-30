@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ScreenshotCommentInput</class>
+ <widget class="QDialog" name="ScreenshotCommentInput">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>343</width>
+    <height>259</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Enter a text</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QTextEdit" name="text">
+     <property name="acceptRichText">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Align:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <property name="spacing">
+        <number>1</number>
+       </property>
+       <item>
+        <widget class="QToolButton" name="pushAlighLeft">
+         <property name="icon">
+          <iconset resource="tht.qrc">
+           <normaloff>:/images/align-left.png</normaloff>:/images/align-left.png</iconset>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+         <property name="autoExclusive">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="pushAlignCenter">
+         <property name="icon">
+          <iconset resource="tht.qrc">
+           <normaloff>:/images/align-center.png</normaloff>:/images/align-center.png</iconset>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="autoExclusive">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="pushAlignRight">
+         <property name="icon">
+          <iconset resource="tht.qrc">
+           <normaloff>:/images/align-right.png</normaloff>:/images/align-right.png</iconset>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="autoExclusive">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>Font size:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <property name="spacing">
+        <number>1</number>
+       </property>
+       <item>
+        <widget class="QToolButton" name="pushFontDown">
+         <property name="icon">
+          <iconset resource="tht.qrc">
+           <normaloff>:/images/arrow-down.png</normaloff>:/images/arrow-down.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="pushFontUp">
+         <property name="icon">
+          <iconset resource="tht.qrc">
+           <normaloff>:/images/arrow-up.png</normaloff>:/images/arrow-up.png</iconset>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>Text color:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="pushColor"/>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>0</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item row="2" column="0">
+    <widget class="Line" name="line">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>text</tabstop>
+  <tabstop>pushFontDown</tabstop>
+  <tabstop>pushFontUp</tabstop>
+  <tabstop>buttonBox</tabstop>
+ </tabstops>
+ <resources>
+  <include location="tht.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>ScreenshotCommentInput</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>258</x>
+     <y>312</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>ScreenshotCommentInput</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>305</x>
+     <y>312</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushFontDown</sender>
+   <signal>clicked()</signal>
+   <receiver>ScreenshotCommentInput</receiver>
+   <slot>slotFontDown()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>204</x>
+     <y>193</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>110</x>
+     <y>323</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushFontUp</sender>
+   <signal>clicked()</signal>
+   <receiver>ScreenshotCommentInput</receiver>
+   <slot>slotFontUp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>233</x>
+     <y>193</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>162</x>
+     <y>323</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushAlighLeft</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>ScreenshotCommentInput</receiver>
+   <slot>slotAlignChanged(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>64</x>
+     <y>193</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>309</x>
+     <y>32</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushAlignCenter</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>ScreenshotCommentInput</receiver>
+   <slot>slotAlignChanged(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>93</x>
+     <y>193</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>309</x>
+     <y>53</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushAlignRight</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>ScreenshotCommentInput</receiver>
+   <slot>slotAlignChanged(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>122</x>
+     <y>193</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>309</x>
+     <y>79</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushColor</sender>
+   <signal>clicked()</signal>
+   <receiver>ScreenshotCommentInput</receiver>
+   <slot>slotChangeColor()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>91</x>
+     <y>247</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>338</x>
+     <y>242</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>slotFontDown()</slot>
+  <slot>slotFontUp()</slot>
+  <slot>slotAlignChanged(bool)</slot>
+  <slot>slotChangeColor()</slot>
+ </slots>
+</ui>

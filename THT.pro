@@ -29,8 +29,8 @@ DEFINES += NVER_STRING=$$sprintf("\"\\\"%1\\\"\"", $$VERSION)
 
 DEFINES += TARGET=$$TARGET
 
-INCLUDEPATH += . qtsingleapplication qxt
-DEPENDPATH += . qtsingleapplication qxt
+INCLUDEPATH += . qtsingleapplication qxt colorpicker
+DEPENDPATH += . qtsingleapplication qxt colorpicker
 
 # require at least Windows XP
 DEFINES += _WIN32_WINNT=0x0501 WINVER=0x0501
@@ -69,7 +69,14 @@ SOURCES += main.cpp\
     datamanagerbase.cpp \
     finvizdownloader.cpp \
     csvreader.cpp \
-    finvizlinkselector.cpp
+    finvizlinkselector.cpp \
+    colorpicker/qtcolortriangle.cpp \
+    colorpicker/colorviewer.cpp \
+    colorpicker/colorpickerwidget.cpp \
+    selectablelabel.cpp \
+    screenshoteditorwidget.cpp \
+    screenshoteditor.cpp \
+    screenshotcommentinput.cpp
 
 HEADERS += tht.h \
     list.h \
@@ -107,7 +114,14 @@ HEADERS += tht.h \
     datamanagerbase.h \
     finvizdownloader.h \
     csvreader.h \
-    finvizlinkselector.h
+    finvizlinkselector.h \
+    colorpicker/qtcolortriangle.h \
+    colorpicker/colorviewer.h \
+    colorpicker/colorpickerwidget.h \
+    selectablelabel.h \
+    screenshoteditorwidget.h \
+    screenshoteditor.h \
+    screenshotcommentinput.h
 
 FORMS += tht.ui \
     list.ui \
@@ -120,7 +134,9 @@ FORMS += tht.ui \
     tickerneighbors.ui \
     datamanagerbase.ui \
     finvizdownloader.ui \
-    finvizlinkselector.ui
+    finvizlinkselector.ui \
+    screenshoteditor.ui \
+    screenshotcommentinput.ui
 
 RESOURCES += tht.qrc
 

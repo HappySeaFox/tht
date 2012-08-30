@@ -64,6 +64,19 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
     </message>
 </context>
 <context>
+    <name>ColorPickerWidget</name>
+    <message>
+        <location filename="../colorpicker/colorpickerwidget.cpp" line="35"/>
+        <source>Choose a color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../colorpicker/colorpickerwidget.cpp" line="45"/>
+        <source>OK</source>
+        <translation></translation>
+    </message>
+</context>
+<context>
     <name>DataManagerBase</name>
     <message>
         <location filename="../datamanagerbase.ui" line="33"/>
@@ -369,17 +382,17 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../settings.cpp" line="505"/>
+        <location filename="../settings.cpp" line="573"/>
         <source>Russian</source>
         <translation>Русский</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="506"/>
+        <location filename="../settings.cpp" line="574"/>
         <source>Ukrainian</source>
         <translation>Украинский</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="507"/>
+        <location filename="../settings.cpp" line="575"/>
         <source>English</source>
         <translation>Английский</translation>
     </message>
@@ -410,23 +423,109 @@ the right or middle mouse buttons.</source>
     </message>
     <message>
         <location filename="../savescreenshot.ui" line="20"/>
+        <source>Edit...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../savescreenshot.ui" line="23"/>
+        <source>E</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../savescreenshot.ui" line="33"/>
+        <source>F</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../savescreenshot.ui" line="40"/>
         <source>Clipboard</source>
         <translation>Буфер обмена</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.ui" line="27"/>
+        <location filename="../savescreenshot.ui" line="43"/>
+        <source>C</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../savescreenshot.ui" line="30"/>
         <source>File...</source>
         <translation>Файл...</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="55"/>
+        <location filename="../savescreenshot.cpp" line="57"/>
         <source>Image %1 (*.%2)</source>
         <translation>Изображение %1 (*.%2)</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="63"/>
+        <location filename="../savescreenshot.cpp" line="65"/>
         <source>Save as</source>
         <translation>Сохранить как</translation>
+    </message>
+</context>
+<context>
+    <name>ScreenshotCommentInput</name>
+    <message>
+        <location filename="../screenshotcommentinput.ui" line="14"/>
+        <source>Enter a text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../screenshotcommentinput.ui" line="29"/>
+        <source>Align:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../screenshotcommentinput.ui" line="88"/>
+        <source>Font size:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../screenshotcommentinput.ui" line="118"/>
+        <source>Text color:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ScreenshotEditor</name>
+    <message>
+        <location filename="../screenshoteditor.ui" line="14"/>
+        <source>Screenshot editor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../screenshoteditor.ui" line="20"/>
+        <source>Delete</source>
+        <translation>Удалить</translation>
+    </message>
+    <message>
+        <location filename="../screenshoteditor.ui" line="27"/>
+        <source>Long</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../screenshoteditor.ui" line="34"/>
+        <source>Short</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../screenshoteditor.ui" line="94"/>
+        <source>Stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../screenshoteditor.ui" line="101"/>
+        <source>Text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../screenshoteditor.ui" line="108"/>
+        <source>Select all</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../screenshoteditor.cpp" line="17"/>
+        <source>Open YouTube tutorial</source>
+        <translation>Открыть урок на YouTube</translation>
     </message>
 </context>
 <context>
@@ -560,7 +659,7 @@ the right or middle mouse buttons.</source>
     </message>
     <message>
         <location filename="../tht.cpp" line="1090"/>
-        <location filename="../tht.cpp" line="1118"/>
+        <location filename="../tht.cpp" line="1122"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
@@ -570,12 +669,12 @@ the right or middle mouse buttons.</source>
         <translation>Невозможно создать снимок экрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1118"/>
+        <location filename="../tht.cpp" line="1122"/>
         <source>Cannot save screenshot</source>
         <translation>Невозможно сохранить снимок экрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1403"/>
+        <location filename="../tht.cpp" line="1407"/>
         <source>Customize...</source>
         <translation>Настроить...</translation>
     </message>

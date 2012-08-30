@@ -24,6 +24,7 @@
 #include <QString>
 #include <QRegExp>
 #include <QPoint>
+#include <QColor>
 #include <QSize>
 #include <QList>
 #include <QUrl>
@@ -74,6 +75,15 @@ public:
     QMap<QString, QString> translations();
 
     OSVERSIONINFO windowsVersion() const;
+
+    void setScreenshotTextColor(const QColor &c, SyncType sync = Sync);
+    QColor screenshotTextColor();
+
+    void setScreenshotTextAlignment(const Qt::AlignmentFlag &a, SyncType sync = Sync);
+    Qt::AlignmentFlag screenshotTextAlignment();
+
+    void setScreenshotTextSize(const int sz, SyncType sync = Sync);
+    int screenshotTextSize();
 
     void setCheckBoxState(const QString &checkbox, bool checked, SyncType sync = Sync);
     int checkBoxState(const QString &checkbox);

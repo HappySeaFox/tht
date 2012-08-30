@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>204</width>
+    <width>292</width>
     <height>45</height>
    </rect>
   </property>
@@ -15,21 +15,49 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
+    <widget class="QPushButton" name="pushEdit">
+     <property name="text">
+      <string>Edit...</string>
+     </property>
+     <property name="shortcut">
+      <string>E</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="3">
+    <widget class="QPushButton" name="pushButton_2">
+     <property name="text">
+      <string>File...</string>
+     </property>
+     <property name="shortcut">
+      <string>F</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="2">
     <widget class="QPushButton" name="pushButton">
      <property name="text">
       <string>Clipboard</string>
      </property>
+     <property name="shortcut">
+      <string>C</string>
+     </property>
     </widget>
    </item>
    <item row="0" column="1">
-    <widget class="QPushButton" name="pushButton_2">
-     <property name="text">
-      <string>File...</string>
+    <widget class="Line" name="line">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
      </property>
     </widget>
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>pushEdit</tabstop>
+  <tabstop>pushButton</tabstop>
+  <tabstop>pushButton_2</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>
@@ -39,12 +67,12 @@
    <slot>slotClipboard()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>56</x>
-     <y>25</y>
+     <x>174</x>
+     <y>33</y>
     </hint>
     <hint type="destinationlabel">
      <x>56</x>
-     <y>123</y>
+     <y>44</y>
     </hint>
    </hints>
   </connection>
@@ -55,12 +83,28 @@
    <slot>slotFile()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>144</x>
-     <y>19</y>
+     <x>311</x>
+     <y>30</y>
     </hint>
     <hint type="destinationlabel">
      <x>155</x>
-     <y>157</y>
+     <y>44</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushEdit</sender>
+   <signal>clicked()</signal>
+   <receiver>SaveScreenshot</receiver>
+   <slot>slotEdit()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>73</x>
+     <y>24</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>73</x>
+     <y>68</y>
     </hint>
    </hints>
   </connection>
@@ -68,5 +112,6 @@
  <slots>
   <slot>slotClipboard()</slot>
   <slot>slotFile()</slot>
+  <slot>slotEdit()</slot>
  </slots>
 </ui>
