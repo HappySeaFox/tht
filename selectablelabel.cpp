@@ -7,8 +7,6 @@ SelectableLabel::SelectableLabel(const QPixmap &px, QWidget *parent)
       m_selected(true)
 {
     setAlignment(Qt::AlignCenter);
-    setWordWrap(true);
-    setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextEditable);
     setPixmap(px);
 
     if(!px.isNull())

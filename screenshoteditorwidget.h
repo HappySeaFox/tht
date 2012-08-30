@@ -28,7 +28,11 @@ public:
 
     QList<SelectableLabel *> labels() const;
 
-    protected:
+    void restoreLabels();
+    void saveLabels();
+    void clearLabels();
+
+protected:
     virtual void mousePressEvent(QMouseEvent *e);
     virtual void mouseReleaseEvent(QMouseEvent *e);
 
@@ -56,7 +60,7 @@ private:
     QPixmap m_pixmaps[3];
     QPixmap m_textPixmap;
     bool m_wasPress;
-    QList<SelectableLabel *> m_labels;
+    QList<SelectableLabel *> m_labels, m_savedLabels;
 };
 
 inline

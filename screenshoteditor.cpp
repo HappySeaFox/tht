@@ -1,7 +1,12 @@
+#include <QWhatsThisClickedEvent>
+#include <QDesktopServices>
+#include <QDesktopWidget>
 #include <QApplication>
 #include <QKeySequence>
+#include <QScrollBar>
 #include <QKeyEvent>
 #include <QPixmap>
+#include <QUrl>
 
 #include "screenshoteditor.h"
 #include "selectablelabel.h"
@@ -27,6 +32,18 @@ ScreenshotEditor::ScreenshotEditor(const QPixmap &px, QWidget *parent) :
 
     ui->pushDelete->setShortcut(QKeySequence::Delete);
     ui->pushSelectAll->setShortcut(QKeySequence::SelectAll);
+
+    layout()->activate();
+
+    const QRect rc = QDesktopWidget().availableGeometry(window());
+
+    const int maxw = rc.width() * 0.75;
+    const int maxh = rc.height() * 0.75;
+
+    int neww = width() + (px.width() - ui->scrollArea->width() + 4);
+    int newh = height() + (px.height() - ui->scrollArea->height() + 4);
+
+    resize(qMax(qMin(neww, maxw), width()), qMax(qMin(newh, maxh), height()));
 }
 
 ScreenshotEditor::~ScreenshotEditor()
@@ -39,6 +56,21 @@ QPixmap ScreenshotEditor::pixmap()
     return ui->scrollAreaWidgetContents->pixmap();
 }
 
+void ScreenshotEditor::restoreLabels()
+{
+    ui->scrollAreaWidgetContents->restoreLabels();
+}
+
+void ScreenshotEditor::saveLabels()
+{
+    ui->scrollAreaWidgetContents->saveLabels();
+}
+
+void ScreenshotEditor::clearLabels()
+{
+    ui->scrollAreaWidgetContents->clearLabels();
+}
+
 void ScreenshotEditor::keyPressEvent(QKeyEvent *ke)
 {
     if(ke->key() == Qt::Key_Escape
@@ -49,6 +81,19 @@ void ScreenshotEditor::keyPressEvent(QKeyEvent *ke)
     }
 
     QDialog::keyPressEvent(ke);
+}
+
+bool ScreenshotEditor::event(QEvent *e)
+{
+    if(e->type() == QEvent::WhatsThisClicked)
+    {
+        QWhatsThisClickedEvent *ce = static_cast<QWhatsThisClickedEvent *>(e);
+
+        if(ce)
+            QDesktopServices::openUrl(QUrl(ce->href()));
+    }
+
+    return QDialog::event(e);
 }
 
 void ScreenshotEditor::slotSelected(SelectableLabel *sl, bool selected)

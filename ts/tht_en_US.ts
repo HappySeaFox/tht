@@ -448,12 +448,12 @@ the right or middle mouse buttons.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="57"/>
+        <location filename="../savescreenshot.cpp" line="63"/>
         <source>Image %1 (*.%2)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="65"/>
+        <location filename="../savescreenshot.cpp" line="71"/>
         <source>Save as</source>
         <translation></translation>
     </message>
@@ -539,7 +539,7 @@ the right or middle mouse buttons.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.cpp" line="17"/>
+        <location filename="../screenshoteditor.cpp" line="22"/>
         <source>Open YouTube tutorial</source>
         <translation></translation>
     </message>
@@ -675,7 +675,7 @@ the right or middle mouse buttons.</source>
     </message>
     <message>
         <location filename="../tht.cpp" line="1090"/>
-        <location filename="../tht.cpp" line="1122"/>
+        <location filename="../tht.cpp" line="1124"/>
         <source>Error</source>
         <translation></translation>
     </message>
@@ -685,12 +685,12 @@ the right or middle mouse buttons.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1122"/>
+        <location filename="../tht.cpp" line="1124"/>
         <source>Cannot save screenshot</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1407"/>
+        <location filename="../tht.cpp" line="1411"/>
         <source>Customize...</source>
         <translation></translation>
     </message>

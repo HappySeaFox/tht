@@ -1,3 +1,4 @@
+#include <QMutableListIterator>
 #include <QMouseEvent>
 #include <QCursor>
 #include <QPixmap>
@@ -43,6 +44,42 @@ void ScreenshotEditorWidget::cancel()
         m_wasPress = false;
         slotResetCursor();
     }
+}
+
+void ScreenshotEditorWidget::restoreLabels()
+{
+    qDebug("Restore labels");
+
+    clearLabels();
+    m_labels = m_savedLabels;
+
+    foreach(SelectableLabel *l, m_labels)
+    {
+        l->show();
+    }
+}
+
+void ScreenshotEditorWidget::saveLabels()
+{
+    qDebug("Save labels");
+
+    m_savedLabels = m_labels;
+    m_labels.clear();
+}
+
+void ScreenshotEditorWidget::clearLabels()
+{
+    qDebug("Clear labels");
+
+    QList<SelectableLabel *> toDelete;
+
+    foreach(SelectableLabel *l, m_labels)
+    {
+        if(m_savedLabels.indexOf(l) < 0)
+            toDelete.append(l);
+    }
+
+    qDeleteAll(toDelete);
 }
 
 void ScreenshotEditorWidget::startBuy()
@@ -91,16 +128,32 @@ void ScreenshotEditorWidget::startText()
 
         setCursor(m_textPixmap);
     }
+    else
+        m_editType = None;
 }
 
 void ScreenshotEditorWidget::deleteSelected()
 {
     QList<SelectableLabel *> toDelete;
 
-    foreach(SelectableLabel *l, m_labels)
+    QMutableListIterator<SelectableLabel *> it(m_labels);
+    SelectableLabel *l;
+
+    while(it.hasNext())
     {
+        l = it.next();
+
         if(l->selected())
-            toDelete.append(l);
+        {
+            if(m_savedLabels.indexOf(l) < 0)
+                toDelete.append(l);
+            else
+            {
+                it.remove();
+                l->hide();
+                l->setSelected(false, false);
+            }
+        }
     }
 
     qDeleteAll(toDelete);
@@ -128,7 +181,10 @@ void ScreenshotEditorWidget::slotSelected(bool s)
 
 void ScreenshotEditorWidget::slotDestroyed()
 {
-    m_labels.removeAll(reinterpret_cast<SelectableLabel *>(sender()));
+    SelectableLabel *l = reinterpret_cast<SelectableLabel *>(sender());
+
+    m_labels.removeAll(l);
+    m_savedLabels.removeAll(l);
 }
 
 void ScreenshotEditorWidget::mousePressEvent(QMouseEvent *e)

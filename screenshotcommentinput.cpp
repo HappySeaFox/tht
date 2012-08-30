@@ -15,6 +15,19 @@ ScreenshotCommentInput::ScreenshotCommentInput(QWidget *parent) :
 
     ui->text->setFocus();
 
+    QWidgetList buttons = QWidgetList()
+                             << ui->pushAlignLeft
+                             << ui->pushAlignCenter
+                             << ui->pushAlignRight
+                             << ui->pushFontDown
+                             << ui->pushFontUp
+                             << ui->pushColor;
+
+    foreach(QWidget *w, buttons)
+    {
+        w->setFixedSize(22, 22);
+    }
+
     // text itself
     ui->text->setText(Settings::instance()->screenshotText());
     ui->text->selectAll();
@@ -31,7 +44,7 @@ ScreenshotCommentInput::ScreenshotCommentInput(QWidget *parent) :
         case Qt::AlignRight: ui->pushAlignRight->setChecked(true); break;
 
         default:
-            ui->pushAlighLeft->setChecked(true);
+            ui->pushAlignLeft->setChecked(true);
         break;
     }
 

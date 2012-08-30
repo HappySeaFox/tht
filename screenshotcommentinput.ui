@@ -29,7 +29,7 @@
         <number>1</number>
        </property>
        <item>
-        <widget class="QToolButton" name="pushAlighLeft">
+        <widget class="QToolButton" name="pushAlignLeft">
          <property name="icon">
           <iconset resource="tht.qrc">
            <normaloff>:/images/align-left.png</normaloff>:/images/align-left.png</iconset>
@@ -231,7 +231,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>pushAlighLeft</sender>
+   <sender>pushAlignLeft</sender>
    <signal>toggled(bool)</signal>
    <receiver>ScreenshotCommentInput</receiver>
    <slot>slotAlignChanged(bool)</slot>
