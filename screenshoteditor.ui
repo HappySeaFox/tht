@@ -26,12 +26,18 @@
      <property name="text">
       <string>Buy</string>
      </property>
+     <property name="shortcut">
+      <string>B</string>
+     </property>
     </widget>
    </item>
    <item row="2" column="1">
     <widget class="QPushButton" name="pushShort">
      <property name="text">
       <string>Sale</string>
+     </property>
+     <property name="shortcut">
+      <string>S</string>
      </property>
     </widget>
    </item>
@@ -93,12 +99,18 @@
      <property name="text">
       <string>Stop</string>
      </property>
+     <property name="shortcut">
+      <string>L</string>
+     </property>
     </widget>
    </item>
    <item row="0" column="1">
     <widget class="QPushButton" name="pushText">
      <property name="text">
       <string>Text</string>
+     </property>
+     <property name="shortcut">
+      <string>T</string>
      </property>
     </widget>
    </item>

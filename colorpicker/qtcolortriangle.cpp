@@ -44,6 +44,11 @@
 ** 
 ****************************************************************************/
 
+/***************************************************************************
+ *   Copyright (C) 2012 by Dmitry 'Krasu' Baryshev                         *
+ *   ksquirrel.iv@gmail.com                                                *
+ ***************************************************************************/
+
 #include "qtcolortriangle.h"
 
 #include <QtCore/QEvent>
@@ -482,6 +487,9 @@ void QtColorTriangle::keyPressEvent(QKeyEvent *e)
 	    setColor(tmp);
 	}
 	    break;
+
+        default:
+            QWidget::keyPressEvent(e); // call default implementation
     };
 }
 
