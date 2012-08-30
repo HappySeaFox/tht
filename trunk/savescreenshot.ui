@@ -25,7 +25,7 @@
     </widget>
    </item>
    <item row="0" column="3">
-    <widget class="QPushButton" name="pushButton_2">
+    <widget class="QPushButton" name="pushFile">
      <property name="text">
       <string>File...</string>
      </property>
@@ -35,7 +35,7 @@
     </widget>
    </item>
    <item row="0" column="2">
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="pushClipboard">
      <property name="text">
       <string>Clipboard</string>
      </property>
@@ -55,13 +55,13 @@
  </widget>
  <tabstops>
   <tabstop>pushEdit</tabstop>
-  <tabstop>pushButton</tabstop>
-  <tabstop>pushButton_2</tabstop>
+  <tabstop>pushClipboard</tabstop>
+  <tabstop>pushFile</tabstop>
  </tabstops>
  <resources/>
  <connections>
   <connection>
-   <sender>pushButton</sender>
+   <sender>pushClipboard</sender>
    <signal>clicked()</signal>
    <receiver>SaveScreenshot</receiver>
    <slot>slotClipboard()</slot>
@@ -77,7 +77,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_2</sender>
+   <sender>pushFile</sender>
    <signal>clicked()</signal>
    <receiver>SaveScreenshot</receiver>
    <slot>slotFile()</slot>

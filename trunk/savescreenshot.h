@@ -20,6 +20,9 @@
 
 #include <QPixmap>
 #include <QDialog>
+#include <QList>
+
+class ScreenshotEditor;
 
 namespace Ui
 {
@@ -50,7 +53,7 @@ private:
     Ui::SaveScreenshot *ui;
     SaveScreenshotTo m_dest;
     QString m_fileName;
-    QPixmap m_pixmap;
+    ScreenshotEditor *m_editor;
 };
 
 inline
@@ -63,12 +66,6 @@ inline
 QString SaveScreenshot::fileName() const
 {
     return m_fileName;
-}
-
-inline
-QPixmap SaveScreenshot::pixmap() const
-{
-    return m_pixmap;
 }
 
 #endif // SAVESCREENSHOT_H

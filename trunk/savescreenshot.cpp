@@ -27,15 +27,21 @@
 
 SaveScreenshot::SaveScreenshot(const QPixmap &px, QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::SaveScreenshot),
-    m_pixmap(px)
+    ui(new Ui::SaveScreenshot)
 {
     ui->setupUi(this);
+
+    m_editor = new ScreenshotEditor(px, this);
 }
 
 SaveScreenshot::~SaveScreenshot()
 {
     delete ui;
+}
+
+QPixmap SaveScreenshot::pixmap() const
+{
+    return m_editor->pixmap();
 }
 
 void SaveScreenshot::slotClipboard()
@@ -75,10 +81,10 @@ void SaveScreenshot::slotFile()
 
 void SaveScreenshot::slotEdit()
 {
-    ScreenshotEditor ed(m_pixmap, this);
+    m_editor->restoreLabels();
 
-    if(ed.exec() == QDialog::Accepted)
-    {
-        m_pixmap = ed.pixmap();
-    }
+    if(m_editor->exec() == QDialog::Accepted)
+        m_editor->saveLabels();
+    else
+        m_editor->clearLabels();
 }
