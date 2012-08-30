@@ -8,7 +8,7 @@
 
 void Tools::moveWindow(QWidget *w, const QPoint &pt)
 {
-    if(!w || pt.isNull())
+    if(!w)
         return;
 
     const int sn = qApp->desktop()->screenCount();
