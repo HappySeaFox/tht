@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Screenshot editor</string>
+   <string>Trade editor</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="6" column="1">

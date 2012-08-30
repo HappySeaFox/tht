@@ -68,7 +68,7 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
     <message>
         <location filename="../colorpicker/colorpickerwidget.cpp" line="35"/>
         <source>Choose a color</source>
-        <translation type="unfinished"></translation>
+        <translation>Выберите цвет</translation>
     </message>
     <message>
         <location filename="../colorpicker/colorpickerwidget.cpp" line="45"/>
@@ -382,17 +382,17 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../settings.cpp" line="573"/>
+        <location filename="../settings.cpp" line="583"/>
         <source>Russian</source>
         <translation>Русский</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="574"/>
+        <location filename="../settings.cpp" line="584"/>
         <source>Ukrainian</source>
         <translation>Украинский</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="575"/>
+        <location filename="../settings.cpp" line="585"/>
         <source>English</source>
         <translation>Английский</translation>
     </message>
@@ -424,7 +424,7 @@ the right or middle mouse buttons.</source>
     <message>
         <location filename="../savescreenshot.ui" line="20"/>
         <source>Edit...</source>
-        <translation type="unfinished"></translation>
+        <translation>Редактировать...</translation>
     </message>
     <message>
         <location filename="../savescreenshot.ui" line="23"/>
@@ -467,30 +467,30 @@ the right or middle mouse buttons.</source>
     <message>
         <location filename="../screenshotcommentinput.ui" line="14"/>
         <source>Enter a text</source>
-        <translation type="unfinished"></translation>
+        <translation>Введите текст</translation>
     </message>
     <message>
-        <location filename="../screenshotcommentinput.ui" line="29"/>
+        <location filename="../screenshotcommentinput.ui" line="22"/>
         <source>Align:</source>
-        <translation type="unfinished"></translation>
+        <translation>Выравнивание:</translation>
     </message>
     <message>
-        <location filename="../screenshotcommentinput.ui" line="88"/>
-        <source>Font size:</source>
-        <translation type="unfinished"></translation>
+        <location filename="../screenshotcommentinput.ui" line="81"/>
+        <source>Size:</source>
+        <translation>Размер:</translation>
     </message>
     <message>
-        <location filename="../screenshotcommentinput.ui" line="118"/>
-        <source>Text color:</source>
-        <translation type="unfinished"></translation>
+        <location filename="../screenshotcommentinput.ui" line="111"/>
+        <source>Color:</source>
+        <translation>Цвет:</translation>
     </message>
 </context>
 <context>
     <name>ScreenshotEditor</name>
     <message>
         <location filename="../screenshoteditor.ui" line="14"/>
-        <source>Screenshot editor</source>
-        <translation type="unfinished"></translation>
+        <source>Trade editor</source>
+        <translation>Редактор сделки</translation>
     </message>
     <message>
         <location filename="../screenshoteditor.ui" line="20"/>
@@ -499,28 +499,48 @@ the right or middle mouse buttons.</source>
     </message>
     <message>
         <location filename="../screenshoteditor.ui" line="27"/>
-        <source>Long</source>
-        <translation type="unfinished"></translation>
+        <source>Buy</source>
+        <translation>Покупка</translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="34"/>
-        <source>Short</source>
-        <translation type="unfinished"></translation>
+        <location filename="../screenshoteditor.ui" line="30"/>
+        <source>B</source>
+        <translation></translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="94"/>
+        <location filename="../screenshoteditor.ui" line="37"/>
+        <source>Sale</source>
+        <translation>Продажа</translation>
+    </message>
+    <message>
+        <location filename="../screenshoteditor.ui" line="40"/>
+        <source>S</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../screenshoteditor.ui" line="100"/>
         <source>Stop</source>
-        <translation type="unfinished"></translation>
+        <translation>Стоп</translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="101"/>
+        <location filename="../screenshoteditor.ui" line="103"/>
+        <source>L</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../screenshoteditor.ui" line="110"/>
         <source>Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Текст</translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="108"/>
+        <location filename="../screenshoteditor.ui" line="113"/>
+        <source>T</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../screenshoteditor.ui" line="120"/>
         <source>Select all</source>
-        <translation type="unfinished"></translation>
+        <translation>Выделить всё</translation>
     </message>
     <message>
         <location filename="../screenshoteditor.cpp" line="17"/>
