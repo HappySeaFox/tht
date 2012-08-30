@@ -91,10 +91,10 @@ QPixmap ScreenshotCommentInput::pixmap()
 
 void ScreenshotCommentInput::saveSettings()
 {
-    Settings::instance()->setScreenshotTextColor(m_color);
-    Settings::instance()->setScreenshotTextSize(ui->text->font().pointSize());
-    Settings::instance()->setScreenshotTextAlignment(m_align);
-    Settings::instance()->setScreenshotText(ui->text->toPlainText());
+    Settings::instance()->setScreenshotTextColor(m_color, Settings::NoSync);
+    Settings::instance()->setScreenshotTextSize(ui->text->font().pointSize(), Settings::NoSync);
+    Settings::instance()->setScreenshotTextAlignment(m_align, Settings::NoSync);
+    Settings::instance()->setScreenshotText(ui->text->toPlainText()); // also sync
 }
 
 void ScreenshotCommentInput::setColor(const QColor &c)
