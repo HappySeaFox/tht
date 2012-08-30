@@ -20,6 +20,8 @@ public:
 
     QPixmap pixmap();
 
+    void saveSettings();
+
 private:
     void setColor(const QColor &);
 
@@ -32,6 +34,7 @@ private slots:
 private:
     Ui::ScreenshotCommentInput *ui;
     QColor m_color;
+    Qt::AlignmentFlag m_align;
 };
 
 #endif // SCREENSHOTCOMMENTINPUT_H

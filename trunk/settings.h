@@ -85,6 +85,9 @@ public:
     void setScreenshotTextSize(const int sz, SyncType sync = Sync);
     int screenshotTextSize();
 
+    void setScreenshotText(const QString &s, SyncType sync = Sync);
+    QString screenshotText();
+
     void setCheckBoxState(const QString &checkbox, bool checked, SyncType sync = Sync);
     int checkBoxState(const QString &checkbox);
 

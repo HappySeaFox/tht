@@ -56,7 +56,7 @@ void ScreenshotEditor::slotSelected(SelectableLabel *sl, bool selected)
     if(!selected)
         return;
 
-    QList<SelectableLabel *> list = ui->scrollAreaWidgetContents->labels();
+    const QList<SelectableLabel *> list = ui->scrollAreaWidgetContents->labels();
 
     if(QApplication::keyboardModifiers() != Qt::ControlModifier)
     {
