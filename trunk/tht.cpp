@@ -75,8 +75,8 @@ THT::THT(QWidget *parent) :
     ui->checkNyse->setChecked(Settings::instance()->nyseOnly());
 
     // global shortcuts
-    QxtGlobalShortcut *takeScreen = new QxtGlobalShortcut(QKeySequence(Qt::CTRL + Qt::ALT + Qt::Key_S), this);
-    connect(takeScreen, SIGNAL(activated()), this, SLOT(slotTakeScreenshotFromGlobal()));
+    m_takeScreen = new QxtGlobalShortcut(QKeySequence(Qt::CTRL + Qt::ALT + Qt::Key_S), this);
+    connect(m_takeScreen, SIGNAL(activated()), this, SLOT(slotTakeScreenshotFromGlobal()));
 
     QIcon icon_quit(":/images/quit.png");
     QIcon icon_screenshot(":/images/screenshot.png");
@@ -91,7 +91,7 @@ THT::THT(QWidget *parent) :
     m_menu->addAction(QIcon(":/images/options.png"), tr("Options..."), this, SLOT(slotOptions()));
     m_menu->addSeparator();
 
-    m_menu->addAction(icon_screenshot, tr("Take screenshot...") + '\t' + takeScreen->shortcut().toString(),
+    m_menu->addAction(icon_screenshot, tr("Take screenshot...") + '\t' + m_takeScreen->shortcut().toString(),
                       this, SLOT(slotTakeScreenshot()));
     m_menu->addAction(tr("Clear links"), this, SLOT(slotClearLinks()));
     m_menu->addSeparator();
@@ -1098,6 +1098,8 @@ void THT::slotTakeScreenshotReal()
     if(m_wasVisible)
         activate();
 
+    m_takeScreen->setDisabled();
+
     // save screenshot
     SaveScreenshot s(px, this);
 
@@ -1125,6 +1127,8 @@ void THT::slotTakeScreenshotReal()
             }
         }
     }
+
+    m_takeScreen->setEnabled();
 }
 
 void THT::slotClearLists()
