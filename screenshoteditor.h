@@ -26,7 +26,6 @@ protected:
 
 private slots:
     void slotSelected(SelectableLabel *, bool);
-    void slotSelectAll();
 
 private:
     Ui::ScreenshotEditor *ui;

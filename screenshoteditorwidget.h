@@ -20,15 +20,15 @@ public:
 
     QPixmap pixmap();
 
-    QList<SelectableLabel *> labels();
-
     enum EditType { None = -1, Long, Short, Stop, Text };
 
     EditType editType() const;
 
     void cancel();
 
-protected:
+    QList<SelectableLabel *> labels() const;
+
+    protected:
     virtual void mousePressEvent(QMouseEvent *e);
     virtual void mouseReleaseEvent(QMouseEvent *e);
 
@@ -41,10 +41,12 @@ public slots:
     void startStop();
     void startText();
     void deleteSelected();
+    void selectAll(bool select = true);
 
 private slots:
     void slotResetCursor();
     void slotSelected(bool);
+    void slotDestroyed();
 
 signals:
     void selected(SelectableLabel *, bool);
@@ -54,7 +56,14 @@ private:
     QPixmap m_pixmaps[3];
     QPixmap m_textPixmap;
     bool m_wasPress;
+    QList<SelectableLabel *> m_labels;
 };
+
+inline
+QList<SelectableLabel *> ScreenshotEditorWidget::labels() const
+{
+    return m_labels;
+}
 
 inline
 ScreenshotEditorWidget::EditType ScreenshotEditorWidget::editType() const
