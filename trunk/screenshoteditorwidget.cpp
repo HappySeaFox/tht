@@ -45,26 +45,34 @@ void ScreenshotEditorWidget::cancel()
     }
 }
 
-void ScreenshotEditorWidget::startLong()
+void ScreenshotEditorWidget::startBuy()
 {
-    m_editType = Long;
+    qDebug("Add buy");
+
+    m_editType = Buy;
     setCursor(QCursor(m_pixmaps[m_editType]));
 }
 
-void ScreenshotEditorWidget::startShort()
+void ScreenshotEditorWidget::startSell()
 {
-    m_editType = Short;
+    qDebug("Add sell");
+
+    m_editType = Sell;
     setCursor(QCursor(m_pixmaps[m_editType]));
 }
 
 void ScreenshotEditorWidget::startStop()
 {
+    qDebug("Add stop");
+
     m_editType = Stop;
     setCursor(QCursor(m_pixmaps[m_editType]));
 }
 
 void ScreenshotEditorWidget::startText()
 {
+    qDebug("Add text");
+
     m_editType = Text;
 
     ScreenshotCommentInput sci(this);

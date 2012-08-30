@@ -20,7 +20,7 @@ public:
 
     QPixmap pixmap();
 
-    enum EditType { None = -1, Long, Short, Stop, Text };
+    enum EditType { None = -1, Buy, Sell, Stop, Text };
 
     EditType editType() const;
 
@@ -36,8 +36,8 @@ private:
     SelectableLabel *addLabel(const QPoint &pt, const QPixmap &px = QPixmap());
 
 public slots:
-    void startLong();
-    void startShort();
+    void startBuy();
+    void startSell();
     void startStop();
     void startText();
     void deleteSelected();
