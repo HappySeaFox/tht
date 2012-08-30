@@ -19,14 +19,16 @@
 #include <QFileDialog>
 #include <QFileInfo>
 
+#include "screenshoteditor.h"
 #include "savescreenshot.h"
 #include "settings.h"
 
 #include "ui_savescreenshot.h"
 
-SaveScreenshot::SaveScreenshot(QWidget *parent) :
+SaveScreenshot::SaveScreenshot(const QPixmap &px, QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::SaveScreenshot)
+    ui(new Ui::SaveScreenshot),
+    m_pixmap(px)
 {
     ui->setupUi(this);
 }
@@ -68,5 +70,15 @@ void SaveScreenshot::slotFile()
     {
         Settings::instance()->setLastScreenShotDirectory(QFileInfo(m_fileName).absolutePath());
         accept();
+    }
+}
+
+void SaveScreenshot::slotEdit()
+{
+    ScreenshotEditor ed(m_pixmap, this);
+
+    if(ed.exec() == QDialog::Accepted)
+    {
+        m_pixmap = ed.pixmap();
     }
 }

@@ -51,6 +51,42 @@ static QDataStream &operator>>(QDataStream &in, FinvizUrl &fu)
     return in;
 }
 
+// serialize/deserialize FinvizUrl
+static QDataStream &operator<<(QDataStream &out, const Qt::AlignmentFlag &f)
+{
+    QString s;
+
+    switch(f)
+    {
+        case Qt::AlignRight: s = "right"; break;
+        case Qt::AlignCenter: s = "center"; break;
+
+        default:
+            s = "left";
+        break;
+    }
+
+    out << s;
+    return out;
+}
+
+static QDataStream &operator>>(QDataStream &in, Qt::AlignmentFlag &f)
+{
+    QString s;
+    in >> s;
+
+    if(s == "right")
+        f = Qt::AlignRight;
+    else if(s == "center")
+        f = Qt::AlignCenter;
+    else
+        f = Qt::AlignLeft;
+
+    return in;
+}
+
+Q_DECLARE_METATYPE(Qt::AlignmentFlag)
+
 /*******************************************************/
 
 Settings::Settings()
@@ -68,6 +104,8 @@ Settings::Settings()
 
     qRegisterMetaTypeStreamOperators<FinvizUrl>("FinvizUrl");
     qRegisterMetaTypeStreamOperators<QList<FinvizUrl> >("QList<FinvizUrl>");
+
+    qRegisterMetaTypeStreamOperators<Qt::AlignmentFlag>("Qt::AlignmentFlag");
 
     m_databaseTimestampFormat = "yyyy-MM-dd hh:mm:ss.zzz";
 
@@ -199,6 +237,36 @@ bool Settings::preloadMode() const
 void Settings::sync()
 {
     m_settings->sync();
+}
+
+void Settings::setScreenshotTextColor(const QColor &c, SyncType sync)
+{
+    save<QColor>("screenshot-text-color", c, sync);
+}
+
+QColor Settings::screenshotTextColor()
+{
+    return load<QColor>("screenshot-text-color", Qt::black);
+}
+
+void Settings::setScreenshotTextAlignment(const Qt::AlignmentFlag &a, Settings::SyncType sync)
+{
+    save<Qt::AlignmentFlag>("screenshot-text-alignment", a, sync);
+}
+
+Qt::AlignmentFlag Settings::screenshotTextAlignment()
+{
+    return load<Qt::AlignmentFlag>("screenshot-text-alignment", Qt::AlignLeft);
+}
+
+void Settings::setScreenshotTextSize(const int sz, Settings::SyncType sync)
+{
+    save<int>("screenshot-text-size", sz, sync);
+}
+
+int Settings::screenshotTextSize()
+{
+    return load<int>("screenshot-text-size", -1);
 }
 
 void Settings::setCheckBoxState(const QString &checkbox, bool checked, SyncType sync)

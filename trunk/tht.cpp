@@ -1099,10 +1099,14 @@ void THT::slotTakeScreenshotReal()
         activate();
 
     // save screenshot
-    SaveScreenshot s(this);
+    SaveScreenshot s(px, this);
+
+    px = QPixmap();
 
     if(s.exec() == QDialog::Accepted)
     {
+        px = s.pixmap();
+
         if(s.destination() == SaveScreenshot::SaveScreenshotToClipboard)
             QApplication::clipboard()->setPixmap(px);
         else
