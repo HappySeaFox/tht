@@ -37,11 +37,6 @@ QPixmap ScreenshotEditorWidget::pixmap()
     return QPixmap::grabWidget(this);
 }
 
-QList<SelectableLabel *> ScreenshotEditorWidget::labels()
-{
-    return findChildren<SelectableLabel *>();
-}
-
 void ScreenshotEditorWidget::cancel()
 {
     if(m_editType != None)
@@ -92,11 +87,26 @@ void ScreenshotEditorWidget::startText()
 void ScreenshotEditorWidget::deleteSelected()
 {
     QList<SelectableLabel *> list = labels();
+    QList<SelectableLabel *> toDelete;
 
     foreach(SelectableLabel *l, list)
     {
         if(l->selected())
-            delete l;
+            toDelete.append(l);
+    }
+
+    qDeleteAll(toDelete);
+}
+
+void ScreenshotEditorWidget::selectAll(bool select)
+{
+    qDebug("Select all labels: %s", select ? "yes" : "no");
+
+    QList<SelectableLabel *> list = labels();
+
+    foreach(SelectableLabel *l, list)
+    {
+        l->setSelected(select, false);
     }
 }
 
@@ -110,18 +120,28 @@ void ScreenshotEditorWidget::slotSelected(bool s)
     emit selected(qobject_cast<SelectableLabel *>(sender()), s);
 }
 
+void ScreenshotEditorWidget::slotDestroyed()
+{
+    m_labels.removeAll(reinterpret_cast<SelectableLabel *>(sender()));
+}
+
 void ScreenshotEditorWidget::mousePressEvent(QMouseEvent *e)
 {
-    e->accept();
     m_wasPress = true;
+
+    QWidget::mousePressEvent(e);
 }
 
 void ScreenshotEditorWidget::mouseReleaseEvent(QMouseEvent *e)
 {
-    e->accept();
+    QWidget::mouseReleaseEvent(e);
 
     if(m_editType == None || !m_wasPress)
+    {
+        // deselect all
+        selectAll(false);
         return;
+    }
 
     if(m_editType != Text)
         addLabel(e->pos(), m_pixmaps[m_editType]);
@@ -142,9 +162,12 @@ SelectableLabel *ScreenshotEditorWidget::addLabel(const QPoint &pt, const QPixma
     SelectableLabel *l = new SelectableLabel(px, this);
 
     connect(l, SIGNAL(selected(bool)), this, SLOT(slotSelected(bool)));
+    connect(l, SIGNAL(destroyed()), this, SLOT(slotDestroyed()));
 
     l->move(pt - cursor().hotSpot() - QPoint(2, 2));
     l->show();
+
+    m_labels.append(l);
 
     return l;
 }

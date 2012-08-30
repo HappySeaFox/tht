@@ -21,6 +21,7 @@ ScreenshotEditor::ScreenshotEditor(const QPixmap &px, QWidget *parent) :
     connect(ui->pushShort, SIGNAL(clicked()), ui->scrollAreaWidgetContents, SLOT(startShort()));
     connect(ui->pushStop, SIGNAL(clicked()), ui->scrollAreaWidgetContents, SLOT(startStop()));
     connect(ui->pushDelete, SIGNAL(clicked()), ui->scrollAreaWidgetContents, SLOT(deleteSelected()));
+    connect(ui->pushSelectAll, SIGNAL(clicked()), ui->scrollAreaWidgetContents, SLOT(selectAll()));
 
     connect(ui->scrollAreaWidgetContents, SIGNAL(selected(SelectableLabel *, bool)), this, SLOT(slotSelected(SelectableLabel *, bool)));
 
@@ -64,15 +65,5 @@ void ScreenshotEditor::slotSelected(SelectableLabel *sl, bool selected)
             if(l != sl)
                 l->setSelected(false);
         }
-    }
-}
-
-void ScreenshotEditor::slotSelectAll()
-{
-    QList<SelectableLabel *> list = ui->scrollAreaWidgetContents->labels();
-
-    foreach(SelectableLabel *l, list)
-    {
-        l->setSelected(true, false);
     }
 }

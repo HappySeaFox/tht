@@ -24,14 +24,14 @@
    <item row="1" column="1">
     <widget class="QPushButton" name="pushLong">
      <property name="text">
-      <string>Long</string>
+      <string>Buy</string>
      </property>
     </widget>
    </item>
    <item row="2" column="1">
     <widget class="QPushButton" name="pushShort">
      <property name="text">
-      <string>Short</string>
+      <string>Sale</string>
      </property>
     </widget>
    </item>
@@ -164,24 +164,5 @@
     </hint>
    </hints>
   </connection>
-  <connection>
-   <sender>pushSelectAll</sender>
-   <signal>clicked()</signal>
-   <receiver>ScreenshotEditor</receiver>
-   <slot>slotSelectAll()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>465</x>
-     <y>148</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>532</x>
-     <y>145</y>
-    </hint>
-   </hints>
-  </connection>
  </connections>
- <slots>
-  <slot>slotSelectAll()</slot>
- </slots>
 </ui>
