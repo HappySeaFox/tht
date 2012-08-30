@@ -1,5 +1,8 @@
 #include <QMutableListIterator>
+#include <QApplication>
 #include <QMouseEvent>
+
+#include <QPainter>
 #include <QCursor>
 #include <QPixmap>
 #include <QTimer>
@@ -13,9 +16,14 @@ ScreenshotEditorWidget::ScreenshotEditorWidget(QWidget *parent) :
     m_editType(None),
     m_wasPress(false)
 {
-    m_pixmaps[0] = QPixmap(":/images/cursor-buy.png");
-    m_pixmaps[1] = QPixmap(":/images/cursor-sail.png");
-    m_pixmaps[2] = QPixmap(":/images/cursor-stop.png");
+    m_pixmaps[Buy] = QPixmap(":/images/cursor-buy.png");
+    m_pixmaps[Sail] = QPixmap(":/images/cursor-sail.png");
+    m_pixmaps[Stop] = QPixmap(":/images/cursor-stop.png");
+
+    m_colors[Buy] = Qt::green;
+    m_colors[Sail] = Qt::red;
+    m_colors[Stop] = QColor(0, 75, 150);
+    m_colors[Text] = Qt::black;
 }
 
 void ScreenshotEditorWidget::setPixmap(const QPixmap &p)
@@ -87,15 +95,15 @@ void ScreenshotEditorWidget::startBuy()
     qDebug("Add buy");
 
     m_editType = Buy;
-    setCursor(QCursor(m_pixmaps[m_editType]));
+    setCursor(Qt::CrossCursor);
 }
 
 void ScreenshotEditorWidget::startSell()
 {
     qDebug("Add sell");
 
-    m_editType = Sell;
-    setCursor(QCursor(m_pixmaps[m_editType]));
+    m_editType = Sail;
+    setCursor(Qt::CrossCursor);
 }
 
 void ScreenshotEditorWidget::startStop()
@@ -103,7 +111,7 @@ void ScreenshotEditorWidget::startStop()
     qDebug("Add stop");
 
     m_editType = Stop;
-    setCursor(QCursor(m_pixmaps[m_editType]));
+    setCursor(Qt::CrossCursor);
 }
 
 void ScreenshotEditorWidget::startText()
@@ -126,7 +134,7 @@ void ScreenshotEditorWidget::startText()
             return;
         }
 
-        setCursor(m_textPixmap);
+        setCursor(QCursor(m_textPixmap, 0, 0));
     }
     else
         m_editType = None;
@@ -190,43 +198,90 @@ void ScreenshotEditorWidget::slotDestroyed()
 void ScreenshotEditorWidget::mousePressEvent(QMouseEvent *e)
 {
     m_wasPress = true;
+    m_startPoint = e->pos();
+    m_currentPoint = QPoint();
 
     QWidget::mousePressEvent(e);
+}
+
+void ScreenshotEditorWidget::mouseMoveEvent(QMouseEvent *e)
+{
+    if(!m_wasPress || m_editType == None || m_editType == Text)
+        return;
+
+    m_currentPoint = e->pos();
+
+    update();
 }
 
 void ScreenshotEditorWidget::mouseReleaseEvent(QMouseEvent *e)
 {
     QWidget::mouseReleaseEvent(e);
 
-    if(m_editType == None || !m_wasPress)
+    // not our event?
+    if(!m_wasPress)
+        return;
+
+    m_wasPress = false;
+
+    // regular click, deselect all
+    if(m_editType == None)
     {
-        // deselect all
         selectAll(false);
         return;
     }
 
-    if(m_editType != Text)
-        addLabel(e->pos(), m_pixmaps[m_editType]);
-    else
+    if(!rect().contains(m_currentPoint))
     {
-        addLabel(e->pos(), m_textPixmap);
-        m_textPixmap = QPixmap();
+        m_editType = None;
+        update();
+        return;
     }
 
+    m_currentPoint = e->pos();
+
+    if(m_editType == Text)
+    {
+        m_startPoint = m_currentPoint;
+        addLabel(m_startPoint, m_currentPoint, m_textPixmap);
+        m_textPixmap = QPixmap();
+    }
+    else
+        addLabel(m_startPoint, m_currentPoint, m_pixmaps[m_editType]);
+
     m_editType = None;
-    m_wasPress = false;
+
+    update();
 
     QTimer::singleShot(50, this, SLOT(slotResetCursor()));
 }
 
-SelectableLabel *ScreenshotEditorWidget::addLabel(const QPoint &pt, const QPixmap &px)
+void ScreenshotEditorWidget::paintEvent(QPaintEvent *pe)
 {
-    SelectableLabel *l = new SelectableLabel(px, this);
+    QLabel::paintEvent(pe);
+
+    if(!m_wasPress || m_editType == None)
+        return;
+
+    QPainter p(this);
+
+    p.setClipRect(pe->rect());
+    p.setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing);
+    p.setPen(m_colors[m_editType]);
+
+    p.drawLine(m_startPoint, m_currentPoint);
+}
+
+SelectableLabel *ScreenshotEditorWidget::addLabel(const QPoint &startPoint, const QPoint &endPoint, const QPixmap &px)
+{
+    if(px.isNull())
+        return 0;
+
+    SelectableLabel *l = new SelectableLabel(px, startPoint, endPoint, m_colors[m_editType], this);
 
     connect(l, SIGNAL(selected(bool)), this, SLOT(slotSelected(bool)));
     connect(l, SIGNAL(destroyed()), this, SLOT(slotDestroyed()));
 
-    l->move(pt - cursor().hotSpot() - QPoint(2, 2));
     l->show();
 
     m_labels.append(l);

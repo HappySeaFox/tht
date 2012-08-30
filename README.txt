@@ -60,6 +60,13 @@ License: Free for use
 Author: Dmitry Baryshev
 License: Free for use
 
+* "Buy" and "Sail" icons are based on the icons from Splashy theme
+
+http://findicons.com/pack/1689/splashy
+
+Author: Dat Nguyen
+License: Free for use
+
 * Other icons are taken from Fugue Icons theme
 
 http://p.yusukekamiyamane.com/

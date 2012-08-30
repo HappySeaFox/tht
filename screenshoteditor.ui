@@ -26,6 +26,10 @@
      <property name="text">
       <string>Buy</string>
      </property>
+     <property name="icon">
+      <iconset resource="tht.qrc">
+       <normaloff>:/images/cursor-buy.png</normaloff>:/images/cursor-buy.png</iconset>
+     </property>
      <property name="shortcut">
       <string>B</string>
      </property>
@@ -35,6 +39,10 @@
     <widget class="QPushButton" name="pushShort">
      <property name="text">
       <string>Sale</string>
+     </property>
+     <property name="icon">
+      <iconset resource="tht.qrc">
+       <normaloff>:/images/cursor-sail.png</normaloff>:/images/cursor-sail.png</iconset>
      </property>
      <property name="shortcut">
       <string>S</string>
@@ -99,6 +107,10 @@
      <property name="text">
       <string>Stop</string>
      </property>
+     <property name="icon">
+      <iconset resource="tht.qrc">
+       <normaloff>:/images/cursor-stop.png</normaloff>:/images/cursor-stop.png</iconset>
+     </property>
      <property name="shortcut">
       <string>L</string>
      </property>
@@ -142,7 +154,9 @@
   <tabstop>pushDelete</tabstop>
   <tabstop>buttonBox</tabstop>
  </tabstops>
- <resources/>
+ <resources>
+  <include location="tht.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>buttonBox</sender>
