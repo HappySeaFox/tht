@@ -15,13 +15,17 @@ ScreenshotCommentInput::ScreenshotCommentInput(QWidget *parent) :
 
     ui->text->setFocus();
 
+    // text itself
+    ui->text->setText(Settings::instance()->screenshotText());
+    ui->text->selectAll();
+
     // color
     setColor(Settings::instance()->screenshotTextColor());
 
     // text alignment
-    Qt::Alignment align = Settings::instance()->screenshotTextAlignment();
+    m_align = Settings::instance()->screenshotTextAlignment();
 
-    switch(align)
+    switch(m_align)
     {
         case Qt::AlignCenter: ui->pushAlignCenter->setChecked(true); break;
         case Qt::AlignRight: ui->pushAlignRight->setChecked(true); break;
@@ -72,6 +76,14 @@ QPixmap ScreenshotCommentInput::pixmap()
     return px;
 }
 
+void ScreenshotCommentInput::saveSettings()
+{
+    Settings::instance()->setScreenshotTextColor(m_color);
+    Settings::instance()->setScreenshotTextSize(ui->text->font().pointSize());
+    Settings::instance()->setScreenshotTextAlignment(m_align);
+    Settings::instance()->setScreenshotText(ui->text->toPlainText());
+}
+
 void ScreenshotCommentInput::setColor(const QColor &c)
 {
     m_color = c;
@@ -80,9 +92,13 @@ void ScreenshotCommentInput::setColor(const QColor &c)
     px.fill(c);
 
     ui->pushColor->setIcon(px);
-    ui->text->setTextColor(c);
 
-    Settings::instance()->setScreenshotTextColor(c);
+    QPalette pal = ui->text->palette();
+
+    pal.setColor(QPalette::WindowText, c);
+    pal.setColor(QPalette::Text, c);
+
+    ui->text->setPalette(pal);
 }
 
 void ScreenshotCommentInput::slotFontDown()
@@ -94,8 +110,6 @@ void ScreenshotCommentInput::slotFontDown()
 
     f.setPointSize(f.pointSize()-1);
     ui->text->setFont(f);
-
-    Settings::instance()->setScreenshotTextSize(f.pointSize());
 }
 
 void ScreenshotCommentInput::slotFontUp()
@@ -103,8 +117,6 @@ void ScreenshotCommentInput::slotFontUp()
     QFont f = ui->text->font();
     f.setPointSize(f.pointSize()+1);
     ui->text->setFont(f);
-
-    Settings::instance()->setScreenshotTextSize(f.pointSize());
 }
 
 void ScreenshotCommentInput::slotChangeColor()
@@ -129,13 +141,31 @@ void ScreenshotCommentInput::slotAlignChanged(bool checked)
     if(!b)
         return;
 
-    Qt::AlignmentFlag align = Qt::AlignLeft;
+    m_align = Qt::AlignLeft;
 
     if(b == ui->pushAlignCenter)
-        align = Qt::AlignCenter;
+        m_align = Qt::AlignCenter;
     else if(b == ui->pushAlignRight)
-        align = Qt::AlignRight;
+        m_align = Qt::AlignRight;
 
-    ui->text->setAlignment(align);
-    Settings::instance()->setScreenshotTextAlignment(align);
+    ui->text->setUpdatesEnabled(false);
+
+    // navigate through the all paragraphs and set alignment
+    QTextCursor oldCursor = ui->text->textCursor();
+
+    ui->text->moveCursor(QTextCursor::Start);
+
+    int lastPos = -1;
+    int curPos = oldCursor.position();
+
+    while(lastPos != curPos)
+    {
+       ui->text->setAlignment(m_align);
+       ui->text->moveCursor(QTextCursor::Down);
+       lastPos = curPos;
+       curPos = ui->text->textCursor().position();
+    }
+
+    ui->text->setTextCursor(oldCursor);
+    ui->text->setUpdatesEnabled(true);
 }

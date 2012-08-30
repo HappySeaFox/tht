@@ -27,9 +27,7 @@ void ScreenshotEditorWidget::setPixmap(const QPixmap &p)
 
 QPixmap ScreenshotEditorWidget::pixmap()
 {
-    QList<SelectableLabel *> list = labels();
-
-    foreach(SelectableLabel *l, list)
+    foreach(SelectableLabel *l, m_labels)
     {
         l->setSelected(false);
     }
@@ -68,10 +66,13 @@ void ScreenshotEditorWidget::startStop()
 void ScreenshotEditorWidget::startText()
 {
     m_editType = Text;
+
     ScreenshotCommentInput sci(this);
 
     if(sci.exec() == QDialog::Accepted)
     {
+        sci.saveSettings();
+
         m_textPixmap = sci.pixmap();
 
         if(m_textPixmap.isNull())
@@ -86,10 +87,9 @@ void ScreenshotEditorWidget::startText()
 
 void ScreenshotEditorWidget::deleteSelected()
 {
-    QList<SelectableLabel *> list = labels();
     QList<SelectableLabel *> toDelete;
 
-    foreach(SelectableLabel *l, list)
+    foreach(SelectableLabel *l, m_labels)
     {
         if(l->selected())
             toDelete.append(l);
@@ -102,9 +102,7 @@ void ScreenshotEditorWidget::selectAll(bool select)
 {
     qDebug("Select all labels: %s", select ? "yes" : "no");
 
-    QList<SelectableLabel *> list = labels();
-
-    foreach(SelectableLabel *l, list)
+    foreach(SelectableLabel *l, m_labels)
     {
         l->setSelected(select, false);
     }

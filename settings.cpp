@@ -269,6 +269,16 @@ int Settings::screenshotTextSize()
     return load<int>("screenshot-text-size", -1);
 }
 
+void Settings::setScreenshotText(const QString &s, Settings::SyncType sync)
+{
+    save<QString>("screenshot-text", s, sync);
+}
+
+QString Settings::screenshotText()
+{
+    return load<QString>("screenshot-text");
+}
+
 void Settings::setCheckBoxState(const QString &checkbox, bool checked, SyncType sync)
 {
     save<int>("checkbox-" + checkbox, checked, sync);
