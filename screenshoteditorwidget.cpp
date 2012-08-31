@@ -38,7 +38,7 @@ QPixmap ScreenshotEditorWidget::pixmap()
 {
     foreach(SelectableLabel *l, m_labels)
     {
-        l->setSelected(false);
+        l->setSelected(false, false);
     }
 
     return QPixmap::grabWidget(this);
@@ -72,7 +72,6 @@ void ScreenshotEditorWidget::saveLabels()
     qDebug("Save labels");
 
     m_savedLabels = m_labels;
-    m_labels.clear();
 }
 
 void ScreenshotEditorWidget::clearLabels()
@@ -276,11 +275,8 @@ void ScreenshotEditorWidget::paintEvent(QPaintEvent *pe)
 
     foreach(SelectableLabel *l, m_labels)
     {
-        if(l->isVisible())
-        {
-            p.setPen(l->vectorColor());
-            p.drawLine(l->vectorStart(), l->vectorEnd());
-        }
+        p.setPen(l->vectorColor());
+        p.drawLine(l->vectorStart(), l->vectorEnd());
     }
 }
 
