@@ -32,6 +32,8 @@ About::About(QWidget *parent) :
     m_showExt(true)
 {
     ui->setupUi(this);
+
+    ui->label->setPixmap(QIcon(":/images/chart.ico").pixmap(48, 48));
     ui->labelVersion->setText(QString("THT %1").arg(NVER_STRING));
 
     const char * const http = HTTPROOT "/wiki/howto";

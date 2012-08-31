@@ -18,9 +18,6 @@
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
       <widget class="QLabel" name="label">
-       <property name="pixmap">
-        <pixmap resource="tht.qrc">:/images/chart.ico</pixmap>
-       </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
        </property>
