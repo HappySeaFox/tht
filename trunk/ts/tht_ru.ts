@@ -237,86 +237,86 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
         <translation>Экспортировать тикеры</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="173"/>
+        <location filename="../list.cpp" line="202"/>
         <source>Clear</source>
         <translation>Очистить</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="174"/>
+        <location filename="../list.cpp" line="203"/>
         <source>Sort</source>
         <translation>Отсортировать</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="176"/>
+        <location filename="../list.cpp" line="205"/>
         <source>Reset priorities</source>
         <translation>Сбросить приоритеты</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="183"/>
+        <location filename="../list.cpp" line="212"/>
         <source>Add one ticker...</source>
         <translation>Добавить один тикер...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="185"/>
+        <location filename="../list.cpp" line="214"/>
         <source>Add from file...</source>
         <translation>Добавить из файла...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="186"/>
+        <location filename="../list.cpp" line="215"/>
         <source>Add from clipboard</source>
         <translation>Добавить из буфера обмена</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="188"/>
+        <location filename="../list.cpp" line="217"/>
         <source>Add from Finviz</source>
         <translation>Добавить из Finviz</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="194"/>
+        <location filename="../list.cpp" line="223"/>
         <source>Export to file...</source>
         <translation>Экспортировать в файл...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="195"/>
+        <location filename="../list.cpp" line="224"/>
         <source>Export to clipboard</source>
         <translation>Экспортировать в буфер обмена</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="956"/>
+        <location filename="../list.cpp" line="985"/>
         <source>Customize...</source>
         <translation>Настроить...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1171"/>
-        <location filename="../list.cpp" line="1264"/>
+        <location filename="../list.cpp" line="1200"/>
+        <location filename="../list.cpp" line="1293"/>
         <source>Choose a file</source>
         <translation>Выберите файл</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1173"/>
-        <location filename="../list.cpp" line="1266"/>
+        <location filename="../list.cpp" line="1202"/>
+        <location filename="../list.cpp" line="1295"/>
         <source>Text files (*.txt)</source>
         <translation>Текстовые файлы (*.txt)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1175"/>
-        <location filename="../list.cpp" line="1268"/>
+        <location filename="../list.cpp" line="1204"/>
+        <location filename="../list.cpp" line="1297"/>
         <source>All files (*.*)</source>
         <translation>Все файлы (*.*)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1223"/>
-        <location filename="../list.cpp" line="1278"/>
+        <location filename="../list.cpp" line="1252"/>
+        <location filename="../list.cpp" line="1307"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1223"/>
+        <location filename="../list.cpp" line="1252"/>
         <source>Cannot open the following files: %1</source>
         <translation>Невозможно открыть следующие файлы: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1278"/>
+        <location filename="../list.cpp" line="1307"/>
         <source>Cannot save to file %1</source>
         <translation>Невозможно сохранить в файл %1</translation>
     </message>
@@ -329,52 +329,52 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
         <translation>Настройки</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="30"/>
+        <location filename="../options.ui" line="32"/>
         <source>&lt;System&gt;</source>
         <translation>&lt;Системный&gt;</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="22"/>
+        <location filename="../options.ui" line="24"/>
         <source>Language:</source>
         <translation>Язык:</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="87"/>
+        <location filename="../options.ui" line="108"/>
         <source>Save position and size</source>
         <translation>Сохранять расположение и размер</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="94"/>
+        <location filename="../options.ui" line="115"/>
         <source>Automatically save tickers</source>
         <translation>Сохранять тикеры автоматически</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="108"/>
+        <location filename="../options.ui" line="129"/>
         <source>Fast ticker entry</source>
         <translation>Быстрый ввод тикера</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="138"/>
+        <location filename="../options.ui" line="101"/>
         <source>Restore &quot;Industries&quot; window at startup</source>
         <translation>Восстанавливать окно &quot;Индустрии&quot; при старте</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="73"/>
+        <location filename="../options.ui" line="85"/>
         <source>Always on top</source>
         <translation>Поверх всех окон</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="51"/>
+        <location filename="../options.ui" line="53"/>
         <source>Lists:</source>
         <translation>Списков:</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="80"/>
+        <location filename="../options.ui" line="92"/>
         <source>Hide to tray</source>
         <translation>Прятаться в трей</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="101"/>
+        <location filename="../options.ui" line="122"/>
         <source>Allow duplicates in a ticker list</source>
         <translation>Разрешить дубликаты в списке тикеров</translation>
     </message>
@@ -524,7 +524,7 @@ the right or middle mouse buttons.</source>
     </message>
     <message>
         <location filename="../screenshoteditor.ui" line="115"/>
-        <source>L</source>
+        <source>P</source>
         <translation></translation>
     </message>
     <message>
@@ -604,17 +604,17 @@ the right or middle mouse buttons.</source>
         <translation>Точки линковки</translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="260"/>
+        <location filename="../tht.ui" line="257"/>
         <source>THT is ready</source>
         <translation>THT готов к работе</translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="292"/>
+        <location filename="../tht.ui" line="289"/>
         <source>THT is busy</source>
         <translation>THT занят</translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="225"/>
+        <location filename="../tht.ui" line="222"/>
         <source>=N</source>
         <translation></translation>
     </message>

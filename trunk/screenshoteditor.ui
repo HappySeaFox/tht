@@ -112,7 +112,7 @@
        <normaloff>:/images/cursor-stop.png</normaloff>:/images/cursor-stop.png</iconset>
      </property>
      <property name="shortcut">
-      <string>L</string>
+      <string>P</string>
      </property>
     </widget>
    </item>
