@@ -1,4 +1,5 @@
 #include <QMouseEvent>
+#include <QPalette>
 #include <QPixmap>
 
 #include "selectablelabel.h"
