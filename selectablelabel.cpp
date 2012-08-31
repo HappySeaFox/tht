@@ -29,8 +29,8 @@ SelectableLabel::SelectableLabel(const QPixmap &px, const QPoint &startPoint, co
     if(startPoint == endPoint)
         coordinates -= QPoint(SL_MARGIN, SL_MARGIN);
     else
-        coordinates += QPoint((endPoint.x() >= startPoint.x()) ? -SL_MARGIN : SL_MARGIN,
-                              (endPoint.y() >= startPoint.y()) ? -SL_MARGIN : SL_MARGIN);
+        coordinates += QPoint((endPoint.x() >= startPoint.x()) ? -1 : 1,
+                              (endPoint.y() >= startPoint.y()) ? -1 : 1);
 
     move(coordinates);
 
