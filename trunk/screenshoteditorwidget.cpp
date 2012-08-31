@@ -165,6 +165,7 @@ void ScreenshotEditorWidget::deleteSelected()
     }
 
     qDeleteAll(toDelete);
+    update();
 }
 
 void ScreenshotEditorWidget::selectAll(bool select)
@@ -193,6 +194,8 @@ void ScreenshotEditorWidget::slotDestroyed()
 
     m_labels.removeAll(l);
     m_savedLabels.removeAll(l);
+
+    update();
 }
 
 void ScreenshotEditorWidget::mousePressEvent(QMouseEvent *e)
@@ -233,7 +236,7 @@ void ScreenshotEditorWidget::mouseReleaseEvent(QMouseEvent *e)
 
     if(!rect().contains(m_currentPoint))
     {
-        m_editType = None;
+        cancel();
         update();
         return;
     }
@@ -260,16 +263,25 @@ void ScreenshotEditorWidget::paintEvent(QPaintEvent *pe)
 {
     QLabel::paintEvent(pe);
 
-    if(!m_wasPress || m_editType == None)
-        return;
-
     QPainter p(this);
 
     p.setClipRect(pe->rect());
     p.setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing);
-    p.setPen(m_colors[m_editType]);
 
-    p.drawLine(m_startPoint, m_currentPoint);
+    if(m_wasPress && m_editType != None)
+    {
+        p.setPen(m_colors[m_editType]);
+        p.drawLine(m_startPoint, m_currentPoint);
+    }
+
+    foreach(SelectableLabel *l, m_labels)
+    {
+        if(l->isVisible())
+        {
+            p.setPen(l->vectorColor());
+            p.drawLine(l->vectorStart(), l->vectorEnd());
+        }
+    }
 }
 
 SelectableLabel *ScreenshotEditorWidget::addLabel(const QPoint &startPoint, const QPoint &endPoint, const QPixmap &px)

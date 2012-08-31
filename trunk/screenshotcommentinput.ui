@@ -19,7 +19,7 @@
      <item>
       <widget class="QLabel" name="label">
        <property name="text">
-        <string>Align:</string>
+        <string>Alignment:</string>
        </property>
       </widget>
      </item>

@@ -18,11 +18,13 @@ public:
     void setSelected(bool, bool loud = true);
     bool selected() const;
 
+    QPoint vectorStart() const;
+    QPoint vectorEnd() const;
+    QColor vectorColor() const;
+
 protected:
     virtual void mousePressEvent(QMouseEvent *e);
     virtual void mouseReleaseEvent(QMouseEvent *e);
-    virtual bool eventFilter(QObject *obj, QEvent *event);
-    virtual void paintEvent(QPaintEvent *);
 
 signals:
     void selected(bool);
@@ -30,7 +32,6 @@ signals:
 private:
     bool m_selected;
     bool m_wasPress;
-    QLabel *m_pixmap;
     QPoint m_vectorStart, m_vectorEnd;
     QColor m_vectorColor;
 };
@@ -39,6 +40,24 @@ inline
 bool SelectableLabel::selected() const
 {
     return m_selected;
+}
+
+inline
+QPoint SelectableLabel::vectorStart() const
+{
+    return m_vectorStart;
+}
+
+inline
+QPoint SelectableLabel::vectorEnd() const
+{
+    return m_vectorEnd;
+}
+
+inline
+QColor SelectableLabel::vectorColor() const
+{
+    return m_vectorColor;
 }
 
 #endif // SELECTABLELABEL_H
