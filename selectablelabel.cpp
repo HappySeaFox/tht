@@ -1,7 +1,6 @@
 #include <QMouseEvent>
 #include <QPaintEvent>
 #include <QPainter>
-#include <QDebug>
 
 #include "selectablelabel.h"
 
@@ -96,6 +95,8 @@ void SelectableLabel::mouseReleaseEvent(QMouseEvent *e)
 
 bool SelectableLabel::eventFilter(QObject *obj, QEvent *event)
 {
+    Q_UNUSED(obj)
+
     QEvent::Type type = event->type();
 
     switch(type)
