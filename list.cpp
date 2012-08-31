@@ -80,41 +80,38 @@ public:
 
 }
 
-class NumberLabel : public QFrame
+class NumberLabel : public QLabel
 {
 public:
-    NumberLabel(QWidget *parent = 0) : QFrame(parent)
+    NumberLabel(QWidget *parent = 0) : QLabel(parent)
     {
         setObjectName("NumberLabel");
 
         QVBoxLayout *l = new QVBoxLayout(this);
         l->setSpacing(2);
-        l->setContentsMargins(2, 2, 2, 2);
+        l->setContentsMargins(2, 2, 3, 3);
         setLayout(l);
 
         setAttribute(Qt::WA_TransparentForMouseEvents);
         setMinimumWidth(18);
-        setFrameShape(QFrame::Box);
-        setStyleSheet("QFrame#NumberLabel{"
-                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                        "                                   stop: 0 #FFEFEF, stop: 0.35 #F7DB45,"
-                        "                                   stop: 0.65 #F7DB45, stop: 1 #FFEFEF);"
-                        "color: black;"
-                        "border: 1px solid gray;"
-                        "}");
+        setFrameShape(QFrame::NoFrame);
 
+        // current ticker
         m_current = new QLabel(this);
         m_current->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
         m_current->setTextFormat(Qt::PlainText);
         l->addWidget(m_current);
 
+        // separator
         QFrame *line = new QFrame(this);
-        line->setStyleSheet("QFrame { background-color: gray; }");
-        line->setFrameShape(QFrame::HLine);
-        line->setFrameShadow(QFrame::Sunken);
+        line->setFrameShape(QFrame::Box);
         line->setFixedHeight(1);
+        QPalette pal = line->palette();
+        pal.setColor(QPalette::Foreground, Qt::gray);
+        line->setPalette(pal);
         l->addWidget(line);
 
+        // total tickers
         m_total = new QLabel(this);
         m_total->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
         m_total->setTextFormat(Qt::PlainText);
@@ -134,6 +131,38 @@ public:
     void setCurrent(int current)
     {
         m_current->setNum(current);
+    }
+
+protected:
+    virtual void resizeEvent(QResizeEvent *)
+    {
+        resetBackground();
+    }
+
+private:
+    void resetBackground()
+    {
+        QPixmap px(size());
+        QPainter p(&px);
+
+        // gradient
+        QLinearGradient gradient(0, 0, 0, height());
+
+        gradient.setColorAt(0.0,  QColor(0xFF, 0xEF, 0xEF));
+        gradient.setColorAt(0.35, QColor(0xF7, 0xDB, 0x45));
+        gradient.setColorAt(0.65, QColor(0xF7, 0xDB, 0x45));
+        gradient.setColorAt(1.0,  QColor(0xFF, 0xEF, 0xEF));
+
+        p.fillRect(rect(), gradient);
+
+        // border
+        p.setPen(QColor(128, 128, 128));
+
+        QRect rc = rect();
+        rc.setBottomRight(rc.bottomRight() - QPoint(1,1));
+        p.drawRect(rc);
+
+        setPixmap(px);
     }
 
 private:

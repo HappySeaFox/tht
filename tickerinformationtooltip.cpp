@@ -288,6 +288,7 @@ int TickerInformationToolTipLabel::getTipScreen(const QPoint &pos)
 
 void TickerInformationToolTipLabel::placeTip(const QPoint &ps)
 {
+#ifndef QT_NO_STYLE_STYLESHEET
     if(testAttribute(Qt::WA_StyleSheet))
     {
         //the stylesheet need to know the real parent
@@ -298,6 +299,7 @@ void TickerInformationToolTipLabel::placeTip(const QPoint &ps)
         // Set up for cleaning up this later...
         TickerInformationToolTipLabel::instance->styleSheetParent = 0;
     }
+#endif
 
     QPoint pos = ps.isNull() ? lastPos : ps;
     QRect screen = QApplication::desktop()->screenGeometry(getTipScreen(pos));
