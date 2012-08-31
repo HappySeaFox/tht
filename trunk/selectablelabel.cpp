@@ -3,6 +3,8 @@
 
 #include "selectablelabel.h"
 
+static const int SL_MARGIN = 2;
+
 SelectableLabel::SelectableLabel(const QPixmap &px, const QPoint &startPoint, const QPoint &endPoint, const QColor &cl, QWidget *parent)
     : QLabel(parent),
       m_selected(true),
@@ -12,7 +14,9 @@ SelectableLabel::SelectableLabel(const QPixmap &px, const QPoint &startPoint, co
 {
     setAlignment(Qt::AlignCenter);
     setPixmap(px);
-    setFixedSize(px.size() + QSize(4,4));
+    setLineWidth(SL_MARGIN);
+    setFrameStyle(QFrame::Box);
+    setFixedSize(px.size() + QSize(SL_MARGIN*2, SL_MARGIN*2));
 
     QPoint coordinates;
 
@@ -21,7 +25,7 @@ SelectableLabel::SelectableLabel(const QPixmap &px, const QPoint &startPoint, co
     coordinates.setY((endPoint.y() >= startPoint.y()) ? endPoint.y() : endPoint.y()-height());
 
     if(startPoint == endPoint)
-        coordinates -= QPoint(2, 2);
+        coordinates -= QPoint(SL_MARGIN, SL_MARGIN);
 
     move(coordinates);
 
@@ -35,7 +39,9 @@ void SelectableLabel::setSelected(bool s, bool loud)
 
     m_selected = s;
 
-    setStyleSheet(QString("QLabel{ border: 2px solid %1; }").arg(m_selected ? "red" : "transparent"));
+    QPalette pal = palette();
+    pal.setColor(QPalette::Foreground, m_selected ? Qt::red : Qt::transparent);
+    setPalette(pal);
 
     if(loud)
         emit selected(m_selected);
