@@ -190,12 +190,9 @@
     </widget>
    </item>
    <item row="2" column="2">
-    <widget class="QToolButton" name="pushLinks">
+    <widget class="ToolButtonNoMenuIndicator" name="pushLinks">
      <property name="toolTip">
       <string>Link points</string>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QToolButton::menu-indicator { image: none; }</string>
      </property>
      <property name="icon">
       <iconset resource="tht.qrc">
@@ -316,6 +313,11 @@
     <signal>dropped(QPoint)</signal>
     <signal>middleClick()</signal>
    </slots>
+  </customwidget>
+  <customwidget>
+   <class>ToolButtonNoMenuIndicator</class>
+   <extends>QToolButton</extends>
+   <header>toolbuttonnomenuindicator.h</header>
   </customwidget>
  </customwidgets>
  <tabstops>
