@@ -45,7 +45,7 @@ void SelectableLabel::setSelected(bool s, bool loud)
     m_selected = s;
 
     QPalette pal = palette();
-    pal.setColor(QPalette::Foreground, m_selected ? Qt::red : Qt::transparent);
+    pal.setColor(QPalette::Foreground, m_selected ? m_vectorColor : Qt::transparent);
     setPalette(pal);
 
     if(loud)
