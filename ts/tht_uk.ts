@@ -471,7 +471,7 @@ the right or middle mouse buttons.</source>
     </message>
     <message>
         <location filename="../screenshotcommentinput.ui" line="22"/>
-        <source>Align:</source>
+        <source>Alignment:</source>
         <translation>Вирівнювання:</translation>
     </message>
     <message>
@@ -503,42 +503,42 @@ the right or middle mouse buttons.</source>
         <translation>Купівля</translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="30"/>
+        <location filename="../screenshoteditor.ui" line="34"/>
         <source>B</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="37"/>
+        <location filename="../screenshoteditor.ui" line="41"/>
         <source>Sale</source>
         <translation>Продаж</translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="40"/>
+        <location filename="../screenshoteditor.ui" line="48"/>
         <source>S</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="100"/>
+        <location filename="../screenshoteditor.ui" line="108"/>
         <source>Stop</source>
         <translation>Стоп</translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="103"/>
+        <location filename="../screenshoteditor.ui" line="115"/>
         <source>L</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="110"/>
+        <location filename="../screenshoteditor.ui" line="122"/>
         <source>Text</source>
         <translation>Текст</translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="113"/>
+        <location filename="../screenshoteditor.ui" line="125"/>
         <source>T</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="120"/>
+        <location filename="../screenshoteditor.ui" line="132"/>
         <source>Select all</source>
         <translation>Виділити все</translation>
     </message>
