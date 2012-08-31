@@ -20,8 +20,8 @@ ScreenshotEditorWidget::ScreenshotEditorWidget(QWidget *parent) :
     m_pixmaps[Sail] = QPixmap(":/images/cursor-sail.png");
     m_pixmaps[Stop] = QPixmap(":/images/cursor-stop.png");
 
-    m_colors[Buy] = Qt::green;
-    m_colors[Sail] = Qt::red;
+    m_colors[Buy] = QColor(29, 199, 0);
+    m_colors[Sail] = QColor(244, 49, 49);
     m_colors[Stop] = QColor(0, 75, 150);
     m_colors[Text] = Qt::black;
 }
@@ -233,14 +233,16 @@ void ScreenshotEditorWidget::mouseReleaseEvent(QMouseEvent *e)
         return;
     }
 
-    if(!rect().contains(m_currentPoint))
+    m_currentPoint = e->pos();
+
+    const int margin = 5;
+
+    if(!rect().adjusted(margin, margin, -margin, -margin).contains(m_currentPoint))
     {
         cancel();
         update();
         return;
     }
-
-    m_currentPoint = e->pos();
 
     if(m_editType == Text)
     {
@@ -269,14 +271,17 @@ void ScreenshotEditorWidget::paintEvent(QPaintEvent *pe)
 
     if(m_wasPress && m_editType != None)
     {
-        p.setPen(m_colors[m_editType]);
+        p.setPen(QPen(m_colors[m_editType], 2));
         p.drawLine(m_startPoint, m_currentPoint);
     }
 
     foreach(SelectableLabel *l, m_labels)
     {
-        p.setPen(l->vectorColor());
-        p.drawLine(l->vectorStart(), l->vectorEnd());
+        if(l->vectorStart() != l->vectorEnd())
+        {
+            p.setPen(QPen(l->vectorColor(), 2));
+            p.drawLine(l->vectorStart(), l->vectorEnd());
+        }
     }
 }
 
