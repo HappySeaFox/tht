@@ -76,7 +76,8 @@ SOURCES += main.cpp\
     selectablelabel.cpp \
     screenshoteditorwidget.cpp \
     screenshoteditor.cpp \
-    screenshotcommentinput.cpp
+    screenshotcommentinput.cpp \
+    toolbuttonnomenuindicator.cpp
 
 HEADERS += tht.h \
     list.h \
@@ -121,7 +122,8 @@ HEADERS += tht.h \
     selectablelabel.h \
     screenshoteditorwidget.h \
     screenshoteditor.h \
-    screenshotcommentinput.h
+    screenshotcommentinput.h \
+    toolbuttonnomenuindicator.h
 
 FORMS += tht.ui \
     list.ui \
