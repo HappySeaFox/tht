@@ -60,7 +60,7 @@ ScreenshotEditor::ScreenshotEditor(const QPixmap &px, QWidget *parent) :
     int neww = width() + (px.width() - ui->scrollArea->width() + 4);
     int newh = height() + (px.height() - ui->scrollArea->height() + 4);
 
-    resize(qMax(qMin(neww, maxw), width()), qMax(qMin(newh, maxh), height()));
+    resize(qBound(width(), neww, maxw), qBound(height(), newh, maxh));
 }
 
 ScreenshotEditor::~ScreenshotEditor()
