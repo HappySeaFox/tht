@@ -32,6 +32,8 @@ SaveScreenshot::SaveScreenshot(const QPixmap &px, QWidget *parent) :
     ui->setupUi(this);
 
     m_editor = new ScreenshotEditor(px, this);
+
+    connect(ui->pushEdit, SIGNAL(clicked()), m_editor, SLOT(exec()));
 }
 
 SaveScreenshot::~SaveScreenshot()
@@ -77,14 +79,4 @@ void SaveScreenshot::slotFile()
         Settings::instance()->setLastScreenShotDirectory(QFileInfo(m_fileName).absolutePath());
         accept();
     }
-}
-
-void SaveScreenshot::slotEdit()
-{
-    m_editor->restoreLabels();
-
-    if(m_editor->exec() == QDialog::Accepted)
-        m_editor->saveLabels();
-    else
-        m_editor->clearLabels();
 }

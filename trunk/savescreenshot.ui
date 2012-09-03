@@ -92,26 +92,9 @@
     </hint>
    </hints>
   </connection>
-  <connection>
-   <sender>pushEdit</sender>
-   <signal>clicked()</signal>
-   <receiver>SaveScreenshot</receiver>
-   <slot>slotEdit()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>73</x>
-     <y>24</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>73</x>
-     <y>68</y>
-    </hint>
-   </hints>
-  </connection>
  </connections>
  <slots>
   <slot>slotClipboard()</slot>
   <slot>slotFile()</slot>
-  <slot>slotEdit()</slot>
  </slots>
 </ui>
