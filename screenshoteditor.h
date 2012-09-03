@@ -21,13 +21,12 @@ public:
 
     QPixmap pixmap();
 
-    void restoreLabels();
-    void saveLabels();
-    void clearLabels();
-
 protected:
     virtual void keyPressEvent(QKeyEvent *);
     virtual bool event(QEvent *e);
+
+public slots:
+    int exec();
 
 private slots:
     void slotSelected(SelectableLabel *, bool);

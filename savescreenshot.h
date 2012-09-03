@@ -47,7 +47,6 @@ public:
 private slots:
     void slotClipboard();
     void slotFile();
-    void slotEdit();
 
 private:
     Ui::SaveScreenshot *ui;

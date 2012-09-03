@@ -56,19 +56,18 @@ QPixmap ScreenshotEditor::pixmap()
     return ui->scrollAreaWidgetContents->pixmap();
 }
 
-void ScreenshotEditor::restoreLabels()
+int ScreenshotEditor::exec()
 {
     ui->scrollAreaWidgetContents->restoreLabels();
-}
 
-void ScreenshotEditor::saveLabels()
-{
-    ui->scrollAreaWidgetContents->saveLabels();
-}
+    int code = QDialog::exec();
 
-void ScreenshotEditor::clearLabels()
-{
-    ui->scrollAreaWidgetContents->clearLabels();
+    if(code == QDialog::Accepted)
+        ui->scrollAreaWidgetContents->saveLabels();
+    else
+        ui->scrollAreaWidgetContents->clearLabels();
+
+    return code;
 }
 
 void ScreenshotEditor::keyPressEvent(QKeyEvent *ke)
