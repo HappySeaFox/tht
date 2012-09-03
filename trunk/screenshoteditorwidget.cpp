@@ -27,6 +27,7 @@
 #include "screenshoteditorwidget.h"
 #include "screenshotcommentinput.h"
 #include "selectablelabel.h"
+#include "settings.h"
 
 ScreenshotEditorWidget::ScreenshotEditorWidget(QWidget *parent) :
     QLabel(parent),
@@ -307,7 +308,9 @@ SelectableLabel *ScreenshotEditorWidget::addLabel(const QPoint &startPoint, cons
     if(px.isNull())
         return 0;
 
-    SelectableLabel *l = new SelectableLabel(px, startPoint, endPoint, m_colors[m_editType], this);
+    SelectableLabel *l = new SelectableLabel(px, startPoint, endPoint,
+                                             (m_editType == Text) ? Settings::instance()->screenshotTextColor() : m_colors[m_editType],
+                                             this);
 
     connect(l, SIGNAL(selected(bool)), this, SLOT(slotSelected(bool)));
     connect(l, SIGNAL(destroyed()), this, SLOT(slotDestroyed()));
