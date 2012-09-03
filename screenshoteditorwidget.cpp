@@ -40,7 +40,7 @@ ScreenshotEditorWidget::ScreenshotEditorWidget(QWidget *parent) :
 
     m_colors[Buy] = QColor(29, 199, 0);
     m_colors[Sail] = QColor(244, 49, 49);
-    m_colors[Stop] = QColor(0, 75, 150);
+    m_colors[Stop] = QColor(10, 103, 200);
     m_colors[Text] = Qt::black;
 }
 
