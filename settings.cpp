@@ -21,6 +21,8 @@
 #include <QFile>
 #include <QDir>
 
+#include <climits>
+
 #include <windows.h>
 
 #include "settings.h"
@@ -478,7 +480,7 @@ void Settings::setWindowPosition(const QPoint &p, SyncType sync)
 
 QPoint Settings::windowPosition()
 {
-    return load<QPoint>("position");
+    return point("position");
 }
 
 void Settings::setNeighborsWindowSize(const QSize &s, SyncType sync)
@@ -498,7 +500,7 @@ void Settings::setNeighborsWindowPosition(const QPoint &p, SyncType sync)
 
 QPoint Settings::neighborsWindowPosition()
 {
-    return load<QPoint>("neighbors-position");
+    return point("neighbors-position");
 }
 
 void Settings::setSaveTickers(bool s, SyncType sync)
@@ -583,4 +585,12 @@ void Settings::fillTranslations()
     m_translations.insert("ru", QObject::tr("Russian"));
     m_translations.insert("uk", QObject::tr("Ukrainian"));
     m_translations.insert("en_US", QObject::tr("English"));
+}
+
+QPoint Settings::point(const QString &key)
+{
+    if(m_settings->contains("settings/" + key))
+        return load<QPoint>(key);
+    else
+        return QPoint(INT_MIN, INT_MIN);
 }
