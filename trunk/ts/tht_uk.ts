@@ -9,12 +9,12 @@
         <translation>Про програму</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="97"/>
+        <location filename="../about.cpp" line="99"/>
         <source>Update available</source>
         <translation>Доступно оновлення</translation>
     </message>
     <message>
-        <location filename="../about.ui" line="96"/>
+        <location filename="../about.ui" line="93"/>
         <source>THT helps you to do your home task in trading. It can link several Advanced Get windows together and manage a list of tickers.
 
 All suggestions and bug reports please send to our bug tracker, also visit</source>
@@ -23,42 +23,42 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
 Всі побажання та звіти про помилки надсилайте на наш багтрекер, також відвідаєте</translation>
     </message>
     <message>
-        <location filename="../about.ui" line="137"/>
+        <location filename="../about.ui" line="134"/>
         <source>(C) 2012 Dmitry Baryshev &amp;lt;&lt;a href=&quot;mailto:ksquirrel.iv@gmail.com&quot;&gt;ksquirrel.iv@gmail.com&lt;/a&gt;&amp;gt;</source>
         <translation>(C) 2012 Баришев Дмитро &amp;lt;&lt;a href=&quot;mailto:ksquirrel.iv@gmail.com&quot;&gt;ksquirrel.iv@gmail.com&lt;/a&gt;&amp;gt;</translation>
     </message>
     <message>
-        <location filename="../about.ui" line="169"/>
+        <location filename="../about.ui" line="166"/>
         <source>THT is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</source>
         <translation>THT поширюється в надії, що вона буде корисною, але БЕЗ БУДЬ-ЯКИХ ГАРАНТІЙ, навіть без гарантій КОМЕРЦІЙНОЇ ЦІННОСТІ чи ПРИДАТНОСТІ ДЛЯ КОНКРЕТНИХ ЦІЛЕЙ.</translation>
     </message>
     <message>
-        <location filename="../about.ui" line="212"/>
+        <location filename="../about.ui" line="209"/>
         <source>OK</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="55"/>
+        <location filename="../about.cpp" line="57"/>
         <source>Persistent database</source>
         <translation>Постійна база</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="57"/>
+        <location filename="../about.cpp" line="59"/>
         <source>Downloadable database</source>
         <translation>Викачувана база</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="105"/>
+        <location filename="../about.cpp" line="107"/>
         <source>THT is up to date</source>
         <translation>Маєте найновішу версію THT</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="117"/>
+        <location filename="../about.cpp" line="119"/>
         <source>Cannot check for updates (%1)</source>
         <translation>Неможливо перевірити оновлення (%1)</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="132"/>
+        <location filename="../about.cpp" line="134"/>
         <source>Checking for updates...</source>
         <translation>Перевірка оновлень...</translation>
     </message>
@@ -132,12 +132,12 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
         <translation>Завантаження тікерів...</translation>
     </message>
     <message>
-        <location filename="../finvizdownloader.cpp" line="83"/>
+        <location filename="../finvizdownloader.cpp" line="100"/>
         <source>Network error #%1</source>
         <translation>Помилка мережі #%1</translation>
     </message>
     <message>
-        <location filename="../finvizdownloader.cpp" line="97"/>
+        <location filename="../finvizdownloader.cpp" line="114"/>
         <source>Broken data (fields: %1, required: %2)</source>
         <translation>Зараховано (поля: %1, необхідно: %2)</translation>
     </message>
@@ -158,33 +158,33 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
 <context>
     <name>FinvizUrlManager</name>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="10"/>
+        <location filename="../finvizurlmanager.cpp" line="27"/>
         <source>Finviz links</source>
         <translation>Посилання Finviz</translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="11"/>
+        <location filename="../finvizurlmanager.cpp" line="28"/>
         <source>Add</source>
         <translation>Додати</translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="12"/>
+        <location filename="../finvizurlmanager.cpp" line="29"/>
         <source>Link</source>
         <translation>Посилання</translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="13"/>
+        <location filename="../finvizurlmanager.cpp" line="30"/>
         <source>Open YouTube tutorial</source>
         <translation>Відкрити урок на YouTube</translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="51"/>
+        <location filename="../finvizurlmanager.cpp" line="68"/>
         <source>Tickers</source>
         <translation>Тікери</translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="51"/>
-        <location filename="../finvizurlmanager.cpp" line="64"/>
+        <location filename="../finvizurlmanager.cpp" line="68"/>
+        <location filename="../finvizurlmanager.cpp" line="81"/>
         <source>&lt;Paste url here&gt;</source>
         <translation>&lt;Вставте сюди посилання&gt;</translation>
     </message>
@@ -192,24 +192,24 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
 <context>
     <name>LinkPointManager</name>
     <message>
-        <location filename="../linkpointmanager.cpp" line="37"/>
-        <location filename="../linkpointmanager.cpp" line="42"/>
+        <location filename="../linkpointmanager.cpp" line="54"/>
+        <location filename="../linkpointmanager.cpp" line="59"/>
         <source>Link points</source>
         <translation>Точки лінковки</translation>
     </message>
     <message>
-        <location filename="../linkpointmanager.cpp" line="40"/>
+        <location filename="../linkpointmanager.cpp" line="57"/>
         <source>Add current</source>
         <extracomment>Means &quot;Add current link points (in the plural)&quot;</extracomment>
         <translation>Додати поточні</translation>
     </message>
     <message>
-        <location filename="../linkpointmanager.cpp" line="43"/>
+        <location filename="../linkpointmanager.cpp" line="60"/>
         <source>Open YouTube tutorial</source>
         <translation>Відкрити урок на YouTube</translation>
     </message>
     <message>
-        <location filename="../linkpointmanager.cpp" line="94"/>
+        <location filename="../linkpointmanager.cpp" line="111"/>
         <source>New points</source>
         <translation>Нові точки</translation>
     </message>
@@ -382,17 +382,17 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../settings.cpp" line="583"/>
+        <location filename="../settings.cpp" line="585"/>
         <source>Russian</source>
         <translation>Російська</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="584"/>
+        <location filename="../settings.cpp" line="586"/>
         <source>Ukrainian</source>
         <translation>Українська</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="585"/>
+        <location filename="../settings.cpp" line="587"/>
         <source>English</source>
         <translation>Англійська</translation>
     </message>
@@ -452,14 +452,24 @@ the right or middle mouse buttons.</source>
         <translation>Файл...</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="63"/>
+        <location filename="../savescreenshot.cpp" line="64"/>
         <source>Image %1 (*.%2)</source>
         <translation>Зображення %1 (*.%2)</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="71"/>
+        <location filename="../savescreenshot.cpp" line="72"/>
         <source>Save as</source>
         <translation>Зберегти як</translation>
+    </message>
+    <message>
+        <location filename="../savescreenshot.cpp" line="86"/>
+        <source>Error</source>
+        <translation>Помилка</translation>
+    </message>
+    <message>
+        <location filename="../savescreenshot.cpp" line="86"/>
+        <source>Cannot save screenshot</source>
+        <translation>Неможливо зберегти знімок екрана</translation>
     </message>
 </context>
 <context>
@@ -543,7 +553,7 @@ the right or middle mouse buttons.</source>
         <translation>Виділити все</translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.cpp" line="22"/>
+        <location filename="../screenshoteditor.cpp" line="39"/>
         <source>Open YouTube tutorial</source>
         <translation>Відкрити урок на YouTube</translation>
     </message>
@@ -619,82 +629,76 @@ the right or middle mouse buttons.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="91"/>
+        <location filename="../tht.cpp" line="90"/>
         <source>Options...</source>
         <translation>Параметри...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="94"/>
-        <location filename="../tht.cpp" line="154"/>
+        <location filename="../tht.cpp" line="93"/>
+        <location filename="../tht.cpp" line="153"/>
         <source>Take screenshot...</source>
         <translation>Знімок екрану...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="99"/>
+        <location filename="../tht.cpp" line="98"/>
         <source>Clear ticker lists</source>
         <translation>Очистити списки тікерів</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="96"/>
+        <location filename="../tht.cpp" line="95"/>
         <source>Clear links</source>
         <translation>Очистити посилання</translation>
     </message>
     <message>
+        <location filename="../tht.cpp" line="99"/>
         <location filename="../tht.cpp" line="100"/>
-        <location filename="../tht.cpp" line="101"/>
         <source>Load ticker</source>
         <translation>Завантажити тікер</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="104"/>
-        <location filename="../tht.cpp" line="156"/>
+        <location filename="../tht.cpp" line="103"/>
+        <location filename="../tht.cpp" line="155"/>
         <source>About THT</source>
         <translation>Про THT</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="105"/>
+        <location filename="../tht.cpp" line="104"/>
         <source>About Qt</source>
         <translation>Про Qt</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="107"/>
-        <location filename="../tht.cpp" line="158"/>
+        <location filename="../tht.cpp" line="106"/>
+        <location filename="../tht.cpp" line="157"/>
         <source>Quit</source>
         <translation>Вихід</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="153"/>
+        <location filename="../tht.cpp" line="152"/>
         <source>Restore</source>
         <translation>Відновити</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="257"/>
+        <location filename="../tht.cpp" line="256"/>
         <source>Notice</source>
         <translation>Замітка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="257"/>
+        <location filename="../tht.cpp" line="256"/>
         <source>THT will continue to run in a system tray</source>
         <translation>ТНТ продовжить роботу в системному лотку</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1090"/>
-        <location filename="../tht.cpp" line="1124"/>
+        <location filename="../tht.cpp" line="1089"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1090"/>
+        <location filename="../tht.cpp" line="1089"/>
         <source>Cannot take screenshot</source>
         <translation>Неможливо створити знімок екрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1124"/>
-        <source>Cannot save screenshot</source>
-        <translation>Неможливо зберегти знімок екрана</translation>
-    </message>
-    <message>
-        <location filename="../tht.cpp" line="1411"/>
+        <location filename="../tht.cpp" line="1387"/>
         <source>Customize...</source>
         <translation>Налаштувати...</translation>
     </message>
