@@ -39,10 +39,13 @@ static void thtOutput(QtMsgType type, const char *msg)
 {
     Q_UNUSED(type)
 
+#ifndef THT_NO_LOG
     static bool noLog = qgetenv("THT_NO_LOG") == "1";
+#endif
 
     fprintf(stderr, "THT: %s\n", msg);
 
+#ifndef THT_NO_LOG
     if(noLog)
         return;
 
@@ -98,6 +101,7 @@ static void thtOutput(QtMsgType type, const char *msg)
         log.write(msg);
         log.write("\n");
     }
+#endif // THT_NO_LOG
 }
 
 static void copyDb()
