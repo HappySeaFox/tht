@@ -39,6 +39,11 @@ private:
     static QStringList selectDistinct(const QString &query);
 
     static QMap<QString, QStringList> sectorsAndIndustriesReal();
+
+    static void initializeDatabases();
+
+private:
+    static bool initialized;
 };
 
 #endif // SQLTOOLS_H

@@ -19,9 +19,7 @@
 
 #include <QDesktopServices>
 #include <QTranslator>
-#include <QSqlDatabase>
 #include <QDateTime>
-#include <QSqlError>
 #include <QLocale>
 #include <QFile>
 #include <QDir>
@@ -39,13 +37,11 @@ static void thtOutput(QtMsgType type, const char *msg)
 {
     Q_UNUSED(type)
 
-#ifndef THT_NO_LOG
-    static bool noLog = qgetenv("THT_NO_LOG") == "1";
-#endif
-
     fprintf(stderr, "THT: %s\n", msg);
 
 #ifndef THT_NO_LOG
+    static bool noLog = qgetenv("THT_NO_LOG") == "1";
+
     if(noLog)
         return;
 
@@ -138,30 +134,6 @@ static void copyDb()
 
     QFile::remove(newDb);
     QFile::remove(newTs);
-
-}
-
-static void initializeDb()
-{
-    // reread database timestamps
-    Settings::instance()->rereadTimestamps();
-
-    // open ticker databases
-    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE", Settings::instance()->mutableDatabaseName());
-    db.setDatabaseName(Settings::instance()->mutableDatabasePath());
-
-    if(!QFile::exists(db.databaseName()) || !db.isValid() || !db.open())
-        qDebug("Cannot open mutable database (%s)", qPrintable(db.lastError().text()));
-    else
-        qDebug("Mutable database has been opened");
-
-    db = QSqlDatabase::addDatabase("QSQLITE", Settings::instance()->persistentDatabaseName());
-    db.setDatabaseName(Settings::instance()->persistentDatabasePath());
-
-    if(!QFile::exists(db.databaseName()) || !db.isValid() || !db.open())
-        qDebug("Cannot open persistent database (%s)", qPrintable(db.lastError().text()));
-    else
-        qDebug("Persistent database has been opened");
 }
 
 /******************************************/
@@ -190,9 +162,11 @@ int main(int argc, char *argv[])
     if(app.sendMessage("wake up"))
         return 0;
 
-    // initialize ticker databases
+    // copy a new ticker database if any
     copyDb();
-    initializeDb();
+
+    // reread database timestamps
+    Settings::instance()->rereadTimestamps();
 
     // load translations
     QString locale = QLocale::system().name();
