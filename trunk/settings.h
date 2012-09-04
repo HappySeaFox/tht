@@ -190,6 +190,8 @@ private:
 
     void fillTranslations();
 
+    QPoint point(const QString &key);
+
 private:
     QSettings *m_settings;
     QRegExp m_rxTicker;
