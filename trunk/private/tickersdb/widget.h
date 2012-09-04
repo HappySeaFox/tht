@@ -57,7 +57,7 @@ protected:
 
 private:
     bool writeData(const Ticker &);
-    void message(const QString &, bool = true);
+    void message(const QString &msg, bool activate = true);
 
 private slots:
     bool commit();

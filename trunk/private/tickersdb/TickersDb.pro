@@ -1,5 +1,7 @@
 QT += core gui network sql
 
+QTPLUGIN += qico qsqlite
+
 TARGET = TickersDb
 TEMPLATE = app
 

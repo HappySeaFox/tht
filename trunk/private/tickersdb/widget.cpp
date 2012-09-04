@@ -213,7 +213,9 @@ void Widget::slotFinished()
 
             if(oldCountry != map[ticker].country)
             {
-                qDebug("Country for %s is changed (%s / %s)", qPrintable(ticker), qPrintable(map[ticker].country), qPrintable(oldCountry));
+                QString msg = QString("Country for %1 is changed (%2 / %3)").arg(ticker).arg(map[ticker].country).arg(oldCountry);
+                qDebug("%s", qPrintable(msg));
+                ui->list->addItem(msg);
                 needup = true;
                 break;
             }
@@ -237,7 +239,12 @@ void Widget::slotFinished()
 
             if((cap && !oldCap) || fabs((oldCap - cap) / oldCap) > 5) // more than 5%
             {
-                qDebug("Capitalization for %s is changed too much (%.1f / %.1f)", qPrintable(ticker), cap, oldCap);
+                QString msg = QString("Capitalization for %1 is changed too much (%2 / %3)")
+                                .arg(ticker)
+                                .arg(cap, 0, 'f', 1)
+                                .arg(oldCap, 0, 'f', 1);
+                qDebug("%s", qPrintable(msg));
+                ui->list->addItem(msg);
                 needup = true;
                 break;
             }
