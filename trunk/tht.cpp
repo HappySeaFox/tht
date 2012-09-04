@@ -23,7 +23,6 @@
 #include <QGridLayout>
 #include <QMessageBox>
 #include <QCloseEvent>
-#include <QClipboard>
 #include <QFileInfo>
 #include <QShortcut>
 #include <QDateTime>
@@ -1103,30 +1102,7 @@ void THT::slotTakeScreenshotReal()
     // save screenshot
     SaveScreenshot s(px, this);
 
-    px = QPixmap();
-
-    if(s.exec() == QDialog::Accepted)
-    {
-        px = s.pixmap();
-
-        if(s.destination() == SaveScreenshot::SaveScreenshotToClipboard)
-            QApplication::clipboard()->setPixmap(px);
-        else
-        {
-            QString fileName = s.fileName();
-
-            if(!fileName.isEmpty())
-            {
-                if(px.save(fileName))
-                    qDebug("Screenshot has been saved to \"%s\"", qPrintable(fileName));
-                else
-                {
-                    QMessageBox::critical(this, tr("Error"), tr("Cannot save screenshot"));
-                    qDebug("Cannot save screenshot");
-                }
-            }
-        }
-    }
+    s.exec();
 
     m_takeScreen->setEnabled();
 }

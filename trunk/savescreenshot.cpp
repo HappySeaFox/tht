@@ -15,9 +15,15 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <QApplication>
 #include <QImageWriter>
 #include <QFileDialog>
+#include <QMessageBox>
+#include <QClipboard>
+#include <QByteArray>
 #include <QFileInfo>
+#include <QPixmap>
+#include <QList>
 
 #include "screenshoteditor.h"
 #include "savescreenshot.h"
@@ -41,21 +47,14 @@ SaveScreenshot::~SaveScreenshot()
     delete ui;
 }
 
-QPixmap SaveScreenshot::pixmap() const
-{
-    return m_editor->pixmap();
-}
-
 void SaveScreenshot::slotClipboard()
 {
-    m_dest = SaveScreenshotToClipboard;
+    QApplication::clipboard()->setPixmap(m_editor->pixmap());
     accept();
 }
 
 void SaveScreenshot::slotFile()
 {
-    m_dest = SaveScreenshotToFile;
-
     QString filter;
     QList<QByteArray> formats = QImageWriter::supportedImageFormats();
     QString selectedFilter, current;
@@ -70,13 +69,21 @@ void SaveScreenshot::slotFile()
         filter += current + ";;";
     }
 
-    m_fileName = QFileDialog::getSaveFileName(this, tr("Save as"), Settings::instance()->lastScreenShotDirectory(), filter, &selectedFilter);
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Save as"), Settings::instance()->lastScreenShotDirectory(), filter, &selectedFilter);
 
-    if(m_fileName.isEmpty())
-        reject();
+    if(fileName.isEmpty())
+        return;
+
+    Settings::instance()->setLastScreenShotDirectory(QFileInfo(fileName).absolutePath());
+
+    if(m_editor->pixmap().save(fileName))
+    {
+        qDebug("Screenshot has been saved to \"%s\"", qPrintable(fileName));
+        accept();
+    }
     else
     {
-        Settings::instance()->setLastScreenShotDirectory(QFileInfo(m_fileName).absolutePath());
-        accept();
+        QMessageBox::critical(this, tr("Error"), tr("Cannot save screenshot"));
+        qDebug("Cannot save screenshot");
     }
 }
