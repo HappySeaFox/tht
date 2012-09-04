@@ -209,7 +209,7 @@ tag.commands += $$mle(svn -m "\"$$VERSION tag\"" copy "\"$$SVNROOTORIG/trunk\"" 
 QMAKE_EXTRA_TARGETS += tag
 
 # files to copy to the distribution
-IMAGEPLUGINS=qgif4.dll qico4.dll qjpeg4.dll
+IMAGEPLUGINS=qico4.dll qjpeg4.dll
 SQLPLUGINS=qsqlite4.dll
 QTLIBS=QtCore4.dll QtGui4.dll QtNetwork4.dll QtSql4.dll
 MINGWLIBS=libgcc_s_dw2-1.dll libstdc++-6.dll mingwm10.dll
