@@ -32,6 +32,8 @@ ColorViewer::~ColorViewer()
 
 void ColorViewer::paintEvent(QPaintEvent *event)
 {
+    Q_UNUSED(event)
+
     QPainter p(this);
     p.setPen(actualPen);
     p.setBrush(QBrush(actualColor));
