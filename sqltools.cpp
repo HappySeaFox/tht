@@ -18,9 +18,12 @@
 #include <QSqlDatabase>
 #include <QSqlError>
 #include <QSqlQuery>
+#include <QFile>
 
 #include "settings.h"
 #include "sqltools.h"
+
+bool SqlTools::initialized = false;
 
 QList<QVariantList> SqlTools::query(const QString &s, const QString &bindTemplate, const QString &bindValue)
 {
@@ -33,6 +36,9 @@ QList<QVariantList> SqlTools::query(const QString &s, const QString &bindTemplat
 
 QList<QVariantList> SqlTools::query(const QString &s, const QMap<QString, QString> &binds)
 {
+    if(!SqlTools::initialized)
+        SqlTools::initializeDatabases();
+
     // databases to query
     QList<QSqlDatabase> databases;
 
@@ -169,4 +175,28 @@ QMap<QString, QStringList> SqlTools::sectorsAndIndustriesReal()
     }
 
     return result;
+}
+
+void SqlTools::initializeDatabases()
+{
+    SqlTools::initialized = true;
+
+    qDebug("Initializing ticker databases");
+
+    // open ticker databases
+    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE", Settings::instance()->mutableDatabaseName());
+    db.setDatabaseName(Settings::instance()->mutableDatabasePath());
+
+    if(!QFile::exists(db.databaseName()) || !db.isValid() || !db.open())
+        qDebug("Cannot open mutable database (%s)", qPrintable(db.lastError().text()));
+    else
+        qDebug("Mutable database has been opened");
+
+    db = QSqlDatabase::addDatabase("QSQLITE", Settings::instance()->persistentDatabaseName());
+    db.setDatabaseName(Settings::instance()->persistentDatabasePath());
+
+    if(!QFile::exists(db.databaseName()) || !db.isValid() || !db.open())
+        qDebug("Cannot open persistent database (%s)", qPrintable(db.lastError().text()));
+    else
+        qDebug("Persistent database has been opened");
 }
