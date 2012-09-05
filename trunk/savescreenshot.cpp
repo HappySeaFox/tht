@@ -19,9 +19,9 @@
 #include <QImageWriter>
 #include <QFileDialog>
 #include <QMessageBox>
-#include <QDateTime>
 #include <QClipboard>
 #include <QByteArray>
+#include <QDateTime>
 #include <QFileInfo>
 #include <QPixmap>
 #include <QList>
