@@ -19,11 +19,13 @@
 #include <QImageWriter>
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QDateTime>
 #include <QClipboard>
 #include <QByteArray>
 #include <QFileInfo>
 #include <QPixmap>
 #include <QList>
+#include <QDir>
 
 #include "screenshoteditor.h"
 #include "savescreenshot.h"
@@ -69,7 +71,11 @@ void SaveScreenshot::slotFile()
         filter += current + ";;";
     }
 
-    QString fileName = QFileDialog::getSaveFileName(this, tr("Save as"), Settings::instance()->lastScreenShotDirectory(), filter, &selectedFilter);
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Save as"),
+                                                    Settings::instance()->lastScreenShotDirectory()
+                                                    + QDir::separator()
+                                                    + QDateTime::currentDateTime().toString("yyyy-MM-dd-"),
+                                                    filter, &selectedFilter);
 
     if(fileName.isEmpty())
         return;
