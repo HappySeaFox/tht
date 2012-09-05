@@ -15,7 +15,9 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <QKeySequence>
 #include <QFontMetrics>
+#include <QShortcut>
 #include <QPainter>
 #include <QFont>
 
@@ -74,6 +76,14 @@ ScreenshotCommentInput::ScreenshotCommentInput(QWidget *parent) :
         f.setPointSize(size);
         ui->text->setFont(f);
     }
+
+    // shortcuts
+    new QShortcut(QKeySequence::ZoomIn, ui->pushFontUp, SLOT(animateClick()));
+    new QShortcut(QKeySequence::ZoomOut, ui->pushFontDown, SLOT(animateClick()));
+    new QShortcut(Qt::CTRL+Qt::Key_Return, ui->buttonBox->button(QDialogButtonBox::Ok), SLOT(animateClick()));
+    new QShortcut(Qt::CTRL+Qt::Key_L, ui->pushAlignLeft, SLOT(animateClick()));
+    new QShortcut(Qt::CTRL+Qt::Key_E, ui->pushAlignCenter, SLOT(animateClick()));
+    new QShortcut(Qt::CTRL+Qt::Key_R, ui->pushAlignRight, SLOT(animateClick()));
 }
 
 ScreenshotCommentInput::~ScreenshotCommentInput()
@@ -186,7 +196,7 @@ void ScreenshotCommentInput::slotAlignChanged(bool checked)
     ui->text->moveCursor(QTextCursor::Start);
 
     int lastPos = -1;
-    int curPos = oldCursor.position();
+    int curPos = 0;
 
     while(lastPos != curPos)
     {

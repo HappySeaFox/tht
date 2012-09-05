@@ -158,8 +158,12 @@
  </widget>
  <tabstops>
   <tabstop>text</tabstop>
+  <tabstop>pushAlignLeft</tabstop>
+  <tabstop>pushAlignCenter</tabstop>
+  <tabstop>pushAlignRight</tabstop>
   <tabstop>pushFontDown</tabstop>
   <tabstop>pushFontUp</tabstop>
+  <tabstop>pushColor</tabstop>
   <tabstop>buttonBox</tabstop>
  </tabstops>
  <resources>
