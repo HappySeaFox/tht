@@ -53,7 +53,7 @@ static QDataStream &operator>>(QDataStream &in, FinvizUrl &fu)
     return in;
 }
 
-// serialize/deserialize FinvizUrl
+// serialize/deserialize Qt::AlignmentFlag
 static QDataStream &operator<<(QDataStream &out, const Qt::AlignmentFlag &f)
 {
     QString s;
