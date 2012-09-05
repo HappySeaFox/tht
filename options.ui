@@ -69,16 +69,6 @@
        </item>
       </layout>
      </item>
-     <item row="0" column="1" rowspan="2">
-      <widget class="QLabel" name="labelStock">
-       <property name="pixmap">
-        <pixmap resource="tht.qrc">:/images/options-background.png</pixmap>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
      <item row="1" column="0">
       <widget class="QCheckBox" name="checkOnTop">
        <property name="text">
@@ -90,6 +80,16 @@
       <widget class="QCheckBox" name="checkTray">
        <property name="text">
         <string>Hide to tray</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1" rowspan="3">
+      <widget class="QLabel" name="labelStock">
+       <property name="pixmap">
+        <pixmap resource="tht.qrc">:/images/options-background.png</pixmap>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignHCenter|Qt::AlignTop</set>
        </property>
       </widget>
      </item>
