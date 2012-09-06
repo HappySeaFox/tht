@@ -282,7 +282,12 @@ bool THT::eventFilter(QObject *o, QEvent *e)
         QWhatsThisClickedEvent *ce = static_cast<QWhatsThisClickedEvent *>(e);
 
         if(ce)
-            QDesktopServices::openUrl(QUrl(ce->href()));
+        {
+            QUrl url(ce->href());
+
+            if(url.isValid())
+                QDesktopServices::openUrl(url);
+        }
 
         return true;
     }
