@@ -30,7 +30,7 @@ class QListWidgetItem;
 class QLabel;
 class QMenu;
 
-class NumberLabel;
+class ListDetails;
 
 namespace Ui
 {
@@ -143,7 +143,7 @@ private:
     QPoint m_startPos;
     QString m_startDragText;
     ListItem::Priority m_startDragPriority;
-    NumberLabel *m_numbers;
+    ListDetails *m_numbers;
     QAbstractItemDelegate *m_oldDelegate, *m_persistentDelegate;
     QList<QListWidgetItem *> m_foundItems;
     QStringList m_oldTickers;

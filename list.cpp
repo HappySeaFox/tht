@@ -29,12 +29,10 @@
 #include <QStringList>
 #include <QClipboard>
 #include <QDateTime>
-#include <QGradient>
 #include <QFileInfo>
 #include <QKeyEvent>
 #include <QPalette>
 #include <QPainter>
-#include <QFrame>
 #include <QTimer>
 #include <QLabel>
 #include <QEvent>
@@ -50,6 +48,7 @@
 #include "finvizdownloader.h"
 #include "searchticker.h"
 #include "tickerinput.h"
+#include "listdetails.h"
 #include "settings.h"
 #include "listitem.h"
 #include "list.h"
@@ -80,96 +79,7 @@ public:
 
 }
 
-class NumberLabel : public QLabel
-{
-public:
-    NumberLabel(QWidget *parent = 0) : QLabel(parent)
-    {
-        setObjectName("NumberLabel");
-
-        QVBoxLayout *l = new QVBoxLayout(this);
-        l->setSpacing(2);
-        l->setContentsMargins(2, 2, 3, 3);
-        setLayout(l);
-
-        setAttribute(Qt::WA_TransparentForMouseEvents);
-        setMinimumWidth(18);
-        setFrameShape(QFrame::NoFrame);
-
-        // current ticker
-        m_current = new QLabel(this);
-        m_current->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-        m_current->setTextFormat(Qt::PlainText);
-        l->addWidget(m_current);
-
-        // separator
-        QFrame *line = new QFrame(this);
-        line->setFrameShape(QFrame::Box);
-        line->setFixedHeight(1);
-        QPalette pal = line->palette();
-        pal.setColor(QPalette::Foreground, Qt::gray);
-        line->setPalette(pal);
-        l->addWidget(line);
-
-        // total tickers
-        m_total = new QLabel(this);
-        m_total->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-        m_total->setTextFormat(Qt::PlainText);
-        l->addWidget(m_total);
-    }
-
-    QString totalText() const
-    {
-        return m_total->text();
-    }
-
-    void setTotal(int total)
-    {
-        m_total->setNum(total);
-    }
-
-    void setCurrent(int current)
-    {
-        m_current->setNum(current);
-    }
-
-protected:
-    virtual void resizeEvent(QResizeEvent *)
-    {
-        resetBackground();
-    }
-
-private:
-    void resetBackground()
-    {
-        QPixmap px(size());
-        QPainter p(&px);
-
-        // gradient
-        QLinearGradient gradient(0, 0, 0, height());
-
-        gradient.setColorAt(0.0,  QColor(0xFF, 0xEF, 0xEF));
-        gradient.setColorAt(0.35, QColor(0xF7, 0xDB, 0x45));
-        gradient.setColorAt(0.65, QColor(0xF7, 0xDB, 0x45));
-        gradient.setColorAt(1.0,  QColor(0xFF, 0xEF, 0xEF));
-
-        p.fillRect(rect(), gradient);
-
-        // border
-        p.setPen(QColor(128, 128, 128));
-
-        QRect rc = rect();
-        rc.setBottomRight(rc.bottomRight() - QPoint(1,1));
-        p.drawRect(rc);
-
-        setPixmap(px);
-    }
-
-private:
-    QLabel *m_total, *m_current;
-};
-
-/*****************************************/
+/*************************************************/
 
 List::List(int group, QWidget *parent) :
     QWidget(parent),
@@ -194,7 +104,7 @@ List::List(int group, QWidget *parent) :
     m_oldDelegate = ui->list->itemDelegate();
 
     // number of tickers
-    m_numbers = new NumberLabel(window());
+    m_numbers = new ListDetails(window());
 
     ui->pushSave->setEnabled(!m_saveTickers);
 
