@@ -202,13 +202,6 @@ void TickerNeighbors::filterAndFetch()
 
 void TickerNeighbors::resetTabOrders()
 {
-    QWidget::setTabOrder(ui->lineTicker, ui->pushTicker);
-    QWidget::setTabOrder(ui->pushTicker, ui->comboSector);
-    QWidget::setTabOrder(ui->comboSector, ui->pushSector);
-    QWidget::setTabOrder(ui->pushSector, ui->comboIndustry);
-    QWidget::setTabOrder(ui->comboIndustry, ui->pushIndustry);
-    QWidget::setTabOrder(ui->pushIndustry, ui->listTickers);
-
     QWidget *lastWidget = ui->listTickers;
 
     foreach(QCheckBox *box, m_exchanges)
