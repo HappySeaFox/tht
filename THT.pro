@@ -15,6 +15,8 @@ QT += core gui network sql
 CONFIG += warn_on
 QMAKE_CXXFLAGS_WARN_ON *= -Wextra -Wno-missing-field-initializers
 
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+
 # THT version
 NVER1=1
 NVER2=2
