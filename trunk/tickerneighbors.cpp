@@ -103,6 +103,8 @@ TickerNeighbors::TickerNeighbors(const QString &ticker, QWidget *parent) :
         }
     }
 
+    resetTabOrders();
+
     // no exchanges selected at all, select all of them
     if(!anystate)
     {
@@ -196,6 +198,28 @@ void TickerNeighbors::filterAndFetch()
 {
     // emulate click
     QMetaObject::invokeMethod(m_lastAction, "clicked");
+}
+
+void TickerNeighbors::resetTabOrders()
+{
+    QWidget::setTabOrder(ui->lineTicker, ui->pushTicker);
+    QWidget::setTabOrder(ui->pushTicker, ui->comboSector);
+    QWidget::setTabOrder(ui->comboSector, ui->pushSector);
+    QWidget::setTabOrder(ui->pushSector, ui->comboIndustry);
+    QWidget::setTabOrder(ui->comboIndustry, ui->pushIndustry);
+    QWidget::setTabOrder(ui->pushIndustry, ui->listTickers);
+
+    QWidget *lastWidget = ui->listTickers;
+
+    foreach(QCheckBox *box, m_exchanges)
+    {
+        QWidget::setTabOrder(lastWidget, box);
+        lastWidget = box;
+    }
+
+    QWidget::setTabOrder(lastWidget, ui->checkCap);
+    QWidget::setTabOrder(ui->checkCap, ui->checkUSA);
+    QWidget::setTabOrder(ui->checkUSA, ui->pushCopy);
 }
 
 void TickerNeighbors::slotFetch()

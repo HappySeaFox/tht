@@ -51,6 +51,7 @@ protected:
 private:
     void silentlyCheck(QCheckBox *, bool check);
     void filterAndFetch();
+    void resetTabOrders();
 
 signals:
     void loadTicker(const QString &);
