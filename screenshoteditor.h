@@ -40,7 +40,6 @@ public:
 
 protected:
     virtual void keyPressEvent(QKeyEvent *);
-    virtual bool event(QEvent *e);
 
 public slots:
     int exec();

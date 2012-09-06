@@ -15,15 +15,12 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <QWhatsThisClickedEvent>
-#include <QDesktopServices>
 #include <QDesktopWidget>
 #include <QApplication>
 #include <QKeySequence>
 #include <QScrollBar>
 #include <QKeyEvent>
 #include <QPixmap>
-#include <QUrl>
 
 #include "screenshoteditor.h"
 #include "selectablelabel.h"
@@ -97,19 +94,6 @@ void ScreenshotEditor::keyPressEvent(QKeyEvent *ke)
     }
 
     QDialog::keyPressEvent(ke);
-}
-
-bool ScreenshotEditor::event(QEvent *e)
-{
-    if(e->type() == QEvent::WhatsThisClicked)
-    {
-        QWhatsThisClickedEvent *ce = static_cast<QWhatsThisClickedEvent *>(e);
-
-        if(ce)
-            QDesktopServices::openUrl(QUrl(ce->href()));
-    }
-
-    return QDialog::event(e);
 }
 
 void ScreenshotEditor::slotSelected(SelectableLabel *sl, bool selected)

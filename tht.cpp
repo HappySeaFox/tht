@@ -17,7 +17,9 @@
 
 #include <QxtGlobalShortcut>
 
+#include <QWhatsThisClickedEvent>
 #include <QContextMenuEvent>
+#include <QDesktopServices>
 #include <QApplication>
 #include <QKeySequence>
 #include <QGridLayout>
@@ -27,10 +29,12 @@
 #include <QShortcut>
 #include <QDateTime>
 #include <QPalette>
+#include <QEvent>
 #include <QDebug>
 #include <QTimer>
 #include <QIcon>
 #include <QMenu>
+#include <QUrl>
 
 #include <windows.h>
 #include <winnt.h>
@@ -216,6 +220,9 @@ THT::THT(QWidget *parent) :
     // sectors
     if(Settings::instance()->restoreNeighborsAtStartup() && Settings::instance()->showNeighborsAtStartup())
         slotShowNeighbors(startupTicker);
+
+    // watch for QWhatsThisClickedEvent
+    qApp->installEventFilter(this);
 }
 
 THT::~THT()
@@ -264,6 +271,23 @@ void THT::closeEvent(QCloseEvent *e)
         e->accept();
         qApp->quit();
     }
+}
+
+bool THT::eventFilter(QObject *o, QEvent *e)
+{
+    Q_UNUSED(o)
+
+    if(e->type() == QEvent::WhatsThisClicked)
+    {
+        QWhatsThisClickedEvent *ce = static_cast<QWhatsThisClickedEvent *>(e);
+
+        if(ce)
+            QDesktopServices::openUrl(QUrl(ce->href()));
+
+        return true;
+    }
+
+    return false;
 }
 
 void THT::contextMenuEvent(QContextMenuEvent *event)

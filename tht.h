@@ -56,6 +56,11 @@ public:
 
     virtual void setVisible(bool);
 
+protected:
+    virtual void contextMenuEvent(QContextMenuEvent *event);
+    virtual void closeEvent(QCloseEvent *e);
+    virtual bool eventFilter(QObject *o, QEvent *e);
+
 private:
     enum LinkType { LinkTypeNotInitialized,
                     LinkTypeAdvancedGet,
@@ -103,11 +108,6 @@ private:
         PredefinedTickerMappings mappings;
     };
 
-protected:
-    virtual void contextMenuEvent(QContextMenuEvent *event);
-    virtual void closeEvent(QCloseEvent *e);
-
-private:
     void sendKey(int key, bool extended = false);
     void sendString(const QString &str, LinkType = LinkTypeOther);
     void rebuildUi();

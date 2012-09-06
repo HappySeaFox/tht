@@ -39,7 +39,6 @@ public:
     bool changed() const;
 
 protected:
-    virtual bool event(QEvent *);
     void addItem(const QStringList &strings, const QVariant &data, bool edit = false);
 
 private:
