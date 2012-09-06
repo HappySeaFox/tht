@@ -287,12 +287,6 @@ void ScreenshotEditorWidget::paintEvent(QPaintEvent *pe)
     p.setClipRect(pe->rect());
     p.setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing);
 
-    if(m_wasPress && m_editType != None)
-    {
-        p.setPen(QPen(m_colors[m_editType], 2));
-        p.drawLine(m_startPoint, m_currentPoint);
-    }
-
     foreach(SelectableLabel *l, m_labels)
     {
         if(l->vectorStart() != l->vectorEnd())
@@ -300,6 +294,12 @@ void ScreenshotEditorWidget::paintEvent(QPaintEvent *pe)
             p.setPen(QPen(l->vectorColor(), 2));
             p.drawLine(l->vectorStart(), l->vectorEnd());
         }
+    }
+
+    if(m_wasPress && m_editType != None)
+    {
+        p.setPen(QPen(m_colors[m_editType], 2));
+        p.drawLine(m_startPoint, m_currentPoint);
     }
 }
 
