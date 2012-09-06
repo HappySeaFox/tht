@@ -275,8 +275,6 @@ void THT::closeEvent(QCloseEvent *e)
 
 bool THT::eventFilter(QObject *o, QEvent *e)
 {
-    Q_UNUSED(o)
-
     if(e->type() == QEvent::WhatsThisClicked)
     {
         QWhatsThisClickedEvent *ce = static_cast<QWhatsThisClickedEvent *>(e);
@@ -292,7 +290,7 @@ bool THT::eventFilter(QObject *o, QEvent *e)
         return true;
     }
 
-    return false;
+    return QObject::eventFilter(o, e);
 }
 
 void THT::contextMenuEvent(QContextMenuEvent *event)
