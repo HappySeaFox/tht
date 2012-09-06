@@ -15,12 +15,9 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <QWhatsThisClickedEvent>
-#include <QDesktopServices>
 #include <QTreeWidgetItem>
 #include <QKeySequence>
 #include <QStringList>
-#include <QUrl>
 
 #include "datamanagerbase.h"
 #include "ui_datamanagerbase.h"
@@ -39,19 +36,6 @@ DataManagerBase::DataManagerBase(QWidget *parent) :
 DataManagerBase::~DataManagerBase()
 {
     delete ui;
-}
-
-bool DataManagerBase::event(QEvent *e)
-{
-    if(e->type() == QEvent::WhatsThisClicked)
-    {
-        QWhatsThisClickedEvent *ce = static_cast<QWhatsThisClickedEvent *>(e);
-
-        if(ce)
-            QDesktopServices::openUrl(QUrl(ce->href()));
-    }
-
-    return QDialog::event(e);
 }
 
 void DataManagerBase::addItem(const QStringList &strings, const QVariant &data, bool edit)
