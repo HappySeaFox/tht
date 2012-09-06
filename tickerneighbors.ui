@@ -119,18 +119,6 @@
    </item>
   </layout>
  </widget>
- <tabstops>
-  <tabstop>lineTicker</tabstop>
-  <tabstop>pushTicker</tabstop>
-  <tabstop>comboSector</tabstop>
-  <tabstop>pushSector</tabstop>
-  <tabstop>comboIndustry</tabstop>
-  <tabstop>pushIndustry</tabstop>
-  <tabstop>listTickers</tabstop>
-  <tabstop>checkCap</tabstop>
-  <tabstop>checkUSA</tabstop>
-  <tabstop>pushCopy</tabstop>
- </tabstops>
  <resources>
   <include location="tht.qrc"/>
  </resources>
