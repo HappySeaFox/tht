@@ -253,8 +253,8 @@ QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite
 
     distbin.commands += $$mle(if exist \"$$T\" rd /S /Q \"$$T\")
     distbin.commands += $$mle(mkdir \"$$T\")
-    distbin.commands += $$mle(mkdir \"$$T/plugins/imageformats\")
-    distbin.commands += $$mle(mkdir \"$$T/plugins/sqldrivers\")
+    distbin.commands += $$mle(mkdir \"$$T/imageformats\")
+    distbin.commands += $$mle(mkdir \"$$T/sqldrivers\")
     distbin.commands += $$mle(mkdir \"$$T/translations\")
     distbin.commands += $$mle(copy /y \"$${OUT_PWD}/$(DESTDIR_TARGET)\" \"$$T\")
 
@@ -267,11 +267,11 @@ QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite
     }
 
     for(ip, IMAGEPLUGINS) {
-        distbin.commands += $$mle(copy /y \"$$[QT_INSTALL_PLUGINS]\\imageformats\\$$ip\" \"$$T/plugins/imageformats\")
+        distbin.commands += $$mle(copy /y \"$$[QT_INSTALL_PLUGINS]\\imageformats\\$$ip\" \"$$T/imageformats\")
     }
 
     for(ip, SQLPLUGINS) {
-        distbin.commands += $$mle(copy /y \"$$[QT_INSTALL_PLUGINS]\\sqldrivers\\$$ip\" \"$$T/plugins/sqldrivers\")
+        distbin.commands += $$mle(copy /y \"$$[QT_INSTALL_PLUGINS]\\sqldrivers\\$$ip\" \"$$T/sqldrivers\")
     }
 
     for(qm, QMFILES) {
@@ -375,11 +375,11 @@ exists($$INNO) {
     }
 
     for(ip, IMAGEPLUGINS) {
-        iss.commands += $$mle(echo Source: \"$$[QT_INSTALL_PLUGINS]\\imageformats\\$$ip\"; DestDir: \"{app}\\plugins\\imageformats\"; Flags: ignoreversion >> $$ISS)
+        iss.commands += $$mle(echo Source: \"$$[QT_INSTALL_PLUGINS]\\imageformats\\$$ip\"; DestDir: \"{app}\\imageformats\"; Flags: ignoreversion >> $$ISS)
     }
 
     for(sp, SQLPLUGINS) {
-        iss.commands += $$mle(echo Source: \"$$[QT_INSTALL_PLUGINS]\\sqldrivers\\$$sp\"; DestDir: \"{app}\\plugins\\sqldrivers\"; Flags: ignoreversion >> $$ISS)
+        iss.commands += $$mle(echo Source: \"$$[QT_INSTALL_PLUGINS]\\sqldrivers\\$$sp\"; DestDir: \"{app}\\sqldrivers\"; Flags: ignoreversion >> $$ISS)
     }
 
     for(ml, MINGWLIBS) {
