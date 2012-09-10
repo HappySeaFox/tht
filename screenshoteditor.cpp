@@ -32,8 +32,7 @@ ScreenshotEditor::ScreenshotEditor(const QPixmap &px, QWidget *parent) :
 {
     ui->setupUi(this);
     ui->scrollAreaWidgetContents->setPixmap(px);
-#warning TODO
-    ui->scrollArea->setWhatsThis(QString("<a href=\"http://www.youtube.com/watch?v=\">%1</a>").arg(tr("Open YouTube tutorial")));
+    ui->scrollArea->setWhatsThis(QString("<a href=\"http://www.youtube.com/watch?v=EpVSUyPC3WA\">%1</a>").arg(tr("Open YouTube tutorial")));
 
     connect(ui->pushText, SIGNAL(clicked()), ui->scrollAreaWidgetContents, SLOT(startText()));
     connect(ui->pushLong, SIGNAL(clicked()), ui->scrollAreaWidgetContents, SLOT(startBuy()));
