@@ -29,7 +29,10 @@
 
 #include <windows.h>
 
+#ifndef THT_NO_LOG
 #include "qtlockedfile.h"
+#endif
+
 #include "settings.h"
 #include "tht.h"
 
