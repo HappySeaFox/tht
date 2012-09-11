@@ -33,6 +33,7 @@ DataManagerBase::DataManagerBase(QWidget *parent) :
     ui->setupUi(this);
 
     ui->pushClear->setShortcut(QKeySequence::New);
+    ui->pushDelete->setShortcut(QKeySequence::Delete);
     ui->tree->header()->setResizeMode(QHeaderView::ResizeToContents);
 
     // layout for extra buttons

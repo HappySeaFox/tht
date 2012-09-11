@@ -20,7 +20,7 @@
       <string>Edit...</string>
      </property>
      <property name="shortcut">
-      <string>E</string>
+      <string notr="true">E</string>
      </property>
     </widget>
    </item>
@@ -30,7 +30,7 @@
       <string>File...</string>
      </property>
      <property name="shortcut">
-      <string>F</string>
+      <string notr="true">F</string>
      </property>
     </widget>
    </item>
@@ -40,7 +40,7 @@
       <string>Clipboard</string>
      </property>
      <property name="shortcut">
-      <string>C</string>
+      <string notr="true">C</string>
      </property>
     </widget>
    </item>
