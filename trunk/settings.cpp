@@ -223,7 +223,7 @@ Settings::Settings()
                       );
     }
 
-#undef FINVIZ
+#undef FINVIZ_URL
 }
 
 Settings::~Settings()
