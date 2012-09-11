@@ -300,6 +300,7 @@ QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite
     distbin.commands += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite.timestamp\" \"$$T\")
 
     # compress
+    distbin.commands += $$mle(del /F /Q tht-standalone-$${VERSION}.zip)
     distbin.commands += $$mle($$ZIP a -r -tzip -mx=9 tht-standalone-$${VERSION}.zip \"$$T\")
     distbin.commands += $$mle(rd /S /Q \"$$T\")
 
