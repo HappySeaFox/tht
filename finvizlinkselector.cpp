@@ -15,6 +15,8 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <QListWidgetItem>
+
 #include "finvizlinkselector.h"
 #include "settings.h"
 #include "ui_finvizlinkselector.h"
@@ -29,7 +31,9 @@ FinvizLinkSelector::FinvizLinkSelector(QWidget *parent) :
 
     foreach(FinvizUrl fu, m_urls)
     {
-        ui->listWidget->addItem(fu.name);
+        QListWidgetItem *i = new QListWidgetItem(fu.name, ui->listWidget);
+        i->setData(Qt::UserRole, fu.url);
+        ui->listWidget->addItem(i);
     }
 
     ui->listWidget->setCurrentRow(0, QItemSelectionModel::ClearAndSelect);
@@ -42,19 +46,9 @@ FinvizLinkSelector::~FinvizLinkSelector()
 
 void FinvizLinkSelector::slotAdd()
 {
-    QString current = ui->listWidget->currentItem()->text();
+    QListWidgetItem *i = ui->listWidget->currentItem();
 
-    if(!current.isEmpty())
-    {
-        foreach(FinvizUrl fu, m_urls)
-        {
-            if(fu.name == current)
-            {
-                m_url = fu.url;
-                break;
-            }
-        }
-    }
+    m_url = i ? i->data(Qt::UserRole).toUrl() : QUrl();
 
     accept();
 }
