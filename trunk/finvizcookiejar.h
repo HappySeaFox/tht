@@ -15,33 +15,23 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef FINVIZURLMANAGER_H
-#define FINVIZURLMANAGER_H
+#ifndef FINVIZCOOKIEJAR_H
+#define FINVIZCOOKIEJAR_H
 
+#include <QNetworkCookieJar>
+#include <QNetworkCookie>
 #include <QList>
 
-#include "datamanagerbase.h"
-
-class QTreeWidgetItem;
-class FinvizUrl;
-
-class FinvizUrlManager : public DataManagerBase
+class FinvizCookieJar : public QNetworkCookieJar
 {
-    Q_OBJECT
-    
 public:
-    explicit FinvizUrlManager(QWidget *parent = 0);
-    ~FinvizUrlManager();
+    FinvizCookieJar(QObject *parent = 0);
 
-    QList<FinvizUrl> urls() const;
+    virtual QList<QNetworkCookie> cookiesForUrl(const QUrl &url) const;
 
 private:
-    void addFinvizUrl(const FinvizUrl &fu, bool edit = false);
-
-private slots:
-    virtual void slotAdd();
-    void slotCheckItem(QTreeWidgetItem *, int);
-    void slotAccessClicked();
+    void initCookie(QNetworkCookie *) const;
 };
 
-#endif // FINVIZURLMANAGER_H
+
+#endif // FINVIZCOOKIEJAR_H

@@ -113,6 +113,34 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
     </message>
 </context>
 <context>
+    <name>FinvizAccessSetup</name>
+    <message>
+        <location filename="../finvizaccesssetup.ui" line="14"/>
+        <source>Finviz access setup</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../finvizaccesssetup.ui" line="22"/>
+        <source>E-mail:</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../finvizaccesssetup.ui" line="32"/>
+        <source>Password:</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../finvizaccesssetup.ui" line="80"/>
+        <source>If you have a FINVIZ*Elite account, you can fill in the credentials to access elite features</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../finvizaccesssetup.ui" line="103"/>
+        <source>Please remember that the e-mail and the password will be saved in plain text. If you don&apos;t want to save them in plain text, just leave them blank. FINVIZ*Elite features won&apos;t be available in this case</source>
+        <translation></translation>
+    </message>
+</context>
+<context>
     <name>FinvizDownloader</name>
     <message>
         <location filename="../finvizdownloader.ui" line="14"/>
@@ -156,33 +184,38 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
 <context>
     <name>FinvizUrlManager</name>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="27"/>
+        <location filename="../finvizurlmanager.cpp" line="29"/>
         <source>Finviz links</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="28"/>
+        <location filename="../finvizurlmanager.cpp" line="30"/>
         <source>Add</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="29"/>
+        <location filename="../finvizurlmanager.cpp" line="31"/>
         <source>Link</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="30"/>
+        <location filename="../finvizurlmanager.cpp" line="32"/>
         <source>Open YouTube tutorial</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="68"/>
+        <location filename="../finvizurlmanager.cpp" line="45"/>
+        <source>Access...</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../finvizurlmanager.cpp" line="74"/>
         <source>Tickers</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="68"/>
-        <location filename="../finvizurlmanager.cpp" line="81"/>
+        <location filename="../finvizurlmanager.cpp" line="74"/>
+        <location filename="../finvizurlmanager.cpp" line="88"/>
         <source>&lt;Paste url here&gt;</source>
         <translation></translation>
     </message>
@@ -235,86 +268,86 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
         <translation></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="202"/>
+        <location filename="../list.cpp" line="112"/>
         <source>Clear</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="203"/>
+        <location filename="../list.cpp" line="113"/>
         <source>Sort</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="205"/>
+        <location filename="../list.cpp" line="115"/>
         <source>Reset priorities</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="212"/>
+        <location filename="../list.cpp" line="122"/>
         <source>Add one ticker...</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="214"/>
+        <location filename="../list.cpp" line="124"/>
         <source>Add from file...</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="215"/>
+        <location filename="../list.cpp" line="125"/>
         <source>Add from clipboard</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="217"/>
+        <location filename="../list.cpp" line="127"/>
         <source>Add from Finviz</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="223"/>
+        <location filename="../list.cpp" line="133"/>
         <source>Export to file...</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="224"/>
+        <location filename="../list.cpp" line="134"/>
         <source>Export to clipboard</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="985"/>
+        <location filename="../list.cpp" line="895"/>
         <source>Customize...</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1200"/>
-        <location filename="../list.cpp" line="1293"/>
+        <location filename="../list.cpp" line="1110"/>
+        <location filename="../list.cpp" line="1203"/>
         <source>Choose a file</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1202"/>
-        <location filename="../list.cpp" line="1295"/>
+        <location filename="../list.cpp" line="1112"/>
+        <location filename="../list.cpp" line="1205"/>
         <source>Text files (*.txt)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1204"/>
-        <location filename="../list.cpp" line="1297"/>
+        <location filename="../list.cpp" line="1114"/>
+        <location filename="../list.cpp" line="1207"/>
         <source>All files (*.*)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1252"/>
-        <location filename="../list.cpp" line="1307"/>
+        <location filename="../list.cpp" line="1162"/>
+        <location filename="../list.cpp" line="1217"/>
         <source>Error</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1252"/>
+        <location filename="../list.cpp" line="1162"/>
         <source>Cannot open the following files: %1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1307"/>
+        <location filename="../list.cpp" line="1217"/>
         <source>Cannot save to file %1</source>
         <translation></translation>
     </message>
@@ -342,12 +375,12 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
         <translation></translation>
     </message>
     <message>
-        <location filename="../options.ui" line="85"/>
+        <location filename="../options.ui" line="75"/>
         <source>Always on top</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../options.ui" line="92"/>
+        <location filename="../options.ui" line="82"/>
         <source>Hide to tray</source>
         <translation></translation>
     </message>
@@ -380,17 +413,17 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../settings.cpp" line="585"/>
+        <location filename="../settings.cpp" line="605"/>
         <source>Russian</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="586"/>
+        <location filename="../settings.cpp" line="606"/>
         <source>Ukrainian</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="587"/>
+        <location filename="../settings.cpp" line="607"/>
         <source>English</source>
         <translation></translation>
     </message>
@@ -448,22 +481,22 @@ the right or middle mouse buttons.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="64"/>
+        <location filename="../savescreenshot.cpp" line="66"/>
         <source>Image %1 (*.%2)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="72"/>
+        <location filename="../savescreenshot.cpp" line="74"/>
         <source>Save as</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="86"/>
+        <location filename="../savescreenshot.cpp" line="92"/>
         <source>Error</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="86"/>
+        <location filename="../savescreenshot.cpp" line="92"/>
         <source>Cannot save screenshot</source>
         <translation></translation>
     </message>
@@ -549,7 +582,7 @@ the right or middle mouse buttons.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.cpp" line="39"/>
+        <location filename="../screenshoteditor.cpp" line="35"/>
         <source>Open YouTube tutorial</source>
         <translation></translation>
     </message>
@@ -625,76 +658,76 @@ the right or middle mouse buttons.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="90"/>
+        <location filename="../tht.cpp" line="94"/>
         <source>Options...</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="93"/>
-        <location filename="../tht.cpp" line="153"/>
+        <location filename="../tht.cpp" line="97"/>
+        <location filename="../tht.cpp" line="157"/>
         <source>Take screenshot...</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="95"/>
+        <location filename="../tht.cpp" line="99"/>
         <source>Clear links</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="98"/>
+        <location filename="../tht.cpp" line="102"/>
         <source>Clear ticker lists</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="99"/>
-        <location filename="../tht.cpp" line="100"/>
+        <location filename="../tht.cpp" line="103"/>
+        <location filename="../tht.cpp" line="104"/>
         <source>Load ticker</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="103"/>
-        <location filename="../tht.cpp" line="155"/>
+        <location filename="../tht.cpp" line="107"/>
+        <location filename="../tht.cpp" line="159"/>
         <source>About THT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="104"/>
+        <location filename="../tht.cpp" line="108"/>
         <source>About Qt</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="106"/>
-        <location filename="../tht.cpp" line="157"/>
+        <location filename="../tht.cpp" line="110"/>
+        <location filename="../tht.cpp" line="161"/>
         <source>Quit</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="152"/>
+        <location filename="../tht.cpp" line="156"/>
         <source>Restore</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="256"/>
+        <location filename="../tht.cpp" line="263"/>
         <source>Notice</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="256"/>
+        <location filename="../tht.cpp" line="263"/>
         <source>THT will continue to run in a system tray</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1089"/>
+        <location filename="../tht.cpp" line="1116"/>
         <source>Error</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1089"/>
+        <location filename="../tht.cpp" line="1116"/>
         <source>Cannot take screenshot</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1387"/>
+        <location filename="../tht.cpp" line="1414"/>
         <source>Customize...</source>
         <translation></translation>
     </message>
@@ -738,9 +771,9 @@ the right or middle mouse buttons.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tickerneighbors.cpp" line="207"/>
-        <location filename="../tickerneighbors.cpp" line="322"/>
-        <location filename="../tickerneighbors.cpp" line="353"/>
+        <location filename="../tickerneighbors.cpp" line="224"/>
+        <location filename="../tickerneighbors.cpp" line="339"/>
+        <location filename="../tickerneighbors.cpp" line="370"/>
         <source>Copy (%1)</source>
         <translation></translation>
     </message>

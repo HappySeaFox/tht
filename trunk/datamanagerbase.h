@@ -20,6 +20,7 @@
 
 #include <QDialog>
 
+class QPushButton;
 class QStringList;
 class QVariant;
 
@@ -40,9 +41,11 @@ public:
 
 protected:
     void addItem(const QStringList &strings, const QVariant &data, bool edit = false);
+    void addButton(QPushButton *);
 
 private:
     void moveItem(int index, int diff);
+    void resetTabOrders();
 
 private slots:
     virtual void slotAdd() = 0;

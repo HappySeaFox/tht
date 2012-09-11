@@ -25,8 +25,8 @@
 
 #include "listdetails.h"
 
-ListDetails::ListDetails(QWidget *parent)
-    : QLabel(parent)
+ListDetails::ListDetails(QWidget *parent) :
+    QLabel(parent)
 {
     setObjectName("ListDetails");
 

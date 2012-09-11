@@ -29,6 +29,9 @@ DEFINES += NVER2=$$NVER2
 DEFINES += NVER3=$$NVER3
 DEFINES += NVER_STRING=$$sprintf("\"\\\"%1\\\"\"", $$VERSION)
 
+DEFINES += FINVIZ=\\\"finviz.com\\\"
+DEFINES += FINVIZ_ELITE=\\\"elite.finviz.com\\\"
+
 DEFINES += TARGET=$$TARGET
 
 INCLUDEPATH += . qtsingleapplication qxt colorpicker
@@ -79,7 +82,10 @@ SOURCES += main.cpp\
     screenshoteditorwidget.cpp \
     screenshoteditor.cpp \
     screenshotcommentinput.cpp \
-    toolbuttonnomenuindicator.cpp
+    toolbuttonnomenuindicator.cpp \
+    finvizcookiejar.cpp \
+    finvizaccesssetup.cpp \
+    listdetails.cpp
 
 HEADERS += tht.h \
     list.h \
@@ -125,7 +131,10 @@ HEADERS += tht.h \
     screenshoteditorwidget.h \
     screenshoteditor.h \
     screenshotcommentinput.h \
-    toolbuttonnomenuindicator.h
+    toolbuttonnomenuindicator.h \
+    finvizcookiejar.h \
+    finvizaccesssetup.h \
+    listdetails.h
 
 FORMS += tht.ui \
     list.ui \
@@ -140,7 +149,8 @@ FORMS += tht.ui \
     finvizdownloader.ui \
     finvizlinkselector.ui \
     screenshoteditor.ui \
-    screenshotcommentinput.ui
+    screenshotcommentinput.ui \
+    finvizaccesssetup.ui
 
 RESOURCES += tht.qrc
 
