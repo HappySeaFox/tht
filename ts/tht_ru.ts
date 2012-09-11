@@ -84,32 +84,12 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
         <translation>Имя</translation>
     </message>
     <message>
-        <location filename="../datamanagerbase.ui" line="46"/>
-        <source>Ins</source>
-        <translation></translation>
-    </message>
-    <message>
         <location filename="../datamanagerbase.ui" line="53"/>
         <source>Delete</source>
         <translation>Удалить</translation>
     </message>
     <message>
-        <location filename="../datamanagerbase.ui" line="56"/>
-        <source>Del</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../datamanagerbase.ui" line="67"/>
-        <source>Ctrl+Up</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../datamanagerbase.ui" line="78"/>
-        <source>Ctrl+Down</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../datamanagerbase.ui" line="92"/>
+        <location filename="../datamanagerbase.ui" line="89"/>
         <source>Clear</source>
         <translation>Очистить</translation>
     </message>
@@ -415,17 +395,17 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../settings.cpp" line="605"/>
+        <location filename="../settings.cpp" line="607"/>
         <source>Russian</source>
         <translation>Русский</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="606"/>
+        <location filename="../settings.cpp" line="608"/>
         <source>Ukrainian</source>
         <translation>Украинский</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="607"/>
+        <location filename="../settings.cpp" line="609"/>
         <source>English</source>
         <translation>Английский</translation>
     </message>
@@ -460,24 +440,9 @@ the right or middle mouse buttons.</source>
         <translation>Редактировать...</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.ui" line="23"/>
-        <source>E</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../savescreenshot.ui" line="33"/>
-        <source>F</source>
-        <translation></translation>
-    </message>
-    <message>
         <location filename="../savescreenshot.ui" line="40"/>
         <source>Clipboard</source>
         <translation>Буфер обмена</translation>
-    </message>
-    <message>
-        <location filename="../savescreenshot.ui" line="43"/>
-        <source>C</source>
-        <translation></translation>
     </message>
     <message>
         <location filename="../savescreenshot.ui" line="30"/>
@@ -546,19 +511,9 @@ the right or middle mouse buttons.</source>
         <translation>Покупка</translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="34"/>
-        <source>B</source>
-        <translation></translation>
-    </message>
-    <message>
         <location filename="../screenshoteditor.ui" line="41"/>
         <source>Sale</source>
         <translation>Продажа</translation>
-    </message>
-    <message>
-        <location filename="../screenshoteditor.ui" line="48"/>
-        <source>S</source>
-        <translation></translation>
     </message>
     <message>
         <location filename="../screenshoteditor.ui" line="108"/>
@@ -566,19 +521,9 @@ the right or middle mouse buttons.</source>
         <translation>Стоп</translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="115"/>
-        <source>P</source>
-        <translation></translation>
-    </message>
-    <message>
         <location filename="../screenshoteditor.ui" line="122"/>
         <source>Text</source>
         <translation>Текст</translation>
-    </message>
-    <message>
-        <location filename="../screenshoteditor.ui" line="125"/>
-        <source>T</source>
-        <translation></translation>
     </message>
     <message>
         <location filename="../screenshoteditor.ui" line="132"/>

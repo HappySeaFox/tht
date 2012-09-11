@@ -31,7 +31,7 @@
        <normaloff>:/images/cursor-buy.png</normaloff>:/images/cursor-buy.png</iconset>
      </property>
      <property name="shortcut">
-      <string>B</string>
+      <string notr="true">B</string>
      </property>
     </widget>
    </item>
@@ -45,7 +45,7 @@
        <normaloff>:/images/cursor-sail.png</normaloff>:/images/cursor-sail.png</iconset>
      </property>
      <property name="shortcut">
-      <string>S</string>
+      <string notr="true">S</string>
      </property>
     </widget>
    </item>
@@ -112,7 +112,7 @@
        <normaloff>:/images/cursor-stop.png</normaloff>:/images/cursor-stop.png</iconset>
      </property>
      <property name="shortcut">
-      <string>P</string>
+      <string notr="true">P</string>
      </property>
     </widget>
    </item>
@@ -122,7 +122,7 @@
       <string>Text</string>
      </property>
      <property name="shortcut">
-      <string>T</string>
+      <string notr="true">T</string>
      </property>
     </widget>
    </item>

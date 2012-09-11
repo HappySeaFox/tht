@@ -43,7 +43,7 @@
    <item row="0" column="1" colspan="2">
     <widget class="QPushButton" name="pushAdd">
      <property name="shortcut">
-      <string>Ins</string>
+      <string notr="true">Ins</string>
      </property>
     </widget>
    </item>
@@ -51,9 +51,6 @@
     <widget class="QPushButton" name="pushDelete">
      <property name="text">
       <string>Delete</string>
-     </property>
-     <property name="shortcut">
-      <string>Del</string>
      </property>
     </widget>
    </item>
@@ -64,7 +61,7 @@
        <normaloff>:/images/arrow-up.png</normaloff>:/images/arrow-up.png</iconset>
      </property>
      <property name="shortcut">
-      <string>Ctrl+Up</string>
+      <string notr="true">Ctrl+Up</string>
      </property>
     </widget>
    </item>
@@ -75,7 +72,7 @@
        <normaloff>:/images/arrow-down.png</normaloff>:/images/arrow-down.png</iconset>
      </property>
      <property name="shortcut">
-      <string>Ctrl+Down</string>
+      <string notr="true">Ctrl+Down</string>
      </property>
     </widget>
    </item>
