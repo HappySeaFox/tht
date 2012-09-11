@@ -133,7 +133,7 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
     </message>
     <message>
         <location filename="../finvizaccesssetup.ui" line="80"/>
-        <source>If you have a FINVIZ*Elite account, you can fill in the credentials to access elite features</source>
+        <source>If you have a FINVIZ*Elite account, you can fill in the credentials to access the elite features</source>
         <translation>Якщо у вас є акаунт FINVIZ*Elite, то ви можете заповнити облікові дані для доступу до елітних можливостям</translation>
     </message>
     <message>
