@@ -203,21 +203,21 @@ Settings::Settings()
     if(!QDir().mkpath(mutablePath))
         qDebug("Cannot create a directory for mutable database");
 
-#define FINVIZ "http://finviz.com/screener.ashx?v=411&"
+#define FINVIZ_URL "http://" FINVIZ "/screener.ashx?v=411&"
 
     // default Finviz urls
     if(!m_settings->contains("settings/finviz-urls"))
     {
         setFinvizUrls(QList<FinvizUrl>()
-                      << FinvizUrl("NYSE >1$ >300k By Ticker",              QUrl(FINVIZ "f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=ticker"))
-                      << FinvizUrl("NYSE >1$ >300k By Change From Open",    QUrl(FINVIZ "f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-changeopen"))
-                      << FinvizUrl("NYSE >1$ >300k Most Active From Open",  QUrl(FINVIZ "s=ta_mostactive&f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-changeopen"))
-                      << FinvizUrl("NYSE >1$ >300k New High",               QUrl(FINVIZ "s=ta_newhigh&f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-change"))
-                      << FinvizUrl("NYSE >1$ >300k New Low",                QUrl(FINVIZ "s=ta_newlow&f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-change"))
-                      << FinvizUrl("NYSE >1$ >300k Volume>1.5",             QUrl(FINVIZ "f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1,sh_relvol_o1.5&o=-change"))
-                      << FinvizUrl("NYSE >1$ >300k Average True Range>1",   QUrl(FINVIZ "f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1,ta_averagetruerange_o1&ft=3&o=-change"))
-                      << FinvizUrl("NYSE >1$ >300k Earn Yest After Close",  QUrl(FINVIZ "f=earningsdate_yesterdayafter,exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-change"))
-                      << FinvizUrl("NYSE >1$ >300k Earn Today Before Open", QUrl(FINVIZ "f=earningsdate_todaybefore,exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-change"))
+                      << FinvizUrl("NYSE >1$ >300k By Ticker",              QUrl(FINVIZ_URL "f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=ticker"))
+                      << FinvizUrl("NYSE >1$ >300k By Change From Open",    QUrl(FINVIZ_URL "f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-changeopen"))
+                      << FinvizUrl("NYSE >1$ >300k Most Active From Open",  QUrl(FINVIZ_URL "s=ta_mostactive&f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-changeopen"))
+                      << FinvizUrl("NYSE >1$ >300k New High",               QUrl(FINVIZ_URL "s=ta_newhigh&f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-change"))
+                      << FinvizUrl("NYSE >1$ >300k New Low",                QUrl(FINVIZ_URL "s=ta_newlow&f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-change"))
+                      << FinvizUrl("NYSE >1$ >300k Volume>1.5",             QUrl(FINVIZ_URL "f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1,sh_relvol_o1.5&o=-change"))
+                      << FinvizUrl("NYSE >1$ >300k Average True Range>1",   QUrl(FINVIZ_URL "f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1,ta_averagetruerange_o1&ft=3&o=-change"))
+                      << FinvizUrl("NYSE >1$ >300k Earn Yest After Close",  QUrl(FINVIZ_URL "f=earningsdate_yesterdayafter,exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-change"))
+                      << FinvizUrl("NYSE >1$ >300k Earn Today Before Open", QUrl(FINVIZ_URL "f=earningsdate_todaybefore,exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-change"))
                       );
     }
 
@@ -279,6 +279,26 @@ void Settings::setScreenshotText(const QString &s, Settings::SyncType sync)
 QString Settings::screenshotText()
 {
     return load<QString>("screenshot-text");
+}
+
+void Settings::setFinvizEmail(QString e, Settings::SyncType sync)
+{
+    save<QString>("finviz-email", e, sync);
+}
+
+QString Settings::finvizEmail()
+{
+    return load<QString>("finviz-email");
+}
+
+void Settings::setFinvizPassword(QString p, Settings::SyncType sync)
+{
+    save<QString>("finviz-password", p, sync);
+}
+
+QString Settings::finvizPassword()
+{
+    return load<QString>("finviz-password");
 }
 
 void Settings::setCheckBoxState(const QString &checkbox, bool checked, SyncType sync)

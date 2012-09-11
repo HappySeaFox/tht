@@ -15,33 +15,30 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef FINVIZURLMANAGER_H
-#define FINVIZURLMANAGER_H
+#ifndef FINVIZACCESSSETUP_H
+#define FINVIZACCESSSETUP_H
 
-#include <QList>
+#include <QDialog>
+#include <QString>
 
-#include "datamanagerbase.h"
+namespace Ui
+{
+    class FinvizAccessSetup;
+}
 
-class QTreeWidgetItem;
-class FinvizUrl;
-
-class FinvizUrlManager : public DataManagerBase
+class FinvizAccessSetup : public QDialog
 {
     Q_OBJECT
-    
-public:
-    explicit FinvizUrlManager(QWidget *parent = 0);
-    ~FinvizUrlManager();
 
-    QList<FinvizUrl> urls() const;
+public:
+    explicit FinvizAccessSetup(QWidget *parent = 0);
+    ~FinvizAccessSetup();
+
+    QString email() const;
+    QString password() const;
 
 private:
-    void addFinvizUrl(const FinvizUrl &fu, bool edit = false);
-
-private slots:
-    virtual void slotAdd();
-    void slotCheckItem(QTreeWidgetItem *, int);
-    void slotAccessClicked();
+    Ui::FinvizAccessSetup *ui;
 };
 
-#endif // FINVIZURLMANAGER_H
+#endif // FINVIZACCESSSETUP_H

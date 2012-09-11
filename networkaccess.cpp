@@ -21,6 +21,7 @@
 
 #include <windows.h>
 
+#include "finvizcookiejar.h"
 #include "networkaccess.h"
 
 #ifdef NVER1
@@ -31,6 +32,8 @@ NetworkAccess::NetworkAccess(QObject *parent) :
     QObject(parent)
 {
     m_manager = new QNetworkAccessManager(this);
+    m_manager->setCookieJar(new FinvizCookieJar(m_manager));
+
     m_reply = 0;
     m_error = QNetworkReply::NoError;
 }
@@ -100,8 +103,29 @@ void NetworkAccess::slotNetworkDone()
 {
     qDebug("Network request done");
 
+    QUrl redirect;
+
+    if(m_reply->error() == QNetworkReply::NoError)
+    {
+        QVariant v = m_reply->attribute(QNetworkRequest::RedirectionTargetAttribute);
+
+        if(v.isValid())
+        {
+            redirect = v.toUrl();
+
+            if(!redirect.isEmpty() && redirect.isRelative())
+                redirect = m_reply->request().url().resolved(redirect);
+        }
+    }
+
     m_reply->deleteLater();
     m_reply = 0;
 
-    emit finished();
+    if(redirect.isEmpty())
+        emit finished();
+    else
+    {
+        qDebug("Redirecting");
+        get(redirect);
+    }
 }

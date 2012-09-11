@@ -18,6 +18,9 @@
 #include <QTreeWidgetItem>
 #include <QKeySequence>
 #include <QStringList>
+#include <QPushButton>
+#include <QVBoxLayout>
+#include <QFrame>
 
 #include "datamanagerbase.h"
 #include "ui_datamanagerbase.h"
@@ -31,6 +34,11 @@ DataManagerBase::DataManagerBase(QWidget *parent) :
 
     ui->pushClear->setShortcut(QKeySequence::New);
     ui->tree->header()->setResizeMode(QHeaderView::ResizeToContents);
+
+    // layout for extra buttons
+    QVBoxLayout *l = new QVBoxLayout(ui->widgetButtons);
+    l->setContentsMargins(0, 0, 0, 4);
+    ui->widgetButtons->setLayout(l);
 }
 
 DataManagerBase::~DataManagerBase()
@@ -53,6 +61,26 @@ void DataManagerBase::addItem(const QStringList &strings, const QVariant &data, 
     }
 }
 
+void DataManagerBase::addButton(QPushButton *button)
+{
+    if(!button)
+        return;
+
+    if(!ui->widgetButtons->layout()->count())
+    {
+        QFrame *line = new QFrame(ui->widgetButtons);
+        line->setFrameShape(QFrame::HLine);
+        line->setFrameShadow(QFrame::Sunken);
+
+        ui->widgetButtons->layout()->addWidget(line);
+    }
+
+    button->setParent(ui->widgetButtons);
+    ui->widgetButtons->layout()->addWidget(button);
+
+    resetTabOrders();
+}
+
 void DataManagerBase::moveItem(int index, int diff)
 {
     QTreeWidgetItem *i = ui->tree->takeTopLevelItem(index);
@@ -60,6 +88,20 @@ void DataManagerBase::moveItem(int index, int diff)
     ui->tree->setCurrentItem(i, QItemSelectionModel::ClearAndSelect);
 
     m_changed = true;
+}
+
+void DataManagerBase::resetTabOrders()
+{
+    QWidget *lastWidget = ui->pushClear;
+    QList<QPushButton *> buttons = ui->widgetButtons->findChildren<QPushButton *>();
+
+    foreach(QPushButton *b, buttons)
+    {
+        QWidget::setTabOrder(lastWidget, b);
+        lastWidget = b;
+    }
+
+    QWidget::setTabOrder(lastWidget, ui->buttonBox);
 }
 
 void DataManagerBase::slotDelete()

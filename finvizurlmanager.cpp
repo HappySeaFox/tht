@@ -17,8 +17,10 @@
 
 #include <QUrl>
 
+#include "finvizaccesssetup.h"
 #include "finvizurlmanager.h"
 #include "settings.h"
+
 #include "ui_datamanagerbase.h"
 
 FinvizUrlManager::FinvizUrlManager(QWidget *parent) :
@@ -39,6 +41,10 @@ FinvizUrlManager::FinvizUrlManager(QWidget *parent) :
     ui->tree->setCurrentItem(ui->tree->topLevelItem(0), QItemSelectionModel::ClearAndSelect);
 
     connect(ui->tree, SIGNAL(itemChanged(QTreeWidgetItem *, int)), this, SLOT(slotCheckItem(QTreeWidgetItem *, int)));
+
+    QPushButton *b = new QPushButton(tr("Access..."), this);
+    connect(b, SIGNAL(clicked()), this, SLOT(slotAccessClicked()));
+    addButton(b);
 }
 
 FinvizUrlManager::~FinvizUrlManager()
@@ -76,9 +82,21 @@ void FinvizUrlManager::slotCheckItem(QTreeWidgetItem *i, int column)
 
     // check host
     QUrl u = QUrl::fromUserInput(i->text(1));
+    QString h = u.host().toLower();
 
-    if(u.host().toLower() != "finviz.com")
+    if(h != FINVIZ && h != FINVIZ_ELITE)
         i->setText(1, tr("<Paste url here>"));
     else
         i->setText(1, u.toString());
+}
+
+void FinvizUrlManager::slotAccessClicked()
+{
+    FinvizAccessSetup fas(this);
+
+    if(fas.exec() == QDialog::Accepted)
+    {
+        Settings::instance()->setFinvizEmail(fas.email(), Settings::NoSync);
+        Settings::instance()->setFinvizPassword(fas.password());
+    }
 }
