@@ -26,7 +26,6 @@
 #include <QMessageBox>
 #include <QTextStream>
 #include <QMouseEvent>
-#include <QStringList>
 #include <QClipboard>
 #include <QDateTime>
 #include <QFileInfo>
@@ -752,34 +751,34 @@ QPixmap List::createDragCursor()
     return px;
 }
 
-bool List::addItem(const QString &text, FixName fix, CheckForDups check)
+bool List::addItem(const QString &txt, FixName fix, CheckForDups check)
 {
-    QStringList txt = text.toUpper().split(',', QString::SkipEmptyParts);
+    QStringList text = txt.toUpper().split(',', QString::SkipEmptyParts);
 
-    if(txt.isEmpty())
+    if(text.isEmpty())
         return false;
 
-    QString t = (fix == Fix)
-                ? txt[0].replace('-', '.')
-                : txt[0];
+    if(fix == Fix)
+        text[0].replace('-', '.');
 
     if(check == CheckDups
             && !Settings::instance()->allowDuplicates()
-            && ui->list->findItems(t, Qt::MatchFixedString).size())
+            && ui->list->findItems(text.at(0), Qt::MatchFixedString).size())
         return false;
 
-    ListItem *item = new ListItem(t, ui->list);
+    // check if empty
+    bool wasEmpty = !ui->list->count();
 
-    if(txt.size() > 1)
+    ListItem *item = new ListItem(text.at(0), ui->list);
+
+    if(text.size() > 1)
     {
         bool ok;
-        int p = txt[1].toInt(&ok);
+        int p = text.at(1).toInt(&ok);
 
         if(ok)
             item->setPriority(static_cast<ListItem::Priority>(p));
     }
-
-    bool wasEmpty = ui->list->count() == 1; // 1 invisible item by default
 
     ui->list->addItem(item);
 
