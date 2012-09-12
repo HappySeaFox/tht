@@ -19,10 +19,7 @@
 #define FINVIZLINKSELECTOR_H
 
 #include <QDialog>
-#include <QList>
 #include <QUrl>
-
-class FinvizUrl;
 
 namespace Ui
 {
@@ -44,7 +41,6 @@ private slots:
 
 private:
     Ui::FinvizLinkSelector *ui;
-    QList<FinvizUrl> m_urls;
     QUrl m_url;
 };
 
