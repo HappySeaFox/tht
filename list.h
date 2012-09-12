@@ -82,7 +82,9 @@ private:
     void showSaved(bool isSaved);
     void showTickerInfo();
     QPixmap createDragCursor();
-    bool addItem(const QString &text, bool fix = false);
+    enum FixName { Fix, DontFix };
+    enum CheckForDups { CheckDups, DontCheckDups };
+    bool addItem(const QString &text, FixName, CheckForDups);
     void changePriority(int);
     void setPriority(int);
     void resizeNumberLabel();
@@ -90,6 +92,7 @@ private:
     void undo();
     void addFromFinviz(const QUrl &);
     void showFinvizSelector();
+    void removeDuplicatesFromList(QStringList *items) const;
 
     enum LoadItem { LoadItemCurrent,
                     LoadItemNext, LoadItemPrevious,
@@ -99,6 +102,8 @@ private:
     enum MoveItem { MoveItemNext, MoveItemPreviuos,
                     MoveItemFirst, MoveItemLast,
                     MoveItemPageUp, MoveItemPageDown };
+
+    void moveItem(MoveItem);
 
 signals:
     void copyLeft(const QString &ticker, ListItem::Priority);
@@ -132,7 +137,6 @@ private slots:
     void slotManageFinvizUrls();
     void slotCurrentRowChanged(int);
     void loadItem(LoadItem = LoadItemCurrent);
-    void moveItem(MoveItem);
 
 private:
     Ui::List *ui;

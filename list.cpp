@@ -159,7 +159,7 @@ bool List::hasTickers() const
 void List::addTicker(const QString &ticker, ListItem::Priority p)
 {
     if(Settings::instance()->tickerValidator().exactMatch(ticker)
-            && addItem(ticker + ',' + QString::number(p)))
+            && addItem(ticker + ',' + QString::number(p), DontFix, CheckDups))
     {
         numberOfItemsChanged();
         save();
@@ -616,10 +616,13 @@ void List::load()
 
     QStringList items = Settings::instance()->tickersForGroup(m_section);
 
+    if(!Settings::instance()->allowDuplicates())
+        removeDuplicatesFromList(&items);
+
     ui->list->setUpdatesEnabled(false);
 
     foreach(QString t, items)
-        addItem(t);
+        addItem(t, DontFix, DontCheckDups);
 
     ui->list->setUpdatesEnabled(true);
 
@@ -648,7 +651,7 @@ void List::paste()
         if(Settings::instance()->tickerValidator().exactMatch(ticker))
         {
             changed = true;
-            addItem(ticker, true);
+            addItem(ticker, Fix, CheckDups);
         }
     }
 
@@ -733,18 +736,18 @@ QPixmap List::createDragCursor()
     return px;
 }
 
-bool List::addItem(const QString &text, bool fix)
+bool List::addItem(const QString &text, FixName fix, CheckForDups check)
 {
     QStringList txt = text.toUpper().split(',', QString::SkipEmptyParts);
 
     if(txt.isEmpty())
         return false;
 
-    QString t = fix
-            ? txt[0].replace('-', '.')
-            : txt[0];
+    QString t = (fix == Fix)
+                ? txt[0].replace('-', '.')
+                : txt[0];
 
-    if(!Settings::instance()->allowDuplicates() && ui->list->findItems(t, Qt::MatchFixedString).size())
+    if(check == CheckDups && !Settings::instance()->allowDuplicates() && ui->list->findItems(t, Qt::MatchFixedString).size())
         return false;
 
     ListItem *item = new ListItem(t, ui->list);
@@ -867,7 +870,7 @@ void List::undo()
     ui->list->setUpdatesEnabled(false);
 
     foreach(QString t, m_oldTickers)
-        addItem(t);
+        addItem(t, DontFix, CheckDups);
 
     ui->list->setUpdatesEnabled(true);
 
@@ -913,7 +916,7 @@ void List::addFromFinviz(const QUrl &u)
         if(Settings::instance()->tickerValidator().exactMatch(ticker))
         {
             changed = true;
-            addItem(ticker, true);
+            addItem(ticker, Fix, CheckDups);
         }
     }
 
@@ -934,6 +937,31 @@ void List::showFinvizSelector()
         return;
 
     addFromFinviz(ls.url());
+}
+
+void List::removeDuplicatesFromList(QStringList *items) const
+{
+    if(!items)
+        return;
+
+    int size = items->size();
+    QString  ii;
+
+    for(int i = 0;i < size;i++)
+    {
+        ii = items->at(i);
+
+        for(int j = i+1;j < size;)
+        {
+            if(!ii.compare(items->at(j), Qt::CaseInsensitive))
+            {
+                items->removeAt(j);
+                size = items->size();
+            }
+            else
+                j++;
+        }
+    }
 }
 
 void List::loadItem(LoadItem litem)
@@ -1095,7 +1123,7 @@ void List::slotAddOne()
         TickerInput ti(this);
 
         if(ti.exec() != QDialog::Accepted
-                || !addItem(ti.ticker().toUpper(), true))
+                || !addItem(ti.ticker().toUpper(), Fix, CheckDups))
             return;
 
         numberOfItemsChanged();
@@ -1145,7 +1173,7 @@ void List::slotAddFromFile()
             if(Settings::instance()->tickerValidator().exactMatch(ticker))
             {
                 changed = true;
-                addItem(ticker, true);
+                addItem(ticker, Fix, CheckDups);
             }
         }
     }
