@@ -763,7 +763,9 @@ bool List::addItem(const QString &text, FixName fix, CheckForDups check)
                 ? txt[0].replace('-', '.')
                 : txt[0];
 
-    if(check == CheckDups && !Settings::instance()->allowDuplicates() && ui->list->findItems(t, Qt::MatchFixedString).size())
+    if(check == CheckDups
+            && !Settings::instance()->allowDuplicates()
+            && ui->list->findItems(t, Qt::MatchFixedString).size())
         return false;
 
     ListItem *item = new ListItem(t, ui->list);
