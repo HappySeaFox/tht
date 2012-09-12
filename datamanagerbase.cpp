@@ -57,7 +57,7 @@ void DataManagerBase::addItem(const QStringList &strings, const QVariant &data, 
 
     if(edit)
     {
-        ui->tree->setCurrentItem(i, QItemSelectionModel::ClearAndSelect);
+        ui->tree->setCurrentItem(i);
         ui->tree->editItem(i);
     }
 }
