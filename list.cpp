@@ -122,7 +122,7 @@ List::List(int group, QWidget *parent) :
     menu->addAction(tr("Add one ticker...") + "\tO", this, SLOT(slotAddOne()));
     menu->addSeparator();
     menu->addAction(file_icon, tr("Add from file...") + "\tA", this, SLOT(slotAddFromFile()));
-    menu->addAction(tr("Add from clipboard") + "\tP", this, SLOT(slotAddFromClipboard()));
+    menu->addAction(tr("Add from clipboard") + "\tP", this, SLOT(paste()));
     menu->addSeparator();
     m_finvizMenu = menu->addMenu(QIcon(":/images/finviz.png"), tr("Add from Finviz") + "\tZ");
     ui->pushAdd->setMenu(menu);
@@ -633,29 +633,45 @@ void List::load()
 
 void List::paste()
 {
-    QString text = QApplication::clipboard()->text();
+    qint64 v = QDateTime::currentMSecsSinceEpoch();
 
-    qDebug("Paste");
+    QStringList tickers = QApplication::clipboard()->text().split(QRegExp("\\s+"));
 
-    QTextStream t(&text);
-    QString ticker;
+    // nothing to paste
+    if(tickers.isEmpty())
+    {
+        qDebug("Nothing to paste");
+        return;
+    }
+
+    CheckForDups check;
+
+    if(!ui->list->count())
+    {
+        check = DontCheckDups;
+
+        if(!Settings::instance()->allowDuplicates())
+            tickers.removeDuplicates();
+    }
+    else
+        check = Settings::instance()->allowDuplicates() ? DontCheckDups : CheckDups;
 
     ui->list->setUpdatesEnabled(false);
 
     bool changed = false;
 
-    while(!t.atEnd())
+    foreach(QString ticker, tickers)
     {
-        t >> ticker;
-
         if(Settings::instance()->tickerValidator().exactMatch(ticker))
         {
             changed = true;
-            addItem(ticker, Fix, CheckDups);
+            addItem(ticker, Fix, check);
         }
     }
 
     ui->list->setUpdatesEnabled(true);
+
+    qDebug("Pasted in %ld ms.", static_cast<long int>(QDateTime::currentMSecsSinceEpoch() - v));
 
     if(changed)
     {
@@ -1163,11 +1179,6 @@ void List::slotAddFromFile()
 
     if(error)
         QMessageBox::warning(this, tr("Error"), tr("Cannot open the following files: %1").arg(errorFiles.join(",")));
-}
-
-void List::slotAddFromClipboard()
-{
-    paste();
 }
 
 void List::clear()
