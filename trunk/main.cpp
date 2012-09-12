@@ -149,6 +149,8 @@ int main(int argc, char *argv[])
 
     qDebug("Starting at %s", qPrintable(QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss")));
 
+    qint64 v = QDateTime::currentMSecsSinceEpoch();
+
     QCoreApplication::setApplicationName("THT");
     QCoreApplication::setOrganizationName("THT");
 
@@ -196,8 +198,9 @@ int main(int argc, char *argv[])
 
     app.setQuitOnLastWindowClosed(false);
 
-    QObject::connect(&app, SIGNAL(messageReceived(const QString &)),
-                        &w, SLOT(slotMessageReceived(const QString &)));
+    QObject::connect(&app, SIGNAL(messageReceived(QString)), &w, SLOT(slotMessageReceived(QString)));
+
+    qDebug("Initialized in %ld ms.", static_cast<long int>(QDateTime::currentMSecsSinceEpoch() - v));
 
     int code = app.exec();
 

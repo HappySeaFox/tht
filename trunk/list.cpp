@@ -94,8 +94,8 @@ List::List(int group, QWidget *parent) :
     reconfigureMiniTickerEntry();
 
     connect(ui->widgetInput, SIGNAL(focusUp()), this, SLOT(slotFocusUp()));
-    connect(ui->widgetInput, SIGNAL(addTicker(const QString &)), this, SLOT(addTicker(const QString &)));
-    connect(ui->widgetInput, SIGNAL(loadTicker(const QString &)), this, SIGNAL(loadTicker(const QString &)));
+    connect(ui->widgetInput, SIGNAL(addTicker(QString)), this, SLOT(addTicker(QString)));
+    connect(ui->widgetInput, SIGNAL(loadTicker(QString)), this, SIGNAL(loadTicker(QString)));
 
     ui->stack->widget(0)->setFocusProxy(ui->widgetInput);
     ui->stack->widget(1)->setFocusProxy(ui->widgetSearch);
