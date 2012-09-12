@@ -67,6 +67,7 @@ void DataManagerBase::addButton(QPushButton *button)
     if(!button)
         return;
 
+    // add separator
     if(!ui->widgetButtons->layout()->count())
     {
         QFrame *line = new QFrame(ui->widgetButtons);
@@ -76,6 +77,7 @@ void DataManagerBase::addButton(QPushButton *button)
         ui->widgetButtons->layout()->addWidget(line);
     }
 
+    // add button
     button->setParent(ui->widgetButtons);
     ui->widgetButtons->layout()->addWidget(button);
 
