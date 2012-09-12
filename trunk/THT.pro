@@ -34,11 +34,14 @@ DEFINES += FINVIZ_ELITE=\\\"elite.finviz.com\\\"
 
 DEFINES += TARGET=$$TARGET
 
-INCLUDEPATH += . qtsingleapplication qxt colorpicker
-DEPENDPATH += . qtsingleapplication qxt colorpicker
-
 # require at least Windows XP
 DEFINES += _WIN32_WINNT=0x0501 WINVER=0x0501
+
+# use fast string concat
+DEFINES *= QT_USE_QSTRINGBUILDER
+
+INCLUDEPATH += . qtsingleapplication qxt colorpicker
+DEPENDPATH += . qtsingleapplication qxt colorpicker
 
 SOURCES += main.cpp\
     tht.cpp \
