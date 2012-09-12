@@ -78,7 +78,6 @@ private:
     QStringList toStringList(bool withPriority);
     void save();
     void load();
-    void paste();
     void showSaved(bool isSaved);
     void showTickerInfo();
     QPixmap createDragCursor();
@@ -122,7 +121,6 @@ public slots:
 private slots:
     void slotAddOne();
     void slotAddFromFile();
-    void slotAddFromClipboard();
     void slotSave();
     void slotExportToFile();
     void slotExportToClipboard();
@@ -136,6 +134,7 @@ private slots:
     void slotManageFinvizUrls();
     void slotCurrentRowChanged(int);
     void loadItem(LoadItem = LoadItemCurrent);
+    void paste();
 
 private:
     Ui::List *ui;
