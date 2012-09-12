@@ -41,7 +41,7 @@ FinvizUrlManager::FinvizUrlManager(QWidget *parent) :
 
     ui->tree->setCurrentItem(ui->tree->topLevelItem(0));
 
-    connect(ui->tree, SIGNAL(itemChanged(QTreeWidgetItem *, int)), this, SLOT(slotCheckItem(QTreeWidgetItem *, int)));
+    connect(ui->tree, SIGNAL(itemChanged(QTreeWidgetItem*,int)), this, SLOT(slotCheckItem(QTreeWidgetItem*,int)));
 
     QPushButton *b = new QPushButton(tr("Access..."), this);
     connect(b, SIGNAL(clicked()), this, SLOT(slotAccessClicked()));

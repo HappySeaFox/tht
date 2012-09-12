@@ -70,8 +70,8 @@ About::About(QWidget *parent) :
     // update checker
     m_checker = new UpdateChecker(this);
 
-    connect(m_checker, SIGNAL(newVersion(const QString &)), this, SLOT(slotNewVersion(const QString &)));
-    connect(m_checker, SIGNAL(error(const QString &)), this, SLOT(slotError(const QString &)));
+    connect(m_checker, SIGNAL(newVersion(QString)), this, SLOT(slotNewVersion(QString)));
+    connect(m_checker, SIGNAL(error(QString)), this, SLOT(slotError(QString)));
 
     m_checker->start();
     m_timer->start();

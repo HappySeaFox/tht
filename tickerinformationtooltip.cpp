@@ -118,8 +118,8 @@ TickerInformationToolTipLabel::TickerInformationToolTipLabel(const QString &text
 
     fetcher = new TickerInformationFetcher(this);
 
-    connect(fetcher, SIGNAL(done(const QString &, const QString &, const QString &)),
-            this, SLOT(slotFetcherDone(const QString &, const QString &, const QString &)));
+    connect(fetcher, SIGNAL(done(QString,QString,QString)),
+            this, SLOT(slotFetcherDone(QString,QString,QString)));
 
     setForegroundRole(QPalette::ToolTipText);
     setBackgroundRole(QPalette::ToolTipBase);

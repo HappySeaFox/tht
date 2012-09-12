@@ -41,7 +41,7 @@ ScreenshotEditor::ScreenshotEditor(const QPixmap &px, QWidget *parent) :
     connect(ui->pushDelete, SIGNAL(clicked()), ui->scrollAreaWidgetContents, SLOT(deleteSelected()));
     connect(ui->pushSelectAll, SIGNAL(clicked()), ui->scrollAreaWidgetContents, SLOT(selectAll()));
 
-    connect(ui->scrollAreaWidgetContents, SIGNAL(selected(SelectableLabel *, bool)), this, SLOT(slotSelected(SelectableLabel *, bool)));
+    connect(ui->scrollAreaWidgetContents, SIGNAL(selected(SelectableLabel*,bool)), this, SLOT(slotSelected(SelectableLabel*,bool)));
 
     ui->pushDelete->setShortcut(QKeySequence::Delete);
     ui->pushSelectAll->setShortcut(QKeySequence::SelectAll);

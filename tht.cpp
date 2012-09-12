@@ -397,23 +397,23 @@ void THT::rebuildUi()
         {
             List *list = new List(m_lists.size()+1, this);
 
-            connect(list, SIGNAL(copyLeft(const QString &, ListItem::Priority)),
-                    this, SLOT(slotCopyLeft(const QString &, ListItem::Priority)));
+            connect(list, SIGNAL(copyLeft(QString,ListItem::Priority)),
+                    this, SLOT(slotCopyLeft(QString,ListItem::Priority)));
 
-            connect(list, SIGNAL(copyRight(const QString &, ListItem::Priority)),
-                    this, SLOT(slotCopyRight(const QString &, ListItem::Priority)));
+            connect(list, SIGNAL(copyRight(QString,ListItem::Priority)),
+                    this, SLOT(slotCopyRight(QString,ListItem::Priority)));
 
-            connect(list, SIGNAL(copyTo(const QString &, ListItem::Priority, int)),
-                    this, SLOT(slotCopyTo(const QString &, ListItem::Priority, int)));
+            connect(list, SIGNAL(copyTo(QString,ListItem::Priority,int)),
+                    this, SLOT(slotCopyTo(QString,ListItem::Priority,int)));
 
-            connect(list, SIGNAL(loadTicker(const QString &)),
-                    this, SLOT(slotLoadTicker(const QString &)));
+            connect(list, SIGNAL(loadTicker(QString)),
+                    this, SLOT(slotLoadTicker(QString)));
 
-            connect(list, SIGNAL(dropped(const QString &, ListItem::Priority, const QPoint &)),
-                    this, SLOT(slotTickerDropped(const QString &, ListItem::Priority, const QPoint &)));
+            connect(list, SIGNAL(dropped(QString,ListItem::Priority,QPoint)),
+                    this, SLOT(slotTickerDropped(QString,ListItem::Priority,QPoint)));
 
-            connect(list, SIGNAL(showNeighbors(const QString &)),
-                    this, SLOT(slotShowNeighbors(const QString &)));
+            connect(list, SIGNAL(showNeighbors(QString)),
+                    this, SLOT(slotShowNeighbors(QString)));
 
             connect(list, SIGNAL(needRebuildFinvizMenu()),
                     this, SLOT(slotNeedRebuildFinvizMenu()));
@@ -1350,7 +1350,7 @@ void THT::slotShowNeighbors(const QString &ticker)
     if(Settings::instance()->onTop())
         m_sectors->setWindowFlags(m_sectors->windowFlags() | Qt::WindowStaysOnTopHint);
 
-    connect(m_sectors, SIGNAL(loadTicker(const QString &)), this, SLOT(slotLoadTicker(const QString &)));
+    connect(m_sectors, SIGNAL(loadTicker(QString)), this, SLOT(slotLoadTicker(QString)));
 
     m_sectors->show();
 }

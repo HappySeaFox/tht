@@ -39,7 +39,7 @@ SearchTicker::SearchTicker(QWidget *parent) :
     ui->line->setValidator(new UpperCaseValidator(ui->line));
 
     connect(ui->pushClose, SIGNAL(clicked()), this, SIGNAL(cancel()));
-    connect(ui->line, SIGNAL(textChanged(const QString &)), this, SIGNAL(ticker(const QString &)));
+    connect(ui->line, SIGNAL(textChanged(QString)), this, SIGNAL(ticker(QString)));
 
     ui->line->installEventFilter(this);
 }
