@@ -617,7 +617,7 @@ void List::load()
     QStringList items = Settings::instance()->tickersForGroup(m_section);
 
     if(!Settings::instance()->allowDuplicates())
-        removeDuplicatesFromList(&items);
+        items.removeDuplicates();
 
     ui->list->setUpdatesEnabled(false);
 
@@ -937,31 +937,6 @@ void List::showFinvizSelector()
         return;
 
     addFromFinviz(ls.url());
-}
-
-void List::removeDuplicatesFromList(QStringList *items) const
-{
-    if(!items || items->size() < 2)
-        return;
-
-    int size = items->size();
-    QString  ii;
-
-    for(int i = 0;i < size;i++)
-    {
-        ii = items->at(i);
-
-        for(int j = i+1;j < size;)
-        {
-            if(!ii.compare(items->at(j), Qt::CaseInsensitive))
-            {
-                items->removeAt(j);
-                size = items->size();
-            }
-            else
-                j++;
-        }
-    }
 }
 
 void List::loadItem(LoadItem litem)

@@ -92,7 +92,6 @@ private:
     void undo();
     void addFromFinviz(const QUrl &);
     void showFinvizSelector();
-    void removeDuplicatesFromList(QStringList *items) const;
 
     enum LoadItem { LoadItemCurrent,
                     LoadItemNext, LoadItemPrevious,
