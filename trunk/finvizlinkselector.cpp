@@ -27,9 +27,9 @@ FinvizLinkSelector::FinvizLinkSelector(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    m_urls = Settings::instance()->finvizUrls();
+    const QList<FinvizUrl> urls = Settings::instance()->finvizUrls();
 
-    foreach(FinvizUrl fu, m_urls)
+    foreach(FinvizUrl fu, urls)
     {
         QListWidgetItem *i = new QListWidgetItem(fu.name, ui->listWidget);
         i->setData(Qt::UserRole, fu.url);
