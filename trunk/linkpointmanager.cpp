@@ -71,7 +71,7 @@ LinkPointManager::LinkPointManager(const QList<QPoint> &currentLinks, QWidget *p
         addLinkPoint(lp);
     }
 
-    ui->tree->setCurrentItem(ui->tree->topLevelItem(0), QItemSelectionModel::ClearAndSelect);
+    ui->tree->setCurrentItem(ui->tree->topLevelItem(0));
 }
 
 LinkPointManager::~LinkPointManager()

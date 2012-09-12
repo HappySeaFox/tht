@@ -27,18 +27,19 @@ FinvizUrlManager::FinvizUrlManager(QWidget *parent) :
     DataManagerBase(parent)
 {
     setWindowTitle(tr("Finviz links"));
+
     ui->pushAdd->setText(tr("Add"));
     ui->tree->headerItem()->setText(1, tr("Link"));
     ui->tree->setWhatsThis(QString("<a href=\"http://www.youtube.com/watch?v=JA9zX1uoBdA\">%1</a>").arg(tr("Open YouTube tutorial")));
 
-    QList<FinvizUrl> urls = Settings::instance()->finvizUrls();
+    const QList<FinvizUrl> urls = Settings::instance()->finvizUrls();
 
     foreach(FinvizUrl fu, urls)
     {
         addFinvizUrl(fu);
     }
 
-    ui->tree->setCurrentItem(ui->tree->topLevelItem(0), QItemSelectionModel::ClearAndSelect);
+    ui->tree->setCurrentItem(ui->tree->topLevelItem(0));
 
     connect(ui->tree, SIGNAL(itemChanged(QTreeWidgetItem *, int)), this, SLOT(slotCheckItem(QTreeWidgetItem *, int)));
 

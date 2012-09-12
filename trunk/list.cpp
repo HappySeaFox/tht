@@ -210,7 +210,7 @@ void List::initialSelect(bool alsoSetFocus)
     if(!item)
         return;
 
-    ui->list->setCurrentItem(item, QItemSelectionModel::ClearAndSelect);
+    ui->list->setCurrentItem(item);
 }
 
 void List::removeDuplicates()
@@ -992,7 +992,7 @@ void List::loadItem(LoadItem litem)
         return;
     }
 
-    ui->list->setCurrentItem(item, QItemSelectionModel::ClearAndSelect);
+    ui->list->setCurrentItem(item);
     emit loadTicker(item->text());
 }
 
@@ -1069,7 +1069,7 @@ void List::moveItem(MoveItem mi)
         return;
 
     ui->list->insertItem(row, item);
-    ui->list->setCurrentItem(item, QItemSelectionModel::ClearAndSelect);
+    ui->list->setCurrentItem(item);
 
     save();
 }
@@ -1302,7 +1302,7 @@ void List::slotSearchTicker(const QString &ticker)
     m_foundItems = ui->list->findItems(ticker, Qt::MatchStartsWith);
 
     if(!m_foundItems.isEmpty() && m_foundItems[0])
-        ui->list->setCurrentItem(m_foundItems[0], QItemSelectionModel::ClearAndSelect);
+        ui->list->setCurrentItem(m_foundItems[0]);
 }
 
 void List::slotSearchTickerNext()
@@ -1322,7 +1322,7 @@ void List::slotSearchTickerNext()
         index = 0;
 
     if(m_foundItems[index])
-        ui->list->setCurrentItem(m_foundItems[index], QItemSelectionModel::ClearAndSelect);
+        ui->list->setCurrentItem(m_foundItems[index]);
 }
 
 void List::slotFocusUp()
