@@ -941,7 +941,7 @@ void List::showFinvizSelector()
 
 void List::removeDuplicatesFromList(QStringList *items) const
 {
-    if(!items)
+    if(!items || items->size() < 2)
         return;
 
     int size = items->size();
