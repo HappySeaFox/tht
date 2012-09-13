@@ -661,11 +661,9 @@ void List::paste()
 
     foreach(QString ticker, tickers)
     {
-        if(Settings::instance()->tickerValidator().exactMatch(ticker))
-        {
-            if(addItem(ticker, Fix, check))
-                changed = true;
-        }
+        if(Settings::instance()->tickerValidator().exactMatch(ticker)
+                && addItem(ticker, Fix, check))
+            changed = true;
     }
 
     ui->list->setUpdatesEnabled(true);
@@ -930,11 +928,9 @@ void List::addFromFinviz(const QUrl &u)
 
     foreach(QString ticker, tickers)
     {
-        if(Settings::instance()->tickerValidator().exactMatch(ticker))
-        {
-            if(addItem(ticker, Fix, CheckDups))
-                changed = true;
-        }
+        if(Settings::instance()->tickerValidator().exactMatch(ticker)
+                && addItem(ticker, Fix, CheckDups))
+            changed = true;
     }
 
     ui->list->setUpdatesEnabled(true);
@@ -1162,11 +1158,9 @@ void List::slotAddFromFile()
         {
             t >> ticker;
 
-            if(Settings::instance()->tickerValidator().exactMatch(ticker))
-            {
-                if(addItem(ticker, Fix, CheckDups))
-                    changed = true;
-            }
+            if(Settings::instance()->tickerValidator().exactMatch(ticker)
+                    && addItem(ticker, Fix, CheckDups))
+                changed = true;
         }
     }
 
