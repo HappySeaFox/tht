@@ -30,7 +30,7 @@ FinvizUrlManager::FinvizUrlManager(QWidget *parent) :
 
     ui->pushAdd->setText(tr("Add"));
     ui->tree->headerItem()->setText(1, tr("Link"));
-    ui->tree->setWhatsThis(QString("<a href=\"http://www.youtube.com/watch?v=JA9zX1uoBdA\">%1</a>").arg(tr("Open YouTube tutorial")));
+    ui->tree->setWhatsThis(QString("<a href=\"http://www.youtube.com/watch?v=r1Y7iNM7_9k\">%1</a>").arg(tr("Open YouTube tutorial")));
 
     const QList<FinvizUrl> urls = Settings::instance()->finvizUrls();
 
