@@ -663,8 +663,8 @@ void List::paste()
     {
         if(Settings::instance()->tickerValidator().exactMatch(ticker))
         {
-            changed = true;
-            addItem(ticker, Fix, check);
+            if(addItem(ticker, Fix, check))
+                changed = true;
         }
     }
 
@@ -932,8 +932,8 @@ void List::addFromFinviz(const QUrl &u)
     {
         if(Settings::instance()->tickerValidator().exactMatch(ticker))
         {
-            changed = true;
-            addItem(ticker, Fix, CheckDups);
+            if(addItem(ticker, Fix, CheckDups))
+                changed = true;
         }
     }
 
@@ -1164,8 +1164,8 @@ void List::slotAddFromFile()
 
             if(Settings::instance()->tickerValidator().exactMatch(ticker))
             {
-                changed = true;
-                addItem(ticker, Fix, CheckDups);
+                if(addItem(ticker, Fix, CheckDups))
+                    changed = true;
             }
         }
     }
