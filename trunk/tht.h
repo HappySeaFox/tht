@@ -177,8 +177,6 @@ private:
     QString m_ticker;
     QSystemTrayIcon *m_tray;
     bool m_wasVisible;
-    KEYBDINPUT m_kbInput;
-    INPUT m_input[4];
     bool m_useKeyboardInRegion;
     bool m_locked;
     QWidget *m_lastActiveWindow;
