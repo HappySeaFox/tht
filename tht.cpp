@@ -1207,14 +1207,9 @@ void THT::slotLockLinks()
 
     QColor color = m_locked ? Qt::red : palette().color(QPalette::WindowText);
     QPalette pal;
-    QFont font;
 
     foreach(QWidget *l, labels)
     {
-        font = l->font();
-        font.setBold(m_locked);
-        l->setFont(font);
-
         pal = l->palette();
         pal.setColor(QPalette::WindowText, color);
         l->setPalette(pal);
