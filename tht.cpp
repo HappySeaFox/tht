@@ -30,7 +30,6 @@
 #include <QDateTime>
 #include <QPalette>
 #include <QEvent>
-#include <QDebug>
 #include <QTimer>
 #include <QIcon>
 #include <QMenu>
@@ -303,8 +302,8 @@ void THT::contextMenuEvent(QContextMenuEvent *event)
 
 void THT::sendKey(int key, bool extended)
 {
-    memset(&m_kbInput, 0, sizeof(KEYBDINPUT));
-    memset(&m_input, 0, sizeof(KEYBDINPUT) * 4);
+    KEYBDINPUT kbInput = {0};
+    INPUT input[4] = {{0}, {0}, {0}, {0}};
 
     int nelem = 2;
     int index = 0;
@@ -317,12 +316,12 @@ void THT::sendKey(int key, bool extended)
     {
         nelem += 2;
 
-        m_kbInput.dwFlags = 0;
-        m_kbInput.wVk = VK_SHIFT;
-        m_kbInput.wScan = MapVirtualKey(VK_SHIFT, 0);
+        kbInput.dwFlags = 0;
+        kbInput.wVk = VK_SHIFT;
+        kbInput.wScan = MapVirtualKey(VK_SHIFT, 0);
 
-        m_input[index].type = INPUT_KEYBOARD;
-        m_input[index].ki = m_kbInput;
+        input[index].type = INPUT_KEYBOARD;
+        input[index].ki = kbInput;
 
         ++index;
     }
@@ -331,38 +330,38 @@ void THT::sendKey(int key, bool extended)
     SHORT vkey = VkKeyScan(key);
 
     if(extended)
-        m_kbInput.dwFlags = KEYEVENTF_EXTENDEDKEY;
+        kbInput.dwFlags = KEYEVENTF_EXTENDEDKEY;
 
-    m_kbInput.wVk = vkey;
-    m_kbInput.wScan = MapVirtualKey(vkey, 0);
+    kbInput.wVk = vkey;
+    kbInput.wScan = MapVirtualKey(vkey, 0);
 
-    m_input[index].type = INPUT_KEYBOARD;
-    m_input[index].ki = m_kbInput;
+    input[index].type = INPUT_KEYBOARD;
+    input[index].ki = kbInput;
     ++index;
 
     // key up
-    m_kbInput.dwFlags = KEYEVENTF_KEYUP;
+    kbInput.dwFlags = KEYEVENTF_KEYUP;
 
     if(extended)
-        m_kbInput.dwFlags |= KEYEVENTF_EXTENDEDKEY;
+        kbInput.dwFlags |= KEYEVENTF_EXTENDEDKEY;
 
-    m_input[index].type = INPUT_KEYBOARD;
-    m_input[index].ki = m_kbInput;
+    input[index].type = INPUT_KEYBOARD;
+    input[index].ki = kbInput;
     ++index;
 
     // SHIFT up
     if(shift)
     {
-        m_kbInput.dwFlags = KEYEVENTF_KEYUP;
-        m_kbInput.wVk = VK_SHIFT;
-        m_kbInput.wScan = MapVirtualKey(VK_SHIFT, 0);
+        kbInput.dwFlags = KEYEVENTF_KEYUP;
+        kbInput.wVk = VK_SHIFT;
+        kbInput.wScan = MapVirtualKey(VK_SHIFT, 0);
 
-        m_input[index].type = INPUT_KEYBOARD;
-        m_input[index].ki = m_kbInput;
+        input[index].type = INPUT_KEYBOARD;
+        input[index].ki = kbInput;
     }
 
     // send both combinations
-    SendInput(nelem, m_input, sizeof(INPUT));
+    SendInput(nelem, input, sizeof(INPUT));
 }
 
 void THT::sendString(const QString &ticker, LinkType type)

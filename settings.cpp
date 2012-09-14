@@ -22,6 +22,7 @@
 #include <QDir>
 
 #include <climits>
+#include <cstring>
 
 #include <windows.h>
 
@@ -176,7 +177,7 @@ Settings::Settings()
         m_settings->sync();
     }
 
-    ZeroMemory(&m_windowsVersion, sizeof(OSVERSIONINFO));
+    memset(&m_windowsVersion, 0, sizeof(OSVERSIONINFO));
     m_windowsVersion.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
 
     if(!GetVersionEx(&m_windowsVersion))
