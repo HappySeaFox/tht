@@ -605,8 +605,13 @@ QDateTime Settings::readTimestamp(const QString &fileName) const
 
 void Settings::fillTranslations()
 {
+    /*: Russian language */
     m_translations.insert("ru", QObject::tr("Russian"));
+
+    /*: Ukrainian language */
     m_translations.insert("uk", QObject::tr("Ukrainian"));
+
+    /*: English language */
     m_translations.insert("en_US", QObject::tr("English"));
 }
 

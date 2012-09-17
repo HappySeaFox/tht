@@ -395,18 +395,21 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../settings.cpp" line="608"/>
+        <location filename="../settings.cpp" line="609"/>
         <source>Russian</source>
+        <extracomment>Russian language</extracomment>
         <translation>Російська</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="609"/>
+        <location filename="../settings.cpp" line="612"/>
         <source>Ukrainian</source>
+        <extracomment>Ukrainian language</extracomment>
         <translation>Українська</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="610"/>
+        <location filename="../settings.cpp" line="615"/>
         <source>English</source>
+        <extracomment>English language</extracomment>
         <translation>Англійська</translation>
     </message>
 </context>
