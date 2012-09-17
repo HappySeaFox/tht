@@ -45,9 +45,6 @@
        <height>32</height>
       </size>
      </property>
-     <property name="toolTip">
-      <string>Move this pointer to the window with which to establish a link</string>
-     </property>
     </widget>
    </item>
    <item row="2" column="1">
