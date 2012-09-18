@@ -96,7 +96,7 @@ void LinkPointManager::addLinkPoint(const LinkPoint &lp, bool edit)
 {
     QString points;
 
-    points.reserve(10 * lp.points.size()); // assume 10 bytes per point
+    points.reserve(10 * lp.points.size()); // assume 10 bytes per point: "(xxx,yyy),"
 
     foreach(QPoint p, lp.points)
     {
