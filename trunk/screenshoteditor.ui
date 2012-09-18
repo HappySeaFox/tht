@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>432</width>
-    <height>269</height>
+    <width>475</width>
+    <height>300</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Trade editor</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="6" column="1">
+   <item row="7" column="1">
     <widget class="QPushButton" name="pushDelete">
      <property name="text">
       <string>Delete</string>
@@ -31,7 +31,7 @@
        <normaloff>:/images/cursor-buy.png</normaloff>:/images/cursor-buy.png</iconset>
      </property>
      <property name="shortcut">
-      <string notr="true">B</string>
+      <string>B</string>
      </property>
     </widget>
    </item>
@@ -45,11 +45,11 @@
        <normaloff>:/images/cursor-sail.png</normaloff>:/images/cursor-sail.png</iconset>
      </property>
      <property name="shortcut">
-      <string notr="true">S</string>
+      <string>S</string>
      </property>
     </widget>
    </item>
-   <item row="8" column="1">
+   <item row="9" column="1">
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Fixed" vsizetype="Maximum">
@@ -65,7 +65,7 @@
      </property>
     </widget>
    </item>
-   <item row="7" column="1">
+   <item row="8" column="1">
     <spacer name="verticalSpacer">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
@@ -78,14 +78,14 @@
      </property>
     </spacer>
    </item>
-   <item row="4" column="1">
+   <item row="5" column="1">
     <widget class="Line" name="line">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
     </widget>
    </item>
-   <item row="0" column="0" rowspan="9">
+   <item row="0" column="0" rowspan="10">
     <widget class="QScrollArea" name="scrollArea">
      <property name="widgetResizable">
       <bool>true</bool>
@@ -95,8 +95,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>331</width>
-        <height>249</height>
+        <width>374</width>
+        <height>280</height>
        </rect>
       </property>
      </widget>
@@ -112,7 +112,7 @@
        <normaloff>:/images/cursor-stop.png</normaloff>:/images/cursor-stop.png</iconset>
      </property>
      <property name="shortcut">
-      <string notr="true">P</string>
+      <string>P</string>
      </property>
     </widget>
    </item>
@@ -122,14 +122,28 @@
       <string>Text</string>
      </property>
      <property name="shortcut">
-      <string notr="true">T</string>
+      <string>T</string>
      </property>
     </widget>
    </item>
-   <item row="5" column="1">
+   <item row="6" column="1">
     <widget class="QPushButton" name="pushSelectAll">
      <property name="text">
       <string>Select all</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="1">
+    <widget class="QPushButton" name="pushEllipse">
+     <property name="text">
+      <string>Ellipse</string>
+     </property>
+     <property name="icon">
+      <iconset resource="tht.qrc">
+       <normaloff>:/images/ellipse.png</normaloff>:/images/ellipse.png</iconset>
+     </property>
+     <property name="shortcut">
+      <string>E</string>
      </property>
     </widget>
    </item>
@@ -150,6 +164,7 @@
   <tabstop>pushLong</tabstop>
   <tabstop>pushShort</tabstop>
   <tabstop>pushStop</tabstop>
+  <tabstop>pushEllipse</tabstop>
   <tabstop>pushSelectAll</tabstop>
   <tabstop>pushDelete</tabstop>
   <tabstop>buttonBox</tabstop>

@@ -46,6 +46,7 @@ SaveScreenshot::SaveScreenshot(const QPixmap &px, QWidget *parent) :
 
 SaveScreenshot::~SaveScreenshot()
 {
+    delete m_editor;
     delete ui;
 }
 

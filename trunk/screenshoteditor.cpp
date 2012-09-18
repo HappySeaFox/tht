@@ -31,6 +31,7 @@ ScreenshotEditor::ScreenshotEditor(const QPixmap &px, QWidget *parent) :
     ui(new Ui::ScreenshotEditor)
 {
     ui->setupUi(this);
+
     ui->scrollAreaWidgetContents->setPixmap(px);
     ui->scrollArea->setWhatsThis(QString("<a href=\"http://www.youtube.com/watch?v=EpVSUyPC3WA\">%1</a>").arg(tr("Open YouTube tutorial")));
 
@@ -38,6 +39,7 @@ ScreenshotEditor::ScreenshotEditor(const QPixmap &px, QWidget *parent) :
     connect(ui->pushLong, SIGNAL(clicked()), ui->scrollAreaWidgetContents, SLOT(startBuy()));
     connect(ui->pushShort, SIGNAL(clicked()), ui->scrollAreaWidgetContents, SLOT(startSell()));
     connect(ui->pushStop, SIGNAL(clicked()), ui->scrollAreaWidgetContents, SLOT(startStop()));
+    connect(ui->pushEllipse, SIGNAL(clicked()), ui->scrollAreaWidgetContents, SLOT(startEllipse()));
     connect(ui->pushDelete, SIGNAL(clicked()), ui->scrollAreaWidgetContents, SLOT(deleteSelected()));
     connect(ui->pushSelectAll, SIGNAL(clicked()), ui->scrollAreaWidgetContents, SLOT(selectAll()));
 
