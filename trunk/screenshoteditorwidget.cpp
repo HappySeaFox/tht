@@ -264,7 +264,8 @@ void ScreenshotEditorWidget::mouseReleaseEvent(QMouseEvent *e)
 
     const int margin = 5;
 
-    if(!rect().adjusted(margin, margin, -margin, -margin).contains(m_currentPoint))
+    // outside border?
+    if(m_editType != Ellipse && !rect().adjusted(margin, margin, -margin, -margin).contains(m_currentPoint))
     {
         cancel();
         update();
