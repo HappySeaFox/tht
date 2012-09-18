@@ -586,7 +586,7 @@ the right or middle mouse buttons.</source>
     <message>
         <location filename="../screenshoteditor.ui" line="139"/>
         <source>Ellipse</source>
-        <translation></translation>
+        <translation>Еліпс</translation>
     </message>
     <message>
         <location filename="../screenshoteditor.ui" line="142"/>
