@@ -67,6 +67,13 @@ http://findicons.com/pack/1689/splashy
 Author: Dat Nguyen
 License: Free for use
 
+* "Ellipse" icon is taken from GNOME icon theme
+
+http://www.iconfinder.com/icondetails/21556/16/
+
+Author: GNOME Project
+License: GPL
+
 * Other icons are taken from Fugue Icons theme
 
 http://p.yusukekamiyamane.com/
