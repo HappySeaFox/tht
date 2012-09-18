@@ -413,6 +413,23 @@ exists($$INNO) {
     iss.commands += $$mle(echo ;Filename: \"{app}\\$${TARGET}.exe\"; Description: \"{cm:LaunchProgram","{$${LITERAL_HASH}StringChange(MyAppName"," \'&\'"," \'&&\')}}\"; Flags: nowait postinstall skipifsilent >> $$ISS)
     iss.commands += $$mle(echo Filename: \"{$${LITERAL_HASH}MyAppURL}/wiki/howto\"; Flags: nowait shellexec >> $$ISS)
 
+    iss.commands += $$mle(echo [Code] >> $$ISS)
+    iss.commands += $$mle(echo procedure CurStepChanged(CurStep: TSetupStep); >> $$ISS)
+    iss.commands += $$mle(echo var >> $$ISS)
+    iss.commands += $$mle(echo ResultCode: Integer; >> $$ISS)
+    iss.commands += $$mle(echo Uninstall: String; >> $$ISS)
+    iss.commands += $$mle(echo UninstallQuery : String; >> $$ISS)
+    iss.commands += $$mle(echo begin >> $$ISS)
+    iss.commands += $$mle(echo   UninstallQuery := ExpandConstant(\'Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\{$${LITERAL_HASH}emit SetupSetting(\"AppId\")}_is1\'); >> $$ISS)
+
+    iss.commands += $$mle(echo   if (CurStep = ssInstall) then begin >> $$ISS)
+    iss.commands += $$mle(echo     if RegQueryStringValue(HKLM, UninstallQuery, \'UninstallString\', Uninstall) >> $$ISS)
+    iss.commands += $$mle(echo        or RegQueryStringValue(HKCU, UninstallQuery, \'UninstallString\', Uninstall) then begin >> $$ISS)
+    iss.commands += $$mle(echo       Exec(RemoveQuotes(Uninstall), \' /SILENT\', \'\', SW_SHOWNORMAL, ewWaitUntilTerminated, ResultCode); >> $$ISS)
+    iss.commands += $$mle(echo     end; >> $$ISS)
+    iss.commands += $$mle(echo   end; >> $$ISS)
+    iss.commands += $$mle(echo end; >> $$ISS)
+
     QMAKE_EXTRA_TARGETS += iss
     QMAKE_EXTRA_TARGETS *= distbin
 
