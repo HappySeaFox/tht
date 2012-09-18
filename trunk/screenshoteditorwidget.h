@@ -78,7 +78,7 @@ signals:
 private:
     EditType m_editType;
     QPixmap m_pixmaps[3];
-    QColor m_colors[4];
+    QColor m_colors[5];
     QPixmap m_textPixmap;
     bool m_wasPress;
     QList<SelectableLabel *> m_labels, m_savedLabels;
