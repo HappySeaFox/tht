@@ -53,7 +53,7 @@ LinkPointManager::LinkPointManager(const QList<QPoint> &currentLinks, QWidget *p
 {
     setWindowTitle(tr("Link points"));
 
-    /*: Means "Add current link points (in the plural)" */
+    //: Means "Add current link points (in the plural)"
     ui->pushAdd->setText(tr("Add current"));
 
     ui->tree->headerItem()->setText(1, tr("Link points"));
