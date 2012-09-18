@@ -96,12 +96,15 @@ void LinkPointManager::addLinkPoint(const LinkPoint &lp, bool edit)
 {
     QString points;
 
+    points.reserve(10 * lp.points.size()); // assume 10 bytes per point
+
     foreach(QPoint p, lp.points)
     {
         points += QString("(%1,%2),").arg(p.x()).arg(p.y());
     }
 
     points.chop(1);
+    points.squeeze();
 
     addItem(QStringList() << lp.name << points, QVariant::fromValue(lp.points), edit);
 }
