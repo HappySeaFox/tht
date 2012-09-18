@@ -211,7 +211,7 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
     <message>
         <location filename="../linkpointmanager.cpp" line="57"/>
         <source>Add current</source>
-        <extracomment>Means &quot;Add current link points (in the plural)&quot;</extracomment>
+        <extracomment>Means &quot;Add current link points&quot; (in the plural)</extracomment>
         <translation></translation>
     </message>
     <message>
