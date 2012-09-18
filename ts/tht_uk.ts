@@ -357,14 +357,15 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
         <translation>Параметри</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="32"/>
-        <source>&lt;System&gt;</source>
-        <translation>&lt;Системи&gt;</translation>
-    </message>
-    <message>
         <location filename="../options.ui" line="24"/>
         <source>Language:</source>
         <translation>Мова:</translation>
+    </message>
+    <message>
+        <location filename="../options.ui" line="32"/>
+        <source>&lt;System&gt;</source>
+        <comment>Means &quot;System language&quot;</comment>
+        <translation>&lt;Системи&gt;</translation>
     </message>
     <message>
         <location filename="../options.ui" line="108"/>
@@ -589,7 +590,7 @@ the right or middle mouse buttons.</source>
         <translation>Еліпс</translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="142"/>
+        <location filename="../screenshoteditor.ui" line="146"/>
         <source>E</source>
         <translation></translation>
     </message>
