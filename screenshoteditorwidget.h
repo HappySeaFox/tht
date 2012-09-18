@@ -37,7 +37,7 @@ public:
 
     QPixmap pixmap();
 
-    enum EditType { None = -1, Buy, Sail, Stop, Text };
+    enum EditType { None = -1, Buy, Sail, Stop, Text, Ellipse };
 
     EditType editType() const;
 
@@ -63,6 +63,7 @@ public slots:
     void startSell();
     void startStop();
     void startText();
+    void startEllipse();
     void deleteSelected();
     void selectAll(bool select = true);
 

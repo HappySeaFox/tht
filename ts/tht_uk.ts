@@ -84,9 +84,24 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
         <translation>Ім&apos;я</translation>
     </message>
     <message>
+        <location filename="../datamanagerbase.ui" line="46"/>
+        <source>Ins</source>
+        <translation></translation>
+    </message>
+    <message>
         <location filename="../datamanagerbase.ui" line="53"/>
         <source>Delete</source>
         <translation>Видалити</translation>
+    </message>
+    <message>
+        <location filename="../datamanagerbase.ui" line="64"/>
+        <source>Ctrl+Up</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../datamanagerbase.ui" line="75"/>
+        <source>Ctrl+Down</source>
+        <translation></translation>
     </message>
     <message>
         <location filename="../datamanagerbase.ui" line="89"/>
@@ -222,7 +237,7 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
         <translation>Відкрити урок на YouTube</translation>
     </message>
     <message>
-        <location filename="../linkpointmanager.cpp" line="111"/>
+        <location filename="../linkpointmanager.cpp" line="114"/>
         <source>New points</source>
         <translation>Нові точки</translation>
     </message>
@@ -443,9 +458,24 @@ the right or middle mouse buttons.</source>
         <translation>Редагувати...</translation>
     </message>
     <message>
+        <location filename="../savescreenshot.ui" line="23"/>
+        <source>E</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../savescreenshot.ui" line="33"/>
+        <source>F</source>
+        <translation></translation>
+    </message>
+    <message>
         <location filename="../savescreenshot.ui" line="40"/>
         <source>Clipboard</source>
         <translation>Буфер обміну</translation>
+    </message>
+    <message>
+        <location filename="../savescreenshot.ui" line="43"/>
+        <source>C</source>
+        <translation></translation>
     </message>
     <message>
         <location filename="../savescreenshot.ui" line="30"/>
@@ -453,22 +483,22 @@ the right or middle mouse buttons.</source>
         <translation>Файл...</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="66"/>
+        <location filename="../savescreenshot.cpp" line="67"/>
         <source>Image %1 (*.%2)</source>
         <translation>Зображення %1 (*.%2)</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="74"/>
+        <location filename="../savescreenshot.cpp" line="75"/>
         <source>Save as</source>
         <translation>Зберегти як</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="92"/>
+        <location filename="../savescreenshot.cpp" line="93"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="92"/>
+        <location filename="../savescreenshot.cpp" line="93"/>
         <source>Cannot save screenshot</source>
         <translation>Неможливо зберегти знімок екрана</translation>
     </message>
@@ -514,9 +544,19 @@ the right or middle mouse buttons.</source>
         <translation>Купівля</translation>
     </message>
     <message>
+        <location filename="../screenshoteditor.ui" line="34"/>
+        <source>B</source>
+        <translation></translation>
+    </message>
+    <message>
         <location filename="../screenshoteditor.ui" line="41"/>
         <source>Sale</source>
         <translation>Продаж</translation>
+    </message>
+    <message>
+        <location filename="../screenshoteditor.ui" line="48"/>
+        <source>S</source>
+        <translation></translation>
     </message>
     <message>
         <location filename="../screenshoteditor.ui" line="108"/>
@@ -524,9 +564,19 @@ the right or middle mouse buttons.</source>
         <translation>Стоп</translation>
     </message>
     <message>
+        <location filename="../screenshoteditor.ui" line="115"/>
+        <source>P</source>
+        <translation></translation>
+    </message>
+    <message>
         <location filename="../screenshoteditor.ui" line="122"/>
         <source>Text</source>
         <translation>Текст</translation>
+    </message>
+    <message>
+        <location filename="../screenshoteditor.ui" line="125"/>
+        <source>T</source>
+        <translation></translation>
     </message>
     <message>
         <location filename="../screenshoteditor.ui" line="132"/>
@@ -534,7 +584,17 @@ the right or middle mouse buttons.</source>
         <translation>Виділити все</translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.cpp" line="35"/>
+        <location filename="../screenshoteditor.ui" line="139"/>
+        <source>Ellipse</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../screenshoteditor.ui" line="142"/>
+        <source>E</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../screenshoteditor.cpp" line="36"/>
         <source>Open YouTube tutorial</source>
         <translation>Відкрити урок на YouTube</translation>
     </message>

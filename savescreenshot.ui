@@ -20,7 +20,7 @@
       <string>Edit...</string>
      </property>
      <property name="shortcut">
-      <string notr="true">E</string>
+      <string>E</string>
      </property>
     </widget>
    </item>
@@ -30,7 +30,7 @@
       <string>File...</string>
      </property>
      <property name="shortcut">
-      <string notr="true">F</string>
+      <string>F</string>
      </property>
     </widget>
    </item>
@@ -40,7 +40,7 @@
       <string>Clipboard</string>
      </property>
      <property name="shortcut">
-      <string notr="true">C</string>
+      <string>C</string>
      </property>
     </widget>
    </item>
@@ -83,8 +83,8 @@
    <slot>slotFile()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>311</x>
-     <y>30</y>
+     <x>282</x>
+     <y>33</y>
     </hint>
     <hint type="destinationlabel">
      <x>155</x>

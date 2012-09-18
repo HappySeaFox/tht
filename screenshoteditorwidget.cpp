@@ -42,6 +42,7 @@ ScreenshotEditorWidget::ScreenshotEditorWidget(QWidget *parent) :
     m_colors[Sail] = QColor(244, 49, 49);
     m_colors[Stop] = QColor(9, 98, 191);
     m_colors[Text] = Qt::black;
+    m_colors[Ellipse] = QColor(0, 255, 0, 100);
 }
 
 void ScreenshotEditorWidget::setPixmap(const QPixmap &p)
@@ -157,6 +158,14 @@ void ScreenshotEditorWidget::startText()
         m_editType = None;
 }
 
+void ScreenshotEditorWidget::startEllipse()
+{
+    qDebug("Add ellipse");
+
+    m_editType = Ellipse;
+    setCursor(Qt::CrossCursor);
+}
+
 void ScreenshotEditorWidget::deleteSelected()
 {
     QList<SelectableLabel *> toDelete;
@@ -264,9 +273,26 @@ void ScreenshotEditorWidget::mouseReleaseEvent(QMouseEvent *e)
 
     if(m_editType == Text)
     {
-        m_startPoint = m_currentPoint;
-        addLabel(m_startPoint, m_currentPoint, m_textPixmap);
+        addLabel(m_currentPoint, m_currentPoint, m_textPixmap);
         m_textPixmap = QPixmap();
+    }
+    else if(m_editType == Ellipse)
+    {
+        QRect rc = QRect(m_startPoint, m_currentPoint).normalized();
+
+        QPixmap px(rc.size());
+
+        px.fill(Qt::transparent);
+
+        QPainter p(&px);
+        p.setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing);
+        p.setBrush(m_colors[m_editType]);
+        p.setPen(Qt::NoPen);
+        p.drawEllipse(px.rect());
+        p.end();
+
+        QPoint pp = rc.topLeft();
+        addLabel(pp, pp, px);
     }
     else
         addLabel(m_startPoint, m_currentPoint, m_pixmaps[m_editType]);
@@ -296,10 +322,19 @@ void ScreenshotEditorWidget::paintEvent(QPaintEvent *pe)
         }
     }
 
-    if(m_wasPress && m_editType != None)
+    if(m_wasPress && m_editType != None && m_editType != Text)
     {
-        p.setPen(QPen(m_colors[m_editType], 2));
-        p.drawLine(m_startPoint, m_currentPoint);
+        if(m_editType != Ellipse)
+        {
+            p.setPen(QPen(m_colors[m_editType], 2));
+            p.drawLine(m_startPoint, m_currentPoint);
+        }
+        else
+        {
+            p.setBrush(m_colors[m_editType]);
+            p.setPen(Qt::NoPen);
+            p.drawEllipse(QRect(m_startPoint, m_currentPoint).normalized());
+        }
     }
 }
 
