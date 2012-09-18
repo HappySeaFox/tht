@@ -15,12 +15,7 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <QCoreApplication>
-#include <QStringList>
-#include <QRegExp>
 #include <QString>
-#include <QMap>
-#include <QDir>
 
 #include "settings.h"
 #include "options.h"
@@ -33,9 +28,6 @@ Options::Options(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    for(int i = 0;i < Settings::instance()->maximumNumberOfLists();i++)
-        ui->comboNumberOfLists->addItem(QString::number(i+1));
-
     load();
 }
 
@@ -46,6 +38,9 @@ Options::~Options()
 
 void Options::load()
 {
+    for(int i = 0;i < Settings::instance()->maximumNumberOfLists();i++)
+        ui->comboNumberOfLists->addItem(QString::number(i+1));
+
     ui->comboNumberOfLists->setCurrentIndex(Settings::instance()->numberOfLists() - 1);
     ui->checkOnTop->setChecked(Settings::instance()->onTop());
     ui->checkTray->setChecked(Settings::instance()->hideToTray());
@@ -56,29 +51,14 @@ void Options::load()
     ui->checkMini->setChecked(Settings::instance()->miniTickerEntry());
 
     const QMap<QString, QString> tsmap = Settings::instance()->translations();
-    QString ts = Settings::instance()->translation(), d;
-    QMap<QString, QString>::const_iterator it;
+    QString ts = Settings::instance()->translation();
+    QMap<QString, QString>::const_iterator itEnd = tsmap.end();
 
-    QRegExp rx("tht_(.*)\\.qm");
-
-    QStringList qms = QDir(QCoreApplication::applicationDirPath() + QDir::separator() + "translations")
-                        .entryList(QStringList() << "*.qm", QDir::Files | QDir::Readable, QDir::Name);
-
-    foreach(QString qm, qms)
+    for(QMap<QString, QString>::const_iterator it = tsmap.begin();it != itEnd;++it)
     {
-        if(!rx.exactMatch(qm))
-            continue;
+        ui->comboLang->addItem(it.value(), it.key());
 
-        d = rx.cap(1);
-
-        it = tsmap.find(d);
-
-        if(it == tsmap.end())
-            continue;
-
-        ui->comboLang->addItem(it.value(), d);
-
-        if(d == ts)
+        if(it.key() == ts)
             ui->comboLang->setCurrentIndex(ui->comboLang->count()-1);
     }
 }
