@@ -29,7 +29,7 @@
         <widget class="QComboBox" name="comboLang">
          <item>
           <property name="text">
-           <string>&lt;System&gt;</string>
+           <string comment="Means &quot;System language&quot;">&lt;System&gt;</string>
           </property>
          </item>
         </widget>

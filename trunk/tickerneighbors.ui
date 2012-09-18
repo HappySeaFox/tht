@@ -98,7 +98,7 @@
      <item>
       <widget class="QCheckBox" name="checkCap">
        <property name="text">
-        <string>By capitalization</string>
+        <string comment="Means &quot;Sort by capitalization&quot;">By capitalization</string>
        </property>
       </widget>
      </item>
