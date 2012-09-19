@@ -285,7 +285,7 @@ void ScreenshotEditorWidget::mouseReleaseEvent(QMouseEvent *e)
         px.fill(Qt::transparent);
 
         QPainter p(&px);
-        p.setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing);
+        p.setRenderHints(QPainter::Antialiasing);
         drawEllipse(&p, px.rect());
 
         QPoint pp = rc.topLeft();
