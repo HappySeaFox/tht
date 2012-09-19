@@ -24,6 +24,9 @@
 #include <QColor>
 #include <QList>
 
+class QPainter;
+class QRect;
+
 class SelectableLabel;
 
 class ScreenshotEditorWidget : public QLabel
@@ -57,6 +60,7 @@ protected:
 
 private:
     SelectableLabel *addLabel(const QPoint &startPoint, const QPoint &endPoint, const QPixmap &px = QPixmap());
+    void drawEllipse(QPainter *p, const QRect &rc);
 
 public slots:
     void startBuy();
@@ -78,7 +82,7 @@ signals:
 private:
     EditType m_editType;
     QPixmap m_pixmaps[3];
-    QColor m_colors[5];
+    QColor m_colors[4];
     QPixmap m_textPixmap;
     bool m_wasPress;
     QList<SelectableLabel *> m_labels, m_savedLabels;

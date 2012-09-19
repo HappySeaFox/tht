@@ -79,6 +79,12 @@ public:
     void setScreenshotTextColor(const QColor &c, SyncType sync = Sync);
     QColor screenshotTextColor();
 
+    void setEllipseBorderColor(const QColor &c, SyncType sync = Sync);
+    QColor ellipseBorderColor();
+
+    void setEllipseFillColor(const QColor &c, SyncType sync = Sync);
+    QColor ellipseFillColor();
+
     void setScreenshotTextAlignment(const Qt::AlignmentFlag &a, SyncType sync = Sync);
     Qt::AlignmentFlag screenshotTextAlignment();
 

@@ -20,6 +20,7 @@
 
 #include <QDialog>
 #include <QPixmap>
+#include <QColor>
 
 class SelectableLabel;
 
@@ -41,14 +42,22 @@ public:
 protected:
     virtual void keyPressEvent(QKeyEvent *);
 
+private:
+    void setEllipseBorderColor(const QColor &);
+    void setEllipseFillColor(const QColor &);
+
 public slots:
     int exec();
 
 private slots:
     void slotSelected(SelectableLabel *, bool);
+    void slotEllipseBorderColor();
+    void slotEllipseFillColor();
 
 private:
     Ui::ScreenshotEditor *ui;
+    QColor m_ellipseBorderColor, m_ellipseFillColor;
+    QColor m_oellipseBorderColor, m_oellipseFillColor;
 };
 
 #endif // SCREENSHOTEDITOR_H
