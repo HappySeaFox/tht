@@ -162,6 +162,9 @@ void ScreenshotEditorWidget::startEllipse()
     qDebug("Add ellipse");
 
     m_editType = Ellipse;
+    m_ellipseBorderColor = Settings::instance()->ellipseBorderColor();
+    m_ellipseFillColor = Settings::instance()->ellipseFillColor();
+
     setCursor(Qt::CrossCursor);
 }
 
@@ -359,7 +362,7 @@ void ScreenshotEditorWidget::drawEllipse(QPainter *p, const QRect &rc)
     if(!p)
         return;
 
-    p->setBrush(Settings::instance()->ellipseFillColor());
-    p->setPen(QPen(Settings::instance()->ellipseBorderColor(), 1));
+    p->setBrush(m_ellipseFillColor);
+    p->setPen(QPen(m_ellipseBorderColor, 1));
     p->drawEllipse(rc.normalized().adjusted(1, 1, -2, -2));
 }
