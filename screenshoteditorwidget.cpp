@@ -42,7 +42,6 @@ ScreenshotEditorWidget::ScreenshotEditorWidget(QWidget *parent) :
     m_colors[Sail] = QColor(244, 49, 49);
     m_colors[Stop] = QColor(9, 98, 191);
     m_colors[Text] = Qt::black;
-    m_colors[Ellipse] = QColor(0, 255, 0, 100);
 }
 
 void ScreenshotEditorWidget::setPixmap(const QPixmap &p)
@@ -287,10 +286,7 @@ void ScreenshotEditorWidget::mouseReleaseEvent(QMouseEvent *e)
 
         QPainter p(&px);
         p.setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing);
-        p.setBrush(m_colors[m_editType]);
-        p.setPen(Qt::NoPen);
-        p.drawEllipse(px.rect());
-        p.end();
+        drawEllipse(&p, px.rect());
 
         QPoint pp = rc.topLeft();
         addLabel(pp, pp, px);
@@ -331,11 +327,7 @@ void ScreenshotEditorWidget::paintEvent(QPaintEvent *pe)
             p.drawLine(m_startPoint, m_currentPoint);
         }
         else
-        {
-            p.setBrush(m_colors[m_editType]);
-            p.setPen(Qt::NoPen);
-            p.drawEllipse(QRect(m_startPoint, m_currentPoint).normalized());
-        }
+            drawEllipse(&p, QRect(m_startPoint, m_currentPoint));
     }
 }
 
@@ -345,7 +337,11 @@ SelectableLabel *ScreenshotEditorWidget::addLabel(const QPoint &startPoint, cons
         return 0;
 
     SelectableLabel *l = new SelectableLabel(px, startPoint, endPoint,
-                                             (m_editType == Text) ? Settings::instance()->screenshotTextColor() : m_colors[m_editType],
+                                             (m_editType == Text)
+                                             ? Settings::instance()->screenshotTextColor()
+                                             : (m_editType == Ellipse
+                                                ? Settings::instance()->ellipseBorderColor()
+                                                : m_colors[m_editType]),
                                              this);
 
     connect(l, SIGNAL(selected(bool)), this, SLOT(slotSelected(bool)));
@@ -356,4 +352,14 @@ SelectableLabel *ScreenshotEditorWidget::addLabel(const QPoint &startPoint, cons
     m_labels.append(l);
 
     return l;
+}
+
+void ScreenshotEditorWidget::drawEllipse(QPainter *p, const QRect &rc)
+{
+    if(!p)
+        return;
+
+    p->setBrush(Settings::instance()->ellipseFillColor());
+    p->setPen(QPen(Settings::instance()->ellipseBorderColor(), 1));
+    p->drawEllipse(rc.normalized().adjusted(1, 1, -2, -2));
 }

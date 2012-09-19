@@ -411,19 +411,19 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../settings.cpp" line="609"/>
+        <location filename="../settings.cpp" line="633"/>
         <source>Russian</source>
         <extracomment>Russian language</extracomment>
         <translation>Російська</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="612"/>
+        <location filename="../settings.cpp" line="636"/>
         <source>Ukrainian</source>
         <extracomment>Ukrainian language</extracomment>
         <translation>Українська</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="615"/>
+        <location filename="../settings.cpp" line="639"/>
         <source>English</source>
         <extracomment>English language</extracomment>
         <translation>Англійська</translation>
@@ -535,67 +535,77 @@ the right or middle mouse buttons.</source>
         <translation>Редактор угоди</translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="20"/>
+        <location filename="../screenshoteditor.ui" line="131"/>
         <source>Delete</source>
         <translation>Видалити</translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="27"/>
+        <location filename="../screenshoteditor.ui" line="47"/>
         <source>Buy</source>
         <translation>Купівля</translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="34"/>
+        <location filename="../screenshoteditor.ui" line="54"/>
         <source>B</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="41"/>
+        <location filename="../screenshoteditor.ui" line="61"/>
         <source>Sale</source>
         <translation>Продаж</translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="48"/>
+        <location filename="../screenshoteditor.ui" line="68"/>
         <source>S</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="108"/>
+        <location filename="../screenshoteditor.ui" line="75"/>
         <source>Stop</source>
         <translation>Стоп</translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="115"/>
+        <location filename="../screenshoteditor.ui" line="82"/>
         <source>P</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="122"/>
+        <location filename="../screenshoteditor.ui" line="37"/>
         <source>Text</source>
         <translation>Текст</translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="125"/>
+        <location filename="../screenshoteditor.ui" line="40"/>
         <source>T</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="132"/>
+        <location filename="../screenshoteditor.ui" line="103"/>
+        <source>Ellipse border color</source>
+        <translation>Колір рамки еліпса</translation>
+    </message>
+    <message>
+        <location filename="../screenshoteditor.ui" line="110"/>
+        <source>Ellipse fill color</source>
+        <translation>Колір заливки еліпса</translation>
+    </message>
+    <message>
+        <location filename="../screenshoteditor.ui" line="124"/>
         <source>Select all</source>
         <translation>Виділити все</translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="139"/>
+        <location filename="../screenshoteditor.ui" line="89"/>
         <source>Ellipse</source>
         <translation>Еліпс</translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="146"/>
+        <location filename="../screenshoteditor.ui" line="96"/>
         <source>E</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.cpp" line="36"/>
+        <location filename="../screenshoteditor.cpp" line="38"/>
         <source>Open YouTube tutorial</source>
         <translation>Відкрити урок на YouTube</translation>
     </message>
@@ -779,6 +789,7 @@ the right or middle mouse buttons.</source>
     <message>
         <location filename="../tickerneighbors.ui" line="101"/>
         <source>By capitalization</source>
+        <comment>Means &quot;Sort by capitalization&quot;</comment>
         <translation>По капіталізації</translation>
     </message>
     <message>
