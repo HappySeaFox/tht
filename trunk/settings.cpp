@@ -102,9 +102,6 @@ Settings::Settings()
 
     m_settings->setFallbacksEnabled(false);
 
-    // workaround for broken QSettings w/o QTemporaryFile
-    QDir().mkpath(QFileInfo(m_settings->fileName()).absolutePath());
-
     qRegisterMetaTypeStreamOperators<QList<QPoint> >("QList<QPoint>");
     qRegisterMetaTypeStreamOperators<LinkPoint>("LinkPoint");
     qRegisterMetaTypeStreamOperators<QList<LinkPoint> >("QList<LinkPoint>");
