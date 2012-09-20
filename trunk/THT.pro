@@ -425,7 +425,7 @@ exists($$INNO) {
     iss.commands += $$mle(echo   if (CurStep = ssInstall) then begin >> $$ISS)
     iss.commands += $$mle(echo     if RegQueryStringValue(HKLM, UninstallQuery, \'UninstallString\', Uninstall) >> $$ISS)
     iss.commands += $$mle(echo        or RegQueryStringValue(HKCU, UninstallQuery, \'UninstallString\', Uninstall) then begin >> $$ISS)
-    iss.commands += $$mle(echo       if not Exec(RemoveQuotes(Uninstall), \' /SILENT\', \'\', SW_SHOWNORMAL, ewWaitUntilTerminated, ResultCode) then begin >> $$ISS)
+    iss.commands += $$mle(echo       if not Exec(RemoveQuotes(Uninstall), \'/SILENT\', \'\', SW_SHOWNORMAL, ewWaitUntilTerminated, ResultCode) then begin >> $$ISS)
     iss.commands += $$mle(echo         MsgBox(SysErrorMessage(ResultCode), mbCriticalError, MB_OK); >> $$ISS)
     iss.commands += $$mle(echo         Abort(); >> $$ISS)
     iss.commands += $$mle(echo       end; >> $$ISS)
