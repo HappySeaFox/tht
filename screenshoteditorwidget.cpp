@@ -364,5 +364,5 @@ void ScreenshotEditorWidget::drawEllipse(QPainter *p, const QRect &rc)
 
     p->setBrush(m_ellipseFillColor);
     p->setPen(QPen(m_ellipseBorderColor, 1));
-    p->drawEllipse(rc.normalized().adjusted(1, 1, -2, -2));
+    p->drawEllipse(rc.normalized().adjusted(1, 1, -1, -1));
 }
