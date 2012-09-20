@@ -73,6 +73,9 @@ THT::THT(QWidget *parent) :
 
     ui->setupUi(this);
 
+    QMenu *linkPointsMenu = new QMenu(ui->pushLinks);
+    ui->pushLinks->setMenu(linkPointsMenu);
+
     // NYSE only
     ui->checkNyse->setChecked(Settings::instance()->nyseOnly());
 
@@ -1385,12 +1388,6 @@ void THT::rebuildLinkPoints()
     qDebug("Rebuild link menu");
 
     QList<LinkPoint> linkpoints = Settings::instance()->links();
-
-    if(!ui->pushLinks->menu())
-    {
-        QMenu *menu = new QMenu(ui->pushLinks);
-        ui->pushLinks->setMenu(menu);
-    }
 
     QMenu *menu = ui->pushLinks->menu();
 
