@@ -102,7 +102,7 @@ Settings::Settings()
 
     m_settings->setFallbacksEnabled(false);
 
-    // workaround for broken QSettings in 4.8.3
+    // workaround for broken QSettings w/o QTemporaryFile
     QDir().mkpath(QFileInfo(m_settings->fileName()).absolutePath());
 
     qRegisterMetaTypeStreamOperators<QList<QPoint> >("QList<QPoint>");
