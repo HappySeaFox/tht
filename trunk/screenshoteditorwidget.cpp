@@ -385,7 +385,7 @@ void ScreenshotEditorWidget::drawArrow(QPainter *p, const QPoint &pt1, const QPo
     const int length = 10;
 
     // is vector long enough to have an arrow?
-    if((pt2 - pt1).manhattanLength() <= length+2)
+    if((pt2 - pt1).manhattanLength() <= length+8)
         return;
 
     p->save();
