@@ -35,11 +35,11 @@ ScreenshotEditorWidget::ScreenshotEditorWidget(QWidget *parent) :
     m_wasPress(false)
 {
     m_pixmaps[Buy] = QPixmap(":/images/cursor-buy.png");
-    m_pixmaps[Sail] = QPixmap(":/images/cursor-sail.png");
+    m_pixmaps[Sale] = QPixmap(":/images/cursor-sale.png");
     m_pixmaps[Stop] = QPixmap(":/images/cursor-stop.png");
 
     m_colors[Buy] = QColor(29, 199, 0);
-    m_colors[Sail] = QColor(244, 49, 49);
+    m_colors[Sale] = QColor(244, 49, 49);
     m_colors[Stop] = QColor(9, 98, 191);
     m_colors[Text] = Qt::black;
 }
@@ -119,7 +119,7 @@ void ScreenshotEditorWidget::startSell()
 {
     qDebug("Add sell");
 
-    m_editType = Sail;
+    m_editType = Sale;
     setCursor(Qt::CrossCursor);
 }
 

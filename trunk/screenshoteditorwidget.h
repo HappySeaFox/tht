@@ -40,7 +40,7 @@ public:
 
     QPixmap pixmap();
 
-    enum EditType { None = -1, Buy, Sail, Stop, Text, Ellipse };
+    enum EditType { None = -1, Buy, Sale, Stop, Text, Ellipse };
 
     EditType editType() const;
 
