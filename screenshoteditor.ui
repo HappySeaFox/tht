@@ -62,7 +62,7 @@
      </property>
      <property name="icon">
       <iconset resource="tht.qrc">
-       <normaloff>:/images/cursor-sail.png</normaloff>:/images/cursor-sail.png</iconset>
+       <normaloff>:/images/cursor-sale.png</normaloff>:/images/cursor-sale.png</iconset>
      </property>
      <property name="shortcut">
       <string>S</string>

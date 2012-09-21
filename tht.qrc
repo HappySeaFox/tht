@@ -32,7 +32,7 @@
         <file>images/align-right.png</file>
         <file>images/cursor-stop.png</file>
         <file>images/cursor-buy.png</file>
-        <file>images/cursor-sail.png</file>
         <file>images/ellipse.png</file>
+        <file>images/cursor-sale.png</file>
     </qresource>
 </RCC>
