@@ -60,7 +60,9 @@ protected:
 
 private:
     SelectableLabel *addLabel(const QPoint &startPoint, const QPoint &endPoint, const QPixmap &px = QPixmap());
+    void drawVector(QPainter *p, const QColor &color, const QPoint &pt1, const QPoint &pt2);
     void drawEllipse(QPainter *p, const QRect &rc);
+    void drawArrow(QPainter *p, const QPoint &pt1, const QPoint &pt2);
 
 public slots:
     void startBuy();

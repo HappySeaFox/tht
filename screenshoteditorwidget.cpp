@@ -19,10 +19,12 @@
 #include <QApplication>
 #include <QMouseEvent>
 
+#include <QTransform>
 #include <QPainter>
 #include <QCursor>
 #include <QPixmap>
 #include <QTimer>
+#include <QLineF>
 
 #include "screenshoteditorwidget.h"
 #include "screenshotcommentinput.h"
@@ -316,19 +318,13 @@ void ScreenshotEditorWidget::paintEvent(QPaintEvent *pe)
     foreach(SelectableLabel *l, m_labels)
     {
         if(l->vectorStart() != l->vectorEnd())
-        {
-            p.setPen(QPen(l->vectorColor(), 2));
-            p.drawLine(l->vectorStart(), l->vectorEnd());
-        }
+            drawVector(&p, l->vectorColor(), l->vectorStart(), l->vectorEnd());
     }
 
     if(m_wasPress && m_editType != None && m_editType != Text)
     {
         if(m_editType != Ellipse)
-        {
-            p.setPen(QPen(m_colors[m_editType], 2));
-            p.drawLine(m_startPoint, m_currentPoint);
-        }
+            drawVector(&p, m_colors[m_editType], m_startPoint, m_currentPoint);
         else
             drawEllipse(&p, QRect(m_startPoint, m_currentPoint));
     }
@@ -357,6 +353,18 @@ SelectableLabel *ScreenshotEditorWidget::addLabel(const QPoint &startPoint, cons
     return l;
 }
 
+void ScreenshotEditorWidget::drawVector(QPainter *p, const QColor &color, const QPoint &pt1, const QPoint &pt2)
+{
+    if(!p)
+        return;
+
+    p->setPen(QPen(color, 2));
+    p->drawLine(pt1, pt2);
+
+    p->setBrush(color);
+    drawArrow(p, pt1, pt2);
+}
+
 void ScreenshotEditorWidget::drawEllipse(QPainter *p, const QRect &rc)
 {
     if(!p)
@@ -365,4 +373,31 @@ void ScreenshotEditorWidget::drawEllipse(QPainter *p, const QRect &rc)
     p->setBrush(m_ellipseFillColor);
     p->setPen(QPen(m_ellipseBorderColor, 1));
     p->drawEllipse(rc.normalized().adjusted(1, 1, -1, -1));
+}
+
+void ScreenshotEditorWidget::drawArrow(QPainter *p, const QPoint &pt1, const QPoint &pt2)
+{
+    if(!p)
+        return;
+
+    // arrow parameters
+    const int width = 6;
+    const int length = 10;
+
+    // is vector long enough to have an arrow?
+    if((pt2 - pt1).manhattanLength() <= length+2)
+        return;
+
+    p->save();
+
+    const QPoint pts[3] = { QPoint(0, 0), QPoint(-width/2, length), QPoint(width/2, length) };
+
+    QTransform tr;
+    tr.translate(pt1.x(), pt1.y());
+    tr.rotate(270.0 - QLineF(pt1, pt1+QPoint(10,0)).angleTo(QLineF(pt1, pt2)));
+
+    p->setWorldTransform(tr);
+    p->drawPolygon(pts, 3);
+
+    p->restore();
 }
