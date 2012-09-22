@@ -255,16 +255,6 @@ QColor Settings::screenshotTextColor()
     return load<QColor>("screenshot-text-color", Qt::black);
 }
 
-void Settings::setEllipseBorderColor(const QColor &c, Settings::SyncType sync)
-{
-    save<QColor>("ellipse-border-color", c, sync);
-}
-
-QColor Settings::ellipseBorderColor()
-{
-    return load<QColor>("ellipse-border-color", Qt::black);
-}
-
 void Settings::setEllipseFillColor(const QColor &c, Settings::SyncType sync)
 {
     save<QColor>("ellipse-fill-color", c, sync);
@@ -272,7 +262,7 @@ void Settings::setEllipseFillColor(const QColor &c, Settings::SyncType sync)
 
 QColor Settings::ellipseFillColor()
 {
-    return load<QColor>("ellipse-fill-color", QColor(0, 255, 0, 20));
+    return load<QColor>("ellipse-fill-color", QColor(0, 255, 0, 50));
 }
 
 void Settings::setScreenshotTextAlignment(const Qt::AlignmentFlag &a, Settings::SyncType sync)

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>550</width>
+    <width>608</width>
     <height>330</height>
    </rect>
   </property>
@@ -14,6 +14,49 @@
    <string>Trade editor</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <item row="10" column="1" colspan="2">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Maximum">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+   <item row="9" column="1" colspan="2">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>0</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="4" column="1" colspan="2">
+    <widget class="QPushButton" name="pushEllipse">
+     <property name="text">
+      <string>Ellipse</string>
+     </property>
+     <property name="icon">
+      <iconset resource="tht.qrc">
+       <normaloff>:/images/ellipse.png</normaloff>:/images/ellipse.png</iconset>
+     </property>
+     <property name="shortcut">
+      <string>E</string>
+     </property>
+    </widget>
+   </item>
    <item row="0" column="0" rowspan="11">
     <widget class="QScrollArea" name="scrollArea">
      <property name="widgetResizable">
@@ -24,11 +67,25 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>449</width>
+        <width>507</width>
         <height>310</height>
        </rect>
       </property>
      </widget>
+    </widget>
+   </item>
+   <item row="6" column="1" colspan="2">
+    <widget class="Line" name="line">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="1" colspan="2">
+    <widget class="QPushButton" name="pushDelete">
+     <property name="text">
+      <string>Delete</string>
+     </property>
     </widget>
    </item>
    <item row="0" column="1" colspan="2">
@@ -41,17 +98,10 @@
      </property>
     </widget>
    </item>
-   <item row="1" column="1" colspan="2">
-    <widget class="QPushButton" name="pushLong">
+   <item row="7" column="1" colspan="2">
+    <widget class="QPushButton" name="pushSelectAll">
      <property name="text">
-      <string>Buy</string>
-     </property>
-     <property name="icon">
-      <iconset resource="tht.qrc">
-       <normaloff>:/images/cursor-buy.png</normaloff>:/images/cursor-buy.png</iconset>
-     </property>
-     <property name="shortcut">
-      <string>B</string>
+      <string>Select all</string>
      </property>
     </widget>
    </item>
@@ -69,6 +119,20 @@
      </property>
     </widget>
    </item>
+   <item row="1" column="1" colspan="2">
+    <widget class="QPushButton" name="pushLong">
+     <property name="text">
+      <string>Buy</string>
+     </property>
+     <property name="icon">
+      <iconset resource="tht.qrc">
+       <normaloff>:/images/cursor-buy.png</normaloff>:/images/cursor-buy.png</iconset>
+     </property>
+     <property name="shortcut">
+      <string>B</string>
+     </property>
+    </widget>
+   </item>
    <item row="3" column="1" colspan="2">
     <widget class="QPushButton" name="pushStop">
      <property name="text">
@@ -83,81 +147,10 @@
      </property>
     </widget>
    </item>
-   <item row="4" column="1" colspan="2">
-    <widget class="QPushButton" name="pushEllipse">
-     <property name="text">
-      <string>Ellipse</string>
-     </property>
-     <property name="icon">
-      <iconset resource="tht.qrc">
-       <normaloff>:/images/ellipse.png</normaloff>:/images/ellipse.png</iconset>
-     </property>
-     <property name="shortcut">
-      <string>E</string>
-     </property>
-    </widget>
-   </item>
-   <item row="5" column="1">
-    <widget class="QPushButton" name="pushEllipseBorder">
-     <property name="toolTip">
-      <string>Ellipse border color</string>
-     </property>
-    </widget>
-   </item>
    <item row="5" column="2">
     <widget class="QPushButton" name="pushEllipseFill">
      <property name="toolTip">
       <string>Ellipse fill color</string>
-     </property>
-    </widget>
-   </item>
-   <item row="6" column="1" colspan="2">
-    <widget class="Line" name="line">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-    </widget>
-   </item>
-   <item row="7" column="1" colspan="2">
-    <widget class="QPushButton" name="pushSelectAll">
-     <property name="text">
-      <string>Select all</string>
-     </property>
-    </widget>
-   </item>
-   <item row="8" column="1" colspan="2">
-    <widget class="QPushButton" name="pushDelete">
-     <property name="text">
-      <string>Delete</string>
-     </property>
-    </widget>
-   </item>
-   <item row="9" column="1" colspan="2">
-    <spacer name="verticalSpacer">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>0</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="10" column="1" colspan="2">
-    <widget class="QDialogButtonBox" name="buttonBox">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Fixed" vsizetype="Maximum">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="standardButtons">
-      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
      </property>
     </widget>
    </item>
@@ -179,7 +172,6 @@
   <tabstop>pushShort</tabstop>
   <tabstop>pushStop</tabstop>
   <tabstop>pushEllipse</tabstop>
-  <tabstop>pushEllipseBorder</tabstop>
   <tabstop>pushEllipseFill</tabstop>
   <tabstop>pushSelectAll</tabstop>
   <tabstop>pushDelete</tabstop>
@@ -218,22 +210,6 @@
     <hint type="destinationlabel">
      <x>539</x>
      <y>276</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushEllipseBorder</sender>
-   <signal>clicked()</signal>
-   <receiver>ScreenshotEditor</receiver>
-   <slot>slotEllipseBorderColor()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>477</x>
-     <y>168</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>601</x>
-     <y>165</y>
     </hint>
    </hints>
   </connection>

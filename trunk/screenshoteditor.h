@@ -43,7 +43,6 @@ protected:
     virtual void keyPressEvent(QKeyEvent *);
 
 private:
-    void setEllipseBorderColor(const QColor &);
     void setEllipseFillColor(const QColor &);
 
 public slots:
@@ -51,13 +50,12 @@ public slots:
 
 private slots:
     void slotSelected(SelectableLabel *, bool);
-    void slotEllipseBorderColor();
     void slotEllipseFillColor();
 
 private:
     Ui::ScreenshotEditor *ui;
-    QColor m_ellipseBorderColor, m_ellipseFillColor;
-    QColor m_oellipseBorderColor, m_oellipseFillColor;
+    QColor m_ellipseFillColor;
+    QColor m_oellipseFillColor;
 };
 
 #endif // SCREENSHOTEDITOR_H

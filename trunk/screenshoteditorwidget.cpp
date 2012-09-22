@@ -164,7 +164,6 @@ void ScreenshotEditorWidget::startEllipse()
     qDebug("Add ellipse");
 
     m_editType = Ellipse;
-    m_ellipseBorderColor = Settings::instance()->ellipseBorderColor();
     m_ellipseFillColor = Settings::instance()->ellipseFillColor();
 
     setCursor(Qt::CrossCursor);
@@ -335,13 +334,19 @@ SelectableLabel *ScreenshotEditorWidget::addLabel(const QPoint &startPoint, cons
     if(px.isNull())
         return 0;
 
-    SelectableLabel *l = new SelectableLabel(px, startPoint, endPoint,
-                                             (m_editType == Text)
-                                             ? Settings::instance()->screenshotTextColor()
-                                             : (m_editType == Ellipse
-                                                ? Settings::instance()->ellipseBorderColor()
-                                                : m_colors[m_editType]),
-                                             this);
+    QColor elc;
+
+    if(m_editType == Text)
+        elc = Settings::instance()->screenshotTextColor();
+    else if(m_editType == Ellipse)
+    {
+        elc = m_ellipseFillColor;
+        elc.setAlpha(140);
+    }
+    else
+        elc = m_colors[m_editType];
+
+    SelectableLabel *l = new SelectableLabel(px, startPoint, endPoint, elc, this);
 
     connect(l, SIGNAL(selected(bool)), this, SLOT(slotSelected(bool)));
     connect(l, SIGNAL(destroyed()), this, SLOT(slotDestroyed()));
@@ -371,7 +376,7 @@ void ScreenshotEditorWidget::drawEllipse(QPainter *p, const QRect &rc)
         return;
 
     p->setBrush(m_ellipseFillColor);
-    p->setPen(QPen(m_ellipseBorderColor, 1));
+    p->setPen(Qt::NoPen);
     p->drawEllipse(rc.normalized().adjusted(1, 1, -1, -1));
 }
 
