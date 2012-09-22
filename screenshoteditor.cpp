@@ -78,10 +78,8 @@ int ScreenshotEditor::exec()
     ui->scrollAreaWidgetContents->restoreLabels();
 
     // colors
-    setEllipseBorderColor(Settings::instance()->ellipseBorderColor());
     setEllipseFillColor(Settings::instance()->ellipseFillColor());
 
-    m_oellipseBorderColor = m_ellipseBorderColor;
     m_oellipseFillColor = m_ellipseFillColor;
 
     int code = QDialog::exec();
@@ -92,7 +90,6 @@ int ScreenshotEditor::exec()
     {
         ui->scrollAreaWidgetContents->clearLabels();
 
-        Settings::instance()->setEllipseBorderColor(m_oellipseBorderColor, Settings::NoSync);
         Settings::instance()->setEllipseFillColor(m_oellipseFillColor);
     }
 
@@ -111,20 +108,10 @@ void ScreenshotEditor::keyPressEvent(QKeyEvent *ke)
     QDialog::keyPressEvent(ke);
 }
 
-void ScreenshotEditor::setEllipseBorderColor(const QColor &c)
-{
-    m_ellipseBorderColor = c;
-
-    QPixmap px(16, 16);
-    px.fill(c);
-
-    ui->pushEllipseBorder->setIcon(px);
-}
-
 void ScreenshotEditor::setEllipseFillColor(const QColor &c)
 {
     m_ellipseFillColor = c;
-    m_ellipseFillColor.setAlpha(20);
+    m_ellipseFillColor.setAlpha(50);
 
     QColor cp = c;
     cp.setAlpha(255);
@@ -149,19 +136,6 @@ void ScreenshotEditor::slotSelected(SelectableLabel *sl, bool selected)
             if(l != sl)
                 l->setSelected(false);
         }
-    }
-}
-
-void ScreenshotEditor::slotEllipseBorderColor()
-{
-    ColorPickerWidget cpw(this);
-
-    cpw.setColor(m_ellipseBorderColor);
-
-    if(cpw.exec() == QDialog::Accepted)
-    {
-        setEllipseBorderColor(cpw.color());
-        Settings::instance()->setEllipseBorderColor(m_ellipseBorderColor);
     }
 }
 

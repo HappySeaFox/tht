@@ -411,19 +411,19 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../settings.cpp" line="633"/>
+        <location filename="../settings.cpp" line="620"/>
         <source>Russian</source>
         <extracomment>Russian language</extracomment>
         <translation>Русский</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="636"/>
+        <location filename="../settings.cpp" line="623"/>
         <source>Ukrainian</source>
         <extracomment>Ukrainian language</extracomment>
         <translation>Украинский</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="639"/>
+        <location filename="../settings.cpp" line="626"/>
         <source>English</source>
         <extracomment>English language</extracomment>
         <translation>Английский</translation>
@@ -535,72 +535,67 @@ the right or middle mouse buttons.</source>
         <translation>Редактор сделки</translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="131"/>
+        <location filename="../screenshoteditor.ui" line="87"/>
         <source>Delete</source>
         <translation>Удалить</translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="47"/>
+        <location filename="../screenshoteditor.ui" line="125"/>
         <source>Buy</source>
         <translation>Покупка</translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="54"/>
+        <location filename="../screenshoteditor.ui" line="132"/>
         <source>B</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="61"/>
+        <location filename="../screenshoteditor.ui" line="111"/>
         <source>Sale</source>
         <translation>Продажа</translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="68"/>
+        <location filename="../screenshoteditor.ui" line="118"/>
         <source>S</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="75"/>
+        <location filename="../screenshoteditor.ui" line="139"/>
         <source>Stop</source>
         <translation>Стоп</translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="82"/>
+        <location filename="../screenshoteditor.ui" line="146"/>
         <source>P</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="37"/>
+        <location filename="../screenshoteditor.ui" line="94"/>
         <source>Text</source>
         <translation>Текст</translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="40"/>
+        <location filename="../screenshoteditor.ui" line="97"/>
         <source>T</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="103"/>
-        <source>Ellipse border color</source>
-        <translation>Цвет рамки эллипса</translation>
-    </message>
-    <message>
-        <location filename="../screenshoteditor.ui" line="110"/>
+        <location filename="../screenshoteditor.ui" line="153"/>
         <source>Ellipse fill color</source>
         <translation>Цвет заливки эллипса</translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="124"/>
+        <location filename="../screenshoteditor.ui" line="104"/>
         <source>Select all</source>
         <translation>Выделить всё</translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="89"/>
+        <location filename="../screenshoteditor.ui" line="49"/>
         <source>Ellipse</source>
         <translation>Эллипс</translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="96"/>
+        <location filename="../screenshoteditor.ui" line="56"/>
         <source>E</source>
         <translation></translation>
     </message>
@@ -676,76 +671,76 @@ the right or middle mouse buttons.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="93"/>
+        <location filename="../tht.cpp" line="96"/>
         <source>Options...</source>
         <translation>Настройки...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="96"/>
-        <location filename="../tht.cpp" line="156"/>
+        <location filename="../tht.cpp" line="99"/>
+        <location filename="../tht.cpp" line="159"/>
         <source>Take screenshot...</source>
         <translation>Снимок экрана...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="101"/>
+        <location filename="../tht.cpp" line="104"/>
         <source>Clear ticker lists</source>
         <translation>Очистить списки тикеров</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="98"/>
+        <location filename="../tht.cpp" line="101"/>
         <source>Clear links</source>
         <translation>Очистить ссылки</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="102"/>
-        <location filename="../tht.cpp" line="103"/>
+        <location filename="../tht.cpp" line="105"/>
+        <location filename="../tht.cpp" line="106"/>
         <source>Load ticker</source>
         <translation>Загрузить тикер</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="106"/>
-        <location filename="../tht.cpp" line="158"/>
+        <location filename="../tht.cpp" line="109"/>
+        <location filename="../tht.cpp" line="161"/>
         <source>About THT</source>
         <translation>О THT</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="107"/>
+        <location filename="../tht.cpp" line="110"/>
         <source>About Qt</source>
         <translation>О Qt</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="109"/>
-        <location filename="../tht.cpp" line="160"/>
+        <location filename="../tht.cpp" line="112"/>
+        <location filename="../tht.cpp" line="163"/>
         <source>Quit</source>
         <translation>Выход</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="155"/>
+        <location filename="../tht.cpp" line="158"/>
         <source>Restore</source>
         <translation>Восстановить</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="262"/>
+        <location filename="../tht.cpp" line="265"/>
         <source>Notice</source>
         <translation>Заметка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="262"/>
+        <location filename="../tht.cpp" line="265"/>
         <source>THT will continue to run in a system tray</source>
         <translation>THT продолжит работу в системном лотке</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1115"/>
+        <location filename="../tht.cpp" line="1118"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1115"/>
+        <location filename="../tht.cpp" line="1118"/>
         <source>Cannot take screenshot</source>
         <translation>Невозможно создать снимок экрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1408"/>
+        <location filename="../tht.cpp" line="1405"/>
         <source>Customize...</source>
         <translation>Настроить...</translation>
     </message>

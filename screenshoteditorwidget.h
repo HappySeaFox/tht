@@ -85,7 +85,7 @@ private:
     EditType m_editType;
     QPixmap m_pixmaps[3];
     QColor m_colors[4];
-    QColor m_ellipseBorderColor, m_ellipseFillColor;
+    QColor m_ellipseFillColor;
     QPixmap m_textPixmap;
     bool m_wasPress;
     QList<SelectableLabel *> m_labels, m_savedLabels;
