@@ -111,7 +111,7 @@ void ScreenshotEditor::keyPressEvent(QKeyEvent *ke)
 void ScreenshotEditor::setEllipseFillColor(const QColor &c)
 {
     m_ellipseFillColor = c;
-    m_ellipseFillColor.setAlpha(50);
+    m_ellipseFillColor.setAlpha(75);
 
     QColor cp = c;
     cp.setAlpha(255);
