@@ -115,7 +115,7 @@ void ScreenshotEditorWidget::startBuy()
     m_editType = Buy;
 }
 
-void ScreenshotEditorWidget::startSell()
+void ScreenshotEditorWidget::startSale()
 {
     qDebug("Add sell");
 
