@@ -37,12 +37,12 @@ ScreenshotEditor::ScreenshotEditor(const QPixmap &px, QWidget *parent) :
     ui->scrollAreaWidgetContents->setPixmap(px);
     ui->scrollArea->setWhatsThis(QString("<a href=\"http://www.youtube.com/watch?v=EpVSUyPC3WA\">%1</a>").arg(tr("Open YouTube tutorial")));
 
-    connect(ui->pushText, SIGNAL(clicked()), ui->scrollAreaWidgetContents, SLOT(startText()));
-    connect(ui->pushLong, SIGNAL(clicked()), ui->scrollAreaWidgetContents, SLOT(startBuy()));
-    connect(ui->pushShort, SIGNAL(clicked()), ui->scrollAreaWidgetContents, SLOT(startSell()));
-    connect(ui->pushStop, SIGNAL(clicked()), ui->scrollAreaWidgetContents, SLOT(startStop()));
-    connect(ui->pushEllipse, SIGNAL(clicked()), ui->scrollAreaWidgetContents, SLOT(startEllipse()));
-    connect(ui->pushDelete, SIGNAL(clicked()), ui->scrollAreaWidgetContents, SLOT(deleteSelected()));
+    connect(ui->pushText,      SIGNAL(clicked()), ui->scrollAreaWidgetContents, SLOT(startText()));
+    connect(ui->pushLong,      SIGNAL(clicked()), ui->scrollAreaWidgetContents, SLOT(startBuy()));
+    connect(ui->pushShort,     SIGNAL(clicked()), ui->scrollAreaWidgetContents, SLOT(startSale()));
+    connect(ui->pushStop,      SIGNAL(clicked()), ui->scrollAreaWidgetContents, SLOT(startStop()));
+    connect(ui->pushEllipse,   SIGNAL(clicked()), ui->scrollAreaWidgetContents, SLOT(startEllipse()));
+    connect(ui->pushDelete,    SIGNAL(clicked()), ui->scrollAreaWidgetContents, SLOT(deleteSelected()));
     connect(ui->pushSelectAll, SIGNAL(clicked()), ui->scrollAreaWidgetContents, SLOT(selectAll()));
 
     connect(ui->scrollAreaWidgetContents, SIGNAL(selected(SelectableLabel*,bool)), this, SLOT(slotSelected(SelectableLabel*,bool)));

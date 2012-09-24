@@ -67,7 +67,7 @@ private:
 
 public slots:
     void startBuy();
-    void startSell();
+    void startSale();
     void startStop();
     void startText();
     void startEllipse();
