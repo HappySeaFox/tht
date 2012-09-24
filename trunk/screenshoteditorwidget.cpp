@@ -42,7 +42,6 @@ ScreenshotEditorWidget::ScreenshotEditorWidget(QWidget *parent) :
     m_colors[Buy] = QColor(29, 199, 0);
     m_colors[Sale] = QColor(244, 49, 49);
     m_colors[Stop] = QColor(9, 98, 191);
-    m_colors[Text] = Qt::black;
 }
 
 void ScreenshotEditorWidget::setPixmap(const QPixmap &p)
@@ -319,22 +318,16 @@ void ScreenshotEditorWidget::paintEvent(QPaintEvent *pe)
 
 SelectableLabel *ScreenshotEditorWidget::addLabel(const QPoint &startPoint, const QPoint &endPoint, const QPixmap &px)
 {
-    if(px.isNull())
+    if(px.isNull() || m_editType == None)
         return 0;
 
-    QColor elc;
-
-    if(m_editType == Text)
-        elc = Settings::instance()->screenshotTextColor();
-    else if(m_editType == Ellipse)
-    {
-        elc = m_ellipseFillColor;
-        elc.setAlpha(140);
-    }
-    else
-        elc = m_colors[m_editType];
-
-    SelectableLabel *l = new SelectableLabel(px, startPoint, endPoint, elc, this);
+    SelectableLabel *l = new SelectableLabel(px,
+                                             startPoint,
+                                             endPoint,
+                                             (m_editType == Text
+                                                ? Settings::instance()->screenshotTextColor()
+                                                : (m_editType == Ellipse ? QColor() : m_colors[m_editType])),
+                                             this);
 
     connect(l, SIGNAL(selected(bool)), this, SLOT(slotSelected(bool)));
     connect(l, SIGNAL(destroyed()), this, SLOT(slotDestroyed()));

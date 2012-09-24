@@ -152,6 +152,9 @@
      <property name="toolTip">
       <string>Ellipse fill color</string>
      </property>
+     <property name="shortcut">
+      <string>Alt+E</string>
+     </property>
     </widget>
    </item>
   </layout>
