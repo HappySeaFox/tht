@@ -114,7 +114,6 @@ void ScreenshotEditorWidget::startBuy()
     qDebug("Add buy");
 
     m_editType = Buy;
-    setCursor(Qt::CrossCursor);
 }
 
 void ScreenshotEditorWidget::startSell()
@@ -122,7 +121,6 @@ void ScreenshotEditorWidget::startSell()
     qDebug("Add sell");
 
     m_editType = Sale;
-    setCursor(Qt::CrossCursor);
 }
 
 void ScreenshotEditorWidget::startStop()
@@ -130,7 +128,6 @@ void ScreenshotEditorWidget::startStop()
     qDebug("Add stop");
 
     m_editType = Stop;
-    setCursor(Qt::CrossCursor);
 }
 
 void ScreenshotEditorWidget::startText()
@@ -296,7 +293,7 @@ void ScreenshotEditorWidget::mouseReleaseEvent(QMouseEvent *e)
         addLabel(pp, pp, px);
     }
     else
-        addLabel(m_startPoint, m_currentPoint, m_pixmaps[m_editType]);
+        addLabel(m_currentPoint, m_startPoint, m_pixmaps[m_editType]);
 
     m_editType = None;
 
@@ -323,7 +320,7 @@ void ScreenshotEditorWidget::paintEvent(QPaintEvent *pe)
     if(m_wasPress && m_editType != None && m_editType != Text)
     {
         if(m_editType != Ellipse)
-            drawVector(&p, m_colors[m_editType], m_startPoint, m_currentPoint);
+            drawVector(&p, m_colors[m_editType], m_currentPoint, m_startPoint);
         else
             drawEllipse(&p, QRect(m_startPoint, m_currentPoint));
     }
