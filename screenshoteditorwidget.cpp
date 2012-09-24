@@ -280,8 +280,7 @@ void ScreenshotEditorWidget::mouseReleaseEvent(QMouseEvent *e)
         p.setRenderHints(QPainter::Antialiasing);
         drawEllipse(&p, px.rect());
 
-        QPoint pp = rc.topLeft();
-        addLabel(pp, pp, px);
+        addLabel(rc.topLeft(), rc.topLeft(), px);
     }
     else
         addLabel(m_currentPoint, m_startPoint, m_pixmaps[m_editType]);
