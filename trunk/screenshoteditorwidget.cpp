@@ -23,7 +23,6 @@
 #include <QPainter>
 #include <QCursor>
 #include <QPixmap>
-#include <QTimer>
 #include <QLineF>
 
 #include "screenshoteditorwidget.h"
@@ -70,7 +69,7 @@ void ScreenshotEditorWidget::cancel()
     {
         m_editType = None;
         m_wasPress = false;
-        slotResetCursor();
+        resetCursor();
     }
 }
 
@@ -162,8 +161,6 @@ void ScreenshotEditorWidget::startEllipse()
 
     m_editType = Ellipse;
     m_ellipseFillColor = Settings::instance()->ellipseFillColor();
-
-    setCursor(Qt::CrossCursor);
 }
 
 void ScreenshotEditorWidget::deleteSelected()
@@ -202,11 +199,6 @@ void ScreenshotEditorWidget::selectAll(bool select)
     {
         l->setSelected(select, false);
     }
-}
-
-void ScreenshotEditorWidget::slotResetCursor()
-{
-    setCursor(Qt::ArrowCursor);
 }
 
 void ScreenshotEditorWidget::slotSelected(bool s)
@@ -298,8 +290,7 @@ void ScreenshotEditorWidget::mouseReleaseEvent(QMouseEvent *e)
     m_editType = None;
 
     update();
-
-    QTimer::singleShot(50, this, SLOT(slotResetCursor()));
+    resetCursor();
 }
 
 void ScreenshotEditorWidget::paintEvent(QPaintEvent *pe)
@@ -402,4 +393,9 @@ void ScreenshotEditorWidget::drawArrow(QPainter *p, const QPoint &pt1, const QPo
     p->drawPolygon(pts, 3);
 
     p->restore();
+}
+
+void ScreenshotEditorWidget::resetCursor()
+{
+    setCursor(Qt::ArrowCursor);
 }

@@ -63,6 +63,7 @@ private:
     void drawVector(QPainter *p, const QColor &color, const QPoint &pt1, const QPoint &pt2);
     void drawEllipse(QPainter *p, const QRect &rc);
     void drawArrow(QPainter *p, const QPoint &pt1, const QPoint &pt2);
+    void resetCursor();
 
 public slots:
     void startBuy();
@@ -74,7 +75,6 @@ public slots:
     void selectAll(bool select = true);
 
 private slots:
-    void slotResetCursor();
     void slotSelected(bool);
     void slotDestroyed();
 
