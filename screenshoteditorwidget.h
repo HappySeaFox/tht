@@ -84,7 +84,7 @@ signals:
 private:
     EditType m_editType;
     QPixmap m_pixmaps[3];
-    QColor m_colors[4];
+    QColor m_colors[3];
     QColor m_ellipseFillColor;
     QPixmap m_textPixmap;
     bool m_wasPress;
