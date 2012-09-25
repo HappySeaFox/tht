@@ -201,18 +201,19 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
         <translation>Відкрити урок на YouTube</translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="46"/>
+        <location filename="../finvizurlmanager.cpp" line="47"/>
         <source>Access...</source>
+        <extracomment>noun</extracomment>
         <translation>Доступ...</translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="75"/>
+        <location filename="../finvizurlmanager.cpp" line="76"/>
         <source>Tickers</source>
         <translation>Тікери</translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="75"/>
-        <location filename="../finvizurlmanager.cpp" line="89"/>
+        <location filename="../finvizurlmanager.cpp" line="76"/>
+        <location filename="../finvizurlmanager.cpp" line="90"/>
         <source>&lt;Paste url here&gt;</source>
         <translation>&lt;Вставте сюди посилання&gt;</translation>
     </message>
@@ -547,6 +548,11 @@ the right or middle mouse buttons.</source>
     <message>
         <location filename="../screenshoteditor.ui" line="132"/>
         <source>B</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../screenshoteditor.ui" line="156"/>
+        <source>Alt+E</source>
         <translation></translation>
     </message>
     <message>
