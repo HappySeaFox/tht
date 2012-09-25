@@ -1,3 +1,9 @@
+/*
+ *  This CSV reader is grabbed from http://www.prog.org.ru/topic_12337_0.html
+ *  It is written by Filonenko Mikhail, and contains no copyright or license
+ *  notice
+ */
+
 #include "csvreader.h"
 #include <QtCore/QTextDecoder>
 
