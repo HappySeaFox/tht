@@ -320,13 +320,19 @@ SelectableLabel *ScreenshotEditorWidget::addLabel(const QPoint &startPoint, cons
     if(px.isNull() || m_editType == None)
         return 0;
 
-    SelectableLabel *l = new SelectableLabel(px,
-                                             startPoint,
-                                             endPoint,
-                                             (m_editType == Text
-                                                ? Settings::instance()->screenshotTextColor()
-                                                : (m_editType == Ellipse ? QColor() : m_colors[m_editType])),
-                                             this);
+    QColor elc;
+
+    if(m_editType == Text)
+        elc = Settings::instance()->screenshotTextColor();
+    else if(m_editType == Ellipse)
+    {
+        elc = m_ellipseFillColor;
+        elc.setAlpha(120);
+    }
+    else
+        elc = m_colors[m_editType];
+
+    SelectableLabel *l = new SelectableLabel(px, startPoint, endPoint, elc, this);
 
     connect(l, SIGNAL(selected(bool)), this, SLOT(slotSelected(bool)));
     connect(l, SIGNAL(destroyed()), this, SLOT(slotDestroyed()));
