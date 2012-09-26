@@ -1105,12 +1105,14 @@ void THT::slotTakeScreenshotReal()
                           ? RegionSelect::UseKeyboard
                           : RegionSelect::DontUseKeyboard);
 
-    // ignore screenshot
-    if(selector.exec() != QDialog::Accepted)
-    {
-        if(m_wasVisible)
-            activate();
+    int code = selector.exec();
 
+    if(m_wasVisible)
+        activate();
+
+    // ignore screenshot
+    if(code != QDialog::Accepted)
+    {
         m_takeScreen->setEnabled();
         return;
     }
@@ -1120,16 +1122,9 @@ void THT::slotTakeScreenshotReal()
     if(px.isNull())
     {
         QMessageBox::critical(this, tr("Error"), tr("Cannot take screenshot"));
-
-        if(m_wasVisible)
-            activate();
-
         m_takeScreen->setEnabled();
         return;
     }
-
-    if(m_wasVisible)
-        activate();
 
     // save screenshot
     SaveScreenshot s(px, this);
