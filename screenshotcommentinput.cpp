@@ -91,7 +91,7 @@ ScreenshotCommentInput::~ScreenshotCommentInput()
     delete ui;
 }
 
-QPixmap ScreenshotCommentInput::pixmap()
+QPixmap ScreenshotCommentInput::pixmap() const
 {
     QString text = ui->text->toPlainText();
 
@@ -116,7 +116,7 @@ QPixmap ScreenshotCommentInput::pixmap()
     return px;
 }
 
-void ScreenshotCommentInput::saveSettings()
+void ScreenshotCommentInput::saveSettings() const
 {
     Settings::instance()->setScreenshotTextColor(m_color, Settings::NoSync);
     Settings::instance()->setScreenshotTextSize(ui->text->font().pointSize(), Settings::NoSync);
