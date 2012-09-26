@@ -724,6 +724,8 @@ void THT::loadTicker(const QString &ticker)
 
 void THT::startDelayedScreenshot(bool allowKbd)
 {
+    m_takeScreen->setDisabled();
+
     m_useKeyboardInRegion = allowKbd;
     m_wasVisible = isVisible();
 
@@ -1100,7 +1102,6 @@ void THT::slotTakeScreenshotReal()
     RegionSelect selector(m_useKeyboardInRegion
                           ? RegionSelect::UseKeyboard
                           : RegionSelect::DontUseKeyboard);
-    QPixmap px;
 
     // ignore screenshot
     if(selector.exec() != QDialog::Accepted)
@@ -1108,10 +1109,11 @@ void THT::slotTakeScreenshotReal()
         if(m_wasVisible)
             activate();
 
+        m_takeScreen->setEnabled();
         return;
     }
 
-    px = selector.selection();
+    QPixmap px = selector.selection();
 
     if(px.isNull())
     {
@@ -1120,13 +1122,12 @@ void THT::slotTakeScreenshotReal()
         if(m_wasVisible)
             activate();
 
+        m_takeScreen->setEnabled();
         return;
     }
 
     if(m_wasVisible)
         activate();
-
-    m_takeScreen->setDisabled();
 
     // save screenshot
     SaveScreenshot s(px, this);
