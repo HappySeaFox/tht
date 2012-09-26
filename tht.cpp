@@ -724,6 +724,8 @@ void THT::loadTicker(const QString &ticker)
 
 void THT::startDelayedScreenshot(bool allowKbd)
 {
+    qDebug("Taking screenshot");
+
     m_takeScreen->setDisabled();
 
     m_useKeyboardInRegion = allowKbd;
