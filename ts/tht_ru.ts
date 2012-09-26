@@ -736,17 +736,17 @@ the right or middle mouse buttons.</source>
         <translation>THT продолжит работу в системном лотке</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1118"/>
+        <location filename="../tht.cpp" line="1122"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1118"/>
+        <location filename="../tht.cpp" line="1122"/>
         <source>Cannot take screenshot</source>
         <translation>Невозможно создать снимок экрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1405"/>
+        <location filename="../tht.cpp" line="1408"/>
         <source>Customize...</source>
         <translation>Настроить...</translation>
     </message>

@@ -736,17 +736,17 @@ the right or middle mouse buttons.</source>
         <translation>ТНТ продовжить роботу в системному лотку</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1118"/>
+        <location filename="../tht.cpp" line="1122"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1118"/>
+        <location filename="../tht.cpp" line="1122"/>
         <source>Cannot take screenshot</source>
         <translation>Неможливо створити знімок екрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1405"/>
+        <location filename="../tht.cpp" line="1408"/>
         <source>Customize...</source>
         <translation>Налаштувати...</translation>
     </message>
