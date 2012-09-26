@@ -743,7 +743,7 @@ the right or middle mouse buttons.</source>
     <message>
         <location filename="../tht.cpp" line="1122"/>
         <source>Cannot take screenshot</source>
-        <translation>Невозможно создать снимок экрана</translation>
+        <translation>Невозможно сделать снимок экрана</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="1408"/>

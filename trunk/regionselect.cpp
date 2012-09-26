@@ -161,5 +161,5 @@ void RegionSelect::drawRectSelection(QPainter &painter)
 
 QPixmap RegionSelect::selection() const
 {
-    return desktopPixmapClr.copy(selectRect);
+    return selectRect.isValid() ? desktopPixmapClr.copy(selectRect) : QPixmap();
 }   
