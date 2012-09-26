@@ -159,7 +159,7 @@ void RegionSelect::drawRectSelection(QPainter &painter)
     painter.setCompositionMode(cm);
 }
 
-QPixmap RegionSelect::selection()
+QPixmap RegionSelect::selection() const
 {
     return desktopPixmapClr.copy(selectRect);
 }   

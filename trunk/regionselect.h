@@ -41,12 +41,12 @@ class RegionSelect : public QDialog
     Q_OBJECT
 
     public:
-        enum KeyboardInteraction {UseKeyboard, DontUseKeyboard };
+        enum KeyboardInteraction { UseKeyboard, DontUseKeyboard };
 
         explicit RegionSelect(KeyboardInteraction, QWidget *parent = 0);
         ~RegionSelect();
 
-        QPixmap selection();
+        QPixmap selection() const;
 
     protected:
         bool event(QEvent *event);
