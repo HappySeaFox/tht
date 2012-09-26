@@ -895,7 +895,7 @@ void THT::slotOptions()
 
     if(opt.exec() == QDialog::Accepted)
     {
-        opt.save();
+        opt.saveSettings();
         rebuildUi();
 
         // always on top?

@@ -35,9 +35,12 @@ public:
     explicit ScreenshotCommentInput(QWidget *parent = 0);
     ~ScreenshotCommentInput();
 
-    QPixmap pixmap();
+    /*
+     *  Text rendered to pixmap
+     */
+    QPixmap pixmap() const;
 
-    void saveSettings();
+    void saveSettings() const;
 
 private:
     void setColor(const QColor &);

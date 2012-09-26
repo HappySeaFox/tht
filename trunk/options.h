@@ -33,7 +33,7 @@ public:
     explicit Options(QWidget *parent = 0);
     ~Options();
 
-    void save();
+    void saveSettings() const;
 
 private:
     void load();

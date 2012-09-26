@@ -63,7 +63,7 @@ void Options::load()
     }
 }
 
-void Options::save()
+void Options::saveSettings() const
 {
     Settings::instance()->setNumberOfLists(ui->comboNumberOfLists->currentIndex()+1, Settings::NoSync);
     Settings::instance()->setOnTop(ui->checkOnTop->isChecked(), Settings::NoSync);
