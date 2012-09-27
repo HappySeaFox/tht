@@ -22,12 +22,12 @@
 #include <QFile>
 #include <QDir>
 
-#include <climits>
 #include <cstring>
 
 #include <windows.h>
 
 #include "settings.h"
+#include "tools.h"
 
 // serialize/deserialize LinkPoint
 static QDataStream &operator<<(QDataStream &out, const LinkPoint &lp)
@@ -631,5 +631,5 @@ QPoint Settings::point(const QString &key)
     if(m_settings->contains("settings/" + key))
         return load<QPoint>(key);
     else
-        return QPoint(INT_MIN, INT_MIN);
+        return Tools::invalidQPoint;
 }

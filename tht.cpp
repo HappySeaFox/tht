@@ -944,7 +944,7 @@ void THT::slotOptions()
             Settings::instance()->setWindowPosition(QPoint(), Settings::NoSync);
 
             Settings::instance()->setNeighborsWindowSize(QSize(), Settings::NoSync);
-            Settings::instance()->setNeighborsWindowPosition(QPoint(), Settings::Sync);
+            Settings::instance()->setNeighborsWindowPosition(Tools::invalidQPoint); // also sync
         }
     }
 }
