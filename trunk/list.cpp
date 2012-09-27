@@ -214,7 +214,7 @@ void List::initialSelect(bool alsoSetFocus)
 
 void List::removeDuplicates()
 {
-    qDebug("Looking for duplicates");
+    qDebug("Looking for duplicates in list #%d", m_section);
 
     int row = 0;
     QListWidgetItem *i;
