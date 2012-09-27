@@ -18,13 +18,16 @@
 #ifndef TOOLS_H
 #define TOOLS_H
 
+#include <QPoint>
+
 class QWidget;
-class QPoint;
 
 class Tools
 {
 public:
     static void moveWindow(QWidget *w, const QPoint &pt);
+
+    static const QPoint invalidQPoint;
 };
 
 #endif // TOOLS_H

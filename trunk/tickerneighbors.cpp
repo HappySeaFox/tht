@@ -133,6 +133,8 @@ TickerNeighbors::TickerNeighbors(const QString &ticker, QWidget *parent) :
         if(sz.isValid())
             resize(sz);
     }
+    else
+        m_pos = Tools::invalidQPoint;
 
     showTicker(ticker);
 }
@@ -142,7 +144,7 @@ TickerNeighbors::~TickerNeighbors()
     if(Settings::instance()->saveGeometry())
     {
         Settings::instance()->setNeighborsWindowSize(size(), Settings::NoSync);
-        Settings::instance()->setNeighborsWindowPosition(pos(), Settings::Sync);
+        Settings::instance()->setNeighborsWindowPosition(pos());
     }
 
     delete ui;
@@ -157,6 +159,8 @@ void TickerNeighbors::showTicker(const QString &ticker)
 
 void TickerNeighbors::setVisible(bool vis)
 {
+    qDebug("VIS %d %d,%d", vis, m_pos.x(), m_pos.y());
+
     if(!vis)
         m_pos = pos();
     else if(!isVisible())

@@ -21,7 +21,11 @@
 #include <QPoint>
 #include <QRect>
 
+#include <climits>
+
 #include "tools.h"
+
+const QPoint Tools::invalidQPoint(INT_MIN, INT_MIN);
 
 void Tools::moveWindow(QWidget *w, const QPoint &pt)
 {
