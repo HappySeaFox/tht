@@ -1,3 +1,10 @@
+== 1.2.0 ==
+ * small fixes
+ * added Finviz client (see [howto howto])
+ * hotkeys: press "Z" to add tickers from Finviz
+ * now it is possible to load predefined tickers (like $INDU or $VIX) into all supported windows (TOS, MBT...)
+ * added small screenshot editor
+
 == 1.1.1 ==
  * check for updates only when "About" dialog is opened
 

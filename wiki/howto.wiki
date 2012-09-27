@@ -1,4 +1,4 @@
-= THT Howto and FAQ =
+THT Howto and FAQ =
 
 <g:plusone size="medium"></g:plusone>
 
@@ -30,7 +30,7 @@ Drag a black target with a left mouse button and drop onto a required Graybox MM
 
 <wiki:video url="https://www.youtube.com/watch?v=A5i9MD-6Sec" width="240" height="170"/>
 
-== How to link Twinkorswim window? ==
+== How to link Thinkorswim window? ==
 
 Drag a black target with a left mouse button and drop onto a required TOS window. If everything is ok, you will hear a confirmation sound.
 
@@ -52,7 +52,11 @@ Right click on a THT window and select "Clear links". You can also do a middle c
 
 == How to save and add link points? ==
 
-<wiki:video url="https://www.youtube.com/watch?v=FnXsTW3RQVI" width="240" height="170"/>
+<wiki:video url="https://www.youtube.com/watch?v=oPEAa_CmMao" width="240" height="170"/>
+
+== How to use screenshot editor? ==
+
+<wiki:video url="https://www.youtube.com/watch?v=iE9g_5MvHi4" width="240" height="170"/>
 
 == How to use ticker lists? ==
 
@@ -73,6 +77,10 @@ Click on "Add tickers" button. You can import from a file or clipboard.
 For example, open <a href="http://finviz.com">Finviz</a>, select some filters from the screener and open "Tickers". Select all found tickers, copy them to clipboard, go to THT and paste.
 
 <a href="http://i1148.photobucket.com/albums/o561/Dmitry_RK/fz.png" target="_blank"><img src="http://i1148.photobucket.com/albums/o561/Dmitry_RK/th_fz.png" border="0"/>
+
+== How to add tickers directly from Finviz? ==
+
+<wiki:video url="https://www.youtube.com/watch?v=r1Y7iNM7_9k" width="240" height="170"/>
 
 == How to use priorities? ==
 
@@ -151,6 +159,7 @@ Yes, THT supports some keyboard shortcuts.
  * *K* - show or search industry & sector information
  * *Alt+U* - reset tickers' priorities
  * *Y* - open the current ticker in Yahoo Finance
+ * *Z* - add tickers from Finviz
 
 === Window shortcuts: ===
 
@@ -171,6 +180,16 @@ Yes, THT supports some keyboard shortcuts.
  * *Space* - add ticker to the current list
  * *Enter* - load the ticker
  * *Escape* - clear
+
+=== Screenshot editor shortcuts: ===
+ * *T* - add text
+ * *B* - add buy
+ * *S* - add sale
+ * *P* - add stop
+ * *E* - add ellipse
+ * *Alt+E* - change ellipse color
+ * *Ctrl+A* - select all items
+ * *Delete* - delete selected items
 
 === Global shortcuts: ===
 
