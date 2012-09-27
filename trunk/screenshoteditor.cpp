@@ -54,13 +54,27 @@ ScreenshotEditor::ScreenshotEditor(const QPixmap &px, QWidget *parent) :
 
     const QRect rc = QDesktopWidget().availableGeometry(window());
 
-    const int maxw = rc.width() * 0.75;
-    const int maxh = rc.height() * 0.75;
+    const int pixmapWidth = px.width() + 4;
+    const int pixmapHeight = px.height() + 4;
 
-    int neww = width() + (px.width() - ui->scrollArea->width() + 4);
-    int newh = height() + (px.height() - ui->scrollArea->height() + 4);
+    int neww = width() + pixmapWidth - ui->scrollArea->width();
+    int newh = height() + pixmapHeight - ui->scrollArea->height();
 
-    resize(qBound(width(), neww, maxw), qBound(height(), newh, maxh));
+    // new window size
+    neww = qBound(width(), neww, static_cast<int>(rc.width() * 0.75));
+    newh = qBound(height(), newh, static_cast<int>(rc.height() * 0.75));
+
+    // new scrollarea size
+    int newSw = ui->scrollArea->width() + (neww - width());
+    int newSh = ui->scrollArea->height() + (newh - height());
+
+    // now check for scrollbars
+    if(newSh < pixmapHeight && newSw >= pixmapWidth)
+        neww += ui->scrollArea->verticalScrollBar()->sizeHint().width();
+    else if(newSw < pixmapWidth && newSh >= pixmapHeight)
+        newh += ui->scrollArea->horizontalScrollBar()->sizeHint().height();
+
+    resize(neww, newh);
 }
 
 ScreenshotEditor::~ScreenshotEditor()
