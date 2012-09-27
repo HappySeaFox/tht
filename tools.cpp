@@ -18,7 +18,6 @@
 #include <QDesktopWidget>
 #include <QApplication>
 #include <QWidget>
-#include <QPoint>
 #include <QRect>
 
 #include <climits>
