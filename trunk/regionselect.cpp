@@ -32,8 +32,8 @@
 
 #include "regionselect.h"
 
-RegionSelect::RegionSelect(KeyboardInteraction _ki, QWidget *parent)
-    : QDialog(parent),
+RegionSelect::RegionSelect(KeyboardInteraction _ki, QWidget *parent) :
+    QDialog(parent),
     ki(_ki)
 {    
     setWindowFlags(Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);

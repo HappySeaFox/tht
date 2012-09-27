@@ -23,12 +23,12 @@
 
 static const int SL_MARGIN = 2;
 
-SelectableLabel::SelectableLabel(const QPixmap &px, const QPoint &startPoint, const QPoint &endPoint, const QColor &cl, QWidget *parent)
-    : QLabel(parent),
-      m_selected(true),
-      m_vectorStart(startPoint),
-      m_vectorEnd(endPoint),
-      m_vectorColor(cl)
+SelectableLabel::SelectableLabel(const QPixmap &px, const QPoint &startPoint, const QPoint &endPoint, const QColor &cl, QWidget *parent) :
+    QLabel(parent),
+    m_selected(true),
+    m_vectorStart(startPoint),
+    m_vectorEnd(endPoint),
+    m_vectorColor(cl)
 {
     setAlignment(Qt::AlignCenter);
     setPixmap(px);

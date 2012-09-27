@@ -22,7 +22,8 @@
 #include "networkaccess.h"
 #include "updatechecker.h"
 
-UpdateChecker::UpdateChecker(QObject *parent) : QObject(parent)
+UpdateChecker::UpdateChecker(QObject *parent) :
+    QObject(parent)
 {
     m_lastVersion = NVER_STRING;
 
