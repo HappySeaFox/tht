@@ -37,7 +37,7 @@ public:
     explicit ScreenshotEditor(const QPixmap &px, QWidget *parent = 0);
     ~ScreenshotEditor();
 
-    QPixmap pixmap();
+    QPixmap renderPixmap();
 
 protected:
     virtual void keyPressEvent(QKeyEvent *);
