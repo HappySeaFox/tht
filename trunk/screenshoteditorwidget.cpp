@@ -52,7 +52,7 @@ void ScreenshotEditorWidget::setPixmap(const QPixmap &p)
     QLabel::setPixmap(p);
 }
 
-QPixmap ScreenshotEditorWidget::pixmap()
+QPixmap ScreenshotEditorWidget::renderPixmap()
 {
     foreach(SelectableLabel *l, m_labels)
     {

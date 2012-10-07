@@ -82,9 +82,9 @@ ScreenshotEditor::~ScreenshotEditor()
     delete ui;
 }
 
-QPixmap ScreenshotEditor::pixmap()
+QPixmap ScreenshotEditor::renderPixmap()
 {
-    return ui->scrollAreaWidgetContents->pixmap();
+    return ui->scrollAreaWidgetContents->renderPixmap();
 }
 
 int ScreenshotEditor::exec()

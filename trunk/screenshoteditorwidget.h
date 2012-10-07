@@ -38,7 +38,7 @@ public:
 
     void setPixmap(const QPixmap &);
 
-    QPixmap pixmap();
+    QPixmap renderPixmap();
 
     enum EditType { None = -1, Buy, Sale, Stop, Text, Ellipse };
 

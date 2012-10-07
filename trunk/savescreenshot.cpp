@@ -52,7 +52,7 @@ SaveScreenshot::~SaveScreenshot()
 
 void SaveScreenshot::slotClipboard()
 {
-    QApplication::clipboard()->setPixmap(m_editor->pixmap());
+    QApplication::clipboard()->setPixmap(m_editor->renderPixmap());
     accept();
 }
 
@@ -83,7 +83,7 @@ void SaveScreenshot::slotFile()
 
     Settings::instance()->setLastScreenShotDirectory(QFileInfo(fileName).absolutePath());
 
-    if(m_editor->pixmap().save(fileName))
+    if(m_editor->renderPixmap().save(fileName))
     {
         qDebug("Screenshot has been saved to \"%s\"", qPrintable(fileName));
         accept();
