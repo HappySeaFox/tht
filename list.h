@@ -27,6 +27,7 @@
 #include "listitem.h"
 
 class QListWidgetItem;
+class QStringList;
 class QLabel;
 class QMenu;
 
@@ -84,6 +85,7 @@ private:
     enum FixName { Fix, DontFix };
     enum CheckForDups { CheckDups, DontCheckDups };
     bool addItem(const QString &text, FixName, CheckForDups);
+    void addTickers(const QStringList &tk, FixName fix);
     void changePriority(int);
     void setPriority(int);
     void resizeNumberLabel();
