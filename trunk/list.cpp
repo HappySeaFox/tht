@@ -26,6 +26,7 @@
 #include <QMessageBox>
 #include <QTextStream>
 #include <QMouseEvent>
+#include <QStringList>
 #include <QClipboard>
 #include <QDateTime>
 #include <QFileInfo>
@@ -136,6 +137,7 @@ List::List(int group, QWidget *parent) :
     setFocusProxy(ui->list);
 
     load();
+    numberOfItemsChanged();
 
     // catch keyboard events
     ui->list->installEventFilter(this);
@@ -610,71 +612,12 @@ void List::save()
 void List::load()
 {
     qDebug("Loading tickers from section \"%d\"", m_section);
-
-    qint64 t = QDateTime::currentMSecsSinceEpoch();
-
-    QStringList items = Settings::instance()->tickersForGroup(m_section);
-
-    if(!Settings::instance()->allowDuplicates())
-        items.removeDuplicates();
-
-    ui->list->setUpdatesEnabled(false);
-
-    foreach(QString t, items)
-        addItem(t, DontFix, DontCheckDups);
-
-    ui->list->setUpdatesEnabled(true);
-
-    numberOfItemsChanged();
-
-    qDebug("Loaded in %ld ms.", static_cast<long int>(QDateTime::currentMSecsSinceEpoch() - t));
+    addTickers(Settings::instance()->tickersForGroup(m_section), DontFix);
 }
 
 void List::paste()
 {
-    qint64 v = QDateTime::currentMSecsSinceEpoch();
-
-    QStringList tickers = QApplication::clipboard()->text().split(QRegExp("\\s+"));
-
-    // nothing to paste
-    if(tickers.isEmpty())
-    {
-        qDebug("Nothing to paste");
-        return;
-    }
-
-    CheckForDups check;
-
-    if(!ui->list->count())
-    {
-        check = DontCheckDups;
-
-        if(!Settings::instance()->allowDuplicates())
-            tickers.removeDuplicates();
-    }
-    else
-        check = Settings::instance()->allowDuplicates() ? DontCheckDups : CheckDups;
-
-    ui->list->setUpdatesEnabled(false);
-
-    bool changed = false;
-
-    foreach(QString ticker, tickers)
-    {
-        if(Settings::instance()->tickerValidator().exactMatch(ticker)
-                && addItem(ticker, Fix, check))
-            changed = true;
-    }
-
-    ui->list->setUpdatesEnabled(true);
-
-    qDebug("Pasted in %ld ms.", static_cast<long int>(QDateTime::currentMSecsSinceEpoch() - v));
-
-    if(changed)
-    {
-        numberOfItemsChanged();
-        save();
-    }
+    addTickers(QApplication::clipboard()->text().split(QRegExp("\\s+")), Fix);
 }
 
 void List::showSaved(bool isSaved)
@@ -747,6 +690,56 @@ QPixmap List::createDragCursor()
     p.end();
 
     return px;
+}
+
+void List::addTickers(const QStringList &tk, FixName fix)
+{
+    QStringList tickers = tk;
+
+    qint64 v = QDateTime::currentMSecsSinceEpoch();
+
+    // nothing to paste
+    if(tickers.isEmpty())
+    {
+        qDebug("Nothing to add");
+        return;
+    }
+
+    CheckForDups check;
+
+    if(!ui->list->count())
+    {
+        check = DontCheckDups;
+
+        if(!Settings::instance()->allowDuplicates())
+        {
+            qDebug("Fast remove dups");
+            tickers.removeDuplicates();
+        }
+    }
+    else
+        check = Settings::instance()->allowDuplicates() ? DontCheckDups : CheckDups;
+
+    ui->list->setUpdatesEnabled(false);
+
+    bool changed = false;
+
+    foreach(QString ticker, tickers)
+    {
+        if(Settings::instance()->tickerValidator().exactMatch(ticker)
+                && addItem(ticker, fix, check))
+            changed = true;
+    }
+
+    ui->list->setUpdatesEnabled(true);
+
+    qDebug("Added in %ld ms.", static_cast<long int>(QDateTime::currentMSecsSinceEpoch() - v));
+
+    if(changed)
+    {
+        numberOfItemsChanged();
+        save();
+    }
 }
 
 bool List::addItem(const QString &txt, FixName fix, CheckForDups check)
@@ -882,15 +875,7 @@ void List::undo()
 
     qDebug("Undo");
 
-    ui->list->setUpdatesEnabled(false);
-
-    foreach(QString t, m_oldTickers)
-        addItem(t, DontFix, CheckDups);
-
-    ui->list->setUpdatesEnabled(true);
-
-    numberOfItemsChanged();
-    save();
+    addTickers(m_oldTickers, DontFix);
 }
 
 void List::rebuildFinvizMenu()
@@ -920,26 +905,7 @@ void List::addFromFinviz(const QUrl &u)
     if(dn.exec() != QDialog::Accepted)
         return;
 
-    QStringList tickers = dn.tickers();
-
-    ui->list->setUpdatesEnabled(false);
-
-    bool changed = false;
-
-    foreach(QString ticker, tickers)
-    {
-        if(Settings::instance()->tickerValidator().exactMatch(ticker)
-                && addItem(ticker, Fix, CheckDups))
-            changed = true;
-    }
-
-    ui->list->setUpdatesEnabled(true);
-
-    if(changed)
-    {
-        numberOfItemsChanged();
-        save();
-    }
+    addTickers(dn.tickers(), Fix);
 }
 
 void List::showFinvizSelector()
@@ -1132,12 +1098,10 @@ void List::slotAddFromFile()
     if(fileNames.isEmpty())
         return;
 
-    bool changed = false, error = false;
-    QStringList errorFiles;
+    bool error = false;
+    QStringList errorFiles, tickers;
 
     Settings::instance()->setLastTickerDirectory(QFileInfo(fileNames[0]).absolutePath());
-
-    ui->list->setUpdatesEnabled(false);
 
     foreach(QString fileName, fileNames)
     {
@@ -1157,20 +1121,11 @@ void List::slotAddFromFile()
         while(!t.atEnd())
         {
             t >> ticker;
-
-            if(Settings::instance()->tickerValidator().exactMatch(ticker)
-                    && addItem(ticker, Fix, CheckDups))
-                changed = true;
+            tickers.append(ticker);
         }
     }
 
-    ui->list->setUpdatesEnabled(true);
-
-    if(changed)
-    {
-        numberOfItemsChanged();
-        save();
-    }
+    addTickers(tickers, Fix);
 
     if(error)
         QMessageBox::warning(this, tr("Error"), tr("Cannot open the following files: %1").arg(errorFiles.join(",")));
