@@ -159,8 +159,7 @@ bool List::hasTickers() const
 
 void List::addTicker(const QString &ticker, ListItem::Priority p)
 {
-    if(Settings::instance()->tickerValidator().exactMatch(ticker)
-            && addItem(ticker + ',' + QString::number(p), DontFix, CheckDups))
+    if(addItem(ticker + ',' + QString::number(p), DontFix, CheckDups))
     {
         numberOfItemsChanged();
         save();
@@ -726,8 +725,7 @@ void List::addTickers(const QStringList &tk, FixName fix)
 
     foreach(QString ticker, tickers)
     {
-        if(Settings::instance()->tickerValidator().exactMatch(ticker)
-                && addItem(ticker, fix, check))
+        if(addItem(ticker, fix, check))
             changed = true;
     }
 
@@ -751,6 +749,9 @@ bool List::addItem(const QString &txt, FixName fix, CheckForDups check)
 
     if(fix == Fix)
         text[0].replace('-', '.');
+
+    if(!Settings::instance()->tickerValidator().exactMatch(text[0]))
+        return false;
 
     if(check == CheckDups
             && !Settings::instance()->allowDuplicates()
