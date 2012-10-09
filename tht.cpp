@@ -33,6 +33,7 @@
 #include <QTimer>
 #include <QIcon>
 #include <QMenu>
+#include <QDate>
 #include <QUrl>
 
 #include <windows.h>
@@ -225,6 +226,8 @@ THT::THT(QWidget *parent) :
 
     // watch for QWhatsThisClickedEvent
     qApp->installEventFilter(this);
+
+    QTimer::singleShot(0, this, SLOT(slotFoolsDay()));
 }
 
 THT::~THT()
@@ -1355,6 +1358,25 @@ void THT::slotNeedRebuildFinvizMenu()
     foreach(List *l, m_lists)
     {
         l->rebuildFinvizMenu();
+    }
+}
+
+void THT::slotFoolsDay()
+{
+    if(Settings::instance()->foolsDaySeen())
+        return;
+
+    QDate cday = QDateTime::currentDateTime().date();
+
+    if(cday.day() == 1 && cday.month() == 4)
+    {
+        QMessageBox::information(this,
+                                 QString(),
+                                 QString("<p>%1</p><p align=right><i>%2</i></p>")
+                                        .arg(tr("All large contemporary fortunes were acquired<br>in the most dishonorable way."))
+                                        .arg(tr("\"The Little Golden Calf\" I.Ilf, E.Petrov")));
+
+        Settings::instance()->setFoolsDaySeen(true);
     }
 }
 

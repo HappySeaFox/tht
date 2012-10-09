@@ -159,6 +159,7 @@ private slots:
     void slotOpenOrCloseSearchTicker();
     void slotShowNeighbors(const QString &);
     void slotNeedRebuildFinvizMenu();
+    void slotFoolsDay();
 
 private:
     Ui::THT *ui;
