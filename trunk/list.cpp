@@ -616,7 +616,7 @@ void List::load()
 
 void List::paste()
 {
-    addTickers(QApplication::clipboard()->text().split(QRegExp("\\s+")), Fix);
+    addTickers(QApplication::clipboard()->text().split(QRegExp("\\s+"), QString::SkipEmptyParts), Fix);
 }
 
 void List::showSaved(bool isSaved)
