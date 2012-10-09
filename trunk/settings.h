@@ -76,6 +76,9 @@ public:
 
     OSVERSIONINFO windowsVersion() const;
 
+    void setFoolsDaySeen(bool, SyncType sync = Sync);
+    bool foolsDaySeen();
+
     void setScreenshotTextColor(const QColor &c, SyncType sync = Sync);
     QColor screenshotTextColor();
 

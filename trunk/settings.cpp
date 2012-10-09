@@ -245,6 +245,16 @@ void Settings::sync()
     m_settings->sync();
 }
 
+void Settings::setFoolsDaySeen(bool s, Settings::SyncType sync)
+{
+    save<bool>("foolsday-seen", s, sync);
+}
+
+bool Settings::foolsDaySeen()
+{
+    return load<bool>("foolsday-seen", false);
+}
+
 void Settings::setScreenshotTextColor(const QColor &c, SyncType sync)
 {
     save<QColor>("screenshot-text-color", c, sync);
