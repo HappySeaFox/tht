@@ -205,7 +205,7 @@ void List::setSaveTickers(bool dosave)
 
 void List::showHeader(bool sh)
 {
-    ui->stackHeader->setVisible(sh);
+    ui->widgetHeader->setVisible(sh);
     m_changeTitle->setEnabled(sh);
 }
 
