@@ -46,7 +46,7 @@
 #include "finvizlinkselector.h"
 #include "finvizurlmanager.h"
 #include "finvizdownloader.h"
-#include "searchticker.h"
+#include "inlinetextinput.h"
 #include "tickerinput.h"
 #include "listdetails.h"
 #include "settings.h"
@@ -91,14 +91,23 @@ List::List(int group, QWidget *parent) :
 {
     ui->setupUi(this);
 
+    // header widgets
+    ui->widgetEnterHeader->setMaximumLength(16);
+    ui->labelHeader->setText(Settings::instance()->headerForGroup(m_section));
+    ui->widgetSearch->setUseTickerValidator(true);
+
     reconfigureMiniTickerEntry();
 
     connect(ui->widgetInput, SIGNAL(focusUp()), this, SLOT(slotFocusUp()));
     connect(ui->widgetInput, SIGNAL(addTicker(QString)), this, SLOT(addTicker(QString)));
     connect(ui->widgetInput, SIGNAL(loadTicker(QString)), this, SIGNAL(loadTicker(QString)));
 
+    // focus proxies
     ui->stack->widget(0)->setFocusProxy(ui->widgetInput);
     ui->stack->widget(1)->setFocusProxy(ui->widgetSearch);
+
+    ui->stackHeader->widget(0)->setFocusProxy(ui->labelHeader);
+    ui->stackHeader->widget(1)->setFocusProxy(ui->widgetEnterHeader);
 
     m_persistentDelegate = new PersistentSelectionDelegate;
     m_oldDelegate = ui->list->itemDelegate();
@@ -111,6 +120,7 @@ List::List(int group, QWidget *parent) :
     QMenu *menu = new QMenu(this);
     menu->addAction(QIcon(":/images/clear.png"), tr("Clear") + '\t' + QKeySequence(QKeySequence::New).toString(), this, SLOT(clear()));
     menu->addAction(tr("Sort") + "\tR", this, SLOT(slotSortList()));
+    m_changeTitle = menu->addAction(tr("Change title") + "\tF2", this, SLOT(changeHeader()));
     menu->addSeparator();
     menu->addAction(tr("Reset priorities") + "\tAlt+U", this, SLOT(slotResetPriorities()));
 
@@ -193,6 +203,12 @@ void List::setSaveTickers(bool dosave)
         save();
 }
 
+void List::showHeader(bool sh)
+{
+    ui->stackHeader->setVisible(sh);
+    m_changeTitle->setEnabled(sh);
+}
+
 bool List::contains(const QPoint &p)
 {
     QPoint l = mapFromGlobal(p);
@@ -250,7 +266,7 @@ void List::stopSearching()
     ui->list->setItemDelegate(m_oldDelegate);
 
     m_foundItems.clear();
-    ui->widgetSearch->stopSearching();
+    ui->widgetSearch->stopEditing();
 
     if(window()->focusWidget()->objectName() != "list")
         setFocus();
@@ -303,6 +319,10 @@ bool List::eventFilter(QObject *obj, QEvent *event)
             {
                 switch(ke->key())
                 {
+                    case Qt::Key_F2:
+                        changeHeader();
+                    break;
+
                     case Qt::Key_1:
                     case Qt::Key_2:
                     case Qt::Key_3:
@@ -617,6 +637,30 @@ void List::load()
 void List::paste()
 {
     addTickers(QApplication::clipboard()->text().split(QRegExp("\\s+"), QString::SkipEmptyParts), Fix);
+}
+
+void List::headerCancelled()
+{
+    ui->stackHeader->setCurrentIndex(0);
+    setFocus();
+}
+
+void List::headerAccepted()
+{
+    ui->labelHeader->setText(ui->widgetEnterHeader->text());
+    Settings::instance()->setHeaderForGroup(m_section, ui->labelHeader->text());
+
+    headerCancelled();
+}
+
+void List::changeHeader()
+{
+    if(!Settings::instance()->listHeader())
+        return;
+
+    ui->widgetEnterHeader->startEditing(ui->labelHeader->text());
+    ui->stackHeader->setCurrentIndex(1);
+    ui->stackHeader->currentWidget()->setFocus();
 }
 
 void List::showSaved(bool isSaved)
@@ -1153,7 +1197,7 @@ void List::slotSave()
 
     qint64 t = QDateTime::currentMSecsSinceEpoch();
 
-    Settings::instance()->saveTickersForGroup(m_section, toStringList(true));
+    Settings::instance()->setTickersForGroup(m_section, toStringList(true));
 
     showSaved(true);
 
@@ -1235,7 +1279,7 @@ void List::startSearching()
 
     ui->list->setItemDelegate(m_persistentDelegate);
 
-    ui->widgetSearch->startSearching();
+    ui->widgetSearch->startEditing();
     ui->stack->setCurrentIndex(1);
     ui->stack->currentWidget()->setFocus();
 

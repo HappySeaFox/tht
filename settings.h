@@ -76,6 +76,9 @@ public:
 
     OSVERSIONINFO windowsVersion() const;
 
+    void setListHeader(bool, SyncType sync = Sync);
+    bool listHeader();
+
     void setFoolsDaySeen(bool, SyncType sync = Sync);
     bool foolsDaySeen();
 
@@ -185,9 +188,12 @@ public:
     void setSaveTickers(bool, SyncType sync = Sync);
     bool saveTickers();
 
-    void saveTickersForGroup(int group, const QStringList &tickers, SyncType sync = Sync);
+    void setTickersForGroup(int group, const QStringList &tickers, SyncType sync = Sync);
     QStringList tickersForGroup(int group);
     void removeTickers(int group, SyncType sync = Sync);
+
+    void setHeaderForGroup(int group, const QString &header, SyncType sync = Sync);
+    QString headerForGroup(int group);
 
 private:
     Settings();

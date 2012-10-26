@@ -446,6 +446,7 @@ void THT::rebuildUi()
     foreach(List *l, m_lists)
     {
         l->setSaveTickers(saveTickers);
+        l->showHeader(Settings::instance()->listHeader());
     }
 
     if(doResize)

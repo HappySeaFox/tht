@@ -28,6 +28,7 @@
 
 class QListWidgetItem;
 class QStringList;
+class QAction;
 class QLabel;
 class QMenu;
 
@@ -53,6 +54,8 @@ public:
     ListItem::Priority currentPriority() const;
 
     void setSaveTickers(bool);
+
+    void showHeader(bool);
 
     void setIgnoreInput(bool);
     bool ignoreInput() const;
@@ -137,6 +140,9 @@ private slots:
     void slotCurrentRowChanged(int);
     void loadItem(LoadItem = LoadItemCurrent);
     void paste();
+    void headerCancelled();
+    void headerAccepted();
+    void changeHeader();
 
 private:
     Ui::List *ui;
@@ -152,6 +158,7 @@ private:
     QList<QListWidgetItem *> m_foundItems;
     QStringList m_oldTickers;
     QMenu *m_finvizMenu;
+    QAction *m_changeTitle;
 };
 
 inline

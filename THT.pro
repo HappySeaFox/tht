@@ -63,7 +63,6 @@ SOURCES += main.cpp\
     tickerinformationtooltip.cpp \
     updatechecker.cpp \
     listitem.cpp \
-    searchticker.cpp \
     uppercasevalidator.cpp \
     tickerminiinput.cpp \
     networkaccess.cpp \
@@ -88,7 +87,8 @@ SOURCES += main.cpp\
     toolbuttonnomenuindicator.cpp \
     finvizcookiejar.cpp \
     finvizaccesssetup.cpp \
-    listdetails.cpp
+    listdetails.cpp \
+    inlinetextinput.cpp
 
 HEADERS += tht.h \
     list.h \
@@ -112,7 +112,6 @@ HEADERS += tht.h \
     tickerinformationtooltip.h \
     updatechecker.h \
     listitem.h \
-    searchticker.h \
     uppercasevalidator.h \
     tickerminiinput.h \
     networkaccess.h \
@@ -137,7 +136,8 @@ HEADERS += tht.h \
     toolbuttonnomenuindicator.h \
     finvizcookiejar.h \
     finvizaccesssetup.h \
-    listdetails.h
+    listdetails.h \
+    inlinetextinput.h
 
 FORMS += tht.ui \
     list.ui \
@@ -145,7 +145,6 @@ FORMS += tht.ui \
     about.ui \
     savescreenshot.ui \
     tickerinput.ui \
-    searchticker.ui \
     tickerminiinput.ui \
     tickerneighbors.ui \
     datamanagerbase.ui \
@@ -153,7 +152,8 @@ FORMS += tht.ui \
     finvizlinkselector.ui \
     screenshoteditor.ui \
     screenshotcommentinput.ui \
-    finvizaccesssetup.ui
+    finvizaccesssetup.ui \
+    inlinetextinput.ui
 
 RESOURCES += tht.qrc
 

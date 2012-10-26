@@ -266,86 +266,91 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
         <translation>Експортувати тікери</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="112"/>
+        <location filename="../list.cpp" line="121"/>
         <source>Clear</source>
         <translation>Очистити</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="113"/>
+        <location filename="../list.cpp" line="122"/>
         <source>Sort</source>
         <translation>Відсортувати</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="115"/>
+        <location filename="../list.cpp" line="123"/>
+        <source>Change title</source>
+        <translation>Змінити заголовок</translation>
+    </message>
+    <message>
+        <location filename="../list.cpp" line="125"/>
         <source>Reset priorities</source>
         <translation>Скинути пріоритети</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="122"/>
+        <location filename="../list.cpp" line="132"/>
         <source>Add one ticker...</source>
         <translation>Додати один тікер...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="124"/>
+        <location filename="../list.cpp" line="134"/>
         <source>Add from file...</source>
         <translation>Додати з файлу...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="125"/>
+        <location filename="../list.cpp" line="135"/>
         <source>Add from clipboard</source>
         <translation>Додати з буфера обміну</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="127"/>
+        <location filename="../list.cpp" line="137"/>
         <source>Add from Finviz</source>
         <translation>Додати з Finviz</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="133"/>
+        <location filename="../list.cpp" line="143"/>
         <source>Export to file...</source>
         <translation>Експортувати в файл...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="134"/>
+        <location filename="../list.cpp" line="144"/>
         <source>Export to clipboard</source>
         <translation>Експортувати в буфер обміну</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="899"/>
+        <location filename="../list.cpp" line="942"/>
         <source>Customize...</source>
         <translation>Налаштувати...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1093"/>
-        <location filename="../list.cpp" line="1168"/>
+        <location filename="../list.cpp" line="1136"/>
+        <location filename="../list.cpp" line="1211"/>
         <source>Choose a file</source>
         <translation>Виберіть файл</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1095"/>
-        <location filename="../list.cpp" line="1170"/>
+        <location filename="../list.cpp" line="1138"/>
+        <location filename="../list.cpp" line="1213"/>
         <source>Text files (*.txt)</source>
         <translation>Текстові файли (*.txt)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1097"/>
-        <location filename="../list.cpp" line="1172"/>
+        <location filename="../list.cpp" line="1140"/>
+        <location filename="../list.cpp" line="1215"/>
         <source>All files (*.*)</source>
         <translation>Всі файли (*.*)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1132"/>
-        <location filename="../list.cpp" line="1182"/>
+        <location filename="../list.cpp" line="1175"/>
+        <location filename="../list.cpp" line="1225"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1132"/>
+        <location filename="../list.cpp" line="1175"/>
         <source>Cannot open the following files: %1</source>
         <translation>Неможливо відкрити наступні файли: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1182"/>
+        <location filename="../list.cpp" line="1225"/>
         <source>Cannot save to file %1</source>
         <translation>Неможливо зберегти в файл %1</translation>
     </message>
@@ -384,6 +389,11 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
         <translation>Швидке введення тікера</translation>
     </message>
     <message>
+        <location filename="../options.ui" line="159"/>
+        <source>Show list title</source>
+        <translation>Показувати заголовок списку</translation>
+    </message>
+    <message>
         <location filename="../options.ui" line="101"/>
         <source>Restore &quot;Industries&quot; window at startup</source>
         <translation>Відновлювати вікно &quot;Індустрії&quot; при старті</translation>
@@ -412,19 +422,19 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../settings.cpp" line="630"/>
+        <location filename="../settings.cpp" line="659"/>
         <source>Russian</source>
         <extracomment>Russian language</extracomment>
         <translation>Російська</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="633"/>
+        <location filename="../settings.cpp" line="662"/>
         <source>Ukrainian</source>
         <extracomment>Ukrainian language</extracomment>
         <translation>Українська</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="636"/>
+        <location filename="../settings.cpp" line="665"/>
         <source>English</source>
         <extracomment>English language</extracomment>
         <translation>Англійська</translation>
@@ -736,27 +746,27 @@ the right or middle mouse buttons.</source>
         <translation>ТНТ продовжить роботу в системному лотку</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1127"/>
+        <location filename="../tht.cpp" line="1128"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1127"/>
+        <location filename="../tht.cpp" line="1128"/>
         <source>Cannot take screenshot</source>
         <translation>Неможливо зробити знімок екрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1376"/>
+        <location filename="../tht.cpp" line="1377"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <translation>Всі величезні сучасні багатства нажито&lt;br&gt;найбезчеснішим засобом.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1377"/>
+        <location filename="../tht.cpp" line="1378"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <translation>&quot;Золоте Теля&quot; І.Ільф, Є.Петров</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1425"/>
+        <location filename="../tht.cpp" line="1426"/>
         <source>Customize...</source>
         <translation>Налаштувати...</translation>
     </message>

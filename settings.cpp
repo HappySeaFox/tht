@@ -260,6 +260,16 @@ void Settings::setScreenshotTextColor(const QColor &c, SyncType sync)
     save<QColor>("screenshot-text-color", c, sync);
 }
 
+void Settings::setListHeader(bool l, Settings::SyncType sync)
+{
+    save<bool>("list-header", l, sync);
+}
+
+bool Settings::listHeader()
+{
+    return load<bool>("list-header", false);
+}
+
 QColor Settings::screenshotTextColor()
 {
     return load<QColor>("screenshot-text-color", Qt::black);
@@ -557,7 +567,7 @@ bool Settings::saveTickers()
     return load<bool>("save-tickers", false);
 }
 
-void Settings::saveTickersForGroup(int group, const QStringList &tickers, SyncType sync)
+void Settings::setTickersForGroup(int group, const QStringList &tickers, SyncType sync)
 {
     m_settings->beginGroup(QString("tickers-%1").arg(group));
     m_settings->setValue("tickers", tickers);
@@ -584,6 +594,25 @@ void Settings::removeTickers(int group, SyncType sync)
 
     if(sync == Sync)
         m_settings->sync();
+}
+
+void Settings::setHeaderForGroup(int group, const QString &header, Settings::SyncType sync)
+{
+    m_settings->beginGroup(QString("tickers-%1").arg(group));
+    m_settings->setValue("header", header);
+    m_settings->endGroup();
+
+    if(sync == Sync)
+        m_settings->sync();
+}
+
+QString Settings::headerForGroup(int group)
+{
+    m_settings->beginGroup(QString("tickers-%1").arg(group));
+    QString header = m_settings->value("header").toString();
+    m_settings->endGroup();
+
+    return header;
 }
 
 Settings* Settings::instance()
