@@ -33,7 +33,7 @@ public:
     explicit InlineTextInput(QWidget *parent = 0);
     ~InlineTextInput();
 
-    void startEditing(const QString &t = QString());
+    void startEditing(const QString &t = QString(), bool startEditing = false);
     void stopEditing();
 
     QString text() const;
