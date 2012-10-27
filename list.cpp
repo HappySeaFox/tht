@@ -153,6 +153,7 @@ List::List(int group, QWidget *parent) :
     // catch keyboard events
     ui->list->installEventFilter(this);
     ui->list->viewport()->installEventFilter(this);
+    ui->labelHeader->installEventFilter(this);
 
     m_numbers->show();
 }
@@ -577,6 +578,11 @@ bool List::eventFilter(QObject *obj, QEvent *event)
         }
         else if(type == QEvent::Resize || type == QEvent::Move)
             moveNumbersLabel();
+    }
+    else if(obj == ui->labelHeader)
+    {
+        if(type == QEvent::MouseButtonDblClick)
+            changeHeader();
     }
 
     return QObject::eventFilter(obj, event);
