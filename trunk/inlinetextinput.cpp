@@ -47,10 +47,13 @@ InlineTextInput::~InlineTextInput()
     delete ui;
 }
 
-void InlineTextInput::startEditing(const QString &t)
+void InlineTextInput::startEditing(const QString &t, bool startEditing)
 {
     m_active = true;
     ui->line->setText(t);
+
+    if(startEditing)
+        ui->line->selectAll();
 }
 
 QString InlineTextInput::text() const

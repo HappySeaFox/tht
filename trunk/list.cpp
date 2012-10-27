@@ -658,7 +658,7 @@ void List::changeHeader()
     if(!Settings::instance()->listHeader())
         return;
 
-    ui->widgetEnterHeader->startEditing(ui->labelHeader->text());
+    ui->widgetEnterHeader->startEditing(ui->labelHeader->text(), true);
     ui->stackHeader->setCurrentIndex(1);
     ui->stackHeader->currentWidget()->setFocus();
 }
