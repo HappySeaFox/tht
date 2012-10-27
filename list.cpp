@@ -643,7 +643,9 @@ void List::paste()
 void List::headerCancelled()
 {
     ui->stackHeader->setCurrentIndex(0);
-    setFocus();
+
+    if(window()->focusWidget()->objectName() != "list")
+        setFocus();
 }
 
 void List::headerAccepted()
