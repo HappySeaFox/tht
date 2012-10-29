@@ -442,11 +442,12 @@ void THT::rebuildUi()
         doResize = false;
 
     bool saveTickers = Settings::instance()->saveTickers();
+    bool listHeader = Settings::instance()->listHeader();
 
     foreach(List *l, m_lists)
     {
         l->setSaveTickers(saveTickers);
-        l->showHeader(Settings::instance()->listHeader());
+        l->showHeader(listHeader);
     }
 
     if(doResize)
