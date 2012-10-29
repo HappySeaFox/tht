@@ -1368,9 +1368,9 @@ void THT::slotFoolsDay()
     if(Settings::instance()->foolsDaySeen())
         return;
 
-    QDate cday = QDateTime::currentDateTime().date();
+    QDate day = QDate::currentDate();
 
-    if(cday.day() == 1 && cday.month() == 4)
+    if(day.day() == 1 && day.month() == 4)
     {
         QMessageBox::information(this,
                                  QString(),
