@@ -246,22 +246,22 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
 <context>
     <name>List</name>
     <message>
-        <location filename="../list.ui" line="37"/>
+        <location filename="../list.ui" line="115"/>
         <source>List</source>
         <translation>Список</translation>
     </message>
     <message>
-        <location filename="../list.ui" line="60"/>
+        <location filename="../list.ui" line="138"/>
         <source>Add tickers</source>
         <translation>Добавить тикеры</translation>
     </message>
     <message>
-        <location filename="../list.ui" line="83"/>
+        <location filename="../list.ui" line="161"/>
         <source>Save tickers</source>
         <translation>Сохранить тикеры</translation>
     </message>
     <message>
-        <location filename="../list.ui" line="103"/>
+        <location filename="../list.ui" line="181"/>
         <source>Export tickers</source>
         <translation>Экспортировать тикеры</translation>
     </message>
@@ -271,86 +271,86 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
         <translation>Очистить</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="122"/>
+        <location filename="../list.cpp" line="123"/>
         <source>Sort</source>
         <translation>Отсортировать</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="123"/>
+        <location filename="../list.cpp" line="124"/>
         <source>Change title</source>
         <translation>Изменить заголовок</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="125"/>
+        <location filename="../list.cpp" line="126"/>
         <source>Reset priorities</source>
         <translation>Сбросить приоритеты</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="132"/>
+        <location filename="../list.cpp" line="133"/>
         <source>Add one ticker...</source>
         <translation>Добавить один тикер...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="134"/>
+        <location filename="../list.cpp" line="135"/>
         <source>Add from file...</source>
         <translation>Добавить из файла...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="135"/>
+        <location filename="../list.cpp" line="136"/>
         <source>Add from clipboard</source>
         <translation>Добавить из буфера обмена</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="137"/>
+        <location filename="../list.cpp" line="138"/>
         <source>Add from Finviz</source>
         <translation>Добавить из Finviz</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="143"/>
+        <location filename="../list.cpp" line="144"/>
         <source>Export to file...</source>
         <translation>Экспортировать в файл...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="144"/>
+        <location filename="../list.cpp" line="145"/>
         <source>Export to clipboard</source>
         <translation>Экспортировать в буфер обмена</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="942"/>
+        <location filename="../list.cpp" line="952"/>
         <source>Customize...</source>
         <translation>Настроить...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1136"/>
-        <location filename="../list.cpp" line="1211"/>
+        <location filename="../list.cpp" line="1146"/>
+        <location filename="../list.cpp" line="1221"/>
         <source>Choose a file</source>
         <translation>Выберите файл</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1138"/>
-        <location filename="../list.cpp" line="1213"/>
+        <location filename="../list.cpp" line="1148"/>
+        <location filename="../list.cpp" line="1223"/>
         <source>Text files (*.txt)</source>
         <translation>Текстовые файлы (*.txt)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1140"/>
-        <location filename="../list.cpp" line="1215"/>
+        <location filename="../list.cpp" line="1150"/>
+        <location filename="../list.cpp" line="1225"/>
         <source>All files (*.*)</source>
         <translation>Все файлы (*.*)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1175"/>
-        <location filename="../list.cpp" line="1225"/>
+        <location filename="../list.cpp" line="1185"/>
+        <location filename="../list.cpp" line="1235"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1175"/>
+        <location filename="../list.cpp" line="1185"/>
         <source>Cannot open the following files: %1</source>
         <translation>Невозможно открыть следующие файлы: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1225"/>
+        <location filename="../list.cpp" line="1235"/>
         <source>Cannot save to file %1</source>
         <translation>Невозможно сохранить в файл %1</translation>
     </message>
@@ -746,27 +746,27 @@ the right or middle mouse buttons.</source>
         <translation>THT продолжит работу в системном лотке</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1128"/>
+        <location filename="../tht.cpp" line="1129"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1128"/>
+        <location filename="../tht.cpp" line="1129"/>
         <source>Cannot take screenshot</source>
         <translation>Невозможно сделать снимок экрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1377"/>
+        <location filename="../tht.cpp" line="1378"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <translation>Все крупные современные состояния нажиты&lt;br&gt;самым бесчестным путём.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1378"/>
+        <location filename="../tht.cpp" line="1379"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <translation>&quot;Золотой Телёнок&quot; И.Ильф, Е.Петров</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1426"/>
+        <location filename="../tht.cpp" line="1427"/>
         <source>Customize...</source>
         <translation>Настроить...</translation>
     </message>
