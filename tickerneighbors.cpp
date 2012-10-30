@@ -27,8 +27,9 @@
 #include <QEvent>
 #include <QTimer>
 
-#include "tickerneighbors.h"
+#include "tickerinformationtooltip.h"
 #include "uppercasevalidator.h"
+#include "tickerneighbors.h"
 #include "settings.h"
 #include "sqltools.h"
 #include "tools.h"
@@ -137,6 +138,8 @@ TickerNeighbors::TickerNeighbors(const QString &ticker, QWidget *parent) :
         m_pos = Tools::invalidQPoint;
 
     showTicker(ticker);
+
+    ui->listTickers->installEventFilter(this);
 }
 
 TickerNeighbors::~TickerNeighbors()
@@ -173,14 +176,38 @@ bool TickerNeighbors::eventFilter(QObject *obj, QEvent *event)
 {
     Q_UNUSED(obj)
 
-    if(event->type() == QEvent::KeyPress)
-    {
-        QKeyEvent *ke = static_cast<QKeyEvent *>(event);
+    QEvent::Type type = event->type();
 
-        if(ke && ke->matches(m_copy) && !ui->lineTicker->hasSelectedText())
+    if(qobject_cast<QLineEdit *>(obj))
+    {
+        if(type == QEvent::KeyPress)
         {
-            ui->pushCopy->animateClick();
-            return true;
+            QKeyEvent *ke = static_cast<QKeyEvent *>(event);
+
+            if(ke && ke->matches(m_copy) && !ui->lineTicker->hasSelectedText())
+            {
+                ui->pushCopy->animateClick();
+                return true;
+            }
+        }
+    }
+    else if(obj == ui->listTickers)
+    {
+        if(type == QEvent::KeyPress)
+        {
+            QKeyEvent *ke = static_cast<QKeyEvent *>(event);
+
+            if(ke && ke->key() == Qt::Key_Space)
+            {
+                QListWidgetItem *item = ui->listTickers->currentItem();
+                QRect rc = ui->listTickers->visualItemRect(item);
+
+                if(item && rc.isValid())
+                {
+                    TickerInformationToolTip::showText(ui->listTickers->viewport()->mapToGlobal(rc.bottomLeft()),
+                                                       item->text());
+                }
+            }
         }
     }
 
@@ -342,7 +369,7 @@ void TickerNeighbors::slotFetch()
 
     ui->pushCopy->setText(tr("Copy (%1)").arg(m_tickers.size()));
 
-    qDebug("Found neighbors %d", m_tickers.size());
+    qDebug("Found neighbors: %d", m_tickers.size());
 }
 
 void TickerNeighbors::slotCopy()
