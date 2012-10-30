@@ -689,15 +689,15 @@ void List::showTickerInfo()
         return;
     }
 
-    QPoint p = ui->list->viewport()->mapToGlobal(ui->list->visualItemRect(item).bottomLeft());
+    QRect rc = ui->list->visualItemRect(item);
 
-    if(p.isNull())
+    if(!rc.isValid())
     {
         qDebug("Cannot find where to show the information");
         return;
     }
 
-    TickerInformationToolTip::showText(p, item->text());
+    TickerInformationToolTip::showText(ui->list->viewport()->mapToGlobal(rc.bottomLeft()), item->text());
 }
 
 QPixmap List::createDragCursor()
