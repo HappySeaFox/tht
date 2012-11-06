@@ -446,15 +446,15 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
     <name>RegionSelect</name>
     <message>
         <location filename="../regionselect.cpp" line="118"/>
-        <source>Select the rectangle with the mouse or exit pressing
-any key or using the right or middle mouse buttons.</source>
+        <source>Select the rectangle with the mouse or press
+any key or right/middle mouse button to cancel.</source>
         <translation>Виділіть прямокутник за допомогою миші, або натисніть
 будь-яку клавішу або праву/середню кнопку миші щоб скасувати.</translation>
     </message>
     <message>
         <location filename="../regionselect.cpp" line="119"/>
-        <source>Select the rectangle with the mouse or exit pressing
-the right or middle mouse buttons.</source>
+        <source>Select the rectangle with the mouse or press
+right/middle mouse button to cancel.</source>
         <translation>Виділіть прямокутник за допомогою миші, або натисніть
 праву/середню кнопку миші щоб скасувати.</translation>
     </message>
