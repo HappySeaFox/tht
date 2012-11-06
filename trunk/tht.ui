@@ -56,7 +56,7 @@
       </sizepolicy>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="page_5">
       <layout class="QGridLayout" name="gridLayout_4">
@@ -89,7 +89,7 @@
        <item row="0" column="0">
         <widget class="QLabel" name="labelAG_n">
          <property name="toolTip">
-          <string>Advanced Get and ESignal links</string>
+          <string extracomment="Means &quot;Links to Advanced Get and ESignal&quot;">Advanced Get and ESignal links</string>
          </property>
          <property name="text">
           <string>AG:</string>
@@ -99,7 +99,7 @@
        <item row="0" column="1">
         <widget class="QLabel" name="labelAG">
          <property name="toolTip">
-          <string>Advanced Get and ESignal links</string>
+          <string extracomment="Means &quot;Links to Advanced Get and ESignal&quot;">Advanced Get and ESignal links</string>
          </property>
         </widget>
        </item>
@@ -122,7 +122,7 @@
        <item row="0" column="3">
         <widget class="QLabel" name="labelGB_n">
          <property name="toolTip">
-          <string>Graybox links</string>
+          <string extracomment="Means &quot;Links to Graybox&quot;">Graybox links</string>
          </property>
          <property name="text">
           <string>GB:</string>
@@ -132,7 +132,7 @@
        <item row="0" column="4">
         <widget class="QLabel" name="labelGB">
          <property name="toolTip">
-          <string>Graybox links</string>
+          <string extracomment="Means &quot;Links to Graybox&quot;">Graybox links</string>
          </property>
         </widget>
        </item>
@@ -189,7 +189,7 @@
    <item row="2" column="2">
     <widget class="ToolButtonNoMenuIndicator" name="pushLinks">
      <property name="toolTip">
-      <string>Link points</string>
+      <string extracomment="Noun. Means &quot;Points of linkage&quot;">Link points</string>
      </property>
      <property name="icon">
       <iconset resource="tht.qrc">

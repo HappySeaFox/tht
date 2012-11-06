@@ -167,7 +167,22 @@ OTHER_FILES += \
     LICENSE.txt \
     THT-version.tag
 
-TRANSLATIONS += ts/tht_ru.ts ts/tht_uk.ts
+TRANSLATIONS += ts/tht_ru.ts \
+                ts/tht_uk.ts
+
+# network data
+SVNROOTORIG="https://traders-home-task-ng.googlecode.com/svn"
+SVNROOT="http://traders-home-task-ng.googlecode.com/svn"
+HTTPROOT="http://code.google.com/p/traders-home-task-ng"
+
+# files to copy to the distribution
+IMAGEPLUGINS=qico4.dll qjpeg4.dll
+SQLPLUGINS=qsqlite4.dll
+QTLIBS=QtCore4.dll QtGui4.dll QtNetwork4.dll QtSql4.dll
+MINGWLIBS=libgcc_s_dw2-1.dll libstdc++-6.dll mingwm10.dll
+QMFILES=tht_ru.qm tht_uk.qm
+QTQMFILES=qt_ru.qm qt_uk.qm
+LICENSES=LICENSE.txt LICENSE-LGPL.txt
 
 # search an executable in PATH
 defineReplace(findexe) {
@@ -211,10 +226,6 @@ CERT=$${_PRO_FILE_PWD_}\\..\\$${TARGET}-certs\\cert.pfx
     warning("Signtool or the certificate is not found, will not sign the $$TARGET executable")
 }
 
-SVNROOTORIG="https://traders-home-task-ng.googlecode.com/svn"
-SVNROOT="http://traders-home-task-ng.googlecode.com/svn"
-HTTPROOT="http://code.google.com/p/traders-home-task-ng"
-
 DEFINES += SVNROOT=$$sprintf("\"\\\"%1\\\"\"", $$SVNROOT)
 DEFINES += HTTPROOT=$$sprintf("\"\\\"%1\\\"\"", $$HTTPROOT)
 
@@ -222,15 +233,6 @@ tag.commands += $$mle(echo "$$VERSION"> "\"$${_PRO_FILE_PWD_}/THT-version.tag\""
 tag.commands += $$mle(svn -m "\"$$VERSION file tag\"" commit "\"$${_PRO_FILE_PWD_}/THT-version.tag\"")
 tag.commands += $$mle(svn -m "\"$$VERSION tag\"" copy "\"$$SVNROOTORIG/trunk\"" "\"$$SVNROOTORIG/tags/$$VERSION\"")
 QMAKE_EXTRA_TARGETS += tag
-
-# files to copy to the distribution
-IMAGEPLUGINS=qico4.dll qjpeg4.dll
-SQLPLUGINS=qsqlite4.dll
-QTLIBS=QtCore4.dll QtGui4.dll QtNetwork4.dll QtSql4.dll
-MINGWLIBS=libgcc_s_dw2-1.dll libstdc++-6.dll mingwm10.dll
-QMFILES=tht_ru.qm tht_uk.qm
-QTQMFILES=qt_ru.qm qt_uk.qm
-LICENSES=LICENSE.txt LICENSE-LGPL.txt
 
 # copy translations
 QMAKE_POST_LINK += $$mle(lrelease $$_PRO_FILE_)

@@ -4,14 +4,14 @@
 <context>
     <name>About</name>
     <message>
-        <location filename="../about.ui" line="14"/>
-        <source>About</source>
-        <translation>О программе</translation>
-    </message>
-    <message>
         <location filename="../about.cpp" line="99"/>
         <source>Update available</source>
         <translation>Доступно обновление</translation>
+    </message>
+    <message>
+        <location filename="../about.ui" line="14"/>
+        <source>About THT</source>
+        <translation>О THT</translation>
     </message>
     <message>
         <location filename="../about.ui" line="93"/>
@@ -30,6 +30,7 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
     <message>
         <location filename="../about.ui" line="166"/>
         <source>THT is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</source>
+        <extracomment>See https://www.gnu.org/licenses/gpl-2.0.txt</extracomment>
         <translation>THT распространяется в надежде, что она будет полезной, но БЕЗО ВСЯКИХ ГАРАНТИЙ; даже без неявной гарантии ТОВАРНОГО ВИДА или ПРИГОДНОСТИ ДЛЯ ОПРЕДЕЛЁННЫХ ЦЕЛЕЙ.</translation>
     </message>
     <message>
@@ -221,24 +222,25 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
 <context>
     <name>LinkPointManager</name>
     <message>
-        <location filename="../linkpointmanager.cpp" line="54"/>
-        <location filename="../linkpointmanager.cpp" line="59"/>
+        <location filename="../linkpointmanager.cpp" line="55"/>
+        <location filename="../linkpointmanager.cpp" line="60"/>
         <source>Link points</source>
+        <extracomment>Noun. Means &quot;Points of linkage&quot;</extracomment>
         <translation>Точки линковки</translation>
     </message>
     <message>
-        <location filename="../linkpointmanager.cpp" line="57"/>
+        <location filename="../linkpointmanager.cpp" line="58"/>
         <source>Add current</source>
         <extracomment>Means &quot;Add current link points&quot; (in the plural)</extracomment>
         <translation>Добавить текущие</translation>
     </message>
     <message>
-        <location filename="../linkpointmanager.cpp" line="60"/>
+        <location filename="../linkpointmanager.cpp" line="61"/>
         <source>Open YouTube tutorial</source>
         <translation>Открыть урок на YouTube</translation>
     </message>
     <message>
-        <location filename="../linkpointmanager.cpp" line="114"/>
+        <location filename="../linkpointmanager.cpp" line="115"/>
         <source>New points</source>
         <translation>Новые точки</translation>
     </message>
@@ -553,6 +555,7 @@ the right or middle mouse buttons.</source>
     <message>
         <location filename="../screenshoteditor.ui" line="125"/>
         <source>Buy</source>
+        <extracomment>Noun</extracomment>
         <translation>Покупка</translation>
     </message>
     <message>
@@ -578,6 +581,7 @@ the right or middle mouse buttons.</source>
     <message>
         <location filename="../screenshoteditor.ui" line="139"/>
         <source>Stop</source>
+        <extracomment>Noun</extracomment>
         <translation>Стоп</translation>
     </message>
     <message>
@@ -598,6 +602,7 @@ the right or middle mouse buttons.</source>
     <message>
         <location filename="../screenshoteditor.ui" line="153"/>
         <source>Ellipse fill color</source>
+        <extracomment>Noun. Means &quot;The fill color of the ellipse&quot;</extracomment>
         <translation>Цвет заливки эллипса</translation>
     </message>
     <message>
@@ -637,6 +642,9 @@ the right or middle mouse buttons.</source>
         <location filename="../tht.ui" line="92"/>
         <location filename="../tht.ui" line="102"/>
         <source>Advanced Get and ESignal links</source>
+        <extracomment>Means &quot;Links to Advanced Get and ESignal&quot;
+----------
+Means &quot;Links to Advanced Get and ESignal&quot;</extracomment>
         <translation>Ссылки на Advanced Get и ESignal</translation>
     </message>
     <message>
@@ -648,6 +656,9 @@ the right or middle mouse buttons.</source>
         <location filename="../tht.ui" line="125"/>
         <location filename="../tht.ui" line="135"/>
         <source>Graybox links</source>
+        <extracomment>Means &quot;Links to Graybox&quot;
+----------
+Means &quot;Links to Graybox&quot;</extracomment>
         <translation>Ссылки на Graybox</translation>
     </message>
     <message>
@@ -669,6 +680,7 @@ the right or middle mouse buttons.</source>
     <message>
         <location filename="../tht.ui" line="192"/>
         <source>Link points</source>
+        <extracomment>Noun. Means &quot;Points of linkage&quot;</extracomment>
         <translation>Точки линковки</translation>
     </message>
     <message>
@@ -693,80 +705,82 @@ the right or middle mouse buttons.</source>
     </message>
     <message>
         <location filename="../tht.cpp" line="100"/>
-        <location filename="../tht.cpp" line="160"/>
+        <location filename="../tht.cpp" line="163"/>
         <source>Take screenshot...</source>
         <translation>Снимок экрана...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="105"/>
+        <location filename="../tht.cpp" line="107"/>
         <source>Clear ticker lists</source>
         <translation>Очистить списки тикеров</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="102"/>
+        <location filename="../tht.cpp" line="104"/>
         <source>Clear links</source>
+        <extracomment>Infinitive</extracomment>
         <translation>Очистить ссылки</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="106"/>
-        <location filename="../tht.cpp" line="107"/>
+        <location filename="../tht.cpp" line="108"/>
+        <location filename="../tht.cpp" line="109"/>
         <source>Load ticker</source>
         <translation>Загрузить тикер</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="110"/>
-        <location filename="../tht.cpp" line="162"/>
+        <location filename="../tht.cpp" line="112"/>
+        <location filename="../tht.cpp" line="165"/>
         <source>About THT</source>
         <translation>О THT</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="111"/>
+        <location filename="../tht.cpp" line="113"/>
         <source>About Qt</source>
         <translation>О Qt</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="113"/>
-        <location filename="../tht.cpp" line="164"/>
+        <location filename="../tht.cpp" line="115"/>
+        <location filename="../tht.cpp" line="167"/>
         <source>Quit</source>
         <translation>Выход</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="159"/>
+        <location filename="../tht.cpp" line="162"/>
         <source>Restore</source>
+        <extracomment>Means &quot;Restore from tray&quot;</extracomment>
         <translation>Восстановить</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="268"/>
+        <location filename="../tht.cpp" line="271"/>
         <source>Notice</source>
         <translation>Заметка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="268"/>
+        <location filename="../tht.cpp" line="271"/>
         <source>THT will continue to run in a system tray</source>
         <translation>THT продолжит работу в системном лотке</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1129"/>
+        <location filename="../tht.cpp" line="1132"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1129"/>
+        <location filename="../tht.cpp" line="1132"/>
         <source>Cannot take screenshot</source>
         <translation>Невозможно сделать снимок экрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1378"/>
+        <location filename="../tht.cpp" line="1381"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <translation>Все крупные современные состояния нажиты&lt;br&gt;самым бесчестным путём.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1379"/>
+        <location filename="../tht.cpp" line="1382"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <translation>&quot;Золотой Телёнок&quot; И.Ильф, Е.Петров</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1427"/>
+        <location filename="../tht.cpp" line="1430"/>
         <source>Customize...</source>
         <translation>Настроить...</translation>
     </message>
@@ -819,9 +833,9 @@ the right or middle mouse buttons.</source>
         <translation>Только США</translation>
     </message>
     <message>
-        <location filename="../tickerneighbors.cpp" line="228"/>
-        <location filename="../tickerneighbors.cpp" line="343"/>
-        <location filename="../tickerneighbors.cpp" line="374"/>
+        <location filename="../tickerneighbors.cpp" line="255"/>
+        <location filename="../tickerneighbors.cpp" line="370"/>
+        <location filename="../tickerneighbors.cpp" line="401"/>
         <source>Copy (%1)</source>
         <translation>Копировать (%1)</translation>
     </message>
