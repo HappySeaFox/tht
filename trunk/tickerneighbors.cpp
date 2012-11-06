@@ -162,8 +162,6 @@ void TickerNeighbors::showTicker(const QString &ticker)
 
 void TickerNeighbors::setVisible(bool vis)
 {
-    qDebug("VIS %d %d,%d", vis, m_pos.x(), m_pos.y());
-
     if(!vis)
         m_pos = pos();
     else if(!isVisible())
