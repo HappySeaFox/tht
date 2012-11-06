@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>About</string>
+   <string>About THT</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0" colspan="3">
@@ -163,7 +163,7 @@ All suggestions and bug reports please send to our bug tracker, also visit</stri
        <item>
         <widget class="QLabel" name="label_5">
          <property name="text">
-          <string>THT is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</string>
+          <string extracomment="See https://www.gnu.org/licenses/gpl-2.0.txt">THT is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</string>
          </property>
          <property name="wordWrap">
           <bool>true</bool>

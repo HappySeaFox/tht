@@ -656,13 +656,13 @@ QDateTime Settings::readTimestamp(const QString &fileName) const
 void Settings::fillTranslations()
 {
     //: Russian language
-    m_translations.insert("ru", QObject::tr("Russian"));
+    m_translations.insert(QObject::tr("Russian"), "ru");
 
     //: Ukrainian language
-    m_translations.insert("uk", QObject::tr("Ukrainian"));
+    m_translations.insert(QObject::tr("Ukrainian"), "uk");
 
     //: English language
-    m_translations.insert("en_US", QObject::tr("English"));
+    m_translations.insert(QObject::tr("English"), "en");
 }
 
 QPoint Settings::point(const QString &key)

@@ -122,7 +122,7 @@
    <item row="1" column="1" colspan="2">
     <widget class="QPushButton" name="pushLong">
      <property name="text">
-      <string>Buy</string>
+      <string extracomment="Noun">Buy</string>
      </property>
      <property name="icon">
       <iconset resource="tht.qrc">
@@ -136,7 +136,7 @@
    <item row="3" column="1" colspan="2">
     <widget class="QPushButton" name="pushStop">
      <property name="text">
-      <string>Stop</string>
+      <string extracomment="Noun">Stop</string>
      </property>
      <property name="icon">
       <iconset resource="tht.qrc">
@@ -150,7 +150,7 @@
    <item row="5" column="2">
     <widget class="QPushButton" name="pushEllipseFill">
      <property name="toolTip">
-      <string>Ellipse fill color</string>
+      <string extracomment="Noun. Means &quot;The fill color of the ellipse&quot;">Ellipse fill color</string>
      </property>
      <property name="shortcut">
       <string>Alt+E</string>

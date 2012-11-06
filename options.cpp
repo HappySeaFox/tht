@@ -57,9 +57,9 @@ void Options::load()
 
     for(QMap<QString, QString>::const_iterator it = tsmap.begin();it != itEnd;++it)
     {
-        ui->comboLang->addItem(it.value(), it.key());
+        ui->comboLang->addItem(it.key(), it.value());
 
-        if(it.key() == ts)
+        if(it.value() == ts)
             ui->comboLang->setCurrentIndex(ui->comboLang->count()-1);
     }
 }

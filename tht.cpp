@@ -99,6 +99,8 @@ THT::THT(QWidget *parent) :
 
     m_menu->addAction(icon_screenshot, tr("Take screenshot...") + '\t' + m_takeScreen->shortcut().toString(),
                       this, SLOT(slotTakeScreenshot()));
+
+    //: Infinitive
     m_menu->addAction(tr("Clear links"), this, SLOT(slotClearLinks()));
     m_menu->addSeparator();
 
@@ -156,6 +158,7 @@ THT::THT(QWidget *parent) :
     m_tray = new QSystemTrayIcon(icon_chart, this);
     QMenu *trayMenu = new QMenu(this);
 
+    //: Means "Restore from tray"
     trayMenu->addAction(tr("Restore"), this, SLOT(activate()));
     trayMenu->addAction(icon_screenshot, tr("Take screenshot..."), this, SLOT(slotTakeScreenshot()));
     trayMenu->addSeparator();
