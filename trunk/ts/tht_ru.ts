@@ -521,7 +521,7 @@ the right or middle mouse buttons.</source>
     <name>ScreenshotCommentInput</name>
     <message>
         <location filename="../screenshotcommentinput.ui" line="14"/>
-        <source>Enter a text</source>
+        <source>Enter text</source>
         <translation>Введите текст</translation>
     </message>
     <message>
@@ -833,9 +833,9 @@ Means &quot;Links to Graybox&quot;</extracomment>
         <translation>Только США</translation>
     </message>
     <message>
-        <location filename="../tickerneighbors.cpp" line="255"/>
-        <location filename="../tickerneighbors.cpp" line="370"/>
-        <location filename="../tickerneighbors.cpp" line="401"/>
+        <location filename="../tickerneighbors.cpp" line="253"/>
+        <location filename="../tickerneighbors.cpp" line="368"/>
+        <location filename="../tickerneighbors.cpp" line="399"/>
         <source>Copy (%1)</source>
         <translation>Копировать (%1)</translation>
     </message>
