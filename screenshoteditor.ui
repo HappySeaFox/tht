@@ -150,7 +150,7 @@
    <item row="5" column="2">
     <widget class="QPushButton" name="pushEllipseFill">
      <property name="toolTip">
-      <string extracomment="Noun. Means &quot;The fill color of the ellipse&quot;">Ellipse fill color</string>
+      <string>The fill color of the ellipse</string>
      </property>
      <property name="shortcut">
       <string>Alt+E</string>

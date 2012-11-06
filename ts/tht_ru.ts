@@ -601,8 +601,7 @@ right/middle mouse button to cancel.</source>
     </message>
     <message>
         <location filename="../screenshoteditor.ui" line="153"/>
-        <source>Ellipse fill color</source>
-        <extracomment>Noun. Means &quot;The fill color of the ellipse&quot;</extracomment>
+        <source>The fill color of the ellipse</source>
         <translation>Цвет заливки эллипса</translation>
     </message>
     <message>
