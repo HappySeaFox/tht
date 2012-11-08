@@ -33,7 +33,9 @@ protected:
     virtual void mouseReleaseEvent(QMouseEvent *event);
 
 signals:
+    void moving(const QPoint &);
     void dropped(const QPoint &);
+    void cancelled();
     void middleClick();
     
 private:

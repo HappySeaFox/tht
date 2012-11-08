@@ -68,6 +68,7 @@ private:
                     LinkTypeTwinkorswim,
                     LinkTypeMBTDesktop,
                     LinkTypeMBTDesktopPro,
+                    LinkTypeFusion,
                     LinkTypeOther };
 
     struct Link
@@ -78,9 +79,9 @@ private:
             type = lt;
             processId = 0;
             threadId = 0;
-            findSubControl = 0;
             waitForCaption = true; // true by default
-            cachedSubControl = 0;
+            subControl = 0;
+            subControlSupportsClearing = false;
         }
 
         HWND hwnd;
@@ -89,10 +90,8 @@ private:
         DWORD processId;
         DWORD threadId;
         bool waitForCaption;
-        HWND cachedSubControl;
-
-        // TODO Do we need to redesign the linking process?
-        HWND (*findSubControl)(HWND parent);
+        HWND subControl;
+        bool subControlSupportsClearing;
     };
 
     typedef QHash<LinkType, QString> PredefinedTickerMappings;
@@ -111,7 +110,7 @@ private:
     void sendKey(int key, bool extended = false);
     void sendString(const QString &str, LinkType = LinkTypeOther);
     void rebuildUi();
-    Link checkWindow(HWND hwnd);
+    void checkWindow(Link *);
     Link checkTargetWindow(const QPoint &, bool allowThisWindow);
     void checkWindows();
     void nextLoadableWindowIndex(int startFrom = 0);
@@ -119,13 +118,12 @@ private:
     void busy(bool);
     void loadTicker(const QString &);
     void startDelayedScreenshot(bool);
-    bool setForeignFocus(HWND window, DWORD threadId);
+    bool setForeignFocus(const Link &);
     void rebuildLinkPoints();
     void raiseWindow(QWidget *);
-
-    static HWND grayBoxFindSubControl(HWND);
-    static HWND mbtFindSubControl(HWND);
-    static HWND mbtProFindSubControl(HWND);
+    void drawWindowMarker();
+    void removeWindowMarker();
+    bool isDesktop(HWND);
 
 public slots:
     void activate();
@@ -153,6 +151,8 @@ private slots:
     void slotLoadLinks();
     void slotLockLinks();
     void slotTargetDropped(const QPoint &);
+    void slotTargetMoving(const QPoint &);
+    void slotTargetCancelled();
     void slotTickerDropped(const QString &, ListItem::Priority, const QPoint &);
     void slotMessageReceived(const QString &);
     void slotLoadPredefinedTicker();
@@ -185,6 +185,7 @@ private:
     PredefinedTickers m_predefined;
     QPointer<TickerNeighbors> m_sectors;
     QxtGlobalShortcut *m_takeScreen;
+    HWND m_drawnWindow;
 };
 
 #endif // THT_H
