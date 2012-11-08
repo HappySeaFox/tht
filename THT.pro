@@ -19,8 +19,8 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 # THT version
 NVER1=1
-NVER2=2
-NVER3=1
+NVER2=3
+NVER3=0
 
 VERSION=$$sprintf("%1.%2.%3", $$NVER1, $$NVER2, $$NVER3)
 
@@ -157,7 +157,7 @@ FORMS += tht.ui \
 
 RESOURCES += tht.qrc
 
-LIBS += -lpsapi
+LIBS += -lpsapi -lgdi32
 
 RC_FILE = tht.rc
 
@@ -415,6 +415,7 @@ exists($$INNO) {
     iss.commands += $$mle(echo [Run] >> $$ISS)
     iss.commands += $$mle(echo ;Filename: \"{app}\\$${TARGET}.exe\"; Description: \"{cm:LaunchProgram","{$${LITERAL_HASH}StringChange(MyAppName"," \'&\'"," \'&&\')}}\"; Flags: nowait postinstall skipifsilent >> $$ISS)
     iss.commands += $$mle(echo Filename: \"{$${LITERAL_HASH}MyAppURL}/wiki/howto\"; Flags: nowait shellexec >> $$ISS)
+    iss.commands += $$mle(echo Filename: \"{$${LITERAL_HASH}MyAppURL}/wiki/changelog\"; Flags: nowait shellexec >> $$ISS)
 
     iss.commands += $$mle(echo [Code] >> $$ISS)
     iss.commands += $$mle(echo procedure CurStepChanged(CurStep: TSetupStep); >> $$ISS)

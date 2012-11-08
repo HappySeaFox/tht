@@ -113,7 +113,9 @@ signals:
     void copyRight(const QString &ticker, ListItem::Priority);
     void copyTo(const QString &t, ListItem::Priority, int index);
     void loadTicker(const QString &);
-    void dropped(const QString &, ListItem::Priority, const QPoint &);
+    void tickerDropped(const QString &, ListItem::Priority, const QPoint &);
+    void tickerMoving(const QPoint &);
+    void tickerCancelled();
     void showNeighbors(const QString &);
     void needRebuildFinvizMenu();
 

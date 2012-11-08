@@ -551,7 +551,10 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                     QApplication::restoreOverrideCursor();
                     m_dragging = false;
                     m_startPos = QPoint();
+                    emit tickerCancelled();
                 }
+                else
+                    emit tickerMoving(me->globalPos());
             }
 
             return true;
@@ -569,7 +572,7 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                     qDebug("Dropped at %d,%d", p.x(), p.y());
                     QApplication::restoreOverrideCursor();
 
-                    emit dropped(m_startDragText, m_startDragPriority, p);
+                    emit tickerDropped(m_startDragText, m_startDragPriority, p);
                 }
 
                 m_dragging = false;

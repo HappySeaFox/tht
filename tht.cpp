@@ -67,7 +67,8 @@ THT::THT(QWidget *parent) :
     m_windows(&m_windowsLoad),
     m_running(false),
     m_locked(false),
-    m_lastActiveWindow(0)
+    m_lastActiveWindow(0),
+    m_drawnWindow(0)
 {
     if(Settings::instance()->onTop())
         setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
@@ -417,11 +418,17 @@ void THT::rebuildUi()
             connect(list, SIGNAL(loadTicker(QString)),
                     this, SLOT(slotLoadTicker(QString)));
 
-            connect(list, SIGNAL(dropped(QString,ListItem::Priority,QPoint)),
+            connect(list, SIGNAL(tickerDropped(QString,ListItem::Priority,QPoint)),
                     this, SLOT(slotTickerDropped(QString,ListItem::Priority,QPoint)));
 
             connect(list, SIGNAL(showNeighbors(QString)),
                     this, SLOT(slotShowNeighbors(QString)));
+
+            connect(list, SIGNAL(tickerMoving(QPoint)),
+                    this, SLOT(slotTargetMoving(QPoint)));
+
+            connect(list, SIGNAL(tickerCancelled()),
+                    this, SLOT(slotTargetCancelled()));
 
             connect(list, SIGNAL(needRebuildFinvizMenu()),
                     this, SLOT(slotNeedRebuildFinvizMenu()));
@@ -457,19 +464,20 @@ void THT::rebuildUi()
         QTimer::singleShot(0, this, SLOT(slotAdjustSize()));
 }
 
-THT::Link THT::checkWindow(HWND hwnd)
+void THT::checkWindow(Link *link)
 {
-    Link link(hwnd);
+    if(!link)
+        return;
 
     // try to determine type
-    link.threadId = GetWindowThreadProcessId(hwnd, &link.processId);
+    link->threadId = GetWindowThreadProcessId(link->hwnd, &link->processId);
 
-    HANDLE h = OpenProcess(PROCESS_QUERY_INFORMATION, FALSE, link.processId);
+    HANDLE h = OpenProcess(PROCESS_QUERY_INFORMATION, FALSE, link->processId);
 
     if(!h)
     {
-        qWarning("Cannot open process %ld", link.processId);
-        return link;
+        qWarning("Cannot open process %ld", link->processId);
+        return;
     }
 
     TCHAR name[MAX_PATH];
@@ -477,9 +485,9 @@ THT::Link THT::checkWindow(HWND hwnd)
     // get executable name
     if(!GetProcessImageFileName(h, name, sizeof(name)))
     {
-        qWarning("Cannot get a process info %ld (%ld)", link.processId, GetLastError());
+        qWarning("Cannot get a process info %ld (%ld)", link->processId, GetLastError());
         CloseHandle(h);
-        return link;
+        return;
     }
 
     QString sname = QFileInfo(
@@ -490,12 +498,10 @@ THT::Link THT::checkWindow(HWND hwnd)
 #endif
         ).fileName().toLower();
 
-    qDebug("Process name of %d is \"%s\"", (int)hwnd, qPrintable(sname));
-
     QString cname;
 
-    if(!GetClassName(link.hwnd, name, sizeof(name)))
-        qWarning("Cannot get a class name for window %d (%ld)", (int)link.hwnd, GetLastError());
+    if(!GetClassName(link->hwnd, name, sizeof(name)))
+        qWarning("Cannot get a class name for window 0x%x (%ld)", reinterpret_cast<int>(link->hwnd), GetLastError());
     else
         cname =
 #ifdef UNICODE
@@ -504,47 +510,47 @@ THT::Link THT::checkWindow(HWND hwnd)
             QString::fromUtf8(name);
 #endif
 
+    qDebug("Process name of 0x%x is \"%s\", class name is \"%s\"", reinterpret_cast<int>(link->hwnd),
+                                                                    qPrintable(sname),
+                                                                    qPrintable(cname));
+
     if(sname == "advancedget.exe" || sname == "winsig.exe")
-        link.type = LinkTypeAdvancedGet;
+        link->type = LinkTypeAdvancedGet;
     else if(sname == "graybox.exe")
-    {
-        link.type = LinkTypeGraybox;
-        link.findSubControl = grayBoxFindSubControl;
-    }
+        link->type = LinkTypeGraybox;
     else if(sname == "thinkorswim.exe")
-        link.type = LinkTypeTwinkorswim;
+        link->type = LinkTypeTwinkorswim;
     else if((sname == "mbtdes~1.exe" || sname == "mbtdesktop.exe") && cname == "MbtTearFrame")
-    {
-        link.type = LinkTypeMBTDesktop;
-        link.findSubControl = mbtFindSubControl;
-    }
+        link->type = LinkTypeMBTDesktop;
     else if((sname == "mbtdes~1.exe" || sname == "mbtdesktoppro.exe") && cname == "MbtNavPro_FloatFrame")
     {
-        link.type = LinkTypeMBTDesktopPro;
-        link.findSubControl = mbtProFindSubControl;
-        link.waitForCaption = false;
+        link->type = LinkTypeMBTDesktopPro;
+        link->waitForCaption = false;
+    }
+    else if(sname == "fusion.exe")
+    {
+        link->type = LinkTypeFusion;
+        link->waitForCaption = false;
     }
     else
-        link.type = LinkTypeOther;
+        link->type = LinkTypeOther;
 
-    if(link.type != LinkTypeNotInitialized)
-        qDebug("Window under cursor %d", (int)link.hwnd);
+    if(link->type != LinkTypeNotInitialized)
+        qDebug("Window under cursor is 0x%x", reinterpret_cast<int>(link->hwnd));
 
     CloseHandle(h);
-
-    return link;
 }
 
 THT::Link THT::checkTargetWindow(const QPoint &p, bool allowThisWindow)
 {
-    POINT pnt;
+    POINT pnt = {0};
 
     pnt.x = p.x();
     pnt.y = p.y();
 
     HWND hwnd = RealChildWindowFromPoint(GetDesktopWindow(), pnt);
 
-    if(!hwnd)
+    if(!IsWindow(hwnd))
     {
         qDebug("Cannot find window under cursor %d,%d", p.x(), p.y());
         return Link();
@@ -557,23 +563,8 @@ THT::Link THT::checkTargetWindow(const QPoint &p, bool allowThisWindow)
         return Link();
     }
 
-    // desktop window?
-    bool isDesktop = false;
-    TCHAR classname[256];
-
-    if(!GetClassName(hwnd, classname, sizeof(classname)))
-    {
-        qDebug("Cannot get class name for window %d", (int)hwnd);
-    }
-    else
-    {
-        LONG style = GetWindowLong(hwnd, GWL_STYLE);
-
-        isDesktop = !lstrcmp(classname, TEXT("Progman")) && !(style & WS_CAPTION) && !GetParent(hwnd);
-    }
-
     // desktop
-    if(hwnd == GetDesktopWindow() || isDesktop)
+    if(isDesktop(hwnd))
     {
         qDebug("Ignoring desktop window");
         return Link();
@@ -586,12 +577,31 @@ THT::Link THT::checkTargetWindow(const QPoint &p, bool allowThisWindow)
     {
         if((*it).hwnd == hwnd)
         {
-            qDebug("Window %d is already linked", (int)hwnd);
+            qDebug("Window 0x%x is already linked", reinterpret_cast<int>(hwnd));
             return Link();
         }
     }
 
-    return Link(hwnd);
+    Link link = Link(hwnd);
+
+    link.subControl = WindowFromPoint(pnt);
+
+    if(link.subControl == link.hwnd)
+        link.subControl = 0;
+
+    if(link.subControl)
+    {
+        TCHAR name[256];
+
+        if(!GetClassName(link.subControl, name, sizeof(name)))
+            qWarning("Cannot get a class name for subcontrol 0x%x (%ld)", reinterpret_cast<int>(link.subControl), GetLastError());
+        else if(!lstrcmp(name, TEXT("Edit")))
+            link.subControlSupportsClearing = true;
+    }
+
+    qDebug("Subcontrol: 0x%x", reinterpret_cast<int>(link.subControl));
+
+    return link;
 }
 
 void THT::checkWindows()
@@ -605,7 +615,7 @@ void THT::checkWindows()
         // remove dead windows
         if(!GetWindowRect((*it).hwnd, &rect))
         {
-            qDebug("Window id %d is not valid, removing (%ld)", (int)(*it).hwnd, GetLastError());
+            qDebug("Window id 0x%x is not valid, removing (%ld)", reinterpret_cast<int>((*it).hwnd), GetLastError());
             it = m_windows->erase(it);
             itEnd = m_windows->end();
         }
@@ -800,22 +810,10 @@ void THT::slotCheckActive()
         QString add;
         bool okToLoad = false;
 
-        // set focus to the subcontrol
-        if(link.findSubControl)
+        if(link.subControl)
         {
-            HWND sc = link.cachedSubControl ? link.cachedSubControl : link.findSubControl(link.hwnd);
-
-            if(!sc)
-                qWarning("Cannot find a subcontrol");
-            else
-            {
-                qDebug("Found the target subcontrol");
-
-                link.cachedSubControl = sc;
-
-                if(setForeignFocus(sc, link.threadId))
-                    okToLoad = true;
-            }
+            if(setForeignFocus(link))
+                okToLoad = true;
         }
         else
             okToLoad = true;
@@ -1065,7 +1063,7 @@ void THT::slotLoadToNextWindow()
 {
     HWND window = m_windows->at(m_currentWindow).hwnd;
 
-    qDebug("Trying window %d", (int)window);
+    qDebug("Trying window 0x%x", reinterpret_cast<int>(window));
 
     // window flags to set
     int flags = SW_SHOWNORMAL;
@@ -1229,6 +1227,8 @@ void THT::slotTickerDropped(const QString &t, ListItem::Priority pr, const QPoin
     m_windows = &m_windowsDrop;
     m_windows->clear();
 
+    removeWindowMarker();
+
     Link link = checkTargetWindow(p, true);
 
     if(!link.hwnd)
@@ -1254,7 +1254,7 @@ void THT::slotTickerDropped(const QString &t, ListItem::Priority pr, const QPoin
         return;
     }
 
-    link = checkWindow(link.hwnd);
+    checkWindow(&link);
 
     if(link.type == LinkTypeNotInitialized)
         return;
@@ -1264,16 +1264,82 @@ void THT::slotTickerDropped(const QString &t, ListItem::Priority pr, const QPoin
     loadTicker(t);
 }
 
+void THT::drawWindowMarker()
+{
+    if(!IsWindow(m_drawnWindow))
+        return;
+
+    static HPEN pen = CreatePen(PS_SOLID, 3, RGB(255, 0, 0));
+
+    HDC	dc;
+    HGDIOBJ	oldPen, oldBrush;
+    RECT rect;
+
+    GetWindowRect(m_drawnWindow, &rect);
+
+    dc = GetWindowDC(m_drawnWindow);
+
+    if(!dc)
+        return;
+
+    oldPen = SelectObject(dc, pen);
+    oldBrush = SelectObject(dc, GetStockObject(HOLLOW_BRUSH));
+
+    Rectangle(dc, 0, 0, rect.right - rect.left, rect.bottom - rect.top);
+
+    SelectObject(dc, oldPen);
+    SelectObject(dc, oldBrush);
+
+    ReleaseDC(m_drawnWindow, dc);
+}
+
+void THT::removeWindowMarker()
+{
+    if(!IsWindow(m_drawnWindow))
+        return;
+
+    InvalidateRect(m_drawnWindow, 0, TRUE);
+    UpdateWindow(m_drawnWindow);
+    RedrawWindow(m_drawnWindow, 0, 0, RDW_FRAME | RDW_INVALIDATE | RDW_UPDATENOW | RDW_ALLCHILDREN);
+
+    m_drawnWindow = 0;
+}
+
+bool THT::isDesktop(HWND hwnd)
+{
+    if(!IsWindow(hwnd))
+        return false;
+
+    if(hwnd == GetDesktopWindow())
+        return true;
+
+    // desktop window?
+    bool desktop = false;
+    TCHAR classname[256];
+
+    if(!GetClassName(hwnd, classname, sizeof(classname)))
+        qDebug("Cannot get class name for window 0x%x", reinterpret_cast<int>(hwnd));
+    else
+    {
+        LONG style = GetWindowLong(hwnd, GWL_STYLE);
+        desktop = !lstrcmp(classname, TEXT("Progman")) && !(style & WS_CAPTION) && !GetParent(hwnd);
+    }
+
+    return desktop;
+}
+
 void THT::slotTargetDropped(const QPoint &p)
 {
     m_windows = &m_windowsLoad;
+
+    removeWindowMarker();
 
     Link link = checkTargetWindow(p, false);
 
     if(!link.hwnd)
         return;
 
-    link = checkWindow(link.hwnd);
+    checkWindow(&link);
 
     if(link.type == LinkTypeNotInitialized)
         return;
@@ -1286,6 +1352,32 @@ void THT::slotTargetDropped(const QPoint &p)
     m_windows->append(link);
 
     checkWindows();
+}
+
+void THT::slotTargetMoving(const QPoint &pt)
+{
+    POINT pnt = {0};
+
+    pnt.x = pt.x();
+    pnt.y = pt.y();
+
+    HWND rnewHwnd = RealChildWindowFromPoint(GetDesktopWindow(), pnt);
+    HWND newHwnd = WindowFromPoint(pnt);
+
+    if(m_drawnWindow != newHwnd)
+        removeWindowMarker();
+
+    if(!IsWindow(newHwnd) || rnewHwnd == winId() || isDesktop(rnewHwnd))
+        return;
+
+    m_drawnWindow = newHwnd;
+
+    drawWindowMarker();
+}
+
+void THT::slotTargetCancelled()
+{
+    removeWindowMarker();
 }
 
 // IPC message
@@ -1385,23 +1477,26 @@ void THT::slotFoolsDay()
     }
 }
 
-bool THT::setForeignFocus(HWND window, DWORD threadId)
+bool THT::setForeignFocus(const Link &link)
 {
     const DWORD currentThreadId = GetCurrentThreadId();
 
-    if(!AttachThreadInput(threadId, currentThreadId, TRUE))
+    if(!AttachThreadInput(link.threadId, currentThreadId, TRUE))
     {
-        qWarning("Cannot attach to the thread %ld (%ld)", threadId, GetLastError());
+        qWarning("Cannot attach to the thread %ld (%ld)", link.threadId, GetLastError());
         return false;
     }
 
-    HWND hwnd = SetFocus(window);
+    HWND hwnd = SetFocus(link.subControl);
 
-    AttachThreadInput(threadId, currentThreadId, FALSE);
+    if(link.subControlSupportsClearing)
+        SendMessage(link.subControl, WM_SETTEXT, 0, 0);
+
+    AttachThreadInput(link.threadId, currentThreadId, FALSE);
 
     if(!hwnd)
     {
-        qWarning("Cannot set focus to the window %d (%ld)", (int)window, GetLastError());
+        qWarning("Cannot set focus to the window 0x%x (%ld)", reinterpret_cast<int>(link.subControl), GetLastError());
         return false;
     }
 
@@ -1438,72 +1533,4 @@ void THT::raiseWindow(QWidget *w)
     w->show();
     w->setWindowState(w->windowState() & ~Qt::WindowMinimized);
     w->raise();
-}
-
-HWND THT::grayBoxFindSubControl(HWND parent)
-{
-    return FindWindowEx(parent, 0, TEXT("Edit"), 0);
-}
-
-HWND THT::mbtFindSubControl(HWND parent)
-{
-    HWND after = 0, r;
-    TCHAR cname[MAX_PATH];
-    bool final = false;
-
-    const TCHAR *cedit = TEXT("Edit");
-    const int cedit_len = lstrlen(cedit);
-
-    const TCHAR *ctoolbar = TEXT("ToolbarWindow32");
-    const int ctoolbar_len = lstrlen(ctoolbar);
-
-    if(!GetClassName(parent, cname, sizeof(cname)))
-    {
-        qWarning("Failed to get a class name for window %d (%ld)", (int)parent, GetLastError());
-        return 0;
-    }
-    else if(CompareString(LOCALE_USER_DEFAULT, 0, cname, lstrlen(cname), ctoolbar, ctoolbar_len) == CSTR_EQUAL)
-        final = true;
-
-    while((after = FindWindowEx(parent, after, 0, 0)))
-    {
-        if(!GetClassName(after, cname, sizeof(cname)))
-        {
-            qWarning("Failed to get a class name for window %d (%ld)", (int)after, GetLastError());
-            continue;
-        }
-
-        if(final && CompareString(LOCALE_USER_DEFAULT, 0, cname, lstrlen(cname), cedit, cedit_len) == CSTR_EQUAL)
-            return after;
-        else if((r = mbtFindSubControl(after)))
-            return r;
-    }
-
-    return 0;
-}
-
-HWND THT::mbtProFindSubControl(HWND parent)
-{
-    HWND after = 0;
-    TCHAR cname[MAX_PATH];
-
-    const TCHAR *ctoolbar = TEXT("BCGPToolBar:");
-    const int ctoolbar_len = lstrlen(ctoolbar);
-
-    while((after = FindWindowEx(parent, after, 0, 0)))
-    {
-        if(!GetClassName(after, cname, sizeof(cname)))
-        {
-            qWarning("Failed to get a class name for window %d (%ld)", (int)after, GetLastError());
-            continue;
-        }
-
-        if(CompareString(LOCALE_USER_DEFAULT, 0, cname, ctoolbar_len, ctoolbar, ctoolbar_len) == CSTR_EQUAL)
-        {
-            after = FindWindowEx(after, 0, TEXT("ComboBox"), 0);
-            break;
-        }
-    }
-
-    return after;
 }

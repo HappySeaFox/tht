@@ -46,10 +46,16 @@ void Target::mousePressEvent(QMouseEvent *event)
 
 void Target::mouseMoveEvent(QMouseEvent *event)
 {
-    if(m_dragging && event->buttons() == Qt::NoButton)
+    if(m_dragging)
     {
-        QApplication::restoreOverrideCursor();
-        m_dragging = false;
+        if(event->buttons() == Qt::NoButton)
+        {
+            QApplication::restoreOverrideCursor();
+            m_dragging = false;
+            emit cancelled();
+        }
+        else
+            emit moving(event->globalPos());
     }
 }
 

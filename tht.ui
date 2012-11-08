@@ -309,6 +309,8 @@
    <slots>
     <signal>dropped(QPoint)</signal>
     <signal>middleClick()</signal>
+    <signal>moving(QPoint)</signal>
+    <signal>cancelled()</signal>
    </slots>
   </customwidget>
   <customwidget>
@@ -357,9 +359,43 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>target</sender>
+   <signal>moving(QPoint)</signal>
+   <receiver>THT</receiver>
+   <slot>slotTargetMoving(QPoint)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>38</x>
+     <y>419</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>44</x>
+     <y>453</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>target</sender>
+   <signal>cancelled()</signal>
+   <receiver>THT</receiver>
+   <slot>slotTargetCancelled()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>15</x>
+     <y>425</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>61</x>
+     <y>496</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>slotTargetDropped(QPoint)</slot>
   <slot>slotClearLinks()</slot>
+  <slot>slotTargetMoving(QPoint)</slot>
+  <slot>slotTargetCancelled()</slot>
  </slots>
 </ui>
