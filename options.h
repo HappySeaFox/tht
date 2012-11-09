@@ -38,8 +38,12 @@ public:
 private:
     void load();
 
+private slots:
+    void slotLanguageChanged(int);
+
 private:
     Ui::Options *ui;
+    int m_startIndex;
 };
 
 #endif // OPTIONS_H

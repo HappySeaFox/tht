@@ -24,9 +24,11 @@
 
 Options::Options(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::Options)
+    ui(new Ui::Options),
+    m_startIndex(-1)
 {
     ui->setupUi(this);
+    ui->labelRestart->hide();
 
     load();
 }
@@ -60,8 +62,19 @@ void Options::load()
         ui->comboLang->addItem(it.key(), it.value());
 
         if(it.value() == ts)
-            ui->comboLang->setCurrentIndex(ui->comboLang->count()-1);
+        {
+            m_startIndex = ui->comboLang->count() - 1;
+            ui->comboLang->setCurrentIndex(m_startIndex);
+        }
     }
+
+    if(m_startIndex < 0)
+        m_startIndex = 0;
+}
+
+void Options::slotLanguageChanged(int index)
+{
+    ui->labelRestart->setVisible(index != m_startIndex);
 }
 
 void Options::saveSettings() const
