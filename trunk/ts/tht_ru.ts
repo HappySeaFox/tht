@@ -386,12 +386,17 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
         <translation>Сохранять тикеры автоматически</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="129"/>
+        <location filename="../options.ui" line="148"/>
+        <source>Need restart</source>
+        <translation>Требуется перезапуск</translation>
+    </message>
+    <message>
+        <location filename="../options.ui" line="178"/>
         <source>Fast ticker entry</source>
         <translation>Быстрый ввод тикера</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="159"/>
+        <location filename="../options.ui" line="185"/>
         <source>Show list title</source>
         <translation>Показывать заголовок списка</translation>
     </message>
