@@ -388,16 +388,15 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                         slotSortList();
                     break;
 
+                    // Google finance
+                    case Qt::Key_G:
+                        openTickerInBrowser("http://www.google.com/finance?q=%1", currentTicker(), DontFix);
+                    break;
+
                     // Yahoo finance
                     case Qt::Key_Y:
-                    {
-                        QString t = currentTicker();
-
-                        if(!t.isEmpty())
-                            QDesktopServices::openUrl(QUrl(QString("http://finance.yahoo.com/q?s=%1").arg(t.replace('.', '-'))));
-
-                        break;
-                    }
+                        openTickerInBrowser("http://finance.yahoo.com/q?s=%1", currentTicker(), Fix);
+                    break;
 
                     case Qt::Key_Up:
                         loadItem(LoadItemPrevious);
@@ -973,6 +972,14 @@ void List::showFinvizSelector()
         return;
 
     addFromFinviz(ls.url());
+}
+
+void List::openTickerInBrowser(const QString &baseUrl, const QString &ticker, List::FixName fix)
+{
+    if(baseUrl.isEmpty() || ticker.isEmpty())
+        return;
+
+    QDesktopServices::openUrl(QUrl(baseUrl.arg(fix == Fix ? QString(ticker).replace('.', '-') : ticker)));
 }
 
 void List::loadItem(LoadItem litem)
