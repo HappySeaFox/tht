@@ -69,6 +69,7 @@ private:
                     LinkTypeMBTDesktop,
                     LinkTypeMBTDesktopPro,
                     LinkTypeFusion,
+                    LinkTypeTakion,
                     LinkTypeOther };
 
     struct Link
