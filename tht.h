@@ -80,7 +80,6 @@ private:
             type = lt;
             processId = 0;
             threadId = 0;
-            waitForCaption = true; // true by default
             subControl = 0;
             subControlSupportsClearing = false;
         }
@@ -90,7 +89,6 @@ private:
         LinkType type;
         DWORD processId;
         DWORD threadId;
-        bool waitForCaption;
         HWND subControl;
         bool subControlSupportsClearing;
     };

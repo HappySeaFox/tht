@@ -523,20 +523,11 @@ void THT::checkWindow(Link *link)
     else if((sname == "mbtdes~1.exe" || sname == "mbtdesktop.exe") && cname == "MbtTearFrame")
         link->type = LinkTypeMBTDesktop;
     else if((sname == "mbtdes~1.exe" || sname == "mbtdesktoppro.exe") && cname == "MbtNavPro_FloatFrame")
-    {
         link->type = LinkTypeMBTDesktopPro;
-        link->waitForCaption = false;
-    }
     else if(sname == "fusion.exe")
-    {
         link->type = LinkTypeFusion;
-        link->waitForCaption = false;
-    }
     else if(sname == "takion.exe")
-    {
         link->type = LinkTypeTakion;
-        link->waitForCaption = false;
-    }
     else
         link->type = LinkTypeOther;
 
@@ -795,20 +786,7 @@ void THT::slotCheckActive()
 
     Link &link = (*m_windows)[m_currentWindow];
 
-    WINDOWINFO pwi = {0};
-
-    if(link.waitForCaption)
-    {
-        pwi.cbSize = sizeof(WINDOWINFO);
-        GetWindowInfo(link.hwnd, &pwi);
-    }
-    else
-    {
-        pwi.dwWindowStatus = WS_ACTIVECAPTION; // nice hack
-        Sleep(5);
-    }
-
-    if(GetForegroundWindow() == link.hwnd && pwi.dwWindowStatus == WS_ACTIVECAPTION)
+    if(GetForegroundWindow() == link.hwnd)
     {
         qDebug("Found window, sending data");
 
