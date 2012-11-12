@@ -96,6 +96,7 @@ private:
     void undo();
     void addFromFinviz(const QUrl &);
     void showFinvizSelector();
+    void openTickerInBrowser(const QString &baseUrl, const QString &ticker, FixName fix);
 
     enum LoadItem { LoadItemCurrent,
                     LoadItemNext, LoadItemPrevious,
