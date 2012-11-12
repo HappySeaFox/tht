@@ -532,6 +532,11 @@ void THT::checkWindow(Link *link)
         link->type = LinkTypeFusion;
         link->waitForCaption = false;
     }
+    else if(sname == "takion.exe")
+    {
+        link->type = LinkTypeTakion;
+        link->waitForCaption = false;
+    }
     else
         link->type = LinkTypeOther;
 
