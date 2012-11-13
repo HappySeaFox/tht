@@ -528,6 +528,8 @@ void THT::checkWindow(Link *link)
         link->type = LinkTypeFusion;
     else if(sname == "takion.exe")
         link->type = LinkTypeTakion;
+    else if(sname == "archeclient.exe")
+        link->type = LinkTypeArche;
     else
         link->type = LinkTypeOther;
 
