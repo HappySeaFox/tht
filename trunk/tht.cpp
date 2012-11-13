@@ -1256,8 +1256,8 @@ void THT::drawWindowMarker()
 
     static HPEN pen = CreatePen(PS_SOLID, 3, RGB(255, 0, 0));
 
-    HDC	dc;
-    HGDIOBJ	oldPen, oldBrush;
+    HDC dc;
+    HGDIOBJ oldPen, oldBrush;
     RECT rect;
 
     GetWindowRect(m_drawnWindow, &rect);
