@@ -85,6 +85,9 @@ THT::THT(QWidget *parent) :
     m_takeScreen = new QxtGlobalShortcut(QKeySequence(Qt::CTRL + Qt::ALT + Qt::Key_S), this);
     connect(m_takeScreen, SIGNAL(activated()), this, SLOT(slotTakeScreenshotFromGlobal()));
 
+    QxtGlobalShortcut *restore = new QxtGlobalShortcut(QKeySequence(Qt::CTRL + Qt::ALT + Qt::Key_R), this);
+    connect(restore, SIGNAL(activated()), this, SLOT(activate()));
+
     QIcon icon_quit(":/images/quit.png");
     QIcon icon_screenshot(":/images/screenshot.png");
     QIcon icon_chart(":/images/chart.ico");
