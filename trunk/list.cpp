@@ -390,7 +390,7 @@ bool List::eventFilter(QObject *obj, QEvent *event)
 
                     // Google finance
                     case Qt::Key_G:
-                        openTickerInBrowser("http://www.google.com/finance?q=%1", currentTicker(), DontFix);
+                        openTickerInBrowser("http://www.google.com/finance?q=:%1", currentTicker(), DontFix);
                     break;
 
                     // Yahoo finance
@@ -979,7 +979,7 @@ void List::openTickerInBrowser(const QString &baseUrl, const QString &ticker, Li
     if(baseUrl.isEmpty() || ticker.isEmpty())
         return;
 
-    QDesktopServices::openUrl(QUrl(baseUrl.arg(fix == Fix ? QString(ticker).replace('.', '-') : ticker)));
+    QDesktopServices::openUrl(QUrl::fromUserInput(baseUrl.arg(fix == Fix ? QString(ticker).replace('.', '-') : ticker)));
 }
 
 void List::loadItem(LoadItem litem)
