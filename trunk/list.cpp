@@ -390,7 +390,7 @@ bool List::eventFilter(QObject *obj, QEvent *event)
 
                     // Google finance
                     case Qt::Key_G:
-                        openTickerInBrowser("http://www.google.com/finance?q=:%1", currentTicker(), DontFix);
+                        openTickerInBrowser("http://www.google.com/finance?q=%1", currentTicker(), DontFix);
                     break;
 
                     // Yahoo finance
