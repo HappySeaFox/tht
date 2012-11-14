@@ -172,11 +172,11 @@ Settings::Settings()
         }
 
         delete old;
-
-        // save version for future changes
-        m_settings->setValue("version", NVER_STRING);
-        m_settings->sync();
     }
+
+    // save version for future changes
+    m_settings->setValue("version", NVER_STRING);
+    m_settings->sync();
 
     memset(&m_windowsVersion, 0, sizeof(OSVERSIONINFO));
     m_windowsVersion.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
