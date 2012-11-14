@@ -588,7 +588,15 @@ THT::Link THT::checkTargetWindow(const QPoint &p, bool allowThisWindow)
     link.subControl = WindowFromPoint(pnt);
 
     if(link.subControl == link.hwnd)
+    {
+        qDebug("Subcontrol is the same top-level window, setting to 0");
         link.subControl = 0;
+    }
+    else if(GetAncestor(link.subControl, GA_ROOT) != hwnd)
+    {
+        qDebug("Subcontrol belongs to another top-level window, setting to 0");
+        link.subControl = 0;
+    }
 
     if(link.subControl)
     {
@@ -1295,25 +1303,7 @@ void THT::removeWindowMarker()
 
 bool THT::isDesktop(HWND hwnd)
 {
-    if(!IsWindow(hwnd))
-        return false;
-
-    if(hwnd == GetDesktopWindow())
-        return true;
-
-    // desktop window?
-    bool desktop = false;
-    TCHAR classname[256];
-
-    if(!GetClassName(hwnd, classname, sizeof(classname)))
-        qDebug("Cannot get class name for window 0x%x", reinterpret_cast<int>(hwnd));
-    else
-    {
-        LONG style = GetWindowLong(hwnd, GWL_STYLE);
-        desktop = !lstrcmp(classname, TEXT("Progman")) && !(style & WS_CAPTION) && !GetParent(hwnd);
-    }
-
-    return desktop;
+    return IsWindow(hwnd) && (hwnd == GetDesktopWindow() || hwnd == GetShellWindow());
 }
 
 void THT::slotTargetDropped(const QPoint &p)
