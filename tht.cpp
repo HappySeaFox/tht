@@ -390,7 +390,7 @@ void THT::sendString(const QString &ticker, LinkType type)
 
     // Fix for TOS@paperMoney
     if(type == LinkTypeTwinkorswim)
-        Sleep(5);
+        Sleep(10);
 
     sendKey(VK_RETURN);
 }
