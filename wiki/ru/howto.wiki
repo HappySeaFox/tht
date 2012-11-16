@@ -4,6 +4,20 @@
 
 <wiki:toc max_depth="2" />
 
+== Какие платформы поддерживает THT? ==
+
+ * [http://www.youtube.com/watch?v=idtUAU4p75s&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=7&feature=plpp_video Advanced Get/ESignal графики]
+ * [http://www.youtube.com/watch?v=uIubQGEnrTQ&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=8&feature=plpp_video Arche Pro]
+ * [http://www.youtube.com/watch?v=caCBgbfNQm8&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=9&feature=plpp_video DAS Trader Pro]
+ * [http://www.youtube.com/watch?v=zYNcsQiG9dU&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=2&feature=plpp_video Fusion (только графики и принты)]
+ * [http://www.youtube.com/watch?v=UBgSxmDNyBk&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=1&feature=plpp_video Graybox Market Makers, Graybox Time & Sales]
+ * [http://www.youtube.com/watch?v=9Td1hhIEFvI&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=10&feature=plpp_video Laser Trade]
+ * [http://www.youtube.com/watch?v=NWdDxkU8Sp0&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=12&feature=plpp_video Lightspeed Trader]
+ * [http://www.youtube.com/watch?v=7VS-Fvl2Iac&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=4&feature=plpp_video MBT Desktop, MBT Desktop Pro]
+ * [http://www.youtube.com/watch?v=UszrZHDW1ms&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=5&feature=plpp_video SDG Open Book]
+ * [http://www.youtube.com/watch?v=D1KHt5amgrk&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=11&feature=plpp_video Takion]
+ * [http://www.youtube.com/watch?v=c6G5PbT8BzA&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=6&feature=plpp_video Thinkorswim]
+
 == Видео-руководство ==
 
 <wiki:video url="https://www.youtube.com/watch?v=RbC0iCtW-X8" width="240" height="170"/>
@@ -12,39 +26,15 @@
 
 THT эмулирует ввод с клавиатуры. Не назначайте пожалуйста латинские буквы на горячие клавиши в Graybox или в других программах, которые будут линковаться. Если вы назначите какую-либо букву в Graybox (или в других программах, которые будут линковаться), скажем "B", как горячую клавишу на открытие позиции, и попытаетесь слинковать тикер "BWA", то Graybox откроет позицию и попытается загрузить тикер "WA".
 
-== Как слинковать вместе несколько окон Advanced Get? ==
+== Как слинковать вместе несколько окон? ==
 
-Перетащите чёрную иконку мишени левой кнопкой мыши и бросьте на нужное окно AG. Если всё в порядке, вы услышите подтверждающий сигнал. Например, вы можете слинковать 5-ти минутку, дневку и недельку.
-
-<a href="http://i1148.photobucket.com/albums/o561/Dmitry_RK/link.png" target="_blank"><img src="http://i1148.photobucket.com/albums/o561/Dmitry_RK/th_link.png" border="0"></img></a>
-
-Также см. Руководство.
+Линковка поддерживаемых платформ: http://www.youtube.com/playlist?list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm
 
 Заметки:
 
  * <font color=red>Главное окно Advanced Get должно быть на экране (не свёрнуто), иначе линковка не будет работать правильно.</font>
 
  * <font color=red>Если вы хотите слинковать программу (Advanced Get, Graybox и др.), которую запускаете от администратора, вы должны запускать от администратора также и THT.</font>
-
-== Как слинковать окно Graybox Market Makers? ==
-
-Перетащите чёрную иконку мишени левой кнопкой мыши и бросьте на нужное окно Graybox MM. Если всё в порядке, вы услышите подтверждающий сигнал.
-
-<a href="http://i1148.photobucket.com/albums/o561/Dmitry_RK/link-gb.png" target="_blank"><img src="http://i1148.photobucket.com/albums/o561/Dmitry_RK/th_link-gb.png" border="0"></img></a>
-
-Также см. Руководство.
-
-== Как слинковать окно Thinkorswim? ==
-
-Перетащите чёрную иконку мишени левой кнопкой мыши и бросьте на нужное окно TOS. Если всё в порядке, вы услышите подтверждающий сигнал.
-
-Также см. Руководство.
-
-== Как слинковать окно MBT Desktop или MBT Desktop Pro? ==
-
-Перетащите чёрную иконку мишени левой кнопкой мыши и бросьте на нужное окно MBT с графиком. Если всё в порядке, вы услышите подтверждающий сигнал.
-
-Также см. Руководство.
 
 == Что насчёт языка ввода? ==
 
@@ -58,7 +48,7 @@ THT эмулирует ввод с клавиатуры. Не назначайт
 
 == Как сохранять и добавлять точки линковки? ==
 
-<wiki:video url="https://www.youtube.com/watch?v=oPEAa_CmMao" width="240" height="170"/>
+<wiki:video url="https://www.youtube.com/watch?v=1PlpDwhgLEs" width="240" height="170"/>
 
 == Как использовать редактор скриншотов? ==
 
@@ -128,6 +118,8 @@ http://i1148.photobucket.com/albums/o561/Dmitry_RK/unsaved.png
 
 *Быстрый ввод тикера* - показать снизу от списка тикеров окно для загрузки и добавления тикеров
 
+*Показывать заголовок списка* - каждый список будет иметь заголовок (вы можете изменить его с помощью F2, см. далее)
+
 == Горячие клавиши? ==
 
 Да, THT поддерживает некоторые сочетания клавиш.
@@ -150,7 +142,7 @@ http://i1148.photobucket.com/albums/o561/Dmitry_RK/unsaved.png
  * *O*, *Insert* - добавить один тикер
  * *Ctrl+O*, *A* - добавить тикеры из файла (или из нескольких файлов сразу)
  * *Ctrl+V*, *P* - вставить тикеры из буфера обмена
- * *Пробел* - показать имя компании
+ * *Пробел* - показать имя компании (работает и в окне "Индустрии")
  * *1,2,3,4,5,6,7,8* - копировать текущий тикер в 1й, 2й, 3й, 4й, 5й, 6й, 7й или 8й список соответственно
  * *Plus*, *Equal* - повысить приоритет
  * *Minus* - понизить приоритет
@@ -158,12 +150,14 @@ http://i1148.photobucket.com/albums/o561/Dmitry_RK/unsaved.png
  * *Alt+2* - установить средний приоритет
  * *Alt+3* - установить высокий приоритет
  * *Alt+4* - установить наивысший приоритет
+ * *F2* - изменить заголовок списка
  * *U* - сбросить приоритет в значение по-умолчанию
  * *R* - отсортировать список
  * *E* - экспортировать тикеры в файл
  * *C* - экспортировать тикеры в буфер обмена
  * *K* - показать или найти информацию по сектору или индустрии для тикера
  * *Alt+U* - сбросить приоритеты тикеров
+ * *G* - открыть текущий тикер в Google Finance
  * *Y* - открыть текущий тикер в Yahoo Finance
  * *Z* - добавить тикеры из Finviz
 
@@ -200,6 +194,7 @@ http://i1148.photobucket.com/albums/o561/Dmitry_RK/unsaved.png
 === Глобальные сочетания: ===
 
  * *Ctrl+Alt+S* - сделать снимок экрана вашего трейда
+ * *Ctrl+Alt+R* - показать окно THT (когда окно свёрнуто или спрятано в трее)
 
 == Какая разница между installable и standalone пакетами? ==
 

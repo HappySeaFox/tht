@@ -4,41 +4,33 @@ THT Howto and FAQ =
 
 <wiki:toc max_depth="2" />
 
+== Which platforms does THT support? ==
+
+ * [http://www.youtube.com/watch?v=idtUAU4p75s&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=7&feature=plpp_video Advanced Get/ESignal charts]
+ * [http://www.youtube.com/watch?v=uIubQGEnrTQ&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=8&feature=plpp_video Arche Pro]
+ * [http://www.youtube.com/watch?v=caCBgbfNQm8&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=9&feature=plpp_video DAS Trader Pro]
+ * [http://www.youtube.com/watch?v=zYNcsQiG9dU&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=2&feature=plpp_video Fusion (charts and prints only)]
+ * [http://www.youtube.com/watch?v=UBgSxmDNyBk&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=1&feature=plpp_video Graybox Market Makers, Graybox Time & Sales]
+ * [http://www.youtube.com/watch?v=9Td1hhIEFvI&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=10&feature=plpp_video Laser Trade]
+ * [http://www.youtube.com/watch?v=NWdDxkU8Sp0&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=12&feature=plpp_video Lightspeed Trader]
+ * [http://www.youtube.com/watch?v=7VS-Fvl2Iac&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=4&feature=plpp_video MBT Desktop, MBT Desktop Pro]
+ * [http://www.youtube.com/watch?v=UszrZHDW1ms&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=5&feature=plpp_video SDG Open Book]
+ * [http://www.youtube.com/watch?v=D1KHt5amgrk&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=11&feature=plpp_video Takion]
+ * [http://www.youtube.com/watch?v=c6G5PbT8BzA&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=6&feature=plpp_video Thinkorswim]
+
 == How does THT link windows? ==
 
 THT emulates a keyboard input. Please don't assign latin letters to be hotkeys in Graybox and other software you want to link to. If you assign some letter in Graybox (or other software you want to link to), say "B", to open a new position, and try to link "BWA" ticker, Graybox will open a new position, and will try to load "WA" ticker.
 
-== How to link several Advanced Get windows together? ==
+== How to link several windows? ==
 
-Drag a black target with a left mouse button and drop onto a required AG window. If everything is ok, you will hear a confirmation sound. For example, you can link together 5min, daily and weekly charts.
-
-<a href="http://i1148.photobucket.com/albums/o561/Dmitry_RK/link.png" target="_blank"><img src="http://i1148.photobucket.com/albums/o561/Dmitry_RK/th_link.png" border="0"></img></a>
-
-<wiki:video url="https://www.youtube.com/watch?v=sDrnz8cZIDA" width="240" height="170"/>
+How to link supported platforms: http://www.youtube.com/playlist?list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm
 
 Notes:
 
  * <font color=red>The main Advanced Get window must also be visible (not minimized), otherwise links will be established but won't work correctly.</font>
 
  * <font color=red>If you run the application you want to link to (Advanced Get, or Graybox, or whatever) as administrator, you need to run as administrator THT too.</font>
-
-== How to link Graybox Market Makers window? ==
-
-Drag a black target with a left mouse button and drop onto a required Graybox MM window. If everything is ok, you will hear a confirmation sound.
-
-<a href="http://i1148.photobucket.com/albums/o561/Dmitry_RK/link-gb.png" target="_blank"><img src="http://i1148.photobucket.com/albums/o561/Dmitry_RK/th_link-gb.png" border="0"></img></a>
-
-<wiki:video url="https://www.youtube.com/watch?v=A5i9MD-6Sec" width="240" height="170"/>
-
-== How to link Thinkorswim window? ==
-
-Drag a black target with a left mouse button and drop onto a required TOS window. If everything is ok, you will hear a confirmation sound.
-
-<wiki:video url="https://www.youtube.com/watch?v=O_-7Jdy7pCw" width="240" height="170"/>
-
-== How to link MBT Desktop or MBT Desktop Pro window? ==
-
-Drag a black target with a left mouse button and drop onto a required MBT chart window. If everything is ok, you will hear a confirmation sound.
 
 == What about the input language? ==
 
@@ -52,7 +44,7 @@ Right click on a THT window and select "Clear links". You can also do a middle c
 
 == How to save and add link points? ==
 
-<wiki:video url="https://www.youtube.com/watch?v=oPEAa_CmMao" width="240" height="170"/>
+<wiki:video url="https://www.youtube.com/watch?v=1PlpDwhgLEs" width="240" height="170"/>
 
 == How to use screenshot editor? ==
 
@@ -122,6 +114,8 @@ http://i1148.photobucket.com/albums/o561/Dmitry_RK/unsaved.png
 
 *Fast ticker entry* - show a small ticker entry window below the ticker list
 
+*Show list title* - each list will have a title (you can edit it with F2, see below)
+
 == Keyboard shortcuts? ==
 
 Yes, THT supports some keyboard shortcuts.
@@ -144,7 +138,7 @@ Yes, THT supports some keyboard shortcuts.
  * *O*, *Insert* - add one ticker
  * *Ctrl+O*, *A* - add tickers from a file (or from multiple files simultaneously)
  * *Ctrl+V*, *P* - paste tickers from a clipboard
- * *Space* - show the company name
+ * *Space* - show the company name (also works in "Industries" window)
  * *1,2,3,4,5,6,7,8* - copy the current ticker to the 1st, 2nd, 3rd, 4th, 5th, 6th, 7th or 8th list respectively
  * *Plus*, *Equal* - increase priority
  * *Minus* - decrease priority
@@ -152,12 +146,14 @@ Yes, THT supports some keyboard shortcuts.
  * *Alt+2* - set medium priority
  * *Alt+3* - set high priority
  * *Alt+4* - set the highest priority
+ * *F2* - change list title
  * *U* - reset priority to the default value
  * *R* - sort list
  * *E* - export tickers to a file
  * *C* - export tickers to a clipboard
  * *K* - show or search industry & sector information
  * *Alt+U* - reset tickers' priorities
+ * *G* - open the current ticker in Google Finance
  * *Y* - open the current ticker in Yahoo Finance
  * *Z* - add tickers from Finviz
 
@@ -194,6 +190,7 @@ Yes, THT supports some keyboard shortcuts.
 === Global shortcuts: ===
 
  * *Ctrl+Alt+S* - take a screenshot of your trade
+ * *Ctrl+Alt+R* - show the THT window (when the window is minimized or hidden in the tray)
 
 == What's the difference between installable ad standalone packages? ==
 

@@ -1,3 +1,11 @@
+== 1.3.0 ==
+ * added list title (visit Options to enable; press F2 to edit title)
+ * hotkeys: press "Space" to show ticker information in 'Industries' window
+ * added support of Fusion charts, DAS Trader Pro, Arche Pro, Takion, Lightspeed
+ * <font color=red>the linking mechanism has changed. Reconfigure your link points, also see [http://www.youtube.com/playlist?list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm howto]</font>
+ * hotkeys: press "G" to open the current ticker in Google Finance
+ * global hotkeys: press "Ctrl+Alt+R" to show the THT window (when the window is minimized or hidden in the tray)
+
 == 1.2.0 ==
  * small fixes
  * added Finviz client (see [howto howto])
