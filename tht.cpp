@@ -585,7 +585,7 @@ THT::Link THT::checkTargetWindow(const QPoint &p, bool allowThisWindow)
 
     Link link = Link(hwnd);
 
-    link.subControl = WindowFromPoint(pnt);
+    link.subControl = Tools::RealWindowFromPoint(pnt);
 
     if(link.subControl == link.hwnd)
     {
@@ -1340,7 +1340,7 @@ void THT::slotTargetMoving(const QPoint &pt)
     pnt.y = pt.y();
 
     HWND rnewHwnd = RealChildWindowFromPoint(GetDesktopWindow(), pnt);
-    HWND newHwnd = WindowFromPoint(pnt);
+    HWND newHwnd = Tools::RealWindowFromPoint(pnt);
 
     if(m_drawnWindow != newHwnd)
         removeWindowMarker();
