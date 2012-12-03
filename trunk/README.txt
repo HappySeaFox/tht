@@ -90,3 +90,10 @@ Author: Lim Bio Liong
 License: CPOL
 
 http://www.codeproject.com/Articles/1698/MS-Spy-style-Window-Finder
+
+* FindBestChildProc, FindBestChild, RealWindowFromPoint in Tools
+
+http://www.codeforge.cn/read/167975/WindowFromPointEx.c__html
+
+Author: J Brown
+License: Freeware

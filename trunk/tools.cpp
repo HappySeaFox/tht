@@ -26,6 +26,9 @@
 
 const QPoint Tools::invalidQPoint(INT_MIN, INT_MIN);
 
+HWND Tools::hwndGlobal;
+DWORD Tools::dwArea;
+
 void Tools::moveWindow(QWidget *w, const QPoint &pt)
 {
     if(!w)
@@ -45,4 +48,77 @@ void Tools::moveWindow(QWidget *w, const QPoint &pt)
             break;
         }
     }
+}
+/*
+ * FindBestChildProc
+ * FindBestChild
+ * RealWindowFromPoint
+ *
+ * are written by
+ *
+ * Copyright (c) 2002 by J Brown
+ *
+ * License: Freeware
+ */
+BOOL CALLBACK Tools::FindBestChildProc(HWND hwnd, LPARAM lParam)
+{
+    RECT rect;
+    DWORD a;
+    POINT pt;
+
+    pt.x = (short)LOWORD(lParam);
+    pt.y = (short)HIWORD(lParam);
+
+    GetWindowRect(hwnd, &rect);
+
+    if(PtInRect(&rect, pt))
+    {
+        a = (rect.right - rect.left) * (rect.bottom - rect.top);
+
+        if(a < Tools::dwArea && IsWindowVisible(hwnd))
+        {
+            Tools::dwArea = a;
+            Tools::hwndGlobal = hwnd;
+        }
+    }
+
+    return TRUE;
+}
+
+HWND Tools::FindBestChild(HWND hwndFound, POINT pt)
+{
+    HWND  hwnd;
+    DWORD dwStyle;
+
+    Tools::dwArea = -1;	// Start off again
+    Tools::hwndGlobal = 0;
+
+    hwnd = GetParent(hwndFound);
+
+    dwStyle = GetWindowLong(hwndFound, GWL_STYLE);
+
+    if(hwnd == 0 || (dwStyle & WS_POPUP))
+        hwnd = hwndFound;
+
+    EnumChildWindows(hwnd, FindBestChildProc, MAKELPARAM(pt.x, pt.y));
+
+    if(!Tools::hwndGlobal)
+        Tools::hwndGlobal = hwnd;
+
+    return Tools::hwndGlobal;
+}
+
+HWND Tools::RealWindowFromPoint(POINT pt)
+{
+    HWND hWndPoint = WindowFromPoint(pt);
+
+    if(!hWndPoint)
+        return 0;
+
+    hWndPoint = FindBestChild(hWndPoint, pt);
+
+    while(hWndPoint && !IsWindowVisible(hWndPoint))
+        hWndPoint = GetParent(hWndPoint);
+
+    return hWndPoint;
 }
