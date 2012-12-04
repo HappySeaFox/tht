@@ -87,10 +87,10 @@ BOOL CALLBACK Tools::FindBestChildProc(HWND hwnd, LPARAM lParam)
 
 HWND Tools::FindBestChild(HWND hwndFound, POINT pt)
 {
-    HWND  hwnd;
+    HWND hwnd;
     DWORD dwStyle;
 
-    Tools::dwArea = -1;	// Start off again
+    Tools::dwArea = -1;
     Tools::hwndGlobal = 0;
 
     hwnd = GetParent(hwndFound);
