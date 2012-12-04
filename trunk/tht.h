@@ -123,7 +123,6 @@ private:
     void raiseWindow(QWidget *);
     void drawWindowMarker();
     void removeWindowMarker();
-    bool isDesktop(HWND);
 
 public slots:
     void activate();

@@ -565,7 +565,7 @@ THT::Link THT::checkTargetWindow(const QPoint &p, bool allowThisWindow)
     }
 
     // desktop
-    if(isDesktop(hwnd))
+    if(Tools::isDesktop(hwnd))
     {
         qDebug("Ignoring desktop window");
         return Link();
@@ -1301,11 +1301,6 @@ void THT::removeWindowMarker()
     m_drawnWindow = 0;
 }
 
-bool THT::isDesktop(HWND hwnd)
-{
-    return IsWindow(hwnd) && (hwnd == GetDesktopWindow() || hwnd == GetShellWindow());
-}
-
 void THT::slotTargetDropped(const QPoint &p)
 {
     m_windows = &m_windowsLoad;
@@ -1345,7 +1340,7 @@ void THT::slotTargetMoving(const QPoint &pt)
     if(m_drawnWindow != newHwnd)
         removeWindowMarker();
 
-    if(!IsWindow(newHwnd) || rnewHwnd == winId() || isDesktop(rnewHwnd))
+    if(!IsWindow(newHwnd) || rnewHwnd == winId() || Tools::isDesktop(rnewHwnd))
         return;
 
     m_drawnWindow = newHwnd;

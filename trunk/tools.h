@@ -29,6 +29,7 @@ class Tools
 public:
     static void moveWindow(QWidget *w, const QPoint &pt);
     static HWND RealWindowFromPoint(POINT pt);
+    static bool isDesktop(HWND hwnd);
 
 private:
     static HWND FindBestChild(HWND hwndFound, POINT pt);
