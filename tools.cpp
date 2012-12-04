@@ -97,7 +97,7 @@ HWND Tools::FindBestChild(HWND hwndFound, POINT pt)
 
     dwStyle = GetWindowLong(hwndFound, GWL_STYLE);
 
-    if(hwnd == 0 || (dwStyle & WS_POPUP))
+    if(!hwnd || (dwStyle & WS_POPUP))
         hwnd = hwndFound;
 
     EnumChildWindows(hwnd, FindBestChildProc, MAKELPARAM(pt.x, pt.y));
