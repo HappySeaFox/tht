@@ -122,3 +122,8 @@ HWND Tools::RealWindowFromPoint(POINT pt)
 
     return hWndPoint;
 }
+
+bool Tools::isDesktop(HWND hwnd)
+{
+    return IsWindow(hwnd) && (hwnd == GetDesktopWindow() || hwnd == GetShellWindow());
+}
