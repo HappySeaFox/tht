@@ -23,7 +23,7 @@ BEGIN
         BEGIN
           BLOCK "040904e4"
           BEGIN
-          VALUE "Comments",           "THT helps you to do your home task in trading. It can link several Advanced Get or Graybox MM windows together and manage a list of tickers."
+          VALUE "Comments",           "THT helps you to do your home task in trading. It can link different trading platforms and charts together and manage a list of tickers."
           VALUE "CompanyName",        "Dmitry Baryshev"
           VALUE "FileDescription",    "Trader's Home Task"
           VALUE "FileVersion",        quote(NVER)

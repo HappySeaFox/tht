@@ -15,26 +15,22 @@
     </message>
     <message>
         <location filename="../about.ui" line="93"/>
-        <source>THT helps you to do your home task in trading. It can link several Advanced Get windows together and manage a list of tickers.
-
-All suggestions and bug reports please send to our bug tracker, also visit</source>
-        <translation>THT помогает вам делать свою домашнюю работу в трейдинге. Она может линковать несколько окон Advanced Get и управлять списками тикеров.
-
-Все пожелания и отчёты об ошибках посылайте на наш багтрекер, также посетите</translation>
+        <source>THT helps you to do your home task in trading. It can link different trading platforms and charts together and manage a list of tickers. All suggestions and bug reports please send to our bug tracker, also visit</source>
+        <translation>THT помогает вам делать свою домашнюю работу в трейдинге. Она может линковать различные торговые платформы и графики, и управлять списками тикеров. Все пожелания и отчёты об ошибках посылайте на наш багтрекер, также посетите</translation>
     </message>
     <message>
-        <location filename="../about.ui" line="134"/>
+        <location filename="../about.ui" line="129"/>
         <source>(C) 2012 Dmitry Baryshev &amp;lt;&lt;a href=&quot;mailto:ksquirrel.iv@gmail.com&quot;&gt;ksquirrel.iv@gmail.com&lt;/a&gt;&amp;gt;</source>
         <translation>(C) 2012 Барышев Дмитрий &amp;lt;&lt;a href=&quot;mailto:ksquirrel.iv@gmail.com&quot;&gt;ksquirrel.iv@gmail.com&lt;/a&gt;&amp;gt;</translation>
     </message>
     <message>
-        <location filename="../about.ui" line="166"/>
+        <location filename="../about.ui" line="161"/>
         <source>THT is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</source>
         <extracomment>See https://www.gnu.org/licenses/gpl-2.0.txt</extracomment>
         <translation>THT распространяется в надежде, что она будет полезной, но БЕЗО ВСЯКИХ ГАРАНТИЙ; даже без неявной гарантии ТОВАРНОГО ВИДА или ПРИГОДНОСТИ ДЛЯ ОПРЕДЕЛЁННЫХ ЦЕЛЕЙ.</translation>
     </message>
     <message>
-        <location filename="../about.ui" line="209"/>
+        <location filename="../about.ui" line="204"/>
         <source>OK</source>
         <translation></translation>
     </message>
@@ -318,41 +314,41 @@ All suggestions and bug reports please send to our bug tracker, also visit</sour
         <translation>Экспортировать в буфер обмена</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="955"/>
+        <location filename="../list.cpp" line="954"/>
         <source>Customize...</source>
         <translation>Настроить...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1149"/>
-        <location filename="../list.cpp" line="1224"/>
+        <location filename="../list.cpp" line="1156"/>
+        <location filename="../list.cpp" line="1231"/>
         <source>Choose a file</source>
         <translation>Выберите файл</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1151"/>
-        <location filename="../list.cpp" line="1226"/>
+        <location filename="../list.cpp" line="1158"/>
+        <location filename="../list.cpp" line="1233"/>
         <source>Text files (*.txt)</source>
         <translation>Текстовые файлы (*.txt)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1153"/>
-        <location filename="../list.cpp" line="1228"/>
+        <location filename="../list.cpp" line="1160"/>
+        <location filename="../list.cpp" line="1235"/>
         <source>All files (*.*)</source>
         <translation>Все файлы (*.*)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1188"/>
-        <location filename="../list.cpp" line="1238"/>
+        <location filename="../list.cpp" line="1195"/>
+        <location filename="../list.cpp" line="1245"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1188"/>
+        <location filename="../list.cpp" line="1195"/>
         <source>Cannot open the following files: %1</source>
         <translation>Невозможно открыть следующие файлы: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1238"/>
+        <location filename="../list.cpp" line="1245"/>
         <source>Cannot save to file %1</source>
         <translation>Невозможно сохранить в файл %1</translation>
     </message>
@@ -703,88 +699,88 @@ Means &quot;Links to Graybox&quot;</extracomment>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="98"/>
+        <location filename="../tht.cpp" line="101"/>
         <source>Options...</source>
         <translation>Настройки...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="101"/>
-        <location filename="../tht.cpp" line="164"/>
+        <location filename="../tht.cpp" line="104"/>
+        <location filename="../tht.cpp" line="167"/>
         <source>Take screenshot...</source>
         <translation>Снимок экрана...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="108"/>
+        <location filename="../tht.cpp" line="111"/>
         <source>Clear ticker lists</source>
         <translation>Очистить списки тикеров</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="105"/>
+        <location filename="../tht.cpp" line="108"/>
         <source>Clear links</source>
         <extracomment>Infinitive</extracomment>
         <translation>Очистить ссылки</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="109"/>
-        <location filename="../tht.cpp" line="110"/>
+        <location filename="../tht.cpp" line="112"/>
+        <location filename="../tht.cpp" line="113"/>
         <source>Load ticker</source>
         <translation>Загрузить тикер</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="113"/>
-        <location filename="../tht.cpp" line="166"/>
+        <location filename="../tht.cpp" line="116"/>
+        <location filename="../tht.cpp" line="169"/>
         <source>About THT</source>
         <translation>О THT</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="114"/>
+        <location filename="../tht.cpp" line="117"/>
         <source>About Qt</source>
         <translation>О Qt</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="116"/>
-        <location filename="../tht.cpp" line="168"/>
+        <location filename="../tht.cpp" line="119"/>
+        <location filename="../tht.cpp" line="171"/>
         <source>Quit</source>
         <translation>Выход</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="163"/>
+        <location filename="../tht.cpp" line="166"/>
         <source>Restore</source>
         <extracomment>Means &quot;Restore from tray&quot;</extracomment>
         <translation>Восстановить</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="272"/>
+        <location filename="../tht.cpp" line="275"/>
         <source>Notice</source>
         <translation>Заметка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="272"/>
+        <location filename="../tht.cpp" line="275"/>
         <source>THT will continue to run in a system tray</source>
         <translation>THT продолжит работу в системном лотке</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1130"/>
+        <location filename="../tht.cpp" line="1126"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1130"/>
+        <location filename="../tht.cpp" line="1126"/>
         <source>Cannot take screenshot</source>
         <translation>Невозможно сделать снимок экрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1473"/>
+        <location filename="../tht.cpp" line="1446"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <translation>Все крупные современные состояния нажиты&lt;br&gt;самым бесчестным путём.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1474"/>
+        <location filename="../tht.cpp" line="1447"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <translation>&quot;Золотой Телёнок&quot; И.Ильф, Е.Петров</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1525"/>
+        <location filename="../tht.cpp" line="1498"/>
         <source>Customize...</source>
         <translation>Настроить...</translation>
     </message>
