@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>370</width>
-    <height>231</height>
+    <width>412</width>
+    <height>218</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -95,9 +95,6 @@
          <property name="text">
           <string>THT helps you to do your home task in trading. It can link different trading platforms and charts together and manage a list of tickers. All suggestions and bug reports please send to our bug tracker, also visit</string>
          </property>
-         <property name="alignment">
-          <set>Qt::AlignJustify|Qt::AlignVCenter</set>
-         </property>
          <property name="wordWrap">
           <bool>true</bool>
          </property>
@@ -165,9 +162,6 @@
         <widget class="QLabel" name="label_5">
          <property name="text">
           <string extracomment="See https://www.gnu.org/licenses/gpl-2.0.txt">THT is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignJustify|Qt::AlignVCenter</set>
          </property>
          <property name="wordWrap">
           <bool>true</bool>

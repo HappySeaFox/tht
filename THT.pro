@@ -19,8 +19,8 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 # THT version
 NVER1=1
-NVER2=3
-NVER3=1
+NVER2=4
+NVER3=0
 
 VERSION=$$sprintf("%1.%2.%3", $$NVER1, $$NVER2, $$NVER3)
 
