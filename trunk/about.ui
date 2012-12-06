@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>397</width>
+    <width>377</width>
     <height>231</height>
    </rect>
   </property>
@@ -16,6 +16,9 @@
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0" colspan="3">
     <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <property name="spacing">
+      <number>8</number>
+     </property>
      <item>
       <widget class="QLabel" name="label">
        <property name="alignment">
@@ -90,12 +93,10 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string>THT helps you to do your home task in trading. It can link several Advanced Get windows together and manage a list of tickers.
-
-All suggestions and bug reports please send to our bug tracker, also visit</string>
+          <string>THT helps you to do your home task in trading. It can link different trading platforms and charts together and manage a list of tickers. All suggestions and bug reports please send to our bug tracker, also visit</string>
          </property>
-         <property name="textFormat">
-          <enum>Qt::RichText</enum>
+         <property name="alignment">
+          <set>Qt::AlignJustify|Qt::AlignVCenter</set>
          </property>
          <property name="wordWrap">
           <bool>true</bool>
@@ -164,6 +165,9 @@ All suggestions and bug reports please send to our bug tracker, also visit</stri
         <widget class="QLabel" name="label_5">
          <property name="text">
           <string extracomment="See https://www.gnu.org/licenses/gpl-2.0.txt">THT is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignJustify|Qt::AlignVCenter</set>
          </property>
          <property name="wordWrap">
           <bool>true</bool>
