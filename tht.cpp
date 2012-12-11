@@ -521,7 +521,7 @@ void THT::checkWindow(Link *link)
     if(sname == "advancedget.exe" || sname == "winsig.exe")
         link->type = LinkTypeAdvancedGet;
     else if(sname == "dastrader.exe")
-        link->type = LinkTypeDASTrader;
+        link->type = LinkTypeDASTraderPro;
     else if(sname == "graybox.exe")
         link->type = LinkTypeGraybox;
     else if(sname == "thinkorswim.exe")
@@ -541,7 +541,7 @@ void THT::checkWindow(Link *link)
     else if(sname == "roxdemo.exe" || sname == "rox.exe")
         link->type = LinkTypeROX;
     else if(sname == "archeclient.exe")
-        link->type = LinkTypeArche;
+        link->type = LinkTypeArchePro;
     else
         link->type = LinkTypeOther;
 
@@ -662,10 +662,10 @@ void THT::checkWindows()
     {
         if((*it).type == LinkTypeAdvancedGet)
             mappings["Advaced Get"]++;
-        else if((*it).type == LinkTypeArche)
-            mappings["Arche"]++;
-        else if((*it).type == LinkTypeDASTrader)
-            mappings["DAS Trader"]++;
+        else if((*it).type == LinkTypeArchePro)
+            mappings["Arche Pro"]++;
+        else if((*it).type == LinkTypeDASTraderPro)
+            mappings["DAS Trader Pro"]++;
         else if((*it).type == LinkTypeFusion)
             mappings["Fusion"]++;
         else if((*it).type == LinkTypeLaser)
