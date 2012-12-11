@@ -22,6 +22,7 @@
 #include <QDesktopServices>
 #include <QApplication>
 #include <QKeySequence>
+#include <QMapIterator>
 #include <QGridLayout>
 #include <QMessageBox>
 #include <QCloseEvent>
@@ -182,19 +183,19 @@ THT::THT(QWidget *parent) :
     PredefinedTickerMappings mappings;
 
     // NASDAQ Composite
-    mappings.insert(LinkTypeTwinkorswim, "COMP");
+    mappings.insert(LinkTypeThinkorswim, "COMP");
     m_predefined.insert("$COMPQ", PredefinedTicker(Qt::Key_Q, mappings));
 
     // DOW JONES
     mappings.clear();
     mappings.insert(LinkTypeMBTDesktop,    "$DJI");
     mappings.insert(LinkTypeMBTDesktopPro, "$DJI");
-    mappings.insert(LinkTypeTwinkorswim,   "DJX");
+    mappings.insert(LinkTypeThinkorswim,   "DJX");
     m_predefined.insert("$INDU", PredefinedTicker(Qt::Key_I, mappings));
 
     // S&P 500 Index
     mappings.clear();
-    mappings.insert(LinkTypeTwinkorswim, "SPX");
+    mappings.insert(LinkTypeThinkorswim, "SPX");
     m_predefined.insert("$SPX", PredefinedTicker(Qt::Key_S, mappings));
 
     // NYSE Volume
@@ -202,7 +203,7 @@ THT::THT(QWidget *parent) :
 
     // Volatility S&P 500
     mappings.clear();
-    mappings.insert(LinkTypeTwinkorswim, "VIX");
+    mappings.insert(LinkTypeThinkorswim, "VIX");
     m_predefined.insert("$VIX", PredefinedTicker(Qt::Key_V, mappings));
 
     // S&P 500 Fund
@@ -389,7 +390,7 @@ void THT::sendString(const QString &ticker, LinkType type)
         sendKey(ticker.at(i).toAscii());
 
     // Fix for TOS@paperMoney
-    if(type == LinkTypeTwinkorswim)
+    if(type == LinkTypeThinkorswim)
         Sleep(10);
 
     sendKey(VK_RETURN);
@@ -519,10 +520,16 @@ void THT::checkWindow(Link *link)
 
     if(sname == "advancedget.exe" || sname == "winsig.exe")
         link->type = LinkTypeAdvancedGet;
+    else if(sname == "dastrader.exe")
+        link->type = LinkTypeDASTrader;
     else if(sname == "graybox.exe")
         link->type = LinkTypeGraybox;
     else if(sname == "thinkorswim.exe")
-        link->type = LinkTypeTwinkorswim;
+        link->type = LinkTypeThinkorswim;
+    else if(sname == "laser.exe")
+        link->type = LinkTypeLaser;
+    else if(sname == "lightspeed.exe")
+        link->type = LinkTypeLightspeed;
     else if((sname == "mbtdes~1.exe" || sname == "mbtdesktop.exe") && cname == "MbtTearFrame")
         link->type = LinkTypeMBTDesktop;
     else if((sname == "mbtdes~1.exe" || sname == "mbtdesktoppro.exe") && cname == "MbtNavPro_FloatFrame")
@@ -531,6 +538,8 @@ void THT::checkWindow(Link *link)
         link->type = LinkTypeFusion;
     else if(sname == "takion.exe")
         link->type = LinkTypeTakion;
+    else if(sname == "roxdemo.exe" || sname == "rox.exe")
+        link->type = LinkTypeROX;
     else if(sname == "archeclient.exe")
         link->type = LinkTypeArche;
     else
@@ -616,6 +625,7 @@ THT::Link THT::checkTargetWindow(const QPoint &p, bool allowThisWindow)
 void THT::checkWindows()
 {
     RECT rect;
+    QString tooltip = "<table>";
 
     QList<Link>::iterator itEnd = m_windows->end();
 
@@ -635,29 +645,63 @@ void THT::checkWindows()
     if(m_windows == &m_windowsDrop)
         return;
 
-    // join window types to a status string
-    int ag = 0, gb = 0, o = 0;
+    if(m_windows->isEmpty())
+    {
+        ui->stackLinks->setCurrentIndex(0); // "No links" warning
+        return;
+    }
 
+    ui->labelLinks->setNum(m_windows->size());
+    ui->stackLinks->setCurrentIndex(1);
+
+    QMap<QString, int> mappings;
+    int others = 0;
+
+    // construct the tooltip
     for(QList<Link>::iterator it = m_windows->begin();it != itEnd;++it)
     {
         if((*it).type == LinkTypeAdvancedGet)
-            ++ag;
+            mappings["Advaced Get"]++;
+        else if((*it).type == LinkTypeArche)
+            mappings["Arche"]++;
+        else if((*it).type == LinkTypeDASTrader)
+            mappings["DAS Trader"]++;
+        else if((*it).type == LinkTypeFusion)
+            mappings["Fusion"]++;
+        else if((*it).type == LinkTypeLaser)
+            mappings["Laser Trade"]++;
+        else if((*it).type == LinkTypeLightspeed)
+            mappings["Lightspeed Trader"]++;
         else if((*it).type == LinkTypeGraybox)
-            ++gb;
+            mappings["Graybox"]++;
+        else if((*it).type == LinkTypeMBTDesktop || (*it).type == LinkTypeMBTDesktopPro)
+            mappings["MBT Desktop"]++;
+        else if((*it).type == LinkTypeROX)
+            mappings["ROX"]++;
+        else if((*it).type == LinkTypeTakion)
+            mappings["Takion"]++;
+        else if((*it).type == LinkTypeThinkorswim)
+            mappings["Thinkorswim"]++;
         else
-            ++o;
+            others++;
     }
 
-    if(ag || gb || o)
+    QMapIterator<QString, int> i(mappings);
+
+    while(i.hasNext())
     {
-        ui->stackLinks->setCurrentIndex(1);
-
-        ui->labelAG->setNum(ag);
-        ui->labelGB->setNum(gb);
-        ui->labelO->setNum(o);
+        i.next();
+        tooltip += QString("<tr><td>%1:</td><td>%2</td></tr>").arg(i.key()).arg(i.value());
     }
-    else
-        ui->stackLinks->setCurrentIndex(0); // "No links" warning
+
+    if(others)
+        tooltip += QString("<tr><td>%1:</td><td>%2</td></tr>").arg(tr("Unknown")).arg(others);
+
+    tooltip += "</table>";
+    tooltip.replace(QRegExp("\\s"), "&nbsp;");
+
+    ui->labelLinks->setToolTip(tooltip);
+    ui->labelLinks_n->setToolTip(tooltip);
 }
 
 void THT::nextLoadableWindowIndex(int startFrom)
@@ -1200,12 +1244,8 @@ void THT::slotLockLinks()
     ui->stackBusy->setCurrentIndex(m_locked);
 
     static QWidgetList labels = QWidgetList()
-                                << ui->labelAG
-                                << ui->labelAG_n
-                                << ui->labelGB
-                                << ui->labelGB_n
-                                << ui->labelO
-                                << ui->labelO_n;
+                                << ui->labelLinks
+                                << ui->labelLinks_n;
 
     QColor color = m_locked ? Qt::red : palette().color(QPalette::WindowText);
     QPalette pal;
