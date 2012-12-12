@@ -1,3 +1,7 @@
+== 1.4.0 ==
+ * improvements to support ROX
+ * new way to show the number of links
+
 == 1.3.0 ==
  * added list title (visit Options to enable; press F2 to edit title)
  * hotkeys: press "Space" to show ticker information in 'Industries' window
@@ -25,13 +29,13 @@
  * save Industries position and size
  * added option to restore "Industries" window at startup
 
- == 1.0.2 ==
+== 1.0.2 ==
  * added "U.S. only" filter in Industries window
 
 == 1.0.1 ==
  * fixed screenshot tool with multiple monitors
 
- == 1.0.0 ==
+== 1.0.0 ==
  * hotkeys: {{{N}}} has been removed, use Ctrl+N instead
  * hotkeys: {{{X}}} and {{{H}}} have been removed
  * hotkeys: {{{L}}} to load a special ticker
