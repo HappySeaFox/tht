@@ -674,8 +674,10 @@ void THT::checkWindows()
             mappings["Lightspeed Trader"]++;
         else if((*it).type == LinkTypeGraybox)
             mappings["Graybox"]++;
-        else if((*it).type == LinkTypeMBTDesktop || (*it).type == LinkTypeMBTDesktopPro)
+        else if((*it).type == LinkTypeMBTDesktop)
             mappings["MBT Desktop"]++;
+        else if((*it).type == LinkTypeMBTDesktopPro)
+            mappings["MBT Desktop Pro"]++;
         else if((*it).type == LinkTypeROX)
             mappings["ROX"]++;
         else if((*it).type == LinkTypeTakion)
