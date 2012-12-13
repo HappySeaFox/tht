@@ -20,7 +20,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 # THT version
 NVER1=1
 NVER2=4
-NVER3=0
+NVER3=1
 
 VERSION=$$sprintf("%1.%2.%3", $$NVER1, $$NVER2, $$NVER3)
 
@@ -179,7 +179,8 @@ HTTPROOT="http://code.google.com/p/traders-home-task-ng"
 IMAGEPLUGINS=qico4.dll qjpeg4.dll
 SQLPLUGINS=qsqlite4.dll
 QTLIBS=QtCore4.dll QtGui4.dll QtNetwork4.dll QtSql4.dll
-MINGWLIBS=libgcc_s_dw2-1.dll libstdc++-6.dll mingwm10.dll
+MINGWLIBS=libstdc++-6.dll
+MINGWOPTLIBS=libgcc_s_dw2-1.dll mingwm10.dll
 QMFILES=tht_ru.qm tht_uk.qm
 QTQMFILES=qt_ru.qm qt_uk.qm
 LICENSES=LICENSE.txt LICENSE-LGPL.txt
@@ -205,7 +206,7 @@ isEmpty(GCC) {
 # check for upx
 UPX=$$findexe("upx.exe")
 
-!isEmpty(UPX) {
+!contains(QMAKE_HOST.arch, x86_64):!isEmpty(UPX) {
     message("UPX is found, will pack the executable after linking")
 
     QMAKE_POST_LINK += $$mle($$UPX -9 \"$${OUT_PWD}/$(DESTDIR_TARGET)\")
@@ -282,6 +283,12 @@ QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite
         distbin.commands += $$mle(copy /y \"$$GCCDIR\\$$ml\" \"$$T\")
     }
 
+    for(ml, MINGWOPTLIBS) {
+        exists($$GCCDIR\\$$ml) {
+            distbin.commands += $$mle(copy /y \"$$GCCDIR\\$$ml\" \"$$T\")
+        }
+    }
+
     for(ip, IMAGEPLUGINS) {
         distbin.commands += $$mle(copy /y \"$$[QT_INSTALL_PLUGINS]\\imageformats\\$$ip\" \"$$T/imageformats\")
     }
@@ -316,7 +323,11 @@ QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite
 }
 
 # INNO setup
-INNO=$$system(echo %ProgramFiles%)\\Inno Setup 5\\iscc.exe
+INNO=$$system(echo %ProgramFiles(x86)%)\\Inno Setup 5\\iscc.exe
+
+!exists($$INNO) {
+    INNO=$$system(echo %ProgramFiles%)\\Inno Setup 5\\iscc.exe
+}
 
 exists($$INNO) {
     message("Inno Setup is found, will create a setup file in a custom dist target")
@@ -330,7 +341,13 @@ exists($$INNO) {
     iss.commands += $$mle(echo $${LITERAL_HASH}define MyAppURL \"$$HTTPROOT\" >> $$ISS)
 
     iss.commands += $$mle(echo [Setup] >> $$ISS)
-    iss.commands += $$mle(echo AppId={{16AE5DDE-D073-4F5F-ABC3-11DD9FBF58E3} >> $$ISS)
+
+    contains(QMAKE_HOST.arch, x86_64) {
+        iss.commands += $$mle(echo ArchitecturesAllowed=x64 >> $$ISS)
+        iss.commands += $$mle(echo ArchitecturesInstallIn64BitMode=x64 >> $$ISS)
+    }
+
+    iss.commands += $$mle(echo AppId=\{\{16AE5DDE-D073-4F5F-ABC3-11DD9FBF58E3} >> $$ISS)
     iss.commands += $$mle(echo AppName={$${LITERAL_HASH}MyAppName} >> $$ISS)
     iss.commands += $$mle(echo AppVersion=$$VERSION >> $$ISS)
     iss.commands += $$mle(echo AppPublisher={$${LITERAL_HASH}MyAppPublisher} >> $$ISS)
@@ -401,6 +418,12 @@ exists($$INNO) {
 
     for(ml, MINGWLIBS) {
         iss.commands += $$mle(echo Source: \"$$GCCDIR\\$$ml\"; DestDir: \"{app}\"; Flags: ignoreversion >> $$ISS)
+    }
+
+    for(ml, MINGWOPTLIBS) {
+        exists($$GCCDIR\\$$ml) {
+            iss.commands += $$mle(echo Source: \"$$GCCDIR\\$$ml\"; DestDir: \"{app}\"; Flags: ignoreversion >> $$ISS)
+        }
     }
 
     iss.commands += $$mle(echo [Icons] >> $$ISS)

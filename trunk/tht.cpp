@@ -505,7 +505,7 @@ void THT::checkWindow(Link *link)
     QString cname;
 
     if(!GetClassName(link->hwnd, name, sizeof(name)))
-        qWarning("Cannot get a class name for window 0x%x (%ld)", reinterpret_cast<int>(link->hwnd), GetLastError());
+        qWarning("Cannot get a class name for window %p (%ld)", link->hwnd, GetLastError());
     else
         cname =
 #ifdef UNICODE
@@ -514,7 +514,7 @@ void THT::checkWindow(Link *link)
             QString::fromUtf8(name);
 #endif
 
-    qDebug("Process name of 0x%x is \"%s\", class name is \"%s\"", reinterpret_cast<int>(link->hwnd),
+    qDebug("Process name of %p is \"%s\", class name is \"%s\"", link->hwnd,
                                                                     qPrintable(sname),
                                                                     qPrintable(cname));
 
@@ -546,7 +546,7 @@ void THT::checkWindow(Link *link)
         link->type = LinkTypeOther;
 
     if(link->type != LinkTypeNotInitialized)
-        qDebug("Window under cursor is 0x%x", reinterpret_cast<int>(link->hwnd));
+        qDebug("Window under cursor is %p", link->hwnd);
 
     CloseHandle(h);
 }
@@ -587,7 +587,7 @@ THT::Link THT::checkTargetWindow(const QPoint &p, bool allowThisWindow)
     {
         if((*it).hwnd == hwnd)
         {
-            qDebug("Window 0x%x is already linked", reinterpret_cast<int>(hwnd));
+            qDebug("Window %p is already linked", hwnd);
             return Link();
         }
     }
@@ -612,19 +612,18 @@ THT::Link THT::checkTargetWindow(const QPoint &p, bool allowThisWindow)
         TCHAR name[256];
 
         if(!GetClassName(link.subControl, name, sizeof(name)))
-            qWarning("Cannot get a class name for subcontrol 0x%x (%ld)", reinterpret_cast<int>(link.subControl), GetLastError());
+            qWarning("Cannot get a class name for subcontrol %p (%ld)", link.subControl, GetLastError());
         else if(!lstrcmp(name, TEXT("Edit")))
             link.subControlSupportsClearing = true;
     }
 
-    qDebug("Subcontrol: 0x%x", reinterpret_cast<int>(link.subControl));
+    qDebug("Subcontrol: %p", link.subControl);
 
     return link;
 }
 
 void THT::checkWindows()
 {
-    RECT rect;
     QString tooltip = "<table>";
 
     QList<Link>::iterator itEnd = m_windows->end();
@@ -632,9 +631,9 @@ void THT::checkWindows()
     for(QList<Link>::iterator it = m_windows->begin();it != itEnd;)
     {
         // remove dead windows
-        if(!GetWindowRect((*it).hwnd, &rect))
+        if(!IsWindow((*it).hwnd))
         {
-            qDebug("Window id 0x%x is not valid, removing (%ld)", reinterpret_cast<int>((*it).hwnd), GetLastError());
+            qDebug("Window id %p is not valid, removing", (*it).hwnd);
             it = m_windows->erase(it);
             itEnd = m_windows->end();
         }
@@ -1105,7 +1104,7 @@ void THT::slotLoadToNextWindow()
 {
     HWND window = m_windows->at(m_currentWindow).hwnd;
 
-    qDebug("Trying window 0x%x", reinterpret_cast<int>(window));
+    qDebug("Trying window %p", window);
 
     // window flags to set
     int flags = SW_SHOWNORMAL;
@@ -1511,7 +1510,7 @@ bool THT::setForeignFocus(const Link &link)
 
     if(!hwnd)
     {
-        qWarning("Cannot set focus to the window 0x%x (%ld)", reinterpret_cast<int>(link.subControl), GetLastError());
+        qWarning("Cannot set focus to the window %p (%ld)", link.subControl, GetLastError());
         return false;
     }
 
