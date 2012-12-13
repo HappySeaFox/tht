@@ -259,7 +259,7 @@ QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite
     T="$${OUT_PWD}/tht-$$VERSION"
     distsrc.commands += $$mle(if exist \"$$T\" rd /S /Q \"$$T\")
     distsrc.commands += $$mle(svn export $$_PRO_FILE_PWD_ \"$$T\")
-    distbin.commands += $$mle(del /F /Q tht-$${VERSION}.zip)
+    distsrc.commands += $$mle(del /F /Q tht-$${VERSION}.zip)
     distsrc.commands += $$mle($$ZIP a -r -tzip -mx=9 tht-$${VERSION}.zip \"$$T\")
     distsrc.commands += $$mle(rd /S /Q \"$$T\")
 
