@@ -185,6 +185,10 @@ QMFILES=tht_ru.qm tht_uk.qm
 QTQMFILES=qt_ru.qm qt_uk.qm
 LICENSES=LICENSE.txt LICENSE-LGPL.txt
 
+contains(QMAKE_HOST.arch, x86_64) {
+    H64="-x86_64"
+}
+
 # search an executable in PATH
 defineReplace(findexe) {
     return ( $$system(for %i in ($$1) do @echo. %~$PATH:i) )
@@ -313,8 +317,8 @@ QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite
     distbin.commands += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite.timestamp\" \"$$T\")
 
     # compress
-    distbin.commands += $$mle(del /F /Q tht-standalone-$${VERSION}.zip)
-    distbin.commands += $$mle($$ZIP a -r -tzip -mx=9 tht-standalone-$${VERSION}.zip \"$$T\")
+    distbin.commands += $$mle(del /F /Q tht-standalone-$${VERSION}$${H64}.zip)
+    distbin.commands += $$mle($$ZIP a -r -tzip -mx=9 tht-standalone-$${VERSION}$${H64}.zip \"$$T\")
     distbin.commands += $$mle(rd /S /Q \"$$T\")
 
     QMAKE_EXTRA_TARGETS += distbin
@@ -358,7 +362,7 @@ exists($$INNO) {
     iss.commands += $$mle(echo DefaultGroupName={$${LITERAL_HASH}MyAppName} >> $$ISS)
     iss.commands += $$mle(echo LicenseFile=$${_PRO_FILE_PWD_}\\LICENSE.rtf >> $$ISS)
     iss.commands += $$mle(echo OutputDir=. >> $$ISS)
-    iss.commands += $$mle(echo OutputBaseFilename=tht-setup-$$VERSION >> $$ISS)
+    iss.commands += $$mle(echo OutputBaseFilename=tht-setup-$${VERSION}$${H64} >> $$ISS)
     iss.commands += $$mle(echo SetupIconFile=$${_PRO_FILE_PWD_}\\images\\chart.ico >> $$ISS)
     iss.commands += $$mle(echo Compression=lzma >> $$ISS)
     iss.commands += $$mle(echo SolidCompression=yes >> $$ISS)
