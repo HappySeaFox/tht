@@ -186,7 +186,7 @@ QTQMFILES=qt_ru.qm qt_uk.qm
 LICENSES=LICENSE.txt LICENSE-LGPL.txt
 
 contains(QMAKE_HOST.arch, x86_64) {
-    H64="-x86_64"
+    HOST64="-x86_64"
 }
 
 # search an executable in PATH
@@ -210,7 +210,7 @@ isEmpty(GCC) {
 # check for upx
 UPX=$$findexe("upx.exe")
 
-!contains(QMAKE_HOST.arch, x86_64):!isEmpty(UPX) {
+isEmpty(HOST64):!isEmpty(UPX) {
     message("UPX is found, will pack the executable after linking")
 
     QMAKE_POST_LINK += $$mle($$UPX -9 \"$${OUT_PWD}/$(DESTDIR_TARGET)\")
@@ -317,8 +317,8 @@ QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite
     distbin.commands += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite.timestamp\" \"$$T\")
 
     # compress
-    distbin.commands += $$mle(del /F /Q tht-standalone-$${VERSION}$${H64}.zip)
-    distbin.commands += $$mle($$ZIP a -r -tzip -mx=9 tht-standalone-$${VERSION}$${H64}.zip \"$$T\")
+    distbin.commands += $$mle(del /F /Q tht-standalone-$${VERSION}$${HOST64}.zip)
+    distbin.commands += $$mle($$ZIP a -r -tzip -mx=9 tht-standalone-$${VERSION}$${HOST64}.zip \"$$T\")
     distbin.commands += $$mle(rd /S /Q \"$$T\")
 
     QMAKE_EXTRA_TARGETS += distbin
@@ -346,7 +346,7 @@ exists($$INNO) {
 
     iss.commands += $$mle(echo [Setup] >> $$ISS)
 
-    contains(QMAKE_HOST.arch, x86_64) {
+    !isEmpty(HOST64) {
         iss.commands += $$mle(echo ArchitecturesAllowed=x64 >> $$ISS)
         iss.commands += $$mle(echo ArchitecturesInstallIn64BitMode=x64 >> $$ISS)
     }
@@ -362,7 +362,7 @@ exists($$INNO) {
     iss.commands += $$mle(echo DefaultGroupName={$${LITERAL_HASH}MyAppName} >> $$ISS)
     iss.commands += $$mle(echo LicenseFile=$${_PRO_FILE_PWD_}\\LICENSE.rtf >> $$ISS)
     iss.commands += $$mle(echo OutputDir=. >> $$ISS)
-    iss.commands += $$mle(echo OutputBaseFilename=tht-setup-$${VERSION}$${H64} >> $$ISS)
+    iss.commands += $$mle(echo OutputBaseFilename=tht-setup-$${VERSION}$${HOST64} >> $$ISS)
     iss.commands += $$mle(echo SetupIconFile=$${_PRO_FILE_PWD_}\\images\\chart.ico >> $$ISS)
     iss.commands += $$mle(echo Compression=lzma >> $$ISS)
     iss.commands += $$mle(echo SolidCompression=yes >> $$ISS)
