@@ -1,6 +1,6 @@
-THT Howto and FAQ =
+#labels Featured
 
-<g:plusone size="medium"></g:plusone>
+= THT Howto and FAQ =
 
 <wiki:toc max_depth="2" />
 
