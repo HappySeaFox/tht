@@ -388,6 +388,11 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                         slotSortList();
                     break;
 
+                    // Finviz
+                    case Qt::Key_B:
+                        openTickerInBrowser("http://finviz.com/quote.ashx?t=%1", currentTicker(), Fix);
+                    break;
+
                     // Google finance
                     case Qt::Key_G:
                         openTickerInBrowser("http://www.google.com/finance?q=%1", currentTicker(), DontFix);
