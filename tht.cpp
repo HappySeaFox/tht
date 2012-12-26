@@ -207,7 +207,7 @@ THT::THT(QWidget *parent) :
     m_predefined.insert("$VIX", PredefinedTicker(Qt::Key_V, mappings));
 
     // S&P 500 Fund
-    m_predefined.insert("SPY", PredefinedTicker(Qt::Key_F));
+    m_predefined.insert("SPY", PredefinedTicker(Qt::Key_D));
 
     PredefinedTickers::const_iterator itEnd = m_predefined.end();
 

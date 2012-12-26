@@ -389,7 +389,7 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                     break;
 
                     // Finviz
-                    case Qt::Key_B:
+                    case Qt::Key_F:
                         openTickerInBrowser("http://finviz.com/quote.ashx?t=%1", currentTicker(), Fix);
                     break;
 
