@@ -1,0 +1,45 @@
+#include <winuser.h>
+#include <winnt.h>
+
+#define stringify(v1) #v1
+#define quote(v1) stringify(v1)
+
+#define NVER NVER1.NVER2.NVER3
+
+STRINGTABLE LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+BEGIN
+        1 "Trader's Home Task""THT""\0"
+END
+
+IDI_ICON1 ICON DISCARDABLE "images/chart.ico"
+
+1 VERSIONINFO
+        FILEVERSION    NVER1, NVER2, NVER3, 0
+        PRODUCTVERSION NVER1, NVER2, NVER3, 0
+        FILEOS         0x00000000
+        FILETYPE       0x00000001
+BEGIN
+        BLOCK "StringFileInfo"
+        BEGIN
+          BLOCK "040904e4"
+          BEGIN
+          VALUE "Comments",           "THT helps you to do your home task in trading. It can link different trading platforms and charts together and manage a list of tickers."
+          VALUE "CompanyName",        "Dmitry Baryshev"
+          VALUE "FileDescription",    "Trader's Home Task"
+          VALUE "FileVersion",        quote(NVER)
+          VALUE "InternalName",       "THT"
+          VALUE "LegalCopyright",     "(C) 2012 Dmitry Baryshev"
+          VALUE "LegalTrademarks",    ""
+          VALUE "OriginalFilename",   quote(TARGET) ".exe"
+          VALUE "ProductName",        "Trader's Home Task"
+          VALUE "ProductVersion",     quote(NVER)
+          VALUE "PrivateBuild",       ""
+          VALUE "SpecialBuild",       ""
+          VALUE "Builder",            "Dmitry Baryshev"
+          END
+        END
+        BLOCK "VarFileInfo"
+        BEGIN
+            VALUE "Translation", 0x409, 1200
+        END
+END
