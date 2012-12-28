@@ -1,3 +1,8 @@
+== 1.4.1 ==
+ * improvements to support x86_64
+ * hotkeys: press "F" to open the current ticker in Finviz
+ * hotkeys: press "D" to load SPY (instead of "F")
+
 == 1.4.0 ==
  * improvements to support ROX
  * new way to show the number of links

@@ -154,6 +154,7 @@ Yes, THT supports some keyboard shortcuts.
  * *C* - export tickers to a clipboard
  * *K* - show or search industry & sector information
  * *Alt+U* - reset tickers' priorities
+ * *F* - open the current ticker in Finviz
  * *G* - open the current ticker in Google Finance
  * *Y* - open the current ticker in Yahoo Finance
  * *Z* - add tickers from Finviz
@@ -165,7 +166,7 @@ Yes, THT supports some keyboard shortcuts.
  * *S* - load "$SPX"
  * *T* - load "$TVOL"
  * *V* - load "$VIX"
- * *F* - load "SPY"
+ * *D* - load "SPY"
  * *L* - load a special ticker
  * *Alt+N* - clear the ticker lists
  * *Ctrl+L* - lock the links (THT won't load any ticker)
