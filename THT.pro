@@ -175,18 +175,24 @@ SVNROOTORIG="https://traders-home-task-ng.googlecode.com/svn"
 SVNROOT="http://traders-home-task-ng.googlecode.com/svn"
 HTTPROOT="http://code.google.com/p/traders-home-task-ng"
 
+contains(QMAKE_HOST.arch, x86_64) {
+    HOST64="-x86_64"
+}
+
 # files to copy to the distribution
 IMAGEPLUGINS=qico4.dll qjpeg4.dll
 SQLPLUGINS=qsqlite4.dll
 QTLIBS=QtCore4.dll QtGui4.dll QtNetwork4.dll QtSql4.dll
 MINGWLIBS=libstdc++-6.dll
-MINGWOPTLIBS=libgcc_s_dw2-1.dll mingwm10.dll
+MINGWOPTLIBS=mingwm10.dll
 QMFILES=tht_ru.qm tht_uk.qm
 QTQMFILES=qt_ru.qm qt_uk.qm
 LICENSES=LICENSE.txt LICENSE-LGPL.txt
 
-contains(QMAKE_HOST.arch, x86_64) {
-    HOST64="-x86_64"
+isEmpty(HOST64) {
+    MINGWLIBS += libgcc_s_dw2-1.dll
+} else {
+    MINGWLIBS += libgcc_s_sjlj-1.dll
 }
 
 # search an executable in PATH
