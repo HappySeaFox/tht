@@ -183,17 +183,10 @@ contains(QMAKE_HOST.arch, x86_64) {
 IMAGEPLUGINS=qico4.dll qjpeg4.dll
 SQLPLUGINS=qsqlite4.dll
 QTLIBS=QtCore4.dll QtGui4.dll QtNetwork4.dll QtSql4.dll
-MINGWLIBS=libstdc++-6.dll
-MINGWOPTLIBS=mingwm10.dll
+MINGWLIBS=libgcc_s_sjlj-1.dll libwinpthread-1.dll libstdc++-6.dll
 QMFILES=tht_ru.qm tht_uk.qm
 QTQMFILES=qt_ru.qm qt_uk.qm
 LICENSES=LICENSE.txt LICENSE-LGPL.txt
-
-isEmpty(HOST64) {
-    MINGWLIBS += libgcc_s_dw2-1.dll
-} else {
-    MINGWLIBS += libgcc_s_sjlj-1.dll
-}
 
 # search an executable in PATH
 defineReplace(findexe) {
@@ -291,12 +284,6 @@ QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite
 
     for(ml, MINGWLIBS) {
         distbin.commands += $$mle(copy /y \"$$GCCDIR\\$$ml\" \"$$T\")
-    }
-
-    for(ml, MINGWOPTLIBS) {
-        exists($$GCCDIR\\$$ml) {
-            distbin.commands += $$mle(copy /y \"$$GCCDIR\\$$ml\" \"$$T\")
-        }
     }
 
     for(ip, IMAGEPLUGINS) {
@@ -428,12 +415,6 @@ exists($$INNO) {
 
     for(ml, MINGWLIBS) {
         iss.commands += $$mle(echo Source: \"$$GCCDIR\\$$ml\"; DestDir: \"{app}\"; Flags: ignoreversion >> $$ISS)
-    }
-
-    for(ml, MINGWOPTLIBS) {
-        exists($$GCCDIR\\$$ml) {
-            iss.commands += $$mle(echo Source: \"$$GCCDIR\\$$ml\"; DestDir: \"{app}\"; Flags: ignoreversion >> $$ISS)
-        }
     }
 
     iss.commands += $$mle(echo [Icons] >> $$ISS)
