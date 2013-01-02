@@ -8,7 +8,7 @@
 
 STRINGTABLE LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
 BEGIN
-        1 "Trader's Home Task""THT""\0"
+        1 "Trader's Home Task"quote(TARGET)"\0"
 END
 
 IDI_ICON1 ICON DISCARDABLE "images/chart.ico"
@@ -23,11 +23,11 @@ BEGIN
         BEGIN
           BLOCK "040904e4"
           BEGIN
-          VALUE "Comments",           "THT helps you to do your home task in trading. It can link different trading platforms and charts together and manage a list of tickers."
+          VALUE "Comments",           quote(TARGET) " helps you to do your home task in trading. It can link different trading platforms and charts together and manage a list of tickers."
           VALUE "CompanyName",        "Dmitry Baryshev"
           VALUE "FileDescription",    "Trader's Home Task"
           VALUE "FileVersion",        quote(NVER)
-          VALUE "InternalName",       "THT"
+          VALUE "InternalName",       quote(TARGET)
           VALUE "LegalCopyright",     "(C) 2012 Dmitry Baryshev"
           VALUE "LegalTrademarks",    ""
           VALUE "OriginalFilename",   quote(TARGET) ".exe"
