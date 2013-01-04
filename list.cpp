@@ -44,6 +44,7 @@
 
 #include "tickerinformationtooltip.h"
 #include "finvizlinkselector.h"
+#include "tickercommentinput.h"
 #include "finvizurlmanager.h"
 #include "finvizdownloader.h"
 #include "inlinetextinput.h"
@@ -171,7 +172,12 @@ bool List::hasTickers() const
 
 void List::addTicker(const Ticker &ticker)
 {
-    if(addItem(ticker.ticker + ',' + QString::number(ticker.priority), DontFix, CheckDups))
+    if(addItem(ticker.ticker
+               + ','
+               + QString::number(ticker.priority)
+               + ','
+               + ticker.comment.toUtf8().toPercentEncoding(),
+               DontFix, CheckDups))
     {
         numberOfItemsChanged();
         save();
@@ -333,7 +339,7 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                     case Qt::Key_6:
                     case Qt::Key_7:
                     case Qt::Key_8:
-                        emit copyTo(Ticker(currentTicker(), currentPriority()), ke->key() - Qt::Key_1);
+                        emit copyTo(currentTickerInfo(), ke->key() - Qt::Key_1);
                     break;
 
                     case Qt::Key_A:
@@ -358,11 +364,11 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                     break;
 
                     case Qt::Key_Right:
-                        emit copyRight(Ticker(currentTicker(), currentPriority()));
+                        emit copyRight(currentTickerInfo());
                     break;
 
                     case Qt::Key_Left:
-                        emit copyLeft(Ticker(currentTicker(), currentPriority()));
+                        emit copyLeft(currentTickerInfo());
                     break;
 
                     case Qt::Key_Delete:
@@ -448,6 +454,22 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                         emit showNeighbors(currentTicker());
                     break;
 
+                    case Qt::Key_X:
+                    {
+                        ListItem *item = static_cast<ListItem *>(ui->list->currentItem());
+
+                        if(item && item->priority() != Ticker::PriorityNormal)
+                        {
+                            QRect rc = ui->list->visualItemRect(item);
+
+                            if(rc.isValid())
+                                TickerInformationToolTip::showText(ui->list->viewport()->mapToGlobal(rc.bottomLeft()), item->comment(), false);
+                            else
+                                qDebug("Cannot find where to show the comment");
+                        }
+                    }
+                    break;
+
                     case Qt::Key_Z:
                         showFinvizSelector();
                     break;
@@ -500,6 +522,10 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                     case Qt::Key_4:
                         setPriority(ke->key() - Qt::Key_1);
                     break;
+
+                    case Qt::Key_X:
+                        changeComment();
+                    break;
                 }
             }
 
@@ -521,11 +547,12 @@ bool List::eventFilter(QObject *obj, QEvent *event)
             if(me->buttons() & Qt::LeftButton)
             {
                 ListItem *i = static_cast<ListItem *>(ui->list->itemAt(me->pos()));
-                m_startDragText = i ? i->text() : QString();
+                m_startDragTicker.ticker = i ? i->text() : QString();
 
-                if(!m_startDragText.isEmpty())
+                if(!m_startDragTicker.ticker.isEmpty())
                 {
-                    m_startDragPriority = i->priority();
+                    m_startDragTicker.priority = i->priority();
+                    m_startDragTicker.comment = i->comment();
                     m_startPos = me->pos();
                 }
             }
@@ -540,7 +567,7 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                         && (me->buttons() & Qt::LeftButton)
                         && (me->pos() - m_startPos).manhattanLength() > QApplication::startDragDistance())
                 {
-                    qDebug("Start dragging \"%s\"", qPrintable(m_startDragText));
+                    qDebug("Start dragging \"%s\"", qPrintable(m_startDragTicker.ticker));
 
                     QPixmap pix = createDragCursor();
 
@@ -576,7 +603,7 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                     qDebug("Dropped at %d,%d", p.x(), p.y());
                     QApplication::restoreOverrideCursor();
 
-                    emit tickerDropped(Ticker(m_startDragText, m_startDragPriority), p);
+                    emit tickerDropped(m_startDragTicker, p);
                 }
 
                 m_dragging = false;
@@ -613,16 +640,21 @@ void List::numberOfItemsChanged()
         m_oldTickers.clear();
 }
 
-QStringList List::toStringList(bool withPriority)
+QStringList List::toStringList(int flags)
 {
     int i = 0;
     QStringList items;
     ListItem *item;
+    bool withExtra = (flags & WithExtraData);
 
     while((item = static_cast<ListItem *>(ui->list->item(i++))))
     {
-        items.append((withPriority && item->priority() != Ticker::PriorityNormal)
-                     ? (item->text() + ',' + QString::number(item->priority()))
+        items.append((withExtra && item->priority() != Ticker::PriorityNormal)
+                     ? (item->text()
+                        + ','
+                        + QString::number(item->priority())
+                        + ','
+                        + item->comment().toUtf8().toPercentEncoding())
                      : item->text());
     }
 
@@ -718,7 +750,7 @@ QPixmap List::createDragCursor()
     fnt.setPointSize(size+2);
 
     QFontMetrics fm(fnt);
-    QSize dragCursorSize = fm.boundingRect(m_startDragText).adjusted(0,0, 10,4).size();
+    QSize dragCursorSize = fm.boundingRect(m_startDragTicker.ticker).adjusted(0,0, 10,4).size();
 
     QColor textColor = palette().color(QPalette::WindowText);
     QColor borderColor = QColor::fromRgb(0xffefef);
@@ -745,7 +777,7 @@ QPixmap List::createDragCursor()
 
     // text
     p.setFont(fnt);
-    p.drawText(px.rect(), Qt::AlignCenter, m_startDragText);
+    p.drawText(px.rect(), Qt::AlignCenter, m_startDragTicker.ticker);
     p.end();
 
     return px;
@@ -755,14 +787,14 @@ void List::addTickers(const QStringList &tk, FixName fix)
 {
     QStringList tickers = tk;
 
-    qint64 v = QDateTime::currentMSecsSinceEpoch();
-
     // nothing to paste
     if(tickers.isEmpty())
     {
         qDebug("Nothing to add");
         return;
     }
+
+    qint64 v = QDateTime::currentMSecsSinceEpoch();
 
     CheckForDups check;
 
@@ -802,10 +834,12 @@ void List::addTickers(const QStringList &tk, FixName fix)
 
 bool List::addItem(const QString &txt, FixName fix, CheckForDups check)
 {
-    QStringList text = txt.toUpper().split(',', QString::SkipEmptyParts);
+    QStringList text = txt.split(',', QString::SkipEmptyParts);
 
     if(text.isEmpty())
         return false;
+
+    text[0] = text[0].toUpper();
 
     if(fix == Fix)
         text[0].replace('-', '.');
@@ -831,6 +865,9 @@ bool List::addItem(const QString &txt, FixName fix, CheckForDups check)
         if(ok)
             item->setPriority(static_cast<Ticker::Priority>(p));
     }
+
+    if(text.size() > 2)
+        item->setComment(QString::fromUtf8(QByteArray::fromPercentEncoding(text[2].toAscii())));
 
     ui->list->addItem(item);
 
@@ -985,6 +1022,43 @@ void List::openTickerInBrowser(const QString &baseUrl, const QString &ticker, Li
         return;
 
     QDesktopServices::openUrl(QUrl::fromUserInput(baseUrl.arg(fix == Fix ? QString(ticker).replace('.', '-') : ticker)));
+}
+
+void List::changeComment()
+{
+    ListItem *item = static_cast<ListItem *>(ui->list->currentItem());
+
+    if(!item || item->priority() == Ticker::PriorityNormal)
+    {
+        qDebug("Won't change comment on this item");
+        return;
+    }
+
+    TickerCommentInput tci(item->comment(), this);
+
+    if(tci.exec() == QDialog::Accepted)
+    {
+        item->setComment(tci.comment());
+        save();
+    }
+}
+
+Ticker List::currentTickerInfo() const
+{
+    Ticker t;
+    ListItem *item = static_cast<ListItem *>(ui->list->currentItem());
+
+    if(!item)
+    {
+        qDebug("Cannot get the current ticker");
+        return t;
+    }
+
+    t.ticker = item->text();
+    t.priority = item->priority();
+    t.comment = item->comment();
+
+    return t;
 }
 
 void List::loadItem(LoadItem litem)
@@ -1213,7 +1287,7 @@ void List::clear()
     if(!ui->list->count())
         return;
 
-    m_oldTickers = toStringList(true);
+    m_oldTickers = toStringList(WithExtraData);
 
     ui->list->clear();
     numberOfItemsChanged();
@@ -1226,7 +1300,7 @@ void List::slotSave()
 
     qint64 t = QDateTime::currentMSecsSinceEpoch();
 
-    Settings::instance()->setTickersForGroup(m_section, toStringList(true));
+    Settings::instance()->setTickersForGroup(m_section, toStringList(WithExtraData));
 
     showSaved(true);
 
@@ -1260,7 +1334,7 @@ void List::slotExportToFile()
 
     QTextStream t(&file);
 
-    QStringList items = toStringList(false);
+    QStringList items = toStringList();
 
     foreach(QString item, items)
     {
@@ -1408,5 +1482,5 @@ void List::slotExportToClipboard()
 {
     qDebug("Exporting tickers to clipboard");
 
-    QApplication::clipboard()->setText(toStringList(false).join("\n"));
+    QApplication::clipboard()->setText(toStringList().join("\n"));
 }

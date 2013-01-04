@@ -81,7 +81,8 @@ protected:
 
 private:
     void numberOfItemsChanged();
-    QStringList toStringList(bool withPriority);
+    enum toStringListFlags { WithExtraData = 1 };
+    QStringList toStringList(int flags = 0);
     void save();
     void load();
     void showSaved(bool isSaved);
@@ -99,6 +100,8 @@ private:
     void addFromFinviz(const QUrl &);
     void showFinvizSelector();
     void openTickerInBrowser(const QString &baseUrl, const QString &ticker, FixName fix);
+    void changeComment();
+    Ticker currentTickerInfo() const;
 
     enum LoadItem { LoadItemCurrent,
                     LoadItemNext, LoadItemPrevious,
@@ -157,8 +160,7 @@ private:
     bool m_ignoreInput;
     bool m_dragging;
     QPoint m_startPos;
-    QString m_startDragText;
-    Ticker::Priority m_startDragPriority;
+    Ticker m_startDragTicker;
     ListDetails *m_numbers;
     QAbstractItemDelegate *m_oldDelegate, *m_persistentDelegate;
     QList<QListWidgetItem *> m_foundItems;
