@@ -99,7 +99,7 @@ List::List(int group, QWidget *parent) :
     reconfigureMiniTickerEntry();
 
     connect(ui->widgetInput, SIGNAL(focusUp()), this, SLOT(slotFocusUp()));
-    connect(ui->widgetInput, SIGNAL(addTicker(QString)), this, SLOT(addTicker(QString)));
+    connect(ui->widgetInput, SIGNAL(addTicker(QString)), this, SLOT(slotAddTicker(QString)));
     connect(ui->widgetInput, SIGNAL(loadTicker(QString)), this, SIGNAL(loadTicker(QString)));
 
     // focus proxies
@@ -169,9 +169,9 @@ bool List::hasTickers() const
     return ui->list->count();
 }
 
-void List::addTicker(const QString &ticker, ListItem::Priority p)
+void List::addTicker(const Ticker &ticker)
 {
-    if(addItem(ticker + ',' + QString::number(p), DontFix, CheckDups))
+    if(addItem(ticker.ticker + ',' + QString::number(ticker.priority), DontFix, CheckDups))
     {
         numberOfItemsChanged();
         save();
@@ -185,11 +185,11 @@ QString List::currentTicker() const
     return item ? item->text() : QString();
 }
 
-ListItem::Priority List::currentPriority() const
+Ticker::Priority List::currentPriority() const
 {
     ListItem *item = static_cast<ListItem *>(ui->list->currentItem());
 
-    return item ? item->priority() : ListItem::PriorityNormal;
+    return item ? item->priority() : Ticker::PriorityNormal;
 }
 
 void List::setSaveTickers(bool dosave)
@@ -333,7 +333,7 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                     case Qt::Key_6:
                     case Qt::Key_7:
                     case Qt::Key_8:
-                        emit copyTo(currentTicker(), currentPriority(), ke->key() - Qt::Key_1);
+                        emit copyTo(Ticker(currentTicker(), currentPriority()), ke->key() - Qt::Key_1);
                     break;
 
                     case Qt::Key_A:
@@ -358,11 +358,11 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                     break;
 
                     case Qt::Key_Right:
-                        emit copyRight(currentTicker(), currentPriority());
+                        emit copyRight(Ticker(currentTicker(), currentPriority()));
                     break;
 
                     case Qt::Key_Left:
-                        emit copyLeft(currentTicker(), currentPriority());
+                        emit copyLeft(Ticker(currentTicker(), currentPriority()));
                     break;
 
                     case Qt::Key_Delete:
@@ -576,7 +576,7 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                     qDebug("Dropped at %d,%d", p.x(), p.y());
                     QApplication::restoreOverrideCursor();
 
-                    emit tickerDropped(m_startDragText, m_startDragPriority, p);
+                    emit tickerDropped(Ticker(m_startDragText, m_startDragPriority), p);
                 }
 
                 m_dragging = false;
@@ -621,7 +621,7 @@ QStringList List::toStringList(bool withPriority)
 
     while((item = static_cast<ListItem *>(ui->list->item(i++))))
     {
-        items.append((withPriority && item->priority() != ListItem::PriorityNormal)
+        items.append((withPriority && item->priority() != Ticker::PriorityNormal)
                      ? (item->text() + ',' + QString::number(item->priority()))
                      : item->text());
     }
@@ -829,7 +829,7 @@ bool List::addItem(const QString &txt, FixName fix, CheckForDups check)
         int p = text.at(1).toInt(&ok);
 
         if(ok)
-            item->setPriority(static_cast<ListItem::Priority>(p));
+            item->setPriority(static_cast<Ticker::Priority>(p));
     }
 
     ui->list->addItem(item);
@@ -862,8 +862,8 @@ void List::changePriority(int p)
     else if(p > +1)
         p = +1;
 
-    if((p < 0 && li->priority() == ListItem::PriorityNormal)
-            || (p > 0 && li->priority() == ListItem::PriorityHighest))
+    if((p < 0 && li->priority() == Ticker::PriorityNormal)
+            || (p > 0 && li->priority() == Ticker::PriorityHighest))
     {
         qDebug("Priority is on the edge");
         return;
@@ -871,7 +871,7 @@ void List::changePriority(int p)
 
     qDebug("Changing priority %+d", p);
 
-    li->setPriority(static_cast<ListItem::Priority>(li->priority() + p));
+    li->setPriority(static_cast<Ticker::Priority>(li->priority() + p));
 
     save();
 }
@@ -886,7 +886,7 @@ void List::setPriority(int p)
         return;
     }
 
-    ListItem::Priority pr = static_cast<ListItem::Priority>(p);
+    Ticker::Priority pr = static_cast<Ticker::Priority>(p);
 
     if(pr == li->priority())
     {
@@ -1154,6 +1154,11 @@ void List::slotAddOne()
     }
 }
 
+void List::slotAddTicker(const QString &t)
+{
+    addTicker(Ticker(t));
+}
+
 void List::slotAddFromFile()
 {
     qDebug("Adding new tickers from file");
@@ -1277,7 +1282,7 @@ void List::slotResetPriorities()
     ListItem *i;
 
     while((i = static_cast<ListItem *>(ui->list->item(row++))))
-        i->setPriority(ListItem::PriorityNormal);
+        i->setPriority(Ticker::PriorityNormal);
 
     save();
 }
@@ -1286,12 +1291,12 @@ void List::slotResetPriority()
 {
     ListItem *i = static_cast<ListItem *>(ui->list->currentItem());
 
-    if(!i || i->priority() == ListItem::PriorityNormal)
+    if(!i || i->priority() == Ticker::PriorityNormal)
         return;
 
     qDebug("Resetting priority for ticker \"%s\"", qPrintable(i->text()));
 
-    i->setPriority(ListItem::PriorityNormal);
+    i->setPriority(Ticker::PriorityNormal);
     save();
 }
 

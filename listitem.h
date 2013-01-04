@@ -22,37 +22,32 @@
 #include <QString>
 #include <QBrush>
 
+#include "ticker.h"
+
 class ListItem : public QListWidgetItem
 {
 public:
     explicit ListItem(QListWidget *parent = 0);
     explicit ListItem(const QString &text, QListWidget *parent = 0);
 
-    enum Priority { PriorityNormal, PriorityMedium, PriorityHigh, PriorityHighest };
+    Ticker::Priority priority() const;
+    void setPriority(Ticker::Priority, bool force = false);
 
-    Priority priority() const;
-
-    void setPriority(Priority, bool force = false);
-
-    static QString priorityToString(Priority);
+    QString comment() const;
+    void setComment(const QString &c);
 
     void removePriority();
     void resetPriority();
 
 private:
-    Priority m_priority;
+    Ticker::Priority m_priority;
+    QString m_comment;
 };
 
 inline
-ListItem::Priority ListItem::priority() const
+Ticker::Priority ListItem::priority() const
 {
     return m_priority;
-}
-
-inline
-QString ListItem::priorityToString(ListItem::Priority pr)
-{
-    return QString("priority%1").arg(pr);
 }
 
 inline
@@ -62,9 +57,21 @@ void ListItem::removePriority()
 }
 
 inline
+QString ListItem::comment() const
+{
+    return m_comment;
+}
+
+inline
+void ListItem::setComment(const QString &c)
+{
+    m_comment = c;
+}
+
+inline
 void ListItem::resetPriority()
 {
-    setPriority(ListItem::PriorityNormal, true);
+    setPriority(Ticker::PriorityNormal, true);
 }
 
 #endif // LISTITEM_H
