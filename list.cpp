@@ -458,7 +458,7 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                     {
                         ListItem *item = static_cast<ListItem *>(ui->list->currentItem());
 
-                        if(item && item->priority() != Ticker::PriorityNormal)
+                        if(item)
                         {
                             QRect rc = ui->list->visualItemRect(item);
 
@@ -867,7 +867,18 @@ bool List::addItem(const QString &txt, FixName fix, CheckForDups check)
     }
 
     if(text.size() > 2)
-        item->setComment(QString::fromUtf8(QByteArray::fromPercentEncoding(text[2].toAscii())));
+    {
+        QString comment = QString::fromUtf8(QByteArray::fromPercentEncoding(text[2].toAscii()));
+
+        if(!comment.isEmpty())
+        {
+            item->setComment(comment);
+
+            QFont f = item->font();
+            f.setBold(true);
+            item->setFont(f);
+        }
+    }
 
     ui->list->addItem(item);
 
@@ -1028,7 +1039,7 @@ void List::changeComment()
 {
     ListItem *item = static_cast<ListItem *>(ui->list->currentItem());
 
-    if(!item || item->priority() == Ticker::PriorityNormal)
+    if(!item)
     {
         qDebug("Won't change comment on this item");
         return;
@@ -1039,6 +1050,11 @@ void List::changeComment()
     if(tci.exec() == QDialog::Accepted)
     {
         item->setComment(tci.comment());
+
+        QFont f = item->font();
+        f.setBold(!item->comment().isEmpty());
+        item->setFont(f);
+
         save();
     }
 }
