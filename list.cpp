@@ -834,7 +834,7 @@ void List::addTickers(const QStringList &tk, FixName fix)
 
 bool List::addItem(const QString &txt, FixName fix, CheckForDups check)
 {
-    QStringList text = txt.split(',', QString::SkipEmptyParts);
+    QStringList text = txt.split(',');
 
     if(text.isEmpty())
         return false;
