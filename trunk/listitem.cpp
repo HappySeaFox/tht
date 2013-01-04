@@ -22,19 +22,19 @@
 
 ListItem::ListItem(QListWidget *parent) :
     QListWidgetItem(parent),
-    m_priority(PriorityNormal)
+    m_priority(Ticker::PriorityNormal)
 {
     setPriority(m_priority, true);
 }
 
 ListItem::ListItem(const QString &text, QListWidget *parent) :
     QListWidgetItem(text, parent),
-    m_priority(PriorityNormal)
+    m_priority(Ticker::PriorityNormal)
 {
     setPriority(m_priority, true);
 }
 
-void ListItem::setPriority(ListItem::Priority p, bool force)
+void ListItem::setPriority(Ticker::Priority p, bool force)
 {
     if(p == m_priority && !force)
         return;
@@ -45,15 +45,15 @@ void ListItem::setPriority(ListItem::Priority p, bool force)
 
     switch(m_priority)
     {
-        case ListItem::PriorityMedium:
+        case Ticker::PriorityMedium:
             brush = QColor(255, 215, 68);
         break;
 
-        case ListItem::PriorityHigh:
+        case Ticker::PriorityHigh:
             brush = QColor(30, 245, 65);
         break;
 
-        case ListItem::PriorityHighest:
+        case Ticker::PriorityHighest:
             brush = QColor(255, 89, 95);
         break;
 

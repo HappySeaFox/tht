@@ -137,7 +137,8 @@ HEADERS += tht.h \
     finvizcookiejar.h \
     finvizaccesssetup.h \
     listdetails.h \
-    inlinetextinput.h
+    inlinetextinput.h \
+    ticker.h
 
 FORMS += tht.ui \
     list.ui \

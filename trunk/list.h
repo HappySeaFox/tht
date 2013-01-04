@@ -24,13 +24,15 @@
 #include <QPoint>
 #include <QList>
 
-#include "listitem.h"
+#include "ticker.h"
 
+class QAbstractItemDelegate;
 class QListWidgetItem;
 class QStringList;
 class QAction;
 class QLabel;
 class QMenu;
+class QUrl;
 
 class ListDetails;
 
@@ -51,7 +53,7 @@ public:
 
     QString currentTicker() const;
 
-    ListItem::Priority currentPriority() const;
+    Ticker::Priority currentPriority() const;
 
     void setSaveTickers(bool);
 
@@ -110,24 +112,25 @@ private:
     void moveItem(MoveItem);
 
 signals:
-    void copyLeft(const QString &ticker, ListItem::Priority);
-    void copyRight(const QString &ticker, ListItem::Priority);
-    void copyTo(const QString &t, ListItem::Priority, int index);
+    void copyLeft(const Ticker &ticker);
+    void copyRight(const Ticker &ticker);
+    void copyTo(const Ticker &ticker, int index);
     void loadTicker(const QString &);
-    void tickerDropped(const QString &, ListItem::Priority, const QPoint &);
+    void tickerDropped(const Ticker &ticker, const QPoint &);
     void tickerMoving(const QPoint &);
     void tickerCancelled();
     void showNeighbors(const QString &);
     void needRebuildFinvizMenu();
 
 public slots:
-    void addTicker(const QString &, ListItem::Priority p = ListItem::PriorityNormal);
+    void addTicker(const Ticker &);
     void clear();
     void startSearching();
     void stopSearching();
 
 private slots:
     void slotAddOne();
+    void slotAddTicker(const QString &t);
     void slotAddFromFile();
     void slotSave();
     void slotExportToFile();
@@ -155,7 +158,7 @@ private:
     bool m_dragging;
     QPoint m_startPos;
     QString m_startDragText;
-    ListItem::Priority m_startDragPriority;
+    Ticker::Priority m_startDragPriority;
     ListDetails *m_numbers;
     QAbstractItemDelegate *m_oldDelegate, *m_persistentDelegate;
     QList<QListWidgetItem *> m_foundItems;

@@ -47,8 +47,8 @@
 #include "regionselect.h"
 #include "tickerinput.h"
 #include "settings.h"
-#include "listitem.h"
 #include "options.h"
+#include "ticker.h"
 #include "about.h"
 #include "tools.h"
 #include "list.h"
@@ -410,20 +410,20 @@ void THT::rebuildUi()
         {
             List *list = new List(m_lists.size()+1, this);
 
-            connect(list, SIGNAL(copyLeft(QString,ListItem::Priority)),
-                    this, SLOT(slotCopyLeft(QString,ListItem::Priority)));
+            connect(list, SIGNAL(copyLeft(Ticker)),
+                    this, SLOT(slotCopyLeft(Ticker)));
 
-            connect(list, SIGNAL(copyRight(QString,ListItem::Priority)),
-                    this, SLOT(slotCopyRight(QString,ListItem::Priority)));
+            connect(list, SIGNAL(copyRight(Ticker)),
+                    this, SLOT(slotCopyRight(Ticker)));
 
-            connect(list, SIGNAL(copyTo(QString,ListItem::Priority,int)),
-                    this, SLOT(slotCopyTo(QString,ListItem::Priority,int)));
+            connect(list, SIGNAL(copyTo(Ticker,int)),
+                    this, SLOT(slotCopyTo(Ticker,int)));
 
             connect(list, SIGNAL(loadTicker(QString)),
                     this, SLOT(slotLoadTicker(QString)));
 
-            connect(list, SIGNAL(tickerDropped(QString,ListItem::Priority,QPoint)),
-                    this, SLOT(slotTickerDropped(QString,ListItem::Priority,QPoint)));
+            connect(list, SIGNAL(tickerDropped(Ticker,QPoint)),
+                    this, SLOT(slotTickerDropped(Ticker,QPoint)));
 
             connect(list, SIGNAL(showNeighbors(QString)),
                     this, SLOT(slotShowNeighbors(QString)));
@@ -996,9 +996,9 @@ void THT::slotOptions()
     }
 }
 
-void THT::slotCopyLeft(const QString &ticker, ListItem::Priority p)
+void THT::slotCopyLeft(const Ticker &ticker)
 {
-    qDebug("Copy ticker \"%s\" left", qPrintable(ticker));
+    qDebug("Copy ticker \"%s\" left", qPrintable(ticker.ticker));
 
     int index = m_lists.indexOf(qobject_cast<List *>(sender()));
 
@@ -1019,12 +1019,12 @@ void THT::slotCopyLeft(const QString &ticker, ListItem::Priority p)
     else
         --index;
 
-    m_lists[index]->addTicker(ticker, p);
+    m_lists[index]->addTicker(ticker);
 }
 
-void THT::slotCopyRight(const QString &ticker, ListItem::Priority p)
+void THT::slotCopyRight(const Ticker &ticker)
 {
-    qDebug("Copy ticker \"%s\"/%d right", qPrintable(ticker), p);
+    qDebug("Copy ticker \"%s\"/%d right", qPrintable(ticker.ticker), ticker.priority);
 
     int index = m_lists.indexOf(qobject_cast<List *>(sender()));
 
@@ -1045,12 +1045,12 @@ void THT::slotCopyRight(const QString &ticker, ListItem::Priority p)
     else
         ++index;
 
-    m_lists[index]->addTicker(ticker, p);
+    m_lists[index]->addTicker(ticker);
 }
 
-void THT::slotCopyTo(const QString &ticker, ListItem::Priority p, int index)
+void THT::slotCopyTo(const Ticker &ticker, int index)
 {
-    qDebug("Copy ticker \"%s\" to list #%d", qPrintable(ticker), index);
+    qDebug("Copy ticker \"%s\"/%d to list #%d", qPrintable(ticker.ticker), ticker.priority, index);
 
     if(index < 0 || index >= m_lists.size())
     {
@@ -1058,7 +1058,7 @@ void THT::slotCopyTo(const QString &ticker, ListItem::Priority p, int index)
         return;
     }
 
-    m_lists[index]->addTicker(ticker, p);
+    m_lists[index]->addTicker(ticker);
 }
 
 void THT::slotLoadTicker(const QString &ticker)
@@ -1259,7 +1259,7 @@ void THT::slotLockLinks()
     }
 }
 
-void THT::slotTickerDropped(const QString &t, ListItem::Priority pr, const QPoint &p)
+void THT::slotTickerDropped(const Ticker &ticker, const QPoint &p)
 {
     m_windows = &m_windowsDrop;
     m_windows->clear();
@@ -1281,7 +1281,7 @@ void THT::slotTickerDropped(const QString &t, ListItem::Priority pr, const QPoin
             if(l->contains(p))
             {
                 qDebug("Dropped onto a list");
-                slotCopyTo(t, pr, index);
+                slotCopyTo(ticker, index);
                 break;
             }
 
@@ -1298,7 +1298,7 @@ void THT::slotTickerDropped(const QString &t, ListItem::Priority pr, const QPoin
 
     m_windows->append(link);
 
-    loadTicker(t);
+    loadTicker(ticker.ticker);
 }
 
 void THT::drawWindowMarker()
@@ -1505,6 +1505,8 @@ bool THT::setForeignFocus(const Link &link)
 
     if(link.subControlSupportsClearing)
         SendMessage(link.subControl, WM_SETTEXT, 0, 0);
+
+    SendMessage(link.hwnd, WM_INPUTLANGCHANGEREQUEST, INPUTLANGCHANGE_SYSCHARSET, 0x04090409);
 
     AttachThreadInput(link.threadId, currentThreadId, FALSE);
 

@@ -28,7 +28,6 @@
 #include <Qt>
 
 #include "tickerneighbors.h"
-#include "listitem.h"
 
 #include <windows.h>
 
@@ -39,6 +38,7 @@ class QPoint;
 class QTimer;
 class QMenu;
 
+class Ticker;
 class List;
 
 namespace Ui
@@ -139,9 +139,9 @@ private slots:
     void slotAboutQt();
     void slotQuit();
     void slotOptions();
-    void slotCopyLeft(const QString &ticker, ListItem::Priority);
-    void slotCopyRight(const QString &ticker, ListItem::Priority);
-    void slotCopyTo(const QString &, ListItem::Priority, int);
+    void slotCopyLeft(const Ticker &ticker);
+    void slotCopyRight(const Ticker &ticker);
+    void slotCopyTo(const Ticker &ticker, int);
     void slotLoadTicker(const QString &ticker);
     void slotLoadTicker();
     void slotLoadToNextWindow();
@@ -157,7 +157,7 @@ private slots:
     void slotTargetDropped(const QPoint &);
     void slotTargetMoving(const QPoint &);
     void slotTargetCancelled();
-    void slotTickerDropped(const QString &, ListItem::Priority, const QPoint &);
+    void slotTickerDropped(const Ticker &, const QPoint &);
     void slotMessageReceived(const QString &);
     void slotLoadPredefinedTicker();
     void slotOpenOrCloseSearchTicker();
