@@ -15,34 +15,30 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef TICKER_H
-#define TICKER_H
+#include <QPushButton>
+#include <QShortcut>
 
-#include <QString>
+#include "tickercommentinput.h"
+#include "ui_tickercommentinput.h"
 
-struct Ticker
+TickerCommentInput::TickerCommentInput(const QString &c, QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::TickerCommentInput)
 {
-    enum Priority { PriorityNormal, PriorityMedium, PriorityHigh, PriorityHighest };
+    ui->setupUi(this);
 
-    Ticker(const QString &_ticker = QString(),
-           Priority _priority = PriorityNormal,
-           const QString &_comment = QString())
-        : ticker(_ticker),
-          priority(_priority),
-          comment(_comment)
-    {}
+    ui->text->setPlainText(c);
+    ui->text->setFocus();
 
-    QString ticker;
-    Priority priority;
-    QString comment;
-
-    static QString priorityToString(Ticker::Priority);
-};
-
-inline
-QString Ticker::priorityToString(Ticker::Priority pr)
-{
-    return QString("priority%1").arg(pr);
+    new QShortcut(Qt::CTRL+Qt::Key_Return, ui->buttonBox->button(QDialogButtonBox::Ok), SLOT(animateClick()));
 }
 
-#endif // TICKER_H
+TickerCommentInput::~TickerCommentInput()
+{
+    delete ui;
+}
+
+QString TickerCommentInput::comment() const
+{
+    return ui->text->toPlainText();
+}

@@ -88,7 +88,8 @@ SOURCES += main.cpp\
     finvizcookiejar.cpp \
     finvizaccesssetup.cpp \
     listdetails.cpp \
-    inlinetextinput.cpp
+    inlinetextinput.cpp \
+    tickercommentinput.cpp
 
 HEADERS += tht.h \
     list.h \
@@ -138,7 +139,8 @@ HEADERS += tht.h \
     finvizaccesssetup.h \
     listdetails.h \
     inlinetextinput.h \
-    ticker.h
+    ticker.h \
+    tickercommentinput.h
 
 FORMS += tht.ui \
     list.ui \
@@ -154,7 +156,8 @@ FORMS += tht.ui \
     screenshoteditor.ui \
     screenshotcommentinput.ui \
     finvizaccesssetup.ui \
-    inlinetextinput.ui
+    inlinetextinput.ui \
+    tickercommentinput.ui
 
 RESOURCES += tht.qrc
 

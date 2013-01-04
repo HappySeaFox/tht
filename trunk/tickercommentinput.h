@@ -15,34 +15,27 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef TICKER_H
-#define TICKER_H
+#ifndef TICKERCOMMENTINPUT_H
+#define TICKERCOMMENTINPUT_H
 
-#include <QString>
+#include <QDialog>
 
-struct Ticker
-{
-    enum Priority { PriorityNormal, PriorityMedium, PriorityHigh, PriorityHighest };
-
-    Ticker(const QString &_ticker = QString(),
-           Priority _priority = PriorityNormal,
-           const QString &_comment = QString())
-        : ticker(_ticker),
-          priority(_priority),
-          comment(_comment)
-    {}
-
-    QString ticker;
-    Priority priority;
-    QString comment;
-
-    static QString priorityToString(Ticker::Priority);
-};
-
-inline
-QString Ticker::priorityToString(Ticker::Priority pr)
-{
-    return QString("priority%1").arg(pr);
+namespace Ui {
+class TickerCommentInput;
 }
 
-#endif // TICKER_H
+class TickerCommentInput : public QDialog
+{
+    Q_OBJECT
+
+public:
+    explicit TickerCommentInput(const QString &c, QWidget *parent = 0);
+    ~TickerCommentInput();
+
+    QString comment() const;
+
+private:
+    Ui::TickerCommentInput *ui;
+};
+
+#endif // TICKERCOMMENTINPUT_H
