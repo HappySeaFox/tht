@@ -76,6 +76,9 @@ public:
 
     OSVERSIONINFO windowsVersion() const;
 
+    void setShowComments(bool, SyncType sync = Sync);
+    bool showComments();
+
     void setListHeader(bool, SyncType sync = Sync);
     bool listHeader();
 

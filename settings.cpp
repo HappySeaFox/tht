@@ -260,6 +260,16 @@ void Settings::setScreenshotTextColor(const QColor &c, SyncType sync)
     save<QColor>("screenshot-text-color", c, sync);
 }
 
+void Settings::setShowComments(bool s, SyncType sync)
+{
+    save<bool>("show-comments", s, sync);
+}
+
+bool Settings::showComments()
+{
+    return load<bool>("show-comments", false);
+}
+
 void Settings::setListHeader(bool l, Settings::SyncType sync)
 {
     save<bool>("list-header", l, sync);

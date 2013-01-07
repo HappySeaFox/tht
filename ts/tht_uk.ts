@@ -314,41 +314,41 @@
         <translation>Експортувати в буфер обміну</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="996"/>
+        <location filename="../list.cpp" line="988"/>
         <source>Customize...</source>
         <translation>Налаштувати...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1240"/>
-        <location filename="../list.cpp" line="1315"/>
+        <location filename="../list.cpp" line="1255"/>
+        <location filename="../list.cpp" line="1330"/>
         <source>Choose a file</source>
         <translation>Виберіть файл</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1242"/>
-        <location filename="../list.cpp" line="1317"/>
+        <location filename="../list.cpp" line="1257"/>
+        <location filename="../list.cpp" line="1332"/>
         <source>Text files (*.txt)</source>
         <translation>Текстові файли (*.txt)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1244"/>
-        <location filename="../list.cpp" line="1319"/>
+        <location filename="../list.cpp" line="1259"/>
+        <location filename="../list.cpp" line="1334"/>
         <source>All files (*.*)</source>
         <translation>Всі файли (*.*)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1279"/>
-        <location filename="../list.cpp" line="1329"/>
+        <location filename="../list.cpp" line="1294"/>
+        <location filename="../list.cpp" line="1344"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1279"/>
+        <location filename="../list.cpp" line="1294"/>
         <source>Cannot open the following files: %1</source>
         <translation>Неможливо відкрити наступні файли: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1329"/>
+        <location filename="../list.cpp" line="1344"/>
         <source>Cannot save to file %1</source>
         <translation>Неможливо зберегти в файл %1</translation>
     </message>
@@ -361,63 +361,68 @@
         <translation>Параметри</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="24"/>
+        <location filename="../options.ui" line="31"/>
         <source>Language:</source>
         <translation>Мова:</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="32"/>
+        <location filename="../options.ui" line="39"/>
         <source>&lt;System&gt;</source>
         <comment>Means &quot;System language&quot;</comment>
         <translation>&lt;Системи&gt;</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="108"/>
+        <location filename="../options.ui" line="115"/>
         <source>Save position and size</source>
         <translation>Зберегти позицію та розмір</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="115"/>
+        <location filename="../options.ui" line="122"/>
         <source>Automatically save tickers</source>
         <translation>Зберігати тікери автоматично</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="148"/>
+        <location filename="../options.ui" line="185"/>
         <source>Need restart</source>
         <translation>Потрібен перезапуск</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="178"/>
+        <location filename="../options.ui" line="192"/>
+        <source>Always show ticker comments</source>
+        <translation>Завжди показувати коментарі до тікера</translation>
+    </message>
+    <message>
+        <location filename="../options.ui" line="159"/>
         <source>Fast ticker entry</source>
         <translation>Швидке введення тікера</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="185"/>
+        <location filename="../options.ui" line="20"/>
         <source>Show list title</source>
         <translation>Показувати заголовок списку</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="101"/>
+        <location filename="../options.ui" line="108"/>
         <source>Restore &quot;Industries&quot; window at startup</source>
         <translation>Відновлювати вікно &quot;Індустрії&quot; при старті</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="75"/>
+        <location filename="../options.ui" line="82"/>
         <source>Always on top</source>
         <translation>Поверх всіх вікон</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="53"/>
+        <location filename="../options.ui" line="60"/>
         <source>Lists:</source>
         <translation>Списків:</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="82"/>
+        <location filename="../options.ui" line="89"/>
         <source>Hide to tray</source>
         <translation>Ховатися в трей</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="122"/>
+        <location filename="../options.ui" line="129"/>
         <source>Allow duplicates in a ticker list</source>
         <translation>Дозволити дублікати в списку тікерів</translation>
     </message>
@@ -425,19 +430,19 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../settings.cpp" line="659"/>
+        <location filename="../settings.cpp" line="669"/>
         <source>Russian</source>
         <extracomment>Russian language</extracomment>
         <translation>Російська</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="662"/>
+        <location filename="../settings.cpp" line="672"/>
         <source>Ukrainian</source>
         <extracomment>Ukrainian language</extracomment>
         <translation>Українська</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="665"/>
+        <location filename="../settings.cpp" line="675"/>
         <source>English</source>
         <extracomment>English language</extracomment>
         <translation>Англійська</translation>

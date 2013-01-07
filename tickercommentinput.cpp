@@ -27,8 +27,9 @@ TickerCommentInput::TickerCommentInput(const QString &c, QWidget *parent) :
 {
     ui->setupUi(this);
 
-    ui->text->setPlainText(c);
     ui->text->setFocus();
+    ui->text->setPlainText(c);
+    ui->text->selectAll();
 
     new QShortcut(Qt::CTRL+Qt::Key_Return, ui->buttonBox->button(QDialogButtonBox::Ok), SLOT(animateClick()));
 }

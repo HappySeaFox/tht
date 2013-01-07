@@ -56,9 +56,10 @@ private:
 
 public:
     static void showText(const QPoint &pos, const QString &text, bool ticker = true);
+    static void showPersistentText(const QPoint &pos, const QString &text);
 
-    static QPalette palette();
-    static void setPalette(const QPalette &);
+private:
+    static void showTextPrivate(const QPoint &pos, const QString &text, bool ticker, bool persist);
 };
 
 #endif

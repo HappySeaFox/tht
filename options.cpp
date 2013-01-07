@@ -52,6 +52,7 @@ void Options::load()
     ui->checkAllowDups->setChecked(Settings::instance()->allowDuplicates());
     ui->checkMini->setChecked(Settings::instance()->miniTickerEntry());
     ui->checkHeader->setChecked(Settings::instance()->listHeader());
+    ui->checkComments->setChecked(Settings::instance()->showComments());
 
     const QMap<QString, QString> tsmap = Settings::instance()->translations();
     QString ts = Settings::instance()->translation();
@@ -88,5 +89,6 @@ void Options::saveSettings() const
     Settings::instance()->setAllowDuplicates(ui->checkAllowDups->isChecked(), Settings::NoSync);
     Settings::instance()->setTranslation(ui->comboLang->itemData(ui->comboLang->currentIndex()).toString(), Settings::NoSync);
     Settings::instance()->setMiniTickerEntry(ui->checkMini->isChecked(), Settings::NoSync);
-    Settings::instance()->setListHeader(ui->checkHeader->isChecked()); // also sync
+    Settings::instance()->setListHeader(ui->checkHeader->isChecked(), Settings::NoSync);
+    Settings::instance()->setShowComments(ui->checkComments->isChecked()); // also sync
 }

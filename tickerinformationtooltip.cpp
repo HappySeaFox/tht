@@ -65,7 +65,7 @@ class TickerInformationToolTipLabel : public QLabel
     Q_OBJECT
 
 public:
-    TickerInformationToolTipLabel(const QString &text, bool ticker, QWidget *w);
+    TickerInformationToolTipLabel(const QString &text, bool ticker, bool persist, QWidget *w);
     ~TickerInformationToolTipLabel();
 
     static TickerInformationToolTipLabel *instance;
@@ -73,8 +73,8 @@ public:
     bool eventFilter(QObject *, QEvent *);
 
     QBasicTimer hideTimer, expireTimer;
-
     bool fadingOut;
+    bool persistent;
 
     void reuseTip(const QString &text, bool isTicker);
     void hideTip();
@@ -110,7 +110,7 @@ private:
 
 TickerInformationToolTipLabel *TickerInformationToolTipLabel::instance = 0;
 
-TickerInformationToolTipLabel::TickerInformationToolTipLabel(const QString &text, bool ticker, QWidget *w)
+TickerInformationToolTipLabel::TickerInformationToolTipLabel(const QString &text, bool ticker, bool persist, QWidget *w)
     : QLabel(w, Qt::ToolTip | Qt::BypassGraphicsProxyWidget), styleSheetParent(0)
 {
     delete instance;
@@ -123,7 +123,6 @@ TickerInformationToolTipLabel::TickerInformationToolTipLabel(const QString &text
 
     setForegroundRole(QPalette::ToolTipText);
     setBackgroundRole(QPalette::ToolTipBase);
-    setPalette(TickerInformationToolTip::palette());
     ensurePolished();
     setMargin(1 + style()->pixelMetric(QStyle::PM_ToolTipLabelFrameWidth, 0, this));
     setFrameStyle(QFrame::NoFrame);
@@ -133,6 +132,7 @@ TickerInformationToolTipLabel::TickerInformationToolTipLabel(const QString &text
     setWindowOpacity(style()->styleHint(QStyle::SH_ToolTipLabel_Opacity, 0, this) / qreal(255.0));
     setMouseTracking(true);
     fadingOut = false;
+    persistent = persist;
     reuseTip(text, ticker);
 }
 
@@ -240,8 +240,7 @@ void TickerInformationToolTipLabel::hideTipImmediately()
 
 void TickerInformationToolTipLabel::timerEvent(QTimerEvent *e)
 {
-    if(e->timerId() == hideTimer.timerId()
-            || e->timerId() == expireTimer.timerId())
+    if(e->timerId() == hideTimer.timerId() || e->timerId() == expireTimer.timerId())
     {
         hideTimer.stop();
         expireTimer.stop();
@@ -257,16 +256,20 @@ bool TickerInformationToolTipLabel::eventFilter(QObject *o, QEvent *e)
             hideTip();
         break;
 
-        case QEvent::WindowActivate:
-        case QEvent::WindowDeactivate:
         case QEvent::MouseButtonPress:
         case QEvent::MouseButtonRelease:
         case QEvent::MouseButtonDblClick:
-        case QEvent::FocusIn:
-        case QEvent::FocusOut:
         case QEvent::Wheel:
         case QEvent::KeyPress:
             hideTipImmediately();
+        break;
+
+        case QEvent::WindowActivate:
+        case QEvent::WindowDeactivate:
+        case QEvent::FocusIn:
+        case QEvent::FocusOut:
+            if(!persistent)
+                hideTipImmediately();
         break;
 
         default:
@@ -330,6 +333,16 @@ bool TickerInformationToolTipLabel::tipChanged(const QString &text)
 
 void TickerInformationToolTip::showText(const QPoint &pos, const QString &text, bool ticker)
 {
+    TickerInformationToolTip::showTextPrivate(pos, text, ticker, false);
+}
+
+void TickerInformationToolTip::showPersistentText(const QPoint &pos, const QString &text)
+{
+    TickerInformationToolTip::showTextPrivate(pos, text, false, true);
+}
+
+void TickerInformationToolTip::showTextPrivate(const QPoint &pos, const QString &text, bool ticker, bool persist)
+{
     if(TickerInformationToolTipLabel::instance && TickerInformationToolTipLabel::instance->isVisible())
     {
         if(text.isEmpty())
@@ -341,6 +354,7 @@ void TickerInformationToolTip::showText(const QPoint &pos, const QString &text, 
         {
             if(TickerInformationToolTipLabel::instance->tipChanged(text))
             {
+                TickerInformationToolTipLabel::instance->persistent = persist;
                 TickerInformationToolTipLabel::instance->reuseTip(text, ticker);
                 TickerInformationToolTipLabel::instance->placeTip(pos);
             }
@@ -351,27 +365,18 @@ void TickerInformationToolTip::showText(const QPoint &pos, const QString &text, 
 
     if(!text.isEmpty())
     {
-        new TickerInformationToolTipLabel(text, ticker, QApplication::desktop()->screen(TickerInformationToolTipLabel::getTipScreen(pos)));
+        new TickerInformationToolTipLabel(text,
+                                          ticker,
+                                          persist,
+                                          QApplication::desktop()->screen(TickerInformationToolTipLabel::getTipScreen(pos)));
 
         TickerInformationToolTipLabel::instance->placeTip(pos);
         TickerInformationToolTipLabel::instance->setObjectName(QLatin1String("qtooltip_label"));
         TickerInformationToolTipLabel::instance->show();
+
+        if(!ticker && persist)
+            TickerInformationToolTipLabel::instance->restartExpireTimer();
     }
-}
-
-Q_GLOBAL_STATIC(QPalette, tooltip_palette)
-
-QPalette TickerInformationToolTip::palette()
-{
-    return *tooltip_palette();
-}
-
-void TickerInformationToolTip::setPalette(const QPalette &palette)
-{
-    *tooltip_palette() = palette;
-
-    if (TickerInformationToolTipLabel::instance)
-        TickerInformationToolTipLabel::instance->setPalette(palette);
 }
 
 #include "tickerinformationtooltip.moc"
