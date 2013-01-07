@@ -53,8 +53,6 @@ public:
 
     QString currentTicker() const;
 
-    Ticker::Priority currentPriority() const;
-
     void setSaveTickers(bool);
 
     void showHeader(bool);
@@ -101,6 +99,7 @@ private:
     void showFinvizSelector();
     void openTickerInBrowser(const QString &baseUrl, const QString &ticker, FixName fix);
     void changeComment();
+    void showComment();
     Ticker currentTickerInfo() const;
 
     enum LoadItem { LoadItemCurrent,

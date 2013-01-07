@@ -191,13 +191,6 @@ QString List::currentTicker() const
     return item ? item->text() : QString();
 }
 
-Ticker::Priority List::currentPriority() const
-{
-    ListItem *item = static_cast<ListItem *>(ui->list->currentItem());
-
-    return item ? item->priority() : Ticker::PriorityNormal;
-}
-
 void List::setSaveTickers(bool dosave)
 {
     if(m_saveTickers == dosave)
@@ -455,19 +448,7 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                     break;
 
                     case Qt::Key_X:
-                    {
-                        ListItem *item = static_cast<ListItem *>(ui->list->currentItem());
-
-                        if(item)
-                        {
-                            QRect rc = ui->list->visualItemRect(item);
-
-                            if(rc.isValid())
-                                TickerInformationToolTip::showText(ui->list->viewport()->mapToGlobal(rc.bottomLeft()), item->comment(), false);
-                            else
-                                qDebug("Cannot find where to show the comment");
-                        }
-                    }
+                        showComment();
                     break;
 
                     case Qt::Key_Z:
@@ -649,7 +630,7 @@ QStringList List::toStringList(int flags)
 
     while((item = static_cast<ListItem *>(ui->list->item(i++))))
     {
-        items.append((withExtra && item->priority() != Ticker::PriorityNormal)
+        items.append(withExtra
                      ? (item->text()
                         + ','
                         + QString::number(item->priority())
@@ -1059,6 +1040,21 @@ void List::changeComment()
     }
 }
 
+void List::showComment()
+{
+    ListItem *item = static_cast<ListItem *>(ui->list->currentItem());
+
+    if(item)
+    {
+        QRect rc = ui->list->visualItemRect(item);
+
+        if(rc.isValid())
+            TickerInformationToolTip::showPersistentText(ui->list->viewport()->mapToGlobal(rc.bottomLeft()), item->comment());
+        else
+            qDebug("Cannot find where to show the comment");
+    }
+}
+
 Ticker List::currentTickerInfo() const
 {
     Ticker t;
@@ -1135,6 +1131,9 @@ void List::loadItem(LoadItem litem)
 
     ui->list->setCurrentItem(item);
     emit loadTicker(item->text());
+
+    if(Settings::instance()->showComments())
+        showComment();
 }
 
 void List::moveItem(MoveItem mi)
