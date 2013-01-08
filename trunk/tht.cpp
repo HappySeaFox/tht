@@ -20,12 +20,14 @@
 #include <QWhatsThisClickedEvent>
 #include <QContextMenuEvent>
 #include <QDesktopServices>
+#include <QDragEnterEvent>
 #include <QApplication>
 #include <QKeySequence>
 #include <QMapIterator>
 #include <QGridLayout>
 #include <QMessageBox>
 #include <QCloseEvent>
+#include <QDropEvent>
 #include <QFileInfo>
 #include <QShortcut>
 #include <QDateTime>
@@ -75,6 +77,8 @@ THT::THT(QWidget *parent) :
         setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
 
     ui->setupUi(this);
+
+    setAcceptDrops(true);
 
     QMenu *linkPointsMenu = new QMenu(ui->pushLinks);
     ui->pushLinks->setMenu(linkPointsMenu);
@@ -266,6 +270,14 @@ void THT::setVisible(bool vis)
     QWidget::setVisible(vis);
 }
 
+void THT::contextMenuEvent(QContextMenuEvent *event)
+{
+    QApplication::restoreOverrideCursor();
+
+    event->accept();
+    m_menu->exec(event->globalPos());
+}
+
 void THT::closeEvent(QCloseEvent *e)
 {
     if(Settings::instance()->hideToTray())
@@ -306,12 +318,25 @@ bool THT::eventFilter(QObject *o, QEvent *e)
     return QObject::eventFilter(o, e);
 }
 
-void THT::contextMenuEvent(QContextMenuEvent *event)
+void THT::dragEnterEvent(QDragEnterEvent *e)
 {
-    QApplication::restoreOverrideCursor();
+    if(e->mimeData()->hasFormat("text/plain"))
+    {
+        qDebug("Accepting dragged MIME");
+        e->acceptProposedAction();
+    }
+}
 
-    event->accept();
-    m_menu->exec(event->globalPos());
+void THT::dropEvent(QDropEvent *e)
+{
+    e->acceptProposedAction();
+
+    QString ticker = e->mimeData()->text().toUpper();
+
+    if(Settings::instance()->tickerValidator().exactMatch(ticker))
+        loadTicker(ticker);
+    else
+        qDebug("Dropped ticker \"%s\" doesn't match the regexp", qPrintable(ticker));
 }
 
 void THT::sendKey(int key, bool extended)

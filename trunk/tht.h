@@ -60,6 +60,8 @@ protected:
     virtual void contextMenuEvent(QContextMenuEvent *event);
     virtual void closeEvent(QCloseEvent *e);
     virtual bool eventFilter(QObject *o, QEvent *e);
+    virtual void dragEnterEvent(QDragEnterEvent *e);
+    virtual void dropEvent(QDropEvent *e);
 
 private:
     enum LinkType { LinkTypeNotInitialized,
