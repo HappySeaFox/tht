@@ -146,6 +146,7 @@ private slots:
     void slotAddFromFinviz();
     void slotManageFinvizUrls();
     void slotCurrentRowChanged(int);
+    void slotDropped(const QString &);
     void loadItem(LoadItem = LoadItemCurrent);
     void paste();
     void headerCancelled();

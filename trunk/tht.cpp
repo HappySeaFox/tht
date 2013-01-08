@@ -322,9 +322,19 @@ void THT::dragEnterEvent(QDragEnterEvent *e)
 {
     if(e->mimeData()->hasFormat("text/plain"))
     {
-        qDebug("Accepting dragged MIME");
+        qDebug("Accepting dragged MIME in main window");
         e->acceptProposedAction();
     }
+}
+
+void THT::dragMoveEvent(QDragMoveEvent *e)
+{
+    e->acceptProposedAction();
+}
+
+void THT::dragLeaveEvent(QDragLeaveEvent *e)
+{
+    e->accept();
 }
 
 void THT::dropEvent(QDropEvent *e)

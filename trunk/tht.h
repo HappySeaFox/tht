@@ -61,6 +61,8 @@ protected:
     virtual void closeEvent(QCloseEvent *e);
     virtual bool eventFilter(QObject *o, QEvent *e);
     virtual void dragEnterEvent(QDragEnterEvent *e);
+    virtual void dragMoveEvent(QDragMoveEvent *e);
+    virtual void dragLeaveEvent(QDragLeaveEvent *e);
     virtual void dropEvent(QDropEvent *e);
 
 private:
