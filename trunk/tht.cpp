@@ -21,6 +21,8 @@
 #include <QContextMenuEvent>
 #include <QDesktopServices>
 #include <QDragEnterEvent>
+#include <QDragLeaveEvent>
+#include <QDragMoveEvent>
 #include <QApplication>
 #include <QKeySequence>
 #include <QMapIterator>
