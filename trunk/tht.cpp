@@ -348,7 +348,7 @@ void THT::dropEvent(QDropEvent *e)
 {
     e->acceptProposedAction();
 
-    QString ticker = e->mimeData()->text().toUpper();
+    QString ticker = e->mimeData()->text().trimmed().toUpper();
 
     if(Settings::instance()->tickerValidator().exactMatch(ticker))
     {
