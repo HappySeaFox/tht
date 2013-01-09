@@ -327,11 +327,16 @@ void THT::dragEnterEvent(QDragEnterEvent *e)
         qDebug("Accepting dragged MIME in main window");
         e->acceptProposedAction();
     }
+    else
+        e->ignore();
 }
 
 void THT::dragMoveEvent(QDragMoveEvent *e)
 {
-    e->acceptProposedAction();
+    if(e->mimeData()->hasFormat("text/plain"))
+        e->acceptProposedAction();
+    else
+        e->ignore();
 }
 
 void THT::dragLeaveEvent(QDragLeaveEvent *e)
@@ -346,7 +351,24 @@ void THT::dropEvent(QDropEvent *e)
     QString ticker = e->mimeData()->text().toUpper();
 
     if(Settings::instance()->tickerValidator().exactMatch(ticker))
-        loadTicker(ticker);
+    {
+        QPoint pos = mapToGlobal(e->pos());
+        bool added = false;
+
+        foreach(List *l, m_lists)
+        {
+            if(l->contains(pos))
+            {
+                qDebug("Dropped onto a list");
+                l->addTicker(Ticker(ticker));
+                added = true;
+                break;
+            }
+        }
+
+        if(!added)
+            loadTicker(ticker);
+    }
     else
         qDebug("Dropped ticker \"%s\" doesn't match the regexp", qPrintable(ticker));
 }

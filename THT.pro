@@ -89,8 +89,7 @@ SOURCES += main.cpp\
     finvizaccesssetup.cpp \
     listdetails.cpp \
     inlinetextinput.cpp \
-    tickercommentinput.cpp \
-    listwidget.cpp
+    tickercommentinput.cpp
 
 HEADERS += tht.h \
     list.h \
@@ -141,8 +140,7 @@ HEADERS += tht.h \
     listdetails.h \
     inlinetextinput.h \
     ticker.h \
-    tickercommentinput.h \
-    listwidget.h
+    tickercommentinput.h
 
 FORMS += tht.ui \
     list.ui \

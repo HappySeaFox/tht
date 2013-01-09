@@ -1493,11 +1493,6 @@ void List::slotCurrentRowChanged(int row)
     m_numbers->setCurrent(row+1);
 }
 
-void List::slotDropped(const QString &ticker)
-{
-    addItem(ticker, Fix, Settings::instance()->allowDuplicates() ? DontCheckDups : CheckDups);
-}
-
 void List::slotExportToClipboard()
 {
     qDebug("Exporting tickers to clipboard");
