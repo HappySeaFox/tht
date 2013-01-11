@@ -1,3 +1,10 @@
+== 1.5.0 ==
+ * hotkeys: press "X" to show ticker's comment
+ * hotkeys: press "Alt+X" to edit ticker's comment
+ * added "Always show ticker comments" to Options
+ * drag a ticker from other application and drop it onto a list to add it to this list
+ * drag a ticker from other application and drop it onto THT window to load it into all linked windows (see https://www.youtube.com/watch?v=5cTvKkibyWo)
+
 == 1.4.1 ==
  * improvements to support x86_64
  * hotkeys: press "F" to open the current ticker in Finviz

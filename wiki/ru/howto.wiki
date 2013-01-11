@@ -6,18 +6,18 @@
 
 == Какие платформы поддерживает THT? ==
 
- * [http://www.youtube.com/watch?v=idtUAU4p75s&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=7&feature=plpp_video Advanced Get/ESignal графики]
- * [http://www.youtube.com/watch?v=uIubQGEnrTQ&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=8&feature=plpp_video Arche Pro]
- * [http://www.youtube.com/watch?v=caCBgbfNQm8&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=9&feature=plpp_video DAS Trader Pro]
- * [http://www.youtube.com/watch?v=zYNcsQiG9dU&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=2&feature=plpp_video Fusion (только графики и принты)]
- * [http://www.youtube.com/watch?v=UBgSxmDNyBk&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=1&feature=plpp_video Graybox Market Makers, Graybox Time & Sales]
- * [http://www.youtube.com/watch?v=9Td1hhIEFvI&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=10&feature=plpp_video Laser Trade]
- * [http://www.youtube.com/watch?v=NWdDxkU8Sp0&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=12&feature=plpp_video Lightspeed Trader]
- * [http://www.youtube.com/watch?v=7VS-Fvl2Iac&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=4&feature=plpp_video MBT Desktop, MBT Desktop Pro]
- * [http://www.youtube.com/watch?v=cXZm0GT-oaY&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=13&feature=plpp_video ROX]
- * [http://www.youtube.com/watch?v=UszrZHDW1ms&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=5&feature=plpp_video SDG Open Book]
- * [http://www.youtube.com/watch?v=D1KHt5amgrk&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=11&feature=plpp_video Takion]
- * [http://www.youtube.com/watch?v=c6G5PbT8BzA&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=6&feature=plpp_video Thinkorswim]
+ * [https://www.youtube.com/watch?v=idtUAU4p75s&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=7&feature=plpp_video Advanced Get/ESignal графики]
+ * [https://www.youtube.com/watch?v=uIubQGEnrTQ&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=8&feature=plpp_video Arche Pro]
+ * [https://www.youtube.com/watch?v=caCBgbfNQm8&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=9&feature=plpp_video DAS Trader Pro]
+ * [https://www.youtube.com/watch?v=zYNcsQiG9dU&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=2&feature=plpp_video Fusion (только графики и принты)]
+ * [https://www.youtube.com/watch?v=UBgSxmDNyBk&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=1&feature=plpp_video Graybox Market Makers, Graybox Time & Sales]
+ * [https://www.youtube.com/watch?v=9Td1hhIEFvI&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=10&feature=plpp_video Laser Trade]
+ * [https://www.youtube.com/watch?v=NWdDxkU8Sp0&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=12&feature=plpp_video Lightspeed Trader]
+ * [https://www.youtube.com/watch?v=7VS-Fvl2Iac&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=4&feature=plpp_video MBT Desktop, MBT Desktop Pro]
+ * [https://www.youtube.com/watch?v=cXZm0GT-oaY&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=13&feature=plpp_video ROX]
+ * [https://www.youtube.com/watch?v=UszrZHDW1ms&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=5&feature=plpp_video SDG Open Book]
+ * [https://www.youtube.com/watch?v=D1KHt5amgrk&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=11&feature=plpp_video Takion]
+ * [https://www.youtube.com/watch?v=c6G5PbT8BzA&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=6&feature=plpp_video Thinkorswim]
 
 == Видео-руководство ==
 
@@ -29,7 +29,7 @@ THT эмулирует ввод с клавиатуры. Не назначайт
 
 == Как слинковать вместе несколько окон? ==
 
-Линковка поддерживаемых платформ: http://www.youtube.com/playlist?list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm
+Линковка поддерживаемых платформ: https://www.youtube.com/playlist?list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm
 
 Заметки:
 
@@ -79,6 +79,10 @@ THT эмулирует ввод с клавиатуры. Не назначайт
 
 <wiki:video url="https://www.youtube.com/watch?v=r1Y7iNM7_9k" width="240" height="170"/>
 
+== Как перетащить тикер из другого приложения? ==
+
+<wiki:video url="https://www.youtube.com/watch?v=5cTvKkibyWo" width="240" height="170"/>
+
 == Как использовать приоритеты? ==
 
 Увеличивайте или понижайте приоритеты с помощью горячих клавиш. Это поможет вам запомнить тикеры с интересными уровнями поддержки или сопротивления, новыми максимумами и т.д.
@@ -121,6 +125,8 @@ http://i1148.photobucket.com/albums/o561/Dmitry_RK/unsaved.png
 
 *Показывать заголовок списка* - каждый список будет иметь заголовок (вы можете изменить его с помощью F2, см. далее)
 
+*Всегда показывать комментарии к тикеру* - если у тикера есть комментарий, то при перемещению по списку этот комментарий сразу будет отображаться во всплывающем окошке
+
 == Горячие клавиши? ==
 
 Да, THT поддерживает некоторые сочетания клавиш.
@@ -161,6 +167,8 @@ http://i1148.photobucket.com/albums/o561/Dmitry_RK/unsaved.png
  * *F* - открыть текущий тикер в Finviz
  * *G* - открыть текущий тикер в Google Finance
  * *Y* - открыть текущий тикер в Yahoo Finance
+ * *X* - показать комментарий к тикеру
+ * *Alt+X* - отредактировать комментарий к тикеру
  * *Z* - добавить тикеры из Finviz
 
 === Оконные сочетания: ===
