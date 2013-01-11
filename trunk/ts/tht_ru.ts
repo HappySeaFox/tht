@@ -388,8 +388,8 @@
     </message>
     <message>
         <location filename="../options.ui" line="192"/>
-        <source>Always show ticker comments</source>
-        <translation>Всегда показывать комментарии к тикеру</translation>
+        <source>Automatically show ticker comments</source>
+        <translation>Автоматически показывать комментарии к тикеру</translation>
     </message>
     <message>
         <location filename="../options.ui" line="159"/>
