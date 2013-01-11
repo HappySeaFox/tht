@@ -189,7 +189,7 @@
    <item row="7" column="0" colspan="3">
     <widget class="QCheckBox" name="checkComments">
      <property name="text">
-      <string>Always show ticker comments</string>
+      <string>Automatically show ticker comments</string>
      </property>
     </widget>
    </item>
