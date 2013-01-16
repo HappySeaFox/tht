@@ -241,7 +241,8 @@ THT::THT(QWidget *parent) :
     // watch for QWhatsThisClickedEvent
     qApp->installEventFilter(this);
 
-    QTimer::singleShot(0, this, SLOT(slotFoolsDay()));
+    if(!Settings::instance()->foolsDaySeen())
+        QTimer::singleShot(0, this, SLOT(slotFoolsDay()));
 }
 
 THT::~THT()
@@ -1533,9 +1534,6 @@ void THT::slotNeedRebuildFinvizMenu()
 
 void THT::slotFoolsDay()
 {
-    if(Settings::instance()->foolsDaySeen())
-        return;
-
     QDate day = QDate::currentDate();
 
     if(day.day() == 1 && day.month() == 4)
