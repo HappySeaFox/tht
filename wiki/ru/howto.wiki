@@ -212,7 +212,7 @@ http://i1148.photobucket.com/albums/o561/Dmitry_RK/unsaved.png
 
 == Как перевести THT на мой язык? ==
 
-Скачайте и установите Qt Linguist с https://code.google.com/p/qtlinguistdownload/downloads/list . Потом попросите меня создать новый файл перевода на ваш язык. Я создам этот файл и перешлю вам. Вы должны перевести его с помощью Qt Linguist и отослать обратно мне.
+Присоединяйтесь к https://www.transifex.com/projects/p/traders-home-task/
 
 == Как проверить обновления? ==
 

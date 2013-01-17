@@ -208,7 +208,7 @@ No difference.
 
 == How to translate THT into my native language? ==
 
-Download and install Qt Linguist from https://code.google.com/p/qtlinguistdownload/downloads/list . Then ask me to generate a new translation file. I'll generate and send it to you. Translate it with Qt Linguist and send me back.
+Join https://www.transifex.com/projects/p/traders-home-task/
 
 == How to check for updates? ==
 
