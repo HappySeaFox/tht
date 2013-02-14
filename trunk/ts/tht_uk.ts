@@ -721,42 +721,42 @@ right/middle mouse button to cancel.</source>
         <translation>Відновити</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="290"/>
+        <location filename="../tht.cpp" line="291"/>
         <source>Notice</source>
         <translation>Замітка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="290"/>
+        <location filename="../tht.cpp" line="291"/>
         <source>THT will continue to run in a system tray</source>
         <translation>ТНТ продовжить роботу в системному лотку</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="758"/>
+        <location filename="../tht.cpp" line="759"/>
         <source>Unknown</source>
         <translation>Невідомі</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1230"/>
+        <location filename="../tht.cpp" line="1231"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1230"/>
+        <location filename="../tht.cpp" line="1231"/>
         <source>Cannot take screenshot</source>
         <translation>Неможливо зробити знімок екрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1546"/>
+        <location filename="../tht.cpp" line="1544"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <translation>Всі величезні сучасні багатства нажито&lt;br&gt;найбезчеснішим засобом.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1547"/>
+        <location filename="../tht.cpp" line="1545"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <translation>&quot;Золоте Теля&quot; І.Ільф, Є.Петров</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1600"/>
+        <location filename="../tht.cpp" line="1598"/>
         <source>Customize...</source>
         <translation>Налаштувати...</translation>
     </message>
