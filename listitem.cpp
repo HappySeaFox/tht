@@ -63,3 +63,13 @@ void ListItem::setPriority(Ticker::Priority p, bool force)
 
     setBackground(brush);
 }
+
+bool ListItem::operator<(const QListWidgetItem &other) const
+{
+    const ListItem *o = dynamic_cast<const ListItem *>(&other);
+
+    if(!o)
+        return false;
+
+    return (priority() == o->priority()) ? text() < o->text() : priority() > o->priority();
+}

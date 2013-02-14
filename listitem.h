@@ -39,6 +39,8 @@ public:
     void removePriority();
     void resetPriority();
 
+    virtual bool operator<(const QListWidgetItem &other) const;
+
 private:
     Ticker::Priority m_priority;
     QString m_comment;
