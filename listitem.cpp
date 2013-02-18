@@ -69,7 +69,7 @@ bool ListItem::operator<(const QListWidgetItem &other) const
     const ListItem *o = dynamic_cast<const ListItem *>(&other);
 
     if(!o)
-        return false;
+        return text() < other.text();
 
     return (priority() == o->priority()) ? text() < o->text() : priority() > o->priority();
 }
