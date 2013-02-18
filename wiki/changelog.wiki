@@ -1,4 +1,7 @@
-== 1.5.0 ==
+== 1.5.1 ==
+ * sorting will also sort tickers by priority
+
+ == 1.5.0 ==
  * hotkeys: press "X" to show ticker's comment
  * hotkeys: press "Alt+X" to edit ticker's comment
  * added "Always show ticker comments" to Options
