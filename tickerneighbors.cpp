@@ -271,17 +271,14 @@ void TickerNeighbors::slotFetch()
     {
         lists = SqlTools::query("SELECT sector, industry FROM tickers WHERE ticker = :ticker", ":ticker", ticker);
 
-        if(lists.isEmpty())
+        QVariantList list;
+
+        if(lists.isEmpty() || (list = lists.at(0)).size() != 2)
         {
             ui->comboSector->setCurrentIndex(-1);
             ui->comboIndustry->setCurrentIndex(-1);
             return;
         }
-
-        QVariantList list = lists.at(0);
-
-        if(list.size() != 2)
-            return;
 
         sector = list.at(0).toString();
         industry = list.at(1).toString();
