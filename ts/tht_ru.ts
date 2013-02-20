@@ -818,8 +818,8 @@ right/middle mouse button to cancel.</source>
     </message>
     <message>
         <location filename="../tickerneighbors.cpp" line="253"/>
-        <location filename="../tickerneighbors.cpp" line="368"/>
-        <location filename="../tickerneighbors.cpp" line="399"/>
+        <location filename="../tickerneighbors.cpp" line="369"/>
+        <location filename="../tickerneighbors.cpp" line="400"/>
         <source>Copy (%1)</source>
         <translation>Копировать (%1)</translation>
     </message>
