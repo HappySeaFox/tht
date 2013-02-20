@@ -66,7 +66,7 @@ void ListItem::setPriority(Ticker::Priority p, bool force)
 
 bool ListItem::operator<(const QListWidgetItem &other) const
 {
-    const ListItem *o = dynamic_cast<const ListItem *>(&other);
+    const ListItem *o = static_cast<const ListItem *>(&other);
 
     if(!o)
         return text() < other.text();
