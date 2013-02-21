@@ -23,7 +23,6 @@
 #include <QDir>
 
 Q_IMPORT_PLUGIN(qico)
-Q_IMPORT_PLUGIN(qsqlite)
 
 #include <cstdio>
 

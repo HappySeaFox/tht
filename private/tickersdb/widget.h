@@ -21,6 +21,8 @@
 #include <QStringList>
 #include <QWidget>
 
+class QDate;
+
 class NetworkAccess;
 
 namespace Ui {
@@ -56,7 +58,8 @@ protected:
     virtual void closeEvent(QCloseEvent *);
 
 private:
-    bool writeData(const Ticker &);
+    bool writeTicker(const Ticker &);
+    bool writeFomcDate(const QDate &);
     void message(const QString &msg, bool activate = true);
 
 private slots:
