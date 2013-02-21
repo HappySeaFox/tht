@@ -639,124 +639,134 @@ right/middle mouse button to cancel.</source>
         <translation>Домашка трейдера</translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="75"/>
+        <location filename="../tht.ui" line="145"/>
         <source>No links</source>
         <translation>Посилання відсутні</translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="92"/>
+        <location filename="../tht.ui" line="162"/>
         <source>Links:</source>
         <translation>Посилань:</translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="113"/>
+        <location filename="../tht.ui" line="203"/>
         <source>Link points</source>
         <extracomment>Noun. Means &quot;Points of linkage&quot;</extracomment>
         <translation>Точки лінковки</translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="175"/>
+        <location filename="../tht.ui" line="267"/>
+        <source>News from FOMC is today</source>
+        <translation>Сьогодні новини від FOMC</translation>
+    </message>
+    <message>
+        <location filename="../tht.ui" line="270"/>
+        <source>FOMC</source>
+        <translation>FOMC</translation>
+    </message>
+    <message>
+        <location filename="../tht.ui" line="64"/>
         <source>THT is ready</source>
         <translation>ТНТ готовий до роботи</translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="207"/>
+        <location filename="../tht.ui" line="96"/>
         <source>THT is busy</source>
         <translation>THT зайнятий</translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="140"/>
+        <location filename="../tht.ui" line="183"/>
         <source>=N</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="108"/>
+        <location filename="../tht.cpp" line="109"/>
         <source>Options...</source>
         <translation>Параметри...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="111"/>
-        <location filename="../tht.cpp" line="174"/>
+        <location filename="../tht.cpp" line="112"/>
+        <location filename="../tht.cpp" line="175"/>
         <source>Take screenshot...</source>
         <translation>Знімок екрану...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="118"/>
+        <location filename="../tht.cpp" line="119"/>
         <source>Clear ticker lists</source>
         <translation>Очистити списки тікерів</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="115"/>
+        <location filename="../tht.cpp" line="116"/>
         <source>Clear links</source>
         <extracomment>Infinitive</extracomment>
         <translation>Очистити посилання</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="119"/>
         <location filename="../tht.cpp" line="120"/>
+        <location filename="../tht.cpp" line="121"/>
         <source>Load ticker</source>
         <translation>Завантажити тікер</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="123"/>
-        <location filename="../tht.cpp" line="176"/>
+        <location filename="../tht.cpp" line="124"/>
+        <location filename="../tht.cpp" line="177"/>
         <source>About THT</source>
         <translation>Про THT</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="124"/>
+        <location filename="../tht.cpp" line="125"/>
         <source>About Qt</source>
         <translation>Про Qt</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="126"/>
-        <location filename="../tht.cpp" line="178"/>
+        <location filename="../tht.cpp" line="127"/>
+        <location filename="../tht.cpp" line="179"/>
         <source>Quit</source>
         <translation>Вихід</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="173"/>
+        <location filename="../tht.cpp" line="174"/>
         <source>Restore</source>
         <extracomment>Means &quot;Restore from tray&quot;</extracomment>
         <translation>Відновити</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="291"/>
+        <location filename="../tht.cpp" line="300"/>
         <source>Notice</source>
         <translation>Замітка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="291"/>
+        <location filename="../tht.cpp" line="300"/>
         <source>THT will continue to run in a system tray</source>
         <translation>ТНТ продовжить роботу в системному лотку</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="761"/>
+        <location filename="../tht.cpp" line="770"/>
         <source>Unknown</source>
         <translation>Невідомі</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1233"/>
+        <location filename="../tht.cpp" line="1242"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1233"/>
+        <location filename="../tht.cpp" line="1242"/>
         <source>Cannot take screenshot</source>
         <translation>Неможливо зробити знімок екрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1546"/>
+        <location filename="../tht.cpp" line="1577"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <translation>Всі величезні сучасні багатства нажито&lt;br&gt;найбезчеснішим засобом.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1547"/>
+        <location filename="../tht.cpp" line="1578"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <translation>&quot;Золоте Теля&quot; І.Ільф, Є.Петров</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1600"/>
+        <location filename="../tht.cpp" line="1636"/>
         <source>Customize...</source>
         <translation>Налаштувати...</translation>
     </message>
