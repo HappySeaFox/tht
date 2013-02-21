@@ -579,8 +579,13 @@ void Widget::rereadFomcDates()
 
     if(!file.open(QIODevice::ReadOnly | QIODevice::Text))
     {
-        QMessageBox::critical(0, "Fatal error", QString("Cannot open %1 for reading").arg(file.fileName()));
-        return;
+        file.setFileName("fomc.txt");
+
+        if(!file.open(QIODevice::ReadOnly | QIODevice::Text))
+        {
+            QMessageBox::critical(0, "Fatal error", QString("Cannot open %1 for reading").arg(file.fileName()));
+            return;
+        }
     }
 
     QString line;
