@@ -27,6 +27,7 @@
 #include <QTimer>
 #include <QDebug>
 #include <QFile>
+#include <QDate>
 #include <QMap>
 
 #include <cstdlib>
@@ -127,9 +128,12 @@ void Widget::slotGet()
                          "exchange VARCHAR(16),"
                          "country VARCHAR(64),"
                          "cap DOUBLE"
+                         ");") ||
+       !query.exec("CREATE TABLE fomc ("
+                         "date VARCHAR(10)"
                          ");"))
     {
-        message(QString("Cannot query (%1)").arg(qPrintable(QSqlDatabase::database().lastError().text())));
+        message(QString("Cannot create table (%1)").arg(qPrintable(QSqlDatabase::database().lastError().text())));
         return;
     }
 
@@ -354,7 +358,7 @@ void Widget::slotFinished()
 
     for(QMap<QString, Ticker>::iterator i = map.begin();i != it;++i)
     {
-        if(!writeData(i.value()))
+        if(!writeTicker(i.value()))
         {
             m_running = false;
             return;
@@ -362,6 +366,40 @@ void Widget::slotFinished()
     }
 
     ui->list->setUpdatesEnabled(true);
+
+    // FOMC data
+    QList<QDate> dates;
+
+    // 2013
+    // FOMC minutes 	1/3 	2/20 	4/10 	5/22 	7/10 	8/21 	10/9 	11/20
+    // FOMS meetings    1/30 	3/20 	5/1 	6/19 	7/31 	9/18 	10/30 	12/18
+
+    dates << QDate(2013, 1, 3)
+          << QDate(2013, 2, 20)
+          << QDate(2013, 4, 10)
+          << QDate(2013, 5, 22)
+          << QDate(2013, 7, 10)
+          << QDate(2013, 8, 21)
+          << QDate(2013, 10, 9)
+          << QDate(2013, 11, 20)
+
+          << QDate(2013, 1, 30)
+          << QDate(2013, 3, 20)
+          << QDate(2013, 5, 1)
+          << QDate(2013, 6, 19)
+          << QDate(2013, 7, 31)
+          << QDate(2013, 9, 18)
+          << QDate(2013, 10, 30)
+          << QDate(2013, 12, 18);
+
+    foreach(QDate d, dates)
+    {
+        if(!writeFomcDate(d))
+        {
+            m_running = false;
+            return;
+        }
+    }
 
     // commit
     QSqlDatabase::database().commit();
@@ -481,7 +519,7 @@ void Widget::slotFinishedExchange()
     }
 }
 
-bool Widget::writeData(const Ticker &t)
+bool Widget::writeTicker(const Ticker &t)
 {
     QSqlQuery query;
 
@@ -506,6 +544,24 @@ bool Widget::writeData(const Ticker &t)
 
     return true;
 }
+
+bool Widget::writeFomcDate(const QDate &d)
+{
+    QSqlQuery query;
+
+    query.prepare("INSERT INTO fomc (date) VALUES (:date)");
+
+    query.bindValue(":date", d.toString("yyyy MM dd"));
+
+    if(!query.exec())
+    {
+        message(QString("Cannot query (%1)").arg(qPrintable(QSqlDatabase::database().lastError().text())));
+        return false;
+    }
+
+    return true;
+}
+
 
 void Widget::message(const QString &e, bool activate)
 {
