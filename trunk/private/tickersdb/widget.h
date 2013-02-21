@@ -20,8 +20,8 @@
 
 #include <QStringList>
 #include <QWidget>
-
-class QDate;
+#include <QList>
+#include <QDate>
 
 class NetworkAccess;
 
@@ -61,6 +61,7 @@ private:
     bool writeTicker(const Ticker &);
     bool writeFomcDate(const QDate &);
     void message(const QString &msg, bool activate = true);
+    void rereadFomcDates();
 
 private slots:
     bool commit();
@@ -76,6 +77,7 @@ private:
     QString m_ts;
     bool m_running;
     bool m_auto;
+    QList<QDate> m_fomcDates;
 };
 
 #endif // WIDGET_H

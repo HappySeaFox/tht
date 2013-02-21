@@ -27,7 +27,6 @@
 #include <QTimer>
 #include <QDebug>
 #include <QFile>
-#include <QDate>
 #include <QMap>
 
 #include <cstdlib>
@@ -52,6 +51,22 @@ Widget::Widget(QWidget *parent) :
     ui(new Ui::Widget),
     m_running(false)
 {
+    rereadFomcDates();
+
+    // check for correct year
+    if(m_fomcDates.isEmpty())
+    {
+        ::exit(1);
+        return;
+    }
+
+    if(m_fomcDates.first().year() != QDate::currentDate().year())
+    {
+        QMessageBox::critical(0, "Fatal error", "Please update the FOMC dates");
+        ::exit(1);
+        return;
+    }
+
     ui->setupUi(this);
 
     {
@@ -367,32 +382,7 @@ void Widget::slotFinished()
 
     ui->list->setUpdatesEnabled(true);
 
-    // FOMC data
-    QList<QDate> dates;
-
-    // 2013
-    // FOMC minutes 	1/3 	2/20 	4/10 	5/22 	7/10 	8/21 	10/9 	11/20
-    // FOMS meetings    1/30 	3/20 	5/1 	6/19 	7/31 	9/18 	10/30 	12/18
-
-    dates << QDate(2013, 1, 3)
-          << QDate(2013, 2, 20)
-          << QDate(2013, 4, 10)
-          << QDate(2013, 5, 22)
-          << QDate(2013, 7, 10)
-          << QDate(2013, 8, 21)
-          << QDate(2013, 10, 9)
-          << QDate(2013, 11, 20)
-
-          << QDate(2013, 1, 30)
-          << QDate(2013, 3, 20)
-          << QDate(2013, 5, 1)
-          << QDate(2013, 6, 19)
-          << QDate(2013, 7, 31)
-          << QDate(2013, 9, 18)
-          << QDate(2013, 10, 30)
-          << QDate(2013, 12, 18);
-
-    foreach(QDate d, dates)
+    foreach(QDate d, m_fomcDates)
     {
         if(!writeFomcDate(d))
         {
@@ -581,4 +571,32 @@ void Widget::message(const QString &e, bool activate)
 
     if(activate)
         QApplication::alert(this);
+}
+
+void Widget::rereadFomcDates()
+{
+    QFile file(PRO_FILE_PWD "/fomc.txt");
+
+    if(!file.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
+        QMessageBox::critical(0, "Fatal error", QString("Cannot open %1 for reading").arg(file.fileName()));
+        return;
+    }
+
+    QString line;
+
+    while(!(line = file.readLine().trimmed()).isEmpty())
+    {
+        QDate date = QDate::fromString(line, "yyyy MM dd");
+
+        if(!date.isValid())
+        {
+            QMessageBox::critical(0, "Fatal error", QString("Line \"%1\" is invalid").arg(line));
+            return;
+        }
+
+        qDebug("Added FOMC date %s", qPrintable(line));
+
+        m_fomcDates.append(date);
+    }
 }
