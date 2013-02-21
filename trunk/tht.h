@@ -196,7 +196,7 @@ private:
     QPointer<TickerNeighbors> m_sectors;
     QxtGlobalShortcut *m_takeScreen;
     HWND m_drawnWindow;
-    QTimer *m_fomcCheck;
+    QTimer *m_timerFomcCheck;
 };
 
 #endif // THT_H

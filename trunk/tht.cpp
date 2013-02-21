@@ -246,10 +246,10 @@ THT::THT(QWidget *parent) :
         QTimer::singleShot(0, this, SLOT(slotFoolsDay()));
 
     // FOMC warning
-    m_fomcCheck = new QTimer(this);
-    m_fomcCheck->setSingleShot(true);
-    m_fomcCheck->setInterval(60*60*1000); // check every 1 hour
-    connect(m_fomcCheck, SIGNAL(timeout()), this, SLOT(fomcCheck()));
+    m_timerFomcCheck = new QTimer(this);
+    m_timerFomcCheck->setSingleShot(true);
+    m_timerFomcCheck->setInterval(60*60*1000); // check every 1 hour
+    connect(m_timerFomcCheck, SIGNAL(timeout()), this, SLOT(fomcCheck()));
 
     fomcCheck();
 }
@@ -1416,7 +1416,7 @@ void THT::removeWindowMarker()
 void THT::fomcCheck()
 {
     // start check timer again
-    m_fomcCheck->start();
+    m_timerFomcCheck->start();
 
     // query FOMC date
     QString date = QDate::currentDate().toString("yyyy MM dd");
