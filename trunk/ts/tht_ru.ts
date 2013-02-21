@@ -731,32 +731,32 @@ right/middle mouse button to cancel.</source>
         <translation>THT продолжит работу в системном лотке</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="759"/>
+        <location filename="../tht.cpp" line="761"/>
         <source>Unknown</source>
         <translation>Неизвестные</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1231"/>
+        <location filename="../tht.cpp" line="1233"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1231"/>
+        <location filename="../tht.cpp" line="1233"/>
         <source>Cannot take screenshot</source>
         <translation>Невозможно сделать снимок экрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1544"/>
+        <location filename="../tht.cpp" line="1546"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <translation>Все крупные современные состояния нажиты&lt;br&gt;самым бесчестным путём.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1545"/>
+        <location filename="../tht.cpp" line="1547"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <translation>&quot;Золотой Телёнок&quot; И.Ильф, Е.Петров</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1598"/>
+        <location filename="../tht.cpp" line="1600"/>
         <source>Customize...</source>
         <translation>Настроить...</translation>
     </message>

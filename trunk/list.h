@@ -73,6 +73,10 @@ public:
 
     void rebuildFinvizMenu();
 
+    enum FixName { Fix, DontFix };
+
+    void addTickers(const QStringList &tk, FixName fix);
+
 protected:
     virtual bool eventFilter(QObject *obj, QEvent *event);
     virtual void moveEvent(QMoveEvent *);
@@ -86,10 +90,8 @@ private:
     void showSaved(bool isSaved);
     void showTickerInfo();
     QPixmap createDragCursor();
-    enum FixName { Fix, DontFix };
     enum CheckForDups { CheckDups, DontCheckDups };
     bool addItem(const QString &text, FixName, CheckForDups);
-    void addTickers(const QStringList &tk, FixName fix);
     void changePriority(int);
     void setPriority(int);
     void resizeNumberLabel();

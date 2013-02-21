@@ -349,29 +349,31 @@ void THT::dropEvent(QDropEvent *e)
 {
     e->acceptProposedAction();
 
-    QString ticker = e->mimeData()->text().trimmed().toUpper();
+    QString tickers = e->mimeData()->text().trimmed().toUpper();
+    QPoint pos = mapToGlobal(e->pos());
+    bool added = false;
 
-    if(Settings::instance()->tickerValidator().exactMatch(ticker))
+    foreach(List *l, m_lists)
     {
-        QPoint pos = mapToGlobal(e->pos());
-        bool added = false;
-
-        foreach(List *l, m_lists)
+        if(l->contains(pos))
         {
-            if(l->contains(pos))
-            {
-                qDebug("Dropped onto a list");
-                l->addTicker(Ticker(ticker));
-                added = true;
-                break;
-            }
+            qDebug("Dropped onto a list");
+            l->addTickers(tickers.split(QRegExp("\\s+"), QString::SkipEmptyParts), List::Fix);
+            added = true;
+            break;
         }
-
-        if(!added)
-            loadTicker(ticker);
     }
-    else
-        qDebug("Dropped ticker \"%s\" doesn't match the regexp", qPrintable(ticker));
+
+    if(!added)
+    {
+        if(Settings::instance()->tickerValidator().exactMatch(tickers))
+        {
+            qDebug("Dropped onto a main window");
+            loadTicker(tickers);
+        }
+        else
+            qDebug("Dropped ticker doesn't match the regexp");
+    }
 }
 
 void THT::sendKey(int key, bool extended)
