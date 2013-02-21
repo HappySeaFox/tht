@@ -51,6 +51,7 @@
 #include "regionselect.h"
 #include "tickerinput.h"
 #include "settings.h"
+#include "sqltools.h"
 #include "options.h"
 #include "ticker.h"
 #include "about.h"
@@ -243,6 +244,14 @@ THT::THT(QWidget *parent) :
 
     if(!Settings::instance()->foolsDaySeen())
         QTimer::singleShot(0, this, SLOT(slotFoolsDay()));
+
+    // FOMC warning
+    m_fomcCheck = new QTimer(this);
+    m_fomcCheck->setSingleShot(true);
+    m_fomcCheck->setInterval(60*60*1000); // check every 1 hour
+    connect(m_fomcCheck, SIGNAL(timeout()), this, SLOT(fomcCheck()));
+
+    fomcCheck();
 }
 
 THT::~THT()
@@ -1404,6 +1413,28 @@ void THT::removeWindowMarker()
     m_drawnWindow = 0;
 }
 
+void THT::fomcCheck()
+{
+    // start check timer again
+    m_fomcCheck->start();
+
+    // query FOMC date
+    QString date = QDate::currentDate().toString("yyyy MM dd");
+    QList<QVariantList> lists = SqlTools::query("SELECT date FROM fomc WHERE date = :date", ":date", date);
+    QVariantList list;
+
+    if(lists.isEmpty() || (list = lists.at(0)).size() != 1)
+    {
+        qDebug("Cannot query FOMC date");
+        ui->labelFomc->hide();
+        return;
+    }
+
+    qDebug("News from FOMC is today");
+
+    ui->labelFomc->show();
+}
+
 void THT::slotTargetDropped(const QPoint &p)
 {
     m_windows = &m_windowsLoad;
@@ -1548,6 +1579,11 @@ void THT::slotFoolsDay()
 
         Settings::instance()->setFoolsDaySeen(true);
     }
+}
+
+void THT::slotFomcClicked()
+{
+    QDesktopServices::openUrl(QUrl("http://www.bloomberg.com/markets/economic-calendar"));
 }
 
 bool THT::setForeignFocus(const Link &link)

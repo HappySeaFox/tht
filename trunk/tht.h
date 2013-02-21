@@ -168,6 +168,8 @@ private slots:
     void slotShowNeighbors(const QString &);
     void slotNeedRebuildFinvizMenu();
     void slotFoolsDay();
+    void slotFomcClicked();
+    void fomcCheck();
 
 private:
     Ui::THT *ui;
@@ -194,6 +196,7 @@ private:
     QPointer<TickerNeighbors> m_sectors;
     QxtGlobalShortcut *m_takeScreen;
     HWND m_drawnWindow;
+    QTimer *m_fomcCheck;
 };
 
 #endif // THT_H

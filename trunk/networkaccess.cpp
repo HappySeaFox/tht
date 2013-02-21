@@ -21,10 +21,10 @@
 
 #include <windows.h>
 
-#include "finvizcookiejar.h"
 #include "networkaccess.h"
 
 #ifdef NVER1
+#include "finvizcookiejar.h"
 #include "settings.h"
 #endif
 
@@ -32,7 +32,10 @@ NetworkAccess::NetworkAccess(QObject *parent) :
     QObject(parent)
 {
     m_manager = new QNetworkAccessManager(this);
+
+#ifdef NVER1
     m_manager->setCookieJar(new FinvizCookieJar(m_manager));
+#endif
 
     m_reply = 0;
     m_error = QNetworkReply::NoError;
