@@ -76,7 +76,9 @@ Widget::Widget(QWidget *parent) :
 
         if(!db.open())
         {
-            QMessageBox::critical(0, "Fatal error", QString("Cannot open database (%1)").arg(db.lastError().text()));
+            QMessageBox::critical(0, "Fatal error", QString("Cannot open database (%1).\nCurrent dir: %2")
+                                                        .arg(db.lastError().text())
+                                                        .arg(QDir::currentPath()));
             ::exit(1);
         }
 
@@ -92,7 +94,9 @@ Widget::Widget(QWidget *parent) :
 
     if(QFile::exists(THT_TICKERS_DB_NEW) && !QFile::remove(THT_TICKERS_DB_NEW))
     {
-        QMessageBox::critical(0, "Fatal error", QString("Cannot remove file %1").arg(THT_TICKERS_DB_NEW));
+        QMessageBox::critical(0, "Fatal error", QString("Cannot remove file %1.\nCurrent dir: %2")
+                                                    .arg(THT_TICKERS_DB_NEW)
+                                                    .arg(QDir::currentPath()));
         ::exit(1);
     }
 
@@ -101,7 +105,9 @@ Widget::Widget(QWidget *parent) :
 
     if(!db.open())
     {
-        QMessageBox::critical(0, "Fatal error", QString("Cannot open database (%1)").arg(db.lastError().text()));
+        QMessageBox::critical(0, "Fatal error", QString("Cannot open database (%1).\nCurrent dir: %2")
+                                                    .arg(db.lastError().text())
+                                                    .arg(QDir::currentPath()));
         ::exit(1);
     }
 
