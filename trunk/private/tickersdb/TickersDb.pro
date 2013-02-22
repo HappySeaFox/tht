@@ -1,12 +1,11 @@
-QT += core gui network sql
-
-QTPLUGIN += qico
-
 TARGET = TickersDb
 TEMPLATE = app
 
 INCLUDEPATH += ../..
 DEPENDPATH += ../..
+
+QT += core gui network sql
+QTPLUGIN += qico
 
 !exists($${_PRO_FILE_PWD_}/../../THT.pro) {
     error("This is not a THT source tree, don't know what to do")
