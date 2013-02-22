@@ -27,6 +27,7 @@
 #include <QTimer>
 #include <QDebug>
 #include <QFile>
+#include <QDir>
 #include <QMap>
 
 #include <cstdlib>
@@ -51,6 +52,8 @@ Widget::Widget(QWidget *parent) :
     ui(new Ui::Widget),
     m_running(false)
 {
+    ui->setupUi(this);
+
     rereadFomcDates();
 
     // check for correct year
@@ -66,8 +69,6 @@ Widget::Widget(QWidget *parent) :
         ::exit(1);
         return;
     }
-
-    ui->setupUi(this);
 
     {
         QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE", "old");
@@ -131,6 +132,9 @@ void Widget::slotGet()
     ui->checkForce->setEnabled(false);
     ui->pushGet->setEnabled(false);
     ui->list->clear();
+
+    ui->list->addItem(QDir::currentPath());
+
     qApp->processEvents();
 
     QSqlQuery query;
@@ -366,11 +370,17 @@ void Widget::slotFinished()
         return;
     }
 
-    // save tickers
+    // show FOMC dates
+    foreach(QDate d, m_fomcDates)
+    {
+        ui->list->addItem("FOMC " + d.toString("yyyy MM dd"));
+    }
+
     it = map.end();
 
     ui->list->setUpdatesEnabled(false);
 
+    // save tickers
     for(QMap<QString, Ticker>::iterator i = map.begin();i != it;++i)
     {
         if(!writeTicker(i.value()))
