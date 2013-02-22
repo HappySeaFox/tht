@@ -76,7 +76,6 @@ Widget::Widget(QWidget *parent) :
 
         if(!db.open())
         {
-            qDebug("Cannot open database (%s)", qPrintable(db.lastError().text()));
             QMessageBox::critical(0, "Fatal error", QString("Cannot open database (%1)").arg(db.lastError().text()));
             ::exit(1);
         }
@@ -91,14 +90,17 @@ Widget::Widget(QWidget *parent) :
 
     qDebug("Loaded %d old values", m_oldTickers.size());
 
-    QFile::remove(THT_TICKERS_DB_NEW);
+    if(QFile::exists(THT_TICKERS_DB_NEW) && !QFile::remove(THT_TICKERS_DB_NEW))
+    {
+        QMessageBox::critical(0, "Fatal error", QString("Cannot remove file %1").arg(THT_TICKERS_DB_NEW));
+        ::exit(1);
+    }
 
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName(THT_TICKERS_DB_NEW);
 
     if(!db.open())
     {
-        qDebug("Cannot open database (%s)", qPrintable(db.lastError().text()));
         QMessageBox::critical(0, "Fatal error", QString("Cannot open database (%1)").arg(db.lastError().text()));
         ::exit(1);
     }
