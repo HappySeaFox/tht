@@ -264,91 +264,91 @@
         <translation>Експортувати тікери</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="122"/>
+        <location filename="../list.cpp" line="123"/>
         <source>Clear</source>
         <translation>Очистити</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="124"/>
+        <location filename="../list.cpp" line="125"/>
         <source>Sort</source>
         <translation>Відсортувати</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="125"/>
+        <location filename="../list.cpp" line="126"/>
         <source>Change title</source>
         <translation>Змінити заголовок</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="127"/>
+        <location filename="../list.cpp" line="128"/>
         <source>Reset priorities</source>
         <translation>Скинути пріоритети</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="134"/>
+        <location filename="../list.cpp" line="135"/>
         <source>Add one ticker...</source>
         <translation>Додати один тікер...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="136"/>
+        <location filename="../list.cpp" line="137"/>
         <source>Add from file...</source>
         <translation>Додати з файлу...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="137"/>
+        <location filename="../list.cpp" line="138"/>
         <source>Add from clipboard</source>
         <translation>Додати з буфера обміну</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="139"/>
+        <location filename="../list.cpp" line="140"/>
         <source>Add from Finviz</source>
         <translation>Додати з Finviz</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="145"/>
+        <location filename="../list.cpp" line="146"/>
         <source>Export to file...</source>
         <translation>Експортувати в файл...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="146"/>
+        <location filename="../list.cpp" line="147"/>
         <source>Export to clipboard</source>
         <translation>Експортувати в буфер обміну</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="988"/>
+        <location filename="../list.cpp" line="993"/>
         <source>Customize...</source>
         <translation>Налаштувати...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1255"/>
-        <location filename="../list.cpp" line="1330"/>
+        <location filename="../list.cpp" line="1260"/>
+        <location filename="../list.cpp" line="1335"/>
         <source>Choose a file</source>
         <translation>Виберіть файл</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1257"/>
-        <location filename="../list.cpp" line="1332"/>
+        <location filename="../list.cpp" line="1262"/>
+        <location filename="../list.cpp" line="1337"/>
         <source>Text files (*.txt)</source>
         <translation>Текстові файли (*.txt)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1259"/>
-        <location filename="../list.cpp" line="1334"/>
+        <location filename="../list.cpp" line="1264"/>
+        <location filename="../list.cpp" line="1339"/>
         <source>All files (*.*)</source>
         <translation>Всі файли (*.*)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1294"/>
-        <location filename="../list.cpp" line="1344"/>
+        <location filename="../list.cpp" line="1299"/>
+        <location filename="../list.cpp" line="1349"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1294"/>
+        <location filename="../list.cpp" line="1299"/>
         <source>Cannot open the following files: %1</source>
         <translation>Неможливо відкрити наступні файли: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1344"/>
+        <location filename="../list.cpp" line="1349"/>
         <source>Cannot save to file %1</source>
         <translation>Неможливо зберегти в файл %1</translation>
     </message>
@@ -680,93 +680,93 @@ right/middle mouse button to cancel.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="109"/>
+        <location filename="../tht.cpp" line="110"/>
         <source>Options...</source>
         <translation>Параметри...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="112"/>
-        <location filename="../tht.cpp" line="175"/>
+        <location filename="../tht.cpp" line="113"/>
+        <location filename="../tht.cpp" line="176"/>
         <source>Take screenshot...</source>
         <translation>Знімок екрану...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="119"/>
+        <location filename="../tht.cpp" line="120"/>
         <source>Clear ticker lists</source>
         <translation>Очистити списки тікерів</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="116"/>
+        <location filename="../tht.cpp" line="117"/>
         <source>Clear links</source>
         <extracomment>Infinitive</extracomment>
         <translation>Очистити посилання</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="120"/>
         <location filename="../tht.cpp" line="121"/>
+        <location filename="../tht.cpp" line="122"/>
         <source>Load ticker</source>
         <translation>Завантажити тікер</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="124"/>
-        <location filename="../tht.cpp" line="177"/>
+        <location filename="../tht.cpp" line="125"/>
+        <location filename="../tht.cpp" line="178"/>
         <source>About THT</source>
         <translation>Про THT</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="125"/>
+        <location filename="../tht.cpp" line="126"/>
         <source>About Qt</source>
         <translation>Про Qt</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="127"/>
-        <location filename="../tht.cpp" line="179"/>
+        <location filename="../tht.cpp" line="128"/>
+        <location filename="../tht.cpp" line="180"/>
         <source>Quit</source>
         <translation>Вихід</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="174"/>
+        <location filename="../tht.cpp" line="175"/>
         <source>Restore</source>
         <extracomment>Means &quot;Restore from tray&quot;</extracomment>
         <translation>Відновити</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="300"/>
+        <location filename="../tht.cpp" line="304"/>
         <source>Notice</source>
         <translation>Замітка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="300"/>
+        <location filename="../tht.cpp" line="304"/>
         <source>THT will continue to run in a system tray</source>
         <translation>ТНТ продовжить роботу в системному лотку</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="770"/>
+        <location filename="../tht.cpp" line="774"/>
         <source>Unknown</source>
         <translation>Невідомі</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1242"/>
+        <location filename="../tht.cpp" line="1246"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1242"/>
+        <location filename="../tht.cpp" line="1246"/>
         <source>Cannot take screenshot</source>
         <translation>Неможливо зробити знімок екрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1577"/>
+        <location filename="../tht.cpp" line="1592"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <translation>Всі величезні сучасні багатства нажито&lt;br&gt;найбезчеснішим засобом.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1578"/>
+        <location filename="../tht.cpp" line="1593"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <translation>&quot;Золоте Теля&quot; І.Ільф, Є.Петров</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1636"/>
+        <location filename="../tht.cpp" line="1651"/>
         <source>Customize...</source>
         <translation>Налаштувати...</translation>
     </message>
