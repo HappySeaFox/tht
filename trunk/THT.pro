@@ -90,7 +90,8 @@ SOURCES += main.cpp\
     listdetails.cpp \
     inlinetextinput.cpp \
     tickercommentinput.cpp \
-    clickablelabel.cpp
+    clickablelabel.cpp \
+    remotedate.cpp
 
 HEADERS += tht.h \
     list.h \
@@ -142,7 +143,8 @@ HEADERS += tht.h \
     inlinetextinput.h \
     ticker.h \
     tickercommentinput.h \
-    clickablelabel.h
+    clickablelabel.h \
+    remotedate.h
 
 FORMS += tht.ui \
     list.ui \

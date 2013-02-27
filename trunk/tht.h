@@ -38,6 +38,7 @@ class QPoint;
 class QTimer;
 class QMenu;
 
+class RemoteDate;
 class Ticker;
 class List;
 
@@ -197,6 +198,7 @@ private:
     QxtGlobalShortcut *m_takeScreen;
     HWND m_drawnWindow;
     QTimer *m_timerFomcCheck;
+    RemoteDate *m_newYorkDate;
 };
 
 #endif // THT_H

@@ -50,6 +50,7 @@
 #include "savescreenshot.h"
 #include "regionselect.h"
 #include "tickerinput.h"
+#include "remotedate.h"
 #include "settings.h"
 #include "sqltools.h"
 #include "options.h"
@@ -239,11 +240,10 @@ THT::THT(QWidget *parent) :
     if(Settings::instance()->restoreNeighborsAtStartup() && Settings::instance()->showNeighborsAtStartup())
         slotShowNeighbors(startupTicker);
 
-    // watch for QWhatsThisClickedEvent
-    qApp->installEventFilter(this);
-
     if(!Settings::instance()->foolsDaySeen())
         QTimer::singleShot(0, this, SLOT(slotFoolsDay()));
+
+    m_newYorkDate = new RemoteDate("Eastern Standard Time");
 
     // FOMC warning
     m_timerFomcCheck = new QTimer(this);
@@ -252,6 +252,9 @@ THT::THT(QWidget *parent) :
     connect(m_timerFomcCheck, SIGNAL(timeout()), this, SLOT(fomcCheck()));
 
     fomcCheck();
+
+    // watch for QWhatsThisClickedEvent
+    qApp->installEventFilter(this);
 }
 
 THT::~THT()
@@ -266,6 +269,7 @@ THT::~THT()
 
     Settings::instance()->setShowNeighborsAtStartup(m_sectors);
 
+    delete m_newYorkDate;
     delete ui;
 }
 
@@ -1418,8 +1422,8 @@ void THT::fomcCheck()
     // start check timer again
     m_timerFomcCheck->start();
 
-    // determine the New York time w/o DST
-    QDateTime datetime = QDateTime::currentDateTimeUtc().addSecs(-5*60*60);
+    // determine the New York time
+    QDateTime datetime = m_newYorkDate->dateTime();
 
     if(!datetime.isValid())
     {
@@ -1427,10 +1431,10 @@ void THT::fomcCheck()
         return;
     }
 
+    qDebug("New York time: %s", qPrintable(datetime.toString("dd.MM.yyyy hh:mm:ss")));
+
     // query FOMC date
     QString date = datetime.toString("yyyy MM dd");
-    qDebug("Querying date \"%s\" to check for FOMC", qPrintable(date));
-
     QList<QVariantList> lists = SqlTools::query("SELECT date FROM fomc WHERE date = :date", ":date", date);
     QVariantList list;
 
