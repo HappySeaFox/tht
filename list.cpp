@@ -88,7 +88,8 @@ List::List(int group, QWidget *parent) :
     m_section(group),
     m_saveTickers(Settings::instance()->saveTickers()),
     m_ignoreInput(false),
-    m_dragging(false)
+    m_dragging(false),
+    m_currentItemBeforeSearch(0)
 {
     ui->setupUi(this);
 
@@ -262,6 +263,10 @@ void List::removeDuplicates()
 void List::stopSearching()
 {
     qDebug("Searching ticker has finished");
+
+    // set old selected item
+    if(!ui->list->currentItem())
+        ui->list->setCurrentItem(m_currentItemBeforeSearch);
 
     // revert old delegate
     ui->list->setItemDelegate(m_oldDelegate);
@@ -1395,6 +1400,8 @@ void List::startSearching()
 
     m_foundItems.clear();
 
+    m_currentItemBeforeSearch = ui->list->currentItem();
+
     ui->list->setItemDelegate(m_persistentDelegate);
 
     ui->widgetSearch->startEditing();
@@ -1424,12 +1431,14 @@ void List::reconfigureMiniTickerEntry()
 void List::slotSearchTicker(const QString &ticker)
 {
     if(ticker.isEmpty())
+    {
+        ui->list->setCurrentItem(0);
         return;
+    }
 
     m_foundItems = ui->list->findItems(ticker, Qt::MatchStartsWith);
 
-    if(!m_foundItems.isEmpty() && m_foundItems[0])
-        ui->list->setCurrentItem(m_foundItems[0]);
+    ui->list->setCurrentItem(m_foundItems.isEmpty() ? 0 : m_foundItems[0]);
 }
 
 void List::slotSearchTickerNext()

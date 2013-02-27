@@ -168,6 +168,7 @@ private:
     QStringList m_oldTickers;
     QMenu *m_finvizMenu;
     QAction *m_changeTitle;
+    QListWidgetItem *m_currentItemBeforeSearch;
 };
 
 inline
