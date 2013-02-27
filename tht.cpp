@@ -1418,8 +1418,19 @@ void THT::fomcCheck()
     // start check timer again
     m_timerFomcCheck->start();
 
+    // determine the New York time w/o DST
+    QDateTime datetime = QDateTime::currentDateTimeUtc().addSecs(-5*60*60);
+
+    if(!datetime.isValid())
+    {
+        qDebug("New York time is invalid");
+        return;
+    }
+
     // query FOMC date
-    QString date = QDate::currentDate().toString("yyyy MM dd");
+    QString date = datetime.toString("yyyy MM dd");
+    qDebug("Querying date \"%s\" to check for FOMC", qPrintable(date));
+
     QList<QVariantList> lists = SqlTools::query("SELECT date FROM fomc WHERE date = :date", ":date", date);
     QVariantList list;
 
