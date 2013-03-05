@@ -790,7 +790,7 @@ right/middle mouse button to cancel.</source>
 <context>
     <name>TickerInformationToolTipLabel</name>
     <message>
-        <location filename="../tickerinformationtooltip.cpp" line="179"/>
+        <location filename="../tickerinformationtooltip.cpp" line="182"/>
         <source>Not found</source>
         <translation>Не знайдено</translation>
     </message>
