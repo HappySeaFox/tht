@@ -98,7 +98,7 @@ public slots:
     }
 
 private slots:
-    void slotFetcherDone(const QString &, const QString &, const QString &);
+    void slotFetcherDone(const QString &, const QString &, const QString &, const QString &);
 
 private:
     QWidget *styleSheetParent;
@@ -118,8 +118,8 @@ TickerInformationToolTipLabel::TickerInformationToolTipLabel(const QString &text
 
     fetcher = new TickerInformationFetcher(this);
 
-    connect(fetcher, SIGNAL(done(QString,QString,QString)),
-            this, SLOT(slotFetcherDone(QString,QString,QString)));
+    connect(fetcher, SIGNAL(done(QString,QString,QString,QString)),
+            this, SLOT(slotFetcherDone(QString,QString,QString,QString)));
 
     setForegroundRole(QPalette::ToolTipText);
     setBackgroundRole(QPalette::ToolTipBase);
@@ -172,7 +172,10 @@ void TickerInformationToolTipLabel::reuseTip(const QString &text, bool isTicker)
     fetcher->fetch(ticker);
 }
 
-void TickerInformationToolTipLabel::slotFetcherDone(const QString &name, const QString &sector, const QString &industry)
+void TickerInformationToolTipLabel::slotFetcherDone(const QString &name,
+                                                    const QString &exchange,
+                                                    const QString &sector,
+                                                    const QString &industry)
 {
     if(name.isEmpty())
     {
@@ -181,18 +184,7 @@ void TickerInformationToolTipLabel::slotFetcherDone(const QString &name, const Q
         return;
     }
 
-    QString result = name;
-
-    // resulting tooltip
-    if(!sector.isEmpty())
-    {
-        result += '\n' + sector;
-
-        if(!industry.isEmpty())
-            result += " / " + industry;
-    }
-
-    TickerInformationToolTip::showText(QPoint(), result, false);
+    TickerInformationToolTip::showText(QPoint(), name + '\n' + exchange + " / " + sector + " / " + industry, false);
     restartExpireTimer();
 }
 

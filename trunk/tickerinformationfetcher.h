@@ -35,7 +35,9 @@ public:
 signals:
     // name is empty on error
     void done(const QString &name = QString(),
-              const QString &sector = QString(), const QString &industry = QString());
+              const QString &sector = QString(),
+              const QString &industry = QString(),
+              const QString &exchange = QString());
 
 private slots:
     void slotFetch();
