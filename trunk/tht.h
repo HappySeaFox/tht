@@ -170,7 +170,7 @@ private slots:
     void slotNeedRebuildFinvizMenu();
     void slotFoolsDay();
     void slotFomcClicked();
-    void fomcCheck();
+    void slotFomcCheck();
 
 private:
     Ui::THT *ui;

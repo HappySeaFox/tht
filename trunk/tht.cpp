@@ -249,9 +249,9 @@ THT::THT(QWidget *parent) :
     m_timerFomcCheck = new QTimer(this);
     m_timerFomcCheck->setSingleShot(true);
     m_timerFomcCheck->setInterval(60*60*1000); // check every 1 hour
-    connect(m_timerFomcCheck, SIGNAL(timeout()), this, SLOT(fomcCheck()));
+    connect(m_timerFomcCheck, SIGNAL(timeout()), this, SLOT(slotFomcCheck()));
 
-    fomcCheck();
+    QTimer::singleShot(0, this, SLOT(slotFomcCheck()));
 
     // watch for QWhatsThisClickedEvent
     qApp->installEventFilter(this);
@@ -1417,7 +1417,7 @@ void THT::removeWindowMarker()
     m_drawnWindow = 0;
 }
 
-void THT::fomcCheck()
+void THT::slotFomcCheck()
 {
     // start check timer again
     m_timerFomcCheck->start();
@@ -1425,29 +1425,27 @@ void THT::fomcCheck()
     // determine the New York time
     QDateTime datetime = m_newYorkDate->dateTime();
 
-    if(!datetime.isValid())
+    if(datetime.isValid())
     {
+        qDebug("New York time: %s", qPrintable(datetime.toString("dd.MM.yyyy hh:mm:ss")));
+
+        // query FOMC date
+        QString date = datetime.toString("yyyy MM dd");
+        QList<QVariantList> lists = SqlTools::query("SELECT date FROM fomc WHERE date = :date", ":date", date);
+
+        if(!lists.isEmpty() && lists.at(0).size() == 1)
+        {
+            qDebug("News from FOMC is today");
+            ui->labelFomc->show();
+            return;
+        }
+        else
+            qDebug("Cannot query FOMC date");
+    }
+    else
         qDebug("New York time is invalid");
-        return;
-    }
 
-    qDebug("New York time: %s", qPrintable(datetime.toString("dd.MM.yyyy hh:mm:ss")));
-
-    // query FOMC date
-    QString date = datetime.toString("yyyy MM dd");
-    QList<QVariantList> lists = SqlTools::query("SELECT date FROM fomc WHERE date = :date", ":date", date);
-    QVariantList list;
-
-    if(lists.isEmpty() || (list = lists.at(0)).size() != 1)
-    {
-        qDebug("Cannot query FOMC date");
-        ui->labelFomc->hide();
-        return;
-    }
-
-    qDebug("News from FOMC is today");
-
-    ui->labelFomc->show();
+    ui->labelFomc->hide();
 }
 
 void THT::slotTargetDropped(const QPoint &p)

@@ -756,17 +756,17 @@ right/middle mouse button to cancel.</source>
         <translation>Невозможно сделать снимок экрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1592"/>
+        <location filename="../tht.cpp" line="1590"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <translation>Все крупные современные состояния нажиты&lt;br&gt;самым бесчестным путём.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1593"/>
+        <location filename="../tht.cpp" line="1591"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <translation>&quot;Золотой Телёнок&quot; И.Ильф, Е.Петров</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1651"/>
+        <location filename="../tht.cpp" line="1649"/>
         <source>Customize...</source>
         <translation>Настроить...</translation>
     </message>
