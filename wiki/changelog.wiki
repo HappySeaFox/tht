@@ -1,3 +1,7 @@
+== 1.5.2 ==
+ * added ability to drop multiple tickers (from browser for example)
+ * added FOMC warning
+
 == 1.5.1 ==
  * sorting will also sort tickers by priority
 
