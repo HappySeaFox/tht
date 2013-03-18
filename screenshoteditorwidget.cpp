@@ -381,6 +381,7 @@ void ScreenshotEditorWidget::drawArrow(QPainter *p, const QPoint &pt1, const QPo
 
     p->save();
 
+    // arrow coordinates
     const QPoint pts[3] = { QPoint(0, 0), QPoint(-width/2, length), QPoint(width/2, length) };
 
     QTransform tr;
@@ -388,7 +389,7 @@ void ScreenshotEditorWidget::drawArrow(QPainter *p, const QPoint &pt1, const QPo
     tr.rotate(270.0 - QLineF(pt1, pt1+QPoint(10,0)).angleTo(QLineF(pt1, pt2)));
 
     p->setWorldTransform(tr);
-    p->drawPolygon(pts, 3);
+    p->drawPolygon(pts, sizeof(pts) / sizeof(pts[0]));
 
     p->restore();
 }
