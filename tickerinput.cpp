@@ -15,6 +15,9 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <QKeyEvent>
+
+#include "tickerinformationtooltip.h"
 #include "uppercasevalidator.h"
 #include "tickerinput.h"
 #include "settings.h"
@@ -27,6 +30,7 @@ TickerInput::TickerInput(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->line->setValidator(new UpperCaseValidator(ui->line));
+    ui->line->installEventFilter(this);
 
     ui->line->setText(Settings::instance()->lastTickerInput());
     ui->line->selectAll();
@@ -45,4 +49,22 @@ QString TickerInput::ticker() const
 void TickerInput::slotAccepted()
 {
     Settings::instance()->setLastTickerInput(ui->line->text());
+}
+
+bool TickerInput::eventFilter(QObject *o, QEvent *e)
+{
+    if(e->type() == QEvent::KeyPress)
+    {
+        QKeyEvent *ke = static_cast<QKeyEvent *>(e);
+
+        if(ke && ke->key() == Qt::Key_Space)
+        {
+            TickerInformationToolTip::showText(ui->line->mapToGlobal(QPoint(0, ui->line->height())),
+                                               ui->line->text());
+
+            return true;
+        }
+    }
+
+    return QObject::eventFilter(o, e);
 }
