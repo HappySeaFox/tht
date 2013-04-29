@@ -29,6 +29,7 @@
 
 #include "screenshoteditor.h"
 #include "savescreenshot.h"
+#include "remotedate.h"
 #include "settings.h"
 
 #include "ui_savescreenshot.h"
@@ -72,10 +73,15 @@ void SaveScreenshot::slotFile()
         filter += current + ";;";
     }
 
+    QDateTime date = RemoteDate("Eastern Standard Time").dateTime();
+
+    if(!date.isValid())
+        date = QDateTime::currentDateTime();
+
     QString fileName = QFileDialog::getSaveFileName(this, tr("Save as"),
                                                     Settings::instance()->lastScreenShotDirectory()
                                                     + QDir::separator()
-                                                    + QDateTime::currentDateTime().toString("yyyy-MM-dd-"),
+                                                    + date.toString("yyyy-MM-dd-"),
                                                     filter, &selectedFilter);
 
     if(fileName.isEmpty())
