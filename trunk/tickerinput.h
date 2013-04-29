@@ -35,6 +35,9 @@ public:
 
     QString ticker() const;
 
+protected:
+    virtual bool eventFilter(QObject *o, QEvent *e);
+
 private slots:
     void slotAccepted();
 
