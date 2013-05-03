@@ -260,6 +260,26 @@ void Settings::setScreenshotTextColor(const QColor &c, SyncType sync)
     save<QColor>("screenshot-text-color", c, sync);
 }
 
+void Settings::setRestoreLinkPointsAtStartup(bool s, SyncType sync)
+{
+    save<bool>("restore-link-points-at-startup", s, sync);
+}
+
+bool Settings::restoreLinkPointsAtStartup()
+{
+    return load<bool>("restore-link-points-at-startup", false);
+}
+
+void Settings::setLastLinkPoints(const QList<QPoint> &list, Settings::SyncType sync)
+{
+    save<QList<QPoint> >("last-link-points", list, sync);
+}
+
+QList<QPoint> Settings::lastLinkPoints()
+{
+    return load<QList<QPoint> >("last-link-points");
+}
+
 void Settings::setShowComments(bool s, SyncType sync)
 {
     save<bool>("show-comments", s, sync);

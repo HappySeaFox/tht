@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>350</width>
-    <height>310</height>
+    <height>333</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -130,7 +130,7 @@
      </property>
     </widget>
    </item>
-   <item row="8" column="0">
+   <item row="9" column="0">
     <spacer name="verticalSpacer">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
@@ -143,7 +143,7 @@
      </property>
     </spacer>
    </item>
-   <item row="9" column="2">
+   <item row="10" column="2">
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -160,7 +160,7 @@
      </property>
     </widget>
    </item>
-   <item row="9" column="1">
+   <item row="10" column="1">
     <spacer name="horizontalSpacer">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -173,7 +173,7 @@
      </property>
     </spacer>
    </item>
-   <item row="9" column="0">
+   <item row="10" column="0">
     <widget class="QLabel" name="labelRestart">
      <property name="font">
       <font>
@@ -193,6 +193,13 @@
      </property>
     </widget>
    </item>
+   <item row="8" column="0" colspan="3">
+    <widget class="QCheckBox" name="checkRestoreLP">
+     <property name="text">
+      <string>Restore link points at startup</string>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
  <tabstops>
@@ -207,6 +214,7 @@
   <tabstop>checkMini</tabstop>
   <tabstop>checkHeader</tabstop>
   <tabstop>checkComments</tabstop>
+  <tabstop>checkRestoreLP</tabstop>
   <tabstop>buttonBox</tabstop>
  </tabstops>
  <resources>

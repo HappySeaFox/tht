@@ -392,6 +392,11 @@
         <translation>Автоматично показувати коментарі до тікера</translation>
     </message>
     <message>
+        <location filename="../options.ui" line="199"/>
+        <source>Restore link points at startup</source>
+        <translation>Відновлювати точки лінковки при старті</translation>
+    </message>
+    <message>
         <location filename="../options.ui" line="159"/>
         <source>Fast ticker entry</source>
         <translation>Швидке введення тікера</translation>
@@ -430,19 +435,19 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../settings.cpp" line="669"/>
+        <location filename="../settings.cpp" line="689"/>
         <source>Russian</source>
         <extracomment>Russian language</extracomment>
         <translation>Російська</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="672"/>
+        <location filename="../settings.cpp" line="692"/>
         <source>Ukrainian</source>
         <extracomment>Ukrainian language</extracomment>
         <translation>Українська</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="675"/>
+        <location filename="../settings.cpp" line="695"/>
         <source>English</source>
         <extracomment>English language</extracomment>
         <translation>Англійська</translation>
@@ -503,22 +508,22 @@ right/middle mouse button to cancel.</source>
         <translation>Файл...</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="67"/>
+        <location filename="../savescreenshot.cpp" line="68"/>
         <source>Image %1 (*.%2)</source>
         <translation>Зображення %1 (*.%2)</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="75"/>
+        <location filename="../savescreenshot.cpp" line="81"/>
         <source>Save as</source>
         <translation>Зберегти як</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="93"/>
+        <location filename="../savescreenshot.cpp" line="99"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="93"/>
+        <location filename="../savescreenshot.cpp" line="99"/>
         <source>Cannot save screenshot</source>
         <translation>Неможливо зберегти знімок екрана</translation>
     </message>
@@ -731,42 +736,42 @@ right/middle mouse button to cancel.</source>
         <translation>Відновити</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="304"/>
+        <location filename="../tht.cpp" line="327"/>
         <source>Notice</source>
         <translation>Замітка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="304"/>
+        <location filename="../tht.cpp" line="327"/>
         <source>THT will continue to run in a system tray</source>
         <translation>ТНТ продовжить роботу в системному лотку</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="774"/>
+        <location filename="../tht.cpp" line="797"/>
         <source>Unknown</source>
         <translation>Невідомі</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1246"/>
+        <location filename="../tht.cpp" line="1269"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1246"/>
+        <location filename="../tht.cpp" line="1269"/>
         <source>Cannot take screenshot</source>
         <translation>Неможливо зробити знімок екрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1590"/>
+        <location filename="../tht.cpp" line="1614"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <translation>Всі величезні сучасні багатства нажито&lt;br&gt;найбезчеснішим засобом.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1591"/>
+        <location filename="../tht.cpp" line="1615"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <translation>&quot;Золоте Теля&quot; І.Ільф, Є.Петров</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1649"/>
+        <location filename="../tht.cpp" line="1673"/>
         <source>Customize...</source>
         <translation>Налаштувати...</translation>
     </message>
