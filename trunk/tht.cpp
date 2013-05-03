@@ -252,17 +252,7 @@ THT::THT(QWidget *parent) :
     connect(m_timerFomcCheck, SIGNAL(timeout()), this, SLOT(slotFomcCheck()));
 
     QTimer::singleShot(0, this, SLOT(slotFomcCheck()));
-
-    // restore link points
-    if(Settings::instance()->restoreLinkPointsAtStartup())
-    {
-        QList<QPoint> list = Settings::instance()->lastLinkPoints();
-
-        foreach(QPoint p, list)
-        {
-            targetDropped(p, false);
-        }
-    }
+    QTimer::singleShot(0, this, SLOT(slotRestoreLinkPoints()));
 
     // watch for QWhatsThisClickedEvent
     qApp->installEventFilter(this);
@@ -1469,6 +1459,20 @@ void THT::slotFomcCheck()
         qDebug("New York time is invalid");
 
     ui->labelFomc->hide();
+}
+
+void THT::slotRestoreLinkPoints()
+{
+    // restore link points
+    if(Settings::instance()->restoreLinkPointsAtStartup())
+    {
+        QList<QPoint> list = Settings::instance()->lastLinkPoints();
+
+        foreach(QPoint p, list)
+        {
+            targetDropped(p, false);
+        }
+    }
 }
 
 void THT::targetDropped(const QPoint &p, bool beep)

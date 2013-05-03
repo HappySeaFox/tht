@@ -170,6 +170,7 @@ private slots:
     void slotFoolsDay();
     void slotFomcClicked();
     void slotFomcCheck();
+    void slotRestoreLinkPoints();
     void targetDropped(const QPoint &, bool beep = true);
 
 private:
