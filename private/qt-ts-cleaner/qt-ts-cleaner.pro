@@ -20,6 +20,10 @@ defineReplace(mle) {
     return ( $$1$$escape_expand(\\n\\t) )
 }
 
+contains(QMAKE_HOST.arch, x86_64) {
+    HOST64="-x86_64"
+}
+
 # check for upx
 UPX=$$findexe("upx.exe")
 
