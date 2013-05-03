@@ -84,9 +84,6 @@ THT::THT(QWidget *parent) :
 
     setAcceptDrops(true);
 
-    QMenu *linkPointsMenu = new QMenu(ui->pushLinks);
-    ui->pushLinks->setMenu(linkPointsMenu);
-
     // NYSE only
     ui->checkNyse->setChecked(Settings::instance()->nyseOnly());
 
@@ -185,7 +182,6 @@ THT::THT(QWidget *parent) :
     m_tray->setVisible(Settings::instance()->hideToTray());
 
     checkWindows();
-    rebuildLinkPoints();
 
     // predefined tickers, menu & shortcuts
     PredefinedTickerMappings mappings;
@@ -252,6 +248,12 @@ THT::THT(QWidget *parent) :
     connect(m_timerFomcCheck, SIGNAL(timeout()), this, SLOT(slotFomcCheck()));
 
     QTimer::singleShot(0, this, SLOT(slotFomcCheck()));
+
+    // link points
+    QMenu *linkPointsMenu = new QMenu(ui->pushLinks);
+    ui->pushLinks->setMenu(linkPointsMenu);
+
+    rebuildLinkPoints();
     QTimer::singleShot(0, this, SLOT(slotRestoreLinkPoints()));
 
     // watch for QWhatsThisClickedEvent
