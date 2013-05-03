@@ -313,7 +313,7 @@
    <sender>target</sender>
    <signal>dropped(QPoint)</signal>
    <receiver>THT</receiver>
-   <slot>slotTargetDropped(QPoint)</slot>
+   <slot>targetDropped(QPoint)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>28</x>
@@ -391,7 +391,7 @@
   </connection>
  </connections>
  <slots>
-  <slot>slotTargetDropped(QPoint)</slot>
+  <slot>targetDropped(QPoint)</slot>
   <slot>slotClearLinks()</slot>
   <slot>slotTargetMoving(QPoint)</slot>
   <slot>slotTargetCancelled()</slot>

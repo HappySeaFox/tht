@@ -159,7 +159,6 @@ private slots:
     void slotManageLinks();
     void slotLoadLinks();
     void slotLockLinks();
-    void slotTargetDropped(const QPoint &);
     void slotTargetMoving(const QPoint &);
     void slotTargetCancelled();
     void slotTickerDropped(const Ticker &, const QPoint &);
@@ -171,6 +170,7 @@ private slots:
     void slotFoolsDay();
     void slotFomcClicked();
     void slotFomcCheck();
+    void targetDropped(const QPoint &, bool beep = true);
 
 private:
     Ui::THT *ui;

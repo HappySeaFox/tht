@@ -253,6 +253,17 @@ THT::THT(QWidget *parent) :
 
     QTimer::singleShot(0, this, SLOT(slotFomcCheck()));
 
+    // restore link points
+    if(Settings::instance()->restoreLinkPointsAtStartup())
+    {
+        QList<QPoint> list = Settings::instance()->lastLinkPoints();
+
+        foreach(QPoint p, list)
+        {
+            targetDropped(p, false);
+        }
+    }
+
     // watch for QWhatsThisClickedEvent
     qApp->installEventFilter(this);
 }
@@ -265,6 +276,18 @@ THT::~THT()
     {
         Settings::instance()->setWindowSize(size(), Settings::NoSync);
         Settings::instance()->setWindowPosition(pos(), Settings::NoSync);
+    }
+
+    if(Settings::instance()->restoreLinkPointsAtStartup())
+    {
+        QList<QPoint> list;
+
+        foreach(Link l, m_windowsLoad)
+        {
+            list.append(l.dropPoint);
+        }
+
+        Settings::instance()->setLastLinkPoints(list);
     }
 
     Settings::instance()->setShowNeighborsAtStartup(m_sectors);
@@ -1309,7 +1332,7 @@ void THT::slotLoadLinks()
 
     foreach(QPoint p, links)
     {
-        slotTargetDropped(p);
+        targetDropped(p);
     }
 }
 
@@ -1448,7 +1471,7 @@ void THT::slotFomcCheck()
     ui->labelFomc->hide();
 }
 
-void THT::slotTargetDropped(const QPoint &p)
+void THT::targetDropped(const QPoint &p, bool beep)
 {
     m_windows = &m_windowsLoad;
 
@@ -1467,7 +1490,8 @@ void THT::slotTargetDropped(const QPoint &p)
     link.dropPoint = p;
 
     // beep
-    MessageBeep(MB_OK);
+    if(beep)
+        MessageBeep(MB_OK);
 
     m_windows->append(link);
 
