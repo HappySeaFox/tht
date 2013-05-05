@@ -75,7 +75,8 @@ THT::THT(QWidget *parent) :
     m_running(false),
     m_locked(false),
     m_lastActiveWindow(0),
-    m_drawnWindow(0)
+    m_drawnWindow(0),
+    m_linkPointsChanged(false)
 {
     if(Settings::instance()->onTop())
         setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
@@ -270,7 +271,7 @@ THT::~THT()
         Settings::instance()->setWindowPosition(pos(), Settings::NoSync);
     }
 
-    if(Settings::instance()->restoreLinkPointsAtStartup())
+    if(m_linkPointsChanged && Settings::instance()->restoreLinkPointsAtStartup())
     {
         QList<QPoint> list;
 
@@ -1031,6 +1032,7 @@ void THT::slotOptions()
 {
     bool oldDups = Settings::instance()->allowDuplicates();
     bool oldMini = Settings::instance()->miniTickerEntry();
+    bool oldRestoreLP = Settings::instance()->restoreLinkPointsAtStartup();
 
     Options opt(this);
 
@@ -1073,6 +1075,9 @@ void THT::slotOptions()
             foreach(List *l, m_lists)
                 l->reconfigureMiniTickerEntry();
         }
+
+        if(!oldRestoreLP && Settings::instance()->restoreLinkPointsAtStartup())
+            m_linkPointsChanged = true;
 
         // reset geometry
         if(!Settings::instance()->saveGeometry())
@@ -1474,6 +1479,8 @@ void THT::slotRestoreLinkPoints()
         {
             targetDropped(p, false);
         }
+
+        m_linkPointsChanged = false;
     }
 }
 
@@ -1502,6 +1509,8 @@ void THT::targetDropped(const QPoint &p, bool beep)
     m_windows->append(link);
 
     checkWindows();
+
+    m_linkPointsChanged = true;
 }
 
 void THT::slotTargetMoving(const QPoint &pt)

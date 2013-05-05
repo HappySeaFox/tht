@@ -200,6 +200,7 @@ private:
     HWND m_drawnWindow;
     QTimer *m_timerFomcCheck;
     RemoteDate *m_newYorkDate;
+    bool m_linkPointsChanged;
 };
 
 #endif // THT_H
