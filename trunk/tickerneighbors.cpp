@@ -140,6 +140,7 @@ TickerNeighbors::TickerNeighbors(const QString &ticker, QWidget *parent) :
     showTicker(ticker);
 
     ui->listTickers->installEventFilter(this);
+    ui->lineTicker->installEventFilter(this);
 }
 
 TickerNeighbors::~TickerNeighbors()
@@ -182,10 +183,23 @@ bool TickerNeighbors::eventFilter(QObject *obj, QEvent *event)
         {
             QKeyEvent *ke = static_cast<QKeyEvent *>(event);
 
-            if(ke && ke->matches(m_copy) && !ui->lineTicker->hasSelectedText())
+            if(ke)
             {
-                ui->pushCopy->animateClick();
-                return true;
+                // check for "copy tickers" shortcut
+                if(ke->matches(m_copy) && !ui->lineTicker->hasSelectedText())
+                {
+                    ui->pushCopy->animateClick();
+                    return true;
+                }
+                else if(obj == ui->lineTicker)
+                {
+                    if(ke->key() == Qt::Key_Space)
+                    {
+                        TickerInformationToolTip::showText(ui->lineTicker->mapToGlobal(QPoint(0, ui->lineTicker->height())),
+                                                           ui->lineTicker->text());
+                        return true;
+                    }
+                }
             }
         }
     }
@@ -204,6 +218,7 @@ bool TickerNeighbors::eventFilter(QObject *obj, QEvent *event)
                 {
                     TickerInformationToolTip::showText(ui->listTickers->viewport()->mapToGlobal(rc.bottomLeft()),
                                                        item->text());
+                    return true;
                 }
             }
         }
