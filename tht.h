@@ -129,7 +129,7 @@ private:
     void loadTicker(const QString &);
     void startDelayedScreenshot(bool);
     bool setForeignFocus(const Link &);
-    void rebuildLinkPoints();
+    void rebuildLinks();
     void raiseWindow(QWidget *);
     void drawWindowMarker();
     void removeWindowMarker();
@@ -170,7 +170,7 @@ private slots:
     void slotFoolsDay();
     void slotFomcClicked();
     void slotFomcCheck();
-    void slotRestoreLinkPoints();
+    void slotRestoreLinks();
     void targetDropped(const QPoint &, bool beep = true);
 
 private:
@@ -200,7 +200,7 @@ private:
     HWND m_drawnWindow;
     QTimer *m_timerFomcCheck;
     RemoteDate *m_newYorkDate;
-    bool m_linkPointsChanged;
+    bool m_linksChanged;
 };
 
 #endif // THT_H
