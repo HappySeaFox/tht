@@ -76,11 +76,11 @@ public:
 
     OSVERSIONINFO windowsVersion() const;
 
-    void setRestoreLinkPointsAtStartup(bool, SyncType sync = Sync);
-    bool restoreLinkPointsAtStartup();
+    void setRestoreLinksAtStartup(bool, SyncType sync = Sync);
+    bool restoreLinksAtStartup();
 
-    void setLastLinkPoints(const QList<QPoint> &, SyncType sync = Sync);
-    QList<QPoint> lastLinkPoints();
+    void setLastLinks(const QList<QPoint> &, SyncType sync = Sync);
+    QList<QPoint> lastLinks();
 
     void setShowComments(bool, SyncType sync = Sync);
     bool showComments();

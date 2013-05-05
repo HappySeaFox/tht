@@ -76,7 +76,7 @@ THT::THT(QWidget *parent) :
     m_locked(false),
     m_lastActiveWindow(0),
     m_drawnWindow(0),
-    m_linkPointsChanged(false)
+    m_linksChanged(false)
 {
     if(Settings::instance()->onTop())
         setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
@@ -254,8 +254,8 @@ THT::THT(QWidget *parent) :
     QMenu *linkPointsMenu = new QMenu(ui->pushLinks);
     ui->pushLinks->setMenu(linkPointsMenu);
 
-    rebuildLinkPoints();
-    QTimer::singleShot(0, this, SLOT(slotRestoreLinkPoints()));
+    rebuildLinks();
+    QTimer::singleShot(0, this, SLOT(slotRestoreLinks()));
 
     // watch for QWhatsThisClickedEvent
     qApp->installEventFilter(this);
@@ -271,7 +271,7 @@ THT::~THT()
         Settings::instance()->setWindowPosition(pos(), Settings::NoSync);
     }
 
-    if(m_linkPointsChanged && Settings::instance()->restoreLinkPointsAtStartup())
+    if(m_linksChanged && Settings::instance()->restoreLinksAtStartup())
     {
         QList<QPoint> list;
 
@@ -280,7 +280,7 @@ THT::~THT()
             list.append(l.dropPoint);
         }
 
-        Settings::instance()->setLastLinkPoints(list);
+        Settings::instance()->setLastLinks(list);
     }
 
     Settings::instance()->setShowNeighborsAtStartup(m_sectors);
@@ -1032,7 +1032,7 @@ void THT::slotOptions()
 {
     bool oldDups = Settings::instance()->allowDuplicates();
     bool oldMini = Settings::instance()->miniTickerEntry();
-    bool oldRestoreLP = Settings::instance()->restoreLinkPointsAtStartup();
+    bool oldRestoreLP = Settings::instance()->restoreLinksAtStartup();
 
     Options opt(this);
 
@@ -1076,8 +1076,8 @@ void THT::slotOptions()
                 l->reconfigureMiniTickerEntry();
         }
 
-        if(!oldRestoreLP && Settings::instance()->restoreLinkPointsAtStartup())
-            m_linkPointsChanged = true;
+        if(!oldRestoreLP && Settings::instance()->restoreLinksAtStartup())
+            m_linksChanged = true;
 
         // reset geometry
         if(!Settings::instance()->saveGeometry())
@@ -1296,6 +1296,8 @@ void THT::slotClearLinks()
     m_windows->clear();
 
     checkWindows();
+
+    m_linksChanged = true;
 }
 
 void THT::slotManageLinks()
@@ -1312,7 +1314,7 @@ void THT::slotManageLinks()
     if(mgr.exec() == QDialog::Accepted && mgr.changed())
     {
         Settings::instance()->setLinks(mgr.links());
-        rebuildLinkPoints();
+        rebuildLinks();
     }
 }
 
@@ -1468,19 +1470,19 @@ void THT::slotFomcCheck()
     ui->labelFomc->hide();
 }
 
-void THT::slotRestoreLinkPoints()
+void THT::slotRestoreLinks()
 {
     // restore link points
-    if(Settings::instance()->restoreLinkPointsAtStartup())
+    if(Settings::instance()->restoreLinksAtStartup())
     {
-        QList<QPoint> list = Settings::instance()->lastLinkPoints();
+        QList<QPoint> list = Settings::instance()->lastLinks();
 
         foreach(QPoint p, list)
         {
             targetDropped(p, false);
         }
 
-        m_linkPointsChanged = false;
+        m_linksChanged = false;
     }
 }
 
@@ -1510,7 +1512,7 @@ void THT::targetDropped(const QPoint &p, bool beep)
 
     checkWindows();
 
-    m_linkPointsChanged = true;
+    m_linksChanged = true;
 }
 
 void THT::slotTargetMoving(const QPoint &pt)
@@ -1666,23 +1668,23 @@ bool THT::setForeignFocus(const Link &link)
     return true;
 }
 
-void THT::rebuildLinkPoints()
+void THT::rebuildLinks()
 {
     qDebug("Rebuild link menu");
 
-    QList<LinkPoint> linkpoints = Settings::instance()->links();
+    QList<LinkPoint> links = Settings::instance()->links();
 
     QMenu *menu = ui->pushLinks->menu();
 
     menu->clear();
 
-    foreach(LinkPoint lp, linkpoints)
+    foreach(LinkPoint lp, links)
     {
         QAction *a = menu->addAction(lp.name, this, SLOT(slotLoadLinks()));
         a->setData(QVariant::fromValue(lp.points));
     }
 
-    if(!linkpoints.isEmpty())
+    if(!links.isEmpty())
         menu->addSeparator();
 
     menu->addAction(QIcon(":/images/links-customize.png"), tr("Customize..."), this, SLOT(slotManageLinks()));
