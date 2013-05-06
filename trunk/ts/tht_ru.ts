@@ -20,8 +20,8 @@
     </message>
     <message>
         <location filename="../about.ui" line="132"/>
-        <source>(C) 2012 Dmitry Baryshev &amp;lt;&lt;a href=&quot;mailto:ksquirrel.iv@gmail.com&quot;&gt;ksquirrel.iv@gmail.com&lt;/a&gt;&amp;gt;</source>
-        <translation>(C) 2012 Барышев Дмитрий &amp;lt;&lt;a href=&quot;mailto:ksquirrel.iv@gmail.com&quot;&gt;ksquirrel.iv@gmail.com&lt;/a&gt;&amp;gt;</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;(C) 2012 Dmitry Baryshev &amp;lt;&lt;a href=&quot;mailto:linuxsquirrel.dev@gmail.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;linuxsquirrel.dev@gmail.com&lt;/span&gt;&lt;/a&gt;&amp;gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../about.ui" line="164"/>
@@ -685,93 +685,93 @@ right/middle mouse button to cancel.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="110"/>
+        <location filename="../tht.cpp" line="108"/>
         <source>Options...</source>
         <translation>Настройки...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="113"/>
-        <location filename="../tht.cpp" line="176"/>
+        <location filename="../tht.cpp" line="111"/>
+        <location filename="../tht.cpp" line="174"/>
         <source>Take screenshot...</source>
         <translation>Снимок экрана...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="120"/>
+        <location filename="../tht.cpp" line="118"/>
         <source>Clear ticker lists</source>
         <translation>Очистить списки тикеров</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="117"/>
+        <location filename="../tht.cpp" line="115"/>
         <source>Clear links</source>
         <extracomment>Infinitive</extracomment>
         <translation>Очистить ссылки</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="121"/>
-        <location filename="../tht.cpp" line="122"/>
+        <location filename="../tht.cpp" line="119"/>
+        <location filename="../tht.cpp" line="120"/>
         <source>Load ticker</source>
         <translation>Загрузить тикер</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="125"/>
-        <location filename="../tht.cpp" line="178"/>
+        <location filename="../tht.cpp" line="123"/>
+        <location filename="../tht.cpp" line="176"/>
         <source>About THT</source>
         <translation>О THT</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="126"/>
+        <location filename="../tht.cpp" line="124"/>
         <source>About Qt</source>
         <translation>О Qt</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="128"/>
-        <location filename="../tht.cpp" line="180"/>
+        <location filename="../tht.cpp" line="126"/>
+        <location filename="../tht.cpp" line="178"/>
         <source>Quit</source>
         <translation>Выход</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="175"/>
+        <location filename="../tht.cpp" line="173"/>
         <source>Restore</source>
         <extracomment>Means &quot;Restore from tray&quot;</extracomment>
         <translation>Восстановить</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="327"/>
+        <location filename="../tht.cpp" line="320"/>
         <source>Notice</source>
         <translation>Заметка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="327"/>
+        <location filename="../tht.cpp" line="320"/>
         <source>THT will continue to run in a system tray</source>
         <translation>THT продолжит работу в системном лотке</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="797"/>
+        <location filename="../tht.cpp" line="790"/>
         <source>Unknown</source>
         <translation>Неизвестные</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1269"/>
+        <location filename="../tht.cpp" line="1266"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1269"/>
+        <location filename="../tht.cpp" line="1266"/>
         <source>Cannot take screenshot</source>
         <translation>Невозможно сделать снимок экрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1614"/>
+        <location filename="../tht.cpp" line="1631"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <translation>Все крупные современные состояния нажиты&lt;br&gt;самым бесчестным путём.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1615"/>
+        <location filename="../tht.cpp" line="1632"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <translation>&quot;Золотой Телёнок&quot; И.Ильф, Е.Петров</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1673"/>
+        <location filename="../tht.cpp" line="1690"/>
         <source>Customize...</source>
         <translation>Настроить...</translation>
     </message>
@@ -832,9 +832,9 @@ right/middle mouse button to cancel.</source>
         <translation>Только США</translation>
     </message>
     <message>
-        <location filename="../tickerneighbors.cpp" line="253"/>
-        <location filename="../tickerneighbors.cpp" line="369"/>
-        <location filename="../tickerneighbors.cpp" line="400"/>
+        <location filename="../tickerneighbors.cpp" line="268"/>
+        <location filename="../tickerneighbors.cpp" line="384"/>
+        <location filename="../tickerneighbors.cpp" line="415"/>
         <source>Copy (%1)</source>
         <translation>Копировать (%1)</translation>
     </message>
