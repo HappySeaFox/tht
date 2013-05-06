@@ -361,33 +361,33 @@
         <translation>Настройки</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="31"/>
+        <location filename="../options.ui" line="24"/>
         <source>Language:</source>
         <translation>Язык:</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="39"/>
+        <location filename="../options.ui" line="32"/>
         <source>&lt;System&gt;</source>
         <comment>Means &quot;System language&quot;</comment>
         <translation>&lt;Системный&gt;</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="115"/>
+        <location filename="../options.ui" line="108"/>
         <source>Save position and size</source>
         <translation>Сохранять расположение и размер</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="122"/>
+        <location filename="../options.ui" line="115"/>
         <source>Automatically save tickers</source>
         <translation>Сохранять тикеры автоматически</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="185"/>
+        <location filename="../options.ui" line="178"/>
         <source>Need restart</source>
         <translation>Требуется перезапуск</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="192"/>
+        <location filename="../options.ui" line="185"/>
         <source>Automatically show ticker comments</source>
         <translation>Автоматически показывать комментарии к тикеру</translation>
     </message>
@@ -397,37 +397,37 @@
         <translation>Восстанавливать точки линковки при старте</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="159"/>
+        <location filename="../options.ui" line="152"/>
         <source>Fast ticker entry</source>
         <translation>Быстрый ввод тикера</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="20"/>
+        <location filename="../options.ui" line="192"/>
         <source>Show list title</source>
         <translation>Показывать заголовок списка</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="108"/>
+        <location filename="../options.ui" line="101"/>
         <source>Restore &quot;Industries&quot; window at startup</source>
         <translation>Восстанавливать окно &quot;Индустрии&quot; при старте</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="82"/>
+        <location filename="../options.ui" line="75"/>
         <source>Always on top</source>
         <translation>Поверх всех окон</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="60"/>
+        <location filename="../options.ui" line="53"/>
         <source>Lists:</source>
         <translation>Списков:</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="89"/>
+        <location filename="../options.ui" line="82"/>
         <source>Hide to tray</source>
         <translation>Прятаться в трей</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="129"/>
+        <location filename="../options.ui" line="122"/>
         <source>Allow duplicates in a ticker list</source>
         <translation>Разрешить дубликаты в списке тикеров</translation>
     </message>
