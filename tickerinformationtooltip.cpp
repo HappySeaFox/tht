@@ -41,7 +41,7 @@
 
 /***************************************************************************
  *   Copyright (C) 2012 by Dmitry 'Krasu' Baryshev                         *
- *   ksquirrel.iv@gmail.com                                                *
+ *   linuxsquirrel.dev@gmail.com                                           *
  ***************************************************************************/
 
 // This TU looks like a crap

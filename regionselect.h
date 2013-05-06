@@ -20,7 +20,7 @@
 
 /***************************************************************************
  *   Copyright (C) 2010,2012 by Dmitry 'Krasu' Baryshev                    *
- *   ksquirrel.iv@gmail.com                                                *
+ *   linuxsquirrel.dev@gmail.com                                           *
  ***************************************************************************/
 
 #ifndef REGIONSELECT_H
