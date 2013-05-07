@@ -113,7 +113,7 @@ Settings::Settings()
 
     m_databaseTimestampFormat = "yyyy-MM-dd hh:mm:ss.zzz";
 
-    m_rxTicker = QRegExp("\\$?[a-zA-Z\\-\\.$]{1,6}");
+    m_rxTicker = QRegExp("[a-zA-Z\\-\\.$]{1,7}");
 
     // migrate from old settings
     if(m_settings->childGroups().isEmpty())
