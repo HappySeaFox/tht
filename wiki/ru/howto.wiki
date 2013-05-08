@@ -6,18 +6,19 @@
 
 == Какие платформы поддерживает THT? ==
 
- * [https://www.youtube.com/watch?v=idtUAU4p75s&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=7&feature=plpp_video Advanced Get/ESignal графики]
- * [https://www.youtube.com/watch?v=uIubQGEnrTQ&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=8&feature=plpp_video Arche Pro]
- * [https://www.youtube.com/watch?v=caCBgbfNQm8&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=9&feature=plpp_video DAS Trader Pro]
- * [https://www.youtube.com/watch?v=zYNcsQiG9dU&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=2&feature=plpp_video Fusion (только графики и принты)]
- * [https://www.youtube.com/watch?v=UBgSxmDNyBk&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=1&feature=plpp_video Graybox Market Makers, Graybox Time & Sales]
- * [https://www.youtube.com/watch?v=9Td1hhIEFvI&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=10&feature=plpp_video Laser Trade]
- * [https://www.youtube.com/watch?v=NWdDxkU8Sp0&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=12&feature=plpp_video Lightspeed Trader]
- * [https://www.youtube.com/watch?v=7VS-Fvl2Iac&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=4&feature=plpp_video MBT Desktop, MBT Desktop Pro]
- * [https://www.youtube.com/watch?v=cXZm0GT-oaY&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=13&feature=plpp_video ROX]
- * [https://www.youtube.com/watch?v=UszrZHDW1ms&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=5&feature=plpp_video SDG Open Book]
- * [https://www.youtube.com/watch?v=D1KHt5amgrk&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=11&feature=plpp_video Takion]
- * [https://www.youtube.com/watch?v=c6G5PbT8BzA&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=6&feature=plpp_video Thinkorswim]
+ * [http://www.youtube.com/watch?v=idtUAU4p75s&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=7&feature=plpp_video Advanced Get/ESignal графики]
+ * [http://www.youtube.com/watch?v=uIubQGEnrTQ&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=8&feature=plpp_video Arche Pro]
+ * [http://www.youtube.com/watch?v=caCBgbfNQm8&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=9&feature=plpp_video DAS Trader Pro]
+ * [http://www.youtube.com/watch?v=zYNcsQiG9dU&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=2&feature=plpp_video Fusion (только графики и принты)]
+ * [http://www.youtube.com/watch?v=UBgSxmDNyBk&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=1&feature=plpp_video Graybox Market Makers, Graybox Time & Sales]
+ * [http://www.youtube.com/watch?v=9Td1hhIEFvI&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=10&feature=plpp_video Laser Trade]
+ * [http://www.youtube.com/watch?v=NWdDxkU8Sp0&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=12&feature=plpp_video Lightspeed Trader]
+ * [http://www.youtube.com/watch?v=7VS-Fvl2Iac&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=4&feature=plpp_video MBT Desktop, MBT Desktop Pro]
+ * [http://www.youtube.com/watch?v=cXZm0GT-oaY&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=13&feature=plpp_video ROX]
+ * [http://www.youtube.com/watch?v=UszrZHDW1ms&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=5&feature=plpp_video SDG Open Book]
+ * [http://www.youtube.com/watch?v=Lzju1iD4qeg&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=15 Sterling Trader Pro]
+ * [http://www.youtube.com/watch?v=D1KHt5amgrk&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=11&feature=plpp_video Takion]
+ * [http://www.youtube.com/watch?v=c6G5PbT8BzA&list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm&index=6&feature=plpp_video Thinkorswim]
 
 == Видео-руководство ==
 
