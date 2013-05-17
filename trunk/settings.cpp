@@ -187,24 +187,14 @@ Settings::Settings()
         qDebug("Cannot create a directory for mutable database");
 
     // default values
-    m_defaultValues.insert(SETTING_FOOLSDAY_SEEN, false);
-    m_defaultValues.insert(SETTING_RESTORE_LINKS_AT_STARTUP, false);
-    m_defaultValues.insert(SETTING_SHOW_COMMENTS, false);
-    m_defaultValues.insert(SETTING_LIST_HEADER, false);
     m_defaultValues.insert(SETTING_SCREENSHOT_TEXT_COLOR, Qt::black);
     m_defaultValues.insert(SETTING_ELLIPSE_FILL_COLOR, QColor(0, 255, 0, 50));
     m_defaultValues.insert(SETTING_SCREENSHOT_TEXT_ALIGNMENT, Qt::AlignLeft);
     m_defaultValues.insert(SETTING_SCREENSHOT_TEXT_SIZE, -1);
     m_defaultValues.insert(SETTING_RESTORE_NEIGHBORS_AT_STARTUP, true);
-    m_defaultValues.insert(SETTING_SHOW_NEIGHBORS_AT_STARTUP, false);
     m_defaultValues.insert(SETTING_MINI_TICKER_ENTRY, true);
     m_defaultValues.insert(SETTING_ALLOW_DUPLICATES, true);
-    m_defaultValues.insert(SETTING_NYSE_ONLY, false);
-    m_defaultValues.insert(SETTING_ONTOP, false);
-    m_defaultValues.insert(SETTING_HIDE_TO_TRAY, false);
-    m_defaultValues.insert(SETTING_TRAY_NOTICE_SEEN, false);
     m_defaultValues.insert(SETTING_SAVE_GEOMETRY, true);
-    m_defaultValues.insert(SETTING_SAVE_TICKERS, false);
 }
 
 Settings::~Settings()
