@@ -54,22 +54,30 @@ public:
     Plugin(QObject *parent = 0);
     ~Plugin();
 
-    virtual bool init() = 0;
-
+    // plugin type
     virtual Type type() const = 0;
 
+    // menu for list N
     virtual QMenu *menu(int list) = 0;
 
-    void setTopLevelWidget(QWidget *w);
-    QWidget *topLevelWidget() const;
+    virtual bool init()
+    {
+        return true;
+    }
 
-    virtual QList<Hotkey> supportedHotkeysInList() const = 0;
+    virtual QList<Hotkey> supportedHotkeysInList() const
+    {
+        return QList<Hotkey>();
+    }
 
     virtual void listHotkeyActivated(int list, const Hotkey &ke)
     {
         Q_UNUSED(list)
         Q_UNUSED(ke)
     }
+
+    void setTopLevelWidget(QWidget *w);
+    QWidget *topLevelWidget() const;
 
 signals:
     void tickers(int list, const QStringList &tickers);
