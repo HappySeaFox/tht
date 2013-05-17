@@ -92,5 +92,5 @@ void Options::saveSettings() const
     SETTINGS_SET_BOOL(SETTING_MINI_TICKER_ENTRY, ui->checkMini->isChecked(), Settings::NoSync);
     SETTINGS_SET_BOOL(SETTING_LIST_HEADER, ui->checkHeader->isChecked(), Settings::NoSync);
     SETTINGS_SET_BOOL(SETTING_SHOW_COMMENTS, ui->checkComments->isChecked(), Settings::NoSync);
-    SETTINGS_SET_BOOL(SETTING_RESTORE_LINKS_AT_STARTUP, ui->checkComments->isChecked()); // also sync
+    SETTINGS_SET_BOOL(SETTING_RESTORE_LINKS_AT_STARTUP, ui->checkRestoreLP->isChecked()); // also sync
 }
