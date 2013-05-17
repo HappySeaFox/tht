@@ -42,19 +42,6 @@ static QDataStream &operator>>(QDataStream &in, LinkPoint &lp)
     return in;
 }
 
-// serialize/deserialize FinvizUrl
-static QDataStream &operator<<(QDataStream &out, const FinvizUrl &fu)
-{
-    out << fu.name << fu.url;
-    return out;
-}
-
-static QDataStream &operator>>(QDataStream &in, FinvizUrl &fu)
-{
-    in >> fu.name >> fu.url;
-    return in;
-}
-
 // serialize/deserialize Qt::AlignmentFlag
 static QDataStream &operator<<(QDataStream &out, const Qt::AlignmentFlag &f)
 {
@@ -89,8 +76,6 @@ static QDataStream &operator>>(QDataStream &in, Qt::AlignmentFlag &f)
     return in;
 }
 
-Q_DECLARE_METATYPE(Qt::AlignmentFlag)
-
 /*******************************************************/
 
 Settings::Settings()
@@ -105,10 +90,6 @@ Settings::Settings()
     qRegisterMetaTypeStreamOperators<QList<QPoint> >("QList<QPoint>");
     qRegisterMetaTypeStreamOperators<LinkPoint>("LinkPoint");
     qRegisterMetaTypeStreamOperators<QList<LinkPoint> >("QList<LinkPoint>");
-
-    qRegisterMetaTypeStreamOperators<FinvizUrl>("FinvizUrl");
-    qRegisterMetaTypeStreamOperators<QList<FinvizUrl> >("QList<FinvizUrl>");
-
     qRegisterMetaTypeStreamOperators<Qt::AlignmentFlag>("Qt::AlignmentFlag");
 
     m_databaseTimestampFormat = "yyyy-MM-dd hh:mm:ss.zzz";
@@ -205,27 +186,25 @@ Settings::Settings()
     if(!QDir().mkpath(mutablePath))
         qDebug("Cannot create a directory for mutable database");
 
-#define FINVIZ_URL "http://" FINVIZ "/screener.ashx?v=411&"
-
-    // default Finviz urls
-    if(!m_settings->contains("settings/finviz-urls"))
-    {
-        setFinvizUrls(QList<FinvizUrl>()
-                      << FinvizUrl("NYSE >1$ >300k By Ticker",              QUrl(FINVIZ_URL "f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=ticker"))
-                      << FinvizUrl("NYSE >1$ >300k By Change From Open",    QUrl(FINVIZ_URL "f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-changeopen"))
-                      << FinvizUrl("NYSE >1$ >300k Most Active From Open",  QUrl(FINVIZ_URL "s=ta_mostactive&f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-changeopen"))
-                      << FinvizUrl("NYSE >1$ >300k Top Gainers",            QUrl(FINVIZ_URL "s=ta_topgainers&f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1"))
-                      << FinvizUrl("NYSE >1$ >300k Top Losers",             QUrl(FINVIZ_URL "s=ta_toplosers&f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1"))
-                      << FinvizUrl("NYSE >1$ >300k New High",               QUrl(FINVIZ_URL "s=ta_newhigh&f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-change"))
-                      << FinvizUrl("NYSE >1$ >300k New Low",                QUrl(FINVIZ_URL "s=ta_newlow&f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-change"))
-                      << FinvizUrl("NYSE >1$ >300k Volume>1.5",             QUrl(FINVIZ_URL "f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1,sh_relvol_o1.5&o=-change"))
-                      << FinvizUrl("NYSE >1$ >300k Average True Range>1",   QUrl(FINVIZ_URL "f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1,ta_averagetruerange_o1&ft=3&o=-change"))
-                      << FinvizUrl("NYSE >1$ >300k Earn Yest After Close",  QUrl(FINVIZ_URL "f=earningsdate_yesterdayafter,exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-change"))
-                      << FinvizUrl("NYSE >1$ >300k Earn Today Before Open", QUrl(FINVIZ_URL "f=earningsdate_todaybefore,exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-change"))
-                      );
-    }
-
-#undef FINVIZ_URL
+    // default values
+    m_defaultValues.insert(SETTING_FOOLSDAY_SEEN, false);
+    m_defaultValues.insert(SETTING_RESTORE_LINKS_AT_STARTUP, false);
+    m_defaultValues.insert(SETTING_SHOW_COMMENTS, false);
+    m_defaultValues.insert(SETTING_LIST_HEADER, false);
+    m_defaultValues.insert(SETTING_SCREENSHOT_TEXT_COLOR, Qt::black);
+    m_defaultValues.insert(SETTING_ELLIPSE_FILL_COLOR, QColor(0, 255, 0, 50));
+    m_defaultValues.insert(SETTING_SCREENSHOT_TEXT_ALIGNMENT, Qt::AlignLeft);
+    m_defaultValues.insert(SETTING_SCREENSHOT_TEXT_SIZE, -1);
+    m_defaultValues.insert(SETTING_RESTORE_NEIGHBORS_AT_STARTUP, true);
+    m_defaultValues.insert(SETTING_SHOW_NEIGHBORS_AT_STARTUP, false);
+    m_defaultValues.insert(SETTING_MINI_TICKER_ENTRY, true);
+    m_defaultValues.insert(SETTING_ALLOW_DUPLICATES, true);
+    m_defaultValues.insert(SETTING_NYSE_ONLY, false);
+    m_defaultValues.insert(SETTING_ONTOP, false);
+    m_defaultValues.insert(SETTING_HIDE_TO_TRAY, false);
+    m_defaultValues.insert(SETTING_TRAY_NOTICE_SEEN, false);
+    m_defaultValues.insert(SETTING_SAVE_GEOMETRY, true);
+    m_defaultValues.insert(SETTING_SAVE_TICKERS, false);
 }
 
 Settings::~Settings()
@@ -245,298 +224,32 @@ void Settings::sync()
     m_settings->sync();
 }
 
-void Settings::setFoolsDaySeen(bool s, Settings::SyncType sync)
-{
-    save<bool>("foolsday-seen", s, sync);
-}
-
-bool Settings::foolsDaySeen()
-{
-    return load<bool>("foolsday-seen", false);
-}
-
-void Settings::setScreenshotTextColor(const QColor &c, SyncType sync)
-{
-    save<QColor>("screenshot-text-color", c, sync);
-}
-
-void Settings::setRestoreLinksAtStartup(bool s, SyncType sync)
-{
-    save<bool>("restore-links-at-startup", s, sync);
-}
-
-bool Settings::restoreLinksAtStartup()
-{
-    return load<bool>("restore-links-at-startup", false);
-}
-
-void Settings::setLastLinks(const QList<QPoint> &list, Settings::SyncType sync)
-{
-    save<QList<QPoint> >("last-links", list, sync);
-}
-
-QList<QPoint> Settings::lastLinks()
-{
-    return load<QList<QPoint> >("last-links");
-}
-
-void Settings::setShowComments(bool s, SyncType sync)
-{
-    save<bool>("show-comments", s, sync);
-}
-
-bool Settings::showComments()
-{
-    return load<bool>("show-comments", false);
-}
-
-void Settings::setListHeader(bool l, Settings::SyncType sync)
-{
-    save<bool>("list-header", l, sync);
-}
-
-bool Settings::listHeader()
-{
-    return load<bool>("list-header", false);
-}
-
-QColor Settings::screenshotTextColor()
-{
-    return load<QColor>("screenshot-text-color", Qt::black);
-}
-
-void Settings::setEllipseFillColor(const QColor &c, Settings::SyncType sync)
-{
-    save<QColor>("ellipse-fill-color", c, sync);
-}
-
-QColor Settings::ellipseFillColor()
-{
-    return load<QColor>("ellipse-fill-color", QColor(0, 255, 0, 50));
-}
-
-void Settings::setScreenshotTextAlignment(const Qt::AlignmentFlag &a, Settings::SyncType sync)
-{
-    save<Qt::AlignmentFlag>("screenshot-text-alignment", a, sync);
-}
-
-Qt::AlignmentFlag Settings::screenshotTextAlignment()
-{
-    return load<Qt::AlignmentFlag>("screenshot-text-alignment", Qt::AlignLeft);
-}
-
-void Settings::setScreenshotTextSize(const int sz, Settings::SyncType sync)
-{
-    save<int>("screenshot-text-size", sz, sync);
-}
-
-int Settings::screenshotTextSize()
-{
-    return load<int>("screenshot-text-size", -1);
-}
-
-void Settings::setScreenshotText(const QString &s, Settings::SyncType sync)
-{
-    save<QString>("screenshot-text", s, sync);
-}
-
-QString Settings::screenshotText()
-{
-    return load<QString>("screenshot-text");
-}
-
-void Settings::setFinvizEmail(QString e, Settings::SyncType sync)
-{
-    save<QString>("finviz-email", e, sync);
-}
-
-QString Settings::finvizEmail()
-{
-    return load<QString>("finviz-email");
-}
-
-void Settings::setFinvizPassword(QString p, Settings::SyncType sync)
-{
-    save<QString>("finviz-password", p, sync);
-}
-
-QString Settings::finvizPassword()
-{
-    return load<QString>("finviz-password");
-}
-
 void Settings::setCheckBoxState(const QString &checkbox, bool checked, SyncType sync)
 {
-    save<int>("checkbox-" + checkbox, checked, sync);
+    m_settings->setValue("settings/checkbox-" + checkbox, (int)checked);
+
+    if(sync == Sync)
+        m_settings->sync();
 }
 
 int Settings::checkBoxState(const QString &checkbox)
 {
-    return load<int>("checkbox-" + checkbox, -1);
-}
-
-void Settings::setTranslation(QString t, SyncType sync)
-{
-    save<QString>("translation", t, sync);
-}
-
-QString Settings::translation()
-{
-    return load<QString>("translation");
-}
-
-void Settings::setLastTickerInput(QString t, SyncType sync)
-{
-    save<QString>("last-ticker-input", t, sync);
-}
-
-QString Settings::lastTickerInput()
-{
-    return load<QString>("last-ticker-input");
-}
-
-void Settings::setLastTickerDirectory(QString dir, SyncType sync)
-{
-    save<QString>("last-ticker-directory", dir, sync);
-}
-
-QString Settings::lastTickerDirectory()
-{
-    return load<QString>("last-ticker-directory");
-}
-
-void Settings::setLastScreenShotDirectory(QString dir, SyncType sync)
-{
-    save<QString>("last-screenshot-directory", dir, sync);
-}
-
-QString Settings::lastScreenShotDirectory()
-{
-    return load<QString>("last-screenshot-directory");
-}
-
-void Settings::setRestoreNeighborsAtStartup(bool s, SyncType sync)
-{
-    save<bool>("restore-neighbors-at-startup", s, sync);
-}
-
-bool Settings::restoreNeighborsAtStartup()
-{
-    return load<bool>("restore-neighbors-at-startup", true);
-}
-
-void Settings::setShowNeighborsAtStartup(bool s, SyncType sync)
-{
-    save<bool>("neighbors-at-startup", s, sync);
-}
-
-bool Settings::showNeighborsAtStartup()
-{
-    return load<bool>("neighbors-at-startup", false);
-}
-
-void Settings::setMiniTickerEntry(bool mte, SyncType sync)
-{
-    save<bool>("mini-ticker-entry", mte, sync);
-}
-
-bool Settings::miniTickerEntry()
-{
-    return load<bool>("mini-ticker-entry", true);
-}
-
-void Settings::setLinks(const QList<LinkPoint> &links, SyncType sync)
-{
-    save<QList<LinkPoint> >("links", links, sync);
-}
-
-QList<LinkPoint> Settings::links()
-{
-    return load<QList<LinkPoint> >("links");
-}
-
-void Settings::setFinvizUrls(const QList<FinvizUrl> &fu, SyncType sync)
-{
-    save<QList<FinvizUrl> >("finviz-urls", fu, sync);
-}
-
-QList<FinvizUrl> Settings::finvizUrls()
-{
-    return load<QList<FinvizUrl> >("finviz-urls");
-}
-
-void Settings::setAllowDuplicates(bool allow, SyncType sync)
-{
-    save<bool>("allow-duplicates", allow, sync);
-}
-
-bool Settings::allowDuplicates()
-{
-    return load<bool>("allow-duplicates", true);
-}
-
-void Settings::setNyseOnly(bool n, SyncType sync)
-{
-    save<bool>("nyse-only", n, sync);
-}
-
-bool Settings::nyseOnly()
-{
-    return load<bool>("nyse-only", false);
-}
-
-void Settings::setOnTop(bool ontop, SyncType sync)
-{
-    save<bool>("ontop", ontop, sync);
-}
-
-bool Settings::onTop()
-{
-    return load<bool>("ontop", false);
-}
-
-void Settings::setHideToTray(bool hide, SyncType sync)
-{
-    save<bool>("tray", hide, sync);
-}
-
-bool Settings::hideToTray()
-{
-    return load<bool>("tray", false);
-}
-
-void Settings::setTrayNoticeSeen(bool seen, SyncType sync)
-{
-    save<bool>("tray-notice-seen", seen, sync);
-}
-
-bool Settings::trayNoticeSeen()
-{
-    return load<bool>("tray-notice-seen", false);
-}
-
-void Settings::setSaveGeometry(bool s, SyncType sync)
-{
-    save<bool>("save-geometry", s, sync);
-}
-
-bool Settings::saveGeometry()
-{
-    return load<bool>("save-geometry", true);
+    return m_settings->value("settings/checkbox-" + checkbox, -1).toInt();
 }
 
 void Settings::setNumberOfLists(int n, SyncType sync)
 {
-    save<int>("number-of-lists", n, sync);
+    m_settings->setValue("settings/number-of-lists", n);
+
+    if(sync == Sync)
+        m_settings->sync();
 }
 
 int Settings::numberOfLists()
 {
     bool ok;
 
-    m_settings->beginGroup("settings");
-    int nlists = m_settings->value("number-of-lists", 3).toUInt(&ok);
-    m_settings->endGroup();
+    int nlists = m_settings->value("settings/number-of-lists", 3).toUInt(&ok);
 
     if(!ok)
         nlists = 3;
@@ -545,56 +258,6 @@ int Settings::numberOfLists()
         nlists = 3;
 
     return nlists;
-}
-
-void Settings::setWindowSize(const QSize &s, SyncType sync)
-{
-    save<QSize>("size", s, sync);
-}
-
-QSize Settings::windowSize()
-{
-    return load<QSize>("size");
-}
-
-void Settings::setWindowPosition(const QPoint &p, SyncType sync)
-{
-    save<QPoint>("position", p, sync);
-}
-
-QPoint Settings::windowPosition()
-{
-    return point("position");
-}
-
-void Settings::setNeighborsWindowSize(const QSize &s, SyncType sync)
-{
-    save<QSize>("neighbors-size", s, sync);
-}
-
-QSize Settings::neighborsWindowSize()
-{
-    return load<QSize>("neighbors-size");
-}
-
-void Settings::setNeighborsWindowPosition(const QPoint &p, SyncType sync)
-{
-    save<QPoint>("neighbors-position", p, sync);
-}
-
-QPoint Settings::neighborsWindowPosition()
-{
-    return point("neighbors-position");
-}
-
-void Settings::setSaveTickers(bool s, SyncType sync)
-{
-    save<bool>("save-tickers", s, sync);
-}
-
-bool Settings::saveTickers()
-{
-    return load<bool>("save-tickers", false);
 }
 
 void Settings::setTickersForGroup(int group, const QStringList &tickers, SyncType sync)
@@ -652,27 +315,6 @@ Settings* Settings::instance()
     return m_inst;
 }
 
-template <typename T>
-T Settings::load(const QString &key, const T &def)
-{
-    m_settings->beginGroup("settings");
-    QVariant value = m_settings->value(key, QVariant::fromValue(def));
-    m_settings->endGroup();
-
-    return value.value<T>();
-}
-
-template <typename T>
-void Settings::save(const QString &key, const T &value, SyncType sync)
-{
-    m_settings->beginGroup("settings");
-    m_settings->setValue(key, QVariant::fromValue(value));
-    m_settings->endGroup();
-
-    if(sync == Sync)
-        m_settings->sync();
-}
-
 QDateTime Settings::readTimestamp(const QString &fileName) const
 {
     QFile file(fileName + ".timestamp");
@@ -697,8 +339,10 @@ void Settings::fillTranslations()
 
 QPoint Settings::point(const QString &key)
 {
-    if(m_settings->contains("settings/" + key))
-        return load<QPoint>(key);
+    QString fullKey = "settings/" + key;
+
+    if(m_settings->contains(fullKey))
+        return m_settings->value(fullKey).value<QPoint>();
     else
         return Tools::invalidQPoint;
 }

@@ -65,7 +65,7 @@ LinkPointManager::LinkPointManager(const QList<QPoint> &currentLinks, QWidget *p
     if(m_currentLinks.isEmpty())
         ui->pushAdd->setEnabled(false);
 
-    QList<LinkPoint> linkpoints = Settings::instance()->links();
+    QList<LinkPoint> linkpoints = SETTINGS_GET_LINKS(SETTING_LINKS);
 
     foreach(LinkPoint lp, linkpoints)
     {

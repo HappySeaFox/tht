@@ -92,7 +92,7 @@ int ScreenshotEditor::exec()
     ui->scrollAreaWidgetContents->restoreLabels();
 
     // colors
-    setEllipseFillColor(Settings::instance()->ellipseFillColor());
+    setEllipseFillColor(SETTINGS_GET_COLOR(SETTING_ELLIPSE_FILL_COLOR));
 
     m_oellipseFillColor = m_ellipseFillColor;
 
@@ -104,7 +104,7 @@ int ScreenshotEditor::exec()
     {
         ui->scrollAreaWidgetContents->clearLabels();
 
-        Settings::instance()->setEllipseFillColor(m_oellipseFillColor);
+        SETTINGS_SET_COLOR(SETTING_ELLIPSE_FILL_COLOR, m_oellipseFillColor);
     }
 
     return code;
@@ -165,6 +165,6 @@ void ScreenshotEditor::slotEllipseFillColor()
     if(cpw.exec() == QDialog::Accepted)
     {
         setEllipseFillColor(cpw.color());
-        Settings::instance()->setEllipseFillColor(m_ellipseFillColor);
+        SETTINGS_SET_COLOR(SETTING_ELLIPSE_FILL_COLOR, m_ellipseFillColor);
     }
 }

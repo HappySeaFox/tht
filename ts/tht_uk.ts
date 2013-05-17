@@ -4,7 +4,7 @@
 <context>
     <name>About</name>
     <message>
-        <location filename="../about.cpp" line="99"/>
+        <location filename="../about.cpp" line="105"/>
         <source>Update available</source>
         <translation>Доступно оновлення</translation>
     </message>
@@ -19,43 +19,43 @@
         <translation>THT допомагає вам робити свою домашню роботу в трейдингу. Вона може лінковані різні торгові платформи та графіки, і керувати списками тікерів. Всі побажання та звіти про помилки надсилайте на наш багтрекер, також відвідаєте</translation>
     </message>
     <message>
-        <location filename="../about.ui" line="132"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;(C) 2012 Dmitry Baryshev &amp;lt;&lt;a href=&quot;mailto:linuxsquirrel.dev@gmail.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;linuxsquirrel.dev@gmail.com&lt;/span&gt;&lt;/a&gt;&amp;gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../about.ui" line="164"/>
+        <location filename="../about.ui" line="161"/>
         <source>THT is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</source>
         <extracomment>See https://www.gnu.org/licenses/gpl-2.0.txt</extracomment>
         <translation>THT поширюється в надії, що вона буде корисною, але БЕЗ БУДЬ-ЯКИХ ГАРАНТІЙ, навіть без гарантій КОМЕРЦІЙНОЇ ЦІННОСТІ чи ПРИДАТНОСТІ ДЛЯ КОНКРЕТНИХ ЦІЛЕЙ.</translation>
     </message>
     <message>
-        <location filename="../about.ui" line="207"/>
+        <location filename="../about.ui" line="204"/>
         <source>OK</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="57"/>
+        <location filename="../about.cpp" line="43"/>
+        <source>Dmitry Baryshev</source>
+        <translation>Дмитро Баришев</translation>
+    </message>
+    <message>
+        <location filename="../about.cpp" line="63"/>
         <source>Persistent database</source>
         <translation>Постійна база</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="59"/>
+        <location filename="../about.cpp" line="65"/>
         <source>Downloadable database</source>
         <translation>Викачувана база</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="107"/>
+        <location filename="../about.cpp" line="113"/>
         <source>THT is up to date</source>
         <translation>Маєте найновішу версію THT</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="119"/>
+        <location filename="../about.cpp" line="125"/>
         <source>Cannot check for updates (%1)</source>
         <translation>Неможливо перевірити оновлення (%1)</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="134"/>
+        <location filename="../about.cpp" line="140"/>
         <source>Checking for updates...</source>
         <translation>Перевірка оновлень...</translation>
     </message>
@@ -71,148 +71,6 @@
         <location filename="../colorpicker/colorpickerwidget.cpp" line="45"/>
         <source>OK</source>
         <translation></translation>
-    </message>
-</context>
-<context>
-    <name>DataManagerBase</name>
-    <message>
-        <location filename="../datamanagerbase.ui" line="33"/>
-        <source>Name</source>
-        <translation>Ім&apos;я</translation>
-    </message>
-    <message>
-        <location filename="../datamanagerbase.ui" line="46"/>
-        <source>Ins</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../datamanagerbase.ui" line="53"/>
-        <source>Delete</source>
-        <translation>Видалити</translation>
-    </message>
-    <message>
-        <location filename="../datamanagerbase.ui" line="64"/>
-        <source>Ctrl+Up</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../datamanagerbase.ui" line="75"/>
-        <source>Ctrl+Down</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../datamanagerbase.ui" line="89"/>
-        <source>Clear</source>
-        <translation>Очистити</translation>
-    </message>
-</context>
-<context>
-    <name>FinvizAccessSetup</name>
-    <message>
-        <location filename="../finvizaccesssetup.ui" line="14"/>
-        <source>Finviz access setup</source>
-        <translation>Налаштування доступу до Finviz</translation>
-    </message>
-    <message>
-        <location filename="../finvizaccesssetup.ui" line="22"/>
-        <source>E-mail:</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../finvizaccesssetup.ui" line="32"/>
-        <source>Password:</source>
-        <translation>Пароль:</translation>
-    </message>
-    <message>
-        <location filename="../finvizaccesssetup.ui" line="80"/>
-        <source>If you have a FINVIZ*Elite account, you can fill in the credentials to access the elite features</source>
-        <translation>Якщо у вас є акаунт FINVIZ*Elite, то ви можете заповнити облікові дані для доступу до елітних можливостям</translation>
-    </message>
-    <message>
-        <location filename="../finvizaccesssetup.ui" line="103"/>
-        <source>Please remember that the e-mail and the password will be saved in plain text. If you don&apos;t want to save them in plain text, just leave them blank. FINVIZ*Elite features won&apos;t be available in this case</source>
-        <translation>Будь ласка, пам&apos;ятайте, що e-mail і пароль будуть збережені відкритим текстом. Якщо ви не хочете зберігати їх відкритим текстом, просто залиште їх незаповненими. У цьому випадку можливості FINVIZ*Elite будуть недоступні</translation>
-    </message>
-</context>
-<context>
-    <name>FinvizDownloader</name>
-    <message>
-        <location filename="../finvizdownloader.ui" line="14"/>
-        <source>Finviz</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../finvizdownloader.ui" line="30"/>
-        <source>Close</source>
-        <translation>Закрити</translation>
-    </message>
-    <message>
-        <location filename="../finvizdownloader.ui" line="50"/>
-        <source>Downloading tickers...</source>
-        <translation>Завантаження тікерів...</translation>
-    </message>
-    <message>
-        <location filename="../finvizdownloader.cpp" line="100"/>
-        <source>Network error #%1</source>
-        <translation>Помилка мережі #%1</translation>
-    </message>
-    <message>
-        <location filename="../finvizdownloader.cpp" line="114"/>
-        <source>Broken data (fields: %1, required: %2)</source>
-        <translation>Зараховано (поля: %1, необхідно: %2)</translation>
-    </message>
-</context>
-<context>
-    <name>FinvizLinkSelector</name>
-    <message>
-        <location filename="../finvizlinkselector.ui" line="14"/>
-        <source>Add from Finviz</source>
-        <translation>Додати з Finviz</translation>
-    </message>
-    <message>
-        <location filename="../finvizlinkselector.ui" line="23"/>
-        <source>Add</source>
-        <translation>Додати</translation>
-    </message>
-</context>
-<context>
-    <name>FinvizUrlManager</name>
-    <message>
-        <location filename="../finvizurlmanager.cpp" line="29"/>
-        <source>Finviz links</source>
-        <translation>Посилання Finviz</translation>
-    </message>
-    <message>
-        <location filename="../finvizurlmanager.cpp" line="31"/>
-        <source>Add</source>
-        <translation>Додати</translation>
-    </message>
-    <message>
-        <location filename="../finvizurlmanager.cpp" line="32"/>
-        <source>Link</source>
-        <translation>Посилання</translation>
-    </message>
-    <message>
-        <location filename="../finvizurlmanager.cpp" line="33"/>
-        <source>Open YouTube tutorial</source>
-        <translation>Відкрити урок на YouTube</translation>
-    </message>
-    <message>
-        <location filename="../finvizurlmanager.cpp" line="47"/>
-        <source>Access...</source>
-        <extracomment>noun</extracomment>
-        <translation>Доступ...</translation>
-    </message>
-    <message>
-        <location filename="../finvizurlmanager.cpp" line="76"/>
-        <source>Tickers</source>
-        <translation>Тікери</translation>
-    </message>
-    <message>
-        <location filename="../finvizurlmanager.cpp" line="76"/>
-        <location filename="../finvizurlmanager.cpp" line="90"/>
-        <source>&lt;Paste url here&gt;</source>
-        <translation>&lt;Вставте сюди посилання&gt;</translation>
     </message>
 </context>
 <context>
@@ -264,91 +122,81 @@
         <translation>Експортувати тікери</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="123"/>
+        <location filename="../list.cpp" line="121"/>
         <source>Clear</source>
         <translation>Очистити</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="125"/>
+        <location filename="../list.cpp" line="123"/>
         <source>Sort</source>
         <translation>Відсортувати</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="126"/>
+        <location filename="../list.cpp" line="124"/>
         <source>Change title</source>
         <translation>Змінити заголовок</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="128"/>
+        <location filename="../list.cpp" line="126"/>
         <source>Reset priorities</source>
         <translation>Скинути пріоритети</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="135"/>
+        <location filename="../list.cpp" line="133"/>
         <source>Add one ticker...</source>
         <translation>Додати один тікер...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="137"/>
+        <location filename="../list.cpp" line="135"/>
         <source>Add from file...</source>
         <translation>Додати з файлу...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="138"/>
+        <location filename="../list.cpp" line="136"/>
         <source>Add from clipboard</source>
         <translation>Додати з буфера обміну</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="140"/>
-        <source>Add from Finviz</source>
-        <translation>Додати з Finviz</translation>
-    </message>
-    <message>
-        <location filename="../list.cpp" line="146"/>
+        <location filename="../list.cpp" line="152"/>
         <source>Export to file...</source>
         <translation>Експортувати в файл...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="147"/>
+        <location filename="../list.cpp" line="153"/>
         <source>Export to clipboard</source>
         <translation>Експортувати в буфер обміну</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="993"/>
-        <source>Customize...</source>
-        <translation>Налаштувати...</translation>
-    </message>
-    <message>
-        <location filename="../list.cpp" line="1260"/>
-        <location filename="../list.cpp" line="1335"/>
+        <location filename="../list.cpp" line="1236"/>
+        <location filename="../list.cpp" line="1311"/>
         <source>Choose a file</source>
         <translation>Виберіть файл</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1262"/>
-        <location filename="../list.cpp" line="1337"/>
+        <location filename="../list.cpp" line="1238"/>
+        <location filename="../list.cpp" line="1313"/>
         <source>Text files (*.txt)</source>
         <translation>Текстові файли (*.txt)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1264"/>
-        <location filename="../list.cpp" line="1339"/>
+        <location filename="../list.cpp" line="1240"/>
+        <location filename="../list.cpp" line="1315"/>
         <source>All files (*.*)</source>
         <translation>Всі файли (*.*)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1299"/>
-        <location filename="../list.cpp" line="1349"/>
+        <location filename="../list.cpp" line="1275"/>
+        <location filename="../list.cpp" line="1325"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1299"/>
+        <location filename="../list.cpp" line="1275"/>
         <source>Cannot open the following files: %1</source>
         <translation>Неможливо відкрити наступні файли: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1349"/>
+        <location filename="../list.cpp" line="1325"/>
         <source>Cannot save to file %1</source>
         <translation>Неможливо зберегти в файл %1</translation>
     </message>
@@ -430,27 +278,6 @@
         <location filename="../options.ui" line="122"/>
         <source>Allow duplicates in a ticker list</source>
         <translation>Дозволити дублікати в списку тікерів</translation>
-    </message>
-</context>
-<context>
-    <name>QObject</name>
-    <message>
-        <location filename="../settings.cpp" line="689"/>
-        <source>Russian</source>
-        <extracomment>Russian language</extracomment>
-        <translation>Російська</translation>
-    </message>
-    <message>
-        <location filename="../settings.cpp" line="692"/>
-        <source>Ukrainian</source>
-        <extracomment>Ukrainian language</extracomment>
-        <translation>Українська</translation>
-    </message>
-    <message>
-        <location filename="../settings.cpp" line="695"/>
-        <source>English</source>
-        <extracomment>English language</extracomment>
-        <translation>Англійська</translation>
     </message>
 </context>
 <context>
@@ -746,32 +573,32 @@ right/middle mouse button to cancel.</source>
         <translation>ТНТ продовжить роботу в системному лотку</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="790"/>
+        <location filename="../tht.cpp" line="787"/>
         <source>Unknown</source>
         <translation>Невідомі</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1266"/>
+        <location filename="../tht.cpp" line="1263"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1266"/>
+        <location filename="../tht.cpp" line="1263"/>
         <source>Cannot take screenshot</source>
         <translation>Неможливо зробити знімок екрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1631"/>
+        <location filename="../tht.cpp" line="1620"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <translation>Всі величезні сучасні багатства нажито&lt;br&gt;найбезчеснішим засобом.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1632"/>
+        <location filename="../tht.cpp" line="1621"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <translation>&quot;Золоте Теля&quot; І.Ільф, Є.Петров</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1690"/>
+        <location filename="../tht.cpp" line="1679"/>
         <source>Customize...</source>
         <translation>Налаштувати...</translation>
     </message>

@@ -44,19 +44,19 @@ void Options::load()
         ui->comboNumberOfLists->addItem(QString::number(i+1));
 
     ui->comboNumberOfLists->setCurrentIndex(Settings::instance()->numberOfLists() - 1);
-    ui->checkOnTop->setChecked(Settings::instance()->onTop());
-    ui->checkTray->setChecked(Settings::instance()->hideToTray());
-    ui->checkRestore->setChecked(Settings::instance()->restoreNeighborsAtStartup());
-    ui->checkSave->setChecked(Settings::instance()->saveGeometry());
-    ui->checkSaveTickers->setChecked(Settings::instance()->saveTickers());
-    ui->checkAllowDups->setChecked(Settings::instance()->allowDuplicates());
-    ui->checkMini->setChecked(Settings::instance()->miniTickerEntry());
-    ui->checkHeader->setChecked(Settings::instance()->listHeader());
-    ui->checkComments->setChecked(Settings::instance()->showComments());
-    ui->checkRestoreLP->setChecked(Settings::instance()->restoreLinksAtStartup());
+    ui->checkOnTop->setChecked(SETTINGS_GET_BOOL(SETTING_ONTOP));
+    ui->checkTray->setChecked(SETTINGS_GET_BOOL(SETTING_HIDE_TO_TRAY));
+    ui->checkRestoreIndustries->setChecked(SETTINGS_GET_BOOL(SETTING_RESTORE_NEIGHBORS_AT_STARTUP));
+    ui->checkSave->setChecked(SETTINGS_GET_BOOL(SETTING_SAVE_GEOMETRY));
+    ui->checkSaveTickers->setChecked(SETTINGS_GET_BOOL(SETTING_SAVE_TICKERS));
+    ui->checkAllowDups->setChecked(SETTINGS_GET_BOOL(SETTING_ALLOW_DUPLICATES));
+    ui->checkMini->setChecked(SETTINGS_GET_BOOL(SETTING_MINI_TICKER_ENTRY));
+    ui->checkHeader->setChecked(SETTINGS_GET_BOOL(SETTING_LIST_HEADER));
+    ui->checkComments->setChecked(SETTINGS_GET_BOOL(SETTING_SHOW_COMMENTS));
+    ui->checkRestoreLP->setChecked(SETTINGS_GET_BOOL(SETTING_RESTORE_LINKS_AT_STARTUP));
 
     const QMap<QString, QString> tsmap = Settings::instance()->translations();
-    QString ts = Settings::instance()->translation();
+    QString ts = SETTINGS_GET_STRING(SETTING_TRANSLATION);
     QMap<QString, QString>::const_iterator itEnd = tsmap.end();
 
     for(QMap<QString, QString>::const_iterator it = tsmap.begin();it != itEnd;++it)
@@ -82,15 +82,15 @@ void Options::slotLanguageChanged(int index)
 void Options::saveSettings() const
 {
     Settings::instance()->setNumberOfLists(ui->comboNumberOfLists->currentIndex()+1, Settings::NoSync);
-    Settings::instance()->setOnTop(ui->checkOnTop->isChecked(), Settings::NoSync);
-    Settings::instance()->setHideToTray(ui->checkTray->isChecked(), Settings::NoSync);
-    Settings::instance()->setRestoreNeighborsAtStartup(ui->checkRestore->isChecked(), Settings::NoSync);
-    Settings::instance()->setSaveGeometry(ui->checkSave->isChecked(), Settings::NoSync);
-    Settings::instance()->setSaveTickers(ui->checkSaveTickers->isChecked(), Settings::NoSync);
-    Settings::instance()->setAllowDuplicates(ui->checkAllowDups->isChecked(), Settings::NoSync);
-    Settings::instance()->setTranslation(ui->comboLang->itemData(ui->comboLang->currentIndex()).toString(), Settings::NoSync);
-    Settings::instance()->setMiniTickerEntry(ui->checkMini->isChecked(), Settings::NoSync);
-    Settings::instance()->setListHeader(ui->checkHeader->isChecked(), Settings::NoSync);
-    Settings::instance()->setShowComments(ui->checkComments->isChecked(), Settings::NoSync);
-    Settings::instance()->setRestoreLinksAtStartup(ui->checkRestoreLP->isChecked()); // also sync
+    SETTINGS_SET_STRING(SETTING_TRANSLATION, ui->comboLang->itemData(ui->comboLang->currentIndex()).toString(), Settings::NoSync);
+    SETTINGS_SET_BOOL(SETTING_ONTOP, ui->checkOnTop->isChecked(), Settings::NoSync);
+    SETTINGS_SET_BOOL(SETTING_HIDE_TO_TRAY, ui->checkTray->isChecked(), Settings::NoSync);
+    SETTINGS_SET_BOOL(SETTING_RESTORE_NEIGHBORS_AT_STARTUP, ui->checkRestoreIndustries->isChecked(), Settings::NoSync);
+    SETTINGS_SET_BOOL(SETTING_SAVE_GEOMETRY, ui->checkSave->isChecked(), Settings::NoSync);
+    SETTINGS_SET_BOOL(SETTING_SAVE_TICKERS, ui->checkSaveTickers->isChecked(), Settings::NoSync);
+    SETTINGS_SET_BOOL(SETTING_ALLOW_DUPLICATES, ui->checkAllowDups->isChecked(), Settings::NoSync);
+    SETTINGS_SET_BOOL(SETTING_MINI_TICKER_ENTRY, ui->checkMini->isChecked(), Settings::NoSync);
+    SETTINGS_SET_BOOL(SETTING_LIST_HEADER, ui->checkHeader->isChecked(), Settings::NoSync);
+    SETTINGS_SET_BOOL(SETTING_SHOW_COMMENTS, ui->checkComments->isChecked(), Settings::NoSync);
+    SETTINGS_SET_BOOL(SETTING_RESTORE_LINKS_AT_STARTUP, ui->checkComments->isChecked()); // also sync
 }

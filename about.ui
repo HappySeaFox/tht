@@ -127,10 +127,7 @@
         </spacer>
        </item>
        <item>
-        <widget class="QLabel" name="label_4">
-         <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;(C) 2012 Dmitry Baryshev &amp;lt;&lt;a href=&quot;mailto:linuxsquirrel.dev@gmail.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;linuxsquirrel.dev@gmail.com&lt;/span&gt;&lt;/a&gt;&amp;gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
+        <widget class="QLabel" name="labelCopyright">
          <property name="textFormat">
           <enum>Qt::RichText</enum>
          </property>

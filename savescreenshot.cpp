@@ -79,7 +79,7 @@ void SaveScreenshot::slotFile()
         date = QDateTime::currentDateTime();
 
     QString fileName = QFileDialog::getSaveFileName(this, tr("Save as"),
-                                                    Settings::instance()->lastScreenShotDirectory()
+                                                    SETTINGS_GET_STRING(SETTING_LAST_SCREENSHOT_DIRECTORY)
                                                     + QDir::separator()
                                                     + date.toString("yyyy-MM-dd-"),
                                                     filter, &selectedFilter);
@@ -87,7 +87,7 @@ void SaveScreenshot::slotFile()
     if(fileName.isEmpty())
         return;
 
-    Settings::instance()->setLastScreenShotDirectory(QFileInfo(fileName).absolutePath());
+    SETTINGS_SET_STRING(SETTING_LAST_SCREENSHOT_DIRECTORY, QFileInfo(fileName).absolutePath());
 
     if(m_editor->renderPixmap().save(fileName))
     {

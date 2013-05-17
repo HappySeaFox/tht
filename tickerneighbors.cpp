@@ -125,11 +125,11 @@ TickerNeighbors::TickerNeighbors(const QString &ticker, QWidget *parent) :
     connect(ui->listTickers->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
             this, SLOT(slotSelectionChanged()));
 
-    if(Settings::instance()->saveGeometry())
+    if(SETTINGS_GET_BOOL(SETTING_SAVE_GEOMETRY))
     {
-        m_pos = Settings::instance()->neighborsWindowPosition();
+        m_pos = SETTINGS_GET_POINT(SETTING_NEIGHBORS_POSITION);
 
-        QSize sz = Settings::instance()->neighborsWindowSize();
+        QSize sz = SETTINGS_GET_SIZE(SETTING_NEIGHBORS_SIZE);
 
         if(sz.isValid())
             resize(sz);
@@ -145,10 +145,10 @@ TickerNeighbors::TickerNeighbors(const QString &ticker, QWidget *parent) :
 
 TickerNeighbors::~TickerNeighbors()
 {
-    if(Settings::instance()->saveGeometry())
+    if(SETTINGS_GET_BOOL(SETTING_SAVE_GEOMETRY))
     {
-        Settings::instance()->setNeighborsWindowSize(size(), Settings::NoSync);
-        Settings::instance()->setNeighborsWindowPosition(pos());
+        SETTINGS_SET_SIZE(SETTING_NEIGHBORS_SIZE, size(), Settings::NoSync);
+        SETTINGS_SET_POINT(SETTING_NEIGHBORS_POSITION, pos());
     }
 
     delete ui;

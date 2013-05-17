@@ -159,7 +159,7 @@ void ScreenshotEditorWidget::startEllipse()
     qDebug("Add ellipse");
 
     m_editType = Ellipse;
-    m_ellipseFillColor = Settings::instance()->ellipseFillColor();
+    m_ellipseFillColor = SETTINGS_GET_COLOR(SETTING_ELLIPSE_FILL_COLOR);
 }
 
 void ScreenshotEditorWidget::deleteSelected()
@@ -323,7 +323,7 @@ SelectableLabel *ScreenshotEditorWidget::addLabel(const QPoint &startPoint, cons
     QColor elc;
 
     if(m_editType == Text)
-        elc = Settings::instance()->screenshotTextColor();
+        elc = SETTINGS_GET_COLOR(SETTING_SCREENSHOT_TEXT_COLOR);
     else if(m_editType == Ellipse)
     {
         elc = m_ellipseFillColor;

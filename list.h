@@ -35,6 +35,7 @@ class QMenu;
 class QUrl;
 
 class ListDetails;
+class Plugin;
 
 namespace Ui
 {
@@ -71,8 +72,6 @@ public:
     void reconfigureMiniTickerEntry();
     void focusMiniTickerEntry();
 
-    void rebuildFinvizMenu();
-
     enum FixName { Fix, DontFix };
 
     void addTickers(const QStringList &tk, FixName fix);
@@ -97,8 +96,6 @@ private:
     void resizeNumberLabel();
     void moveNumbersLabel();
     void undo();
-    void addFromFinviz(const QUrl &);
-    void showFinvizSelector();
     void openTickerInBrowser(const QString &baseUrl, const QString &ticker, FixName fix);
     void changeComment();
     void showComment();
@@ -124,7 +121,6 @@ signals:
     void tickerMoving(const QPoint &);
     void tickerCancelled();
     void showNeighbors(const QString &);
-    void needRebuildFinvizMenu();
 
 public slots:
     void addTicker(const Ticker &);
@@ -145,9 +141,8 @@ private slots:
     void slotSearchTicker(const QString &);
     void slotSearchTickerNext();
     void slotFocusUp();
-    void slotAddFromFinviz();
-    void slotManageFinvizUrls();
     void slotCurrentRowChanged(int);
+    void slotTickersFromPlugin(int, const QStringList &);
     void loadItem(LoadItem = LoadItemCurrent);
     void paste();
     void headerCancelled();
@@ -166,9 +161,9 @@ private:
     QAbstractItemDelegate *m_oldDelegate, *m_persistentDelegate;
     QList<QListWidgetItem *> m_foundItems;
     QStringList m_oldTickers;
-    QMenu *m_finvizMenu;
     QAction *m_changeTitle;
     QListWidgetItem *m_currentItemBeforeSearch;
+    QList<Plugin *> m_plugins;
 };
 
 inline

@@ -96,7 +96,7 @@
     </layout>
    </item>
    <item row="1" column="0" colspan="3">
-    <widget class="QCheckBox" name="checkRestore">
+    <widget class="QCheckBox" name="checkRestoreIndustries">
      <property name="text">
       <string>Restore &quot;Industries&quot; window at startup</string>
      </property>
@@ -207,7 +207,7 @@
   <tabstop>comboNumberOfLists</tabstop>
   <tabstop>checkOnTop</tabstop>
   <tabstop>checkTray</tabstop>
-  <tabstop>checkRestore</tabstop>
+  <tabstop>checkRestoreIndustries</tabstop>
   <tabstop>checkRestoreLP</tabstop>
   <tabstop>checkSave</tabstop>
   <tabstop>checkSaveTickers</tabstop>

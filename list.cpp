@@ -43,11 +43,9 @@
 #include <QPen>
 
 #include "tickerinformationtooltip.h"
-#include "finvizlinkselector.h"
 #include "tickercommentinput.h"
-#include "finvizurlmanager.h"
-#include "finvizdownloader.h"
 #include "inlinetextinput.h"
+#include "pluginloader.h"
 #include "tickerinput.h"
 #include "listdetails.h"
 #include "settings.h"
@@ -86,7 +84,7 @@ List::List(int group, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::List),
     m_section(group),
-    m_saveTickers(Settings::instance()->saveTickers()),
+    m_saveTickers(SETTINGS_GET_BOOL(SETTING_SAVE_TICKERS)),
     m_ignoreInput(false),
     m_dragging(false),
     m_currentItemBeforeSearch(0)
@@ -136,11 +134,19 @@ List::List(int group, QWidget *parent) :
     menu->addSeparator();
     menu->addAction(file_icon, tr("Add from file...") + "\tA", this, SLOT(slotAddFromFile()));
     menu->addAction(tr("Add from clipboard") + "\tP", this, SLOT(paste()));
-    menu->addSeparator();
-    m_finvizMenu = menu->addMenu(QIcon(":/images/finviz.png"), tr("Add from Finviz") + "\tZ");
     ui->pushAdd->setMenu(menu);
 
-    rebuildFinvizMenu();
+    // menus rom plugins
+    m_plugins = PluginLoader::instance()->byType(Plugin::AddTickersFrom);
+
+    if(!m_plugins.isEmpty())
+        menu->addSeparator();
+
+    foreach(Plugin *p, m_plugins)
+    {
+        menu->addMenu(p->menu(m_section));
+        connect(p, SIGNAL(tickers(int,QStringList)), this, SLOT(slotTickersFromPlugin(int,QStringList)));
+    }
 
     menu = new QMenu(this);
     menu->addAction(file_icon, tr("Export to file...") + "\tE", this, SLOT(slotExportToFile()));
@@ -277,7 +283,7 @@ void List::stopSearching()
     if(window()->focusWidget()->objectName() != "list")
         setFocus();
 
-    if(Settings::instance()->miniTickerEntry())
+    if(SETTINGS_GET_BOOL(SETTING_MINI_TICKER_ENTRY))
         ui->stack->setCurrentIndex(0);
     else
         ui->stack->hide();
@@ -456,10 +462,6 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                         showComment();
                     break;
 
-                    case Qt::Key_Z:
-                        showFinvizSelector();
-                    break;
-
                     // default processing
                     case Qt::Key_Tab:
                         return QObject::eventFilter(obj, event);
@@ -512,6 +514,20 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                     case Qt::Key_X:
                         changeComment();
                     break;
+                }
+            }
+
+            foreach(Plugin *p, m_plugins)
+            {
+                QList<Hotkey> hotkeys = p->supportedHotkeysInList();
+
+                foreach(Hotkey hotkey, hotkeys)
+                {
+                    if(ke->key() == hotkey.key && ke->modifiers() == hotkey.modifiers)
+                    {
+                        p->listHotkeyActivated(m_section, hotkey);
+                        break;
+                    }
                 }
             }
 
@@ -689,7 +705,7 @@ void List::headerAccepted()
 
 void List::changeHeader()
 {
-    if(!Settings::instance()->listHeader())
+    if(!SETTINGS_GET_BOOL(SETTING_LIST_HEADER))
         return;
 
     ui->widgetEnterHeader->startEditing(ui->labelHeader->text(), true);
@@ -788,14 +804,14 @@ void List::addTickers(const QStringList &tk, FixName fix)
     {
         check = DontCheckDups;
 
-        if(!Settings::instance()->allowDuplicates())
+        if(!SETTINGS_GET_BOOL(SETTING_ALLOW_DUPLICATES))
         {
             qDebug("Fast remove dups");
             tickers.removeDuplicates();
         }
     }
     else
-        check = Settings::instance()->allowDuplicates() ? DontCheckDups : CheckDups;
+        check = SETTINGS_GET_BOOL(SETTING_ALLOW_DUPLICATES) ? DontCheckDups : CheckDups;
 
     ui->list->setUpdatesEnabled(false);
 
@@ -834,7 +850,7 @@ bool List::addItem(const QString &txt, FixName fix, CheckForDups check)
         return false;
 
     if(check == CheckDups
-            && !Settings::instance()->allowDuplicates()
+            && !SETTINGS_GET_BOOL(SETTING_ALLOW_DUPLICATES)
             && ui->list->findItems(text.at(0), Qt::MatchFixedString).size())
         return false;
 
@@ -973,46 +989,6 @@ void List::undo()
     addTickers(m_oldTickers, DontFix);
 }
 
-void List::rebuildFinvizMenu()
-{
-    qDebug("Rebuild finviz menu for list \"%d\"", m_section);
-
-    QList<FinvizUrl> urls = Settings::instance()->finvizUrls();
-
-    m_finvizMenu->clear();
-
-    foreach(FinvizUrl fu, urls)
-    {
-        QAction *a = m_finvizMenu->addAction(fu.name, this, SLOT(slotAddFromFinviz()));
-        a->setData(fu.url);
-    }
-
-    if(!urls.isEmpty())
-        m_finvizMenu->addSeparator();
-
-    m_finvizMenu->addAction(QIcon(":/images/finviz-customize.png"), tr("Customize..."), this, SLOT(slotManageFinvizUrls()));
-}
-
-void List::addFromFinviz(const QUrl &u)
-{
-    FinvizDownloader dn(u, this);
-
-    if(dn.exec() != QDialog::Accepted)
-        return;
-
-    addTickers(dn.tickers(), Fix);
-}
-
-void List::showFinvizSelector()
-{
-    FinvizLinkSelector ls(this);
-
-    if(ls.exec() != QDialog::Accepted)
-        return;
-
-    addFromFinviz(ls.url());
-}
-
 void List::openTickerInBrowser(const QString &baseUrl, const QString &ticker, List::FixName fix)
 {
     if(baseUrl.isEmpty() || ticker.isEmpty())
@@ -1137,7 +1113,7 @@ void List::loadItem(LoadItem litem)
     ui->list->setCurrentItem(item);
     emit loadTicker(item->text());
 
-    if(Settings::instance()->showComments())
+    if(SETTINGS_GET_BOOL(SETTING_SHOW_COMMENTS))
         showComment();
 }
 
@@ -1221,7 +1197,7 @@ void List::moveItem(MoveItem mi)
 
 void List::focusMiniTickerEntry()
 {
-    if(Settings::instance()->miniTickerEntry())
+    if(SETTINGS_GET_BOOL(SETTING_MINI_TICKER_ENTRY))
     {
         ui->stack->setCurrentIndex(0);
         ui->widgetInput->setFocusAndSelect();
@@ -1233,7 +1209,7 @@ void List::slotAddOne()
 {
     qDebug("Adding one ticker");
 
-    if(Settings::instance()->miniTickerEntry())
+    if(SETTINGS_GET_BOOL(SETTING_MINI_TICKER_ENTRY))
         focusMiniTickerEntry();
     else
     {
@@ -1258,7 +1234,7 @@ void List::slotAddFromFile()
     qDebug("Adding new tickers from file");
 
     QStringList fileNames = QFileDialog::getOpenFileNames(this, tr("Choose a file"),
-                                                          Settings::instance()->lastTickerDirectory(),
+                                                          SETTINGS_GET_STRING(SETTING_LAST_TICKER_DIRECTORY),
                                                           tr("Text files (*.txt)")
                                                               + ";;"
                                                               + tr("All files (*.*)"));
@@ -1269,7 +1245,7 @@ void List::slotAddFromFile()
     bool error = false;
     QStringList errorFiles, tickers;
 
-    Settings::instance()->setLastTickerDirectory(QFileInfo(fileNames[0]).absolutePath());
+    SETTINGS_SET_STRING(SETTING_LAST_TICKER_DIRECTORY, QFileInfo(fileNames[0]).absolutePath());
 
     foreach(QString fileName, fileNames)
     {
@@ -1333,7 +1309,7 @@ void List::slotExportToFile()
 
     QString fileName = QFileDialog::getSaveFileName(this,
                                                     tr("Choose a file"),
-                                                    Settings::instance()->lastTickerDirectory(),
+                                                    SETTINGS_GET_STRING(SETTING_LAST_TICKER_DIRECTORY),
                                                     tr("Text files (*.txt)")
                                                         + ";;"
                                                         + tr("All files (*.*)"));
@@ -1350,7 +1326,7 @@ void List::slotExportToFile()
         return;
     }
 
-    Settings::instance()->setLastTickerDirectory(QFileInfo(fileName).absolutePath());
+    SETTINGS_SET_STRING(SETTING_LAST_TICKER_DIRECTORY, QFileInfo(fileName).absolutePath());
 
     QTextStream t(&file);
 
@@ -1408,18 +1384,18 @@ void List::startSearching()
     ui->stack->setCurrentIndex(1);
     ui->stack->currentWidget()->setFocus();
 
-    if(!Settings::instance()->miniTickerEntry())
+    if(!SETTINGS_GET_BOOL(SETTING_MINI_TICKER_ENTRY))
         ui->stack->show();
 }
 
 bool List::searching() const
 {
-    return Settings::instance()->miniTickerEntry() ? ui->stack->currentIndex() : ui->stack->isVisible();
+    return SETTINGS_GET_BOOL(SETTING_MINI_TICKER_ENTRY) ? ui->stack->currentIndex() : ui->stack->isVisible();
 }
 
 void List::reconfigureMiniTickerEntry()
 {
-    if(Settings::instance()->miniTickerEntry())
+    if(SETTINGS_GET_BOOL(SETTING_MINI_TICKER_ENTRY))
     {
         ui->stack->show();
         ui->stack->setCurrentIndex(0);
@@ -1466,40 +1442,15 @@ void List::slotFocusUp()
     setFocus();
 }
 
-void List::slotAddFromFinviz()
-{
-    qDebug("Add from Finviz");
-
-    QAction *a = qobject_cast<QAction *>(sender());
-
-    if(!a)
-        return;
-
-    QUrl u = a->data().toUrl();
-
-    if(!u.isValid())
-    {
-        qDebug("Url \"%s\" is not valid", qPrintable(u.toString(QUrl::RemovePassword)));
-        return;
-    }
-
-    addFromFinviz(u);
-}
-
-void List::slotManageFinvizUrls()
-{
-    FinvizUrlManager mgr(this);
-
-    if(mgr.exec() == QDialog::Accepted && mgr.changed())
-    {
-        Settings::instance()->setFinvizUrls(mgr.urls());
-        emit needRebuildFinvizMenu();
-    }
-}
-
 void List::slotCurrentRowChanged(int row)
 {
     m_numbers->setCurrent(row+1);
+}
+
+void List::slotTickersFromPlugin(int list, const QStringList &tickers)
+{
+    if(list == m_section)
+        addTickers(tickers, Fix);
 }
 
 void List::slotExportToClipboard()
