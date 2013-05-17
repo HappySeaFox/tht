@@ -18,6 +18,7 @@
 #include <QListWidgetItem>
 
 #include "finvizlinkselector.h"
+#include "finvizurl.h"
 #include "settings.h"
 #include "ui_finvizlinkselector.h"
 
@@ -27,7 +28,7 @@ FinvizLinkSelector::FinvizLinkSelector(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    const QList<FinvizUrl> urls = Settings::instance()->finvizUrls();
+    const QList<FinvizUrl> urls = SETTINGS_GET_FINVIZ_URLS(SETTING_FINVIZ_URLS);
 
     foreach(FinvizUrl fu, urls)
     {

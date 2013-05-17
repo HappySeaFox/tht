@@ -19,6 +19,7 @@
 
 #include "finvizaccesssetup.h"
 #include "finvizurlmanager.h"
+#include "finvizurl.h"
 #include "settings.h"
 
 #include "ui_datamanagerbase.h"
@@ -32,7 +33,7 @@ FinvizUrlManager::FinvizUrlManager(QWidget *parent) :
     ui->tree->headerItem()->setText(1, tr("Link"));
     ui->tree->setWhatsThis(QString("<a href=\"http://www.youtube.com/watch?v=r1Y7iNM7_9k\">%1</a>").arg(tr("Open YouTube tutorial")));
 
-    const QList<FinvizUrl> urls = Settings::instance()->finvizUrls();
+    const QList<FinvizUrl> urls = SETTINGS_GET_FINVIZ_URLS(SETTING_FINVIZ_URLS);
 
     foreach(FinvizUrl fu, urls)
     {
@@ -98,7 +99,7 @@ void FinvizUrlManager::slotAccessClicked()
 
     if(fas.exec() == QDialog::Accepted)
     {
-        Settings::instance()->setFinvizEmail(fas.email(), Settings::NoSync);
-        Settings::instance()->setFinvizPassword(fas.password());
+        SETTINGS_SET_STRING(SETTING_FINVIZ_EMAIL, fas.email(), Settings::NoSync);
+        SETTINGS_SET_STRING(SETTING_FINVIZ_PASSWORD, fas.password());
     }
 }

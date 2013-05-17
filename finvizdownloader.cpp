@@ -21,6 +21,7 @@
 #include <QUrl>
 
 #include "finvizdownloader.h"
+#include "finvizcookiejar.h"
 #include "networkaccess.h"
 #include "csvreader.h"
 #include "ui_finvizdownloader.h"
@@ -37,6 +38,8 @@ FinvizDownloader::FinvizDownloader(const QUrl &url, QWidget *parent) :
     ui->pushClose->hide();
 
     m_net = new NetworkAccess(this);
+
+    m_net->setCookieJar(new FinvizCookieJar(m_net));
 
     connect(m_net, SIGNAL(finished()), this, SLOT(slotFinished()));
 
