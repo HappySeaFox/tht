@@ -76,22 +76,27 @@ bool FinvizPlugin::init()
     return true;
 }
 
-QMenu *FinvizPlugin::menu(int list)
+bool FinvizPlugin::embed(int list, QMenu *parentMenu)
 {
-    Menus::const_iterator it = m_menus.find(list);
+    Embeds::const_iterator it = m_embeds.find(list);
 
-    if(it != m_menus.end())
-        return it.value();
+    if(it != m_embeds.end())
+        return true;
 
     QMenu *menu = new QMenu(tr("Add from Finviz") + "\tZ");
+
+    if(!menu)
+        return false;
 
     menu->setIcon(QIcon(":/images/finviz.png"));
 
     rebuildMenu(menu);
 
-    m_menus.insert(list, menu);
+    parentMenu->addMenu(menu);
 
-    return menu;
+    m_embeds.insert(list, menu);
+
+    return true;
 }
 
 void FinvizPlugin::listHotkeyActivated(int list, const Hotkey &h)
@@ -124,6 +129,9 @@ void FinvizPlugin::showFinvizSelector(int list)
 
 void FinvizPlugin::rebuildMenu(QMenu *menu)
 {
+    if(!menu)
+        return;
+
     menu->clear();
 
     QList<FinvizUrl> urls = SETTINGS_GET_FINVIZ_URLS(SETTING_FINVIZ_URLS);
@@ -149,23 +157,7 @@ void FinvizPlugin::slotAdd()
     if(!a)
         return;
 
-    QMenu *menu = qobject_cast<QMenu *>(a->parent());
-
-    if(!menu)
-        return;
-
-    int list = -1;
-
-    Menus::const_iterator itEnd = m_menus.end();
-
-    for(Menus::const_iterator it = m_menus.begin();it != itEnd;++it)
-    {
-        if(it.value() == menu)
-        {
-            list = it.key();
-            break;
-        }
-    }
+    int list = senderMenuActionToList();
 
     if(list < 0)
         return;
@@ -189,11 +181,11 @@ void FinvizPlugin::slotManageUrls()
     {
         SETTINGS_SET_FINVIZ_URLS(SETTING_FINVIZ_URLS, mgr.urls());
 
-        Menus::const_iterator itEnd = m_menus.end();
+        Embeds::const_iterator itEnd = m_embeds.end();
 
-        for(Menus::const_iterator it = m_menus.begin();it != itEnd;++it)
+        for(Embeds::const_iterator it = m_embeds.begin();it != itEnd;++it)
         {
-            rebuildMenu(it.value());
+            rebuildMenu(qobject_cast<QMenu *>(it.value()));
         }
     }
 }

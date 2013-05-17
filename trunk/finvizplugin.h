@@ -37,7 +37,7 @@ public:
         return AddTickersFrom;
     }
 
-    virtual QMenu *menu(int list);
+    virtual bool embed(int list, QMenu *parentMenu);
 
     virtual QList<Hotkey> supportedHotkeysInList() const
     {
