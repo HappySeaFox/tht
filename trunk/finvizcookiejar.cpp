@@ -18,6 +18,7 @@
 #include <QUrl>
 
 #include "finvizcookiejar.h"
+#include "finvizurl.h"
 #include "settings.h"
 
 FinvizCookieJar::FinvizCookieJar(QObject *parent) :
@@ -31,8 +32,8 @@ QList<QNetworkCookie> FinvizCookieJar::cookiesForUrl(const QUrl &url) const
 
     if(h == FINVIZ || h == FINVIZ_ELITE)
     {
-        QString email = Settings::instance()->finvizEmail();
-        QString password = Settings::instance()->finvizPassword();
+        QString email = SETTINGS_GET_STRING(SETTING_FINVIZ_EMAIL);
+        QString password = SETTINGS_GET_STRING(SETTING_FINVIZ_PASSWORD);
 
         if(!email.isEmpty() && !password.isEmpty())
         {
