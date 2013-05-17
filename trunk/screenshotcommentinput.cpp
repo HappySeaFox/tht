@@ -48,14 +48,14 @@ ScreenshotCommentInput::ScreenshotCommentInput(QWidget *parent) :
     }
 
     // text itself
-    ui->text->setText(Settings::instance()->screenshotText());
+    ui->text->setText(SETTINGS_GET_STRING(SETTING_SCREENSHOT_TEXT));
     ui->text->selectAll();
 
     // color
-    setColor(Settings::instance()->screenshotTextColor());
+    setColor(SETTINGS_GET_COLOR(SETTING_SCREENSHOT_TEXT_COLOR));
 
     // text alignment
-    m_align = Settings::instance()->screenshotTextAlignment();
+    m_align = SETTINGS_GET_ALIGNMENT(SETTING_SCREENSHOT_TEXT_ALIGNMENT);
 
     switch(m_align)
     {
@@ -68,7 +68,7 @@ ScreenshotCommentInput::ScreenshotCommentInput(QWidget *parent) :
     }
 
     // text size
-    int size = Settings::instance()->screenshotTextSize();
+    int size = SETTINGS_GET_INT(SETTING_SCREENSHOT_TEXT_SIZE);
 
     if(size > 0)
     {
@@ -118,10 +118,10 @@ QPixmap ScreenshotCommentInput::pixmap() const
 
 void ScreenshotCommentInput::saveSettings() const
 {
-    Settings::instance()->setScreenshotTextColor(m_color, Settings::NoSync);
-    Settings::instance()->setScreenshotTextSize(ui->text->font().pointSize(), Settings::NoSync);
-    Settings::instance()->setScreenshotTextAlignment(m_align, Settings::NoSync);
-    Settings::instance()->setScreenshotText(ui->text->toPlainText()); // also sync
+    SETTINGS_SET_COLOR(SETTING_SCREENSHOT_TEXT_COLOR, m_color, Settings::NoSync);
+    SETTINGS_SET_INT(SETTING_SCREENSHOT_TEXT_SIZE, ui->text->font().pointSize(), Settings::NoSync);
+    SETTINGS_SET_ALIGNMENT(SETTING_SCREENSHOT_TEXT_ALIGNMENT, m_align, Settings::NoSync);
+    SETTINGS_SET_STRING(SETTING_SCREENSHOT_TEXT, ui->text->toPlainText()); // also sync
 }
 
 void ScreenshotCommentInput::setColor(const QColor &c)

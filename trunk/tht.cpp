@@ -78,7 +78,7 @@ THT::THT(QWidget *parent) :
     m_drawnWindow(0),
     m_linksChanged(false)
 {
-    if(Settings::instance()->onTop())
+    if(SETTINGS_GET_BOOL(SETTING_ONTOP))
         setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
 
     ui->setupUi(this);
@@ -86,7 +86,7 @@ THT::THT(QWidget *parent) :
     setAcceptDrops(true);
 
     // NYSE only
-    ui->checkNyse->setChecked(Settings::instance()->nyseOnly());
+    ui->checkNyse->setChecked(SETTINGS_GET_BOOL(SETTING_NYSE_ONLY));
 
     // global shortcuts
     m_takeScreen = new QxtGlobalShortcut(QKeySequence(Qt::CTRL + Qt::ALT + Qt::Key_S), this);
@@ -156,14 +156,14 @@ THT::THT(QWidget *parent) :
     }
 
     // restore geometry
-    if(Settings::instance()->saveGeometry())
+    if(SETTINGS_GET_BOOL(SETTING_SAVE_GEOMETRY))
     {
-        QSize sz = Settings::instance()->windowSize();
+        QSize sz = SETTINGS_GET_SIZE(SETTING_SIZE);
 
         if(sz.isValid())
             resize(sz);
 
-        Tools::moveWindow(this, Settings::instance()->windowPosition());
+        Tools::moveWindow(this, SETTINGS_GET_POINT(SETTING_POSITION));
     }
 
     m_tray = new QSystemTrayIcon(icon_chart, this);
@@ -180,7 +180,7 @@ THT::THT(QWidget *parent) :
     connect(m_tray, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), this, SLOT(slotTrayActivated(QSystemTrayIcon::ActivationReason)));
 
     m_tray->setContextMenu(trayMenu);
-    m_tray->setVisible(Settings::instance()->hideToTray());
+    m_tray->setVisible(SETTINGS_GET_BOOL(SETTING_HIDE_TO_TRAY));
 
     checkWindows();
 
@@ -234,10 +234,10 @@ THT::THT(QWidget *parent) :
     new TickersDatabaseUpdater(this);
 
     // sectors
-    if(Settings::instance()->restoreNeighborsAtStartup() && Settings::instance()->showNeighborsAtStartup())
+    if(SETTINGS_GET_BOOL(SETTING_RESTORE_NEIGHBORS_AT_STARTUP) && SETTINGS_GET_BOOL(SETTING_SHOW_NEIGHBORS_AT_STARTUP))
         slotShowNeighbors(startupTicker);
 
-    if(!Settings::instance()->foolsDaySeen())
+    if(!SETTINGS_GET_BOOL(SETTING_FOOLSDAY_SEEN))
         QTimer::singleShot(0, this, SLOT(slotFoolsDay()));
 
     m_newYorkDate = new RemoteDate("Eastern Standard Time");
@@ -263,15 +263,15 @@ THT::THT(QWidget *parent) :
 
 THT::~THT()
 {
-    Settings::instance()->setNyseOnly(ui->checkNyse->isChecked(), Settings::NoSync);
+    SETTINGS_SET_BOOL(SETTING_NYSE_ONLY, ui->checkNyse->isChecked(), Settings::NoSync);
 
-    if(Settings::instance()->saveGeometry())
+    if(SETTINGS_GET_BOOL(SETTING_SAVE_GEOMETRY))
     {
-        Settings::instance()->setWindowSize(size(), Settings::NoSync);
-        Settings::instance()->setWindowPosition(pos(), Settings::NoSync);
+        SETTINGS_SET_SIZE(SETTING_SIZE, size(), Settings::NoSync);
+        SETTINGS_SET_POINT(SETTING_POSITION, pos(), Settings::NoSync);
     }
 
-    if(m_linksChanged && Settings::instance()->restoreLinksAtStartup())
+    if(m_linksChanged && SETTINGS_GET_BOOL(SETTING_RESTORE_LINKS_AT_STARTUP))
     {
         QList<QPoint> list;
 
@@ -280,10 +280,10 @@ THT::~THT()
             list.append(l.dropPoint);
         }
 
-        Settings::instance()->setLastLinks(list);
+        SETTINGS_SET_POINTS(SETTING_LAST_LINKS, list);
     }
 
-    Settings::instance()->setShowNeighborsAtStartup(m_sectors);
+    SETTINGS_SET_BOOL(SETTING_SHOW_NEIGHBORS_AT_STARTUP, (bool)m_sectors);
 
     delete m_newYorkDate;
     delete ui;
@@ -312,11 +312,11 @@ void THT::contextMenuEvent(QContextMenuEvent *event)
 
 void THT::closeEvent(QCloseEvent *e)
 {
-    if(Settings::instance()->hideToTray())
+    if(SETTINGS_GET_BOOL(SETTING_HIDE_TO_TRAY))
     {
-        if(!Settings::instance()->trayNoticeSeen())
+        if(!SETTINGS_GET_BOOL(SETTING_TRAY_NOTICE_SEEN))
         {
-            Settings::instance()->setTrayNoticeSeen(true);
+            SETTINGS_SET_BOOL(SETTING_TRAY_NOTICE_SEEN, true);
             m_tray->showMessage(tr("Notice"), tr("THT will continue to run in a system tray"), QSystemTrayIcon::Information, 7000);
         }
 
@@ -525,9 +525,6 @@ void THT::rebuildUi()
             connect(list, SIGNAL(tickerCancelled()),
                     this, SLOT(slotTargetCancelled()));
 
-            connect(list, SIGNAL(needRebuildFinvizMenu()),
-                    this, SLOT(slotNeedRebuildFinvizMenu()));
-
             m_layout->addWidget(list, 0, m_lists.size());
             m_lists.append(list);
         }
@@ -546,8 +543,8 @@ void THT::rebuildUi()
     else
         doResize = false;
 
-    bool saveTickers = Settings::instance()->saveTickers();
-    bool listHeader = Settings::instance()->listHeader();
+    bool saveTickers = SETTINGS_GET_BOOL(SETTING_SAVE_TICKERS);
+    bool listHeader = SETTINGS_GET_BOOL(SETTING_LIST_HEADER);
 
     foreach(List *l, m_lists)
     {
@@ -1030,9 +1027,9 @@ void THT::slotQuit()
 
 void THT::slotOptions()
 {
-    bool oldDups = Settings::instance()->allowDuplicates();
-    bool oldMini = Settings::instance()->miniTickerEntry();
-    bool oldRestoreLP = Settings::instance()->restoreLinksAtStartup();
+    bool oldDups = SETTINGS_GET_BOOL(SETTING_ALLOW_DUPLICATES);
+    bool oldMini = SETTINGS_GET_BOOL(SETTING_MINI_TICKER_ENTRY);
+    bool oldRestoreLP = SETTINGS_GET_BOOL(SETTING_RESTORE_LINKS_AT_STARTUP);
 
     Options opt(this);
 
@@ -1051,7 +1048,7 @@ void THT::slotOptions()
 
             Qt::WindowFlags flags = w->windowFlags();
 
-            if(Settings::instance()->onTop())
+            if(SETTINGS_GET_BOOL(SETTING_ONTOP))
                 flags |= Qt::WindowStaysOnTopHint;
             else
                 flags &= ~Qt::WindowStaysOnTopHint;
@@ -1060,33 +1057,33 @@ void THT::slotOptions()
             w->show();
         }
 
-        m_tray->setVisible(Settings::instance()->hideToTray());
+        m_tray->setVisible(SETTINGS_GET_BOOL(SETTING_HIDE_TO_TRAY));
 
         // delete duplicates
-        if(oldDups && !Settings::instance()->allowDuplicates())
+        if(oldDups && !SETTINGS_GET_BOOL(SETTING_ALLOW_DUPLICATES))
         {
             foreach(List *l, m_lists)
                 l->removeDuplicates();
         }
 
         // reconfigure mini ticker entry
-        if(oldMini != Settings::instance()->miniTickerEntry())
+        if(oldMini != SETTINGS_GET_BOOL(SETTING_MINI_TICKER_ENTRY))
         {
             foreach(List *l, m_lists)
                 l->reconfigureMiniTickerEntry();
         }
 
-        if(!oldRestoreLP && Settings::instance()->restoreLinksAtStartup())
+        if(!oldRestoreLP && SETTINGS_GET_BOOL(SETTING_RESTORE_LINKS_AT_STARTUP))
             m_linksChanged = true;
 
         // reset geometry
-        if(!Settings::instance()->saveGeometry())
+        if(!SETTINGS_GET_BOOL(SETTING_SAVE_GEOMETRY))
         {
-            Settings::instance()->setWindowSize(QSize(), Settings::NoSync);
-            Settings::instance()->setWindowPosition(QPoint(), Settings::NoSync);
+            SETTINGS_SET_SIZE(SETTING_SIZE, QSize(), Settings::NoSync);
+            SETTINGS_SET_POINT(SETTING_POSITION, QPoint(), Settings::NoSync);
 
-            Settings::instance()->setNeighborsWindowSize(QSize(), Settings::NoSync);
-            Settings::instance()->setNeighborsWindowPosition(Tools::invalidQPoint); // also sync
+            SETTINGS_SET_SIZE(SETTING_NEIGHBORS_SIZE, QSize(), Settings::NoSync);
+            SETTINGS_SET_POINT(SETTING_NEIGHBORS_POSITION, Tools::invalidQPoint); // also sync
         }
     }
 }
@@ -1164,7 +1161,7 @@ void THT::slotLoadTicker(const QString &ticker)
 
 void THT::slotLoadTicker()
 {
-    if(Settings::instance()->miniTickerEntry())
+    if(SETTINGS_GET_BOOL(SETTING_MINI_TICKER_ENTRY))
     {
         // find where to set the focus
         const QWidget *focused = focusWidget();
@@ -1313,7 +1310,7 @@ void THT::slotManageLinks()
 
     if(mgr.exec() == QDialog::Accepted && mgr.changed())
     {
-        Settings::instance()->setLinks(mgr.links());
+        SETTINGS_SET_LINKS(SETTING_LINKS, mgr.links());
         rebuildLinks();
     }
 }
@@ -1473,9 +1470,9 @@ void THT::slotFomcCheck()
 void THT::slotRestoreLinks()
 {
     // restore link points
-    if(Settings::instance()->restoreLinksAtStartup())
+    if(SETTINGS_GET_BOOL(SETTING_RESTORE_LINKS_AT_STARTUP))
     {
-        QList<QPoint> list = Settings::instance()->lastLinks();
+        QList<QPoint> list = SETTINGS_GET_POINTS(SETTING_LAST_LINKS);
 
         foreach(QPoint p, list)
         {
@@ -1603,20 +1600,12 @@ void THT::slotShowNeighbors(const QString &ticker)
 
     m_sectors = new TickerNeighbors(ticker, this);
 
-    if(Settings::instance()->onTop())
+    if(SETTINGS_GET_BOOL(SETTING_ONTOP))
         m_sectors->setWindowFlags(m_sectors->windowFlags() | Qt::WindowStaysOnTopHint);
 
     connect(m_sectors, SIGNAL(loadTicker(QString)), this, SLOT(slotLoadTicker(QString)));
 
     m_sectors->show();
-}
-
-void THT::slotNeedRebuildFinvizMenu()
-{
-    foreach(List *l, m_lists)
-    {
-        l->rebuildFinvizMenu();
-    }
 }
 
 void THT::slotFoolsDay()
@@ -1631,7 +1620,7 @@ void THT::slotFoolsDay()
                                         .arg(tr("All large contemporary fortunes were acquired<br>in the most dishonorable way."))
                                         .arg(tr("\"The Little Golden Calf\" I.Ilf, E.Petrov")));
 
-        Settings::instance()->setFoolsDaySeen(true);
+        SETTINGS_SET_BOOL(SETTING_FOOLSDAY_SEEN, true);
     }
 }
 
@@ -1672,7 +1661,7 @@ void THT::rebuildLinks()
 {
     qDebug("Rebuild link menu");
 
-    QList<LinkPoint> links = Settings::instance()->links();
+    QList<LinkPoint> links = SETTINGS_GET_LINKS(SETTING_LINKS);
 
     QMenu *menu = ui->pushLinks->menu();
 

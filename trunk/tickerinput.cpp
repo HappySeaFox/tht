@@ -32,7 +32,7 @@ TickerInput::TickerInput(QWidget *parent) :
     ui->line->setValidator(new UpperCaseValidator(ui->line));
     ui->line->installEventFilter(this);
 
-    ui->line->setText(Settings::instance()->lastTickerInput());
+    ui->line->setText(SETTINGS_GET_STRING(SETTING_LAST_TICKER_INPUT));
     ui->line->selectAll();
 }
 
@@ -48,7 +48,7 @@ QString TickerInput::ticker() const
 
 void TickerInput::slotAccepted()
 {
-    Settings::instance()->setLastTickerInput(ui->line->text());
+    SETTINGS_SET_STRING(SETTING_LAST_TICKER_INPUT, ui->line->text());
 }
 
 bool TickerInput::eventFilter(QObject *o, QEvent *e)

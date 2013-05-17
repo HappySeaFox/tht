@@ -46,6 +46,8 @@ public:
 
     QNetworkReply::NetworkError error() const;
 
+    void setCookieJar(QNetworkCookieJar *cookieJar);
+
 signals:
     void finished();
 

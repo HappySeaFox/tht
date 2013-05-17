@@ -33,6 +33,7 @@
 #include "qtlockedfile.h"
 #endif
 
+#include "pluginloader.h"
 #include "settings.h"
 #include "tht.h"
 
@@ -156,6 +157,11 @@ int main(int argc, char *argv[])
 
     QtSingleApplication app(argc, argv);
 
+    // plugins can register their own datastream operators,
+    // so we need to be sure that all of them are loaded
+    // before Settings is created
+    PluginLoader::instance();
+
     if(Settings::instance()->preloadMode())
     {
         qDebug("Preload mode");
@@ -176,25 +182,35 @@ int main(int argc, char *argv[])
     // load translations
     QString locale = QLocale::system().name();
 
-    QString ts = Settings::instance()->translation();
+    QString ts = SETTINGS_GET_STRING(SETTING_TRANSLATION);
     QString dir = QCoreApplication::applicationDirPath() + QDir::separator() + "translations";
 
     qDebug("Locale \"%s\", translation \"%s\"", qPrintable(locale), qPrintable(ts));
 
     ts = ts.isEmpty() ? locale : (ts + ".qm");
 
-    QTranslator translator;
-    qDebug("Loading THT translation: %s", translator.load("tht_" + ts, dir) ? "ok" : "failed");
+    QTranslator translator_tht_lib;
+    qDebug("Loading THT library translation: %s", translator_tht_lib.load("tht_lib_" + ts, dir) ? "ok" : "failed");
+
+    QTranslator translator_tht;
+    qDebug("Loading THT translation: %s", translator_tht.load("tht_" + ts, dir) ? "ok" : "failed");
 
     QTranslator translator_qt;
     qDebug("Loading Qt translation: %s", translator_qt.load("qt_" + ts, dir) ? "ok" : "failed");
 
+    app.setProperty("tht-translation", ts);
     app.installTranslator(&translator_qt);
-    app.installTranslator(&translator);
+    app.installTranslator(&translator_tht);
+    app.installTranslator(&translator_tht_lib);
+
+    // initialize all plugins
+    PluginLoader::instance()->init();
 
     // main window
     THT w;
     w.show();
+
+    PluginLoader::instance()->setTopLevelWidget(&w);
 
     app.setQuitOnLastWindowClosed(false);
 
