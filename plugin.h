@@ -58,7 +58,7 @@ public:
     virtual Type type() const = 0;
 
     // menu for list N
-    virtual QMenu *menu(int list) = 0;
+    virtual bool embed(int list, QMenu *menu) = 0;
 
     virtual bool init()
     {
@@ -79,12 +79,16 @@ public:
     void setTopLevelWidget(QWidget *w);
     QWidget *topLevelWidget() const;
 
+protected:
+    int senderStandaloneActionToList() const;
+    int senderMenuActionToList() const;
+
 signals:
     void tickers(int list, const QStringList &tickers);
 
 protected:
-    typedef QMap<int, QMenu *> Menus;
-    Menus m_menus;
+    typedef QMap<int, QObject *> Embeds;
+    Embeds m_embeds;
 
 private:
     QWidget *m_topLevelWidget;

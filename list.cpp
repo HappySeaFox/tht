@@ -144,7 +144,7 @@ List::List(int group, QWidget *parent) :
 
     foreach(Plugin *p, m_plugins)
     {
-        menu->addMenu(p->menu(m_section));
+        p->embed(m_section, menu);
         connect(p, SIGNAL(tickers(int,QStringList)), this, SLOT(slotTickersFromPlugin(int,QStringList)));
     }
 

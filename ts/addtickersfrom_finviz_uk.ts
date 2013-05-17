@@ -78,7 +78,7 @@
         <translation>Додати з Finviz</translation>
     </message>
     <message>
-        <location filename="../finvizplugin.cpp" line="140"/>
+        <location filename="../finvizplugin.cpp" line="148"/>
         <source>Customize...</source>
         <translation>Налаштувати...</translation>
     </message>
