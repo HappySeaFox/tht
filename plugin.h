@@ -52,7 +52,7 @@ public:
     enum Type { AddTickersFrom };
 
     Plugin(QObject *parent = 0);
-    ~Plugin();
+    virtual ~Plugin();
 
     // plugin type
     virtual Type type() const = 0;

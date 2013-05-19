@@ -26,7 +26,14 @@ Plugin::Plugin(QObject *parent) : QObject(parent)
 {}
 
 Plugin::~Plugin()
-{}
+{
+    Embeds::const_iterator itEnd = m_embeds.end();
+
+    for(Embeds::const_iterator it = m_embeds.begin();it != itEnd;++it)
+    {
+        delete it.value();
+    }
+}
 
 int Plugin::senderStandaloneActionToList() const
 {
