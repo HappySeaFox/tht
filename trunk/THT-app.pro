@@ -53,7 +53,6 @@ HEADERS += tht.h \
     options.h \
     about.h \
     qtsingleapplication/qtsingleapplication.h \
-    qtsingleapplication/QtSingleApplication \
     qtsingleapplication/qtlockedfile.h \
     qtsingleapplication/QtLockedFile \
     qtsingleapplication/qtlocalpeer.h \
