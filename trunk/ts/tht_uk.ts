@@ -167,36 +167,36 @@
         <translation>Експортувати в буфер обміну</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1236"/>
-        <location filename="../list.cpp" line="1311"/>
+        <location filename="../list.cpp" line="1257"/>
+        <location filename="../list.cpp" line="1332"/>
         <source>Choose a file</source>
         <translation>Виберіть файл</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1238"/>
-        <location filename="../list.cpp" line="1313"/>
+        <location filename="../list.cpp" line="1259"/>
+        <location filename="../list.cpp" line="1334"/>
         <source>Text files (*.txt)</source>
         <translation>Текстові файли (*.txt)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1240"/>
-        <location filename="../list.cpp" line="1315"/>
+        <location filename="../list.cpp" line="1261"/>
+        <location filename="../list.cpp" line="1336"/>
         <source>All files (*.*)</source>
         <translation>Всі файли (*.*)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1275"/>
-        <location filename="../list.cpp" line="1325"/>
+        <location filename="../list.cpp" line="1296"/>
+        <location filename="../list.cpp" line="1346"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1275"/>
+        <location filename="../list.cpp" line="1296"/>
         <source>Cannot open the following files: %1</source>
         <translation>Неможливо відкрити наступні файли: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1325"/>
+        <location filename="../list.cpp" line="1346"/>
         <source>Cannot save to file %1</source>
         <translation>Неможливо зберегти в файл %1</translation>
     </message>

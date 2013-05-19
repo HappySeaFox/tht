@@ -136,7 +136,7 @@ List::List(int group, QWidget *parent) :
     menu->addAction(tr("Add from clipboard") + "\tP", this, SLOT(paste()));
     ui->pushAdd->setMenu(menu);
 
-    // menus rom plugins
+    // "Add" menus from plugins
     m_plugins = PluginLoader::instance()->byType(Plugin::AddTickersFrom);
 
     if(!m_plugins.isEmpty())
@@ -318,6 +318,8 @@ bool List::eventFilter(QObject *obj, QEvent *event)
         {
             QKeyEvent *ke = static_cast<QKeyEvent *>(event);
 
+            bool ate = true;
+
             if(ke->matches(QKeySequence::Paste))
                 paste();
             else if(ke->matches(QKeySequence::New))
@@ -465,6 +467,10 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                     // default processing
                     case Qt::Key_Tab:
                         return QObject::eventFilter(obj, event);
+
+                    default:
+                        ate = false;
+                    break;
                 } // switch
             }
             else if(ke->modifiers() == Qt::ControlModifier)
@@ -494,6 +500,10 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                     case Qt::Key_PageDown:
                         moveItem(MoveItemPageDown);
                     break;
+
+                    default:
+                        ate = false;
+                    break;
                 }
             }
             else if(ke->modifiers() == Qt::AltModifier)
@@ -514,19 +524,30 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                     case Qt::Key_X:
                         changeComment();
                     break;
+
+                    default:
+                        ate = false;
+                    break;
                 }
             }
+            else
+                ate = false;
 
-            foreach(Plugin *p, m_plugins)
+            if(!ate)
             {
-                QList<Hotkey> hotkeys = p->supportedHotkeysInList();
+                qDebug("Sending keyboard input to plugins");
 
-                foreach(Hotkey hotkey, hotkeys)
+                foreach(Plugin *p, m_plugins)
                 {
-                    if(ke->key() == hotkey.key && ke->modifiers() == hotkey.modifiers)
+                    QList<Hotkey> hotkeys = p->supportedHotkeysInList();
+
+                    foreach(Hotkey hotkey, hotkeys)
                     {
-                        p->listHotkeyActivated(m_section, hotkey);
-                        break;
+                        if(ke->key() == hotkey.key && ke->modifiers() == hotkey.modifiers)
+                        {
+                            p->listHotkeyActivated(m_section, hotkey);
+                            break;
+                        }
                     }
                 }
             }
