@@ -24,6 +24,7 @@
 #include <QPoint>
 #include <QList>
 
+#include "plugin.h"
 #include "ticker.h"
 
 class QAbstractItemDelegate;
@@ -35,7 +36,6 @@ class QMenu;
 class QUrl;
 
 class ListDetails;
-class Plugin;
 
 namespace Ui
 {
@@ -100,6 +100,7 @@ private:
     void changeComment();
     void showComment();
     Ticker currentTickerInfo() const;
+    void embedPlugins(Plugin::Type, QMenu *menu);
 
     enum LoadItem { LoadItemCurrent,
                     LoadItemNext, LoadItemPrevious,

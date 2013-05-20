@@ -136,22 +136,14 @@ List::List(int group, QWidget *parent) :
     menu->addAction(tr("Add from clipboard") + "\tP", this, SLOT(paste()));
     ui->pushAdd->setMenu(menu);
 
-    // "Add" menus from plugins
-    m_plugins = PluginLoader::instance()->byType(Plugin::AddTickersFrom);
-
-    if(!m_plugins.isEmpty())
-        menu->addSeparator();
-
-    foreach(Plugin *p, m_plugins)
-    {
-        p->embed(m_section, menu);
-        connect(p, SIGNAL(tickers(int,QStringList)), this, SLOT(slotTickersFromPlugin(int,QStringList)));
-    }
+    embedPlugins(Plugin::AddTickersFrom, menu);
 
     menu = new QMenu(this);
     menu->addAction(file_icon, tr("Export to file...") + "\tE", this, SLOT(slotExportToFile()));
     menu->addAction(tr("Export to clipboard") + "\tC", this, SLOT(slotExportToClipboard()));
     ui->pushSaveAs->setMenu(menu);
+
+    embedPlugins(Plugin::ExportTickersTo, menu);
 
     setFocusProxy(ui->list);
 
@@ -1073,6 +1065,25 @@ Ticker List::currentTickerInfo() const
     t.comment = item->comment();
 
     return t;
+}
+
+void List::embedPlugins(Plugin::Type type, QMenu *menu)
+{
+    if(!menu)
+        return;
+
+    QList<Plugin *> plugins = PluginLoader::instance()->byType(type);
+
+    if(!plugins.isEmpty())
+        menu->addSeparator();
+
+    foreach(Plugin *p, plugins)
+    {
+        p->embed(m_section, menu);
+        connect(p, SIGNAL(tickers(int,QStringList)), this, SLOT(slotTickersFromPlugin(int,QStringList)));
+    }
+
+    m_plugins += plugins;
 }
 
 void List::loadItem(LoadItem litem)
