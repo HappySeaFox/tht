@@ -1,0 +1,11 @@
+This toolchain contains the following libraries and binaries:
+
+* Qt4
+* MinGW
+* 7-zip
+* UPX
+* JOM
+
+You need to accept the appropriate licenses for that projects
+to use this toolchain. You can find the files with licenses in the installed
+directory. If you don't accept that licenses, please remove the toolchain.
