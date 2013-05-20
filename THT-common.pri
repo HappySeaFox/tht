@@ -59,9 +59,11 @@ QMAKE_POST_LINK += $$mle(lupdate -no-obsolete $$_PRO_FILE_)
 QMAKE_POST_LINK += $$mle(lrelease $$_PRO_FILE_)
 QMAKE_POST_LINK += $$mle(if not exist \"$${OUT_PWD}/$(DESTDIR_TARGET)/../translations\" mkdir \"$${OUT_PWD}/$(DESTDIR_TARGET)/../translations\")
 
-# QMFILES must be defined
-for(qm, QMFILES) {
-    QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\ts\\$$qm\" \"$${OUT_PWD}/$(DESTDIR_TARGET)/../translations\")
+# copy .qm files
+for(ts, TRANSLATIONS) {
+    ts=$$replace(ts, .ts$, .qm)
+    ts=$$replace(ts, /, \\)
+    QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\$$ts\" \"$${OUT_PWD}/$(DESTDIR_TARGET)/../translations\")
 }
 
 # check for upx
