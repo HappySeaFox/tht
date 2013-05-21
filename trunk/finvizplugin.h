@@ -28,7 +28,7 @@ class FinvizPlugin : public Plugin
     Q_OBJECT
 
 public:
-    explicit FinvizPlugin(QObject *parent = 0);
+    explicit FinvizPlugin();
 
     virtual bool init();
 

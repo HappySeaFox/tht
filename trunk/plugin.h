@@ -51,7 +51,7 @@ class Plugin : public QObject
 public:
     enum Type { AddTickersFrom, ExportTickersTo };
 
-    Plugin(QObject *parent = 0);
+    Plugin();
     virtual ~Plugin();
 
     // plugin type

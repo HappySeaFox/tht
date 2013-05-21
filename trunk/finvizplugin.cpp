@@ -41,8 +41,8 @@ static QDataStream &operator>>(QDataStream &in, FinvizUrl &fu)
     return in;
 }
 
-FinvizPlugin::FinvizPlugin(QObject *parent) :
-    Plugin(parent)
+FinvizPlugin::FinvizPlugin() :
+    Plugin()
 {
     qRegisterMetaTypeStreamOperators<FinvizUrl>("FinvizUrl");
     qRegisterMetaTypeStreamOperators<QList<FinvizUrl> >("QList<FinvizUrl>");
