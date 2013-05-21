@@ -87,10 +87,7 @@ begin
     end;
   end
   else if (CurStep = ssPostInstall) then begin
-    if not Exec('qtpathcorrector.bat', '', ExpandConstant('{app}'), SW_SHOW, ewWaitUntilTerminated, ResultCode) then begin
-      MsgBox(SysErrorMessage(ResultCode), mbCriticalError, MB_OK);
-      Abort();
-    end;
+    Exec(ExpandConstant('{app}\tools\qtpathcorrector.bat'), '', ExpandConstant('{app}'), SW_SHOW, ewWaitUntilTerminated, ResultCode);
   end;
 end;
 

@@ -1,11 +1,11 @@
 This toolchain contains the following libraries and binaries:
 
 * Qt4
-* MinGW
-* 7-zip
-* UPX
-* JOM
-* qt-path-corrector
+* MinGW (under mingw/)
+* 7-zip (under bin/)
+* UPX (under bin/)
+* JOM (under bin/)
+* qt-path-corrector (under tools/)
 
 You need to accept the appropriate licenses for that projects
 to use this toolchain. You can find the files with licenses in the installed
