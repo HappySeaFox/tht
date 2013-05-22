@@ -157,7 +157,7 @@ void Widget::slotGet()
         ui->list->addItem("Need to update FOMC");
         m_fomcDates.clear();
         connect(m_net, SIGNAL(finished()), this, SLOT(slotFinishedFomc()));
-        m_net->get(QUrl(QString("http://bloomberg.econoday.com/release_dates.asp?cust=bloomberg-us&year=%1").arg(year)));
+        m_net->get(QUrl(QString("http://mam.econoday.com/release_dates.asp?cust=mam&year=%1").arg(year)));
     }
     else
     {
