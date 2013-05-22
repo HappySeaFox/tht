@@ -54,22 +54,6 @@ Widget::Widget(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    rereadFomcDates();
-
-    // check for correct year
-    if(m_fomcDates.isEmpty())
-    {
-        ::exit(1);
-        return;
-    }
-
-    if(m_fomcDates.first().year() != QDate::currentDate().year())
-    {
-        QMessageBox::critical(0, "Fatal error", "Please update the FOMC dates");
-        ::exit(1);
-        return;
-    }
-
     {
         QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE", "old");
         db.setDatabaseName(THT_TICKERS_DB);
@@ -112,8 +96,6 @@ Widget::Widget(QWidget *parent) :
     }
 
     m_net = new NetworkAccess(this);
-
-    connect(m_net, SIGNAL(finished()), this, SLOT(slotFinished()));
 
     m_auto = QApplication::arguments().indexOf("auto") >= 0;
 
@@ -164,7 +146,43 @@ void Widget::slotGet()
         return;
     }
 
-    m_net->get(QUrl("http://finviz.com/export.ashx?v=150&o=ticker"));
+    rereadFomcDates();
+
+    // check for correct year
+    int fomcYear = m_fomcDates.isEmpty() ? -1 : m_fomcDates.first().year();
+    int year = QDate::currentDate().year();
+
+    if(ui->checkForce->isChecked() || fomcYear != year)
+    {
+        ui->list->addItem("Need to update FOMC");
+        m_fomcDates.clear();
+        connect(m_net, SIGNAL(finished()), this, SLOT(slotFinishedFomc()));
+        m_net->get(QUrl(QString("http://bloomberg.econoday.com/release_dates.asp?cust=bloomberg-us&year=%1").arg(year)));
+    }
+    else
+    {
+        ui->list->addItem("No need to update FOMC");
+        proceedToTickers();
+    }
+}
+
+void Widget::slotFinishedFomc()
+{
+    if(m_net->error() != QNetworkReply::NoError)
+    {
+        message(QString("Network error #%1").arg(m_net->error()));
+        return;
+    }
+
+    QString data = m_net->data();
+
+    if(!addFomcDates(data, "FOMC Meeting Announcement (US)")
+            || !addFomcDates(data, "FOMC Minutes (US)"))
+    {
+        ui->list->addItem("FOMC parsing error");
+    }
+
+    proceedToTickers();
 }
 
 void Widget::slotFinished()
@@ -622,4 +640,66 @@ void Widget::rereadFomcDates()
 
         m_fomcDates.append(date);
     }
+}
+
+void Widget::proceedToTickers()
+{
+    disconnect(m_net, SIGNAL(finished()), this, 0);
+    connect(m_net, SIGNAL(finished()), this, SLOT(slotFinished()));
+
+    m_net->get(QUrl("http://finviz.com/export.ashx?v=150&o=ticker"));
+}
+
+bool Widget::addFomcDates(const QString &data, const QString &title)
+{
+    int i = data.indexOf(title);
+
+    if(i < 0)
+    {
+        qDebug("1");
+        return false;
+    }
+
+    i = data.indexOf("Released On:", i);
+
+    if(i < 0)
+    {
+        qDebug("2");
+        return false;
+    }
+
+    i = data.indexOf("<td nowrap=\"nowrap\">", i);
+
+    if(i < 0)
+    {
+        qDebug("3");
+        return false;
+    }
+
+    QRegExp rx("\\s*<td\\s+nowrap=\"nowrap\"><a\\s+href=\".*\"><font\\s+face=\".*\"\\s+size=\".*\">([0-9]+/[0-9]+)</font></a></td>\\s*");
+
+    rx.setMinimal(true);
+
+    int year = QDate::currentDate().year();
+
+    while(rx.indexIn(data, i) == i)
+    {
+        i += rx.matchedLength();
+
+        QString cap = rx.cap(1);
+
+        qDebug("Parsed FOMC date %s", qPrintable(cap));
+
+        int month = cap.section('/', 0, 0).toInt();
+        int day = cap.section('/', 1, 1).toInt();
+
+        QDate date(year , month, day);
+
+        if(!date.isValid())
+            continue;
+
+        m_fomcDates.append(date);
+    }
+
+    return true;
 }
