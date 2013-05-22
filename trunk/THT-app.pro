@@ -54,7 +54,6 @@ HEADERS += tht.h \
     about.h \
     qtsingleapplication/qtsingleapplication.h \
     qtsingleapplication/qtlockedfile.h \
-    qtsingleapplication/QtLockedFile \
     qtsingleapplication/qtlocalpeer.h \
     regionselect.h \
     savescreenshot.h \
@@ -232,6 +231,8 @@ INNO=$$system(echo %ProgramFiles(x86)%)\\Inno Setup 5\\iscc.exe
     INNO=$$system(echo %ProgramFiles%)\\Inno Setup 5\\iscc.exe
 }
 
+INNO_APPID={{16AE5DDE-D073-4F5F-ABC3-11DD9FBF58E3}
+
 exists($$INNO) {
     message("Inno Setup is found, will create a setup file in a custom dist target")
 
@@ -250,7 +251,7 @@ exists($$INNO) {
         iss.commands += $$mle(echo ArchitecturesInstallIn64BitMode=x64 >> $$ISS)
     }
 
-    iss.commands += $$mle(echo AppId=\{\{16AE5DDE-D073-4F5F-ABC3-11DD9FBF58E3} >> $$ISS)
+    iss.commands += $$mle(echo AppId=$$INNO_APPID >> $$ISS)
     iss.commands += $$mle(echo AppName={$${LITERAL_HASH}MyAppName} >> $$ISS)
     iss.commands += $$mle(echo AppVersion=$$VERSION >> $$ISS)
     iss.commands += $$mle(echo AppPublisher={$${LITERAL_HASH}MyAppPublisher} >> $$ISS)
