@@ -62,11 +62,14 @@ private:
     bool writeFomcDate(const QDate &);
     void message(const QString &msg, bool activate = true);
     void rereadFomcDates();
+    void proceedToTickers();
+    bool addFomcDates(const QString &data, const QString &title);
 
 private slots:
     bool commit();
     void slotFinished();
     void slotFinishedExchange();
+    void slotFinishedFomc();
     void slotGet();
 
 private:
