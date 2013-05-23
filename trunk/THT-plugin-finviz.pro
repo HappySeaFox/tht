@@ -38,5 +38,10 @@ TRANSLATIONS += ts/addtickersfrom_finviz_ru.ts \
 
 RESOURCES += tht-plugin-finviz.qrc
 
+THT_PLUGIN_NAME="Finviz"
+THT_PLUGIN_AUTHOR="Dmitry Baryshev"
+THT_PLUGIN_UUID=0DB2CEDA-9A88-4E31-9E76-2FD77BEF0993
+THT_PLUGIN_COPYRIGHT="(C) 2013 Dmitry Baryshev"
+
 include(THT-common.pri)
 include(THT-plugins.pri)

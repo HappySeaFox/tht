@@ -136,9 +136,6 @@ USEUPX=y
 include(THT-version.pri)
 include(THT-common.pri)
 
-# check for 7z
-ZIP=$$findexe("7z.exe")
-
 DEFINES += SVNROOT=$$sprintf("\"\\\"%1\\\"\"", $$SVNROOT)
 DEFINES += HTTPROOT=$$sprintf("\"\\\"%1\\\"\"", $$HTTPROOT)
 
@@ -224,13 +221,6 @@ QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite
     warning("7Z is not found, will not create custom dist targets")
 }
 
-# INNO setup
-INNO=$$system(echo %ProgramFiles(x86)%)\\Inno Setup 5\\iscc.exe
-
-!exists($$INNO) {
-    INNO=$$system(echo %ProgramFiles%)\\Inno Setup 5\\iscc.exe
-}
-
 INNO_APPID={{16AE5DDE-D073-4F5F-ABC3-11DD9FBF58E3}
 
 exists($$INNO) {
@@ -260,7 +250,7 @@ exists($$INNO) {
     iss.commands += $$mle(echo AppUpdatesURL={$${LITERAL_HASH}MyAppURL} >> $$ISS)
     iss.commands += $$mle(echo DefaultDirName={pf}\\{$${LITERAL_HASH}MyAppName} >> $$ISS)
     iss.commands += $$mle(echo DefaultGroupName={$${LITERAL_HASH}MyAppName} >> $$ISS)
-    iss.commands += $$mle(echo LicenseFile=$${_PRO_FILE_PWD_}\\LICENSE.rtf >> $$ISS)
+    iss.commands += $$mle(echo LicenseFile=$${_PRO_FILE_PWD_}\\LICENSE.txt >> $$ISS)
     iss.commands += $$mle(echo OutputDir=. >> $$ISS)
     iss.commands += $$mle(echo OutputBaseFilename=tht-setup-$${VERSION}$${HOST64} >> $$ISS)
     iss.commands += $$mle(echo SetupIconFile=$${_PRO_FILE_PWD_}\\images\\chart.ico >> $$ISS)
