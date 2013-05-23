@@ -42,7 +42,7 @@ static QDataStream &operator>>(QDataStream &in, FinvizUrl &fu)
 }
 
 FinvizPlugin::FinvizPlugin() :
-    Plugin()
+    PluginImportExport()
 {
     qRegisterMetaTypeStreamOperators<FinvizUrl>("FinvizUrl");
     qRegisterMetaTypeStreamOperators<QList<FinvizUrl> >("QList<FinvizUrl>");
@@ -114,7 +114,7 @@ void FinvizPlugin::addFromFinviz(int list, const QUrl &u)
     if(dn.exec() != QDialog::Accepted)
         return;
 
-    emit tickers(list, dn.tickers());
+    emit sendTickers(list, dn.tickers());
 }
 
 void FinvizPlugin::showFinvizSelector(int list)

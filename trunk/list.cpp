@@ -44,6 +44,7 @@
 
 #include "tickerinformationtooltip.h"
 #include "tickercommentinput.h"
+#include "pluginimportexport.h"
 #include "inlinetextinput.h"
 #include "pluginloader.h"
 #include "tickerinput.h"
@@ -529,7 +530,7 @@ bool List::eventFilter(QObject *obj, QEvent *event)
             {
                 qDebug("Sending keyboard input to plugins");
 
-                foreach(Plugin *p, m_plugins)
+                foreach(PluginImportExport *p, m_plugins)
                 {
                     QList<Hotkey> hotkeys = p->supportedHotkeysInList();
 
@@ -1079,11 +1080,17 @@ void List::embedPlugins(Plugin::Type type, QMenu *menu)
 
     foreach(Plugin *p, plugins)
     {
-        p->embed(m_section, menu);
-        connect(p, SIGNAL(tickers(int,QStringList)), this, SLOT(slotTickersFromPlugin(int,QStringList)));
-    }
+        PluginImportExport *pie = qobject_cast<PluginImportExport *>(p);
 
-    m_plugins += plugins;
+        if(!pie)
+            continue;
+
+        pie->embed(m_section, menu);
+        connect(pie, SIGNAL(sendTickers(int,QStringList)), this, SLOT(slotSentTickersFromPlugin(int,QStringList)));
+        connect(pie, SIGNAL(requestTickers(int)), this, SLOT(slotRequestedTickersFromPlugin(int)));
+
+        m_plugins.append(pie);
+    }
 }
 
 void List::loadItem(LoadItem litem)
@@ -1479,10 +1486,21 @@ void List::slotCurrentRowChanged(int row)
     m_numbers->setCurrent(row+1);
 }
 
-void List::slotTickersFromPlugin(int list, const QStringList &tickers)
+void List::slotSentTickersFromPlugin(int list, const QStringList &tickers)
 {
     if(list == m_section)
         addTickers(tickers, Fix);
+}
+
+void List::slotRequestedTickersFromPlugin(int list)
+{
+    if(list == m_section)
+    {
+        PluginImportExport *pie = qobject_cast<PluginImportExport *>(sender());
+
+        if(pie)
+            pie->exportTickers(toStringList(WithExtraData));
+    }
 }
 
 void List::slotExportToClipboard()

@@ -18,31 +18,8 @@
 #ifndef PLUGIN_H
 #define PLUGIN_H
 
-#include <QString>
 #include <QObject>
 #include <QWidget>
-#include <QList>
-#include <QMap>
-
-class QMenu;
-
-struct Hotkey
-{
-    Hotkey(const Qt::Key &_key = Qt::Key_0,
-           const Qt::KeyboardModifiers &_modifiers = Qt::NoModifier)
-        : key(_key), modifiers(_modifiers)
-    {}
-
-    Qt::Key key;
-    Qt::KeyboardModifiers modifiers;
-};
-
-inline
-bool operator== (const Hotkey &a, const Hotkey &b)
-{
-    return a.key == b.key
-            && a.modifiers == b.modifiers;
-}
 
 class Plugin : public QObject
 {
@@ -57,38 +34,13 @@ public:
     // plugin type
     virtual Type type() const = 0;
 
-    // menu for list N
-    virtual bool embed(int list, QMenu *menu) = 0;
-
     virtual bool init()
     {
         return true;
     }
 
-    virtual QList<Hotkey> supportedHotkeysInList() const
-    {
-        return QList<Hotkey>();
-    }
-
-    virtual void listHotkeyActivated(int list, const Hotkey &ke)
-    {
-        Q_UNUSED(list)
-        Q_UNUSED(ke)
-    }
-
     void setTopLevelWidget(QWidget *w);
     QWidget *topLevelWidget() const;
-
-protected:
-    int senderStandaloneActionToList() const;
-    int senderMenuActionToList() const;
-
-signals:
-    void tickers(int list, const QStringList &tickers);
-
-protected:
-    typedef QMap<int, QObject *> Embeds;
-    Embeds m_embeds;
 
 private:
     QWidget *m_topLevelWidget;

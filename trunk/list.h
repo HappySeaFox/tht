@@ -35,6 +35,7 @@ class QLabel;
 class QMenu;
 class QUrl;
 
+class PluginImportExport;
 class ListDetails;
 
 namespace Ui
@@ -143,7 +144,8 @@ private slots:
     void slotSearchTickerNext();
     void slotFocusUp();
     void slotCurrentRowChanged(int);
-    void slotTickersFromPlugin(int, const QStringList &);
+    void slotSentTickersFromPlugin(int, const QStringList &);
+    void slotRequestedTickersFromPlugin(int);
     void loadItem(LoadItem = LoadItemCurrent);
     void paste();
     void headerCancelled();
@@ -164,7 +166,7 @@ private:
     QStringList m_oldTickers;
     QAction *m_changeTitle;
     QListWidgetItem *m_currentItemBeforeSearch;
-    QList<Plugin *> m_plugins;
+    QList<PluginImportExport *> m_plugins;
 };
 
 inline
