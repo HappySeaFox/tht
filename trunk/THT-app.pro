@@ -126,7 +126,7 @@ HTTPROOT="http://code.google.com/p/traders-home-task-ng"
 # files to copy to the distribution
 IMAGEPLUGINS=qico4.dll qjpeg4.dll
 SQLPLUGINS=qsqlite4.dll
-QTLIBS=QtCore4.dll QtGui4.dll QtNetwork4.dll QtSql4.dll
+QTLIBS=QtCore4.dll QtGui4.dll QtNetwork4.dll QtScript4.dll QtSql4.dll QtXml4.dll QtXmlPatterns4.dll
 MINGWLIBS=libgcc_s_sjlj-1.dll libwinpthread-1.dll libstdc++-6.dll
 OTHERQMFILES=tht_lib_ru.qm tht_lib_uk.qm addtickersfrom_finviz_ru.qm addtickersfrom_finviz_uk.qm
 QTQMFILES=qt_ru.qm qt_uk.qm
