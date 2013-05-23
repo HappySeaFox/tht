@@ -78,9 +78,7 @@ bool FinvizPlugin::init()
 
 bool FinvizPlugin::embed(int list, QMenu *parentMenu)
 {
-    Embeds::const_iterator it = m_embeds.find(list);
-
-    if(it != m_embeds.end())
+    if(m_embeds.contains(list))
         return true;
 
     QMenu *menu = new QMenu(tr("Add from Finviz") + "\tZ");
