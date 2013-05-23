@@ -12,7 +12,7 @@ NVER3=0
 DEFINES += FINVIZ=\\\"finviz.com\\\"
 DEFINES += FINVIZ_ELITE=\\\"elite.finviz.com\\\"
 
-LIBS += -L$${OUT_PWD}/$(DESTDIR_TARGET)/.. -lTHT
+LIBS += -L$${OUT_PWD}/$(DESTDIR_TARGET)/.. -lTHT-lib
 
 SOURCES += finvizurlmanager.cpp \
     finvizdownloader.cpp \

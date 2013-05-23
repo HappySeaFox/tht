@@ -105,7 +105,7 @@ FORMS += tht.ui \
 
 RESOURCES += tht.qrc
 
-LIBS += -lpsapi -lgdi32 -L$${OUT_PWD}/$(DESTDIR_TARGET)/.. -lTHT
+LIBS += -lpsapi -lgdi32 -L$${OUT_PWD}/$(DESTDIR_TARGET)/.. -lTHT-lib
 
 OTHER_FILES += \
     tht.rc \
@@ -173,7 +173,7 @@ QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite
 
     # binary & necessary files
     distbin.commands += $$mle(copy /y \"$${OUT_PWD}/$(DESTDIR_TARGET)\" \"$$T\")
-    distbin.commands += $$mle(copy /y \"$${OUT_PWD}/$(DESTDIR_TARGET)/../THT.dll\" \"$$T\")
+    distbin.commands += $$mle(copy /y \"$${OUT_PWD}/$(DESTDIR_TARGET)/../THT-lib.dll\" \"$$T\")
     distbin.commands += $$mle(copy /y \"$${OUT_PWD}/$(DESTDIR_TARGET)/../addtickersfrom-finviz.dll\" \"$$T/plugins\")
 
     for(ql, QTLIBS) {
@@ -283,7 +283,7 @@ exists($$INNO) {
 
     iss.commands += $$mle(echo [Files] >> $$ISS)
     iss.commands += $$mle(echo Source: \"$${OUT_PWD}/$(DESTDIR_TARGET)\"; DestDir: \"{app}\"; Flags: ignoreversion >> $$ISS)
-    iss.commands += $$mle(echo Source: \"$${OUT_PWD}/$(DESTDIR_TARGET)/../THT.dll\"; DestDir: \"{app}\"; Flags: ignoreversion >> $$ISS)
+    iss.commands += $$mle(echo Source: \"$${OUT_PWD}/$(DESTDIR_TARGET)/../THT-lib.dll\"; DestDir: \"{app}\"; Flags: ignoreversion >> $$ISS)
     iss.commands += $$mle(echo Source: \"$${OUT_PWD}/$(DESTDIR_TARGET)/../addtickersfrom-finviz.dll\"; DestDir: \"{app}/plugins\"; Flags: ignoreversion >> $$ISS)
     iss.commands += $$mle(echo Source: \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite\"; DestDir: \"{app}\"; Flags: ignoreversion >> $$ISS)
     iss.commands += $$mle(echo Source: \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite.timestamp\"; DestDir: \"{app}\"; Flags: ignoreversion >> $$ISS)

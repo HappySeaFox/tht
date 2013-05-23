@@ -18,12 +18,12 @@
 #ifndef FINVIZPLUGIN_H
 #define FINVIZPLUGIN_H
 
-#include "plugin.h"
+#include "pluginimportexport.h"
 
 class QMenu;
 class QUrl;
 
-class FinvizPlugin : public Plugin
+class FinvizPlugin : public PluginImportExport
 {
     Q_OBJECT
 

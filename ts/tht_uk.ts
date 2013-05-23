@@ -122,81 +122,81 @@
         <translation>Експортувати тікери</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="121"/>
+        <location filename="../list.cpp" line="122"/>
         <source>Clear</source>
         <translation>Очистити</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="123"/>
+        <location filename="../list.cpp" line="124"/>
         <source>Sort</source>
         <translation>Відсортувати</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="124"/>
+        <location filename="../list.cpp" line="125"/>
         <source>Change title</source>
         <translation>Змінити заголовок</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="126"/>
+        <location filename="../list.cpp" line="127"/>
         <source>Reset priorities</source>
         <translation>Скинути пріоритети</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="133"/>
+        <location filename="../list.cpp" line="134"/>
         <source>Add one ticker...</source>
         <translation>Додати один тікер...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="135"/>
+        <location filename="../list.cpp" line="136"/>
         <source>Add from file...</source>
         <translation>Додати з файлу...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="136"/>
+        <location filename="../list.cpp" line="137"/>
         <source>Add from clipboard</source>
         <translation>Додати з буфера обміну</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="142"/>
+        <location filename="../list.cpp" line="143"/>
         <source>Export to file...</source>
         <translation>Експортувати в файл...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="143"/>
+        <location filename="../list.cpp" line="144"/>
         <source>Export to clipboard</source>
         <translation>Експортувати в буфер обміну</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1268"/>
-        <location filename="../list.cpp" line="1343"/>
+        <location filename="../list.cpp" line="1275"/>
+        <location filename="../list.cpp" line="1350"/>
         <source>Choose a file</source>
         <translation>Виберіть файл</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1270"/>
-        <location filename="../list.cpp" line="1345"/>
+        <location filename="../list.cpp" line="1277"/>
+        <location filename="../list.cpp" line="1352"/>
         <source>Text files (*.txt)</source>
         <translation>Текстові файли (*.txt)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1272"/>
-        <location filename="../list.cpp" line="1347"/>
+        <location filename="../list.cpp" line="1279"/>
+        <location filename="../list.cpp" line="1354"/>
         <source>All files (*.*)</source>
         <translation>Всі файли (*.*)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1307"/>
-        <location filename="../list.cpp" line="1357"/>
+        <location filename="../list.cpp" line="1314"/>
+        <location filename="../list.cpp" line="1364"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1307"/>
+        <location filename="../list.cpp" line="1314"/>
         <source>Cannot open the following files: %1</source>
         <translation>Неможливо відкрити наступні файли: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1357"/>
+        <location filename="../list.cpp" line="1364"/>
         <source>Cannot save to file %1</source>
         <translation>Неможливо зберегти в файл %1</translation>
     </message>
