@@ -92,3 +92,13 @@ CERT=$$dirname(_PRO_FILE_)-certs\\cert.pfx
 !isEmpty(SIGNTOOL):exists($$CERT) {
     QMAKE_POST_LINK += $$mle($$SIGNTOOL sign /d \"Trader\'s Home Task\" /du \"$$HTTPROOT\" /f \"$$CERT\" /t \"http://timestamp.verisign.com/scripts/timestamp.dll\" /v \"$${OUT_PWD}/$(DESTDIR_TARGET)\")
 }
+
+# check for 7z
+ZIP=$$findexe("7z.exe")
+
+# INNO setup
+INNO=$$system(echo %ProgramFiles(x86)%)\\Inno Setup 5\\iscc.exe
+
+!exists($$INNO) {
+    INNO=$$system(echo %ProgramFiles%)\\Inno Setup 5\\iscc.exe
+}
