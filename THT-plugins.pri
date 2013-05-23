@@ -3,7 +3,7 @@ RC_FILE = tht-plugins.rc
 QMAKE_POST_LINK += $$mle(if not exist \"$${OUT_PWD}/$(DESTDIR_TARGET)/../plugins\" mkdir \"$${OUT_PWD}/$(DESTDIR_TARGET)/../plugins\")
 QMAKE_POST_LINK += $$mle(copy /y \"$${OUT_PWD}/$(DESTDIR_TARGET)\" \"$${OUT_PWD}/$(DESTDIR_TARGET)/../plugins\")
 
-RC_FILE_INCLUDE=$$replace(_PRO_FILE_, .pro$, .rc)
+RC_FILE_INCLUDE=$$replace(_PRO_FILE_, \\.pro$, .rc)
 RC_FILE_INCLUDE=$$basename(RC_FILE_INCLUDE)
 
 DEFINES += RC_FILE_INCLUDE=$$RC_FILE_INCLUDE
