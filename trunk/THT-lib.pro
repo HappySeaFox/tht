@@ -29,4 +29,5 @@ TRANSLATIONS += ts/tht_lib_ru.ts \
 
 RC_FILE = tht-lib.rc
 
+include(THT-version.pri)
 include(THT-common.pri)

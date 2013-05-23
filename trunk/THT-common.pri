@@ -12,11 +12,6 @@ DEPENDPATH += .
 CONFIG += warn_on
 QMAKE_CXXFLAGS_WARN_ON *= -Werror -Wextra -Wno-missing-field-initializers
 
-# THT version
-NVER1=1
-NVER2=6
-NVER3=0
-
 VERSION=$$sprintf("%1.%2.%3", $$NVER1, $$NVER2, $$NVER3)
 
 DEFINES += NVER1=$$NVER1
@@ -59,10 +54,13 @@ QMAKE_POST_LINK += $$mle(lupdate -no-obsolete $$_PRO_FILE_)
 QMAKE_POST_LINK += $$mle(lrelease $$_PRO_FILE_)
 QMAKE_POST_LINK += $$mle(if not exist \"$${OUT_PWD}/$(DESTDIR_TARGET)/../translations\" mkdir \"$${OUT_PWD}/$(DESTDIR_TARGET)/../translations\")
 
+QMFILES=
+
 # copy .qm files
 for(ts, TRANSLATIONS) {
-    ts=$$replace(ts, .ts$, .qm)
+    ts=$$replace(ts, \\.ts$, .qm)
     ts=$$replace(ts, /, \\)
+    QMFILES=$$QMFILES $$ts
     QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\$$ts\" \"$${OUT_PWD}/$(DESTDIR_TARGET)/../translations\")
 }
 

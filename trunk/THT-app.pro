@@ -128,12 +128,12 @@ IMAGEPLUGINS=qico4.dll qjpeg4.dll
 SQLPLUGINS=qsqlite4.dll
 QTLIBS=QtCore4.dll QtGui4.dll QtNetwork4.dll QtSql4.dll
 MINGWLIBS=libgcc_s_sjlj-1.dll libwinpthread-1.dll libstdc++-6.dll
-QMFILES=tht_ru.qm tht_uk.qm
 OTHERQMFILES=tht_lib_ru.qm tht_lib_uk.qm addtickersfrom_finviz_ru.qm addtickersfrom_finviz_uk.qm
 QTQMFILES=qt_ru.qm qt_uk.qm
 LICENSES=LICENSE.txt LICENSE-LGPL.txt
 USEUPX=y
 
+include(THT-version.pri)
 include(THT-common.pri)
 
 # check for 7z
@@ -196,7 +196,7 @@ QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite
     }
 
     for(qm, QMFILES) {
-        distbin.commands += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\ts\\$$qm\" \"$$T/translations\")
+        distbin.commands += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\$$qm\" \"$$T/translations\")
     }
 
     for(qm, OTHERQMFILES) {
@@ -303,7 +303,7 @@ exists($$INNO) {
     }
 
     for(qm, QMFILES) {
-        iss.commands += $$mle(echo Source: \"$${_PRO_FILE_PWD_}\\ts\\$$qm\"; DestDir: \"{app}/translations\"; Flags: ignoreversion >> $$ISS)
+        iss.commands += $$mle(echo Source: \"$${_PRO_FILE_PWD_}\\$$qm\"; DestDir: \"{app}/translations\"; Flags: ignoreversion >> $$ISS)
     }
 
     for(qm, OTHERQMFILES) {

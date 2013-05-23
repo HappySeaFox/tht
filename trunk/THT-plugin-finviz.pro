@@ -5,6 +5,10 @@ TEMPLATE = lib
 QT += core gui network
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
+NVER1=0
+NVER2=5
+NVER3=0
+
 DEFINES += FINVIZ=\\\"finviz.com\\\"
 DEFINES += FINVIZ_ELITE=\\\"elite.finviz.com\\\"
 
