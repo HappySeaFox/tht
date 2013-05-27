@@ -1,3 +1,5 @@
+TARGET_EXT = .dll
+
 RC_FILE = tht-plugins.rc
 
 QMAKE_POST_LINK += $$mle(if not exist \"$${OUT_PWD}/$(DESTDIR_TARGET)/../plugins\" mkdir \"$${OUT_PWD}/$(DESTDIR_TARGET)/../plugins\")
