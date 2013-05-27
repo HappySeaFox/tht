@@ -2,7 +2,10 @@ TARGET = THT-lib
 TARGET_EXT = .dll
 TEMPLATE = lib
 
-QT += core gui network
+INCLUDEPATH += qxt
+DEPENDPATH += qxt
+
+QT += core gui network sql
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 SOURCES += datamanagerbase.cpp \
@@ -11,7 +14,12 @@ SOURCES += datamanagerbase.cpp \
     tools.cpp \
     csvreader.cpp \
     networkaccess.cpp \
-    pluginimportexport.cpp
+    pluginimportexport.cpp \
+    qxt/qxtglobalshortcut_win.cpp \
+    qxt/qxtglobalshortcut.cpp \
+    qxt/qxtglobal.cpp \
+    uppercasevalidator.cpp \
+    sqltools.cpp
 
 HEADERS += datamanagerbase.h \
     settings.h \
@@ -20,7 +28,12 @@ HEADERS += datamanagerbase.h \
     csvreader.h \
     networkaccess.h \
     pluginimportexport.h \
-    hotkey.h
+    hotkey.h \
+    qxt/qxtglobalshortcut_p.h \
+    qxt/qxtglobalshortcut.h \
+    qxt/qxtglobal.h \
+    uppercasevalidator.h \
+    sqltools.h
 
 FORMS += datamanagerbase.ui
 

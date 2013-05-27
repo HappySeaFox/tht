@@ -1,7 +1,7 @@
 TARGET = THT
 TEMPLATE = app
 
-QT += core gui network sql
+QT += core gui network
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 INCLUDEPATH += qtsingleapplication qxt colorpicker
@@ -18,20 +18,15 @@ SOURCES += main.cpp\
     qtsingleapplication/qtlocalpeer.cpp \
     regionselect.cpp \
     savescreenshot.cpp \
-    qxt/qxtglobalshortcut_win.cpp \
-    qxt/qxtglobalshortcut.cpp \
-    qxt/qxtglobal.cpp \
     target.cpp \
     tickerinput.cpp \
     tickerinformationtooltip.cpp \
     updatechecker.cpp \
     listitem.cpp \
-    uppercasevalidator.cpp \
     tickerminiinput.cpp \
     tickerinformationfetcher.cpp \
     tickersdatabaseupdater.cpp \
     tickerneighbors.cpp \
-    sqltools.cpp \
     linkpointmanager.cpp \
     colorpicker/qtcolortriangle.cpp \
     colorpicker/colorviewer.cpp \
@@ -57,22 +52,15 @@ HEADERS += tht.h \
     qtsingleapplication/qtlocalpeer.h \
     regionselect.h \
     savescreenshot.h \
-    qxt/qxtglobalshortcut_p.h \
-    qxt/qxtglobalshortcut.h \
-    qxt/qxtglobal.h \
-    qxt/QxtGlobalShortcut \
-    qxt/QxtGlobalShortcut \
     target.h \
     tickerinput.h \
     tickerinformationtooltip.h \
     updatechecker.h \
     listitem.h \
-    uppercasevalidator.h \
     tickerminiinput.h \
     tickerinformationfetcher.h \
     tickersdatabaseupdater.h \
     tickerneighbors.h \
-    sqltools.h \
     linkpointmanager.h \
     colorpicker/qtcolortriangle.h \
     colorpicker/colorviewer.h \
