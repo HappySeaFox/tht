@@ -49,6 +49,7 @@
 #include "linkpointmanager.h"
 #include "savescreenshot.h"
 #include "regionselect.h"
+#include "pluginloader.h"
 #include "tickerinput.h"
 #include "remotedate.h"
 #include "settings.h"
@@ -82,6 +83,10 @@ THT::THT(QWidget *parent) :
         setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
 
     ui->setupUi(this);
+
+    // initialize all plugins
+    PluginLoader::instance()->setTopLevelWidget(this);
+    PluginLoader::instance()->init();
 
     setAcceptDrops(true);
 

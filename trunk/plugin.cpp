@@ -15,10 +15,14 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <QTimer>
+
 #include "plugin.h"
 
 Plugin::Plugin() : QObject()
-{}
+{
+    QTimer::singleShot(0, this, SLOT(delayedInit()));
+}
 
 Plugin::~Plugin()
 {}

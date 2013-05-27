@@ -26,7 +26,7 @@ class Plugin : public QObject
     Q_OBJECT
 
 public:
-    enum Type { AddTickersFrom, ExportTickersTo };
+    enum Type { Common, AddTickersFrom, ExportTickersTo };
 
     Plugin();
     virtual ~Plugin();
@@ -40,7 +40,13 @@ public:
     }
 
     void setTopLevelWidget(QWidget *w);
+
+protected:
     QWidget *topLevelWidget() const;
+
+protected slots:
+    virtual void delayedInit()
+    {}
 
 private:
     QWidget *m_topLevelWidget;

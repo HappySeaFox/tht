@@ -203,14 +203,9 @@ int main(int argc, char *argv[])
     app.installTranslator(&translator_tht);
     app.installTranslator(&translator_tht_lib);
 
-    // initialize all plugins
-    PluginLoader::instance()->init();
-
     // main window
     THT w;
     w.show();
-
-    PluginLoader::instance()->setTopLevelWidget(&w);
 
     app.setQuitOnLastWindowClosed(false);
 

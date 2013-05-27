@@ -1,5 +1,4 @@
 TARGET = addtickersfrom-finviz
-TARGET_EXT = .dll
 TEMPLATE = lib
 
 QT += core gui network
