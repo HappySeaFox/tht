@@ -18,6 +18,7 @@
 #ifndef SQLTOOLS_H
 #define SQLTOOLS_H
 
+#include <QStringList>
 #include <QVariant>
 #include <QString>
 #include <QList>
