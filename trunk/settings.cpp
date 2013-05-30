@@ -22,6 +22,10 @@
 #include <QFile>
 #include <QDir>
 
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+#include <QStandardPaths>
+#endif
+
 #include <cstring>
 
 #include <windows.h>
@@ -180,14 +184,21 @@ Settings::Settings()
                                         + QDir::separator() + "tickers.sqlite";
 
     m_mutableDatabaseName = "mutable";
-    QString mutablePath = QDesktopServices::storageLocation(QDesktopServices::DataLocation);
+
+    QString mutablePath =
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+    QStandardPaths::writableLocation(QStandardPaths::DataLocation);
+#else
+    QDesktopServices::storageLocation(QDesktopServices::DataLocation);
+#endif
+
     m_mutableDatabasePath = mutablePath + QDir::separator() + "tickers.sqlite";
 
     if(!QDir().mkpath(mutablePath))
         qDebug("Cannot create a directory for mutable database");
 
     // default values
-    m_defaultValues.insert(SETTING_SCREENSHOT_TEXT_COLOR, Qt::black);
+    m_defaultValues.insert(SETTING_SCREENSHOT_TEXT_COLOR, QColor(Qt::black));
     m_defaultValues.insert(SETTING_ELLIPSE_FILL_COLOR, QColor(0, 255, 0, 50));
     m_defaultValues.insert(SETTING_SCREENSHOT_TEXT_ALIGNMENT, Qt::AlignLeft);
     m_defaultValues.insert(SETTING_SCREENSHOT_TEXT_SIZE, -1);

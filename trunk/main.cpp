@@ -15,8 +15,6 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <QtSingleApplication>
-
 #include <QDesktopServices>
 #include <QTranslator>
 #include <QDateTime>
@@ -24,8 +22,15 @@
 #include <QFile>
 #include <QDir>
 
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+#include <QStandardPaths>
+#include <QByteArray>
+#endif
+
 #include <cstdlib>
 #include <cstdio>
+
+#include <qtsingleapplication.h>
 
 #include <windows.h>
 
@@ -37,11 +42,18 @@
 #include "settings.h"
 #include "tht.h"
 
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+static void thtOutput(QtMsgType type, const QMessageLogContext &context, const QString &message)
+{
+    Q_UNUSED(context)
+    QByteArray msg = message.toLatin1();
+#else
 static void thtOutput(QtMsgType type, const char *msg)
 {
+#endif
     Q_UNUSED(type)
 
-    fprintf(stderr, "THT: %s\n", msg);
+    fprintf(stderr, "THT: %s\n", static_cast<const char *>(msg));
 
 #ifndef THT_NO_LOG
     static bool noLog = qgetenv("THT_NO_LOG") == "1";
@@ -50,7 +62,11 @@ static void thtOutput(QtMsgType type, const char *msg)
         return;
 
     static QtLockedFile log(
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+                     QStandardPaths::writableLocation(QStandardPaths::TempLocation)
+#else
                      QDesktopServices::storageLocation(QDesktopServices::TempLocation)
+#endif
                      + QDir::separator()
                      + "tht.log");
 
@@ -98,7 +114,7 @@ static void thtOutput(QtMsgType type, const char *msg)
             log.write("...\n<overwrite>\n...\n");
         }
 
-        log.write(msg);
+        log.write(static_cast<const char *>(msg));
         log.write("\n");
     }
 #endif // THT_NO_LOG
@@ -146,7 +162,11 @@ int main(int argc, char *argv[])
 {
     setbuf(stderr, 0);
 
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+    qInstallMessageHandler(thtOutput);
+#else
     qInstallMsgHandler(thtOutput);
+#endif
 
     qDebug("Starting at %s", qPrintable(QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss")));
 

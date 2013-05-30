@@ -884,7 +884,7 @@ bool List::addItem(const QString &txt, FixName fix, CheckForDups check)
 
     if(text.size() > 2)
     {
-        QString comment = QString::fromUtf8(QByteArray::fromPercentEncoding(text[2].toAscii()));
+        QString comment = QString::fromUtf8(QByteArray::fromPercentEncoding(text[2].toLatin1()));
 
         if(!comment.isEmpty())
         {

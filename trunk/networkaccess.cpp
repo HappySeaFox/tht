@@ -66,7 +66,7 @@ void NetworkAccess::get(const QUrl &url)
     request.setRawHeader("User-Agent", QString("Mozilla/5.0 (%1 %2.%3; rv:10.0) Gecko/20100101 Firefox/10.0")
                          .arg(version.dwPlatformId == VER_PLATFORM_WIN32_NT ? "Windows NT" : "Windows")
                          .arg(version.dwMajorVersion)
-                         .arg(version.dwMinorVersion).toAscii());
+                         .arg(version.dwMinorVersion).toLatin1());
 
     m_reply = m_manager->get(request);
 

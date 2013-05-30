@@ -44,10 +44,15 @@
 ** 
 ****************************************************************************/
 
+/***************************************************************************
+ *   Copyright (C) 2013 by Dmitry 'Krasu' Baryshev                         *
+ *   linuxsquirrel.dev@gmail.com                                           *
+ ***************************************************************************/
+
 #ifndef QTCOLORTRIANGLE_H
 #define QTCOLORTRIANGLE_H
-#include <QtGui/QImage>
-#include <QtGui/QWidget>
+#include <QImage>
+#include <QWidget>
 
 class QPointF;
 struct Vertex;

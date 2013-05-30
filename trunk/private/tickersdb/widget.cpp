@@ -458,7 +458,7 @@ void Widget::slotFinished()
         return;
     }
 
-    if(fts.write(m_ts.toAscii()) != m_ts.length())
+    if(fts.write(m_ts.toLatin1()) != m_ts.length())
     {
         message(QString("Cannot write all the data (%1)").arg(fts.errorString()));
         return;

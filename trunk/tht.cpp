@@ -15,8 +15,6 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <QxtGlobalShortcut>
-
 #include <QWhatsThisClickedEvent>
 #include <QContextMenuEvent>
 #include <QDesktopServices>
@@ -33,6 +31,7 @@
 #include <QFileInfo>
 #include <QShortcut>
 #include <QDateTime>
+#include <QMimeData>
 #include <QPalette>
 #include <QEvent>
 #include <QTimer>
@@ -40,6 +39,8 @@
 #include <QMenu>
 #include <QDate>
 #include <QUrl>
+
+#include <qxtglobalshortcut.h>
 
 #include <windows.h>
 #include <winnt.h>
@@ -483,7 +484,7 @@ void THT::sendString(const QString &ticker, LinkType type)
     }
 
     for(int i = 0;i < ticker.length();i++)
-        sendKey(ticker.at(i).toAscii());
+        sendKey(ticker.at(i).toLatin1());
 
     // Fix for TOS@paperMoney
     if(type == LinkTypeThinkorswim)
@@ -660,7 +661,7 @@ THT::Link THT::checkTargetWindow(const QPoint &p, bool allowThisWindow)
     }
 
     // this window
-    if(!allowThisWindow && hwnd == winId())
+    if(!allowThisWindow && hwnd == reinterpret_cast<HWND>(winId()))
     {
         qDebug("Ignoring ourselves");
         return Link();
@@ -1371,7 +1372,7 @@ void THT::slotTickerDropped(const Ticker &ticker, const QPoint &p)
         return;
 
     // our window
-    if(link.hwnd == winId())
+    if(link.hwnd == reinterpret_cast<HWND>(winId()))
     {
         int index = 0;
 
@@ -1530,7 +1531,7 @@ void THT::slotTargetMoving(const QPoint &pt)
     if(m_drawnWindow != newHwnd)
         removeWindowMarker();
 
-    if(!IsWindow(newHwnd) || rnewHwnd == winId() || Tools::isDesktop(rnewHwnd))
+    if(!IsWindow(newHwnd) || rnewHwnd == reinterpret_cast<HWND>(winId()) || Tools::isDesktop(rnewHwnd))
         return;
 
     m_drawnWindow = newHwnd;

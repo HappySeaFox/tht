@@ -20,6 +20,10 @@
 #include <QByteArray>
 #include <QUrl>
 
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+#include <QUrlQuery>
+#endif
+
 #include "finvizdownloader.h"
 #include "finvizcookiejar.h"
 #include "networkaccess.h"
@@ -48,7 +52,14 @@ FinvizDownloader::FinvizDownloader(const QUrl &url, QWidget *parent) :
     // fix path
     u.setPath(u.path().replace("screener.ashx", "export.ashx"));
 
-    QList<QPair<QString, QString> > items = u.queryItems();
+    QList<QPair<QString, QString> > items;
+
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+    QUrlQuery uq(u);
+    items = uq.queryItems();
+#else
+    items = u.queryItems();
+#endif
 
     QMutableListIterator<QPair<QString, QString> > i(items);
 
@@ -63,12 +74,20 @@ FinvizDownloader::FinvizDownloader(const QUrl &url, QWidget *parent) :
             {
                 pair.second = "151";
                 i.setValue(pair);
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+                uq.setQueryItems(items);
+#else
                 u.setQueryItems(items);
+#endif
             }
 
             break;
         }
     }
+
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+    u.setQuery(uq);
+#endif
 
     // download tickers as CSV
     m_net->get(u);

@@ -18,11 +18,16 @@ This file is part of colorPickerWidget.
     along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+/***************************************************************************
+ *   Copyright (C) 2012 by Dmitry 'Krasu' Baryshev                         *
+ *   linuxsquirrel.dev@gmail.com                                           *
+ ***************************************************************************/
+
 #ifndef COLORVIEWER_H
 #define COLORVIEWER_H
 
-#include <QtGui/QWidget>
-#include <QtGui/QPainter>
+#include <QWidget>
+#include <QPainter>
 #include <QPaintEvent>
 
 class ColorViewer : public QWidget

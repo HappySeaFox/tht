@@ -2,7 +2,7 @@ TARGET = THT
 TEMPLATE = app
 
 QT += core gui network
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT *= widgets
 
 INCLUDEPATH += qtsingleapplication qxt colorpicker
 DEPENDPATH += qtsingleapplication qxt colorpicker
@@ -209,7 +209,7 @@ QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite
     warning("7Z is not found, will not create custom dist targets")
 }
 
-INNO_APPID={{16AE5DDE-D073-4F5F-ABC3-11DD9FBF58E3}
+INNO_APPID="{{16AE5DDE-D073-4F5F-ABC3-11DD9FBF58E3}"
 
 exists($$INNO) {
     message("Inno Setup is found, will create a setup file in a custom dist target")

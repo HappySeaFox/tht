@@ -29,9 +29,9 @@ This file is part of colorPickerWidget.
 class QtColorTriangle;
 class ColorViewer;
 
-#include <QtGui/QDialog>
-#include <QtGui/QPushbutton>
-#include <QtGui/QColor>
+#include <QDialog>
+#include <QPushbutton>
+#include <QColor>
 
 class ColorPickerWidget : public QDialog
 {

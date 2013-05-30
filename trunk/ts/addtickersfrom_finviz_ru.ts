@@ -47,12 +47,12 @@
         <translation>Скачивание тикеров...</translation>
     </message>
     <message>
-        <location filename="../finvizdownloader.cpp" line="103"/>
+        <location filename="../finvizdownloader.cpp" line="122"/>
         <source>Network error #%1</source>
         <translation>Ошибка сети #%1</translation>
     </message>
     <message>
-        <location filename="../finvizdownloader.cpp" line="117"/>
+        <location filename="../finvizdownloader.cpp" line="136"/>
         <source>Broken data (fields: %1, required: %2)</source>
         <translation>Неверный ответ (полей: %1, необходимо: %2)</translation>
     </message>
