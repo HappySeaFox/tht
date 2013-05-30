@@ -6,6 +6,7 @@ This toolchain contains the following libraries and binaries:
 * UPX (under bin/)
 * JOM (under bin/)
 * qt-path-corrector (under tools/)
+* openssl (under openssl/)
 
 You need to accept the appropriate licenses for that projects
 to use this toolchain. You can find the files with licenses in the installed
