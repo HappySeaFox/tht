@@ -2,7 +2,7 @@ TARGET = addtickersfrom-finviz
 TEMPLATE = lib
 
 QT += core gui network
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT *= widgets
 
 NVER1=0
 NVER2=5

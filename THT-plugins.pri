@@ -18,7 +18,7 @@ PLUGIN_LICENSE=$$replace(PLUGIN_LICENSE, /, \\)
 
 defineReplace(copyFilesToZip) {
     q=$$1
-    FILES=$$join(q, " $$", $$)
+    FILES=$$join(q, " \$\$", "\$\$")
     eval(FILES=$$FILES)
 
     for(file, FILES) {
@@ -91,7 +91,7 @@ defineReplace(copyFilesToZip) {
     warning("7Z is not found, will not create custom dist targets")
 }
 
-INNO_APPID={{$$THT_PLUGIN_UUID}
+INNO_APPID="{{$$THT_PLUGIN_UUID}"
 
 exists($$INNO) {
     message("Inno Setup is found, will create a setup file for $$TARGET in a custom dist target")

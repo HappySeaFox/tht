@@ -37,11 +37,11 @@ QList<QNetworkCookie> FinvizCookieJar::cookiesForUrl(const QUrl &url) const
 
         if(!email.isEmpty() && !password.isEmpty())
         {
-            QNetworkCookie cookieEmail("loginEmail", email.toAscii());
+            QNetworkCookie cookieEmail("loginEmail", email.toLatin1());
             initCookie(&cookieEmail);
             cookies.append(cookieEmail);
 
-            QNetworkCookie cookiePassword("loginPassword", password.toAscii());
+            QNetworkCookie cookiePassword("loginPassword", password.toLatin1());
             initCookie(&cookiePassword);
             cookies.append(cookiePassword);
         }

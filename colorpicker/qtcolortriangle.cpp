@@ -51,21 +51,21 @@
 
 #include "qtcolortriangle.h"
 
-#include <QtCore/QEvent>
-#include <QtCore/QMap>
-#include <QtCore/QVarLengthArray>
-#include <QtGui/QConicalGradient>
-#include <QtGui/QFrame>
-#include <QtGui/QImage>
-#include <QtGui/QKeyEvent>
-#include <QtGui/QLayout>
-#include <QtGui/QMouseEvent>
-#include <QtGui/QPainter>
-#include <QtGui/QPainterPath>
-#include <QtGui/QPixmap>
-#include <QtGui/QResizeEvent>
-#include <QtGui/QToolTip>
-#include <QtGui/QVBoxLayout>
+#include <QEvent>
+#include <QMap>
+#include <QVarLengthArray>
+#include <QConicalGradient>
+#include <QFrame>
+#include <QImage>
+#include <QKeyEvent>
+#include <QLayout>
+#include <QMouseEvent>
+#include <QPainter>
+#include <QPainterPath>
+#include <QPixmap>
+#include <QResizeEvent>
+#include <QToolTip>
+#include <QVBoxLayout>
 
 #include <math.h>
 
@@ -536,7 +536,11 @@ void QtColorTriangle::paintEvent(QPaintEvent *e)
 {
     QPainter p(this);
     if (e->rect().intersects(contentsRect()))
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+        p.setClipRegion(e->region().intersected(contentsRect()));
+#else
         p.setClipRegion(e->region().intersect(contentsRect()));
+#endif
     if (mustGenerateBackground) {
 	genBackground();
 	mustGenerateBackground = false;

@@ -19,11 +19,11 @@ This file is part of colorPickerWidget.
 */
 
 /***************************************************************************
- *   Copyright (C) 2012 by Dmitry 'Krasu' Baryshev                         *
+ *   Copyright (C) 2013 by Dmitry 'Krasu' Baryshev                         *
  *   linuxsquirrel.dev@gmail.com                                           *
  ***************************************************************************/
 
-#include <QtGui/QGridLayout>
+#include <QGridLayout>
 
 #include "colorpickerwidget.h"
 #include "qtcolortriangle.h"

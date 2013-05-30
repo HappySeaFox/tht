@@ -118,7 +118,7 @@ void RegionSelect::drawBackGround()
             ? tr("Select the rectangle with the mouse or press\nany key or right/middle mouse button to cancel.")
             : tr("Select the rectangle with the mouse or press\nright/middle mouse button to cancel.");
 
-    txtRect.setHeight(qRound(txtRect.height() / 10)); // rounded val of text rect height
+    txtRect.setHeight(qRound((double)txtRect.height() / 10)); // rounded val of text rect height
 
     painter.setPen(QPen(Qt::red)); // set message rect border color
     painter.setBrush(QBrush(QColor(255, 255, 255, 180), Qt::SolidPattern));

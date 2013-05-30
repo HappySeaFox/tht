@@ -34,7 +34,12 @@ DataManagerBase::DataManagerBase(QWidget *parent) :
 
     ui->pushClear->setShortcut(QKeySequence::New);
     ui->pushDelete->setShortcut(QKeySequence::Delete);
+
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+    ui->tree->header()->setSectionResizeMode(QHeaderView::ResizeToContents);
+#else
     ui->tree->header()->setResizeMode(QHeaderView::ResizeToContents);
+#endif
 
     // layout for extra buttons
     QVBoxLayout *l = new QVBoxLayout(ui->widgetButtons);

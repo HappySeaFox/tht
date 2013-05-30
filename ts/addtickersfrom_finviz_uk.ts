@@ -47,12 +47,12 @@
         <translation>Завантаження тікерів...</translation>
     </message>
     <message>
-        <location filename="../finvizdownloader.cpp" line="103"/>
+        <location filename="../finvizdownloader.cpp" line="122"/>
         <source>Network error #%1</source>
         <translation>Помилка мережі #%1</translation>
     </message>
     <message>
-        <location filename="../finvizdownloader.cpp" line="117"/>
+        <location filename="../finvizdownloader.cpp" line="136"/>
         <source>Broken data (fields: %1, required: %2)</source>
         <translation>Зараховано (поля: %1, необхідно: %2)</translation>
     </message>

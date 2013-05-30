@@ -6,7 +6,7 @@ INCLUDEPATH += qxt
 DEPENDPATH += qxt
 
 QT += core gui network sql
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT *= widgets
 
 SOURCES += datamanagerbase.cpp \
     settings.cpp \
