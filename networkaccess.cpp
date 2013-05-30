@@ -71,6 +71,7 @@ void NetworkAccess::get(const QUrl &url)
     m_reply = m_manager->get(request);
 
     connect(m_reply, SIGNAL(error(QNetworkReply::NetworkError)), this, SLOT(slotNetworkError(QNetworkReply::NetworkError)));
+    connect(m_reply, SIGNAL(sslErrors(QList<QSslError>)), this, SLOT(slotSslErrors(QList<QSslError>)));
     connect(m_reply, SIGNAL(finished()), this, SLOT(slotNetworkDone()));
     connect(m_reply, SIGNAL(readyRead()), this, SLOT(slotNetworkData()));
 }
@@ -95,6 +96,23 @@ void NetworkAccess::slotNetworkError(QNetworkReply::NetworkError err)
     m_error = err;
 
     qDebug("Network error #%d", err);
+}
+
+void NetworkAccess::slotSslErrors(const QList<QSslError> &errors)
+{
+    const QList<QSslError> allowed = QList<QSslError>()
+                                        << QSslError::SelfSignedCertificate
+                                        << QSslError::SelfSignedCertificateInChain;
+    foreach(QSslError e, errors)
+    {
+        if(allowed.indexOf(e.error()) < 0)
+            return;
+    }
+
+    QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
+
+    if(reply)
+        reply->ignoreSslErrors();
 }
 
 void NetworkAccess::slotNetworkData()

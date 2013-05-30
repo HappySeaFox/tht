@@ -115,6 +115,7 @@ HTTPROOT="http://code.google.com/p/traders-home-task-ng"
 IMAGEPLUGINS=qico4.dll qjpeg4.dll
 SQLPLUGINS=qsqlite4.dll
 QTLIBS=QtCore4.dll QtGui4.dll QtNetwork4.dll QtScript4.dll QtSql4.dll QtXml4.dll QtXmlPatterns4.dll
+SSLLIBS=libeay32.dll ssleay32.dll
 MINGWLIBS=libgcc_s_sjlj-1.dll libwinpthread-1.dll libstdc++-6.dll
 OTHERQMFILES=tht_lib_ru.qm tht_lib_uk.qm addtickersfrom_finviz_ru.qm addtickersfrom_finviz_uk.qm
 QTQMFILES=qt_ru.qm qt_uk.qm
@@ -166,6 +167,10 @@ QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite
 
     for(ql, QTLIBS) {
         distbin.commands += $$mle(copy /y \"$$[QT_INSTALL_BINS]\\$$ql\" \"$$T\")
+    }
+
+    for(sl, SSLLIBS) {
+        distbin.commands += $$mle(copy /y \"$$[QT_INSTALL_BINS]\\$$sl\" \"$$T\")
     }
 
     for(ml, MINGWLIBS) {
@@ -294,6 +299,10 @@ exists($$INNO) {
 
     for(ql, QTLIBS) {
         iss.commands += $$mle(echo Source: \"$$[QT_INSTALL_BINS]\\$$ql\"; DestDir: \"{app}\"; Flags: ignoreversion >> $$ISS)
+    }
+
+    for(sl, SSLLIBS) {
+        iss.commands += $$mle(echo Source: \"$$[QT_INSTALL_BINS]\\$$sl\"; DestDir: \"{app}\"; Flags: ignoreversion >> $$ISS)
     }
 
     for(ip, IMAGEPLUGINS) {

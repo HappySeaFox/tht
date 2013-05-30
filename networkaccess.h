@@ -20,6 +20,7 @@
 
 #include <QNetworkReply>
 #include <QByteArray>
+#include <QSslError>
 #include <QPointer>
 #include <QObject>
 #include <QString>
@@ -53,6 +54,7 @@ signals:
 
 private slots:
     void slotNetworkError(QNetworkReply::NetworkError);
+    void slotSslErrors(const QList<QSslError> &errors);
     void slotNetworkData();
     void slotNetworkDone();
 
