@@ -35,7 +35,7 @@ class NetworkAccess : public QObject
 
 public:
     explicit NetworkAccess(QObject *parent = 0);
-    ~NetworkAccess();
+    virtual ~NetworkAccess();
 
     void get(const QUrl &url);
 
@@ -52,9 +52,11 @@ public:
 signals:
     void finished();
 
+protected slots:
+    virtual void slotSslErrors(const QList<QSslError> &errors);
+
 private slots:
     void slotNetworkError(QNetworkReply::NetworkError);
-    void slotSslErrors(const QList<QSslError> &errors);
     void slotNetworkData();
     void slotNetworkDone();
 
