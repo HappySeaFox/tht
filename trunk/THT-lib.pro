@@ -19,6 +19,7 @@ SOURCES += datamanagerbase.cpp \
     qxt/qxtglobalshortcut.cpp \
     qxt/qxtglobal.cpp \
     uppercasevalidator.cpp \
+    remotedate.cpp \
     sqltools.cpp
 
 HEADERS += datamanagerbase.h \
@@ -33,6 +34,7 @@ HEADERS += datamanagerbase.h \
     qxt/qxtglobalshortcut.h \
     qxt/qxtglobal.h \
     uppercasevalidator.h \
+    remotedate.h \
     sqltools.h
 
 FORMS += datamanagerbase.ui
