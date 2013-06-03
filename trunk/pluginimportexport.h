@@ -50,9 +50,10 @@ public:
     }
 
     // used by ExportTickersTo plugins
-    virtual void exportTickers(const QStringList &tickers)
+    virtual bool exportTickers(const QStringList &tickers)
     {
         Q_UNUSED(tickers)
+        return true;
     }
 
 protected:
