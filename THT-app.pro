@@ -40,7 +40,6 @@ SOURCES += main.cpp\
     inlinetextinput.cpp \
     tickercommentinput.cpp \
     clickablelabel.cpp \
-    remotedate.cpp \
     pluginloader.cpp
 
 HEADERS += tht.h \
@@ -75,7 +74,6 @@ HEADERS += tht.h \
     ticker.h \
     tickercommentinput.h \
     clickablelabel.h \
-    remotedate.h \
     pluginloader.h
 
 FORMS += tht.ui \
