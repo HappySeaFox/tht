@@ -30,9 +30,9 @@
 #include <cstdlib>
 #include <cstdio>
 
-#include <qtsingleapplication.h>
-
 #include <windows.h>
+
+#include "qtsingleapplication.h"
 
 #ifndef THT_NO_LOG
 #include "qtlockedfile.h"
