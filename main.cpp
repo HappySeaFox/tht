@@ -178,11 +178,6 @@ int main(int argc, char *argv[])
 
     QtSingleApplication app(argc, argv);
 
-    // plugins can register their own datastream operators,
-    // so we need to be sure that all of them are loaded
-    // before Settings is created
-    PluginLoader::instance();
-
     if(Tools::hasOption("--preload"))
     {
         qDebug("Preload mode");
@@ -193,6 +188,11 @@ int main(int argc, char *argv[])
 
     if(app.sendMessage("wake up"))
         return 0;
+
+    // plugins can register their own datastream operators,
+    // so we need to be sure that all of them are loaded
+    // before Settings is created
+    PluginLoader::instance();
 
     // copy a new ticker database if any
     copyDb();
