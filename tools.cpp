@@ -15,6 +15,7 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <QCoreApplication>
 #include <QDesktopWidget>
 #include <QApplication>
 #include <QWidget>
@@ -127,3 +128,11 @@ bool Tools::isDesktop(HWND hwnd)
 {
     return IsWindow(hwnd) && (hwnd == GetDesktopWindow() || hwnd == GetShellWindow());
 }
+
+bool Tools::hasOption(const QString &opt)
+{
+    return (QCoreApplication::arguments().indexOf(opt) >= 0);
+}
+
+Tools::Tools()
+{}
