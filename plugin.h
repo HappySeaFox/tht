@@ -31,13 +31,25 @@ public:
     Plugin();
     virtual ~Plugin();
 
-    // plugin type
-    virtual Type type() const = 0;
-
     virtual bool init()
     {
         return true;
     }
+
+    // plugin type
+    virtual Type type() const = 0;
+
+    // plugin name
+    virtual QString name() const = 0;
+
+    // plugin author
+    virtual QString author() const = 0;
+
+    // plugin version
+    virtual QString version() const = 0;
+
+    // plugin UUID
+    virtual QString uuid() const = 0;
 
     void setTopLevelWidget(QWidget *w);
 
@@ -76,5 +88,28 @@ void plugin_destroy(Plugin *pl) \
 {                               \
     delete pl;                  \
 }
+
+#define THT_PLUGIN_INTERFACE_IMPLEMENTATION \
+public:                                     \
+virtual QString name() const                \
+{                                           \
+    return THT_PLUGIN_NAME;                 \
+}                                           \
+                                            \
+virtual QString author() const              \
+{                                           \
+    return THT_PLUGIN_AUTHOR;               \
+}                                           \
+                                            \
+virtual QString version() const             \
+{                                           \
+    return THT_PLUGIN_VERSION;              \
+}                                           \
+                                            \
+virtual QString uuid() const                \
+{                                           \
+    return THT_PLUGIN_UUID;                 \
+}                                           \
+private:
 
 #endif

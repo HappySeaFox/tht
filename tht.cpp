@@ -49,6 +49,7 @@
 #include "tickersdatabaseupdater.h"
 #include "linkpointmanager.h"
 #include "savescreenshot.h"
+#include "pluginmanager.h"
 #include "regionselect.h"
 #include "pluginloader.h"
 #include "tickerinput.h"
@@ -126,8 +127,9 @@ THT::THT(QWidget *parent) :
     QMenu *menu_load = m_menu->addMenu(tr("Load ticker"));
 
     m_menu->addSeparator();
-    m_menu->addAction(icon_chart, tr("About THT") + '\t' + help_shortcut->key().toString(), this, SLOT(slotAbout()));
-    m_menu->addAction(tr("About Qt"), this, SLOT(slotAboutQt()));
+    m_menu->addAction(icon_chart, tr("About THT...") + '\t' + help_shortcut->key().toString(), this, SLOT(slotAbout()));
+    m_menu->addAction(tr("About Qt..."), this, SLOT(slotAboutQt()));
+    m_menu->addAction(tr("Plugins..."), this, SLOT(slotPlugins()));
     m_menu->addSeparator();
     m_menu->addAction(icon_quit, tr("Quit") + '\t' + quit_shortcut->key().toString(), this, SLOT(slotQuit()));
 
@@ -1024,6 +1026,12 @@ void THT::slotAbout()
 void THT::slotAboutQt()
 {
     QMessageBox::aboutQt(this);
+}
+
+void THT::slotPlugins()
+{
+    PluginManager mgr(this);
+    mgr.exec();
 }
 
 void THT::slotQuit()

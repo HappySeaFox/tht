@@ -142,6 +142,7 @@ private slots:
     void slotCheckActive();
     void slotAbout();
     void slotAboutQt();
+    void slotPlugins();
     void slotQuit();
     void slotOptions();
     void slotCopyLeft(const Ticker &ticker);
