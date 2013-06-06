@@ -31,7 +31,11 @@ public:
     static HWND RealWindowFromPoint(POINT pt);
     static bool isDesktop(HWND hwnd);
 
+    static bool hasOption(const QString &);
+
 private:
+    Tools();
+
     static HWND FindBestChild(HWND hwndFound, POINT pt);
     static BOOL CALLBACK FindBestChildProc(HWND hwnd, LPARAM lParam);
 

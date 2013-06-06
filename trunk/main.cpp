@@ -40,6 +40,7 @@
 
 #include "pluginloader.h"
 #include "settings.h"
+#include "tools.h"
 #include "tht.h"
 
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
@@ -182,7 +183,7 @@ int main(int argc, char *argv[])
     // before Settings is created
     PluginLoader::instance();
 
-    if(Settings::instance()->preloadMode())
+    if(Tools::hasOption("--preload"))
     {
         qDebug("Preload mode");
         return 0;

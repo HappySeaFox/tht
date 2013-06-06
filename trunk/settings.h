@@ -145,8 +145,6 @@ public:
     QString mutableDatabaseName() const;
     QString mutableDatabasePath() const;
 
-    bool preloadMode() const;
-
     QRegExp tickerValidator() const;
 
     void setCheckBoxState(const QString &checkbox, bool checked, SyncType sync = Sync);
