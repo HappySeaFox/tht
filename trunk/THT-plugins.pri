@@ -10,6 +10,12 @@ QMAKE_POST_LINK += $$mle(copy /y \"$${OUT_PWD}/$(DESTDIR_TARGET)\" \"$${OUT_PWD}
 RC_FILE_INCLUDE=$$replace(_PRO_FILE_, \\.pro$, .rc)
 RC_FILE_INCLUDE=$$basename(RC_FILE_INCLUDE)-generated
 
+DEFINES += THT_PLUGIN_NAME=$$sprintf("\"\\\"%1\\\"\"", $$THT_PLUGIN_NAME)
+DEFINES += THT_PLUGIN_AUTHOR=$$sprintf("\"\\\"%1\\\"\"", $$THT_PLUGIN_AUTHOR)
+DEFINES += THT_PLUGIN_UUID=$$sprintf("\"\\\"%1\\\"\"", $$THT_PLUGIN_UUID)
+DEFINES += THT_PLUGIN_COPYRIGHT=$$sprintf("\"\\\"%1\\\"\"", $$THT_PLUGIN_COPYRIGHT)
+DEFINES += THT_PLUGIN_VERSION=$$sprintf("\"\\\"%1\\\"\"", $$VERSION)
+
 system(echo $${LITERAL_HASH}define THT_PLUGIN_AUTHOR \"$$THT_PLUGIN_AUTHOR\" > $$RC_FILE_INCLUDE)
 system(echo $${LITERAL_HASH}define THT_PLUGIN_COPYRIGHT \"$$THT_PLUGIN_COPYRIGHT\" >> $$RC_FILE_INCLUDE)
 

@@ -20,6 +20,7 @@
 #include <QStringList>
 #include <QPushButton>
 #include <QVBoxLayout>
+#include <QHeaderView>
 #include <QFrame>
 
 #include "datamanagerbase.h"
