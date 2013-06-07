@@ -113,21 +113,35 @@ void PluginLoader::init()
 
         qApp->installTranslator((*it).translator);
 
+        (*it).plugin->setProperty(THT_PLUGIN_PROPERTY_FILENAME, fi.fileName());
         (*it).plugin->init();
     }
 }
 
-QList<Plugin *> PluginLoader::byType(Plugin::Type type)
+QList<Plugin *> PluginLoader::byType(Plugin::Type type) const
 {
     QList<Plugin *> list;
 
-    iterator itEnd = end();
+    const_iterator itEnd = end();
 
-    for(iterator it = begin();it != itEnd;++it)
+    for(const_iterator it = begin();it != itEnd;++it)
     {
         if((*it).plugin->type() == type)
             list.append((*it).plugin);
     }
 
     return list;
+}
+
+Plugin* PluginLoader::byUuid(const QString &uuid) const
+{
+    const_iterator itEnd = end();
+
+    for(const_iterator it = begin();it != itEnd;++it)
+    {
+        if((*it).plugin->property(THT_PLUGIN_PROPERTY_UUID).toString() == uuid)
+            return (*it).plugin;
+    }
+
+    return 0;
 }

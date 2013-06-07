@@ -21,6 +21,15 @@
 #include <QObject>
 #include <QWidget>
 
+class PluginPrivate;
+
+#define THT_PLUGIN_PROPERTY_NAME     "name"
+#define THT_PLUGIN_PROPERTY_AUTHOR   "author"
+#define THT_PLUGIN_PROPERTY_VERSION  "version"
+#define THT_PLUGIN_PROPERTY_URL      "url"
+#define THT_PLUGIN_PROPERTY_UUID     "uuid"
+#define THT_PLUGIN_PROPERTY_FILENAME "filename"
+
 class Plugin : public QObject
 {
     Q_OBJECT
@@ -39,18 +48,6 @@ public:
     // plugin type
     virtual Type type() const = 0;
 
-    // plugin name
-    virtual QString name() const = 0;
-
-    // plugin author
-    virtual QString author() const = 0;
-
-    // plugin version
-    virtual QString version() const = 0;
-
-    // plugin UUID
-    virtual QString uuid() const = 0;
-
     void setTopLevelWidget(QWidget *w);
 
 protected:
@@ -61,20 +58,8 @@ protected slots:
     {}
 
 private:
-    QWidget *m_topLevelWidget;
+    PluginPrivate *d;
 };
-
-inline
-void Plugin::setTopLevelWidget(QWidget *w)
-{
-    m_topLevelWidget = w;
-}
-
-inline
-QWidget *Plugin::topLevelWidget() const
-{
-    return m_topLevelWidget;
-}
 
 #define PLUGIN_CONSTRUCTOR(o)   \
 extern "C"                      \
@@ -89,27 +74,11 @@ void plugin_destroy(Plugin *pl) \
     delete pl;                  \
 }
 
-#define THT_PLUGIN_INTERFACE_IMPLEMENTATION \
-public:                                     \
-virtual QString name() const                \
-{                                           \
-    return THT_PLUGIN_NAME;                 \
-}                                           \
-                                            \
-virtual QString author() const              \
-{                                           \
-    return THT_PLUGIN_AUTHOR;               \
-}                                           \
-                                            \
-virtual QString version() const             \
-{                                           \
-    return THT_PLUGIN_VERSION;              \
-}                                           \
-                                            \
-virtual QString uuid() const                \
-{                                           \
-    return THT_PLUGIN_UUID;                 \
-}                                           \
-private:
+#define THT_PLUGIN_INTERFACE_IMPLEMENTATION                   \
+setProperty(THT_PLUGIN_PROPERTY_NAME, THT_PLUGIN_NAME);       \
+setProperty(THT_PLUGIN_PROPERTY_AUTHOR, THT_PLUGIN_AUTHOR);   \
+setProperty(THT_PLUGIN_PROPERTY_VERSION, THT_PLUGIN_VERSION); \
+setProperty(THT_PLUGIN_PROPERTY_URL, THT_PLUGIN_URL);         \
+setProperty(THT_PLUGIN_PROPERTY_UUID, THT_PLUGIN_UUID);
 
 #endif

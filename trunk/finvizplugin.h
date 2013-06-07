@@ -27,8 +27,6 @@ class FinvizPlugin : public PluginImportExport
 {
     Q_OBJECT
 
-    THT_PLUGIN_INTERFACE_IMPLEMENTATION
-
 public:
     explicit FinvizPlugin();
 

@@ -19,6 +19,7 @@
 #include <QHeaderView>
 
 #include "pluginmanager.h"
+#include "plugindetails.h"
 #include "pluginloader.h"
 #include "ui_pluginmanager.h"
 
@@ -53,10 +54,12 @@ PluginManager::PluginManager(QWidget *parent) :
         foreach(Plugin *p, plugins)
         {
             QTreeWidgetItem *j = new QTreeWidgetItem(QStringList()
-                                                     << p->name()
-                                                     << p->version()
-                                                     << p->author());
+                                                            << p->property(THT_PLUGIN_PROPERTY_NAME).toString()
+                                                            << p->property(THT_PLUGIN_PROPERTY_VERSION).toString()
+                                                            << p->property(THT_PLUGIN_PROPERTY_AUTHOR).toString()
+                                                        );
 
+            j->setData(0, Qt::UserRole, p->property(THT_PLUGIN_PROPERTY_UUID).toString());
             i->addChild(j);
         }
     }
@@ -83,4 +86,20 @@ QString PluginManager::typeToString(int type)
         default:
         return tr("Unknown");
     }
+}
+
+void PluginManager::slotCurrentItemChanged(QTreeWidgetItem *current)
+{
+    ui->pushDetails->setDisabled(current->childCount());
+}
+
+void PluginManager::slotDetails()
+{
+    QTreeWidgetItem *i = ui->treePlugins->currentItem();
+
+    if(!i)
+        return;
+
+    PluginDetails pd(i->data(0, Qt::UserRole).toString(), this);
+    pd.exec();
 }

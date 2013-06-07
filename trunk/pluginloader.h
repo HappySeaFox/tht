@@ -57,7 +57,9 @@ public:
 
     void init();
 
-    QList<Plugin *> byType(Plugin::Type);
+    QList<Plugin *> byType(Plugin::Type) const;
+
+    Plugin* byUuid(const QString &uuid) const;
 
     void setTopLevelWidget(QWidget *w);
     QWidget *topLevelWidget() const;

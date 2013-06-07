@@ -281,6 +281,44 @@
     </message>
 </context>
 <context>
+    <name>PluginDetails</name>
+    <message>
+        <location filename="../plugindetails.ui" line="14"/>
+        <source>Plugin details</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../plugindetails.ui" line="80"/>
+        <source>Name:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../plugindetails.ui" line="113"/>
+        <source>File:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../plugindetails.ui" line="22"/>
+        <source>Author:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../plugindetails.ui" line="70"/>
+        <source>Version:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../plugindetails.ui" line="53"/>
+        <source>URL:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../plugindetails.ui" line="90"/>
+        <source>UUID:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>PluginManager</name>
     <message>
         <location filename="../pluginmanager.ui" line="14"/>
@@ -303,22 +341,27 @@
         <translation>Автор</translation>
     </message>
     <message>
-        <location filename="../pluginmanager.cpp" line="75"/>
+        <location filename="../pluginmanager.ui" line="48"/>
+        <source>Details...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pluginmanager.cpp" line="78"/>
         <source>Common</source>
         <translation>Общий</translation>
     </message>
     <message>
-        <location filename="../pluginmanager.cpp" line="78"/>
+        <location filename="../pluginmanager.cpp" line="81"/>
         <source>Add tickers</source>
         <translation>Добавить тикеры</translation>
     </message>
     <message>
-        <location filename="../pluginmanager.cpp" line="81"/>
+        <location filename="../pluginmanager.cpp" line="84"/>
         <source>Export tickers</source>
         <translation>Экспортировать тикеры</translation>
     </message>
     <message>
-        <location filename="../pluginmanager.cpp" line="84"/>
+        <location filename="../pluginmanager.cpp" line="87"/>
         <source>Unknown</source>
         <translation>Неизвестный</translation>
     </message>

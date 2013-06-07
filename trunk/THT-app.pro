@@ -41,7 +41,8 @@ SOURCES += main.cpp\
     tickercommentinput.cpp \
     clickablelabel.cpp \
     pluginloader.cpp \
-    pluginmanager.cpp
+    pluginmanager.cpp \
+    plugindetails.cpp
 
 HEADERS += tht.h \
     list.h \
@@ -76,7 +77,8 @@ HEADERS += tht.h \
     tickercommentinput.h \
     clickablelabel.h \
     pluginloader.h \
-    pluginmanager.h
+    pluginmanager.h \
+    plugindetails.h
 
 FORMS += tht.ui \
     list.ui \
@@ -90,7 +92,8 @@ FORMS += tht.ui \
     screenshotcommentinput.ui \
     inlinetextinput.ui \
     tickercommentinput.ui \
-    pluginmanager.ui
+    pluginmanager.ui \
+    plugindetails.ui
 
 RESOURCES += tht.qrc
 
