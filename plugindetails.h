@@ -15,36 +15,25 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <QTimer>
+#ifndef PLUGINDETAILS_H
+#define PLUGINDETAILS_H
 
-#include "plugin.h"
+#include <QDialog>
 
-class PluginPrivate
+namespace Ui {
+class PluginDetails;
+}
+
+class PluginDetails : public QDialog
 {
+    Q_OBJECT
+
 public:
-    QWidget *topLevelWidget;
+    explicit PluginDetails(const QString &uuid, QWidget *parent = 0);
+    ~PluginDetails();
+
+private:
+    Ui::PluginDetails *ui;
 };
 
-/****************************************/
-
-Plugin::Plugin() : QObject()
-{
-    d = new PluginPrivate;
-
-    QTimer::singleShot(0, this, SLOT(delayedInit()));
-}
-
-Plugin::~Plugin()
-{
-    delete d;
-}
-
-void Plugin::setTopLevelWidget(QWidget *w)
-{
-    d->topLevelWidget = w;
-}
-
-QWidget *Plugin::topLevelWidget() const
-{
-    return d->topLevelWidget;
-}
+#endif // PLUGINDETAILS_H

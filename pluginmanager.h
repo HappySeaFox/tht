@@ -21,6 +21,8 @@
 #include <QDialog>
 #include <QString>
 
+class QTreeWidgetItem;
+
 namespace Ui
 {
     class PluginManager;
@@ -36,6 +38,10 @@ public:
 
 private:
     QString typeToString(int);
+
+private slots:
+    void slotCurrentItemChanged(QTreeWidgetItem *);
+    void slotDetails();
 
 private:
     Ui::PluginManager *ui;

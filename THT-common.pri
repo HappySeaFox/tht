@@ -10,7 +10,7 @@ INCLUDEPATH += .
 DEPENDPATH += .
 
 CONFIG += warn_on
-QMAKE_CXXFLAGS_WARN_ON *= -Werror -Wextra -Wno-missing-field-initializers
+QMAKE_CXXFLAGS_WARN_ON *= -Wextra -Wno-missing-field-initializers
 
 VERSION=$$sprintf("%1.%2.%3", $$NVER1, $$NVER2, $$NVER3)
 

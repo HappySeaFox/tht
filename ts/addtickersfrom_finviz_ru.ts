@@ -73,12 +73,12 @@
 <context>
     <name>FinvizPlugin</name>
     <message>
-        <location filename="../finvizplugin.cpp" line="84"/>
+        <location filename="../finvizplugin.cpp" line="86"/>
         <source>Add from Finviz</source>
         <translation>Добавить из Finviz</translation>
     </message>
     <message>
-        <location filename="../finvizplugin.cpp" line="146"/>
+        <location filename="../finvizplugin.cpp" line="148"/>
         <source>Customize...</source>
         <translation>Настроить...</translation>
     </message>
