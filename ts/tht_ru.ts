@@ -285,37 +285,37 @@
     <message>
         <location filename="../plugindetails.ui" line="14"/>
         <source>Plugin details</source>
-        <translation type="unfinished"></translation>
+        <translation>Подробности плагина</translation>
     </message>
     <message>
-        <location filename="../plugindetails.ui" line="80"/>
+        <location filename="../plugindetails.ui" line="83"/>
         <source>Name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Имя:</translation>
     </message>
     <message>
-        <location filename="../plugindetails.ui" line="113"/>
+        <location filename="../plugindetails.ui" line="116"/>
         <source>File:</source>
-        <translation type="unfinished"></translation>
+        <translation>Файл:</translation>
     </message>
     <message>
         <location filename="../plugindetails.ui" line="22"/>
         <source>Author:</source>
-        <translation type="unfinished"></translation>
+        <translation>Автор:</translation>
     </message>
     <message>
-        <location filename="../plugindetails.ui" line="70"/>
+        <location filename="../plugindetails.ui" line="73"/>
         <source>Version:</source>
-        <translation type="unfinished"></translation>
+        <translation>Версия:</translation>
     </message>
     <message>
-        <location filename="../plugindetails.ui" line="53"/>
+        <location filename="../plugindetails.ui" line="56"/>
         <source>URL:</source>
-        <translation type="unfinished"></translation>
+        <translation>URL:</translation>
     </message>
     <message>
-        <location filename="../plugindetails.ui" line="90"/>
+        <location filename="../plugindetails.ui" line="93"/>
         <source>UUID:</source>
-        <translation type="unfinished"></translation>
+        <translation>UUID:</translation>
     </message>
 </context>
 <context>
@@ -343,12 +343,12 @@
     <message>
         <location filename="../pluginmanager.ui" line="48"/>
         <source>Details...</source>
-        <translation type="unfinished"></translation>
+        <translation>Подробности...</translation>
     </message>
     <message>
         <location filename="../pluginmanager.cpp" line="78"/>
         <source>Common</source>
-        <translation>Общий</translation>
+        <translation>Общие</translation>
     </message>
     <message>
         <location filename="../pluginmanager.cpp" line="81"/>
@@ -363,7 +363,7 @@
     <message>
         <location filename="../pluginmanager.cpp" line="87"/>
         <source>Unknown</source>
-        <translation>Неизвестный</translation>
+        <translation>Неизвестные</translation>
     </message>
 </context>
 <context>
