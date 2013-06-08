@@ -33,7 +33,12 @@ PluginDetails::PluginDetails(const QString &uuid, QWidget *parent) :
         ui->labelName->setText(plugin->property(THT_PLUGIN_PROPERTY_NAME).toString());
         ui->labelAuthor->setText(plugin->property(THT_PLUGIN_PROPERTY_AUTHOR).toString());
         ui->labelVersion->setText(plugin->property(THT_PLUGIN_PROPERTY_VERSION).toString());
-        ui->labelUrl->setText(plugin->property(THT_PLUGIN_PROPERTY_URL).toString());
+
+        QString url = plugin->property(THT_PLUGIN_PROPERTY_URL).toString();
+
+        if(!url.isEmpty())
+            ui->labelUrl->setText(QString("<a href=\"%1\">%2</a>").arg(url).arg(url));
+
         ui->labelUuid->setText(plugin->property(THT_PLUGIN_PROPERTY_UUID).toString());
     }
 }
