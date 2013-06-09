@@ -20,8 +20,9 @@
 
 #include <QDialog>
 
-namespace Ui {
-class PluginDetails;
+namespace Ui
+{
+    class PluginDetails;
 }
 
 class PluginDetails : public QDialog
