@@ -39,7 +39,13 @@ PluginDetails::PluginDetails(const QString &uuid, QWidget *parent) :
         QString url = plugin->property(THT_PLUGIN_PROPERTY_URL).toString();
 
         if(!url.isEmpty())
-            ui->labelUrl->setText(QString("<a href=\"%1\">%2</a>").arg(url).arg(url));
+        {
+            const int maxlen = 45;
+
+            ui->labelUrl->setText(QString("<a href=\"%1\">%2</a>")
+                                  .arg(url)
+                                  .arg((url.length() > maxlen) ? (url.left(maxlen)+"...") : url));
+        }
 
         ui->labelUuid->setText(plugin->property(THT_PLUGIN_PROPERTY_UUID).toString());
 
