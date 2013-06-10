@@ -40,7 +40,7 @@ PluginDetails::PluginDetails(const QString &uuid, QWidget *parent) :
 
         if(!url.isEmpty())
         {
-            const int maxlen = 45;
+            const int maxlen = 50;
 
             ui->labelUrl->setText(QString("<a href=\"%1\">%2</a>")
                                   .arg(url)
