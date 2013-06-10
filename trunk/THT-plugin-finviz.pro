@@ -33,7 +33,7 @@ FORMS += finvizdownloader.ui \
 TRANSLATIONS += ts/addtickersfrom_finviz_ru.ts \
                 ts/addtickersfrom_finviz_uk.ts
 
-RESOURCES += tht-plugin-finviz.qrc
+RESOURCES += THT-plugin-finviz.qrc
 
 THT_PLUGIN_NAME="Finviz"
 THT_PLUGIN_AUTHOR="Dmitry Baryshev"

@@ -288,32 +288,37 @@
         <translation>Подробности плагина</translation>
     </message>
     <message>
-        <location filename="../plugindetails.ui" line="83"/>
+        <location filename="../plugindetails.ui" line="45"/>
         <source>Name:</source>
         <translation>Имя:</translation>
     </message>
     <message>
-        <location filename="../plugindetails.ui" line="116"/>
+        <location filename="../plugindetails.ui" line="22"/>
         <source>File:</source>
         <translation>Файл:</translation>
     </message>
     <message>
-        <location filename="../plugindetails.ui" line="22"/>
+        <location filename="../plugindetails.ui" line="72"/>
         <source>Author:</source>
         <translation>Автор:</translation>
     </message>
     <message>
-        <location filename="../plugindetails.ui" line="73"/>
+        <location filename="../plugindetails.ui" line="123"/>
         <source>Version:</source>
         <translation>Версия:</translation>
     </message>
     <message>
-        <location filename="../plugindetails.ui" line="56"/>
+        <location filename="../plugindetails.ui" line="133"/>
+        <source>License:</source>
+        <translation>Лицензия:</translation>
+    </message>
+    <message>
+        <location filename="../plugindetails.ui" line="106"/>
         <source>URL:</source>
         <translation>URL:</translation>
     </message>
     <message>
-        <location filename="../plugindetails.ui" line="93"/>
+        <location filename="../plugindetails.ui" line="55"/>
         <source>UUID:</source>
         <translation>UUID:</translation>
     </message>
