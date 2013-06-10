@@ -129,6 +129,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>treePlugins</sender>
+   <signal>itemDoubleClicked(QTreeWidgetItem*,int)</signal>
+   <receiver>PluginManager</receiver>
+   <slot>slotDetails()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>180</x>
+     <y>97</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>476</x>
+     <y>109</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>slotCurrentItemChanged(QTreeWidgetItem*)</slot>
