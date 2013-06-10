@@ -15,6 +15,8 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <QFile>
+
 #include "plugindetails.h"
 #include "pluginloader.h"
 #include "ui_plugindetails.h"
@@ -40,6 +42,11 @@ PluginDetails::PluginDetails(const QString &uuid, QWidget *parent) :
             ui->labelUrl->setText(QString("<a href=\"%1\">%2</a>").arg(url).arg(url));
 
         ui->labelUuid->setText(plugin->property(THT_PLUGIN_PROPERTY_UUID).toString());
+
+        QFile fr(":/" + plugin->property(THT_PLUGIN_PROPERTY_LICENSE).toString());
+
+        if(fr.open(QIODevice::ReadOnly))
+            ui->plainLicense->setPlainText(fr.readAll());
     }
 }
 

@@ -25,6 +25,7 @@ class PluginPrivate;
 
 #define THT_PLUGIN_PROPERTY_NAME     "name"
 #define THT_PLUGIN_PROPERTY_AUTHOR   "author"
+#define THT_PLUGIN_PROPERTY_LICENSE  "license"
 #define THT_PLUGIN_PROPERTY_VERSION  "version"
 #define THT_PLUGIN_PROPERTY_URL      "url"
 #define THT_PLUGIN_PROPERTY_UUID     "uuid"
@@ -77,6 +78,7 @@ void plugin_destroy(Plugin *pl) \
 #define THT_PLUGIN_INTERFACE_IMPLEMENTATION                   \
 setProperty(THT_PLUGIN_PROPERTY_NAME, THT_PLUGIN_NAME);       \
 setProperty(THT_PLUGIN_PROPERTY_AUTHOR, THT_PLUGIN_AUTHOR);   \
+setProperty(THT_PLUGIN_PROPERTY_LICENSE, THT_PLUGIN_LICENSE); \
 setProperty(THT_PLUGIN_PROPERTY_VERSION, THT_PLUGIN_VERSION); \
 setProperty(THT_PLUGIN_PROPERTY_URL, THT_PLUGIN_URL);         \
 setProperty(THT_PLUGIN_PROPERTY_UUID, THT_PLUGIN_UUID);
