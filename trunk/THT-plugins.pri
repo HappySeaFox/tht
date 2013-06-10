@@ -4,12 +4,15 @@ RC_FILE = tht-plugins.rc
 
 LIBS += -L$${OUT_PWD}/$(DESTDIR_TARGET)/.. -lTHT-lib
 
+PLUGIN_LICENSE=$$replace(_PRO_FILE_, \\.pro$, -LICENSE.txt)
+PLUGIN_LICENSE=$$replace(PLUGIN_LICENSE, /, \\)
+
 QMAKE_POST_LINK += $$mle(if not exist \"$${OUT_PWD}/$(DESTDIR_TARGET)/../plugins\" mkdir \"$${OUT_PWD}/$(DESTDIR_TARGET)/../plugins\")
 QMAKE_POST_LINK += $$mle(copy /y \"$${OUT_PWD}/$(DESTDIR_TARGET)\" \"$${OUT_PWD}/$(DESTDIR_TARGET)/../plugins\")
 
-PLUGIN_LICENSE=$$replace(_PRO_FILE_, \\.pro$, -LICENSE.txt)
-PLUGIN_LICENSE=$$replace(PLUGIN_LICENSE, /, \\)
-PLUGIN_LICENSE_FILENAME=$$basename(PLUGIN_LICENSE)
+exists($$PLUGIN_LICENSE) {
+    QMAKE_POST_LINK += $$mle(copy /y \"$$PLUGIN_LICENSE\" \"$${OUT_PWD}/$(DESTDIR_TARGET)/../plugins/$${TARGET}-LICENSE.txt\")
+}
 
 RC_FILE_INCLUDE=$$replace(_PRO_FILE_, \\.pro$, .rc)
 RC_FILE_INCLUDE=$$basename(RC_FILE_INCLUDE)-generated
@@ -27,7 +30,6 @@ DEFINES += THT_PLUGIN_VERSION=$$sprintf("\"\\\"%1\\\"\"", $$VERSION)
 DEFINES += THT_PLUGIN_UUID=$$sprintf("\"\\\"%1\\\"\"", $$THT_PLUGIN_UUID)
 DEFINES += THT_PLUGIN_URL=$$sprintf("\"\\\"%1\\\"\"", $$THT_PLUGIN_URL)
 DEFINES += THT_PLUGIN_COPYRIGHT=$$sprintf("\"\\\"%1\\\"\"", $$THT_PLUGIN_COPYRIGHT)
-DEFINES += THT_PLUGIN_LICENSE=$$sprintf("\"\\\"%1\\\"\"", $$PLUGIN_LICENSE_FILENAME)
 
 defineReplace(copyFilesToZip) {
     q=$$1
@@ -87,7 +89,7 @@ defineReplace(copyFilesToZip) {
     distbin.commands += $$mle(copy /y \"$${OUT_PWD}/$(DESTDIR_TARGET)\" \"$$T/plugins\")
 
     exists($$PLUGIN_LICENSE) {
-        distbin.commands += $$mle(copy /y \"$$PLUGIN_LICENSE\" \"$$T\")
+        distbin.commands += $$mle(copy /y \"$$PLUGIN_LICENSE\" \"$$T/plugins/$${TARGET}-LICENSE.txt\")
     }
 
     for(qm, QMFILES) {
@@ -168,6 +170,10 @@ exists($$INNO) {
 
     iss.commands += $$mle(echo [Files] >> $$ISS)
     iss.commands += $$mle(echo Source: \"$${OUT_PWD}/$(DESTDIR_TARGET)\"; DestDir: \"{app}/plugins\"; Flags: ignoreversion >> $$ISS)
+
+    exists($$PLUGIN_LICENSE) {
+        iss.commands += $$mle(echo Source: \"$$PLUGIN_LICENSE\"; DestDir: \"{app}/plugins\"; DestName: \"$${TARGET}-LICENSE.txt\"; Flags: ignoreversion >> $$ISS)
+    }
 
     for(qm, QMFILES) {
         iss.commands += $$mle(echo Source: \"$${_PRO_FILE_PWD_}\\$$qm\"; DestDir: \"{app}/translations\"; Flags: ignoreversion >> $$ISS)

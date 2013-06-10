@@ -114,6 +114,10 @@ void PluginLoader::init()
         qApp->installTranslator((*it).translator);
 
         (*it).plugin->setProperty(THT_PLUGIN_PROPERTY_FILENAME, fi.fileName());
+        (*it).plugin->setProperty(THT_PLUGIN_PROPERTY_LICENSE_FILE, QString(fi.absolutePath()
+                                                                            + QDir::separator()
+                                                                            + fi.baseName()
+                                                                            + "-LICENSE.txt"));
         (*it).plugin->init();
     }
 }

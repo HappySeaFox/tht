@@ -43,7 +43,7 @@ PluginDetails::PluginDetails(const QString &uuid, QWidget *parent) :
 
         ui->labelUuid->setText(plugin->property(THT_PLUGIN_PROPERTY_UUID).toString());
 
-        QFile fr(":/" + plugin->property(THT_PLUGIN_PROPERTY_LICENSE).toString());
+        QFile fr(plugin->property(THT_PLUGIN_PROPERTY_LICENSE_FILE).toString());
 
         if(fr.open(QIODevice::ReadOnly))
             ui->plainLicense->setPlainText(fr.readAll());
