@@ -17,6 +17,7 @@
 
 #include <QDesktopServices>
 #include <QTranslator>
+#include <QSslSocket>
 #include <QDateTime>
 #include <QLocale>
 #include <QFile>
@@ -172,6 +173,8 @@ int main(int argc, char *argv[])
     qDebug("Starting at %s", qPrintable(QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss")));
 
     qint64 v = QDateTime::currentMSecsSinceEpoch();
+
+    qDebug(QSslSocket::supportsSsl() ? "SSL is supported" : "SSL is not supported");
 
     QCoreApplication::setApplicationName("THT");
     QCoreApplication::setOrganizationName("THT");
