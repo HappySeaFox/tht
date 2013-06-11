@@ -42,7 +42,7 @@ About::About(QWidget *parent) :
                                         "linuxsquirrel.dev@gmail.com</span>"
                                         "</a>&gt;</p></body></html>").arg(tr("Dmitry Baryshev")));
 
-    const char * const http = HTTPROOT "/wiki/Home";
+    const char * const http = HTTPROOT "/wiki/howto";
     ui->labelUrl->setText(QString("<a href=\"%1\">%2</a>").arg(http).arg(http));
 
     // set "wait" icon
