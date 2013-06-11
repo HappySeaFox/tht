@@ -111,9 +111,10 @@ TRANSLATIONS += ts/tht_ru.ts \
 RC_FILE = tht.rc
 
 # network data
-SVNROOTORIG="https://traders-home-task-ng.googlecode.com/svn"
-SVNROOT="http://traders-home-task-ng.googlecode.com/svn"
-HTTPROOT="http://code.google.com/p/traders-home-task-ng"
+SVNROOT_FOR_COMMIT="svn+ssh://dmitrykx@svn.code.sf.net/p/tht/code"
+SVNROOT_FOR_DOWNLOAD="http://sourceforge.net/p/tht/code/HEAD/tree/trunk"
+HTTPROOT="http://sourceforge.net/p/tht"
+DOWNLOADROOT="http://sourceforge.net/projects/tht"
 
 # files to copy to the distribution
 IMAGEPLUGINS=qico4.dll qjpeg4.dll
@@ -130,12 +131,13 @@ USEUPX=y
 include(THT-version.pri)
 include(THT-common.pri)
 
-DEFINES += SVNROOT=$$sprintf("\"\\\"%1\\\"\"", $$SVNROOT)
+DEFINES += SVNROOT_FOR_DOWNLOAD=$$sprintf("\"\\\"%1\\\"\"", $$SVNROOT_FOR_DOWNLOAD)
 DEFINES += HTTPROOT=$$sprintf("\"\\\"%1\\\"\"", $$HTTPROOT)
+DEFINES += DOWNLOADROOT=$$sprintf("\"\\\"%1\\\"\"", $$DOWNLOADROOT)
 
 tag.commands += $$mle(echo "$$VERSION"> "\"$${_PRO_FILE_PWD_}/THT-version.tag\"")
 tag.commands += $$mle(svn -m "\"$$VERSION file tag\"" commit "\"$${_PRO_FILE_PWD_}/THT-version.tag\"")
-tag.commands += $$mle(svn -m "\"$$VERSION tag\"" copy "\"$$SVNROOTORIG/trunk\"" "\"$$SVNROOTORIG/tags/$$VERSION\"")
+tag.commands += $$mle(svn -m "\"$$VERSION tag\"" copy "\"$$SVNROOT_FOR_COMMIT/trunk\"" "\"$$SVNROOT_FOR_COMMIT/tags/$$VERSION\"")
 QMAKE_EXTRA_TARGETS += tag
 
 # copy database
