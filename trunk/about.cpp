@@ -98,7 +98,7 @@ void About::slotNewVersion(const QString &newVersion)
     if(!newVersion.isEmpty())
     {
         text = "<html><head><meta name=\"qrichtext\" content=\"1\" /></head>"
-                "<body><a href=\"https://googledrive.com/host/0B_Jm-Pr_V5fQU3hUWWZ6ampFRTg\">"
+                "<body><a href=\"http://sourceforge.net/projects/tht/files/THT/binaries\">"
                     "<img src=\":/images/update.png\"></img>"
                 "</a>"
                 "</body></html>";
