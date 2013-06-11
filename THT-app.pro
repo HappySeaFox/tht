@@ -118,6 +118,7 @@ HTTPROOT="http://code.google.com/p/traders-home-task-ng"
 # files to copy to the distribution
 IMAGEPLUGINS=qico4.dll qjpeg4.dll
 SQLPLUGINS=qsqlite4.dll
+CODECPLUGINS=qcncodecs4.dll qjpcodecs4.dll qtwcodecs4.dll qkrcodecs4.dll
 QTLIBS=QtCore4.dll QtGui4.dll QtNetwork4.dll QtScript4.dll QtSql4.dll QtXml4.dll QtXmlPatterns4.dll
 SSLLIBS=libeay32.dll ssleay32.dll
 MINGWLIBS=libgcc_s_sjlj-1.dll libwinpthread-1.dll libstdc++-6.dll
@@ -185,8 +186,12 @@ QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite
         distbin.commands += $$mle(copy /y \"$$[QT_INSTALL_PLUGINS]\\imageformats\\$$ip\" \"$$T/imageformats\")
     }
 
-    for(ip, SQLPLUGINS) {
-        distbin.commands += $$mle(copy /y \"$$[QT_INSTALL_PLUGINS]\\sqldrivers\\$$ip\" \"$$T/sqldrivers\")
+    for(sp, SQLPLUGINS) {
+        distbin.commands += $$mle(copy /y \"$$[QT_INSTALL_PLUGINS]\\sqldrivers\\$$sp\" \"$$T/sqldrivers\")
+    }
+
+    for(cp, CODECPLUGINS) {
+        distbin.commands += $$mle(copy /y \"$$[QT_INSTALL_PLUGINS]\\codecs\\$$cp\" \"$$T/codecs\")
     }
 
     for(qm, QMFILES) {
@@ -315,6 +320,10 @@ exists($$INNO) {
 
     for(sp, SQLPLUGINS) {
         iss.commands += $$mle(echo Source: \"$$[QT_INSTALL_PLUGINS]\\sqldrivers\\$$sp\"; DestDir: \"{app}\\sqldrivers\"; Flags: ignoreversion >> $$ISS)
+    }
+
+    for(cp, CODECPLUGINS) {
+        iss.commands += $$mle(echo Source: \"$$[QT_INSTALL_PLUGINS]\\codecs\\$$cp\"; DestDir: \"{app}\\codecs\"; Flags: ignoreversion >> $$ISS)
     }
 
     for(ml, MINGWLIBS) {
