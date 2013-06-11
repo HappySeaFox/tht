@@ -115,7 +115,7 @@ exists($$INNO) {
 
     ISS="tht-$$TARGET-$${VERSION}.iss"
 
-    iss.commands += $$mle(echo $${LITERAL_HASH}define MyAppName \"Trader\'s Home Task"," $$THT_PLUGIN_NAME plugin\" > $$ISS)
+    iss.commands += $$mle(echo $${LITERAL_HASH}define MyAppName \"Trader\'s Home Task"," $$TARGET plugin\" > $$ISS)
     iss.commands += $$mle(echo $${LITERAL_HASH}define MyAppPublisher \"$$THT_PLUGIN_AUTHOR\" >> $$ISS)
 
     !isEmpty(THT_PLUGIN_URL) {
