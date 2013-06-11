@@ -42,7 +42,7 @@ About::About(QWidget *parent) :
                                         "linuxsquirrel.dev@gmail.com</span>"
                                         "</a>&gt;</p></body></html>").arg(tr("Dmitry Baryshev")));
 
-    const char * const http = HTTPROOT "/wiki/howto";
+    const char * const http = HTTPROOT "/wiki/Home";
     ui->labelUrl->setText(QString("<a href=\"%1\">%2</a>").arg(http).arg(http));
 
     // set "wait" icon
@@ -98,7 +98,7 @@ void About::slotNewVersion(const QString &newVersion)
     if(!newVersion.isEmpty())
     {
         text = "<html><head><meta name=\"qrichtext\" content=\"1\" /></head>"
-                "<body><a href=\"http://sourceforge.net/projects/tht/files/THT/binaries\">"
+                "<body><a href=\"" DOWNLOADROOT "/files/THT/binaries\">"
                     "<img src=\":/images/update.png\"></img>"
                 "</a>"
                 "</body></html>";

@@ -27,7 +27,7 @@ UpdateChecker::UpdateChecker(QObject *parent) :
 {
     m_lastVersion = NVER_STRING;
 
-    m_url = QUrl(SVNROOT "/trunk/THT-version.tag");
+    m_url = QUrl(SVNROOT_FOR_DOWNLOAD "/THT-version.tag?format=raw");
 
     m_rxVersion = QRegExp("^(\\d+)\\.(\\d+)\\.(\\d+)$");
 

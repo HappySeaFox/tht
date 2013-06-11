@@ -28,7 +28,7 @@ TickersDatabaseUpdater::TickersDatabaseUpdater(QObject *parent) :
     QObject(parent),
     m_downloadingData(false)
 {
-    m_baseurl = SVNROOT "/trunk/tickersdb/";
+    m_baseurl = SVNROOT_FOR_DOWNLOAD "/tickersdb/";
 
     m_net = new NetworkAccess(this);
 
@@ -42,7 +42,7 @@ TickersDatabaseUpdater::TickersDatabaseUpdater(QObject *parent) :
 
 void TickersDatabaseUpdater::startRequest()
 {
-    m_net->get(QUrl(m_baseurl + (m_downloadingData ? "tickers.sqlite" : "tickers.sqlite.timestamp")));
+    m_net->get(QUrl(m_baseurl + (m_downloadingData ? "tickers.sqlite" : "tickers.sqlite.timestamp") + "?format=raw"));
 }
 
 bool TickersDatabaseUpdater::writeData(const QString &fileName, const QByteArray &data)
