@@ -125,7 +125,7 @@ SSLLIBS=libeay32.dll ssleay32.dll
 MINGWLIBS=libgcc_s_sjlj-1.dll libwinpthread-1.dll libstdc++-6.dll
 OTHERQMFILES=tht_lib_ru.qm tht_lib_uk.qm addtickersfrom_finviz_ru.qm addtickersfrom_finviz_uk.qm
 QTQMFILES=qt_ru.qm qt_uk.qm
-LICENSES=LICENSE.txt LICENSE-LGPL.txt
+LICENSES=LICENSE.txt LICENSE-LGPL-2.1.txt LICENSE-LGPL-3.txt
 USEUPX=y
 
 include(THT-version.pri)
