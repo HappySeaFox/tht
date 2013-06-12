@@ -23,7 +23,7 @@ public:
         WaitingForValue,
         WaitingForEnclose,
         WaitingForDelimiterOrTerminator,
-        WaitingForDelimiterOrTerminatorWithoutWriting,
+        WaitingForDelimiterOrTerminatorWithoutWriting
     };
 
     CsvParser();
