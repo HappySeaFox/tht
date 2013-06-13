@@ -90,7 +90,7 @@ CERT=$$dirname(_PRO_FILE_)-certs\\cert.pfx
 
 # sign
 !isEmpty(SIGNTOOL):exists($$CERT) {
-    QMAKE_POST_LINK += $$mle($$SIGNTOOL sign /d \"Trader\'s Home Task\" /du \"$$HTTPROOT\" /f \"$$CERT\" /t \"http://timestamp.verisign.com/scripts/timestamp.dll\" /v \"$${OUT_PWD}/$(DESTDIR_TARGET)\")
+    QMAKE_POST_LINK += $$mle($$SIGNTOOL sign /d \"Trader\'s Home Task\" /du \"$$HTTPROOT\" /f \"$$CERT\" /tr \"http://www.startssl.com/timestamp\" /v \"$${OUT_PWD}/$(DESTDIR_TARGET)\")
 }
 
 # check for 7z

@@ -266,7 +266,7 @@ exists($$INNO) {
     iss.commands += $$mle(echo MinVersion="0,5.1" >> $$ISS)
 
     !isEmpty(SIGNTOOL):exists($$CERT) {
-        iss.commands += $$mle(echo SignTool=bps sign /d \$\$qTrader\'s Home Task\$\$q /du \$\$q$$HTTPROOT\$\$q /f \$\$q$$CERT\$\$q /t \$\$qhttp://timestamp.verisign.com/scripts/timestamp.dll\$\$q /v \$\$q\$\$f\$\$q >> $$ISS)
+        iss.commands += $$mle(echo SignTool=bps sign /d \$\$qTrader\'s Home Task\$\$q /du \$\$q$$HTTPROOT\$\$q /f \$\$q$$CERT\$\$q /tr \$\$qhttp://www.startssl.com/timestamp\$\$q /v \$\$q\$\$f\$\$q >> $$ISS)
     }
 
     iss.commands += $$mle(echo [Languages] >> $$ISS)
