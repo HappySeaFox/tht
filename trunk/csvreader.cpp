@@ -5,7 +5,7 @@
  */
 
 /*
- *  12.06.2013 update: Filonenko Mikhail allowed to license CsvParser
+ *  12.06.2013 update: Filonenko Mikhail allowed to license CsvReader
  *  under the terms of LGPL v3+
  */
 
@@ -30,7 +30,7 @@
 #include <QtCore/QTextDecoder>
 
 
-CsvParser::CsvParser()
+CsvReader::CsvReader()
     :src(QString::null)
     , pos(0)
     , delim(QChar(','))
@@ -41,7 +41,7 @@ CsvParser::CsvParser()
 
 }
 
-CsvParser::CsvParser(const QString& source)
+CsvReader::CsvReader(const QString& source)
     :src(source)
     , pos(0)
     , delim(QChar(','))
@@ -51,42 +51,42 @@ CsvParser::CsvParser(const QString& source)
 {
 }
 
-CsvParser::~CsvParser()
+CsvReader::~CsvReader()
 {
 }
 
-void CsvParser::setSource(const QString& source)
+void CsvReader::setSource(const QString& source)
 {
     pos = 0;
     src = source;
 }
 
-void CsvParser::setTerminator(const QChar& terminator)
+void CsvReader::setTerminator(const QChar& terminator)
 {
     term = terminator;
 }
 
-void CsvParser::setAlternativeTerminator(const QString& terminator)
+void CsvReader::setAlternativeTerminator(const QString& terminator)
 {
     altTerm = terminator;
 }
 
-void CsvParser::setEncloseChar(const QChar& enclose)
+void CsvReader::setEncloseChar(const QChar& enclose)
 {
     encl = enclose;
 }
 
-void CsvParser::setDelimiter(const QChar& delimiter)
+void CsvReader::setDelimiter(const QChar& delimiter)
 {
     delim = delimiter;
 }
 
-void CsvParser::reset()
+void CsvReader::reset()
 {
     pos = 0;
 }
 
-QStringList CsvParser::parseLineOld()
+QStringList CsvReader::parseLineOld()
 {
     QStringList resultRow;
     if ((pos >= src.size() - 1) || delim.isNull()
@@ -232,7 +232,7 @@ QStringList CsvParser::parseLineOld()
     return resultRow;
 }
 
-QStringList CsvParser::parseLine(bool trimSpace)
+QStringList CsvReader::parseLine(bool trimSpace)
 {
     QStringList resultRow;
     if ((pos >= src.size() - 1) || delim.isNull()

@@ -194,7 +194,7 @@ void Widget::slotFinished()
     }
 
     QByteArray ba = m_net->data();
-    CsvParser csv(ba);
+    CsvReader csv(ba);
     QStringList str;
     csv.parseLine();
     QStringList newTickers;
@@ -529,7 +529,7 @@ void Widget::slotFinishedExchange()
         return;
 
     QByteArray ba = m_net->data();
-    CsvParser csv(ba);
+    CsvReader csv(ba);
     QStringList str;
     csv.parseLine();
 

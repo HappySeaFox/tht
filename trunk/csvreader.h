@@ -5,7 +5,7 @@
  */
 
 /*
- *  12.06.2013 update: Filonenko Mikhail allowed to license CsvParser
+ *  12.06.2013 update: Filonenko Mikhail allowed to license CsvReader
  *  under the terms of LGPL v3+
  */
 
@@ -29,15 +29,16 @@
 /*dummy CSV reader for QT4*/
 /*version 0.1*/
 /*11.1.2009*/
-#ifndef CSV_H
-#define CSV_H
+
+#ifndef CSVREADER_H
+#define CSVREADER_H
 
 //#include "myclass_api.h"
 
 #include <QtCore/QObject>
 #include <QtCore/QStringList>
 
-class /*MYCLASS_API*/ CsvParser /*: public QObject*/
+class /*MYCLASS_API*/ CsvReader /*: public QObject*/
 {
     /*Q_OBJECT*/
 public:
@@ -48,9 +49,9 @@ public:
         WaitingForDelimiterOrTerminatorWithoutWriting
     };
 
-    CsvParser();
-    CsvParser(const QString& source);
-    ~CsvParser();
+    CsvReader();
+    CsvReader(const QString& source);
+    ~CsvReader();
 
     void setSource(const QString& source);
 
