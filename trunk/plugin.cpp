@@ -22,6 +22,11 @@
 class PluginPrivate
 {
 public:
+    PluginPrivate()
+    {
+        topLevelWidget = 0;
+    }
+
     QWidget *topLevelWidget;
 };
 
