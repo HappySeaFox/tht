@@ -124,7 +124,7 @@ void FinvizDownloader::slotFinished()
     }
 
     // parse CSV
-    CsvParser csv(m_net->data());
+    CsvReader csv(m_net->data());
 
     QStringList str;
     csv.parseLine();
