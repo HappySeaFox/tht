@@ -22,6 +22,14 @@
 
 #include "pluginimportexport.h"
 
+class PluginImportExportPrivate
+{
+public:
+    PluginImportExport::Embeds embeds;
+};
+
+/**************************************/
+
 PluginImportExport::PluginImportExport() :
     Plugin()
 {
@@ -38,6 +46,11 @@ PluginImportExport::~PluginImportExport()
     }
 
     delete d;
+}
+
+PluginImportExport::Embeds& PluginImportExport::embeds() const
+{
+    return d->embeds;
 }
 
 int PluginImportExport::senderStandaloneActionToList() const

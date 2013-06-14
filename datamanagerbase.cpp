@@ -26,6 +26,15 @@
 #include "datamanagerbase.h"
 #include "ui_datamanagerbase.h"
 
+class DataManagerBasePrivate
+{
+public:
+    Ui::DataManagerBase *ui;
+    bool changed;
+};
+
+/***********************************/
+
 DataManagerBase::DataManagerBase(QWidget *parent) :
     QDialog(parent)
 {
@@ -56,9 +65,24 @@ DataManagerBase::~DataManagerBase()
     delete d;
 }
 
+void DataManagerBase::setChanged(bool changed)
+{
+    d->changed = changed;
+}
+
 bool DataManagerBase::changed() const
 {
     return d->changed;
+}
+
+QTreeWidget *DataManagerBase::tree() const
+{
+    return d->ui->tree;
+}
+
+QPushButton *DataManagerBase::buttonAdd() const
+{
+    return d->ui->pushAdd;
 }
 
 void DataManagerBase::addItem(const QStringList &strings, const QVariant &data, bool edit)

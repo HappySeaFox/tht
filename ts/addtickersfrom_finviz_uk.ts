@@ -73,12 +73,12 @@
 <context>
     <name>FinvizPlugin</name>
     <message>
-        <location filename="../finvizplugin.cpp" line="86"/>
+        <location filename="../finvizplugin.cpp" line="88"/>
         <source>Add from Finviz</source>
         <translation>Додати з Finviz</translation>
     </message>
     <message>
-        <location filename="../finvizplugin.cpp" line="148"/>
+        <location filename="../finvizplugin.cpp" line="150"/>
         <source>Customize...</source>
         <translation>Налаштувати...</translation>
     </message>
@@ -96,29 +96,29 @@
         <translation>Додати</translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="33"/>
+        <location filename="../finvizurlmanager.cpp" line="36"/>
         <source>Link</source>
         <translation>Посилання</translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="34"/>
+        <location filename="../finvizurlmanager.cpp" line="37"/>
         <source>Open YouTube tutorial</source>
         <translation>Відкрити урок на YouTube</translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="48"/>
+        <location filename="../finvizurlmanager.cpp" line="51"/>
         <source>Access...</source>
         <extracomment>noun</extracomment>
         <translation>Доступ...</translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="77"/>
+        <location filename="../finvizurlmanager.cpp" line="81"/>
         <source>Tickers</source>
         <translation>Тікери</translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="77"/>
-        <location filename="../finvizurlmanager.cpp" line="91"/>
+        <location filename="../finvizurlmanager.cpp" line="81"/>
+        <location filename="../finvizurlmanager.cpp" line="95"/>
         <source>&lt;Paste url here&gt;</source>
         <translation>&lt;Вставте сюди посилання&gt;</translation>
     </message>

@@ -77,7 +77,7 @@
     <name>LinkPointManager</name>
     <message>
         <location filename="../linkpointmanager.cpp" line="55"/>
-        <location filename="../linkpointmanager.cpp" line="60"/>
+        <location filename="../linkpointmanager.cpp" line="62"/>
         <source>Link points</source>
         <extracomment>Noun. Means &quot;Points of linkage&quot;</extracomment>
         <translation>Точки лінковки</translation>
@@ -89,12 +89,12 @@
         <translation>Додати поточні</translation>
     </message>
     <message>
-        <location filename="../linkpointmanager.cpp" line="61"/>
+        <location filename="../linkpointmanager.cpp" line="63"/>
         <source>Open YouTube tutorial</source>
         <translation>Відкрити урок на YouTube</translation>
     </message>
     <message>
-        <location filename="../linkpointmanager.cpp" line="115"/>
+        <location filename="../linkpointmanager.cpp" line="118"/>
         <source>New points</source>
         <translation>Нові точки</translation>
     </message>

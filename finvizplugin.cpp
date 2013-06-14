@@ -80,7 +80,9 @@ bool FinvizPlugin::init()
 
 bool FinvizPlugin::embed(int list, QMenu *parentMenu)
 {
-    if(d->embeds.contains(list))
+    PluginImportExport::Embeds &emb = embeds();
+
+    if(emb.contains(list))
         return true;
 
     QMenu *menu = new QMenu(tr("Add from Finviz") + "\tZ");
@@ -94,7 +96,7 @@ bool FinvizPlugin::embed(int list, QMenu *parentMenu)
 
     parentMenu->addMenu(menu);
 
-    d->embeds.insert(list, menu);
+    emb.insert(list, menu);
 
     return true;
 }
@@ -180,10 +182,11 @@ void FinvizPlugin::slotManageUrls()
     if(mgr.exec() == QDialog::Accepted && mgr.changed())
     {
         SETTINGS_SET_FINVIZ_URLS(SETTING_FINVIZ_URLS, mgr.urls());
+        const PluginImportExport::Embeds &emb = embeds();
 
-        Embeds::const_iterator itEnd = d->embeds.end();
+        Embeds::const_iterator itEnd = emb.end();
 
-        for(Embeds::const_iterator it = d->embeds.begin();it != itEnd;++it)
+        for(Embeds::const_iterator it = emb.begin();it != itEnd;++it)
         {
             rebuildMenu(qobject_cast<QMenu *>(it.value()));
         }

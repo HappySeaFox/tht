@@ -23,7 +23,15 @@
 #include "settings.h"
 #include "sqltools.h"
 
-bool SqlTools::initialized = false;
+class SqlToolsPrivate
+{
+public:
+    static bool initialized;
+};
+
+bool SqlToolsPrivate::initialized = false;
+
+/*****************************************/
 
 QList<QVariantList> SqlTools::query(const QString &s, const QString &bindTemplate, const QString &bindValue)
 {
@@ -36,7 +44,7 @@ QList<QVariantList> SqlTools::query(const QString &s, const QString &bindTemplat
 
 QList<QVariantList> SqlTools::query(const QString &s, const QMap<QString, QString> &binds)
 {
-    if(!SqlTools::initialized)
+    if(!SqlToolsPrivate::initialized)
         SqlTools::initializeDatabases();
 
     // databases to query
@@ -179,7 +187,7 @@ QMap<QString, QStringList> SqlTools::sectorsAndIndustriesReal()
 
 void SqlTools::initializeDatabases()
 {
-    SqlTools::initialized = true;
+    SqlToolsPrivate::initialized = true;
 
     qDebug("Initializing ticker databases");
 
