@@ -33,18 +33,13 @@ public:
 
     static bool hasOption(const QString &);
 
+    static const QPoint invalidQPoint;
+
 private:
     Tools();
 
     static HWND FindBestChild(HWND hwndFound, POINT pt);
     static BOOL CALLBACK FindBestChildProc(HWND hwnd, LPARAM lParam);
-
-public:
-    static const QPoint invalidQPoint;
-
-private:
-    static HWND hwndGlobal;
-    static DWORD dwArea;
 };
 
 #endif // TOOLS_H

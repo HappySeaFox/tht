@@ -21,13 +21,13 @@
 #include <QNetworkReply>
 #include <QByteArray>
 #include <QSslError>
-#include <QPointer>
 #include <QObject>
 #include <QString>
 #include <QList>
 
-class QNetworkAccessManager;
 class QUrl;
+
+class NetworkAccessPrivate;
 
 class NetworkAccess : public QObject
 {
@@ -61,28 +61,7 @@ private slots:
     void slotNetworkDone();
 
 private:
-    QNetworkReply::NetworkError m_error;
-    QNetworkAccessManager *m_manager;
-    QPointer<QNetworkReply> m_reply;
-    QByteArray m_data;
+    NetworkAccessPrivate *d;
 };
-
-inline
-QNetworkReply::NetworkError NetworkAccess::error() const
-{
-    return m_error;
-}
-
-inline
-QByteArray NetworkAccess::data() const
-{
-    return m_data;
-}
-
-inline
-void NetworkAccess::clearBuffer()
-{
-    m_data.clear();
-}
 
 #endif // TICKERINFORMATIONFETCHER_H

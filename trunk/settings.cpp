@@ -84,24 +84,26 @@ static QDataStream &operator>>(QDataStream &in, Qt::AlignmentFlag &f)
 
 Settings::Settings()
 {
-    m_settings = new QSettings(QSettings::IniFormat,
+    d = new SettingsPrivate;
+
+    d->settings = new QSettings(QSettings::IniFormat,
                                 QSettings::UserScope,
                                 QCoreApplication::organizationName(),
                                 QCoreApplication::applicationName());
 
-    m_settings->setFallbacksEnabled(false);
+    d->settings->setFallbacksEnabled(false);
 
     qRegisterMetaTypeStreamOperators<QList<QPoint> >("QList<QPoint>");
     qRegisterMetaTypeStreamOperators<LinkPoint>("LinkPoint");
     qRegisterMetaTypeStreamOperators<QList<LinkPoint> >("QList<LinkPoint>");
     qRegisterMetaTypeStreamOperators<Qt::AlignmentFlag>("Qt::AlignmentFlag");
 
-    m_databaseTimestampFormat = "yyyy-MM-dd hh:mm:ss.zzz";
+    d->databaseTimestampFormat = "yyyy-MM-dd hh:mm:ss.zzz";
 
-    m_rxTicker = QRegExp("[a-zA-Z\\-\\.$]{1,7}");
+    d->rxTicker = QRegExp("[a-zA-Z\\-\\.$]{1,7}");
 
     // migrate from old settings
-    if(m_settings->childGroups().isEmpty())
+    if(d->settings->childGroups().isEmpty())
     {
         qDebug("Trying settings from 0.7.0");
 
@@ -149,7 +151,7 @@ Settings::Settings()
 
             foreach(QString key, oldkeys)
             {
-                m_settings->setValue(key, old->value(key));
+                d->settings->setValue(key, old->value(key));
             }
 
             // remove old settings
@@ -160,30 +162,30 @@ Settings::Settings()
     }
 
     // save version for future changes
-    m_settings->setValue("version", NVER_STRING);
-    m_settings->sync();
+    d->settings->setValue("version", NVER_STRING);
+    d->settings->sync();
 
-    memset(&m_windowsVersion, 0, sizeof(OSVERSIONINFO));
-    m_windowsVersion.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
+    memset(&d->windowsVersion, 0, sizeof(OSVERSIONINFO));
+    d->windowsVersion.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
 
-    if(!GetVersionEx(&m_windowsVersion))
+    if(!GetVersionEx(&d->windowsVersion))
     {
         qDebug("Cannot get system version (%ld), falling back to XP", GetLastError());
 
         // fallback to XP
-        m_windowsVersion.dwMajorVersion = 5;
-        m_windowsVersion.dwMinorVersion = 1;
-        m_windowsVersion.dwPlatformId = VER_PLATFORM_WIN32_NT;
+        d->windowsVersion.dwMajorVersion = 5;
+        d->windowsVersion.dwMinorVersion = 1;
+        d->windowsVersion.dwPlatformId = VER_PLATFORM_WIN32_NT;
     }
     else
-        qDebug("Windows version %ld.%ld", m_windowsVersion.dwMajorVersion, m_windowsVersion.dwMinorVersion);
+        qDebug("Windows version %ld.%ld", d->windowsVersion.dwMajorVersion, d->windowsVersion.dwMinorVersion);
 
     // databases
-    m_persistentDatabaseName = "persistent";
-    m_persistentDatabasePath = QCoreApplication::applicationDirPath()
+    d->persistentDatabaseName = "persistent";
+    d->persistentDatabasePath = QCoreApplication::applicationDirPath()
                                         + QDir::separator() + "tickers.sqlite";
 
-    m_mutableDatabaseName = "mutable";
+    d->mutableDatabaseName = "mutable";
 
     QString mutablePath =
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
@@ -192,58 +194,59 @@ Settings::Settings()
     QDesktopServices::storageLocation(QDesktopServices::DataLocation);
 #endif
 
-    m_mutableDatabasePath = mutablePath + QDir::separator() + "tickers.sqlite";
+    d->mutableDatabasePath = mutablePath + QDir::separator() + "tickers.sqlite";
 
     if(!QDir().mkpath(mutablePath))
         qDebug("Cannot create a directory for mutable database");
 
     // default values
-    m_defaultValues.insert(SETTING_SCREENSHOT_TEXT_COLOR, QColor(Qt::black));
-    m_defaultValues.insert(SETTING_ELLIPSE_FILL_COLOR, QColor(0, 255, 0, 50));
-    m_defaultValues.insert(SETTING_SCREENSHOT_TEXT_ALIGNMENT, Qt::AlignLeft);
-    m_defaultValues.insert(SETTING_SCREENSHOT_TEXT_SIZE, -1);
-    m_defaultValues.insert(SETTING_RESTORE_NEIGHBORS_AT_STARTUP, true);
-    m_defaultValues.insert(SETTING_MINI_TICKER_ENTRY, true);
-    m_defaultValues.insert(SETTING_ALLOW_DUPLICATES, true);
-    m_defaultValues.insert(SETTING_SAVE_GEOMETRY, true);
+    d->defaultValues.insert(SETTING_SCREENSHOT_TEXT_COLOR, QColor(Qt::black));
+    d->defaultValues.insert(SETTING_ELLIPSE_FILL_COLOR, QColor(0, 255, 0, 50));
+    d->defaultValues.insert(SETTING_SCREENSHOT_TEXT_ALIGNMENT, Qt::AlignLeft);
+    d->defaultValues.insert(SETTING_SCREENSHOT_TEXT_SIZE, -1);
+    d->defaultValues.insert(SETTING_RESTORE_NEIGHBORS_AT_STARTUP, true);
+    d->defaultValues.insert(SETTING_MINI_TICKER_ENTRY, true);
+    d->defaultValues.insert(SETTING_ALLOW_DUPLICATES, true);
+    d->defaultValues.insert(SETTING_SAVE_GEOMETRY, true);
 }
 
 Settings::~Settings()
 {
-    delete m_settings;
+    delete d->settings;
+    delete d;
 }
 
 void Settings::sync()
 {
-    m_settings->sync();
+    d->settings->sync();
 }
 
 void Settings::setCheckBoxState(const QString &checkbox, bool checked, SyncType sync)
 {
-    m_settings->setValue("settings/checkbox-" + checkbox, (int)checked);
+    d->settings->setValue("settings/checkbox-" + checkbox, (int)checked);
 
     if(sync == Sync)
-        m_settings->sync();
+        d->settings->sync();
 }
 
 int Settings::checkBoxState(const QString &checkbox)
 {
-    return m_settings->value("settings/checkbox-" + checkbox, -1).toInt();
+    return d->settings->value("settings/checkbox-" + checkbox, -1).toInt();
 }
 
 void Settings::setNumberOfLists(int n, SyncType sync)
 {
-    m_settings->setValue("settings/number-of-lists", n);
+    d->settings->setValue("settings/number-of-lists", n);
 
     if(sync == Sync)
-        m_settings->sync();
+        d->settings->sync();
 }
 
 int Settings::numberOfLists()
 {
     bool ok;
 
-    int nlists = m_settings->value("settings/number-of-lists", 3).toUInt(&ok);
+    int nlists = d->settings->value("settings/number-of-lists", 3).toUInt(&ok);
 
     if(!ok)
         nlists = 3;
@@ -256,57 +259,57 @@ int Settings::numberOfLists()
 
 void Settings::setTickersForGroup(int group, const QStringList &tickers, SyncType sync)
 {
-    m_settings->beginGroup(QString("tickers-%1").arg(group));
-    m_settings->setValue("tickers", tickers);
-    m_settings->endGroup();
+    d->settings->beginGroup(QString("tickers-%1").arg(group));
+    d->settings->setValue("tickers", tickers);
+    d->settings->endGroup();
 
     if(sync == Sync)
-        m_settings->sync();
+        d->settings->sync();
 }
 
 QStringList Settings::tickersForGroup(int group)
 {
-    m_settings->beginGroup(QString("tickers-%1").arg(group));
-    QStringList tickers = m_settings->value("tickers").toStringList();
-    m_settings->endGroup();
+    d->settings->beginGroup(QString("tickers-%1").arg(group));
+    QStringList tickers = d->settings->value("tickers").toStringList();
+    d->settings->endGroup();
 
     return tickers;
 }
 
 void Settings::removeTickers(int group, SyncType sync)
 {
-    m_settings->beginGroup(QString("tickers-%1").arg(group));
-    m_settings->remove(QString());
-    m_settings->endGroup();
+    d->settings->beginGroup(QString("tickers-%1").arg(group));
+    d->settings->remove(QString());
+    d->settings->endGroup();
 
     if(sync == Sync)
-        m_settings->sync();
+        d->settings->sync();
 }
 
 void Settings::setHeaderForGroup(int group, const QString &header, Settings::SyncType sync)
 {
-    m_settings->beginGroup(QString("tickers-%1").arg(group));
-    m_settings->setValue("header", header);
-    m_settings->endGroup();
+    d->settings->beginGroup(QString("tickers-%1").arg(group));
+    d->settings->setValue("header", header);
+    d->settings->endGroup();
 
     if(sync == Sync)
-        m_settings->sync();
+        d->settings->sync();
 }
 
 QString Settings::headerForGroup(int group)
 {
-    m_settings->beginGroup(QString("tickers-%1").arg(group));
-    QString header = m_settings->value("header").toString();
-    m_settings->endGroup();
+    d->settings->beginGroup(QString("tickers-%1").arg(group));
+    QString header = d->settings->value("header").toString();
+    d->settings->endGroup();
 
     return header;
 }
 
 Settings* Settings::instance()
 {
-    static Settings *m_inst = new Settings;
+    static Settings *inst = new Settings;
 
-    return m_inst;
+    return inst;
 }
 
 QDateTime Settings::readTimestamp(const QString &fileName) const
@@ -314,7 +317,7 @@ QDateTime Settings::readTimestamp(const QString &fileName) const
     QFile file(fileName + ".timestamp");
 
     if(file.open(QIODevice::ReadOnly))
-        return QDateTime::fromString(file.readAll().trimmed(), m_databaseTimestampFormat);
+        return QDateTime::fromString(file.readAll().trimmed(), d->databaseTimestampFormat);
 
     return QDateTime();
 }
@@ -322,21 +325,21 @@ QDateTime Settings::readTimestamp(const QString &fileName) const
 void Settings::fillTranslations()
 {
     //: Russian language
-    m_translations.insert(QObject::tr("Russian"), "ru");
+    d->translations.insert(QObject::tr("Russian"), "ru");
 
     //: Ukrainian language
-    m_translations.insert(QObject::tr("Ukrainian"), "uk");
+    d->translations.insert(QObject::tr("Ukrainian"), "uk");
 
     //: English language
-    m_translations.insert(QObject::tr("English"), "en");
+    d->translations.insert(QObject::tr("English"), "en");
 }
 
 QPoint Settings::point(const QString &key)
 {
     QString fullKey = "settings/" + key;
 
-    if(m_settings->contains(fullKey))
-        return m_settings->value(fullKey).value<QPoint>();
+    if(d->settings->contains(fullKey))
+        return d->settings->value(fullKey).value<QPoint>();
     else
         return Tools::invalidQPoint;
 }

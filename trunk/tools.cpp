@@ -27,8 +27,15 @@
 
 const QPoint Tools::invalidQPoint(INT_MIN, INT_MIN);
 
-HWND Tools::hwndGlobal;
-DWORD Tools::dwArea;
+class ToolsPrivate
+{
+public:
+    static HWND hwndGlobal;
+    static DWORD dwArea;
+};
+
+HWND ToolsPrivate::hwndGlobal;
+DWORD ToolsPrivate::dwArea;
 
 void Tools::moveWindow(QWidget *w, const QPoint &pt)
 {
@@ -76,10 +83,10 @@ BOOL CALLBACK Tools::FindBestChildProc(HWND hwnd, LPARAM lParam)
     {
         a = (rect.right - rect.left) * (rect.bottom - rect.top);
 
-        if(a < Tools::dwArea && IsWindowVisible(hwnd))
+        if(a < ToolsPrivate::dwArea && IsWindowVisible(hwnd))
         {
-            Tools::dwArea = a;
-            Tools::hwndGlobal = hwnd;
+            ToolsPrivate::dwArea = a;
+            ToolsPrivate::hwndGlobal = hwnd;
         }
     }
 
@@ -91,8 +98,8 @@ HWND Tools::FindBestChild(HWND hwndFound, POINT pt)
     HWND hwnd;
     DWORD dwStyle;
 
-    Tools::dwArea = -1;
-    Tools::hwndGlobal = 0;
+    ToolsPrivate::dwArea = -1;
+    ToolsPrivate::hwndGlobal = 0;
 
     hwnd = GetParent(hwndFound);
 
@@ -103,10 +110,10 @@ HWND Tools::FindBestChild(HWND hwndFound, POINT pt)
 
     EnumChildWindows(hwnd, FindBestChildProc, MAKELPARAM(pt.x, pt.y));
 
-    if(!Tools::hwndGlobal)
-        Tools::hwndGlobal = hwnd;
+    if(!ToolsPrivate::hwndGlobal)
+        ToolsPrivate::hwndGlobal = hwnd;
 
-    return Tools::hwndGlobal;
+    return ToolsPrivate::hwndGlobal;
 }
 
 HWND Tools::RealWindowFromPoint(POINT pt)

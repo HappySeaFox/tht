@@ -27,30 +27,38 @@
 #include "ui_datamanagerbase.h"
 
 DataManagerBase::DataManagerBase(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::DataManagerBase),
-    m_changed(false)
+    QDialog(parent)
 {
-    ui->setupUi(this);
+    d = new DataManagerBasePrivate;
 
-    ui->pushClear->setShortcut(QKeySequence::New);
-    ui->pushDelete->setShortcut(QKeySequence::Delete);
+    d->ui = new Ui::DataManagerBase;
+
+    d->ui->setupUi(this);
+
+    d->ui->pushClear->setShortcut(QKeySequence::New);
+    d->ui->pushDelete->setShortcut(QKeySequence::Delete);
 
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
-    ui->tree->header()->setSectionResizeMode(QHeaderView::ResizeToContents);
+    d->ui->tree->header()->setSectionResizeMode(QHeaderView::ResizeToContents);
 #else
-    ui->tree->header()->setResizeMode(QHeaderView::ResizeToContents);
+    d->ui->tree->header()->setResizeMode(QHeaderView::ResizeToContents);
 #endif
 
     // layout for extra buttons
-    QVBoxLayout *l = new QVBoxLayout(ui->widgetButtons);
+    QVBoxLayout *l = new QVBoxLayout(d->ui->widgetButtons);
     l->setContentsMargins(0, 0, 0, 4);
-    ui->widgetButtons->setLayout(l);
+    d->ui->widgetButtons->setLayout(l);
 }
 
 DataManagerBase::~DataManagerBase()
 {
-    delete ui;
+    delete d->ui;
+    delete d;
+}
+
+bool DataManagerBase::changed() const
+{
+    return d->changed;
 }
 
 void DataManagerBase::addItem(const QStringList &strings, const QVariant &data, bool edit)
@@ -59,12 +67,12 @@ void DataManagerBase::addItem(const QStringList &strings, const QVariant &data, 
     i->setData(0, Qt::UserRole, data);
     i->setFlags(i->flags() | Qt::ItemIsEditable);
 
-    ui->tree->addTopLevelItem(i);
+    d->ui->tree->addTopLevelItem(i);
 
     if(edit)
     {
-        ui->tree->setCurrentItem(i);
-        ui->tree->editItem(i);
+        d->ui->tree->setCurrentItem(i);
+        d->ui->tree->editItem(i);
     }
 }
 
@@ -74,35 +82,35 @@ void DataManagerBase::addButton(QPushButton *button)
         return;
 
     // add separator
-    if(!ui->widgetButtons->layout()->count())
+    if(!d->ui->widgetButtons->layout()->count())
     {
-        QFrame *line = new QFrame(ui->widgetButtons);
+        QFrame *line = new QFrame(d->ui->widgetButtons);
         line->setFrameShape(QFrame::HLine);
         line->setFrameShadow(QFrame::Sunken);
 
-        ui->widgetButtons->layout()->addWidget(line);
+        d->ui->widgetButtons->layout()->addWidget(line);
     }
 
     // add button
-    button->setParent(ui->widgetButtons);
-    ui->widgetButtons->layout()->addWidget(button);
+    button->setParent(d->ui->widgetButtons);
+    d->ui->widgetButtons->layout()->addWidget(button);
 
     resetTabOrders();
 }
 
 void DataManagerBase::moveItem(int index, int diff)
 {
-    QTreeWidgetItem *i = ui->tree->takeTopLevelItem(index);
-    ui->tree->insertTopLevelItem(index+diff, i);
-    ui->tree->setCurrentItem(i, QItemSelectionModel::ClearAndSelect);
+    QTreeWidgetItem *i = d->ui->tree->takeTopLevelItem(index);
+    d->ui->tree->insertTopLevelItem(index+diff, i);
+    d->ui->tree->setCurrentItem(i, QItemSelectionModel::ClearAndSelect);
 
-    m_changed = true;
+    d->changed = true;
 }
 
 void DataManagerBase::resetTabOrders()
 {
-    QWidget *lastWidget = ui->pushClear;
-    QList<QPushButton *> buttons = ui->widgetButtons->findChildren<QPushButton *>();
+    QWidget *lastWidget = d->ui->pushClear;
+    QList<QPushButton *> buttons = d->ui->widgetButtons->findChildren<QPushButton *>();
 
     foreach(QPushButton *b, buttons)
     {
@@ -110,32 +118,32 @@ void DataManagerBase::resetTabOrders()
         lastWidget = b;
     }
 
-    QWidget::setTabOrder(lastWidget, ui->buttonBox);
+    QWidget::setTabOrder(lastWidget, d->ui->buttonBox);
 }
 
 void DataManagerBase::slotDelete()
 {
-    QTreeWidgetItem *ci = ui->tree->currentItem();
+    QTreeWidgetItem *ci = d->ui->tree->currentItem();
 
     if(!ci)
         return;
 
-    QTreeWidgetItem *i = ui->tree->itemBelow(ci);
+    QTreeWidgetItem *i = d->ui->tree->itemBelow(ci);
 
     if(!i)
-        i = ui->tree->itemAbove(ci);
+        i = d->ui->tree->itemAbove(ci);
 
     delete ci;
 
-    ui->tree->setCurrentItem(i, QItemSelectionModel::ClearAndSelect);
+    d->ui->tree->setCurrentItem(i, QItemSelectionModel::ClearAndSelect);
 
-    m_changed = true;
+    d->changed = true;
 }
 
 void DataManagerBase::slotUp()
 {
-    QTreeWidgetItem *i = ui->tree->currentItem();
-    int index = ui->tree->indexOfTopLevelItem(i);
+    QTreeWidgetItem *i = d->ui->tree->currentItem();
+    int index = d->ui->tree->indexOfTopLevelItem(i);
 
     if(!i || index <= 0)
         return;
@@ -145,10 +153,10 @@ void DataManagerBase::slotUp()
 
 void DataManagerBase::slotDown()
 {
-    QTreeWidgetItem *i = ui->tree->currentItem();
-    int index = ui->tree->indexOfTopLevelItem(i);
+    QTreeWidgetItem *i = d->ui->tree->currentItem();
+    int index = d->ui->tree->indexOfTopLevelItem(i);
 
-    if(!i || index < 0 || index >= ui->tree->topLevelItemCount()-1)
+    if(!i || index < 0 || index >= d->ui->tree->topLevelItemCount()-1)
         return;
 
     moveItem(index, +1);
@@ -156,6 +164,11 @@ void DataManagerBase::slotDown()
 
 void DataManagerBase::slotClear()
 {
-    ui->tree->clear();
-    m_changed = true;
+    d->ui->tree->clear();
+    d->changed = true;
+}
+
+void DataManagerBase::slotItemChanged()
+{
+    d->changed = true;
 }

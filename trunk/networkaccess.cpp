@@ -17,6 +17,7 @@
 
 #include <QNetworkAccessManager>
 #include <QNetworkRequest>
+#include <QPointer>
 #include <QUrl>
 
 #include <windows.h>
@@ -27,26 +28,44 @@
 #include "settings.h"
 #endif
 
+class NetworkAccessPrivate
+{
+public:
+    NetworkAccessPrivate()
+    {
+        reply = 0;
+        error = QNetworkReply::NoError;
+    }
+
+    QNetworkReply::NetworkError error;
+    QNetworkAccessManager *manager;
+    QPointer<QNetworkReply> reply;
+    QByteArray data;
+};
+
+/*******************************************/
+
 NetworkAccess::NetworkAccess(QObject *parent) :
     QObject(parent)
 {
-    m_manager = new QNetworkAccessManager(this);
+    d = new NetworkAccessPrivate;
 
-    m_reply = 0;
-    m_error = QNetworkReply::NoError;
+    d->manager = new QNetworkAccessManager(this);
 }
 
 NetworkAccess::~NetworkAccess()
 {
     abort();
+
+    delete d;
 }
 
 void NetworkAccess::get(const QUrl &url)
 {
     abort();
 
-    m_error = QNetworkReply::NoError;
-    m_data.clear();
+    d->error = QNetworkReply::NoError;
+    d->data.clear();
 
     qDebug("Starting a new network request for \"%s\"", qPrintable(url.toString(QUrl::RemovePassword)));
 
@@ -68,32 +87,47 @@ void NetworkAccess::get(const QUrl &url)
                          .arg(version.dwMajorVersion)
                          .arg(version.dwMinorVersion).toLatin1());
 
-    m_reply = m_manager->get(request);
+    d->reply = d->manager->get(request);
 
-    connect(m_reply, SIGNAL(error(QNetworkReply::NetworkError)), this, SLOT(slotNetworkError(QNetworkReply::NetworkError)));
-    connect(m_reply, SIGNAL(sslErrors(QList<QSslError>)), this, SLOT(slotSslErrors(QList<QSslError>)));
-    connect(m_reply, SIGNAL(finished()), this, SLOT(slotNetworkDone()));
-    connect(m_reply, SIGNAL(readyRead()), this, SLOT(slotNetworkData()));
+    connect(d->reply, SIGNAL(error(QNetworkReply::NetworkError)), this, SLOT(slotNetworkError(QNetworkReply::NetworkError)));
+    connect(d->reply, SIGNAL(sslErrors(QList<QSslError>)), this, SLOT(slotSslErrors(QList<QSslError>)));
+    connect(d->reply, SIGNAL(finished()), this, SLOT(slotNetworkDone()));
+    connect(d->reply, SIGNAL(readyRead()), this, SLOT(slotNetworkData()));
 }
 
 void NetworkAccess::abort()
 {
-    if(m_reply)
+    if(d->reply)
     {
-        m_reply->blockSignals(true);
-        m_reply->abort();
-        delete m_reply;
+        d->reply->blockSignals(true);
+        d->reply->abort();
+        delete d->reply;
     }
+}
+
+QByteArray NetworkAccess::data() const
+{
+    return d->data;
+}
+
+void NetworkAccess::clearBuffer()
+{
+    d->data.clear();
+}
+
+QNetworkReply::NetworkError NetworkAccess::error() const
+{
+    return d->error;
 }
 
 void NetworkAccess::setCookieJar(QNetworkCookieJar *cookieJar)
 {
-    m_manager->setCookieJar(cookieJar);
+    d->manager->setCookieJar(cookieJar);
 }
 
 void NetworkAccess::slotNetworkError(QNetworkReply::NetworkError err)
 {
-    m_error = err;
+    d->error = err;
 
     qDebug("Network error #%d", err);
 }
@@ -117,7 +151,7 @@ void NetworkAccess::slotSslErrors(const QList<QSslError> &errors)
 
 void NetworkAccess::slotNetworkData()
 {
-    m_data += m_reply->readAll();
+    d->data += d->reply->readAll();
 }
 
 void NetworkAccess::slotNetworkDone()
@@ -126,21 +160,21 @@ void NetworkAccess::slotNetworkDone()
 
     QUrl redirect;
 
-    if(m_reply->error() == QNetworkReply::NoError)
+    if(d->reply->error() == QNetworkReply::NoError)
     {
-        QVariant v = m_reply->attribute(QNetworkRequest::RedirectionTargetAttribute);
+        QVariant v = d->reply->attribute(QNetworkRequest::RedirectionTargetAttribute);
 
         if(v.isValid())
         {
             redirect = v.toUrl();
 
             if(!redirect.isEmpty() && redirect.isRelative())
-                redirect = m_reply->request().url().resolved(redirect);
+                redirect = d->reply->request().url().resolved(redirect);
         }
     }
 
-    m_reply->deleteLater();
-    m_reply = 0;
+    d->reply->deleteLater();
+    d->reply = 0;
 
     if(redirect.isEmpty())
         emit finished();

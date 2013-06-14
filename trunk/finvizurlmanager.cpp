@@ -29,9 +29,9 @@ FinvizUrlManager::FinvizUrlManager(QWidget *parent) :
 {
     setWindowTitle(tr("Finviz links"));
 
-    ui->pushAdd->setText(tr("Add"));
-    ui->tree->headerItem()->setText(1, tr("Link"));
-    ui->tree->setWhatsThis(QString("<a href=\"http://www.youtube.com/watch?v=r1Y7iNM7_9k\">%1</a>").arg(tr("Open YouTube tutorial")));
+    d->ui->pushAdd->setText(tr("Add"));
+    d->ui->tree->headerItem()->setText(1, tr("Link"));
+    d->ui->tree->setWhatsThis(QString("<a href=\"http://www.youtube.com/watch?v=r1Y7iNM7_9k\">%1</a>").arg(tr("Open YouTube tutorial")));
 
     const QList<FinvizUrl> urls = SETTINGS_GET_FINVIZ_URLS(SETTING_FINVIZ_URLS);
 
@@ -40,9 +40,9 @@ FinvizUrlManager::FinvizUrlManager(QWidget *parent) :
         addFinvizUrl(fu);
     }
 
-    ui->tree->setCurrentItem(ui->tree->topLevelItem(0));
+    d->ui->tree->setCurrentItem(d->ui->tree->topLevelItem(0));
 
-    connect(ui->tree, SIGNAL(itemChanged(QTreeWidgetItem*,int)), this, SLOT(slotCheckItem(QTreeWidgetItem*,int)));
+    connect(d->ui->tree, SIGNAL(itemChanged(QTreeWidgetItem*,int)), this, SLOT(slotCheckItem(QTreeWidgetItem*,int)));
 
     //: noun
     QPushButton *b = new QPushButton(tr("Access..."), this);
@@ -56,12 +56,12 @@ FinvizUrlManager::~FinvizUrlManager()
 QList<FinvizUrl> FinvizUrlManager::urls() const
 {
     QList<FinvizUrl> urls;
-    QTreeWidgetItem *i = ui->tree->topLevelItem(0);
+    QTreeWidgetItem *i = d->ui->tree->topLevelItem(0);
 
     while(i)
     {
         urls.append(FinvizUrl(i->text(0), QUrl::fromUserInput(i->text(1))));
-        i = ui->tree->itemBelow(i);
+        i = d->ui->tree->itemBelow(i);
     }
 
     return urls;
@@ -75,7 +75,7 @@ void FinvizUrlManager::addFinvizUrl(const FinvizUrl &fu, bool edit)
 void FinvizUrlManager::slotAdd()
 {
     addFinvizUrl(FinvizUrl(tr("Tickers"), tr("<Paste url here>")), true);
-    m_changed = true;
+    d->changed = true;
 }
 
 void FinvizUrlManager::slotCheckItem(QTreeWidgetItem *i, int column)

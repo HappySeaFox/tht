@@ -25,16 +25,19 @@
 PluginImportExport::PluginImportExport() :
     Plugin()
 {
+    d = new PluginImportExportPrivate;
 }
 
 PluginImportExport::~PluginImportExport()
 {
-    Embeds::const_iterator itEnd = m_embeds.end();
+    Embeds::const_iterator itEnd = d->embeds.end();
 
-    for(Embeds::const_iterator it = m_embeds.begin();it != itEnd;++it)
+    for(Embeds::const_iterator it = d->embeds.begin();it != itEnd;++it)
     {
         delete it.value();
     }
+
+    delete d;
 }
 
 int PluginImportExport::senderStandaloneActionToList() const
@@ -46,9 +49,9 @@ int PluginImportExport::senderStandaloneActionToList() const
     if(!a)
         return list;
 
-    Embeds::const_iterator itEnd = m_embeds.end();
+    Embeds::const_iterator itEnd = d->embeds.end();
 
-    for(Embeds::const_iterator it = m_embeds.begin();it != itEnd;++it)
+    for(Embeds::const_iterator it = d->embeds.begin();it != itEnd;++it)
     {
         if(it.value() == a)
         {
@@ -74,9 +77,9 @@ int PluginImportExport::senderMenuActionToList() const
     if(!menu)
         return list;
 
-    Embeds::const_iterator itEnd = m_embeds.end();
+    Embeds::const_iterator itEnd = d->embeds.end();
 
-    for(Embeds::const_iterator it = m_embeds.begin();it != itEnd;++it)
+    for(Embeds::const_iterator it = d->embeds.begin();it != itEnd;++it)
     {
         if(it.value() == menu)
         {

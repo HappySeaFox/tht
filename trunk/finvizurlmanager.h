@@ -38,8 +38,10 @@ public:
 private:
     void addFinvizUrl(const FinvizUrl &fu, bool edit = false);
 
-private slots:
+protected slots:
     virtual void slotAdd();
+
+private slots:
     void slotCheckItem(QTreeWidgetItem *, int);
     void slotAccessClicked();
 };

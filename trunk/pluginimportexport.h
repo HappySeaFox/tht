@@ -27,6 +27,8 @@
 
 class QMenu;
 
+class PluginImportExportPrivate;
+
 class PluginImportExport : public Plugin
 {
     Q_OBJECT
@@ -35,6 +37,8 @@ public:
     explicit PluginImportExport();
     ~PluginImportExport();
     
+    typedef QMap<int, QObject *> Embeds;
+
     // menu for list N
     virtual bool embed(int list, QMenu *menu) = 0;
 
@@ -68,13 +72,13 @@ signals:
     void requestTickers(int list);
 
 protected:
-    typedef QMap<int, QObject *> Embeds;
-    Embeds m_embeds;
+    PluginImportExportPrivate *d;
+};
 
-signals:
-    
-public slots:
-    
+class PluginImportExportPrivate
+{
+public:
+    PluginImportExport::Embeds embeds;
 };
 
 #endif // PLUGINIMPORTEXPORT_H
