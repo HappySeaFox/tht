@@ -38,11 +38,13 @@
 #include <QtCore/QObject>
 #include <QtCore/QStringList>
 
-class /*MYCLASS_API*/ CsvReader /*: public QObject*/
+class CsvReaderPrivate;
+
+class CsvReader
 {
-    /*Q_OBJECT*/
 public:
-    enum GenericWaitingFlag {
+    enum GenericWaitingFlag
+    {
         WaitingForValue,
         WaitingForEnclose,
         WaitingForDelimiterOrTerminator,
@@ -61,16 +63,11 @@ public:
     void setDelimiter(const QChar& delimiter);
 
     void reset();
-    QStringList parseLineOld();
 
     QStringList parseLine(bool trimSpace = true);
+
 private:
-    QString src;
-    int pos;
-    QChar delim;
-    QChar encl;
-    QChar term;
-    QString altTerm;
+    CsvReaderPrivate *d;
 };
 
 #endif // CSV_H

@@ -23,10 +23,13 @@
 
 #include <windows.h>
 
+class RemoteDatePrivate;
+
 class RemoteDate
 {
 public:
     RemoteDate(const QString &zone);
+    ~RemoteDate();
 
     /*
      * Current date and time in timezone 'zone'
@@ -37,9 +40,7 @@ private:
     TCHAR *stringToTChar(const QString &s) const;
 
 private:
-    QString m_zone;
-    TIME_ZONE_INFORMATION m_tzInfo;
-    bool m_error;
+    RemoteDatePrivate *d;
 };
 
 #endif // REMOTEDATE_H

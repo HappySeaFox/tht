@@ -33,11 +33,27 @@ struct REG_TZI_FORMAT
 
 }
 
-RemoteDate::RemoteDate(const QString &zone)
-    : m_zone(zone),
-      m_error(false)
+class RemoteDatePrivate
 {
-    memset(&m_tzInfo, 0, sizeof(TIME_ZONE_INFORMATION));
+public:
+    RemoteDatePrivate()
+    {
+        memset(&tzInfo, 0, sizeof(TIME_ZONE_INFORMATION));
+        error = false;
+    }
+
+    QString zone;
+    TIME_ZONE_INFORMATION tzInfo;
+    bool error;
+};
+
+/*****************************************/
+
+RemoteDate::RemoteDate(const QString &zone)
+{
+    d = new RemoteDatePrivate;
+
+    d->zone = zone;
 
     LONG ret;
     DWORD type;
@@ -55,25 +71,30 @@ RemoteDate::RemoteDate(const QString &zone)
 
         if(ret != ERROR_SUCCESS || type != REG_BINARY || maxLength != sizeof(REG_TZI_FORMAT))
         {
-            m_error = true;
+            d->error = true;
             qWarning("Cannot query TZ (%ld)", ret);
         }
         else
         {
-            m_tzInfo.Bias = tzi.Bias;
-            m_tzInfo.DaylightBias = tzi.DaylightBias;
-            m_tzInfo.DaylightDate = tzi.DaylightDate;
-            m_tzInfo.StandardBias = tzi.StandardBias;
-            m_tzInfo.StandardDate = tzi.StandardDate;
+            d->tzInfo.Bias = tzi.Bias;
+            d->tzInfo.DaylightBias = tzi.DaylightBias;
+            d->tzInfo.DaylightDate = tzi.DaylightDate;
+            d->tzInfo.StandardBias = tzi.StandardBias;
+            d->tzInfo.StandardDate = tzi.StandardDate;
         }
 
         RegCloseKey(registry);
     }
     else
     {
-        m_error = true;
+        d->error = true;
         qWarning("Cannot open registry (%ld)", ret);
     }
+}
+
+RemoteDate::~RemoteDate()
+{
+    delete d;
 }
 
 QDateTime RemoteDate::dateTime()
@@ -83,13 +104,13 @@ QDateTime RemoteDate::dateTime()
 
     GetSystemTime(&utc);
 
-    if(!m_error && SystemTimeToTzSpecificLocalTime(&m_tzInfo, &utc, &remote))
+    if(!d->error && SystemTimeToTzSpecificLocalTime(&d->tzInfo, &utc, &remote))
     {
         dt.setDate(QDate(remote.wYear, remote.wMonth, remote.wDay));
         dt.setTime(QTime(remote.wHour, remote.wMinute, remote.wSecond, remote.wMilliseconds));
     }
     else
-        qWarning("Cannot get the local time for \"%s\" (%ld)", qPrintable(m_zone), m_error ? -1 : GetLastError());
+        qWarning("Cannot get the local time for \"%s\" (%ld)", qPrintable(d->zone), d->error ? -1 : GetLastError());
 
     return dt;
 }

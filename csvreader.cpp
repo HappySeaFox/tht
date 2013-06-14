@@ -29,215 +29,80 @@
 #include "csvreader.h"
 #include <QtCore/QTextDecoder>
 
+class CsvReaderPrivate
+{
+public:
+    CsvReaderPrivate()
+    {
+        pos = 0;
+        delim = QChar(',');
+        encl = QChar('"');
+        term = '\n';
+        altTerm = "\r\n";
+    }
+
+    QString src;
+    int pos;
+    QChar delim;
+    QChar encl;
+    QChar term;
+    QString altTerm;
+};
 
 CsvReader::CsvReader()
-    :src(QString::null)
-    , pos(0)
-    , delim(QChar(','))
-    , encl(QChar('"'))
-    , term('\n')
-    , altTerm("\r\n")
 {
-
+    d = new CsvReaderPrivate;
 }
 
 CsvReader::CsvReader(const QString& source)
-    :src(source)
-    , pos(0)
-    , delim(QChar(','))
-    , encl(QChar('"'))
-    , term('\n')
-    , altTerm("\r\n")
 {
+    d = new CsvReaderPrivate;
+
+    d->src = source;
 }
 
 CsvReader::~CsvReader()
 {
+    delete d;
 }
 
 void CsvReader::setSource(const QString& source)
 {
-    pos = 0;
-    src = source;
+    d->pos = 0;
+    d->src = source;
 }
 
 void CsvReader::setTerminator(const QChar& terminator)
 {
-    term = terminator;
+    d->term = terminator;
 }
 
 void CsvReader::setAlternativeTerminator(const QString& terminator)
 {
-    altTerm = terminator;
+    d->altTerm = terminator;
 }
 
 void CsvReader::setEncloseChar(const QChar& enclose)
 {
-    encl = enclose;
+    d->encl = enclose;
 }
 
 void CsvReader::setDelimiter(const QChar& delimiter)
 {
-    delim = delimiter;
+    d->delim = delimiter;
 }
 
 void CsvReader::reset()
 {
-    pos = 0;
-}
-
-QStringList CsvReader::parseLineOld()
-{
-    QStringList resultRow;
-    if ((pos >= src.size() - 1) || delim.isNull()
-        || ((term.isNull()) && (altTerm.isEmpty()))
-        || src.isEmpty())
-        return resultRow;
-
-    QString value;
-
-    GenericWaitingFlag genericWaitingFlag = WaitingForValue;
-
-    QChar first;
-    QChar second;
-    QString firstSecond;
-
-    int i = pos;
-    while (i < src.size()) {
-        first = src.at(i);
-        if (i < src.size() - 1)
-            second = src.at(i + 1);
-        else
-            second = QChar();
-        firstSecond.append(first);
-        firstSecond.append(second);
-
-        switch (genericWaitingFlag) {
-            // ¦Ö¦+¦¦¦- ¦¬¦-¦-TÇ¦¦¦-¦¬¦¦
-        case WaitingForValue:
-            // ¦ÕTÁ¦¬¦¬ ¦-¦¦TÀ¦-¦-¦¬TÇ¦¬¦-¦-TÎTÉ¦¬¦¦ ¦¬¦-¦-TÇ¦¦¦-¦¬¦¦ ¦¬¦-¦-¦¦
-            if (first == encl) {
-                // ¦â¦¦¦¬¦¦TÀTÌ ¦¦¦+¦¦¦- ¦¬¦-¦¦TÀTË¦-¦-TÎTÉ¦¬¦¦ ¦¬¦-¦-TÇ¦¦¦-¦¬¦¦ ¦¬¦-¦-¦¦
-                genericWaitingFlag = WaitingForEnclose;
-                // ¦ÕTÁ¦¬¦¬ TÀ¦-¦¬¦+¦¦¦¬¦¬TÂ¦¦¦¬TÌ
-            } else if (first == delim) {
-                // ¦ß¦¬TÈ¦¦¦- ¦¬¦-¦-TÇ¦¦¦-¦¬¦¦ ¦¬ ¦¦¦+¦¦¦- ¦-¦-¦-¦-¦¦¦- ¦¬¦-¦-TÇ¦¦¦-¦¬TÏ
-                resultRow.append(value);
-                value.clear();
-                // ¦ÕTÁ¦¬¦¬ TÀ¦-¦¬¦+¦¦¦¬¦¬TÂ¦¦¦¬TÌ TÁTÂTÀ¦-¦¦
-            } else if (first == term) {
-                // ¦ß¦¬TÈ¦¦¦- ¦¬¦-¦-TÇ¦¦¦-¦¬¦¦ ¦¬ ¦-TËTÅ¦-¦+¦¬¦- ¦¬¦¬ TÆ¦¬¦¦¦¬¦-
-                resultRow.append(value);
-                value.clear();
-                pos = (++i);
-                goto exit_loop;
-                // ¦ÕTÁ¦¬¦¬ TÀ¦-¦¬¦+¦¦¦¬¦¬TÂ¦¦¦¬TÌ TÁTÂTÀ¦-¦¦
-            } else if (!firstSecond.compare(altTerm)) {
-                // ¦ß¦¬TÈ¦¦¦- ¦¬¦-¦-TÇ¦¦¦-¦¬¦¦ ¦¬ ¦-TËTÅ¦-¦+¦¬¦- ¦¬¦¬ TÆ¦¬¦¦¦¬¦-
-                resultRow.append(value);
-                value.clear();
-                pos = (i+=2);
-                goto exit_loop;
-                // ¦Ø¦-¦-TÇ¦¦ ¦+¦-¦¬¦-¦¬¦-TÏ¦¦¦- ¦¬¦-¦-TÇ¦¦¦-¦¬¦¦
-            } else if (first!=QChar(' ')) {
-                // ¦ß¦¬TÈ¦¦¦- ¦¬ ¦-¦¦¦¬¦+¦-¦¦¦- ¦¬¦-¦-¦¦¦¬ TÀ¦-¦¬¦+¦¦¦¬¦¦¦-¦¬TÏ ¦¬¦-¦-TÇ¦¦¦-¦¬¦¦ ¦¬¦¬¦¬ TÁTÂTÀ¦-¦¦ TÁ ¦¬¦-¦¬¦¬TÁTÌTÎ ¦-TÁ¦¦¦¦¦- ¦+TÀTÃ¦¦¦-¦¦¦- ¦-TÁTÂTÀ¦¦TÂ¦¬¦-TÈ¦¦¦¦¦-TÁTÏ
-                value.append(first);
-                genericWaitingFlag = WaitingForDelimiterOrTerminator;
-            }
-            break;
-            // ¦Ö¦+¦¦¦- ¦¬¦-¦-¦¦ TÀ¦-¦¬¦+¦¦¦¬¦¦¦-¦¬TÏ ¦¬¦-¦-TÇ¦¦¦-¦¬¦¦ ¦¬¦¬¦¬ TÁTÂTÀ¦-¦¦
-        case WaitingForDelimiterOrTerminator:
-            // ¦ÕTÁ¦¬¦¬ ¦¬¦-¦-¦¦ TÀ¦-¦¬¦+¦¦¦¬¦¦¦-¦¬TÏ TÁTÂTÀ¦-¦¦
-            if (first == delim) {
-                // ¦×¦-¦¬¦¬TÁTË¦-¦-¦¦¦- ¦¬¦-¦-TÇ¦¦¦-¦¬¦¦ ¦¬ ¦-¦-TÇ¦¬¦-¦-¦¦¦- ¦-¦¦¦¬¦+¦-TÂTÌ ¦¬¦-¦-TÇ¦¦¦-¦¬¦¦
-                resultRow.append(value);
-                value.clear();
-                genericWaitingFlag = WaitingForValue;
-                // ¦ÕTÁ¦¬¦¬ ¦¬¦-¦-¦¦ TÀ¦-¦¬¦+¦¦¦¬¦¦¦-¦¬TÏ TÁTÂTÀ¦-¦¦ ¦-TËTÅ¦-¦+¦¬¦- ¦¬¦¬ TÆ¦¬¦¦¦¬¦-
-            } else if (first == term) {
-                // ¦ß¦¬TÈ¦¦¦- ¦¬¦-¦-TÇ¦¦¦-¦¬¦¦ ¦¬ ¦-TËTÅ¦-¦+¦¬¦- ¦¬¦¬ TÆ¦¬¦¦¦¬¦-
-                resultRow.append(value);
-                value.clear();
-                pos = (++i);
-                goto exit_loop;
-                // ¦ÕTÁ¦¬¦¬ ¦¬¦-¦-¦¦ TÀ¦-¦¬¦+¦¦¦¬¦¦¦-¦¬TÏ TÁTÂTÀ¦-¦¦ ¦-TËTÅ¦-¦+¦¬¦- ¦¬¦¬ TÆ¦¬¦¦¦¬¦-
-            } else if (!firstSecond.compare(altTerm)) {
-                // ¦ß¦¬TÈ¦¦¦- ¦¬¦-¦-TÇ¦¦¦-¦¬¦¦ ¦¬ ¦-TËTÅ¦-¦+¦¬¦- ¦¬¦¬ TÆ¦¬¦¦¦¬¦-
-                resultRow.append(value);
-                value.clear();
-                pos = (i+=2);
-                goto exit_loop;
-                // ¦ÒTÁ¦¦ ¦-TÁTÂ¦-¦¬TÌ¦-¦-¦¦ ¦¬¦¬TÈ¦¦¦- ¦- ¦¬¦-¦-TÇ¦¦¦-¦¬¦¦.
-            } else {
-                value.append(first);
-            }
-            break;
-            // ¦Ö¦+¦¦¦- ¦¬¦-¦-¦¦ ¦-¦¦TÀ¦-¦-¦¬TÇ¦¬¦-¦-TÎTÉ¦¬¦¦ ¦¬¦-¦-TÇ¦¦¦-¦¬¦¦
-        case WaitingForEnclose:
-            // ¦ÕTÁ¦¬¦¬ ¦¬¦-¦-¦¦ ¦-¦¦TÀ¦-¦-¦¬TÇ¦¬¦-¦-TÎTÉ¦¬¦¦ ¦¬¦-¦-TÇ¦¦¦-¦¬¦¦
-            if (first == encl) {
-                // ¦ÕTÁ¦¬¦¬ TÁ¦¬¦¦¦+TÃTÎTÉ¦¬¦¦ ¦¬¦-¦-¦¦ TÂ¦-¦¦¦¦ ¦-¦¦TÀ¦-¦-¦¬TÇ¦¬¦-¦-¦¦TÂ ¦¬¦-¦-TÇ¦¦¦-¦¬¦¦, ¦¬¦-¦-TÇ¦¬TÂ TÍTÂ¦- TÍ¦¦TÀ¦-¦-¦¬TÀ¦-¦-¦-¦-¦¬¦¦
-                if (second == encl) {
-                    // ¦Ô¦-¦¬¦-¦¬¦-TÏ¦¦¦- ¦¬¦-¦-TÇ¦¦¦-¦¬¦¦, ¦¬¦¦TÀ¦¦TÁ¦¦¦-¦¦¦¬¦-¦-¦¦¦- TÍ¦¦TÀ¦-¦-
-                    value.append(first);
-                    ++i;
-                    // ¦á¦¬¦¦¦+TÃTÎTÉ¦¬¦¦ ¦¬¦-¦-¦¦ ¦-¦- TÍ¦¦TÀ¦-¦-¦¬TÀ¦-¦-¦-¦-¦¬¦¦
-                } else {
-                    // ¦ß¦¬TÈ¦¦¦- ¦¬¦-¦-TÇ¦¦¦-¦¬¦¦ ¦¬ ¦-¦¦¦¬¦+¦-¦¦¦- TÀ¦-¦¬¦+¦¦¦¬¦¬TÂ¦¦¦¬TÌ ¦¬¦-¦-TÇ¦¦¦-¦¬¦¦ ¦¬¦¬¦¬ TÁTÂTÀ¦-¦¦ ¦-¦¦¦¬ ¦¬¦-¦¬¦¬TÁ¦¬ ¦-TÁ¦¦¦¦¦- ¦+TÀTÃ¦¦¦-¦¦¦-
-                    resultRow.append(value);
-                    value.clear();
-                    genericWaitingFlag = WaitingForDelimiterOrTerminatorWithoutWriting;
-                }
-                // ¦ÕTÁ¦¬¦¬ ¦-¦¦TÀ¦-¦-¦¬TÇ¦¬TÂ¦¦¦¬TÌ ¦¦TÉ¦¦ ¦-¦¦ ¦-TÁTÂTÀ¦¦TÂ¦¬¦¬TÁTÏ ¦¬TÀ¦-TÁTÂ¦- ¦+¦-¦¬¦-¦¬¦-TÏ¦¦¦- ¦¬¦-¦-TÇ¦¦¦-¦¬¦¦ ¦¬ ¦¦¦+¦¦¦- ¦¬¦-¦-¦¦¦- ¦-¦¦TÀ¦-¦-¦¬TÇ¦¬TÂ¦¦¦¬TÏ ¦¬¦-¦-TÇ¦¦¦-¦¬TÏ
-            } else {
-                value.append(first);
-            }
-            break;
-        case WaitingForDelimiterOrTerminatorWithoutWriting:
-            // ¦ÕTÁ¦¬¦¬ ¦¬¦-¦-¦¦ TÀ¦-¦¬¦+¦¦¦¬¦¦¦-¦¬TÏ TÁTÂTÀ¦-¦¦
-            if (first == delim) {
-                // ¦Ý¦-TÇ¦¬¦-¦-¦¦¦- ¦-¦¦¦¬¦+¦-TÂTÌ ¦¬¦-¦-TÇ¦¦¦-¦¬¦¦
-                genericWaitingFlag = WaitingForValue;
-            } else if (first == term) {
-                pos = (++i);
-                goto exit_loop;
-                // ¦ÕTÁ¦¬¦¬ TÀ¦-¦¬¦+¦¦¦¬¦¬TÂ¦¦¦¬TÌ TÁTÂTÀ¦-¦¦
-                // ¦ÕTÁ¦¬¦¬ ¦¬¦-¦-¦¦ TÀ¦-¦¬¦+¦¦¦¬¦¦¦-¦¬TÏ TÁTÂTÀ¦-¦¦ ¦-TËTÅ¦-¦+¦¬¦- ¦¬¦¬ TÆ¦¬¦¦¦¬¦-
-            } else if (!firstSecond.compare(altTerm)) {
-                pos = (i+=2);
-                goto exit_loop;
-                // ¦ÒTÁ¦¦ ¦-TÁTÂ¦-¦¬TÌ¦-¦-¦¦ ¦¬¦¬TÈ¦¦¦- ¦- ¦¬¦-¦-TÇ¦¦¦-¦¬¦¦.
-            }
-            break;
-        }
-
-        ++i;
-        ++pos;
-        firstSecond.clear();
-    }
-    switch(genericWaitingFlag) {
-    case WaitingForValue:
-        resultRow.append(value);
-        break;
-    case WaitingForEnclose:
-        resultRow.append(value);
-        break;
-    case WaitingForDelimiterOrTerminator:
-        resultRow.append(value);
-        break;
-    case WaitingForDelimiterOrTerminatorWithoutWriting:
-        break;
-    }
-    exit_loop:
-    return resultRow;
+    d->pos = 0;
 }
 
 QStringList CsvReader::parseLine(bool trimSpace)
 {
     QStringList resultRow;
-    if ((pos >= src.size() - 1) || delim.isNull()
-        || ((term.isNull()) && (altTerm.isEmpty()))
-        || src.isEmpty())
+    if ((d->pos >= d->src.size() - 1) || d->delim.isNull()
+        || ((d->term.isNull()) && (d->altTerm.isEmpty()))
+        || d->src.isEmpty())
         return resultRow;
 
     bool isEnclosed = false;
@@ -248,12 +113,12 @@ QStringList CsvReader::parseLine(bool trimSpace)
     QChar second;
     QString firstSecond;
 
-    int i = pos;
+    int i = d->pos;
     // ¦æ¦¬¦¦¦¬ ¦¬TÀ¦-TÅ¦-¦+¦- ¦¬¦- ¦+¦-¦-¦-TË¦-
-    while (i < src.size()) {
-        first = src.at(i);
-        if (i < src.size() - 1)
-            second = src.at(i + 1);
+    while (i < d->src.size()) {
+        first = d->src.at(i);
+        if (i < d->src.size() - 1)
+            second = d->src.at(i + 1);
         else
             second = QChar();
 
@@ -262,10 +127,10 @@ QStringList CsvReader::parseLine(bool trimSpace)
 
         //
         if (isEnclosed) {
-            if (first == encl) {
-                if (second == encl) {
+            if (first == d->encl) {
+                if (second == d->encl) {
                     value.append(first);
-                    pos = ++i;
+                    d->pos = ++i;
                 } else {
                     isEnclosed = false;
                 }
@@ -273,50 +138,50 @@ QStringList CsvReader::parseLine(bool trimSpace)
                 value.append(first);
             }
         } else {
-            if (first == encl) {
-                if (second == encl) {
+            if (first == d->encl) {
+                if (second == d->encl) {
                     value.append(first);
-                    pos = ++i;
+                    d->pos = ++i;
                 } else {
                     isEnclosed = true;
                 }
-            } else if (first == delim) {
+            } else if (first == d->delim) {
                 if (trimSpace)
                     value = value.trimmed();
-                if (!value.compare(encl))
+                if (!value.compare(d->encl))
                     value.clear();
                 resultRow.append(value);
                 value.clear();
-            } else if (first == term) {
+            } else if (first == d->term) {
                 if (trimSpace)
                     value = value.trimmed();
-                if (!value.compare(encl))
+                if (!value.compare(d->encl))
                     value.clear();
                 resultRow.append(value);
                 value.clear();
-                pos = (++i);
+                d->pos = (++i);
                 break;
-            } else if (!firstSecond.compare(altTerm)) {
+            } else if (!firstSecond.compare(d->altTerm)) {
                 if (trimSpace)
                     value = value.trimmed();
-                if (!value.compare(encl))
+                if (!value.compare(d->encl))
                     value.clear();
                 resultRow.append(value);
                 value.clear();
-                pos = (i+=2);
+                d->pos = (i+=2);
                 break;
             } else {
                 value.append(first);
             }
         }
 
-        pos = ++i;
+        d->pos = ++i;
         firstSecond.clear();
     }
-    if (!value.isEmpty() || isEnclosed || first == delim) {
+    if (!value.isEmpty() || isEnclosed || first == d->delim) {
         if (trimSpace)
             value = value.trimmed();
-        if (!value.compare(encl))
+        if (!value.compare(d->encl))
             value.clear();
         resultRow.append(value);
     }

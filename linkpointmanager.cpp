@@ -55,15 +55,15 @@ LinkPointManager::LinkPointManager(const QList<QPoint> &currentLinks, QWidget *p
     setWindowTitle(tr("Link points"));
 
     //: Means "Add current link points" (in the plural)
-    ui->pushAdd->setText(tr("Add current"));
+    d->ui->pushAdd->setText(tr("Add current"));
 
-    ui->tree->headerItem()->setText(1, tr("Link points"));
-    ui->tree->setWhatsThis(QString("<a href=\"http://www.youtube.com/watch?v=1PlpDwhgLEs\">%1</a>").arg(tr("Open YouTube tutorial")));
+    d->ui->tree->headerItem()->setText(1, tr("Link points"));
+    d->ui->tree->setWhatsThis(QString("<a href=\"http://www.youtube.com/watch?v=1PlpDwhgLEs\">%1</a>").arg(tr("Open YouTube tutorial")));
 
-    ui->tree->setItemDelegateForColumn(1, new NoEditorDelegate(ui->tree));
+    d->ui->tree->setItemDelegateForColumn(1, new NoEditorDelegate(d->ui->tree));
 
     if(m_currentLinks.isEmpty())
-        ui->pushAdd->setEnabled(false);
+        d->ui->pushAdd->setEnabled(false);
 
     QList<LinkPoint> linkpoints = SETTINGS_GET_LINKS(SETTING_LINKS);
 
@@ -72,7 +72,7 @@ LinkPointManager::LinkPointManager(const QList<QPoint> &currentLinks, QWidget *p
         addLinkPoint(lp);
     }
 
-    ui->tree->setCurrentItem(ui->tree->topLevelItem(0));
+    d->ui->tree->setCurrentItem(d->ui->tree->topLevelItem(0));
 }
 
 LinkPointManager::~LinkPointManager()
@@ -81,13 +81,13 @@ LinkPointManager::~LinkPointManager()
 QList<LinkPoint> LinkPointManager::links() const
 {
     QList<LinkPoint> linkpoints;
-    QTreeWidgetItem *i = ui->tree->topLevelItem(0);
+    QTreeWidgetItem *i = d->ui->tree->topLevelItem(0);
 
     while(i)
     {
         linkpoints.append(LinkPoint(i->text(0), i->data(0, Qt::UserRole).value<QList<QPoint> >()));
 
-        i = ui->tree->itemBelow(i);
+        i = d->ui->tree->itemBelow(i);
     }
 
     return linkpoints;
@@ -113,5 +113,5 @@ void LinkPointManager::addLinkPoint(const LinkPoint &lp, bool edit)
 void LinkPointManager::slotAdd()
 {
     addLinkPoint(LinkPoint(tr("New points"), m_currentLinks), true);
-    m_changed = true;
+    d->changed = true;
 }

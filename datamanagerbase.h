@@ -24,6 +24,8 @@ class QPushButton;
 class QStringList;
 class QVariant;
 
+class DataManagerBasePrivate;
+
 namespace Ui
 {
     class DataManagerBase;
@@ -47,8 +49,10 @@ private:
     void moveItem(int index, int diff);
     void resetTabOrders();
 
-private slots:
+protected slots:
     virtual void slotAdd() = 0;
+
+private slots:
     void slotDelete();
     void slotUp();
     void slotDown();
@@ -56,20 +60,14 @@ private slots:
     void slotItemChanged();
 
 protected:
-    Ui::DataManagerBase *ui;
-    bool m_changed;
+    DataManagerBasePrivate *d;
 };
 
-inline
-bool DataManagerBase::changed() const
+class DataManagerBasePrivate
 {
-    return m_changed;
-}
-
-inline
-void DataManagerBase::slotItemChanged()
-{
-    m_changed = true;
-}
+public:
+    Ui::DataManagerBase *ui;
+    bool changed;
+};
 
 #endif // DATAMANAGERBASE_H

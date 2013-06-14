@@ -105,6 +105,8 @@ Q_DECLARE_METATYPE(Qt::AlignmentFlag)
 #define SETTING_NEIGHBORS_POSITION           "neighbors-position"
 #define SETTING_SAVE_TICKERS                 "save-tickers"
 
+class SettingsPrivate;
+
 class Settings
 {
 public:
@@ -171,27 +173,35 @@ private:
     QPoint point(const QString &key);
 
 private:
-    QSettings *m_settings;
-    QRegExp m_rxTicker;
-    OSVERSIONINFO m_windowsVersion;
-    QString m_persistentDatabaseName;
-    QString m_persistentDatabasePath;
-    QString m_mutableDatabaseName;
-    QString m_mutableDatabasePath;
-    QDateTime m_persistentDatabaseTimestamp;
-    QDateTime m_mutableDatabaseTimestamp;
-    QString m_databaseTimestampFormat;
-    QMap<QString, QString> m_translations;
-    QHash<QString, QVariant> m_defaultValues;
+    SettingsPrivate *d;
+};
+
+/**********************************/
+
+class SettingsPrivate
+{
+public:
+    QSettings *settings;
+    QRegExp rxTicker;
+    OSVERSIONINFO windowsVersion;
+    QString persistentDatabaseName;
+    QString persistentDatabasePath;
+    QString mutableDatabaseName;
+    QString mutableDatabasePath;
+    QDateTime persistentDatabaseTimestamp;
+    QDateTime mutableDatabaseTimestamp;
+    QString databaseTimestampFormat;
+    QMap<QString, QString> translations;
+    QHash<QString, QVariant> defaultValues;
 };
 
 template <typename T>
 T Settings::value(const QString &key)
 {
     T def = T();
-    QHash<QString, QVariant>::iterator it = m_defaultValues.find(key);
+    QHash<QString, QVariant>::iterator it = d->defaultValues.find(key);
 
-    if(it != m_defaultValues.end())
+    if(it != d->defaultValues.end())
         def = it.value().value<T>();
 
     return value<T>(key, def);
@@ -200,9 +210,9 @@ T Settings::value(const QString &key)
 template <typename T>
 T Settings::value(const QString &key, const T &def)
 {
-    m_settings->beginGroup("settings");
-    QVariant value = m_settings->value(key, QVariant::fromValue(def));
-    m_settings->endGroup();
+    d->settings->beginGroup("settings");
+    QVariant value = d->settings->value(key, QVariant::fromValue(def));
+    d->settings->endGroup();
 
     return value.value<T>();
 }
@@ -210,82 +220,82 @@ T Settings::value(const QString &key, const T &def)
 template <typename T>
 void Settings::setValue(const QString &key, const T &value, Settings::SyncType sync)
 {
-    m_settings->beginGroup("settings");
-    m_settings->setValue(key, QVariant::fromValue(value));
-    m_settings->endGroup();
+    d->settings->beginGroup("settings");
+    d->settings->setValue(key, QVariant::fromValue(value));
+    d->settings->endGroup();
 
     if(sync == Sync)
-        m_settings->sync();
+        d->settings->sync();
 }
 
 inline
 bool Settings::contains(const QString &key) const
 {
-    return m_settings->contains(key);
+    return d->settings->contains(key);
 }
 
 inline
 void Settings::rereadTimestamps()
 {
-    m_persistentDatabaseTimestamp = readTimestamp(m_persistentDatabasePath);
-    m_mutableDatabaseTimestamp = readTimestamp(m_mutableDatabasePath);
+    d->persistentDatabaseTimestamp = readTimestamp(d->persistentDatabasePath);
+    d->mutableDatabaseTimestamp = readTimestamp(d->mutableDatabasePath);
 
-    qDebug("Database P timestamp: %s", qPrintable(m_persistentDatabaseTimestamp.toString(m_databaseTimestampFormat)));
-    qDebug("Database M timestamp: %s", qPrintable(m_mutableDatabaseTimestamp.toString(m_databaseTimestampFormat)));
+    qDebug("Database P timestamp: %s", qPrintable(d->persistentDatabaseTimestamp.toString(d->databaseTimestampFormat)));
+    qDebug("Database M timestamp: %s", qPrintable(d->mutableDatabaseTimestamp.toString(d->databaseTimestampFormat)));
 }
 
 inline
 QString Settings::databaseTimestampFormat() const
 {
-    return m_databaseTimestampFormat;
+    return d->databaseTimestampFormat;
 }
 
 inline
 QDateTime Settings::persistentDatabaseTimestamp() const
 {
-    return m_persistentDatabaseTimestamp;
+    return d->persistentDatabaseTimestamp;
 }
 
 inline
 QDateTime Settings::mutableDatabaseTimestamp() const
 {
-    return m_mutableDatabaseTimestamp;
+    return d->mutableDatabaseTimestamp;
 }
 
 inline
 QString Settings::persistentDatabaseName() const
 {
-    return m_persistentDatabaseName;
+    return d->persistentDatabaseName;
 }
 
 inline
 QString Settings::mutableDatabaseName() const
 {
-    return m_mutableDatabaseName;
+    return d->mutableDatabaseName;
 }
 
 inline
 QString Settings::mutableDatabasePath() const
 {
-    return m_mutableDatabasePath;
+    return d->mutableDatabasePath;
 }
 
 inline
 QString Settings::persistentDatabasePath() const
 {
-    return m_persistentDatabasePath;
+    return d->persistentDatabasePath;
 }
 
 inline
 OSVERSIONINFO Settings::windowsVersion() const
 {
-    return m_windowsVersion;
+    return d->windowsVersion;
 }
 
 inline
 QRegExp Settings::tickerValidator() const
 {
-    return m_rxTicker;
+    return d->rxTicker;
 }
 
 inline
@@ -297,10 +307,10 @@ int Settings::maximumNumberOfLists() const
 inline
 QMap<QString, QString> Settings::translations()
 {
-    if(m_translations.isEmpty())
+    if(d->translations.isEmpty())
         fillTranslations();
 
-    return m_translations;
+    return d->translations;
 }
 
 #endif // SETTINGS_H
