@@ -64,6 +64,8 @@ protected:
     int senderStandaloneActionToList() const;
     int senderMenuActionToList() const;
 
+    Embeds &embeds() const;
+
 signals:
     // used by AddTickersFrom plugins
     void sendTickers(int list, const QStringList &tickers);
@@ -71,14 +73,8 @@ signals:
     // used by ExportTickersTo plugins
     void requestTickers(int list);
 
-protected:
+private:
     PluginImportExportPrivate *d;
-};
-
-class PluginImportExportPrivate
-{
-public:
-    PluginImportExport::Embeds embeds;
 };
 
 #endif // PLUGINIMPORTEXPORT_H

@@ -20,6 +20,7 @@
 
 #include <QDialog>
 
+class QTreeWidget;
 class QPushButton;
 class QStringList;
 class QVariant;
@@ -45,6 +46,11 @@ protected:
     void addItem(const QStringList &strings, const QVariant &data, bool edit = false);
     void addButton(QPushButton *);
 
+    void setChanged(bool);
+
+    QTreeWidget *tree() const;
+    QPushButton *buttonAdd() const;
+
 private:
     void moveItem(int index, int diff);
     void resetTabOrders();
@@ -59,15 +65,8 @@ private slots:
     void slotClear();
     void slotItemChanged();
 
-protected:
+private:
     DataManagerBasePrivate *d;
-};
-
-class DataManagerBasePrivate
-{
-public:
-    Ui::DataManagerBase *ui;
-    bool changed;
 };
 
 #endif // DATAMANAGERBASE_H

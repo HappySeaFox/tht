@@ -55,15 +55,17 @@ LinkPointManager::LinkPointManager(const QList<QPoint> &currentLinks, QWidget *p
     setWindowTitle(tr("Link points"));
 
     //: Means "Add current link points" (in the plural)
-    d->ui->pushAdd->setText(tr("Add current"));
+    buttonAdd()->setText(tr("Add current"));
 
-    d->ui->tree->headerItem()->setText(1, tr("Link points"));
-    d->ui->tree->setWhatsThis(QString("<a href=\"http://www.youtube.com/watch?v=1PlpDwhgLEs\">%1</a>").arg(tr("Open YouTube tutorial")));
+    QTreeWidget *t = tree();
 
-    d->ui->tree->setItemDelegateForColumn(1, new NoEditorDelegate(d->ui->tree));
+    t->headerItem()->setText(1, tr("Link points"));
+    t->setWhatsThis(QString("<a href=\"http://www.youtube.com/watch?v=1PlpDwhgLEs\">%1</a>").arg(tr("Open YouTube tutorial")));
+
+    t->setItemDelegateForColumn(1, new NoEditorDelegate(t));
 
     if(m_currentLinks.isEmpty())
-        d->ui->pushAdd->setEnabled(false);
+        buttonAdd()->setEnabled(false);
 
     QList<LinkPoint> linkpoints = SETTINGS_GET_LINKS(SETTING_LINKS);
 
@@ -72,7 +74,7 @@ LinkPointManager::LinkPointManager(const QList<QPoint> &currentLinks, QWidget *p
         addLinkPoint(lp);
     }
 
-    d->ui->tree->setCurrentItem(d->ui->tree->topLevelItem(0));
+    t->setCurrentItem(t->topLevelItem(0));
 }
 
 LinkPointManager::~LinkPointManager()
@@ -81,13 +83,14 @@ LinkPointManager::~LinkPointManager()
 QList<LinkPoint> LinkPointManager::links() const
 {
     QList<LinkPoint> linkpoints;
-    QTreeWidgetItem *i = d->ui->tree->topLevelItem(0);
+    QTreeWidget *t = tree();
+    QTreeWidgetItem *i = t->topLevelItem(0);
 
     while(i)
     {
         linkpoints.append(LinkPoint(i->text(0), i->data(0, Qt::UserRole).value<QList<QPoint> >()));
 
-        i = d->ui->tree->itemBelow(i);
+        i = t->itemBelow(i);
     }
 
     return linkpoints;
@@ -113,5 +116,5 @@ void LinkPointManager::addLinkPoint(const LinkPoint &lp, bool edit)
 void LinkPointManager::slotAdd()
 {
     addLinkPoint(LinkPoint(tr("New points"), m_currentLinks), true);
-    d->changed = true;
+    setChanged(true);
 }

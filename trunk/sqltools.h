@@ -24,6 +24,8 @@
 #include <QList>
 #include <QMap>
 
+class SqlToolsPrivate;
+
 class SqlTools
 {
 public:
@@ -44,7 +46,7 @@ private:
     static void initializeDatabases();
 
 private:
-    static bool initialized;
+    SqlToolsPrivate *d;
 };
 
 #endif // SQLTOOLS_H
