@@ -23,12 +23,15 @@
 
 class PluginPrivate;
 
+// set by the plugin, see THT_PLUGIN_INTERFACE_IMPLEMENTATION below
 #define THT_PLUGIN_PROPERTY_NAME         "name"
 #define THT_PLUGIN_PROPERTY_AUTHOR       "author"
-#define THT_PLUGIN_PROPERTY_LICENSE_FILE "license"
 #define THT_PLUGIN_PROPERTY_VERSION      "version"
 #define THT_PLUGIN_PROPERTY_URL          "url"
 #define THT_PLUGIN_PROPERTY_UUID         "uuid"
+
+// set by the plugin loader
+#define THT_PLUGIN_PROPERTY_LICENSE_FILE "license"
 #define THT_PLUGIN_PROPERTY_FILENAME     "filename"
 
 class Plugin : public QObject
@@ -48,8 +51,6 @@ public:
 
     // plugin type
     virtual Type type() const = 0;
-
-    void setTopLevelWidget(QWidget *w);
 
 protected:
     QWidget *topLevelWidget() const;
