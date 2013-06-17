@@ -15,6 +15,8 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <QApplication>
+#include <QWidget>
 #include <QTimer>
 
 #include "plugin.h"
@@ -24,10 +26,7 @@ class PluginPrivate
 public:
     PluginPrivate()
     {
-        topLevelWidget = 0;
     }
-
-    QWidget *topLevelWidget;
 };
 
 /****************************************/
@@ -44,12 +43,23 @@ Plugin::~Plugin()
     delete d;
 }
 
-void Plugin::setTopLevelWidget(QWidget *w)
-{
-    d->topLevelWidget = w;
-}
-
 QWidget *Plugin::topLevelWidget() const
 {
-    return d->topLevelWidget;
+    static QWidget *topLevelWidget = 0;
+
+    if(!topLevelWidget)
+    {
+        QWidgetList wl = QApplication::topLevelWidgets();
+
+        foreach(QWidget *w, wl)
+        {
+            if(!qstrcmp(w->metaObject()->className(), "THT"))
+            {
+                topLevelWidget = w;
+                break;
+            }
+        }
+    }
+
+    return topLevelWidget;
 }

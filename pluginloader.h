@@ -61,33 +61,8 @@ public:
 
     Plugin* byUuid(const QString &uuid) const;
 
-    void setTopLevelWidget(QWidget *w);
-    QWidget *topLevelWidget() const;
-
 private:
     PluginLoader(QObject *parent = 0);
-
-private:
-    QWidget *m_topLevelWidget;
 };
-
-inline
-void PluginLoader::setTopLevelWidget(QWidget *w)
-{
-    m_topLevelWidget = w;
-
-    iterator itEnd = end();
-
-    for(iterator it = begin();it != itEnd;++it)
-    {
-        (*it).plugin->setTopLevelWidget(w);
-    }
-}
-
-inline
-QWidget *PluginLoader::topLevelWidget() const
-{
-    return m_topLevelWidget;
-}
 
 #endif

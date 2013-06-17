@@ -87,7 +87,6 @@ THT::THT(QWidget *parent) :
     ui->setupUi(this);
 
     // initialize all plugins
-    PluginLoader::instance()->setTopLevelWidget(this);
     PluginLoader::instance()->init();
 
     setAcceptDrops(true);
@@ -162,6 +161,9 @@ THT::THT(QWidget *parent) :
             break;
         }
     }
+
+    if(startupTicker.isEmpty())
+        m_lists.at(0)->setFocus();
 
     // restore geometry
     if(SETTINGS_GET_BOOL(SETTING_SAVE_GEOMETRY))
@@ -501,6 +503,9 @@ void THT::rebuildUi()
 
     // check the number of lists
     int nlists = Settings::instance()->numberOfLists();
+
+    if(nlists < 1)
+        nlists = 1;
 
     // create more
     if(nlists > m_lists.size())
