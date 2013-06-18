@@ -27,7 +27,27 @@ public:
     PluginPrivate()
     {
     }
+
+    QWidget *topLevelWidget() const;
 };
+
+QWidget* PluginPrivate::topLevelWidget() const
+{
+    QWidget *widget = 0;
+
+    QWidgetList wl = QApplication::topLevelWidgets();
+
+    foreach(QWidget *w, wl)
+    {
+        if(!qstrcmp(w->metaObject()->className(), "THT"))
+        {
+            widget = w;
+            break;
+        }
+    }
+
+    return widget;
+}
 
 /****************************************/
 
@@ -45,21 +65,7 @@ Plugin::~Plugin()
 
 QWidget *Plugin::topLevelWidget() const
 {
-    static QWidget *topLevelWidget = 0;
-
-    if(!topLevelWidget)
-    {
-        QWidgetList wl = QApplication::topLevelWidgets();
-
-        foreach(QWidget *w, wl)
-        {
-            if(!qstrcmp(w->metaObject()->className(), "THT"))
-            {
-                topLevelWidget = w;
-                break;
-            }
-        }
-    }
+    static QWidget *topLevelWidget = d->topLevelWidget();
 
     return topLevelWidget;
 }
