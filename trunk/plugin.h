@@ -44,10 +44,7 @@ public:
     Plugin();
     virtual ~Plugin();
 
-    virtual bool init()
-    {
-        return true;
-    }
+    virtual bool init();
 
     // plugin type
     virtual Type type() const = 0;
@@ -56,8 +53,7 @@ protected:
     QWidget *topLevelWidget() const;
 
 protected slots:
-    virtual void delayedInit()
-    {}
+    virtual void delayedInit();
 
 private:
     PluginPrivate *d;

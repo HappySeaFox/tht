@@ -43,6 +43,11 @@ Plugin::~Plugin()
     delete d;
 }
 
+bool Plugin::init()
+{
+    return true;
+}
+
 QWidget *Plugin::topLevelWidget() const
 {
     static QWidget *topLevelWidget = 0;
@@ -62,4 +67,8 @@ QWidget *Plugin::topLevelWidget() const
     }
 
     return topLevelWidget;
+}
+
+void Plugin::delayedInit()
+{
 }

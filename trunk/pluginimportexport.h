@@ -42,23 +42,12 @@ public:
     // menu for list N
     virtual bool embed(int list, QMenu *menu) = 0;
 
-    virtual QList<Hotkey> supportedHotkeysInList() const
-    {
-        return QList<Hotkey>();
-    }
+    virtual QList<Hotkey> supportedHotkeysInList() const;
 
-    virtual void listHotkeyActivated(int list, const Hotkey &ke)
-    {
-        Q_UNUSED(list)
-        Q_UNUSED(ke)
-    }
+    virtual void listHotkeyActivated(int list, const Hotkey &ke);
 
     // used by ExportTickersTo plugins
-    virtual bool exportTickers(const QStringList &tickers)
-    {
-        Q_UNUSED(tickers)
-        return true;
-    }
+    virtual bool exportTickers(const QStringList &tickers);
 
 protected:
     int senderStandaloneActionToList() const;
