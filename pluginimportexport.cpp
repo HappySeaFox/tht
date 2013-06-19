@@ -48,6 +48,23 @@ PluginImportExport::~PluginImportExport()
     delete d;
 }
 
+QList<Hotkey> PluginImportExport::supportedHotkeysInList() const
+{
+    return QList<Hotkey>();
+}
+
+void PluginImportExport::listHotkeyActivated(int list, const Hotkey &ke)
+{
+    Q_UNUSED(list)
+    Q_UNUSED(ke)
+}
+
+bool PluginImportExport::exportTickers(const QStringList &tickers)
+{
+    Q_UNUSED(tickers)
+    return true;
+}
+
 PluginImportExport::Embeds& PluginImportExport::embeds() const
 {
     return d->embeds;
