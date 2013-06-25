@@ -9,6 +9,9 @@ isEmpty(TARGET) {
 INCLUDEPATH += .
 DEPENDPATH += .
 
+#QMAKE_CXXFLAGS += -flto
+#QMAKE_LFLAGS += -flto
+
 CONFIG += warn_on
 QMAKE_CXXFLAGS_WARN_ON *= -Wextra -Wno-missing-field-initializers
 
