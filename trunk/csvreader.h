@@ -33,10 +33,8 @@
 #ifndef CSVREADER_H
 #define CSVREADER_H
 
-//#include "myclass_api.h"
-
-#include <QtCore/QObject>
-#include <QtCore/QStringList>
+#include <QObject>
+#include <QStringList>
 
 class CsvReaderPrivate;
 
