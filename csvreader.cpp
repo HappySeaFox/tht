@@ -27,7 +27,7 @@
  */
 
 #include "csvreader.h"
-#include <QtCore/QTextDecoder>
+#include <QTextDecoder>
 
 class CsvReaderPrivate
 {
