@@ -59,14 +59,20 @@ private:
     PluginPrivate *d;
 };
 
+#ifdef Q_OS_WIN
+#define PLUGUN_EXPORT __declspec(dllexport)
+#else
+#define PLUGUN_EXPORT
+#endif
+
 #define PLUGIN_CONSTRUCTOR(o)   \
-extern "C"                      \
+extern "C" PLUGUN_EXPORT        \
 Plugin* plugin_create()         \
 {                               \
     return (new (o));           \
 }                               \
                                 \
-extern "C"                      \
+extern "C" PLUGUN_EXPORT        \
 void plugin_destroy(Plugin *pl) \
 {                               \
     delete pl;                  \
