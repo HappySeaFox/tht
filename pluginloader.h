@@ -38,8 +38,13 @@ struct PluginLibrary
     {}
 
     QLibrary    *library;
-    Plugin*     (*plugin_create)();
-    void        (*plugin_destroy)(Plugin *);
+
+    typedef Plugin* (*PluginCreateFunc)();
+    typedef void (*PluginDestroyFunc)(Plugin *);
+
+    PluginCreateFunc plugin_create;
+    PluginDestroyFunc plugin_destroy;
+
     Plugin      *plugin;
     QTranslator *translator;
 };

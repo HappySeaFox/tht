@@ -47,8 +47,13 @@ PluginLoader::PluginLoader(QObject *parent) : QObject(parent)
         p.library = new QLibrary(fi.absoluteFilePath());
         p.library->load();
 
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+        p.plugin_create = (PluginLibrary::PluginCreateFunc)p.library->resolve("plugin_create");
+        p.plugin_destroy = (PluginLibrary::PluginDestroyFunc)p.library->resolve("plugin_destroy");
+#else
         *reinterpret_cast<void **>(&p.plugin_create) = p.library->resolve("plugin_create");
         *reinterpret_cast<void **>(&p.plugin_destroy) = p.library->resolve("plugin_destroy");
+#endif
 
         if(!p.plugin_create || !p.plugin_destroy)
         {
