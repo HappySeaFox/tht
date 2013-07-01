@@ -19,8 +19,10 @@
 #include <QDesktopServices>
 #include <QFileInfo>
 #include <QObject>
+#include <QRegExp>
 #include <QFile>
 #include <QDir>
+#include <QUrl>
 
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
 #include <QStandardPaths>
@@ -82,6 +84,25 @@ static QDataStream &operator>>(QDataStream &in, Qt::AlignmentFlag &f)
 
 /*******************************************************/
 
+class SettingsPrivate
+{
+public:
+    QSettings *settings;
+    QRegExp rxTicker;
+    OSVERSIONINFO windowsVersion;
+    QString persistentDatabaseName;
+    QString persistentDatabasePath;
+    QString mutableDatabaseName;
+    QString mutableDatabasePath;
+    QDateTime persistentDatabaseTimestamp;
+    QDateTime mutableDatabaseTimestamp;
+    QString databaseTimestampFormat;
+    QMap<QString, QString> translations;
+    QHash<QString, QVariant> defaultValues;
+};
+
+/*******************************************************/
+
 Settings::Settings()
 {
     d = new SettingsPrivate;
@@ -100,7 +121,7 @@ Settings::Settings()
 
     d->databaseTimestampFormat = "yyyy-MM-dd hh:mm:ss.zzz";
 
-    d->rxTicker = QRegExp("[a-zA-Z\\-\\.$]{1,7}");
+    d->rxTicker = QRegExp("[a-zA-Z0-9\\-\\.$]{1,8}");
 
     // migrate from old settings
     if(d->settings->childGroups().isEmpty())
@@ -342,4 +363,86 @@ QPoint Settings::point(const QString &key)
         return d->settings->value(fullKey).value<QPoint>();
     else
         return Tools::invalidQPoint;
+}
+
+QHash<QString, QVariant>& Settings::defaultValues()
+{
+    return d->defaultValues;
+}
+
+QSettings *Settings::settings()
+{
+    return d->settings;
+}
+
+bool Settings::contains(const QString &key) const
+{
+    return d->settings->contains(key);
+}
+
+QMap<QString, QString> Settings::translations()
+{
+    if(d->translations.isEmpty())
+        fillTranslations();
+
+    return d->translations;
+}
+
+OSVERSIONINFO Settings::windowsVersion() const
+{
+    return d->windowsVersion;
+}
+
+void Settings::rereadTimestamps()
+{
+    d->persistentDatabaseTimestamp = readTimestamp(d->persistentDatabasePath);
+    d->mutableDatabaseTimestamp = readTimestamp(d->mutableDatabasePath);
+
+    qDebug("Database P timestamp: %s", qPrintable(d->persistentDatabaseTimestamp.toString(d->databaseTimestampFormat)));
+    qDebug("Database M timestamp: %s", qPrintable(d->mutableDatabaseTimestamp.toString(d->databaseTimestampFormat)));
+}
+
+QString Settings::databaseTimestampFormat() const
+{
+    return d->databaseTimestampFormat;
+}
+
+QDateTime Settings::persistentDatabaseTimestamp() const
+{
+    return d->persistentDatabaseTimestamp;
+}
+
+QDateTime Settings::mutableDatabaseTimestamp() const
+{
+    return d->mutableDatabaseTimestamp;
+}
+
+QString Settings::persistentDatabaseName() const
+{
+    return d->persistentDatabaseName;
+}
+
+QString Settings::mutableDatabaseName() const
+{
+    return d->mutableDatabaseName;
+}
+
+QString Settings::mutableDatabasePath() const
+{
+    return d->mutableDatabasePath;
+}
+
+QString Settings::persistentDatabasePath() const
+{
+    return d->persistentDatabasePath;
+}
+
+QRegExp Settings::tickerValidator() const
+{
+    return d->rxTicker;
+}
+
+int Settings::maximumNumberOfLists() const
+{
+    return 8;
 }

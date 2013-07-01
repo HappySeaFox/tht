@@ -22,12 +22,11 @@
 #include <QDateTime>
 #include <QSettings>
 #include <QString>
-#include <QRegExp>
 #include <QPoint>
 #include <QColor>
 #include <QSize>
 #include <QList>
-#include <QUrl>
+#include <QHash>
 #include <QMap>
 
 #include <windows.h>
@@ -172,36 +171,23 @@ private:
 
     QPoint point(const QString &key);
 
+    QHash<QString, QVariant> &defaultValues();
+
+    QSettings *settings();
+
 private:
     SettingsPrivate *d;
 };
 
 /**********************************/
 
-class SettingsPrivate
-{
-public:
-    QSettings *settings;
-    QRegExp rxTicker;
-    OSVERSIONINFO windowsVersion;
-    QString persistentDatabaseName;
-    QString persistentDatabasePath;
-    QString mutableDatabaseName;
-    QString mutableDatabasePath;
-    QDateTime persistentDatabaseTimestamp;
-    QDateTime mutableDatabaseTimestamp;
-    QString databaseTimestampFormat;
-    QMap<QString, QString> translations;
-    QHash<QString, QVariant> defaultValues;
-};
-
 template <typename T>
 T Settings::value(const QString &key)
 {
     T def = T();
-    QHash<QString, QVariant>::iterator it = d->defaultValues.find(key);
+    QHash<QString, QVariant>::iterator it = defaultValues().find(key);
 
-    if(it != d->defaultValues.end())
+    if(it != defaultValues().end())
         def = it.value().value<T>();
 
     return value<T>(key, def);
@@ -210,9 +196,11 @@ T Settings::value(const QString &key)
 template <typename T>
 T Settings::value(const QString &key, const T &def)
 {
-    d->settings->beginGroup("settings");
-    QVariant value = d->settings->value(key, QVariant::fromValue(def));
-    d->settings->endGroup();
+    QSettings *s = settings();
+
+    s->beginGroup("settings");
+    QVariant value = s->value(key, QVariant::fromValue(def));
+    s->endGroup();
 
     return value.value<T>();
 }
@@ -220,97 +208,14 @@ T Settings::value(const QString &key, const T &def)
 template <typename T>
 void Settings::setValue(const QString &key, const T &value, Settings::SyncType sync)
 {
-    d->settings->beginGroup("settings");
-    d->settings->setValue(key, QVariant::fromValue(value));
-    d->settings->endGroup();
+    QSettings *s = settings();
+
+    s->beginGroup("settings");
+    s->setValue(key, QVariant::fromValue(value));
+    s->endGroup();
 
     if(sync == Sync)
-        d->settings->sync();
-}
-
-inline
-bool Settings::contains(const QString &key) const
-{
-    return d->settings->contains(key);
-}
-
-inline
-void Settings::rereadTimestamps()
-{
-    d->persistentDatabaseTimestamp = readTimestamp(d->persistentDatabasePath);
-    d->mutableDatabaseTimestamp = readTimestamp(d->mutableDatabasePath);
-
-    qDebug("Database P timestamp: %s", qPrintable(d->persistentDatabaseTimestamp.toString(d->databaseTimestampFormat)));
-    qDebug("Database M timestamp: %s", qPrintable(d->mutableDatabaseTimestamp.toString(d->databaseTimestampFormat)));
-}
-
-inline
-QString Settings::databaseTimestampFormat() const
-{
-    return d->databaseTimestampFormat;
-}
-
-inline
-QDateTime Settings::persistentDatabaseTimestamp() const
-{
-    return d->persistentDatabaseTimestamp;
-}
-
-inline
-QDateTime Settings::mutableDatabaseTimestamp() const
-{
-    return d->mutableDatabaseTimestamp;
-}
-
-inline
-QString Settings::persistentDatabaseName() const
-{
-    return d->persistentDatabaseName;
-}
-
-inline
-QString Settings::mutableDatabaseName() const
-{
-    return d->mutableDatabaseName;
-}
-
-inline
-QString Settings::mutableDatabasePath() const
-{
-    return d->mutableDatabasePath;
-}
-
-inline
-QString Settings::persistentDatabasePath() const
-{
-    return d->persistentDatabasePath;
-}
-
-inline
-OSVERSIONINFO Settings::windowsVersion() const
-{
-    return d->windowsVersion;
-}
-
-inline
-QRegExp Settings::tickerValidator() const
-{
-    return d->rxTicker;
-}
-
-inline
-int Settings::maximumNumberOfLists() const
-{
-    return 8;
-}
-
-inline
-QMap<QString, QString> Settings::translations()
-{
-    if(d->translations.isEmpty())
-        fillTranslations();
-
-    return d->translations;
+        s->sync();
 }
 
 #endif // SETTINGS_H
