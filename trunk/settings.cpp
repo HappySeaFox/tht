@@ -229,6 +229,8 @@ Settings::Settings()
     d->defaultValues.insert(SETTING_MINI_TICKER_ENTRY, true);
     d->defaultValues.insert(SETTING_ALLOW_DUPLICATES, true);
     d->defaultValues.insert(SETTING_SAVE_GEOMETRY, true);
+    d->defaultValues.insert(SETTING_GLOBAL_HOTKEY_SCREENSHOT, true);
+    d->defaultValues.insert(SETTING_GLOBAL_HOTKEY_RESTORE, true);
 }
 
 Settings::~Settings()

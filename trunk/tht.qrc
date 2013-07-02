@@ -15,7 +15,6 @@
         <file>images/file.png</file>
         <file>images/update.png</file>
         <file>images/cancel.png</file>
-        <file>images/options-background.png</file>
         <file>images/query.png</file>
         <file>images/links-load.png</file>
         <file>images/links-customize.png</file>
@@ -32,5 +31,8 @@
         <file>images/cursor-buy.png</file>
         <file>images/ellipse.png</file>
         <file>images/cursor-sale.png</file>
+        <file>images/options-general.png</file>
+        <file>images/options-hotkeys.png</file>
+        <file>images/options-list.png</file>
     </qresource>
 </RCC>

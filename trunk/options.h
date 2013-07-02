@@ -25,6 +25,8 @@ namespace Ui
     class Options;
 }
 
+class QListWidgetItem;
+
 class Options : public QDialog
 {
     Q_OBJECT
@@ -37,6 +39,7 @@ public:
 
 private:
     void load();
+    void setIcon(QListWidgetItem *i, const QString &rcIcon, int width);
 
 private slots:
     void slotLanguageChanged(int);

@@ -103,6 +103,8 @@ Q_DECLARE_METATYPE(Qt::AlignmentFlag)
 #define SETTING_NEIGHBORS_SIZE               "neighbors-size"
 #define SETTING_NEIGHBORS_POSITION           "neighbors-position"
 #define SETTING_SAVE_TICKERS                 "save-tickers"
+#define SETTING_GLOBAL_HOTKEY_SCREENSHOT     "global-hotkey-screenshot"
+#define SETTING_GLOBAL_HOTKEY_RESTORE        "global-hotkey-restore"
 
 class SettingsPrivate;
 

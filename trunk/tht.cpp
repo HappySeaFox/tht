@@ -98,8 +98,10 @@ THT::THT(QWidget *parent) :
     m_takeScreen = new QxtGlobalShortcut(QKeySequence(Qt::CTRL + Qt::ALT + Qt::Key_S), this);
     connect(m_takeScreen, SIGNAL(activated()), this, SLOT(slotTakeScreenshotFromGlobal()));
 
-    QxtGlobalShortcut *restore = new QxtGlobalShortcut(QKeySequence(Qt::CTRL + Qt::ALT + Qt::Key_R), this);
-    connect(restore, SIGNAL(activated()), this, SLOT(activate()));
+    m_restore = new QxtGlobalShortcut(QKeySequence(Qt::CTRL + Qt::ALT + Qt::Key_R), this);
+    connect(m_restore, SIGNAL(activated()), this, SLOT(activate()));
+
+    reconfigureGlobalShortcuts();
 
     QIcon icon_quit(":/images/quit.png");
     QIcon icon_screenshot(":/images/screenshot.png");
@@ -1104,6 +1106,8 @@ void THT::slotOptions()
             SETTINGS_SET_SIZE(SETTING_NEIGHBORS_SIZE, QSize(), Settings::NoSync);
             SETTINGS_SET_POINT(SETTING_NEIGHBORS_POSITION, Tools::invalidQPoint); // also sync
         }
+
+        reconfigureGlobalShortcuts();
     }
 }
 
@@ -1453,6 +1457,12 @@ void THT::removeWindowMarker()
     RedrawWindow(m_drawnWindow, 0, 0, RDW_FRAME | RDW_INVALIDATE | RDW_UPDATENOW | RDW_ALLCHILDREN);
 
     m_drawnWindow = 0;
+}
+
+void THT::reconfigureGlobalShortcuts()
+{
+    m_takeScreen->setEnabled(SETTINGS_GET_BOOL(SETTING_GLOBAL_HOTKEY_SCREENSHOT));
+    m_restore->setEnabled(SETTINGS_GET_BOOL(SETTING_GLOBAL_HOTKEY_RESTORE));
 }
 
 void THT::slotFomcCheck()
