@@ -20,7 +20,8 @@ SOURCES += datamanagerbase.cpp \
     qxt/qxtglobal.cpp \
     uppercasevalidator.cpp \
     remotedate.cpp \
-    sqltools.cpp
+    sqltools.cpp \
+    hotkey.cpp
 
 HEADERS += datamanagerbase.h \
     settings.h \
