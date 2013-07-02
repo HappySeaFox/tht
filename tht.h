@@ -133,6 +133,7 @@ private:
     void raiseWindow(QWidget *);
     void drawWindowMarker();
     void removeWindowMarker();
+    void reconfigureGlobalShortcuts();
 
 public slots:
     void activate();
@@ -196,7 +197,7 @@ private:
     typedef QMap<QString, PredefinedTicker> PredefinedTickers;
     PredefinedTickers m_predefined;
     QPointer<TickerNeighbors> m_sectors;
-    QxtGlobalShortcut *m_takeScreen;
+    QxtGlobalShortcut *m_takeScreen, *m_restore;
     HWND m_drawnWindow;
     QTimer *m_timerFomcCheck;
     RemoteDate *m_newYorkDate;

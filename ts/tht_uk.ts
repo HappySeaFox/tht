@@ -209,38 +209,63 @@
         <translation>Параметри</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="24"/>
+        <location filename="../options.ui" line="81"/>
         <source>Language:</source>
         <translation>Мова:</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="32"/>
+        <location filename="../options.ui" line="47"/>
         <source>&lt;System&gt;</source>
         <comment>Means &quot;System language&quot;</comment>
         <translation>&lt;Системи&gt;</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="108"/>
+        <location filename="../options.ui" line="124"/>
         <source>Save position and size</source>
         <translation>Зберегти позицію та розмір</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="115"/>
+        <location filename="../options.ui" line="138"/>
         <source>Automatically save tickers</source>
         <translation>Зберігати тікери автоматично</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="178"/>
+        <location filename="../options.ui" line="193"/>
+        <source>Ctrl+Alt+S to take screenshots</source>
+        <translation>Ctrl+Alt+S для знімків екрану</translation>
+    </message>
+    <message>
+        <location filename="../options.ui" line="200"/>
+        <source>Ctrl+Alt+R to restore from tray</source>
+        <translation>Ctrl+Alt+R для розгортання з трея</translation>
+    </message>
+    <message>
+        <location filename="../options.ui" line="243"/>
         <source>Need restart</source>
         <translation>Потрібен перезапуск</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="185"/>
+        <location filename="../options.cpp" line="37"/>
+        <source>General</source>
+        <translation>Загальні</translation>
+    </message>
+    <message>
+        <location filename="../options.cpp" line="38"/>
+        <source>List</source>
+        <translation>Список</translation>
+    </message>
+    <message>
+        <location filename="../options.cpp" line="39"/>
+        <source>Hotkeys</source>
+        <translation>Гарячі клавіші</translation>
+    </message>
+    <message>
+        <location filename="../options.ui" line="166"/>
         <source>Automatically show ticker comments</source>
         <translation>Автоматично показувати коментарі до тікера</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="199"/>
+        <location filename="../options.ui" line="117"/>
         <source>Restore link points at startup</source>
         <translation>Відновлювати точки лінковки при старті</translation>
     </message>
@@ -250,32 +275,32 @@
         <translation>Швидке введення тікера</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="192"/>
+        <location filename="../options.ui" line="159"/>
         <source>Show list title</source>
         <translation>Показувати заголовок списку</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="101"/>
+        <location filename="../options.ui" line="97"/>
         <source>Restore &quot;Industries&quot; window at startup</source>
         <translation>Відновлювати вікно &quot;Індустрії&quot; при старті</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="75"/>
+        <location filename="../options.ui" line="30"/>
         <source>Always on top</source>
         <translation>Поверх всіх вікон</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="53"/>
+        <location filename="../options.ui" line="88"/>
         <source>Lists:</source>
         <translation>Списків:</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="82"/>
+        <location filename="../options.ui" line="37"/>
         <source>Hide to tray</source>
         <translation>Ховатися в трей</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="122"/>
+        <location filename="../options.ui" line="145"/>
         <source>Allow duplicates in a ticker list</source>
         <translation>Дозволити дублікати в списку тікерів</translation>
     </message>
@@ -603,102 +628,102 @@ right/middle mouse button to cancel.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="114"/>
+        <location filename="../tht.cpp" line="116"/>
         <source>Options...</source>
         <translation>Параметри...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="117"/>
-        <location filename="../tht.cpp" line="184"/>
+        <location filename="../tht.cpp" line="119"/>
+        <location filename="../tht.cpp" line="186"/>
         <source>Take screenshot...</source>
         <translation>Знімок екрану...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="124"/>
+        <location filename="../tht.cpp" line="126"/>
         <source>Clear ticker lists</source>
         <translation>Очистити списки тікерів</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="121"/>
+        <location filename="../tht.cpp" line="123"/>
         <source>Clear links</source>
         <extracomment>Infinitive</extracomment>
         <translation>Очистити посилання</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="125"/>
-        <location filename="../tht.cpp" line="126"/>
+        <location filename="../tht.cpp" line="127"/>
+        <location filename="../tht.cpp" line="128"/>
         <source>Load ticker</source>
         <translation>Завантажити тікер</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="186"/>
+        <location filename="../tht.cpp" line="188"/>
         <source>About THT</source>
         <translation>Про THT</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="130"/>
+        <location filename="../tht.cpp" line="132"/>
         <source>About Qt...</source>
         <translation>Про Qt...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="129"/>
+        <location filename="../tht.cpp" line="131"/>
         <source>About THT...</source>
         <translation>Про THT...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="131"/>
+        <location filename="../tht.cpp" line="133"/>
         <source>Plugins...</source>
         <translation>Плагіни...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="133"/>
-        <location filename="../tht.cpp" line="188"/>
+        <location filename="../tht.cpp" line="135"/>
+        <location filename="../tht.cpp" line="190"/>
         <source>Quit</source>
         <translation>Вихід</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="183"/>
+        <location filename="../tht.cpp" line="185"/>
         <source>Restore</source>
         <extracomment>Means &quot;Restore from tray&quot;</extracomment>
         <translation>Відновити</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="330"/>
+        <location filename="../tht.cpp" line="332"/>
         <source>Notice</source>
         <translation>Замітка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="330"/>
+        <location filename="../tht.cpp" line="332"/>
         <source>THT will continue to run in a system tray</source>
         <translation>ТНТ продовжить роботу в системному лотку</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="800"/>
+        <location filename="../tht.cpp" line="802"/>
         <source>Unknown</source>
         <translation>Невідомі</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1282"/>
+        <location filename="../tht.cpp" line="1286"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1282"/>
+        <location filename="../tht.cpp" line="1286"/>
         <source>Cannot take screenshot</source>
         <translation>Неможливо зробити знімок екрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1639"/>
+        <location filename="../tht.cpp" line="1649"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <translation>Всі величезні сучасні багатства нажито&lt;br&gt;найбезчеснішим засобом.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1640"/>
+        <location filename="../tht.cpp" line="1650"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <translation>&quot;Золоте Теля&quot; І.Ільф, Є.Петров</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1698"/>
+        <location filename="../tht.cpp" line="1708"/>
         <source>Customize...</source>
         <translation>Налаштувати...</translation>
     </message>

@@ -15,7 +15,10 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <QListWidgetItem>
+#include <QPainter>
 #include <QString>
+#include <QPixmap>
 
 #include "settings.h"
 #include "options.h"
@@ -28,7 +31,25 @@ Options::Options(QWidget *parent) :
     m_startIndex(-1)
 {
     ui->setupUi(this);
+
     ui->labelRestart->hide();
+
+    QListWidgetItem *i1 = new QListWidgetItem(tr("General"), ui->list);
+    QListWidgetItem *i2 = new QListWidgetItem(tr("List"), ui->list);
+    QListWidgetItem *i3 = new QListWidgetItem(tr("Hotkeys"), ui->list);
+
+    const int w = ui->list->sizeHintForColumn(0);
+
+    ui->list->setCurrentRow(0);
+    ui->list->setIconSize(QSize(w, 32));
+    ui->list->setFocus();
+
+    // I'm fed up with MVC, delegates etc., so this is a hack
+    setIcon(i1, ":/images/options-general.png", w);
+    setIcon(i2, ":/images/options-list.png", w);
+    setIcon(i3, ":/images/options-hotkeys.png", w);
+
+    ui->list->setFixedWidth(ui->list->sizeHintForColumn(0) + ui->list->spacing()*2 + 4);
 
     load();
 }
@@ -54,6 +75,8 @@ void Options::load()
     ui->checkHeader->setChecked(SETTINGS_GET_BOOL(SETTING_LIST_HEADER));
     ui->checkComments->setChecked(SETTINGS_GET_BOOL(SETTING_SHOW_COMMENTS));
     ui->checkRestoreLP->setChecked(SETTINGS_GET_BOOL(SETTING_RESTORE_LINKS_AT_STARTUP));
+    ui->checkCtrlAltS->setChecked(SETTINGS_GET_BOOL(SETTING_GLOBAL_HOTKEY_SCREENSHOT));
+    ui->checkCtrlAltR->setChecked(SETTINGS_GET_BOOL(SETTING_GLOBAL_HOTKEY_RESTORE));
 
     const QMap<QString, QString> tsmap = Settings::instance()->translations();
     QString ts = SETTINGS_GET_STRING(SETTING_TRANSLATION);
@@ -74,6 +97,24 @@ void Options::load()
         m_startIndex = 0;
 }
 
+void Options::setIcon(QListWidgetItem *i, const QString &rcIcon, int width)
+{
+    if(!i)
+        return;
+
+    QPixmap toDraw(rcIcon);
+
+    QPixmap result(width, toDraw.height());
+    result.fill(Qt::transparent);
+
+    QPainter painter(&result);
+
+    painter.drawPixmap((result.width() - toDraw.width()) / 2, 0, toDraw);
+    painter.end();
+
+    i->setIcon(QIcon(result));
+}
+
 void Options::slotLanguageChanged(int index)
 {
     ui->labelRestart->setVisible(index != m_startIndex);
@@ -92,5 +133,7 @@ void Options::saveSettings() const
     SETTINGS_SET_BOOL(SETTING_MINI_TICKER_ENTRY, ui->checkMini->isChecked(), Settings::NoSync);
     SETTINGS_SET_BOOL(SETTING_LIST_HEADER, ui->checkHeader->isChecked(), Settings::NoSync);
     SETTINGS_SET_BOOL(SETTING_SHOW_COMMENTS, ui->checkComments->isChecked(), Settings::NoSync);
-    SETTINGS_SET_BOOL(SETTING_RESTORE_LINKS_AT_STARTUP, ui->checkRestoreLP->isChecked()); // also sync
+    SETTINGS_SET_BOOL(SETTING_RESTORE_LINKS_AT_STARTUP, ui->checkRestoreLP->isChecked(), Settings::NoSync);
+    SETTINGS_SET_BOOL(SETTING_GLOBAL_HOTKEY_SCREENSHOT, ui->checkCtrlAltS->isChecked(), Settings::NoSync);
+    SETTINGS_SET_BOOL(SETTING_GLOBAL_HOTKEY_RESTORE, ui->checkCtrlAltR->isChecked()); // also sync
 }

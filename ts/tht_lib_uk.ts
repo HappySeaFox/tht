@@ -37,19 +37,19 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../settings.cpp" line="349"/>
+        <location filename="../settings.cpp" line="351"/>
         <source>Russian</source>
         <extracomment>Russian language</extracomment>
         <translation>Російська</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="352"/>
+        <location filename="../settings.cpp" line="354"/>
         <source>Ukrainian</source>
         <extracomment>Ukrainian language</extracomment>
         <translation>Українська</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="355"/>
+        <location filename="../settings.cpp" line="357"/>
         <source>English</source>
         <extracomment>English language</extracomment>
         <translation>Англійська</translation>
