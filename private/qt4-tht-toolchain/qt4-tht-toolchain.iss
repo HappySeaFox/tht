@@ -2,7 +2,7 @@
 #define MyAppInstallDir "Qt4-THT-toolchain"
 #define MyAppPublisher "Dmitry Baryshev"
 #define MyAppURL "http://code.google.com/p/traders-home-task-ng"
-#define MyAppVersion "4.8.4"
+#define MyAppVersion "4.8.5"
 
 [Setup]
 AppId={{6742AEC5-AAA7-45F6-B430-CB004151C983}
