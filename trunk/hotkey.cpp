@@ -15,22 +15,10 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef HOTKEY_H
-#define HOTKEY_H
+#include "hotkey.h"
 
-#include <Qt>
-
-struct Hotkey
+bool operator== (const Hotkey &a, const Hotkey &b)
 {
-    Hotkey(const Qt::Key &_key = Qt::Key_0,
-           const Qt::KeyboardModifiers &_modifiers = Qt::NoModifier)
-        : key(_key), modifiers(_modifiers)
-    {}
-
-    Qt::Key key;
-    Qt::KeyboardModifiers modifiers;
-};
-
-bool operator== (const Hotkey &a, const Hotkey &b);
-
-#endif // HOTKEY_H
+    return a.key == b.key
+            && a.modifiers == b.modifiers;
+}
