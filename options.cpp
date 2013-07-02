@@ -105,7 +105,6 @@ void Options::setIcon(QListWidgetItem *i, const QString &rcIcon, int width)
         return;
 
     QPixmap toDraw(rcIcon);
-
     QPixmap result(width, toDraw.height());
     result.fill(Qt::transparent);
 
