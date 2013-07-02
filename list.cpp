@@ -15,7 +15,6 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <QStyledItemDelegate>
 #include <QDesktopServices>
 #include <QListWidgetItem>
 #include <QLinearGradient>
@@ -42,6 +41,7 @@
 #include <QUrl>
 #include <QPen>
 
+#include "persistentselectiondelegate.h"
 #include "tickerinformationtooltip.h"
 #include "tickercommentinput.h"
 #include "pluginimportexport.h"
@@ -54,32 +54,6 @@
 #include "list.h"
 
 #include "ui_list.h"
-
-namespace
-{
-
-class PersistentSelectionDelegate : public QStyledItemDelegate
-{
-public:
-    PersistentSelectionDelegate(QObject *parent = 0)
-        : QStyledItemDelegate(parent)
-    {}
-
-    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
-    {
-        QStyleOptionViewItemV4 optionV4 =
-                    *qstyleoption_cast<const QStyleOptionViewItemV4 *>(&option);
-
-        if(optionV4.state & QStyle::State_Enabled && optionV4.state & QStyle::State_Selected)
-            optionV4.state |= QStyle::State_Active;
-
-        QStyledItemDelegate::paint(painter, optionV4, index);
-    }
-};
-
-}
-
-/*************************************************/
 
 List::List(int group, QWidget *parent) :
     QWidget(parent),
@@ -110,7 +84,7 @@ List::List(int group, QWidget *parent) :
     ui->stackHeader->widget(0)->setFocusProxy(ui->labelHeader);
     ui->stackHeader->widget(1)->setFocusProxy(ui->widgetEnterHeader);
 
-    m_persistentDelegate = new PersistentSelectionDelegate;
+    m_persistentDelegate = new PersistentSelectionDelegate(ui->list);
     m_oldDelegate = ui->list->itemDelegate();
 
     // number of tickers

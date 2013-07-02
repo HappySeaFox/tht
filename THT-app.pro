@@ -42,7 +42,8 @@ SOURCES += main.cpp\
     clickablelabel.cpp \
     pluginloader.cpp \
     pluginmanager.cpp \
-    plugindetails.cpp
+    plugindetails.cpp \
+    persistentselectiondelegate.cpp
 
 HEADERS += tht.h \
     list.h \
@@ -78,7 +79,8 @@ HEADERS += tht.h \
     clickablelabel.h \
     pluginloader.h \
     pluginmanager.h \
-    plugindetails.h
+    plugindetails.h \
+    persistentselectiondelegate.h
 
 FORMS += tht.ui \
     list.ui \
