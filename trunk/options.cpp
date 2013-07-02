@@ -20,6 +20,7 @@
 #include <QString>
 #include <QPixmap>
 
+#include "persistentselectiondelegate.h"
 #include "settings.h"
 #include "options.h"
 
@@ -32,6 +33,7 @@ Options::Options(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    ui->list->setItemDelegate(new PersistentSelectionDelegate(ui->list));
     ui->labelRestart->hide();
 
     QListWidgetItem *i1 = new QListWidgetItem(tr("General"), ui->list);
