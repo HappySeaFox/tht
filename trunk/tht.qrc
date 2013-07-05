@@ -34,5 +34,6 @@
         <file>images/options-general.png</file>
         <file>images/options-hotkeys.png</file>
         <file>images/options-list.png</file>
+        <file>images/drag_red.png</file>
     </qresource>
 </RCC>

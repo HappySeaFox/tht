@@ -52,10 +52,13 @@ class THT : public QWidget
     Q_OBJECT
 
 public:
-    explicit THT(QWidget *parent = 0);
     ~THT();
 
     virtual void setVisible(bool);
+
+    static THT *instance();
+
+    void masterHasBeenChanged(HWND hwnd, const QString &ticker);
 
 protected:
     virtual void contextMenuEvent(QContextMenuEvent *event);
@@ -93,7 +96,13 @@ private:
             threadId = 0;
             subControl = 0;
             subControlSupportsClearing = false;
+            hook = 0;
         }
+
+        ~Link()
+        {}
+
+        void unhook();
 
         HWND hwnd;
         QPoint dropPoint;
@@ -102,6 +111,7 @@ private:
         DWORD threadId;
         HWND subControl;
         bool subControlSupportsClearing;
+        HWINEVENTHOOK hook;
     };
 
     typedef QHash<LinkType, QString> PredefinedTickerMappings;
@@ -117,16 +127,20 @@ private:
         PredefinedTickerMappings mappings;
     };
 
+    enum MasterSettings { MasterAuto, MasterNo, MasterYes };
+    enum MasterLoadingPolicy { MasterPolicyAuto, MasterPolicySkip, MasterPolicyIgnore };
+
+    THT();
     void sendKey(int key, bool extended = false);
     void sendString(const QString &str, LinkType = LinkTypeOther);
     void rebuildUi();
     void checkWindow(Link *);
     Link checkTargetWindow(const QPoint &, bool allowThisWindow);
     void checkWindows();
-    void nextLoadableWindowIndex(int startFrom = 0);
+    void nextLoadableWindowIndex(int delta = 0);
     void loadNextWindow();
     void busy(bool);
-    void loadTicker(const QString &);
+    void loadTicker(const QString &, MasterLoadingPolicy masterPolicy = MasterPolicyAuto);
     void startDelayedScreenshot(bool);
     bool setForeignFocus(const Link &);
     void rebuildLinks();
@@ -134,6 +148,8 @@ private:
     void drawWindowMarker();
     void removeWindowMarker();
     void reconfigureGlobalShortcuts();
+    void unhookEverybody();
+    void bringToFront(HWND);
 
 public slots:
     void activate();
@@ -172,7 +188,7 @@ private slots:
     void slotFomcClicked();
     void slotFomcCheck();
     void slotRestoreLinks();
-    void targetDropped(const QPoint &, bool beep = true);
+    void targetDropped(const QPoint &, MasterSettings master = MasterAuto, bool beep = true);
 
 private:
     Ui::THT *ui;
@@ -202,6 +218,8 @@ private:
     QTimer *m_timerFomcCheck;
     RemoteDate *m_newYorkDate;
     bool m_linksChanged;
+    MasterLoadingPolicy m_checkForMaster;
+    HWND m_wasActive;
 };
 
 #endif // THT_H

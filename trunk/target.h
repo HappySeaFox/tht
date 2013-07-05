@@ -18,6 +18,7 @@
 #ifndef TARGET_H
 #define TARGET_H
 
+#include <QPixmap>
 #include <QLabel>
 
 class Target : public QLabel
@@ -27,10 +28,15 @@ class Target : public QLabel
 public:
     explicit Target(QWidget *parent = 0);
 
+    bool mayBeMaster() const;
+
 protected:
     virtual void mousePressEvent(QMouseEvent *event);
     virtual void mouseMoveEvent(QMouseEvent *event);
     virtual void mouseReleaseEvent(QMouseEvent *event);
+    virtual void enterEvent(QEvent *);
+    virtual void leaveEvent(QEvent *);
+    virtual bool eventFilter(QObject *o, QEvent *e);
 
 signals:
     void moving(const QPoint &);
@@ -40,7 +46,7 @@ signals:
     
 private:
     bool m_dragging;
-    
+    QPixmap m_drag_black, m_drag_red;
 };
 
 #endif // TARGET_H

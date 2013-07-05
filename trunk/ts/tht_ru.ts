@@ -93,11 +93,6 @@
         <source>Open YouTube tutorial</source>
         <translation>Открыть урок на YouTube</translation>
     </message>
-    <message>
-        <location filename="../linkpointmanager.cpp" line="118"/>
-        <source>New points</source>
-        <translation>Новые точки</translation>
-    </message>
 </context>
 <context>
     <name>List</name>
@@ -628,102 +623,107 @@ right/middle mouse button to cancel.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="116"/>
+        <location filename="../tht.cpp" line="163"/>
         <source>Options...</source>
         <translation>Настройки...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="119"/>
-        <location filename="../tht.cpp" line="186"/>
+        <location filename="../tht.cpp" line="166"/>
+        <location filename="../tht.cpp" line="233"/>
         <source>Take screenshot...</source>
         <translation>Снимок экрана...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="126"/>
+        <location filename="../tht.cpp" line="173"/>
         <source>Clear ticker lists</source>
         <translation>Очистить списки тикеров</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="123"/>
+        <location filename="../tht.cpp" line="170"/>
         <source>Clear links</source>
         <extracomment>Infinitive</extracomment>
         <translation>Очистить ссылки</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="127"/>
-        <location filename="../tht.cpp" line="128"/>
+        <location filename="../tht.cpp" line="174"/>
+        <location filename="../tht.cpp" line="175"/>
         <source>Load ticker</source>
         <translation>Загрузить тикер</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="188"/>
+        <location filename="../tht.cpp" line="235"/>
         <source>About THT</source>
         <translation>О THT</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="132"/>
+        <location filename="../tht.cpp" line="179"/>
         <source>About Qt...</source>
         <translation>О Qt...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="131"/>
+        <location filename="../tht.cpp" line="178"/>
         <source>About THT...</source>
         <translation>О THT...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="133"/>
+        <location filename="../tht.cpp" line="180"/>
         <source>Plugins...</source>
         <translation>Плагины...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="135"/>
-        <location filename="../tht.cpp" line="190"/>
+        <location filename="../tht.cpp" line="182"/>
+        <location filename="../tht.cpp" line="237"/>
         <source>Quit</source>
         <translation>Выход</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="185"/>
+        <location filename="../tht.cpp" line="232"/>
         <source>Restore</source>
         <extracomment>Means &quot;Restore from tray&quot;</extracomment>
         <translation>Восстановить</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="332"/>
+        <location filename="../tht.cpp" line="432"/>
         <source>Notice</source>
         <translation>Заметка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="332"/>
+        <location filename="../tht.cpp" line="432"/>
         <source>THT will continue to run in a system tray</source>
         <translation>THT продолжит работу в системном лотке</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="802"/>
+        <location filename="../tht.cpp" line="904"/>
         <source>Unknown</source>
         <translation>Неизвестные</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1286"/>
+        <location filename="../tht.cpp" line="1426"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1286"/>
+        <location filename="../tht.cpp" line="1426"/>
         <source>Cannot take screenshot</source>
         <translation>Невозможно сделать снимок экрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1649"/>
+        <location filename="../tht.cpp" line="1469"/>
+        <source>New points</source>
+        <translation>Новые точки</translation>
+    </message>
+    <message>
+        <location filename="../tht.cpp" line="1851"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <translation>Все крупные современные состояния нажиты&lt;br&gt;самым бесчестным путём.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1650"/>
+        <location filename="../tht.cpp" line="1852"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <translation>&quot;Золотой Телёнок&quot; И.Ильф, Е.Петров</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1708"/>
+        <location filename="../tht.cpp" line="1910"/>
         <source>Customize...</source>
         <translation>Настроить...</translation>
     </message>
@@ -731,9 +731,14 @@ right/middle mouse button to cancel.</source>
 <context>
     <name>Target</name>
     <message>
-        <location filename="../target.cpp" line="30"/>
+        <location filename="../target.cpp" line="34"/>
         <source>Move this pointer to the window with which to establish a link</source>
         <translation>Перетащите этот указатель на окно, на которое нужно создать ссылку</translation>
+    </message>
+    <message>
+        <location filename="../target.cpp" line="39"/>
+        <source>Open YouTube tutorial</source>
+        <translation>Открыть урок на YouTube</translation>
     </message>
 </context>
 <context>

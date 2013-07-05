@@ -29,19 +29,19 @@ class LinkPointManager : public DataManagerBase
     Q_OBJECT
 
 public:
-    explicit LinkPointManager(const QList<QPoint> &currentLinks, QWidget *parent = 0);
+    explicit LinkPointManager(const LinkPointSession &currentLinks, QWidget *parent = 0);
     ~LinkPointManager();
 
-    QList<LinkPoint> links() const;
+    QList<LinkPointSession> links() const;
 
 private:
-    void addLinkPoint(const LinkPoint &, bool edit = false);
+    void addLinkPoint(const LinkPointSession &, bool edit = false);
 
 private slots:
     virtual void slotAdd();
 
 private:
-    QList<QPoint> m_currentLinks;
+    LinkPointSession m_currentLinks;
 };
 
 #endif // LINKPOINTMANAGER_H

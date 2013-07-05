@@ -19,6 +19,7 @@
 #include <QMouseEvent>
 #include <QCursor>
 #include <QPixmap>
+#include <QPoint>
 
 #include "target.h"
 
@@ -27,9 +28,22 @@ Target::Target(QWidget *parent) :
 {
     m_dragging = false;
 
+    m_drag_black = QPixmap(":/images/drag.png");
+    m_drag_red = QPixmap(":/images/drag_red.png");
+
     setToolTip(tr("Move this pointer to the window with which to establish a link"));
-    setPixmap(QPixmap(":/images/drag.png"));
+    setPixmap(m_drag_black);
     setMouseTracking(true);
+
+    setWhatsThis(QString("<a href=\"http://www.youtube.com/playlist?list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm\">%1</a>")
+                 .arg(tr("Open YouTube tutorial")));
+
+    qApp->installEventFilter(this);
+}
+
+bool Target::mayBeMaster() const
+{
+    return (QApplication::keyboardModifiers() & Qt::AltModifier);
 }
 
 void Target::mousePressEvent(QMouseEvent *event)
@@ -72,4 +86,37 @@ void Target::mouseReleaseEvent(QMouseEvent *event)
     QApplication::restoreOverrideCursor();
 
     emit dropped(p);
+}
+
+void Target::enterEvent(QEvent *e)
+{
+    Q_UNUSED(e)
+
+    if(mayBeMaster())
+        setPixmap(m_drag_red);
+}
+
+void Target::leaveEvent(QEvent *e)
+{
+    Q_UNUSED(e)
+    setPixmap(m_drag_black);
+}
+
+bool Target::eventFilter(QObject *o, QEvent *e)
+{
+    QEvent::Type type = e->type();
+
+    if(type == QEvent::KeyPress || type == QEvent::KeyRelease)
+    {
+        QKeyEvent *ke = static_cast<QKeyEvent *>(e);
+        QPoint cursorPos = mapFromGlobal(QCursor::pos());
+
+        if(ke && rect().contains(cursorPos) && ke->key() == Qt::Key_Alt)
+        {
+            setPixmap((type == QEvent::KeyPress) ? m_drag_red : m_drag_black);
+            return true;
+        }
+    }
+
+    return QObject::eventFilter(o, e);
 }

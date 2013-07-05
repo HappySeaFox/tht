@@ -35,16 +35,29 @@
 #include "settings.h"
 #include "tools.h"
 
-// serialize/deserialize LinkPoint
-static QDataStream &operator<<(QDataStream &out, const LinkPoint &lp)
+// serialize/deserialize LinkedWindow
+static QDataStream &operator<<(QDataStream &out, const LinkedWindow &lw)
 {
-    out << lp.name << lp.points;
+    out << lw.master << lw.point;
     return out;
 }
 
-static QDataStream &operator>>(QDataStream &in, LinkPoint &lp)
+static QDataStream &operator>>(QDataStream &in, LinkedWindow &lw)
 {
-    in >> lp.name >> lp.points;
+    in >> lw.master >> lw.point;
+    return in;
+}
+
+// serialize/deserialize LinkPointSession
+static QDataStream &operator<<(QDataStream &out, const LinkPointSession &lp)
+{
+    out << lp.name << lp.windows;
+    return out;
+}
+
+static QDataStream &operator>>(QDataStream &in, LinkPointSession &lp)
+{
+    in >> lp.name >> lp.windows;
     return in;
 }
 
@@ -103,6 +116,16 @@ public:
 
 /*******************************************************/
 
+LinkedWindow::LinkedWindow(bool _master, const QPoint &_point)
+    : master(_master),
+      point(_point)
+{}
+
+LinkPointSession::LinkPointSession(const QString &_name, const QList<LinkedWindow> &_windows)
+    : name(_name),
+      windows(_windows)
+{}
+
 Settings::Settings()
 {
     d = new SettingsPrivate;
@@ -115,8 +138,10 @@ Settings::Settings()
     d->settings->setFallbacksEnabled(false);
 
     qRegisterMetaTypeStreamOperators<QList<QPoint> >("QList<QPoint>");
-    qRegisterMetaTypeStreamOperators<LinkPoint>("LinkPoint");
-    qRegisterMetaTypeStreamOperators<QList<LinkPoint> >("QList<LinkPoint>");
+    qRegisterMetaTypeStreamOperators<LinkPointSession>("LinkPointSession");
+    qRegisterMetaTypeStreamOperators<QList<LinkPointSession> >("QList<LinkPointSession>");
+    qRegisterMetaTypeStreamOperators<LinkedWindow>("LinkedWindow");
+    qRegisterMetaTypeStreamOperators<QList<LinkedWindow> >("QList<LinkedWindow>");
     qRegisterMetaTypeStreamOperators<Qt::AlignmentFlag>("Qt::AlignmentFlag");
 
     d->databaseTimestampFormat = "yyyy-MM-dd hh:mm:ss.zzz";
