@@ -23,6 +23,7 @@
 #include <QDragMoveEvent>
 #include <QApplication>
 #include <QKeySequence>
+#include <QMutexLocker>
 #include <QMapIterator>
 #include <QGridLayout>
 #include <QMessageBox>
@@ -35,6 +36,7 @@
 #include <QPalette>
 #include <QEvent>
 #include <QTimer>
+#include <QMutex>
 #include <QIcon>
 #include <QMenu>
 #include <QDate>
@@ -67,8 +69,51 @@
 static const int          THT_WINDOW_STARTUP_TIMEOUT = 1200;
 static const char * const THT_PRIVATE_TICKER_PREFIX = "=THT=";
 
-THT::THT(QWidget *parent) :
-    QWidget(parent,
+static QMutex mutexForWinEventCallback;
+
+static void CALLBACK WinEventProcCallback(HWINEVENTHOOK hWinEventHook,
+                                          DWORD dwEvent,
+                                          HWND hwnd,
+                                          LONG idObject,
+                                          LONG idChild,
+                                          DWORD dwEventThread,
+                                          DWORD dwmsEventTime)
+{
+    QMutexLocker locker(&mutexForWinEventCallback);
+
+    Q_UNUSED(hWinEventHook)
+    Q_UNUSED(dwEvent)
+    Q_UNUSED(idObject)
+    Q_UNUSED(idChild)
+    Q_UNUSED(dwEventThread)
+    Q_UNUSED(dwmsEventTime)
+
+    TCHAR title[MAX_PATH];
+
+    GetWindowText(hwnd, title, sizeof(title));
+
+    QString stitle =
+#ifdef UNICODE
+        QString::fromWCharArray(title);
+#else
+        QString::fromUtf8(title);
+#endif
+
+    QRegExp rx("(" + Settings::instance()->tickerValidator().pattern() + ")\\s+");
+
+    QString ticker;
+
+    if(!rx.indexIn(stitle))
+        ticker = rx.cap(1);
+
+    if(!ticker.isEmpty())
+        THT::instance()->masterHasBeenChanged(hwnd, ticker);
+}
+
+/***************************************/
+
+THT::THT() :
+    QWidget(0,
             Qt::Window
             | Qt::WindowMinimizeButtonHint
             | Qt::WindowCloseButtonHint
@@ -79,7 +124,9 @@ THT::THT(QWidget *parent) :
     m_locked(false),
     m_lastActiveWindow(0),
     m_drawnWindow(0),
-    m_linksChanged(false)
+    m_linksChanged(false),
+    m_checkForMaster(MasterPolicyAuto),
+    m_wasActive(0)
 {
     if(SETTINGS_GET_BOOL(SETTING_ONTOP))
         setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
@@ -275,6 +322,8 @@ THT::THT(QWidget *parent) :
 
 THT::~THT()
 {
+    unhookEverybody();
+
     SETTINGS_SET_BOOL(SETTING_NYSE_ONLY, ui->checkNyse->isChecked(), Settings::NoSync);
 
     if(SETTINGS_GET_BOOL(SETTING_SAVE_GEOMETRY))
@@ -285,14 +334,14 @@ THT::~THT()
 
     if(m_linksChanged && SETTINGS_GET_BOOL(SETTING_RESTORE_LINKS_AT_STARTUP))
     {
-        QList<QPoint> list;
+        QList<LinkedWindow> list;
 
         foreach(Link l, m_windowsLoad)
         {
-            list.append(l.dropPoint);
+            list.append(LinkedWindow(l.hook, l.dropPoint));
         }
 
-        SETTINGS_SET_POINTS(SETTING_LAST_LINKS, list);
+        SETTINGS_SET_LINKED_WINDOWS(SETTING_LAST_LINKS, list);
     }
 
     SETTINGS_SET_BOOL(SETTING_SHOW_NEIGHBORS_AT_STARTUP, (bool)m_sectors);
@@ -312,6 +361,57 @@ void THT::setVisible(bool vis)
     }
 
     QWidget::setVisible(vis);
+}
+
+THT *THT::instance()
+{
+    static THT *instance = new THT;
+    return instance;
+}
+
+void THT::masterHasBeenChanged(HWND hwnd, const QString &ticker)
+{
+    qDebug("Master has been changed in window %p with ticker \"%s\"", hwnd, qPrintable(ticker));
+
+    // attach to master and set focus to us
+    HWND foregroundWindow = GetForegroundWindow();
+
+    if(foregroundWindow != winId())
+    {
+        if(!m_wasActive)
+            m_wasActive = foregroundWindow;
+
+        const DWORD currentThreadId = GetCurrentThreadId();
+        DWORD threadId = GetWindowThreadProcessId(foregroundWindow, 0);
+
+        if(!AttachThreadInput(threadId, currentThreadId, TRUE))
+        {
+            qWarning("Cannot attach to the thread %ld (%ld)", threadId, GetLastError());
+            return;
+        }
+
+        activate();
+        SetForegroundWindow(winId());
+
+        AttachThreadInput(threadId, currentThreadId, FALSE);
+    }
+    else
+        m_wasActive = 0;
+
+    activate();
+
+    foreach(Link l, m_windowsLoad)
+    {
+        if(l.hook)
+        {
+            if(l.hwnd == hwnd)
+                loadTicker(ticker, MasterPolicySkip);
+            else
+                qDebug("Master has a different window id: existing(%p), changed(%p)", l.hwnd, hwnd);
+
+            break;
+        }
+    }
 }
 
 void THT::contextMenuEvent(QContextMenuEvent *event)
@@ -344,7 +444,9 @@ void THT::closeEvent(QCloseEvent *e)
 
 bool THT::eventFilter(QObject *o, QEvent *e)
 {
-    if(e->type() == QEvent::WhatsThisClicked)
+    QEvent::Type type = e->type();
+
+    if(type == QEvent::WhatsThisClicked)
     {
         QWhatsThisClickedEvent *ce = static_cast<QWhatsThisClickedEvent *>(e);
 
@@ -808,14 +910,49 @@ void THT::checkWindows()
     ui->labelLinks_n->setToolTip(tooltip);
 }
 
-void THT::nextLoadableWindowIndex(int startFrom)
+void THT::nextLoadableWindowIndex(int delta)
 {
-    m_currentWindow += startFrom;
+    m_currentWindow += delta;
 
     if(m_ticker.startsWith('$'))
     {
         while(m_currentWindow < m_windows->size() && m_windows->at(m_currentWindow).type != LinkTypeAdvancedGet)
             m_currentWindow++;
+    }
+    else
+    {
+        int index = m_currentWindow;
+        int masterIndex = -1;
+
+        if(m_checkForMaster == MasterPolicyAuto)
+        {
+            while(index < m_windows->size())
+            {
+                if(m_windows->at(index).hook)
+                {
+                    masterIndex = index;
+                    break;
+                }
+
+                index++;
+            }
+        }
+
+        if(m_checkForMaster == MasterPolicyAuto && masterIndex >= 0)
+        {
+            m_currentWindow = masterIndex;
+            qDebug("Found AUTO index %d", m_currentWindow);
+        }
+        else if(m_checkForMaster == MasterPolicySkip)
+        {
+            while(m_currentWindow < m_windows->size() && m_windows->at(m_currentWindow).hook)
+                m_currentWindow++;
+            qDebug("Found SKIP index %d", m_currentWindow);
+        }
+        else if(m_checkForMaster == MasterPolicyIgnore)
+        {
+            qDebug("Found IGNORE index %d", m_currentWindow);
+        }
     }
 }
 
@@ -834,7 +971,13 @@ void THT::loadNextWindow()
         }
 
         busy(false);
-        activate();
+
+        if(m_wasActive && m_wasActive != winId())
+            bringToFront(m_wasActive);
+        else
+            activate();
+
+        m_wasActive = 0;
         m_running = false;
     }
     else
@@ -849,7 +992,7 @@ void THT::busy(bool b)
     ui->stackBusy->setCurrentIndex(b);
 }
 
-void THT::loadTicker(const QString &ticker)
+void THT::loadTicker(const QString &ticker, MasterLoadingPolicy masterPolicy)
 {
     qDebug("Load ticker \"%s\"", qPrintable(ticker));
 
@@ -879,6 +1022,11 @@ void THT::loadTicker(const QString &ticker)
 
     m_ticker = ticker;
     m_currentWindow = 0;
+    m_checkForMaster = masterPolicy;
+
+    if(!m_wasActive)
+        m_wasActive = winId();
+
     nextLoadableWindowIndex();
 
     if(m_currentWindow >= m_windows->size())
@@ -1221,15 +1369,7 @@ void THT::slotLoadToNextWindow()
 
     qDebug("Trying window %p", window);
 
-    // window flags to set
-    int flags = SW_SHOWNORMAL;
-
-    if(IsZoomed(window))
-        flags |= SW_SHOWMAXIMIZED;
-
-    // try to switch to this window
-    ShowWindow(window, flags);
-    SetForegroundWindow(window);
+    bringToFront(window);
 
     m_timerCheckActive->start();
 }
@@ -1313,6 +1453,8 @@ void THT::slotClearLinks()
 
     MessageBeep(MB_OK);
 
+    unhookEverybody();
+
     m_windows->clear();
 
     checkWindows();
@@ -1322,14 +1464,16 @@ void THT::slotClearLinks()
 
 void THT::slotManageLinks()
 {
-    QList<QPoint> links;
+    LinkPointSession session;
+
+    session.name = tr("New points");
 
     foreach(Link l, m_windowsLoad)
     {
-        links.append(l.dropPoint);
+        session.windows.append(LinkedWindow(l.hook, l.dropPoint));
     }
 
-    LinkPointManager mgr(links, this);
+    LinkPointManager mgr(session, this);
 
     if(mgr.exec() == QDialog::Accepted && mgr.changed())
     {
@@ -1345,13 +1489,13 @@ void THT::slotLoadLinks()
     if(!a)
         return;
 
-    QList<QPoint> links = a->data().value<QList<QPoint> >();
+    QList<LinkedWindow> links = a->data().value<QList<LinkedWindow> >();
 
     slotClearLinks();
 
-    foreach(QPoint p, links)
+    foreach(LinkedWindow lw, links)
     {
-        targetDropped(p);
+        targetDropped(lw.point, lw.master ? MasterYes : MasterNo);
     }
 }
 
@@ -1415,7 +1559,7 @@ void THT::slotTickerDropped(const Ticker &ticker, const QPoint &p)
 
     m_windows->append(link);
 
-    loadTicker(ticker.ticker);
+    loadTicker(ticker.ticker, MasterPolicyIgnore);
 }
 
 void THT::drawWindowMarker()
@@ -1465,6 +1609,28 @@ void THT::reconfigureGlobalShortcuts()
     m_restore->setEnabled(SETTINGS_GET_BOOL(SETTING_GLOBAL_HOTKEY_RESTORE));
 }
 
+void THT::unhookEverybody()
+{
+    foreach(Link l, m_windowsLoad)
+    {
+        if(l.hook)
+            l.unhook();
+    }
+}
+
+void THT::bringToFront(HWND window)
+{
+    // window flags to set
+    int flags = SW_SHOWNORMAL;
+
+    if(IsZoomed(window))
+        flags |= SW_SHOWMAXIMIZED;
+
+    // try to switch to this window
+    ShowWindow(window, flags);
+    SetForegroundWindow(window);
+}
+
 void THT::slotFomcCheck()
 {
     // start check timer again
@@ -1501,18 +1667,19 @@ void THT::slotRestoreLinks()
     // restore link points
     if(SETTINGS_GET_BOOL(SETTING_RESTORE_LINKS_AT_STARTUP))
     {
-        QList<QPoint> list = SETTINGS_GET_POINTS(SETTING_LAST_LINKS);
+        QList<LinkedWindow> list = SETTINGS_GET_LINKED_WINDOWS(SETTING_LAST_LINKS);
 
-        foreach(QPoint p, list)
+        foreach(LinkedWindow lw, list)
         {
-            targetDropped(p, false);
+            qDebug("Restoring link point: master(%s), %dx%d", lw.master ? "yes" : "no", lw.point.x(), lw.point.y());
+            targetDropped(lw.point, lw.master ? MasterYes : MasterNo, false);
         }
 
         m_linksChanged = false;
     }
 }
 
-void THT::targetDropped(const QPoint &p, bool beep)
+void THT::targetDropped(const QPoint &p, MasterSettings master, bool beep)
 {
     m_windows = &m_windowsLoad;
 
@@ -1529,6 +1696,41 @@ void THT::targetDropped(const QPoint &p, bool beep)
         return;
 
     link.dropPoint = p;
+
+    bool ismaster = false;
+
+    switch(master)
+    {
+        case MasterNo:
+            ismaster = false;
+        break;
+
+        case MasterYes:
+            ismaster = true;
+        break;
+
+        case MasterAuto:
+            ismaster = (link.type == LinkTypeThinkorswim && ui->target->mayBeMaster());
+        break;
+    }
+
+    if(ismaster)
+    {
+        unhookEverybody();
+
+        qDebug("Setting hook to process %ld", link.processId);
+
+        link.hook = SetWinEventHook(EVENT_OBJECT_NAMECHANGE,
+                                    EVENT_OBJECT_NAMECHANGE,
+                                    0,
+                                    WinEventProcCallback,
+                                    link.processId,
+                                    0,
+                                    WINEVENT_OUTOFCONTEXT | WINEVENT_SKIPOWNPROCESS | WINEVENT_SKIPOWNTHREAD);
+
+        if(!link.hook)
+            qWarning("Can't install hook to process %ld", link.processId);
+    }
 
     // beep
     if(beep)
@@ -1690,16 +1892,16 @@ void THT::rebuildLinks()
 {
     qDebug("Rebuild link menu");
 
-    QList<LinkPoint> links = SETTINGS_GET_LINKS(SETTING_LINKS);
+    QList<LinkPointSession> links = SETTINGS_GET_LINKS(SETTING_LINKS);
 
     QMenu *menu = ui->pushLinks->menu();
 
     menu->clear();
 
-    foreach(LinkPoint lp, links)
+    foreach(LinkPointSession lp, links)
     {
         QAction *a = menu->addAction(lp.name, this, SLOT(slotLoadLinks()));
-        a->setData(QVariant::fromValue(lp.points));
+        a->setData(QVariant::fromValue(lp.windows));
     }
 
     if(!links.isEmpty())
@@ -1716,4 +1918,13 @@ void THT::raiseWindow(QWidget *w)
     w->show();
     w->setWindowState(w->windowState() & ~Qt::WindowMinimized);
     w->raise();
+}
+
+void THT::Link::unhook()
+{
+    if(!hook)
+        return;
+
+    UnhookWinEvent(hook);
+    hook = 0;
 }

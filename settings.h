@@ -31,20 +31,27 @@
 
 #include <windows.h>
 
-struct LinkPoint
+struct LinkedWindow
 {
-    LinkPoint(const QString &_name = QString(), const QList<QPoint> &_points = QList<QPoint>())
-        : name(_name),
-          points(_points)
-    {}
+    LinkedWindow(bool _master = false, const QPoint &_point = QPoint());
+
+    bool master;
+    QPoint point;
+};
+
+struct LinkPointSession
+{
+    LinkPointSession(const QString &_name = QString(), const QList<LinkedWindow> &_windows = QList<LinkedWindow>());
 
     QString name;
-    QList<QPoint> points;
+    QList<LinkedWindow> windows;
 };
 
 Q_DECLARE_METATYPE(QList<QPoint>)
-Q_DECLARE_METATYPE(LinkPoint)
-Q_DECLARE_METATYPE(QList<LinkPoint>)
+Q_DECLARE_METATYPE(LinkedWindow)
+Q_DECLARE_METATYPE(QList<LinkedWindow>)
+Q_DECLARE_METATYPE(LinkPointSession)
+Q_DECLARE_METATYPE(QList<LinkPointSession>)
 Q_DECLARE_METATYPE(Qt::AlignmentFlag)
 
 #define SETTINGS_GET_BOOL Settings::instance()->value<bool>
@@ -65,8 +72,11 @@ Q_DECLARE_METATYPE(Qt::AlignmentFlag)
 #define SETTINGS_GET_POINTS Settings::instance()->value<QList<QPoint> >
 #define SETTINGS_SET_POINTS Settings::instance()->setValue<QList<QPoint> >
 
-#define SETTINGS_GET_LINKS Settings::instance()->value<QList<LinkPoint> >
-#define SETTINGS_SET_LINKS Settings::instance()->setValue<QList<LinkPoint> >
+#define SETTINGS_GET_LINKED_WINDOWS Settings::instance()->value<QList<LinkedWindow> >
+#define SETTINGS_SET_LINKED_WINDOWS Settings::instance()->setValue<QList<LinkedWindow> >
+
+#define SETTINGS_GET_LINKS Settings::instance()->value<QList<LinkPointSession> >
+#define SETTINGS_SET_LINKS Settings::instance()->setValue<QList<LinkPointSession> >
 
 #define SETTINGS_GET_SIZE Settings::instance()->value<QSize>
 #define SETTINGS_SET_SIZE Settings::instance()->setValue<QSize>

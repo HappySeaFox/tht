@@ -47,7 +47,7 @@ public:
 
 }
 
-LinkPointManager::LinkPointManager(const QList<QPoint> &currentLinks, QWidget *parent) :
+LinkPointManager::LinkPointManager(const LinkPointSession &currentLinks, QWidget *parent) :
     DataManagerBase(parent),
     m_currentLinks(currentLinks)
 {
@@ -64,12 +64,12 @@ LinkPointManager::LinkPointManager(const QList<QPoint> &currentLinks, QWidget *p
 
     t->setItemDelegateForColumn(1, new NoEditorDelegate(t));
 
-    if(m_currentLinks.isEmpty())
+    if(m_currentLinks.windows.isEmpty())
         buttonAdd()->setEnabled(false);
 
-    QList<LinkPoint> linkpoints = SETTINGS_GET_LINKS(SETTING_LINKS);
+    QList<LinkPointSession> linkpoints = SETTINGS_GET_LINKS(SETTING_LINKS);
 
-    foreach(LinkPoint lp, linkpoints)
+    foreach(LinkPointSession lp, linkpoints)
     {
         addLinkPoint(lp);
     }
@@ -80,15 +80,15 @@ LinkPointManager::LinkPointManager(const QList<QPoint> &currentLinks, QWidget *p
 LinkPointManager::~LinkPointManager()
 {}
 
-QList<LinkPoint> LinkPointManager::links() const
+QList<LinkPointSession> LinkPointManager::links() const
 {
-    QList<LinkPoint> linkpoints;
+    QList<LinkPointSession> linkpoints;
     QTreeWidget *t = tree();
     QTreeWidgetItem *i = t->topLevelItem(0);
 
     while(i)
     {
-        linkpoints.append(LinkPoint(i->text(0), i->data(0, Qt::UserRole).value<QList<QPoint> >()));
+        linkpoints.append(LinkPointSession(i->text(0), i->data(0, Qt::UserRole).value<QList<LinkedWindow> >()));
 
         i = t->itemBelow(i);
     }
@@ -96,25 +96,29 @@ QList<LinkPoint> LinkPointManager::links() const
     return linkpoints;
 }
 
-void LinkPointManager::addLinkPoint(const LinkPoint &lp, bool edit)
+void LinkPointManager::addLinkPoint(const LinkPointSession &lps, bool edit)
 {
     QString points;
 
-    points.reserve(10 * lp.points.size()); // assume 10 bytes per point: "(xxx,yyy),"
+    points.reserve(10 * lps.windows.size()); // assume 10 bytes per point: "(xxx,yyy),"
 
-    foreach(QPoint p, lp.points)
+    foreach(LinkedWindow w, lps.windows)
     {
-        points += QString("(%1,%2),").arg(p.x()).arg(p.y());
+        points += QString("%1%2,%3%4,")
+                        .arg(w.master ? '[' : '(')
+                        .arg(w.point.x())
+                        .arg(w.point.y())
+                        .arg(w.master ? ']' : ')');
     }
 
     points.chop(1);
     points.squeeze();
 
-    addItem(QStringList() << lp.name << points, QVariant::fromValue(lp.points), edit);
+    addItem(QStringList() << lps.name << points, QVariant::fromValue(lps.windows), edit);
 }
 
 void LinkPointManager::slotAdd()
 {
-    addLinkPoint(LinkPoint(tr("New points"), m_currentLinks), true);
+    addLinkPoint(m_currentLinks, true);
     setChanged(true);
 }
