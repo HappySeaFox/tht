@@ -137,7 +137,8 @@ THT::THT() :
 
     ui->setupUi(this);
 
-    QEvent::registerEventType(THT_MASTER_DATA_EVENT_TYPE);
+    qDebug("Registered master data event type: %s",
+           (QEvent::registerEventType(THT_MASTER_DATA_EVENT_TYPE) == THT_MASTER_DATA_EVENT_TYPE) ? "yes" : "no");
 
     // initialize all plugins
     PluginLoader::instance()->init();
