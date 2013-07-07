@@ -52,13 +52,10 @@ class THT : public QWidget
     Q_OBJECT
 
 public:
+    THT();
     ~THT();
 
     virtual void setVisible(bool);
-
-    static THT *instance();
-
-    void masterHasBeenChanged(HWND hwnd, const QString &ticker);
 
 protected:
     virtual void contextMenuEvent(QContextMenuEvent *event);
@@ -130,7 +127,6 @@ private:
     enum MasterSettings { MasterAuto, MasterNo, MasterYes };
     enum MasterLoadingPolicy { MasterPolicyAuto, MasterPolicySkip, MasterPolicyIgnore };
 
-    THT();
     void sendKey(int key, bool extended = false);
     void sendString(const QString &str, LinkType = LinkTypeOther);
     void rebuildUi();
@@ -150,6 +146,8 @@ private:
     void reconfigureGlobalShortcuts();
     void unhookEverybody();
     void bringToFront(HWND);
+    void masterHasBeenChanged(HWND hwnd, const QString &ticker);
+    void activateRightWindowAtEnd();
 
 public slots:
     void activate();
