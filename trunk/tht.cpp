@@ -50,6 +50,7 @@
 
 #include "tickersdatabaseupdater.h"
 #include "linkpointmanager.h"
+#include "masterdataevent.h"
 #include "savescreenshot.h"
 #include "pluginmanager.h"
 #include "regionselect.h"
@@ -68,37 +69,6 @@
 
 static const int          THT_WINDOW_STARTUP_TIMEOUT = 1200;
 static const char * const THT_PRIVATE_TICKER_PREFIX = "=THT=";
-
-static const int THT_MASTER_DATA_EVENT_TYPE = QEvent::User + 1;
-
-namespace
-{
-
-class MasterDataEvent : public QEvent
-{
-public:
-    MasterDataEvent(HWND hwnd = 0, const QString &ticker = QString()) :
-        QEvent(static_cast<QEvent::Type>(THT_MASTER_DATA_EVENT_TYPE)),
-        m_hwnd(hwnd),
-        m_ticker(ticker)
-    {}
-
-    HWND hwnd() const
-    {
-        return m_hwnd;
-    }
-
-    QString ticker() const
-    {
-        return m_ticker;
-    }
-
-private:
-    HWND m_hwnd;
-    QString m_ticker;
-};
-
-}
 
 static QMutex mutexForWinEventCallback;
 
@@ -130,7 +100,7 @@ static void CALLBACK WinEventProcCallback(HWINEVENTHOOK hWinEventHook,
         QString::fromUtf8(title);
 #endif
 
-    QRegExp rx("(" + Settings::instance()->tickerValidator().pattern() + ")\\s+");
+    QRegExp rx("(" + Settings::instance()->tickerValidator().pattern() + ")[\\s,:;]+");
 
     QString ticker;
 
@@ -1671,6 +1641,8 @@ void THT::masterHasBeenChanged(HWND hwnd, const QString &ticker)
 
 void THT::activateRightWindowAtEnd()
 {
+    qDebug("Activating %p (this %p)", m_wasActive, winId());
+
     if(m_wasActive && m_wasActive != winId())
         bringToFront(m_wasActive);
     else
@@ -1756,7 +1728,7 @@ void THT::targetDropped(const QPoint &p, MasterSettings master, bool beep)
         break;
 
         case MasterAuto:
-            ismaster = (link.type == LinkTypeThinkorswim && ui->target->mayBeMaster());
+            ismaster = ui->target->mayBeMaster();
         break;
     }
 
