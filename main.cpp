@@ -227,12 +227,13 @@ int main(int argc, char *argv[])
     app.installTranslator(&translator_tht);
     app.installTranslator(&translator_tht_lib);
 
-    // main window
-    THT::instance()->show();
-
     app.setQuitOnLastWindowClosed(false);
 
-    QObject::connect(&app, SIGNAL(messageReceived(QString)), THT::instance(), SLOT(slotMessageReceived(QString)));
+    // main window
+    THT w;
+    w.show();
+
+    QObject::connect(&app, SIGNAL(messageReceived(QString)), &w, SLOT(slotMessageReceived(QString)));
 
     qDebug("Initialized in %ld ms.", static_cast<long int>(QDateTime::currentMSecsSinceEpoch() - v));
 

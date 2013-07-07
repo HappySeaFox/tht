@@ -69,6 +69,37 @@
 static const int          THT_WINDOW_STARTUP_TIMEOUT = 1200;
 static const char * const THT_PRIVATE_TICKER_PREFIX = "=THT=";
 
+static const int THT_MASTER_DATA_EVENT_TYPE = QEvent::User + 1;
+
+namespace
+{
+
+class MasterDataEvent : public QEvent
+{
+public:
+    MasterDataEvent(HWND hwnd = 0, const QString &ticker = QString()) :
+        QEvent(static_cast<QEvent::Type>(THT_MASTER_DATA_EVENT_TYPE)),
+        m_hwnd(hwnd),
+        m_ticker(ticker)
+    {}
+
+    HWND hwnd() const
+    {
+        return m_hwnd;
+    }
+
+    QString ticker() const
+    {
+        return m_ticker;
+    }
+
+private:
+    HWND m_hwnd;
+    QString m_ticker;
+};
+
+}
+
 static QMutex mutexForWinEventCallback;
 
 static void CALLBACK WinEventProcCallback(HWINEVENTHOOK hWinEventHook,
@@ -107,7 +138,10 @@ static void CALLBACK WinEventProcCallback(HWINEVENTHOOK hWinEventHook,
         ticker = rx.cap(1);
 
     if(!ticker.isEmpty())
-        THT::instance()->masterHasBeenChanged(hwnd, ticker);
+    {
+        MasterDataEvent mde(hwnd, ticker);
+        QApplication::sendEvent(qApp, &mde);
+    }
 }
 
 /***************************************/
@@ -132,6 +166,8 @@ THT::THT() :
         setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
 
     ui->setupUi(this);
+
+    QEvent::registerEventType(THT_MASTER_DATA_EVENT_TYPE);
 
     // initialize all plugins
     PluginLoader::instance()->init();
@@ -338,7 +374,11 @@ THT::~THT()
 
         foreach(Link l, m_windowsLoad)
         {
-            list.append(LinkedWindow(l.hook, l.dropPoint));
+            LinkedWindow lw(l.hook, l.dropPoint);
+
+            qDebug("Saving link point: master(%s), %dx%d", lw.master ? "yes" : "no", lw.point.x(), lw.point.y());
+
+            list.append(lw);
         }
 
         SETTINGS_SET_LINKED_WINDOWS(SETTING_LAST_LINKS, list);
@@ -361,57 +401,6 @@ void THT::setVisible(bool vis)
     }
 
     QWidget::setVisible(vis);
-}
-
-THT *THT::instance()
-{
-    static THT *instance = new THT;
-    return instance;
-}
-
-void THT::masterHasBeenChanged(HWND hwnd, const QString &ticker)
-{
-    qDebug("Master has been changed in window %p with ticker \"%s\"", hwnd, qPrintable(ticker));
-
-    // attach to master and set focus to us
-    HWND foregroundWindow = GetForegroundWindow();
-
-    if(foregroundWindow != winId())
-    {
-        if(!m_wasActive)
-            m_wasActive = foregroundWindow;
-
-        const DWORD currentThreadId = GetCurrentThreadId();
-        DWORD threadId = GetWindowThreadProcessId(foregroundWindow, 0);
-
-        if(!AttachThreadInput(threadId, currentThreadId, TRUE))
-        {
-            qWarning("Cannot attach to the thread %ld (%ld)", threadId, GetLastError());
-            return;
-        }
-
-        activate();
-        SetForegroundWindow(winId());
-
-        AttachThreadInput(threadId, currentThreadId, FALSE);
-    }
-    else
-        m_wasActive = 0;
-
-    activate();
-
-    foreach(Link l, m_windowsLoad)
-    {
-        if(l.hook)
-        {
-            if(l.hwnd == hwnd)
-                loadTicker(ticker, MasterPolicySkip);
-            else
-                qDebug("Master has a different window id: existing(%p), changed(%p)", l.hwnd, hwnd);
-
-            break;
-        }
-    }
 }
 
 void THT::contextMenuEvent(QContextMenuEvent *event)
@@ -459,6 +448,13 @@ bool THT::eventFilter(QObject *o, QEvent *e)
         }
 
         return true;
+    }
+    else if(type == THT_MASTER_DATA_EVENT_TYPE)
+    {
+        MasterDataEvent *mde = static_cast<MasterDataEvent *>(e);
+
+        if(mde)
+            masterHasBeenChanged(mde->hwnd(), mde->ticker());
     }
 
     return QObject::eventFilter(o, e);
@@ -971,11 +967,7 @@ void THT::loadNextWindow()
         }
 
         busy(false);
-
-        if(m_wasActive && m_wasActive != winId())
-            bringToFront(m_wasActive);
-        else
-            activate();
+        activateRightWindowAtEnd();
 
         m_wasActive = 0;
         m_running = false;
@@ -1016,7 +1008,6 @@ void THT::loadTicker(const QString &ticker, MasterLoadingPolicy masterPolicy)
     if(m_windows->isEmpty())
     {
         qDebug("No windows configured");
-        m_running = false;
         return;
     }
 
@@ -1032,6 +1023,8 @@ void THT::loadTicker(const QString &ticker, MasterLoadingPolicy masterPolicy)
     if(m_currentWindow >= m_windows->size())
     {
         qDebug("Cannot find where to load the ticker");
+        activateRightWindowAtEnd();
+        m_wasActive = 0;
         return;
     }
 
@@ -1629,6 +1622,59 @@ void THT::bringToFront(HWND window)
     // try to switch to this window
     ShowWindow(window, flags);
     SetForegroundWindow(window);
+}
+
+void THT::masterHasBeenChanged(HWND hwnd, const QString &ticker)
+{
+    qDebug("Master has been changed in window %p with ticker \"%s\"", hwnd, qPrintable(ticker));
+
+    // check the window id
+    foreach(Link l, m_windowsLoad)
+    {
+        if(l.hook && l.hwnd != hwnd)
+        {
+            qDebug("Master has a different window id: existing(%p), changed(%p)", l.hwnd, hwnd);
+            return;
+        }
+    }
+
+    // attach to master and set focus to us
+    HWND foregroundWindow = GetForegroundWindow();
+
+    if(foregroundWindow != winId())
+    {
+        if(!m_wasActive)
+            m_wasActive = foregroundWindow;
+
+        const DWORD currentThreadId = GetCurrentThreadId();
+        DWORD threadId = GetWindowThreadProcessId(foregroundWindow, 0);
+
+        if(!AttachThreadInput(threadId, currentThreadId, TRUE))
+        {
+            qWarning("Cannot attach to the thread %ld (%ld)", threadId, GetLastError());
+            return;
+        }
+
+        activate();
+        SetForegroundWindow(winId());
+
+        AttachThreadInput(threadId, currentThreadId, FALSE);
+    }
+    else
+    {
+        m_wasActive = 0;
+        activate();
+    }
+
+    loadTicker(ticker, MasterPolicySkip);
+}
+
+void THT::activateRightWindowAtEnd()
+{
+    if(m_wasActive && m_wasActive != winId())
+        bringToFront(m_wasActive);
+    else
+        activate();
 }
 
 void THT::slotFomcCheck()
