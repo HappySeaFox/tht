@@ -115,6 +115,7 @@ Q_DECLARE_METATYPE(Qt::AlignmentFlag)
 #define SETTING_SAVE_TICKERS                 "save-tickers"
 #define SETTING_GLOBAL_HOTKEY_SCREENSHOT     "global-hotkey-screenshot"
 #define SETTING_GLOBAL_HOTKEY_RESTORE        "global-hotkey-restore"
+#define SETTING_IS_WINDOW_SQUEEZED           "is-window-squeezed"
 
 class SettingsPrivate;
 

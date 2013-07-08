@@ -28,6 +28,7 @@
 #include <QGridLayout>
 #include <QMessageBox>
 #include <QCloseEvent>
+#include <QWheelEvent>
 #include <QDropEvent>
 #include <QFileInfo>
 #include <QShortcut>
@@ -134,7 +135,9 @@ THT::THT() :
     m_drawnWindow(0),
     m_linksChanged(false),
     m_checkForMaster(MasterPolicyAuto),
-    m_wasActive(0)
+    m_wasActive(0),
+    m_justTitle(false),
+    m_lastHeightBeforeSqueezing(0)
 {
     if(SETTINGS_GET_BOOL(SETTING_ONTOP))
         setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
@@ -232,6 +235,9 @@ THT::THT() :
 
         if(sz.isValid())
             resize(sz);
+
+        if(SETTINGS_GET_BOOL(SETTING_IS_WINDOW_SQUEEZED))
+            squeeze(true);
 
         Tools::moveWindow(this, SETTINGS_GET_POINT(SETTING_POSITION));
     }
@@ -339,7 +345,13 @@ THT::~THT()
 
     if(SETTINGS_GET_BOOL(SETTING_SAVE_GEOMETRY))
     {
-        SETTINGS_SET_SIZE(SETTING_SIZE, size(), Settings::NoSync);
+        QSize size(width(), height());
+
+        if(m_justTitle)
+            size.setHeight(m_lastHeightBeforeSqueezing);
+
+        SETTINGS_SET_BOOL(SETTING_IS_WINDOW_SQUEEZED, m_justTitle, Settings::NoSync);
+        SETTINGS_SET_SIZE(SETTING_SIZE, size, Settings::NoSync);
         SETTINGS_SET_POINT(SETTING_POSITION, pos(), Settings::NoSync);
     }
 
@@ -430,6 +442,8 @@ bool THT::eventFilter(QObject *o, QEvent *e)
 
         if(mde)
             masterHasBeenChanged(mde->hwnd(), mde->ticker());
+
+        return true;
     }
 
     return QObject::eventFilter(o, e);
@@ -488,6 +502,25 @@ void THT::dropEvent(QDropEvent *e)
         else
             qDebug("Dropped ticker doesn't match the regexp");
     }
+}
+
+void THT::wheelEvent(QWheelEvent *e)
+{
+    if(!(QApplication::keyboardModifiers() & Qt::AltModifier))
+        return;
+
+    QRect globalRect(frameGeometry());
+
+    if(!globalRect.contains(e->globalPos()) || e->pos().y() >= 0)
+        return;
+
+    if(e->delta() > 0)
+    {
+        if(!m_justTitle)
+            squeeze(true);
+    }
+    else if(m_justTitle)
+        squeeze(false);
 }
 
 void THT::sendKey(int key, bool extended)
@@ -1231,6 +1264,7 @@ void THT::slotOptions()
         {
             SETTINGS_SET_SIZE(SETTING_SIZE, QSize(), Settings::NoSync);
             SETTINGS_SET_POINT(SETTING_POSITION, QPoint(), Settings::NoSync);
+            SETTINGS_SET_BOOL(SETTING_IS_WINDOW_SQUEEZED, false);
 
             SETTINGS_SET_SIZE(SETTING_NEIGHBORS_SIZE, QSize(), Settings::NoSync);
             SETTINGS_SET_POINT(SETTING_NEIGHBORS_POSITION, Tools::invalidQPoint); // also sync
@@ -1665,6 +1699,23 @@ void THT::activateRightWindowAtEnd()
         bringToFront(m_wasActive);
     else
         activate();
+}
+
+void THT::squeeze(bool yes)
+{
+    if(yes)
+    {
+        m_lastHeightBeforeSqueezing = height();
+        setFixedHeight(1);
+        m_justTitle = true;
+    }
+    else
+    {
+        setMinimumHeight(0);
+        setMaximumHeight(QWIDGETSIZE_MAX);
+        resize(width(), m_lastHeightBeforeSqueezing);
+        m_justTitle = false;
+    }
 }
 
 void THT::slotFomcCheck()
