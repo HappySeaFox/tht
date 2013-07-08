@@ -91,7 +91,11 @@ static void CALLBACK WinEventProcCallback(HWINEVENTHOOK hWinEventHook,
 
     TCHAR title[MAX_PATH];
 
-    GetWindowText(hwnd, title, sizeof(title));
+    if(!GetWindowText(hwnd, title, sizeof(title)))
+    {
+        qWarning("Cannot get window text in window %p (%ld)", hwnd, GetLastError());
+        return;
+    }
 
     QString stitle =
 #ifdef UNICODE
@@ -798,14 +802,6 @@ THT::Link THT::checkTargetWindow(const QPoint &p, bool allowThisWindow)
             qWarning("Cannot get a class name for subcontrol %p (%ld)", link.subControl, GetLastError());
         else if(!lstrcmp(name, TEXT("Edit")))
             link.subControlSupportsClearing = true;
-
-        QString stitle =
-    #ifdef UNICODE
-            QString::fromWCharArray(name);
-    #else
-            QString::fromUtf8(name);
-    #endif
-        //qDebug("CLASS %s", );
     }
 
     qDebug("Subcontrol: %p", link.subControl);
