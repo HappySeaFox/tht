@@ -65,6 +65,7 @@ protected:
     virtual void dragMoveEvent(QDragMoveEvent *e);
     virtual void dragLeaveEvent(QDragLeaveEvent *e);
     virtual void dropEvent(QDropEvent *e);
+    virtual void wheelEvent(QWheelEvent *);
 
 private:
     enum LinkType { LinkTypeNotInitialized,
@@ -149,6 +150,7 @@ private:
     void bringToFront(HWND);
     void masterHasBeenChanged(HWND hwnd, const QString &ticker);
     void activateRightWindowAtEnd();
+    void squeeze(bool);
 
 public slots:
     void activate();
@@ -219,6 +221,8 @@ private:
     bool m_linksChanged;
     MasterLoadingPolicy m_checkForMaster;
     HWND m_wasActive;
+    bool m_justTitle;
+    int m_lastHeightBeforeSqueezing;
 };
 
 #endif // THT_H
