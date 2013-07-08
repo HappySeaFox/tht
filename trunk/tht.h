@@ -73,6 +73,7 @@ private:
                     LinkTypeGraybox,
                     LinkTypeThinkorswim,
                     LinkTypeLaser,
+                    LinkTypeRealTick,
                     LinkTypeROX,
                     LinkTypeSterlingTraderPro,
                     LinkTypeLightspeed,

@@ -693,37 +693,37 @@ right/middle mouse button to cancel.</source>
         <translation>THT продолжит работу в системном лотке</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="871"/>
+        <location filename="../tht.cpp" line="892"/>
         <source>Unknown</source>
         <translation>Неизвестные</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1390"/>
+        <location filename="../tht.cpp" line="1411"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1390"/>
+        <location filename="../tht.cpp" line="1411"/>
         <source>Cannot take screenshot</source>
         <translation>Невозможно сделать снимок экрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1433"/>
+        <location filename="../tht.cpp" line="1454"/>
         <source>New points</source>
         <translation>Новые точки</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1870"/>
+        <location filename="../tht.cpp" line="1891"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <translation>Все крупные современные состояния нажиты&lt;br&gt;самым бесчестным путём.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1871"/>
+        <location filename="../tht.cpp" line="1892"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <translation>&quot;Золотой Телёнок&quot; И.Ильф, Е.Петров</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1929"/>
+        <location filename="../tht.cpp" line="1950"/>
         <source>Customize...</source>
         <translation>Настроить...</translation>
     </message>
