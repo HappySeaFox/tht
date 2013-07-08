@@ -714,6 +714,8 @@ void THT::checkWindow(Link *link)
         link->type = LinkTypeROX;
     else if(sname == "archeclient.exe")
         link->type = LinkTypeArchePro;
+    else if(cname == "REALTICK")
+        link->type = LinkTypeRealTick;
     else
         link->type = LinkTypeOther;
 
@@ -752,20 +754,9 @@ THT::Link THT::checkTargetWindow(const QPoint &p, bool allowThisWindow)
         return Link();
     }
 
-    // already linked?
-    QList<Link>::iterator itEnd = m_windows->end();
-
-    for(QList<Link>::iterator it = m_windows->begin();it != itEnd;++it)
-    {
-        if((*it).hwnd == hwnd)
-        {
-            qDebug("Window %p is already linked", hwnd);
-            return Link();
-        }
-    }
-
     Link link = Link(hwnd);
 
+    // get and check subcontrol
     link.subControl = Tools::RealWindowFromPoint(pnt);
 
     if(link.subControl == link.hwnd)
@@ -779,6 +770,26 @@ THT::Link THT::checkTargetWindow(const QPoint &p, bool allowThisWindow)
         link.subControl = 0;
     }
 
+    // already linked?
+    QList<Link>::iterator itEnd = m_windows->end();
+
+    for(QList<Link>::iterator it = m_windows->begin();it != itEnd;++it)
+    {
+        if(link.subControl)
+        {
+            if((*it).subControl == link.subControl)
+            {
+                qDebug("Window %p/%p is already linked", hwnd, link.subControl);
+                return Link();
+            }
+        }
+        else if(!(*it).subControl && (*it).hwnd == link.hwnd)
+        {
+            qDebug("Window %p is already linked", hwnd);
+            return Link();
+        }
+    }
+
     if(link.subControl)
     {
         TCHAR name[256];
@@ -787,6 +798,14 @@ THT::Link THT::checkTargetWindow(const QPoint &p, bool allowThisWindow)
             qWarning("Cannot get a class name for subcontrol %p (%ld)", link.subControl, GetLastError());
         else if(!lstrcmp(name, TEXT("Edit")))
             link.subControlSupportsClearing = true;
+
+        QString stitle =
+    #ifdef UNICODE
+            QString::fromWCharArray(name);
+    #else
+            QString::fromUtf8(name);
+    #endif
+        //qDebug("CLASS %s", );
     }
 
     qDebug("Subcontrol: %p", link.subControl);
@@ -849,6 +868,8 @@ void THT::checkWindows()
             mappings["MBT Desktop"]++;
         else if((*it).type == LinkTypeMBTDesktopPro)
             mappings["MBT Desktop Pro"]++;
+        else if((*it).type == LinkTypeRealTick)
+            mappings["RealTick"]++;
         else if((*it).type == LinkTypeROX)
             mappings["ROX"]++;
         else if((*it).type == LinkTypeTakion)
