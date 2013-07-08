@@ -514,13 +514,7 @@ void THT::wheelEvent(QWheelEvent *e)
     if(!globalRect.contains(e->globalPos()) || e->pos().y() >= 0)
         return;
 
-    if(e->delta() > 0)
-    {
-        if(!m_justTitle)
-            squeeze(true);
-    }
-    else if(m_justTitle)
-        squeeze(false);
+    squeeze(e->delta() > 0);
 }
 
 void THT::sendKey(int key, bool extended)
@@ -1705,11 +1699,14 @@ void THT::squeeze(bool yes)
 {
     if(yes)
     {
-        m_lastHeightBeforeSqueezing = height();
-        setFixedHeight(1);
-        m_justTitle = true;
+        if(!m_justTitle)
+        {
+            m_lastHeightBeforeSqueezing = height();
+            setFixedHeight(1);
+            m_justTitle = true;
+        }
     }
-    else
+    else if(m_justTitle)
     {
         setMinimumHeight(0);
         setMaximumHeight(QWIDGETSIZE_MAX);
