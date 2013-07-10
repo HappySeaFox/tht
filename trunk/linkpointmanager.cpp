@@ -39,7 +39,6 @@ LinkPointManager::LinkPointManager(const LinkPointSession &currentLinks, QWidget
 
     t->headerItem()->setText(1, tr("Link points"));
     t->setWhatsThis(QString("<a href=\"http://www.youtube.com/watch?v=1PlpDwhgLEs\">%1</a>").arg(tr("Open YouTube tutorial")));
-
     t->setItemDelegateForColumn(1, new NoEditorDelegate(t));
 
     if(m_currentLinks.windows.isEmpty())
