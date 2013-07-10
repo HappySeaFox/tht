@@ -958,6 +958,7 @@ void THT::nextLoadableWindowIndex(int delta)
         {
             while(m_currentWindow < m_windows->size() && m_windows->at(m_currentWindow).hook)
                 m_currentWindow++;
+
             qDebug("Found SKIP index %d", m_currentWindow);
         }
         else if(m_checkForMaster == MasterPolicyIgnore)
