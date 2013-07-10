@@ -124,6 +124,7 @@ DOWNLOADROOT="http://sourceforge.net/projects/tht"
 IMAGEPLUGINS=qico4.dll qjpeg4.dll
 SQLPLUGINS=qsqlite4.dll
 CODECPLUGINS=qcncodecs4.dll qjpcodecs4.dll qtwcodecs4.dll qkrcodecs4.dll
+BEARERPLUGINS=qgenericbearer4.dll qnativewifibearer4.dll
 QTLIBS=QtCore4.dll QtGui4.dll QtNetwork4.dll QtScript4.dll QtSql4.dll QtXml4.dll QtXmlPatterns4.dll
 SSLLIBS=libeay32.dll ssleay32.dll
 MINGWLIBS=libgcc_s_sjlj-1.dll libwinpthread-1.dll libstdc++-6.dll
@@ -166,6 +167,7 @@ QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite
 
     distbin.commands += $$mle(if exist \"$$T\" rd /S /Q \"$$T\")
     distbin.commands += $$mle(mkdir \"$$T\")
+    distbin.commands += $$mle(mkdir \"$$T/bearer\")
     distbin.commands += $$mle(mkdir \"$$T/codecs\")
     distbin.commands += $$mle(mkdir \"$$T/imageformats\")
     distbin.commands += $$mle(mkdir \"$$T/sqldrivers\")
@@ -187,6 +189,10 @@ QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite
 
     for(ml, MINGWLIBS) {
         distbin.commands += $$mle(copy /y \"$$GCCDIR\\$$ml\" \"$$T\")
+    }
+
+    for(bp, BEARERPLUGINS) {
+        distbin.commands += $$mle(copy /y \"$$[QT_INSTALL_PLUGINS]\\bearer\\$$bp\" \"$$T/bearer\")
     }
 
     for(ip, IMAGEPLUGINS) {
@@ -319,6 +325,10 @@ exists($$INNO) {
 
     for(sl, SSLLIBS) {
         iss.commands += $$mle(echo Source: \"$$[QT_INSTALL_BINS]\\$$sl\"; DestDir: \"{app}\"; Flags: ignoreversion >> $$ISS)
+    }
+
+    for(bp, BEARERPLUGINS) {
+        iss.commands += $$mle(echo Source: \"$$[QT_INSTALL_PLUGINS]\\bearer\\$$bp\"; DestDir: \"{app}\\bearer\"; Flags: ignoreversion >> $$ISS)
     }
 
     for(ip, IMAGEPLUGINS) {
