@@ -508,7 +508,7 @@ bool Widget::commit()
 
     ui->list->addItems(QString(p.readAll()).split('\n'));
 
-    int code = p.exitCode() || (p.exitStatus() != QProcess::NormalExit);
+    int code = p.exitCode() || p.exitStatus();
 
     if(code)
     {
