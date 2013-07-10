@@ -599,8 +599,8 @@ right/middle mouse button to cancel.</source>
     </message>
     <message>
         <location filename="../tht.ui" line="267"/>
-        <source>News from FOMC is today</source>
-        <translation>Сегодня новости от FOMC</translation>
+        <source>News from FOMC is today (click to open)</source>
+        <translation>Сегодня новости от FOMC (кликните чтобы открыть)</translation>
     </message>
     <message>
         <location filename="../tht.ui" line="270"/>

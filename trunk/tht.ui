@@ -264,7 +264,7 @@
       </font>
      </property>
      <property name="toolTip">
-      <string>News from FOMC is today</string>
+      <string>News from FOMC is today (click to open)</string>
      </property>
      <property name="text">
       <string>FOMC</string>
