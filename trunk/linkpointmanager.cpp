@@ -15,37 +15,15 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <QStyledItemDelegate>
 #include <QStringList>
 #include <QHeaderView>
 #include <QVariant>
 
 #include "linkpointmanager.h"
+#include "noeditordelegate.h"
 #include "settings.h"
 
 #include "ui_datamanagerbase.h"
-
-namespace
-{
-
-class NoEditorDelegate : public QStyledItemDelegate
-{
-public:
-    NoEditorDelegate(QObject *parent) :
-        QStyledItemDelegate(parent)
-    {}
-
-    virtual QWidget* createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const
-    {
-        Q_UNUSED(parent)
-        Q_UNUSED(option)
-        Q_UNUSED(index)
-
-        return 0;
-    }
-};
-
-}
 
 LinkPointManager::LinkPointManager(const LinkPointSession &currentLinks, QWidget *parent) :
     DataManagerBase(parent),

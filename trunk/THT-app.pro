@@ -44,7 +44,8 @@ SOURCES += main.cpp\
     pluginmanager.cpp \
     plugindetails.cpp \
     persistentselectiondelegate.cpp \
-    masterdataevent.cpp
+    masterdataevent.cpp \
+    noeditordelegate.cpp
 
 HEADERS += tht.h \
     list.h \
@@ -82,7 +83,8 @@ HEADERS += tht.h \
     pluginmanager.h \
     plugindetails.h \
     persistentselectiondelegate.h \
-    masterdataevent.h
+    masterdataevent.h \
+    noeditordelegate.h
 
 FORMS += tht.ui \
     list.ui \

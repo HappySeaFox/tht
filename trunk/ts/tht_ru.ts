@@ -76,20 +76,20 @@
 <context>
     <name>LinkPointManager</name>
     <message>
-        <location filename="../linkpointmanager.cpp" line="55"/>
-        <location filename="../linkpointmanager.cpp" line="62"/>
+        <location filename="../linkpointmanager.cpp" line="33"/>
+        <location filename="../linkpointmanager.cpp" line="40"/>
         <source>Link points</source>
         <extracomment>Noun. Means &quot;Points of linkage&quot;</extracomment>
         <translation>Точки линковки</translation>
     </message>
     <message>
-        <location filename="../linkpointmanager.cpp" line="58"/>
+        <location filename="../linkpointmanager.cpp" line="36"/>
         <source>Add current</source>
         <extracomment>Means &quot;Add current link points&quot; (in the plural)</extracomment>
         <translation>Добавить текущие</translation>
     </message>
     <message>
-        <location filename="../linkpointmanager.cpp" line="63"/>
+        <location filename="../linkpointmanager.cpp" line="41"/>
         <source>Open YouTube tutorial</source>
         <translation>Открыть урок на YouTube</translation>
     </message>
