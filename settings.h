@@ -116,6 +116,10 @@ Q_DECLARE_METATYPE(Qt::AlignmentFlag)
 #define SETTING_GLOBAL_HOTKEY_SCREENSHOT     "global-hotkey-screenshot"
 #define SETTING_GLOBAL_HOTKEY_RESTORE        "global-hotkey-restore"
 #define SETTING_IS_WINDOW_SQUEEZED           "is-window-squeezed"
+#define SETTING_DROPBOX_TOKEN                "dropbox-token"
+#define SETTING_DROPBOX_TOKEN_SECRET         "dropbox-token-secret"
+#define SETTING_DROPBOX_ACCESS_TOKEN         "dropbox-access-token"
+#define SETTING_DROPBOX_ACCESS_TOKEN_SECRET  "dropbox-access-token-secret"
 
 class SettingsPrivate;
 

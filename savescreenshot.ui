@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>292</width>
+    <width>400</width>
     <height>45</height>
    </rect>
   </property>
@@ -24,13 +24,10 @@
      </property>
     </widget>
    </item>
-   <item row="0" column="3">
-    <widget class="QPushButton" name="pushFile">
-     <property name="text">
-      <string>File...</string>
-     </property>
-     <property name="shortcut">
-      <string>F</string>
+   <item row="0" column="1">
+    <widget class="Line" name="line">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
      </property>
     </widget>
    </item>
@@ -44,10 +41,23 @@
      </property>
     </widget>
    </item>
-   <item row="0" column="1">
-    <widget class="Line" name="line">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
+   <item row="0" column="3">
+    <widget class="QPushButton" name="pushFile">
+     <property name="text">
+      <string>File...</string>
+     </property>
+     <property name="shortcut">
+      <string>F</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="4">
+    <widget class="QPushButton" name="pushDropbox">
+     <property name="text">
+      <string>Dropbox...</string>
+     </property>
+     <property name="shortcut">
+      <string>D</string>
      </property>
     </widget>
    </item>
@@ -92,9 +102,26 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushDropbox</sender>
+   <signal>clicked()</signal>
+   <receiver>SaveScreenshot</receiver>
+   <slot>slotDropbox()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>344</x>
+     <y>22</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>351</x>
+     <y>100</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>slotClipboard()</slot>
   <slot>slotFile()</slot>
+  <slot>slotDropbox()</slot>
  </slots>
 </ui>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>FinvizDownloader</class>
- <widget class="QDialog" name="FinvizDownloader">
+ <class>DropBoxUploader</class>
+ <widget class="QDialog" name="DropBoxUploader">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,11 +11,18 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Finviz</string>
+   <string>Dropbox</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="1" column="0">
-    <widget class="QProgressBar" name="progressBar">
+   <item row="0" column="0">
+    <widget class="QLabel" name="label">
+     <property name="openExternalLinks">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" colspan="2">
+    <widget class="QProgressBar" name="progress">
      <property name="maximum">
       <number>0</number>
      </property>
@@ -24,14 +31,14 @@
      </property>
     </widget>
    </item>
-   <item row="1" column="1">
-    <widget class="QPushButton" name="pushClose">
+   <item row="1" column="2">
+    <widget class="QPushButton" name="pushCancel">
      <property name="text">
-      <string>Close</string>
+      <string>Cancel</string>
      </property>
     </widget>
    </item>
-   <item row="2" column="0">
+   <item row="2" column="1">
     <spacer name="verticalSpacer">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
@@ -39,35 +46,28 @@
      <property name="sizeHint" stdset="0">
       <size>
        <width>20</width>
-       <height>0</height>
+       <height>1</height>
       </size>
      </property>
     </spacer>
-   </item>
-   <item row="0" column="0" colspan="2">
-    <widget class="QLabel" name="label">
-     <property name="text">
-      <string>Downloading tickers...</string>
-     </property>
-    </widget>
    </item>
   </layout>
  </widget>
  <resources/>
  <connections>
   <connection>
-   <sender>pushClose</sender>
+   <sender>pushCancel</sender>
    <signal>clicked()</signal>
-   <receiver>FinvizDownloader</receiver>
-   <slot>reject()</slot>
+   <receiver>DropBoxUploader</receiver>
+   <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>304</x>
-     <y>37</y>
+     <x>250</x>
+     <y>60</y>
     </hint>
     <hint type="destinationlabel">
-     <x>307</x>
-     <y>84</y>
+     <x>245</x>
+     <y>145</y>
     </hint>
    </hints>
   </connection>

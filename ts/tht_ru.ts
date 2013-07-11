@@ -74,6 +74,126 @@
     </message>
 </context>
 <context>
+    <name>DropBoxUploader</name>
+    <message>
+        <location filename="../dropboxuploader.ui" line="14"/>
+        <location filename="../dropboxuploader.cpp" line="119"/>
+        <source>Dropbox</source>
+        <translation>Dropbox</translation>
+    </message>
+    <message>
+        <location filename="../dropboxuploader.ui" line="37"/>
+        <source>Cancel</source>
+        <translation>Отмена</translation>
+    </message>
+    <message>
+        <location filename="../dropboxuploader.cpp" line="77"/>
+        <source>Network error</source>
+        <translation>Ошибка сети</translation>
+    </message>
+    <message>
+        <location filename="../dropboxuploader.cpp" line="78"/>
+        <source>Used API version is not supported</source>
+        <translation>Использованная версия API не поддерживается</translation>
+    </message>
+    <message>
+        <location filename="../dropboxuploader.cpp" line="79"/>
+        <source>Used authentication method is not supported</source>
+        <translation>Использованный метод проверки подлинности не поддерживается</translation>
+    </message>
+    <message>
+        <location filename="../dropboxuploader.cpp" line="80"/>
+        <source>Unexpected response</source>
+        <translation>Непредвиденный ответ</translation>
+    </message>
+    <message>
+        <location filename="../dropboxuploader.cpp" line="81"/>
+        <source>API error</source>
+        <translation>Ошибка API</translation>
+    </message>
+    <message>
+        <location filename="../dropboxuploader.cpp" line="82"/>
+        <source>Unknown query method</source>
+        <translation>Неизвестный метод запроса</translation>
+    </message>
+    <message>
+        <location filename="../dropboxuploader.cpp" line="83"/>
+        <source>Bad parameter</source>
+        <translation>Некорректный параметр</translation>
+    </message>
+    <message>
+        <location filename="../dropboxuploader.cpp" line="84"/>
+        <source>Bad oAuth request</source>
+        <translation>Некорректный запрос oAuth</translation>
+    </message>
+    <message>
+        <location filename="../dropboxuploader.cpp" line="85"/>
+        <source>Bad HTTP method</source>
+        <translation>Некорректный HTTP метод</translation>
+    </message>
+    <message>
+        <location filename="../dropboxuploader.cpp" line="86"/>
+        <source>Maximum amount of requests exceeded</source>
+        <translation>Исчерпано максимально допустимое количество запросов</translation>
+    </message>
+    <message>
+        <location filename="../dropboxuploader.cpp" line="87"/>
+        <source>Quota exceeded</source>
+        <translation>Превышена квота</translation>
+    </message>
+    <message>
+        <location filename="../dropboxuploader.cpp" line="88"/>
+        <source>Token has expired</source>
+        <translation>Маркер истёк</translation>
+    </message>
+    <message>
+        <location filename="../dropboxuploader.cpp" line="91"/>
+        <source>Unknown error</source>
+        <translation>Неизвестная ошибка</translation>
+    </message>
+    <message>
+        <location filename="../dropboxuploader.cpp" line="157"/>
+        <source>Cannot get the link to the file</source>
+        <translation>Невозможно получить ссылку на файл</translation>
+    </message>
+    <message>
+        <location filename="../dropboxuploader.cpp" line="179"/>
+        <source>Requesting new token...</source>
+        <translation>Запрос нового маркера...</translation>
+    </message>
+    <message>
+        <location filename="../dropboxuploader.cpp" line="196"/>
+        <source>Requesting new access token...</source>
+        <translation>Запрос нового маркера на доступ...</translation>
+    </message>
+    <message>
+        <location filename="../dropboxuploader.cpp" line="210"/>
+        <source>Uploading...</source>
+        <translation>Загрузка...</translation>
+    </message>
+    <message>
+        <location filename="../dropboxuploader.cpp" line="228"/>
+        <source>Requesting link...</source>
+        <translation>Запрос ссылки...</translation>
+    </message>
+    <message>
+        <location filename="../dropboxuploader.cpp" line="222"/>
+        <location filename="../dropboxuploader.cpp" line="235"/>
+        <source>Cannot upload file (%1)</source>
+        <translation>Невозможно загрузить файл (%1)</translation>
+    </message>
+    <message>
+        <location filename="../dropboxuploader.cpp" line="120"/>
+        <source>You need to authorize THT in your Dropbox account. Click &apos;OK&apos; to open the link in browser. After that open this dialog again</source>
+        <translation>Вам необходимо авторизовать THT в вашем профиле Dropbox. Нажмите &apos;OK&apos; чтобы открыть ссылку в браузере. После этого откройте данный диалог снова</translation>
+    </message>
+    <message>
+        <location filename="../dropboxuploader.cpp" line="241"/>
+        <source>Close</source>
+        <translation>Закрыть</translation>
+    </message>
+</context>
+<context>
     <name>LinkPointManager</name>
     <message>
         <location filename="../linkpointmanager.cpp" line="33"/>
@@ -426,42 +546,54 @@ right/middle mouse button to cancel.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../savescreenshot.ui" line="33"/>
+        <location filename="../savescreenshot.ui" line="50"/>
         <source>F</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../savescreenshot.ui" line="40"/>
+        <location filename="../savescreenshot.ui" line="57"/>
+        <source>Dropbox...</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../savescreenshot.ui" line="60"/>
+        <source>D</source>
+        <translation>D</translation>
+    </message>
+    <message>
+        <location filename="../savescreenshot.ui" line="37"/>
         <source>Clipboard</source>
         <translation>Буфер обмена</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.ui" line="43"/>
+        <location filename="../savescreenshot.ui" line="40"/>
         <source>C</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../savescreenshot.ui" line="30"/>
+        <location filename="../savescreenshot.ui" line="47"/>
         <source>File...</source>
         <translation>Файл...</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="68"/>
+        <location filename="../savescreenshot.cpp" line="80"/>
         <source>Image %1 (*.%2)</source>
         <translation>Изображение %1 (*.%2)</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="81"/>
+        <location filename="../savescreenshot.cpp" line="88"/>
         <source>Save as</source>
         <translation>Сохранить как</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="99"/>
+        <location filename="../savescreenshot.cpp" line="107"/>
+        <location filename="../savescreenshot.cpp" line="131"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="99"/>
+        <location filename="../savescreenshot.cpp" line="107"/>
+        <location filename="../savescreenshot.cpp" line="131"/>
         <source>Cannot save screenshot</source>
         <translation>Невозможно сохранить снимок экрана</translation>
     </message>
