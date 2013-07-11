@@ -1,11 +1,11 @@
 TARGET = THT
 TEMPLATE = app
 
-QT += core gui network
+QT += core gui network xml
 greaterThan(QT_MAJOR_VERSION, 4): QT *= widgets
 
-INCLUDEPATH += qtsingleapplication qxt colorpicker
-DEPENDPATH += qtsingleapplication qxt colorpicker
+INCLUDEPATH += qtsingleapplication qxt colorpicker qtdropbox
+DEPENDPATH += qtsingleapplication qxt colorpicker qtdropbox
 
 SOURCES += main.cpp\
     tht.cpp \
@@ -45,7 +45,13 @@ SOURCES += main.cpp\
     plugindetails.cpp \
     persistentselectiondelegate.cpp \
     masterdataevent.cpp \
-    noeditordelegate.cpp
+    noeditordelegate.cpp \
+    qtdropbox/qdropboxjson.cpp \
+    qtdropbox/qdropboxfileinfo.cpp \
+    qtdropbox/qdropboxfile.cpp \
+    qtdropbox/qdropboxaccount.cpp \
+    qtdropbox/qdropbox.cpp \
+    dropboxuploader.cpp
 
 HEADERS += tht.h \
     list.h \
@@ -84,7 +90,15 @@ HEADERS += tht.h \
     plugindetails.h \
     persistentselectiondelegate.h \
     masterdataevent.h \
-    noeditordelegate.h
+    noeditordelegate.h \
+    qtdropbox/qtdropbox_global.h \
+    qtdropbox/qtdropbox.h \
+    qtdropbox/qdropboxjson.h \
+    qtdropbox/qdropboxfileinfo.h \
+    qtdropbox/qdropboxfile.h \
+    qtdropbox/qdropboxaccount.h \
+    qtdropbox/qdropbox.h \
+    dropboxuploader.h
 
 FORMS += tht.ui \
     list.ui \
@@ -99,7 +113,8 @@ FORMS += tht.ui \
     inlinetextinput.ui \
     tickercommentinput.ui \
     pluginmanager.ui \
-    plugindetails.ui
+    plugindetails.ui \
+    dropboxuploader.ui
 
 RESOURCES += tht.qrc
 

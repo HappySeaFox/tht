@@ -37,9 +37,13 @@ public:
     explicit SaveScreenshot(const QPixmap &px, QWidget *parent = 0);
     ~SaveScreenshot();
 
+private:
+    QString baseFileName(bool shortOne) const;
+
 private slots:
     void slotClipboard();
     void slotFile();
+    void slotDropbox();
 
 private:
     Ui::SaveScreenshot *ui;

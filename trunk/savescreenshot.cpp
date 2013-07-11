@@ -24,10 +24,12 @@
 #include <QDateTime>
 #include <QFileInfo>
 #include <QPixmap>
+#include <QBuffer>
 #include <QList>
 #include <QDir>
 
 #include "screenshoteditor.h"
+#include "dropboxuploader.h"
 #include "savescreenshot.h"
 #include "remotedate.h"
 #include "settings.h"
@@ -49,6 +51,16 @@ SaveScreenshot::~SaveScreenshot()
 {
     delete m_editor;
     delete ui;
+}
+
+QString SaveScreenshot::baseFileName(bool shortOne) const
+{
+    QDateTime date = RemoteDate("Eastern Standard Time").dateTime();
+
+    if(!date.isValid())
+        date = QDateTime::currentDateTime();
+
+    return date.toString(shortOne ? "yyyy-MM-dd" : "yyyy-MM-dd hh:mm:ss");
 }
 
 void SaveScreenshot::slotClipboard()
@@ -73,15 +85,11 @@ void SaveScreenshot::slotFile()
         filter += current + ";;";
     }
 
-    QDateTime date = RemoteDate("Eastern Standard Time").dateTime();
-
-    if(!date.isValid())
-        date = QDateTime::currentDateTime();
-
     QString fileName = QFileDialog::getSaveFileName(this, tr("Save as"),
                                                     SETTINGS_GET_STRING(SETTING_LAST_SCREENSHOT_DIRECTORY)
                                                     + QDir::separator()
-                                                    + date.toString("yyyy-MM-dd-"),
+                                                    + baseFileName(true)
+                                                    + '-',
                                                     filter, &selectedFilter);
 
     if(fileName.isEmpty())
@@ -99,4 +107,27 @@ void SaveScreenshot::slotFile()
         QMessageBox::critical(this, tr("Error"), tr("Cannot save screenshot"));
         qDebug("Cannot save screenshot");
     }
+}
+
+void SaveScreenshot::slotDropbox()
+{
+    QByteArray binary;
+    QBuffer buffer(&binary);
+
+    if(buffer.open(QIODevice::WriteOnly) && m_editor->renderPixmap().save(&buffer, "PNG"))
+    {
+        DropBoxUploader u(baseFileName(false) + ".png", binary, this);
+
+        if(u.exec() == QDialog::Accepted)
+        {
+            qDebug("Screenshot has been saved to Dropbox");
+            accept();
+            return;
+        }
+        else if(u.needRestart())
+            return;
+    }
+
+    QMessageBox::critical(this, tr("Error"), tr("Cannot save screenshot"));
+    qDebug("Cannot save screenshot");
 }
