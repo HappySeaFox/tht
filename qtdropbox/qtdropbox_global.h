@@ -4,7 +4,7 @@
 #include <QtCore/qglobal.h>
 
 #if defined(QTDROPBOX_LIBRARY)
-#  define QTDROPBOXSHARED_EXPORT
+#  define QTDROPBOXSHARED_EXPORT Q_DECL_EXPORT
 #else
 #  define QTDROPBOXSHARED_EXPORT
 #endif
