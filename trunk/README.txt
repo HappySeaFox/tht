@@ -47,8 +47,6 @@ http://www.iconfinder.com/icondetails/17225/128/analysis_chart_graph_pie_statist
 Author: Visual Pharm
 License: Commercial Use Allowed, Back Link Required
 
-http://www.visualpharm.com/finance_icon_set/
-
 * "Wait" icon in "About" dialog is generated at http://ajaxload.info/
 
 License: Free for use
@@ -88,10 +86,10 @@ License: Creative Commons Attribution 3.0 License
 
 * GDI drawing functions are based on Spy
 
+http://www.codeproject.com/Articles/1698/MS-Spy-style-Window-Finder
+
 Author: Lim Bio Liong
 License: CPOL
-
-http://www.codeproject.com/Articles/1698/MS-Spy-style-Window-Finder
 
 * FindBestChildProc, FindBestChild, RealWindowFromPoint in Tools
 
