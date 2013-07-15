@@ -43,11 +43,11 @@
 #include <QDate>
 #include <QUrl>
 
-#include <qxtglobalshortcut.h>
-
 #include <windows.h>
 #include <winnt.h>
 #include <psapi.h>
+
+#include "qxtglobalshortcut.h"
 
 #include "tickersdatabaseupdater.h"
 #include "linkpointmanager.h"
