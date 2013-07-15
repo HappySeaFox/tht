@@ -186,9 +186,7 @@ void List::showHeader(bool sh)
 
 bool List::contains(const QPoint &p)
 {
-    QPoint l = mapFromGlobal(p);
-
-    return ui->list->geometry().contains(l);
+    return ui->list->geometry().contains(mapFromGlobal(p));
 }
 
 void List::initialSelect(bool alsoSetFocus)
