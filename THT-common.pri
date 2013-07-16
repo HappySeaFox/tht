@@ -84,6 +84,7 @@ UPX=$$findexe("upx.exe")
 # check for signtool
 SIGNTOOL=$$findexe("signtool.exe")
 CERT=$$dirname(_PRO_FILE_)-certs\\cert.pfx
+RFC3161_SERVER="http://timestamp.comodoca.com/rfc3161"
 
 !isEmpty(SIGNTOOL):exists($$CERT) {
     message("Signtool and the certificate are found, will sign the $$TARGET executable")
@@ -93,7 +94,7 @@ CERT=$$dirname(_PRO_FILE_)-certs\\cert.pfx
 
 # sign
 !isEmpty(SIGNTOOL):exists($$CERT) {
-    QMAKE_POST_LINK += $$mle($$SIGNTOOL sign /d \"Trader\'s Home Task\" /du \"$$HTTPROOT\" /f \"$$CERT\" /tr \"http://timestamp.comodoca.com/rfc3161\" /v \"$${OUT_PWD}/$(DESTDIR_TARGET)\")
+    QMAKE_POST_LINK += $$mle($$SIGNTOOL sign /d \"Trader\'s Home Task\" /du \"$$HTTPROOT\" /f \"$$CERT\" /tr \"$$RFC3161_SERVER\" /v \"$${OUT_PWD}/$(DESTDIR_TARGET)\")
 }
 
 # check for 7z
