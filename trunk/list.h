@@ -58,6 +58,7 @@ public:
     void setSaveTickers(bool);
 
     void showHeader(bool);
+    void showButtons(bool);
 
     void setIgnoreInput(bool);
     bool ignoreInput() const;

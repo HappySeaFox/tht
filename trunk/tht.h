@@ -131,7 +131,7 @@ private:
 
     void sendKey(int key, bool extended = false);
     void sendString(const QString &str, LinkType = LinkTypeOther);
-    void rebuildUi();
+    void rebuildUi(bool adjustSizeIfNecessary);
     void checkWindow(Link *);
     Link checkTargetWindow(const QPoint &, bool allowThisWindow);
     void checkWindows();

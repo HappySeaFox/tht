@@ -217,22 +217,22 @@
 <context>
     <name>List</name>
     <message>
-        <location filename="../list.ui" line="115"/>
+        <location filename="../list.ui" line="150"/>
         <source>List</source>
         <translation>Список</translation>
     </message>
     <message>
-        <location filename="../list.ui" line="138"/>
+        <location filename="../list.ui" line="173"/>
         <source>Add tickers</source>
         <translation>Додати тікери</translation>
     </message>
     <message>
-        <location filename="../list.ui" line="161"/>
+        <location filename="../list.ui" line="196"/>
         <source>Save tickers</source>
         <translation>Зберегти тікери</translation>
     </message>
     <message>
-        <location filename="../list.ui" line="181"/>
+        <location filename="../list.ui" line="216"/>
         <source>Export tickers</source>
         <translation>Експортувати тікери</translation>
     </message>
@@ -282,36 +282,36 @@
         <translation>Експортувати в буфер обміну</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1247"/>
-        <location filename="../list.cpp" line="1322"/>
+        <location filename="../list.cpp" line="1254"/>
+        <location filename="../list.cpp" line="1329"/>
         <source>Choose a file</source>
         <translation>Виберіть файл</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1249"/>
-        <location filename="../list.cpp" line="1324"/>
+        <location filename="../list.cpp" line="1256"/>
+        <location filename="../list.cpp" line="1331"/>
         <source>Text files (*.txt)</source>
         <translation>Текстові файли (*.txt)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1251"/>
-        <location filename="../list.cpp" line="1326"/>
+        <location filename="../list.cpp" line="1258"/>
+        <location filename="../list.cpp" line="1333"/>
         <source>All files (*.*)</source>
         <translation>Всі файли (*.*)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1286"/>
-        <location filename="../list.cpp" line="1336"/>
+        <location filename="../list.cpp" line="1293"/>
+        <location filename="../list.cpp" line="1343"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1286"/>
+        <location filename="../list.cpp" line="1293"/>
         <source>Cannot open the following files: %1</source>
         <translation>Неможливо відкрити наступні файли: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1336"/>
+        <location filename="../list.cpp" line="1343"/>
         <source>Cannot save to file %1</source>
         <translation>Неможливо зберегти в файл %1</translation>
     </message>
@@ -345,17 +345,22 @@
         <translation>Зберігати тікери автоматично</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="193"/>
+        <location filename="../options.ui" line="186"/>
+        <source>Show buttons</source>
+        <translation>Показувати кнопки</translation>
+    </message>
+    <message>
+        <location filename="../options.ui" line="200"/>
         <source>Ctrl+Alt+S to take screenshots</source>
         <translation>Ctrl+Alt+S для знімків екрану</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="200"/>
+        <location filename="../options.ui" line="207"/>
         <source>Ctrl+Alt+R to restore from tray</source>
         <translation>Ctrl+Alt+R для розгортання з трея</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="243"/>
+        <location filename="../options.ui" line="250"/>
         <source>Need restart</source>
         <translation>Потрібен перезапуск</translation>
     </message>
@@ -391,8 +396,8 @@
     </message>
     <message>
         <location filename="../options.ui" line="159"/>
-        <source>Show list title</source>
-        <translation>Показувати заголовок списку</translation>
+        <source>Show title</source>
+        <translation>Показувати заголовок</translation>
     </message>
     <message>
         <location filename="../options.ui" line="97"/>
@@ -825,37 +830,37 @@ right/middle mouse button to cancel.</source>
         <translation>ТНТ продовжить роботу в системному лотку</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="915"/>
+        <location filename="../tht.cpp" line="917"/>
         <source>Unknown</source>
         <translation>Невідомі</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1436"/>
+        <location filename="../tht.cpp" line="1438"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1436"/>
+        <location filename="../tht.cpp" line="1438"/>
         <source>Cannot take screenshot</source>
         <translation>Неможливо зробити знімок екрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1479"/>
+        <location filename="../tht.cpp" line="1481"/>
         <source>New points</source>
         <translation>Нові точки</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1936"/>
+        <location filename="../tht.cpp" line="1938"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <translation>Всі величезні сучасні багатства нажито&lt;br&gt;найбезчеснішим засобом.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1937"/>
+        <location filename="../tht.cpp" line="1939"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <translation>&quot;Золоте Теля&quot; І.Ільф, Є.Петров</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1995"/>
+        <location filename="../tht.cpp" line="1997"/>
         <source>Customize...</source>
         <translation>Налаштувати...</translation>
     </message>

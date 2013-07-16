@@ -88,6 +88,7 @@ Q_DECLARE_METATYPE(Qt::AlignmentFlag)
 #define SETTING_LAST_LINKS                   "last-links"
 #define SETTING_SHOW_COMMENTS                "show-comments"
 #define SETTING_LIST_HEADER                  "list-header"
+#define SETTING_LIST_BUTTONS                 "list-buttons"
 #define SETTING_FOOLSDAY_SEEN                "foolsday-seen"
 #define SETTING_ELLIPSE_FILL_COLOR           "ellipse-fill-color"
 #define SETTING_SCREENSHOT_TEXT_COLOR        "screenshot-text-color"

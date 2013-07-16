@@ -184,6 +184,11 @@ void List::showHeader(bool sh)
     m_changeTitle->setEnabled(sh);
 }
 
+void List::showButtons(bool sh)
+{
+    ui->widgetButtons->setVisible(sh);
+}
+
 bool List::contains(const QPoint &p)
 {
     return ui->list->geometry().contains(mapFromGlobal(p));
@@ -291,6 +296,8 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                 clear();
             else if(ke->matches(QKeySequence::Open))
                 slotAddFromFile();
+            else if(ke->matches(QKeySequence::Save))
+                slotSave();
             else if(ke->matches(QKeySequence::Undo))
                 undo();
             else if(ke->modifiers() == Qt::NoModifier

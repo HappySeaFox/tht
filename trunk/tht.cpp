@@ -210,7 +210,7 @@ THT::THT() :
     m_layout->setContentsMargins(0, 0, 0, 0);
     ui->widgetTickers->setLayout(m_layout);
 
-    rebuildUi();
+    rebuildUi(false);
 
     QString startupTicker;
 
@@ -599,7 +599,7 @@ void THT::sendString(const QString &ticker, LinkType type)
     sendKey(VK_RETURN);
 }
 
-void THT::rebuildUi()
+void THT::rebuildUi(bool adjustSizeIfNecessary)
 {
     bool doResize = true;
 
@@ -660,14 +660,16 @@ void THT::rebuildUi()
 
     bool saveTickers = SETTINGS_GET_BOOL(SETTING_SAVE_TICKERS);
     bool listHeader = SETTINGS_GET_BOOL(SETTING_LIST_HEADER);
+    bool listButtons = SETTINGS_GET_BOOL(SETTING_LIST_BUTTONS);
 
     foreach(List *l, m_lists)
     {
         l->setSaveTickers(saveTickers);
         l->showHeader(listHeader);
+        l->showButtons(listButtons);
     }
 
-    if(doResize)
+    if(doResize && adjustSizeIfNecessary)
         QTimer::singleShot(0, this, SLOT(slotAdjustSize()));
 }
 
@@ -1214,7 +1216,7 @@ void THT::slotOptions()
     if(opt.exec() == QDialog::Accepted)
     {
         opt.saveSettings();
-        rebuildUi();
+        rebuildUi(true);
 
         // always on top?
         QList<QWidget *> widgets = QList<QWidget *>() << this << m_sectors;
