@@ -156,18 +156,18 @@
        <item row="3" column="0">
         <widget class="QCheckBox" name="checkHeader">
          <property name="text">
-          <string>Show list title</string>
+          <string>Show title</string>
          </property>
         </widget>
        </item>
-       <item row="4" column="0">
+       <item row="5" column="0">
         <widget class="QCheckBox" name="checkComments">
          <property name="text">
           <string>Automatically show ticker comments</string>
          </property>
         </widget>
        </item>
-       <item row="5" column="0">
+       <item row="6" column="0">
         <spacer name="verticalSpacer_3">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -179,6 +179,13 @@
           </size>
          </property>
         </spacer>
+       </item>
+       <item row="4" column="0">
+        <widget class="QCheckBox" name="checkButtons">
+         <property name="text">
+          <string>Show buttons</string>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>
@@ -295,6 +302,7 @@
   <tabstop>checkAllowDups</tabstop>
   <tabstop>checkMini</tabstop>
   <tabstop>checkHeader</tabstop>
+  <tabstop>checkButtons</tabstop>
   <tabstop>checkComments</tabstop>
   <tabstop>checkCtrlAltS</tabstop>
   <tabstop>checkCtrlAltR</tabstop>

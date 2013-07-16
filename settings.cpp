@@ -251,6 +251,7 @@ Settings::Settings()
     d->defaultValues.insert(SETTING_SCREENSHOT_TEXT_ALIGNMENT, Qt::AlignLeft);
     d->defaultValues.insert(SETTING_SCREENSHOT_TEXT_SIZE, -1);
     d->defaultValues.insert(SETTING_RESTORE_NEIGHBORS_AT_STARTUP, true);
+    d->defaultValues.insert(SETTING_LIST_BUTTONS, true);
     d->defaultValues.insert(SETTING_MINI_TICKER_ENTRY, true);
     d->defaultValues.insert(SETTING_ALLOW_DUPLICATES, true);
     d->defaultValues.insert(SETTING_SAVE_GEOMETRY, true);

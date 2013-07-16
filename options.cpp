@@ -75,6 +75,7 @@ void Options::load()
     ui->checkAllowDups->setChecked(SETTINGS_GET_BOOL(SETTING_ALLOW_DUPLICATES));
     ui->checkMini->setChecked(SETTINGS_GET_BOOL(SETTING_MINI_TICKER_ENTRY));
     ui->checkHeader->setChecked(SETTINGS_GET_BOOL(SETTING_LIST_HEADER));
+    ui->checkButtons->setChecked(SETTINGS_GET_BOOL(SETTING_LIST_BUTTONS));
     ui->checkComments->setChecked(SETTINGS_GET_BOOL(SETTING_SHOW_COMMENTS));
     ui->checkRestoreLP->setChecked(SETTINGS_GET_BOOL(SETTING_RESTORE_LINKS_AT_STARTUP));
     ui->checkCtrlAltS->setChecked(SETTINGS_GET_BOOL(SETTING_GLOBAL_HOTKEY_SCREENSHOT));
@@ -133,6 +134,7 @@ void Options::saveSettings() const
     SETTINGS_SET_BOOL(SETTING_ALLOW_DUPLICATES, ui->checkAllowDups->isChecked(), Settings::NoSync);
     SETTINGS_SET_BOOL(SETTING_MINI_TICKER_ENTRY, ui->checkMini->isChecked(), Settings::NoSync);
     SETTINGS_SET_BOOL(SETTING_LIST_HEADER, ui->checkHeader->isChecked(), Settings::NoSync);
+    SETTINGS_SET_BOOL(SETTING_LIST_BUTTONS, ui->checkButtons->isChecked(), Settings::NoSync);
     SETTINGS_SET_BOOL(SETTING_SHOW_COMMENTS, ui->checkComments->isChecked(), Settings::NoSync);
     SETTINGS_SET_BOOL(SETTING_RESTORE_LINKS_AT_STARTUP, ui->checkRestoreLP->isChecked(), Settings::NoSync);
     SETTINGS_SET_BOOL(SETTING_GLOBAL_HOTKEY_SCREENSHOT, ui->checkCtrlAltS->isChecked(), Settings::NoSync);
