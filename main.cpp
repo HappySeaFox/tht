@@ -183,7 +183,7 @@ int main(int argc, char *argv[])
 
     if(Tools::hasOption("--preload"))
     {
-        qDebug("Preload mode");
+        qDebug("Preloading");
         return 0;
     }
 
