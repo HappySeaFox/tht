@@ -66,10 +66,33 @@ Widget::Widget(QWidget *parent) :
             ::exit(1);
         }
 
+        // tickers
         QSqlQuery query("SELECT * FROM tickers", db);
 
         while(query.next())
             m_oldTickers.append(query.value(0).toString());
+
+        // FOMC dates
+        query = QSqlQuery("SELECT date FROM fomc", db);
+
+        QString line;
+        QDate date;
+
+        while(query.next())
+        {
+            line = query.value(0).toString();
+            date = QDate::fromString(line, "yyyy MM dd");
+
+            if(!date.isValid())
+            {
+                QMessageBox::critical(0, "Fatal error", QString("Line \"%1\" is invalid").arg(line));
+                return;
+            }
+
+            qDebug("Added FOMC date %s", qPrintable(line));
+
+            m_fomcDates.append(date);
+        }
     }
 
     m_oldTickers.sort();
@@ -145,8 +168,6 @@ void Widget::slotGet()
         message(QString("Cannot create table (%1)").arg(qPrintable(QSqlDatabase::database().lastError().text())));
         return;
     }
-
-    rereadFomcDates();
 
     // check for correct year
     int fomcYear = m_fomcDates.isEmpty() ? -1 : m_fomcDates.first().year();
@@ -607,39 +628,6 @@ void Widget::message(const QString &e, bool activate)
 
     if(activate)
         QApplication::alert(this);
-}
-
-void Widget::rereadFomcDates()
-{
-    QFile file(PRO_FILE_PWD "/fomc.txt");
-
-    if(!file.open(QIODevice::ReadOnly | QIODevice::Text))
-    {
-        file.setFileName("fomc.txt");
-
-        if(!file.open(QIODevice::ReadOnly | QIODevice::Text))
-        {
-            QMessageBox::critical(0, "Fatal error", QString("Cannot open %1 for reading").arg(file.fileName()));
-            return;
-        }
-    }
-
-    QString line;
-
-    while(!(line = file.readLine().trimmed()).isEmpty())
-    {
-        QDate date = QDate::fromString(line, "yyyy MM dd");
-
-        if(!date.isValid())
-        {
-            QMessageBox::critical(0, "Fatal error", QString("Line \"%1\" is invalid").arg(line));
-            return;
-        }
-
-        qDebug("Added FOMC date %s", qPrintable(line));
-
-        m_fomcDates.append(date);
-    }
 }
 
 void Widget::proceedToTickers()

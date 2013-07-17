@@ -61,7 +61,6 @@ private:
     bool writeTicker(const Ticker &);
     bool writeFomcDate(const QDate &);
     void message(const QString &msg, bool activate = true);
-    void rereadFomcDates();
     void proceedToTickers();
     bool addFomcDates(const QString &data, const QString &title);
 
