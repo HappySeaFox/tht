@@ -1807,14 +1807,14 @@ void THT::targetDropped(const QPoint &p, MasterSettings master, bool beep)
     {
         unhookEverybody();
 
-        qDebug("Setting hook to process %ld", link.processId);
+        qDebug("Setting hook to process %ld and thread %ld", link.processId, link.threadId);
 
         link.hook = SetWinEventHook(EVENT_OBJECT_NAMECHANGE,
                                     EVENT_OBJECT_NAMECHANGE,
                                     0,
                                     WinEventProcCallback,
                                     link.processId,
-                                    0,
+                                    link.threadId,
                                     WINEVENT_OUTOFCONTEXT | WINEVENT_SKIPOWNPROCESS | WINEVENT_SKIPOWNTHREAD);
 
         if(!link.hook)
