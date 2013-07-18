@@ -151,6 +151,7 @@ private:
     void masterHasBeenChanged(HWND hwnd, const QString &ticker);
     void activateRightWindowAtEnd();
     void squeeze(bool);
+    bool isBusy() const;
 
 public slots:
     void activate();
