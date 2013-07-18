@@ -1008,17 +1008,8 @@ void THT::loadTicker(const QString &ticker, MasterLoadingPolicy masterPolicy)
 {
     qDebug("Load ticker \"%s\"", qPrintable(ticker));
 
-    if(m_locked)
-    {
-        qDebug("Locked");
+    if(isBusy())
         return;
-    }
-
-    if(m_running)
-    {
-        qDebug("In progress, won't load a new ticker");
-        return;
-    }
 
     if(m_sectors && sender() != m_sectors)
         m_sectors->showTicker(ticker);
@@ -1649,6 +1640,9 @@ void THT::masterHasBeenChanged(HWND hwnd, const QString &ticker)
 {
     qDebug("Master has been changed in window %p with ticker \"%s\"", hwnd, qPrintable(ticker));
 
+    if(isBusy())
+        return;
+
     // check the window id
     foreach(Link l, m_windowsLoad)
     {
@@ -1718,6 +1712,23 @@ void THT::squeeze(bool yes)
         resize(width(), m_lastHeightBeforeSqueezing);
         m_justTitle = false;
     }
+}
+
+bool THT::isBusy() const
+{
+    if(m_locked)
+    {
+        qDebug("Locked");
+        return true;
+    }
+
+    if(m_running)
+    {
+        qDebug("In progress, won't load a new ticker");
+        return true;
+    }
+
+    return false;
 }
 
 void THT::slotFomcCheck()
