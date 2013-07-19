@@ -16,7 +16,6 @@
  */
 
 #include <QMutableListIterator>
-#include <QCloseEvent>
 #include <QByteArray>
 #include <QUrl>
 
@@ -26,26 +25,16 @@
 
 #include "finvizdownloader.h"
 #include "finvizcookiejar.h"
-#include "networkaccess.h"
 #include "csvreader.h"
-#include "ui_finvizdownloader.h"
 
 static const int REQUIRED_FIELDS = 11;
 
 FinvizDownloader::FinvizDownloader(const QUrl &url, QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::FinvizDownloader),
-    m_allowClose(false)
+    DataDownloader(parent)
 {
-    ui->setupUi(this);
-
-    ui->pushClose->hide();
-
-    m_net = new NetworkAccess(this);
-
-    m_net->setCookieJar(new FinvizCookieJar(m_net));
-
-    connect(m_net, SIGNAL(finished()), this, SLOT(slotFinished()));
+    setWindowTitle(tr("Finviz"));
+    setMessage(tr("Downloading tickers..."));
+    setCookieJar(new FinvizCookieJar(this));
 
     QUrl u = url;
 
@@ -90,41 +79,16 @@ FinvizDownloader::FinvizDownloader(const QUrl &url, QWidget *parent) :
 #endif
 
     // download tickers as CSV
-    m_net->get(u);
+    get(u);
 }
 
 FinvizDownloader::~FinvizDownloader()
-{
-    delete ui;
-}
+{}
 
-void FinvizDownloader::closeEvent(QCloseEvent *e)
+void FinvizDownloader::finished()
 {
-    if(m_allowClose)
-        e->accept();
-    else
-        e->ignore();
-}
-
-void FinvizDownloader::showError(const QString &e)
-{
-    ui->label->setText(e);
-    ui->pushClose->show();
-    ui->progressBar->setRange(0, 1);
-    ui->progressBar->setValue(1);
-    m_allowClose = true;
-}
-
-void FinvizDownloader::slotFinished()
-{
-    if(m_net->error() != QNetworkReply::NoError)
-    {
-        showError(tr("Network error #%1").arg(m_net->error()));
-        return;
-    }
-
     // parse CSV
-    CsvReader csv(m_net->data());
+    CsvReader csv(data());
 
     QStringList str;
     csv.parseLine();
@@ -139,6 +103,4 @@ void FinvizDownloader::slotFinished()
 
         m_tickers.append(str[1]);
     }
-
-    accept();
 }

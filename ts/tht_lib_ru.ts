@@ -2,6 +2,19 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="ru_RU">
 <context>
+    <name>DataDownloader</name>
+    <message>
+        <location filename="../datadownloader.ui" line="27"/>
+        <source>Close</source>
+        <translation>Закрыть</translation>
+    </message>
+    <message>
+        <location filename="../datadownloader.cpp" line="88"/>
+        <source>Network error #%1</source>
+        <translation>Ошибка сети #%1</translation>
+    </message>
+</context>
+<context>
     <name>DataManagerBase</name>
     <message>
         <location filename="../datamanagerbase.ui" line="33"/>

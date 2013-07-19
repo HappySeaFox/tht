@@ -15,39 +15,42 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef FINVIZDOWNLOADER_H
-#define FINVIZDOWNLOADER_H
+#ifndef DATADOWNLOADER_H
+#define DATADOWNLOADER_H
 
-#include <QStringList>
 #include <QDialog>
 
-#include "datadownloader.h"
-
+class QNetworkCookieJar;
 class QUrl;
 
-class NetworkAccess;
+class DataDownloaderPrivate;
 
-class FinvizDownloader : public DataDownloader
+class DataDownloader : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit FinvizDownloader(const QUrl &url, QWidget *parent = 0);
-    ~FinvizDownloader();
-
-    QStringList tickers() const;
+    explicit DataDownloader(QWidget *parent = 0);
+    virtual ~DataDownloader();
 
 protected:
-    virtual void finished();
+    QString data() const;
+
+    void setCookieJar(QNetworkCookieJar *);
+
+    void get(const QUrl &);
+
+    void setMessage(const QString &);
+
+    void showError(const QString &);
+
+    virtual void finished() = 0;
+
+private slots:
+    void slotFinished();
 
 private:
-    QStringList m_tickers;
+    DataDownloaderPrivate *d;
 };
 
-inline
-QStringList FinvizDownloader::tickers() const
-{
-    return m_tickers;
-}
-
-#endif // FINVIZDOWNLOADER_H
+#endif // DATADOWNLOADER_H

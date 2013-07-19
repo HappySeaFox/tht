@@ -21,7 +21,8 @@ SOURCES += datamanagerbase.cpp \
     uppercasevalidator.cpp \
     remotedate.cpp \
     sqltools.cpp \
-    hotkey.cpp
+    hotkey.cpp \
+    datadownloader.cpp
 
 HEADERS += datamanagerbase.h \
     settings.h \
@@ -36,9 +37,11 @@ HEADERS += datamanagerbase.h \
     qxt/qxtglobal.h \
     uppercasevalidator.h \
     remotedate.h \
-    sqltools.h
+    sqltools.h \
+    datadownloader.h
 
-FORMS += datamanagerbase.ui
+FORMS += datamanagerbase.ui \
+    datadownloader.ui
 
 TRANSLATIONS += ts/tht_lib_ru.ts \
                 ts/tht_lib_uk.ts

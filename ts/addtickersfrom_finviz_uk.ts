@@ -32,29 +32,19 @@
 <context>
     <name>FinvizDownloader</name>
     <message>
-        <location filename="../finvizdownloader.ui" line="14"/>
+        <location filename="../finvizdownloader.cpp" line="35"/>
         <source>Finviz</source>
-        <translation></translation>
+        <translation>Finviz</translation>
     </message>
     <message>
-        <location filename="../finvizdownloader.ui" line="30"/>
-        <source>Close</source>
-        <translation>Закрити</translation>
-    </message>
-    <message>
-        <location filename="../finvizdownloader.ui" line="50"/>
+        <location filename="../finvizdownloader.cpp" line="36"/>
         <source>Downloading tickers...</source>
         <translation>Завантаження тікерів...</translation>
     </message>
     <message>
-        <location filename="../finvizdownloader.cpp" line="122"/>
-        <source>Network error #%1</source>
-        <translation>Помилка мережі #%1</translation>
-    </message>
-    <message>
-        <location filename="../finvizdownloader.cpp" line="136"/>
+        <location filename="../finvizdownloader.cpp" line="100"/>
         <source>Broken data (fields: %1, required: %2)</source>
-        <translation>Зараховано (поля: %1, необхідно: %2)</translation>
+        <translation>Неправильна відповідь (поля: %1, необхідно: %2)</translation>
     </message>
 </context>
 <context>
