@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>FinvizDownloader</class>
- <widget class="QDialog" name="FinvizDownloader">
+ <class>DataDownloader</class>
+ <widget class="QDialog" name="DataDownloader">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -9,9 +9,6 @@
     <width>300</width>
     <height>66</height>
    </rect>
-  </property>
-  <property name="windowTitle">
-   <string>Finviz</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="1" column="0">
@@ -47,7 +44,7 @@
    <item row="0" column="0" colspan="2">
     <widget class="QLabel" name="label">
      <property name="text">
-      <string>Downloading tickers...</string>
+      <string/>
      </property>
     </widget>
    </item>
@@ -58,7 +55,7 @@
   <connection>
    <sender>pushClose</sender>
    <signal>clicked()</signal>
-   <receiver>FinvizDownloader</receiver>
+   <receiver>DataDownloader</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

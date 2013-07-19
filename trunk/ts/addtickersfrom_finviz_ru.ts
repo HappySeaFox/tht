@@ -32,27 +32,17 @@
 <context>
     <name>FinvizDownloader</name>
     <message>
-        <location filename="../finvizdownloader.ui" line="14"/>
+        <location filename="../finvizdownloader.cpp" line="35"/>
         <source>Finviz</source>
-        <translation></translation>
+        <translation>Finviz</translation>
     </message>
     <message>
-        <location filename="../finvizdownloader.ui" line="30"/>
-        <source>Close</source>
-        <translation>Закрыть</translation>
-    </message>
-    <message>
-        <location filename="../finvizdownloader.ui" line="50"/>
+        <location filename="../finvizdownloader.cpp" line="36"/>
         <source>Downloading tickers...</source>
         <translation>Скачивание тикеров...</translation>
     </message>
     <message>
-        <location filename="../finvizdownloader.cpp" line="122"/>
-        <source>Network error #%1</source>
-        <translation>Ошибка сети #%1</translation>
-    </message>
-    <message>
-        <location filename="../finvizdownloader.cpp" line="136"/>
+        <location filename="../finvizdownloader.cpp" line="100"/>
         <source>Broken data (fields: %1, required: %2)</source>
         <translation>Неверный ответ (полей: %1, необходимо: %2)</translation>
     </message>

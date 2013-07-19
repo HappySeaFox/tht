@@ -26,7 +26,7 @@ HEADERS += finvizurlmanager.h \
     finvizplugin.h \
     finvizurl.h
 
-FORMS += finvizdownloader.ui \
+FORMS += \
     finvizlinkselector.ui \
     finvizaccesssetup.ui
 
