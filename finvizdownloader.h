@@ -38,7 +38,7 @@ public:
     QStringList tickers() const;
 
 protected:
-    virtual void finished();
+    virtual bool finished();
 
 private:
     QStringList m_tickers;
