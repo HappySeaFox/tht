@@ -89,6 +89,6 @@ void DataDownloader::slotFinished()
         return;
     }
 
-    finished();
-    accept();
+    if(finished())
+        accept();
 }

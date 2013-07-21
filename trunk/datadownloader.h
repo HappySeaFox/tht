@@ -44,7 +44,7 @@ protected:
 
     void showError(const QString &);
 
-    virtual void finished() = 0;
+    virtual bool finished() = 0;
 
 private slots:
     void slotFinished();

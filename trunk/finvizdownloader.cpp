@@ -85,7 +85,7 @@ FinvizDownloader::FinvizDownloader(const QUrl &url, QWidget *parent) :
 FinvizDownloader::~FinvizDownloader()
 {}
 
-void FinvizDownloader::finished()
+bool FinvizDownloader::finished()
 {
     // parse CSV
     CsvReader csv(data());
@@ -98,9 +98,11 @@ void FinvizDownloader::finished()
         if(str.size() != REQUIRED_FIELDS)
         {
             showError(tr("Broken data (fields: %1, required: %2)").arg(str.size()).arg(REQUIRED_FIELDS));
-            return;
+            return false;
         }
 
         m_tickers.append(str[1]);
     }
+
+    return true;
 }
