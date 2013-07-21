@@ -155,13 +155,9 @@ void FinvizPlugin::slotAdd()
     qDebug("Add from Finviz");
 
     QAction *a = qobject_cast<QAction *>(sender());
-
-    if(!a)
-        return;
-
     int list = senderMenuActionToList();
 
-    if(list < 0)
+    if(!a || list < 0)
         return;
 
     QUrl u = a->data().toUrl();
