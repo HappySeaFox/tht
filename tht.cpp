@@ -508,15 +508,15 @@ void THT::dropEvent(QDropEvent *e)
 
 void THT::wheelEvent(QWheelEvent *e)
 {
+    e->accept();
+
     if(!(QApplication::keyboardModifiers() & Qt::AltModifier))
         return;
 
-    QRect globalRect(frameGeometry());
+    QRect globalRect(frameGeometry().topLeft(), geometry().topRight());
 
-    if(!globalRect.contains(e->globalPos()) || e->pos().y() >= 0)
-        return;
-
-    squeeze(e->delta() > 0);
+    if(globalRect.contains(e->globalPos()))
+        squeeze(e->delta() > 0);
 }
 
 void THT::sendKey(int key, bool extended)
