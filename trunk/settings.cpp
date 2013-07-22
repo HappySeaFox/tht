@@ -265,6 +265,16 @@ Settings::~Settings()
     delete d;
 }
 
+void Settings::addDefaultValues(const QHash<QString, QVariant> &defaultValues)
+{
+    QHash<QString, QVariant>::const_iterator itEnd = defaultValues.end();
+
+    for(QHash<QString, QVariant>::const_iterator it = defaultValues.begin();it != itEnd;++it)
+    {
+        d->defaultValues.insert(it.key(), it.value());
+    }
+}
+
 void Settings::sync()
 {
     d->settings->sync();

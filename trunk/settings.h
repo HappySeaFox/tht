@@ -21,6 +21,7 @@
 #include <QStringList>
 #include <QDateTime>
 #include <QSettings>
+#include <QVariant>
 #include <QString>
 #include <QPoint>
 #include <QColor>
@@ -57,11 +58,17 @@ Q_DECLARE_METATYPE(Qt::AlignmentFlag)
 #define SETTINGS_GET_BOOL Settings::instance()->value<bool>
 #define SETTINGS_SET_BOOL Settings::instance()->setValue<bool>
 
-#define SETTINGS_GET_STRING Settings::instance()->value<QString>
-#define SETTINGS_SET_STRING Settings::instance()->setValue<QString>
-
 #define SETTINGS_GET_INT Settings::instance()->value<int>
 #define SETTINGS_SET_INT Settings::instance()->setValue<int>
+
+#define SETTINGS_GET_LONG Settings::instance()->value<long>
+#define SETTINGS_SET_LONG Settings::instance()->setValue<long>
+
+#define SETTINGS_GET_DOUBLE Settings::instance()->value<double>
+#define SETTINGS_SET_DOUBLE Settings::instance()->setValue<double>
+
+#define SETTINGS_GET_STRING Settings::instance()->value<QString>
+#define SETTINGS_SET_STRING Settings::instance()->setValue<QString>
 
 #define SETTINGS_GET_COLOR Settings::instance()->value<QColor>
 #define SETTINGS_SET_COLOR Settings::instance()->setValue<QColor>
@@ -142,6 +149,8 @@ public:
 
     template <typename T>
     void setValue(const QString &key, const T &value, SyncType sync = Sync);
+
+    void addDefaultValues(const QHash<QString, QVariant> &defaultValues);
 
     bool contains(const QString &key) const;
 
