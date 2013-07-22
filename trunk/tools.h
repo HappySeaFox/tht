@@ -24,15 +24,35 @@
 
 class QWidget;
 
+/*
+ *  Common tools
+ */
 class Tools
 {
 public:
+    /*
+     *  Move the window to the specified point
+     */
     static void moveWindow(QWidget *w, const QPoint &pt);
+
+    /*
+     *  RealWindowFromPoint() from WIN32 API with fixes
+     */
     static HWND RealWindowFromPoint(POINT pt);
+
+    /*
+     *  Is the specified window desktop (or background shell window)?
+     */
     static bool isDesktop(HWND hwnd);
 
-    static bool hasOption(const QString &);
+    /*
+     *  Check for option 'opt' in the command line arguments
+     */
+    static bool hasOption(const QString &opt);
 
+    /*
+     *  Invalid QPoint
+     */
     static const QPoint invalidQPoint;
 
 private:

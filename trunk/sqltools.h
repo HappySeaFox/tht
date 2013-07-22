@@ -26,12 +26,22 @@
 
 class SqlToolsPrivate;
 
+/*
+ *  Tools to query SQLite database with tickers
+ *  bundled with THT
+ */
 class SqlTools
 {
 public:
+    /*
+     *  Query the database
+     */
     static QList<QVariantList> query(const QString &s, const QString &bindTemplate, const QString &bindValue);
     static QList<QVariantList> query(const QString &s, const QMap<QString, QString> &binds = QMap<QString, QString>());
 
+    /*
+     *  Available sectors, industries and exchanges
+     */
     static QStringList sectors();
     static QStringList industries();
     static QStringList exchanges();

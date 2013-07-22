@@ -34,25 +34,48 @@ class PluginPrivate;
 #define THT_PLUGIN_PROPERTY_LICENSE_FILE "license"
 #define THT_PLUGIN_PROPERTY_FILENAME     "filename"
 
+/*
+ *  Base class for all plugins
+ */
 class Plugin : public QObject
 {
     Q_OBJECT
 
 public:
+    /*
+     *  supported plugin types
+     */
     enum Type { Common, AddTickersFrom, ExportTickersTo };
 
     Plugin();
     virtual ~Plugin();
 
+    /*
+     *  initialize plugin. This method is optional, you can
+     *  not implement it
+     */
     virtual bool init();
 
-    // plugin type
+    /*
+     *  plugin type. This method is required
+     */
     virtual Type type() const = 0;
 
 protected:
+    /*
+     *  Pointer to the THT window. You can use this pointer
+     *  as a parent widget in your dialogs. Please remember
+     *  that the plugin loader initializes this pointer just
+     *  before calling init(), so never try to use it in the
+     *  plugin's constructor
+     */
     QWidget *topLevelWidget() const;
 
 protected slots:
+    /*
+     *  Delayed initialization. This slot is optional, you can
+     *  not implement it
+     */
     virtual void delayedInit();
 
 private:
