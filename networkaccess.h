@@ -29,6 +29,9 @@ class QUrl;
 
 class NetworkAccessPrivate;
 
+/*
+ *  Class to download data and report the status
+ */
 class NetworkAccess : public QObject
 {
     Q_OBJECT
@@ -37,22 +40,52 @@ public:
     explicit NetworkAccess(QObject *parent = 0);
     virtual ~NetworkAccess();
 
+    /*
+     *  Start downloading the specified URL
+     */
     void get(const QUrl &url);
 
+    /*
+     *  Abort downloading. Doesn't emit any signal
+     */
     void abort();
 
+    /*
+     *  The downloaded data. Call this after finished()
+     */
     QByteArray data() const;
 
+    /*
+     *  Clear the internal buffer. data() will now return an empty array
+     */
     void clearBuffer();
 
+    /*
+     *  Status of the network operation. Call this after finished()
+     */
     QNetworkReply::NetworkError error() const;
 
+    /*
+     *  Network cookie JAR to use. If you need
+     *  to send cookies, you need to call this method
+     *  before get()
+     */
     void setCookieJar(QNetworkCookieJar *cookieJar);
 
 signals:
+    /*
+     *  The network operation is done. Call error() to check for errors
+     */
     void finished();
 
 protected slots:
+    /*
+     *  You can reimplement this to do your own SSL checking.
+     *  By default the following SSL errors are ignored:
+     *      * QSslError::SelfSignedCertificate
+     *      * QSslError::SelfSignedCertificateInChain
+     *
+     */
     virtual void slotSslErrors(const QList<QSslError> &errors);
 
 private slots:

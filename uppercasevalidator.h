@@ -20,6 +20,9 @@
 
 #include <QRegExpValidator>
 
+/*
+ *  Validator to convert the specified string to the upper case
+ */
 class UpperCaseValidator : public QRegExpValidator
 {
 public:

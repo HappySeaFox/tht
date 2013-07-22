@@ -1,15 +1,4 @@
 /*
- *  This CSV reader is grabbed from http://www.prog.org.ru/topic_12337_0.html
- *  It is written by Filonenko Mikhail, and contains no copyright or license
- *  notice
- */
-
-/*
- *  12.06.2013 update: Filonenko Mikhail allowed to license CsvReader
- *  under the terms of LGPL v3+
- */
-
-/*
  * This file is part of THT.
  *
  * THT is free software: you can redistribute it and/or modify
@@ -26,6 +15,17 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+/*
+ *  This CSV reader is grabbed from http://www.prog.org.ru/topic_12337_0.html
+ *  It is written by Filonenko Mikhail, and contains no copyright or license
+ *  notice
+ */
+
+/*
+ *  12.06.2013 update: Filonenko Mikhail allowed to license CsvReader
+ *  under the terms of LGPL v3+
+ */
+
 /*dummy CSV reader for QT4*/
 /*version 0.1*/
 /*11.1.2009*/
@@ -33,22 +33,20 @@
 #ifndef CSVREADER_H
 #define CSVREADER_H
 
-#include <QObject>
 #include <QStringList>
+#include <QChar>
+
+class QString;
+class QChar;
 
 class CsvReaderPrivate;
 
+/*
+ *  Class to read CSV
+ */
 class CsvReader
 {
 public:
-    enum GenericWaitingFlag
-    {
-        WaitingForValue,
-        WaitingForEnclose,
-        WaitingForDelimiterOrTerminator,
-        WaitingForDelimiterOrTerminatorWithoutWriting
-    };
-
     CsvReader();
     CsvReader(const QString& source);
     ~CsvReader();

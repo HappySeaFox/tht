@@ -25,6 +25,9 @@
 
 class RemoteDatePrivate;
 
+/*
+ *  Class to get date and time in a foreign time zone
+ */
 class RemoteDate
 {
 public:

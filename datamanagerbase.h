@@ -27,11 +27,17 @@ class QVariant;
 
 class DataManagerBasePrivate;
 
-namespace Ui
-{
-    class DataManagerBase;
-}
-
+/*
+ *  Key-value editor
+ *
+ *  Steps to use:
+ *      1) subclass DataManagerBase
+ *      2) call setAddButtonText("Add my value")
+ *      3) fill the view with addItem(...)
+ *      4) implement slotAdd()
+ *
+ *  See FinvizUrlManager for the detailed example
+ */
 class DataManagerBase : public QDialog
 {
     Q_OBJECT
@@ -40,15 +46,38 @@ public:
     explicit DataManagerBase(QWidget *parent = 0);
     virtual ~DataManagerBase();
 
+    /*
+     *  Is anything changed? Use this method to determine
+     *  if you need to save the changed data
+     */
     bool changed() const;
 
 protected:
+    /*
+     *  Add new item to the list. If 'edit' is 'true', then the editor is opened
+     *  on the newly added item
+     */
     void addItem(const QStringList &strings, const QVariant &data, bool edit = false);
+
+    /*
+     *  Add your own button to the container
+     */
     void addButton(QPushButton *);
 
+    /*
+     *  Force the data to be changed or not
+     */
     void setChanged(bool);
 
+    /*
+     *  Pointer to the tree with items
+     */
     QTreeWidget *tree() const;
+
+    /*
+     *  Pointer to 'Add' button. Use this pointer to set
+     *  a button text which is empty by default
+     */
     QPushButton *buttonAdd() const;
 
 private:
@@ -56,6 +85,10 @@ private:
     void resetTabOrders();
 
 protected slots:
+    /*
+     *  'Add' button has been clicked. Add a new item to the view with addItem()
+     *   and call setChecked(true)
+     */
     virtual void slotAdd() = 0;
 
 private slots:

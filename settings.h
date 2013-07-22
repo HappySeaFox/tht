@@ -131,6 +131,13 @@ Q_DECLARE_METATYPE(Qt::AlignmentFlag)
 
 class SettingsPrivate;
 
+/*
+ *  Class to query the application settings. You can use
+ *  the macroses above to query the appropriate types
+ *  of values like that:
+ *
+ *      qDebug() << SETTINGS_GET_BOOL(SETTING_RESTORE_NEIGHBORS_AT_STARTUP);
+ */
 class Settings
 {
 public:
@@ -140,24 +147,50 @@ public:
 
     enum SyncType { NoSync, Sync };
 
-    // some methods for plugins
+    /*
+     *  Get the key value. If the value is not found, then
+     *  the appropriate value from the known default values
+     *  is returned. If the default value for the key is unknown,
+     *  the C++ default value is returned ('0' for 'int', 'false' for 'bool' etc.)
+     */
     template <typename T>
     T value(const QString &key);
 
+    /*
+     *  Get the key value. Return 'def' if the key is not found
+     */
     template <typename T>
     T value(const QString &key, const T &def);
 
+    /*
+     *  Set the value of the key. If 'sync' is 'Sync', then call sync()
+     */
     template <typename T>
     void setValue(const QString &key, const T &value, SyncType sync = Sync);
 
+    /*
+     *  Add your default values for your settings
+     */
     void addDefaultValues(const QHash<QString, QVariant> &defaultValues);
 
+    /*
+     *  Returns 'true' if there exists a setting 'key'
+     */
     bool contains(const QString &key) const;
 
+    /*
+     *  Sync with the storage
+     */
     void sync();
 
+    /*
+     *  Available translations, hardcoded
+     */
     QMap<QString, QString> translations();
 
+    /*
+     *  Current Windows version
+     */
     OSVERSIONINFO windowsVersion() const;
 
     void rereadTimestamps();
@@ -173,6 +206,9 @@ public:
     QString mutableDatabaseName() const;
     QString mutableDatabasePath() const;
 
+    /*
+     *  Regexp to validate a ticker name
+     */
     QRegExp tickerValidator() const;
 
     void setCheckBoxState(const QString &checkbox, bool checked, SyncType sync = Sync);

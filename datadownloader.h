@@ -25,6 +25,44 @@ class QUrl;
 
 class DataDownloaderPrivate;
 
+/*
+ *  Dialog to download data and to show the result
+ *  of the download operation
+ *
+ *  Steps to use:
+ *      1) subclass DataDownloader
+ *      2) implement finished()
+ *
+ *  For example:
+ *
+ *      class MyDownloader : public
+ *      {
+ *          ...
+ *      public:
+ *          QString data() const
+ *          {
+ *              return m_data;
+ *          }
+ *
+ *      protected:
+ *          virtual bool finished();
+ *      };
+ *
+ *      bool MyDownloader::finished()
+ *      {
+ *          QString d = data();
+ *
+ *          if(!d.startsWith("XXX"))
+ *          {
+ *              showError(tr("Broken data, it doesn't start with 'XXX'"));
+ *              return false;
+ *          }
+ *
+ *          m_data = d.right(d.length() - 3);
+ *
+ *          return true;
+ *      }
+ */
 class DataDownloader : public QDialog
 {
     Q_OBJECT
@@ -34,16 +72,41 @@ public:
     virtual ~DataDownloader();
 
 protected:
+    /*
+     *  All the downloaded data. You call this method
+     *  in finished()
+     */
     QString data() const;
 
+    /*
+     *  Network cookie JAR to use. If you need
+     *  to send cookies, you need to call this method
+     *  before get()
+     */
     void setCookieJar(QNetworkCookieJar *);
 
+    /*
+     *  Start downloading from the specified URL
+     */
     void get(const QUrl &);
 
+    /*
+     *  Set the initial message. For example,
+     *  "Downloading tickers..."
+     */
     void setMessage(const QString &);
 
+    /*
+     *  Show and error message
+     */
     void showError(const QString &);
 
+    /*
+     *  Subclasses must implement this. This method
+     *  will be called when the download operation is finished.
+     *  You can call data() and parse the downloaded data. If you encountered
+     *  any error, return 'false'. Return 'true' on success
+     */
     virtual bool finished() = 0;
 
 private slots:
