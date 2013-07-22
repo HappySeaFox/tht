@@ -27,6 +27,7 @@
 #include <QMouseEvent>
 #include <QStringList>
 #include <QClipboard>
+#include <QScrollBar>
 #include <QDateTime>
 #include <QFileInfo>
 #include <QKeyEvent>
@@ -62,7 +63,8 @@ List::List(int group, QWidget *parent) :
     m_saveTickers(SETTINGS_GET_BOOL(SETTING_SAVE_TICKERS)),
     m_ignoreInput(false),
     m_dragging(false),
-    m_currentItemBeforeSearch(0)
+    m_currentItemBeforeSearch(0),
+    m_scrollPos(-1)
 {
     ui->setupUi(this);
 
@@ -704,6 +706,19 @@ void List::changeHeader()
     ui->widgetEnterHeader->startEditing(ui->labelHeader->text(), true);
     ui->stackHeader->setCurrentIndex(1);
     ui->stackHeader->currentWidget()->setFocus();
+}
+
+void List::slotBeforeSqueeze()
+{
+    // save scroll position
+    m_scrollPos = ui->list->verticalScrollBar()->value();
+}
+
+void List::slotSqueezed(bool s)
+{
+    // restore scroll position
+    if(!s)
+        ui->list->verticalScrollBar()->setValue(m_scrollPos);
 }
 
 void List::showSaved(bool isSaved)

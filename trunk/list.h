@@ -152,6 +152,8 @@ private slots:
     void headerCancelled();
     void headerAccepted();
     void changeHeader();
+    void slotBeforeSqueeze();
+    void slotSqueezed(bool);
 
 private:
     Ui::List *ui;
@@ -168,6 +170,7 @@ private:
     QAction *m_changeTitle;
     QListWidgetItem *m_currentItemBeforeSearch;
     QList<PluginImportExport *> m_plugins;
+    int m_scrollPos;
 };
 
 inline
