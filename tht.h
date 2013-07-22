@@ -153,6 +153,10 @@ private:
     void squeeze(bool);
     bool isBusy() const;
 
+signals:
+    void beforeSqueeze();
+    void squeezed(bool);
+
 public slots:
     void activate();
 

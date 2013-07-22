@@ -237,81 +237,81 @@
         <translation>Експортувати тікери</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="96"/>
+        <location filename="../list.cpp" line="98"/>
         <source>Clear</source>
         <translation>Очистити</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="98"/>
+        <location filename="../list.cpp" line="100"/>
         <source>Sort</source>
         <translation>Відсортувати</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="99"/>
+        <location filename="../list.cpp" line="101"/>
         <source>Change title</source>
         <translation>Змінити заголовок</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="101"/>
+        <location filename="../list.cpp" line="103"/>
         <source>Reset priorities</source>
         <translation>Скинути пріоритети</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="108"/>
+        <location filename="../list.cpp" line="110"/>
         <source>Add one ticker...</source>
         <translation>Додати один тікер...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="110"/>
+        <location filename="../list.cpp" line="112"/>
         <source>Add from file...</source>
         <translation>Додати з файлу...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="111"/>
+        <location filename="../list.cpp" line="113"/>
         <source>Add from clipboard</source>
         <translation>Додати з буфера обміну</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="117"/>
+        <location filename="../list.cpp" line="119"/>
         <source>Export to file...</source>
         <translation>Експортувати в файл...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="118"/>
+        <location filename="../list.cpp" line="120"/>
         <source>Export to clipboard</source>
         <translation>Експортувати в буфер обміну</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1254"/>
-        <location filename="../list.cpp" line="1329"/>
+        <location filename="../list.cpp" line="1269"/>
+        <location filename="../list.cpp" line="1344"/>
         <source>Choose a file</source>
         <translation>Виберіть файл</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1256"/>
-        <location filename="../list.cpp" line="1331"/>
+        <location filename="../list.cpp" line="1271"/>
+        <location filename="../list.cpp" line="1346"/>
         <source>Text files (*.txt)</source>
         <translation>Текстові файли (*.txt)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1258"/>
-        <location filename="../list.cpp" line="1333"/>
+        <location filename="../list.cpp" line="1273"/>
+        <location filename="../list.cpp" line="1348"/>
         <source>All files (*.*)</source>
         <translation>Всі файли (*.*)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1293"/>
-        <location filename="../list.cpp" line="1343"/>
+        <location filename="../list.cpp" line="1308"/>
+        <location filename="../list.cpp" line="1358"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1293"/>
+        <location filename="../list.cpp" line="1308"/>
         <source>Cannot open the following files: %1</source>
         <translation>Неможливо відкрити наступні файли: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1343"/>
+        <location filename="../list.cpp" line="1358"/>
         <source>Cannot save to file %1</source>
         <translation>Неможливо зберегти в файл %1</translation>
     </message>
@@ -830,37 +830,37 @@ right/middle mouse button to cancel.</source>
         <translation>ТНТ продовжить роботу в системному лотку</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="919"/>
+        <location filename="../tht.cpp" line="925"/>
         <source>Unknown</source>
         <translation>Невідомі</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1431"/>
+        <location filename="../tht.cpp" line="1437"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1431"/>
+        <location filename="../tht.cpp" line="1437"/>
         <source>Cannot take screenshot</source>
         <translation>Неможливо зробити знімок екрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1474"/>
+        <location filename="../tht.cpp" line="1480"/>
         <source>New points</source>
         <translation>Нові точки</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1951"/>
+        <location filename="../tht.cpp" line="1960"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <translation>Всі величезні сучасні багатства нажито&lt;br&gt;найбезчеснішим засобом.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1952"/>
+        <location filename="../tht.cpp" line="1961"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <translation>&quot;Золоте Теля&quot; І.Ільф, Є.Петров</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2010"/>
+        <location filename="../tht.cpp" line="2019"/>
         <source>Customize...</source>
         <translation>Налаштувати...</translation>
     </message>

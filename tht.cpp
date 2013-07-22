@@ -642,6 +642,12 @@ void THT::rebuildUi(bool adjustSizeIfNecessary)
             connect(list, SIGNAL(tickerCancelled()),
                     this, SLOT(slotTargetCancelled()));
 
+            connect(this, SIGNAL(squeezed(bool)),
+                    list, SLOT(slotSqueezed(bool)));
+
+            connect(this, SIGNAL(beforeSqueeze()),
+                    list, SLOT(slotBeforeSqueeze()));
+
             m_layout->addWidget(list, 0, m_lists.size());
             m_lists.append(list);
         }
@@ -1700,9 +1706,11 @@ void THT::squeeze(bool yes)
     {
         if(!m_justTitle)
         {
+            emit beforeSqueeze();
             m_lastHeightBeforeSqueezing = height();
             setFixedHeight(1);
             m_justTitle = true;
+            emit squeezed(true);
         }
     }
     else if(m_justTitle)
@@ -1711,6 +1719,7 @@ void THT::squeeze(bool yes)
         setMaximumHeight(QWIDGETSIZE_MAX);
         resize(width(), m_lastHeightBeforeSqueezing);
         m_justTitle = false;
+        emit squeezed(false);
     }
 }
 
