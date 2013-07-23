@@ -9,7 +9,7 @@
         <translation>Закрити</translation>
     </message>
     <message>
-        <location filename="../datadownloader.cpp" line="88"/>
+        <location filename="../datadownloader.cpp" line="97"/>
         <source>Network error #%1</source>
         <translation>Помилка мережі #%1</translation>
     </message>

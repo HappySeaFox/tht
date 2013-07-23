@@ -111,6 +111,7 @@ protected:
 
 private slots:
     void slotFinished();
+    void slotDelayedGet();
 
 private:
     DataDownloaderPrivate *d;
