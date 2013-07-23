@@ -55,7 +55,7 @@ bool FinvizPlugin::init()
 #define FINVIZ_URL "http://" FINVIZ "/screener.ashx?v=411&"
 
     // default Finviz urls
-    if(!Settings::instance()->contains("settings/finviz-urls"))
+    if(!Settings::instance()->contains("settings/" SETTING_FINVIZ_URLS))
     {
         SETTINGS_SET_FINVIZ_URLS(SETTING_FINVIZ_URLS,
                       QList<FinvizUrl>()
