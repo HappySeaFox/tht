@@ -16,6 +16,7 @@
  */
 
 #include <QNetworkCookieJar>
+#include <QTimer>
 #include <QUrl>
 
 #include "datadownloader.h"
@@ -28,6 +29,8 @@ public:
     Ui::DataDownloader *ui;
     NetworkAccess *net;
     QStringList data;
+    QUrl url;
+    QTimer *delayedGetTimer;
 };
 
 /******************************************/
@@ -36,6 +39,11 @@ DataDownloader::DataDownloader(QWidget *parent) :
     QDialog(parent)
 {
     d = new DataDownloaderPrivate;
+
+    d->delayedGetTimer = new QTimer(this);
+    d->delayedGetTimer->setSingleShot(true);
+    d->delayedGetTimer->setInterval(0);
+    connect(d->delayedGetTimer, SIGNAL(timeout()), this, SLOT(slotDelayedGet()));
 
     d->ui = new Ui::DataDownloader;
     d->ui->setupUi(this);
@@ -60,7 +68,8 @@ void DataDownloader::setCookieJar(QNetworkCookieJar *jar)
 
 void DataDownloader::get(const QUrl &url)
 {
-    d->net->get(url);
+    d->url = url;
+    d->delayedGetTimer->start();
 }
 
 void DataDownloader::setMessage(const QString &m)
@@ -91,4 +100,9 @@ void DataDownloader::slotFinished()
 
     if(finished())
         accept();
+}
+
+void DataDownloader::slotDelayedGet()
+{
+    d->net->get(d->url);
 }
