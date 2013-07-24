@@ -61,6 +61,11 @@ License: Free for use
 Author: Dmitry Baryshev
 License: Free for use
 
+* "Briefing" icon is created with GIMP
+
+Author: Dmitry Baryshev
+License: Free for use
+
 * "Buy" and "Sale" icons are based on the icons from Splashy theme
 
 http://findicons.com/pack/1689/splashy
