@@ -15,7 +15,6 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <QApplication>
 #include <QDataStream>
 #include <QAction>
 #include <QMenu>
