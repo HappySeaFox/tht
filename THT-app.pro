@@ -145,7 +145,8 @@ BEARERPLUGINS=qgenericbearer4.dll qnativewifibearer4.dll
 QTLIBS=QtCore4.dll QtGui4.dll QtNetwork4.dll QtScript4.dll QtSql4.dll QtXml4.dll QtXmlPatterns4.dll
 SSLLIBS=libeay32.dll ssleay32.dll
 MINGWLIBS=libgcc_s_sjlj-1.dll libwinpthread-1.dll libstdc++-6.dll
-OTHERQMFILES=tht_lib_ru.qm tht_lib_uk.qm addtickersfrom_finviz_ru.qm addtickersfrom_finviz_uk.qm
+OTHERQMFILES=tht_lib_ru.qm tht_lib_uk.qm addtickersfrom_finviz_ru.qm addtickersfrom_finviz_uk.qm addtickersfrom_briefing_splits_ru.qm addtickersfrom_briefing_splits_uk.qm
+PLUGINS=addtickersfrom-finviz.dll addtickersfrom-briefing-splits.dll
 QTQMFILES=qt_ru.qm qt_uk.qm
 LICENSES=LICENSE.txt LICENSE-LGPL-2.1.txt LICENSE-LGPL-3.txt
 USEUPX=y
@@ -194,7 +195,10 @@ QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite
     # binary & necessary files
     distbin.commands += $$mle(copy /y \"$${OUT_PWD}/$(DESTDIR_TARGET)\" \"$$T\")
     distbin.commands += $$mle(copy /y \"$${OUT_PWD}/$(DESTDIR_TARGET)/../THT-lib.dll\" \"$$T\")
-    distbin.commands += $$mle(copy /y \"$${OUT_PWD}/$(DESTDIR_TARGET)/../addtickersfrom-finviz.dll\" \"$$T/plugins\")
+
+    for(pl, PLUGINS) {
+        distbin.commands += $$mle(copy /y \"$${OUT_PWD}/$(DESTDIR_TARGET)/../$$pl\" \"$$T/plugins\")
+    }
 
     for(ql, QTLIBS) {
         distbin.commands += $$mle(copy /y \"$$[QT_INSTALL_BINS]\\$$ql\" \"$$T\")
@@ -316,9 +320,12 @@ exists($$INNO) {
     iss.commands += $$mle(echo [Files] >> $$ISS)
     iss.commands += $$mle(echo Source: \"$${OUT_PWD}/$(DESTDIR_TARGET)\"; DestDir: \"{app}\"; Flags: ignoreversion >> $$ISS)
     iss.commands += $$mle(echo Source: \"$${OUT_PWD}/$(DESTDIR_TARGET)/../THT-lib.dll\"; DestDir: \"{app}\"; Flags: ignoreversion >> $$ISS)
-    iss.commands += $$mle(echo Source: \"$${OUT_PWD}/$(DESTDIR_TARGET)/../addtickersfrom-finviz.dll\"; DestDir: \"{app}/plugins\"; Flags: ignoreversion >> $$ISS)
     iss.commands += $$mle(echo Source: \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite\"; DestDir: \"{app}\"; Flags: ignoreversion >> $$ISS)
     iss.commands += $$mle(echo Source: \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite.timestamp\"; DestDir: \"{app}\"; Flags: ignoreversion >> $$ISS)
+
+    for(pl, PLUGINS) {
+        iss.commands += $$mle(echo Source: \"$${OUT_PWD}/$(DESTDIR_TARGET)/../$$pl\"; DestDir: \"{app}/plugins\"; Flags: ignoreversion >> $$ISS)
+    }
 
     for(lc, LICENSES) {
         iss.commands += $$mle(echo Source: \"$${_PRO_FILE_PWD_}\\$$lc\"; DestDir: \"{app}\"; Flags: ignoreversion >> $$ISS)
