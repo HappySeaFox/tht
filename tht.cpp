@@ -986,11 +986,7 @@ void THT::loadNextWindow()
     {
         qDebug("Done for all windows");
 
-        if(m_windows == &m_windowsDrop)
-        {
-            qDebug("Clearing drop list");
-            m_windows->clear();
-        }
+        m_windowsDrop.clear();
 
         busy(false);
         activateRightWindowAtEnd();
@@ -1012,7 +1008,7 @@ void THT::busy(bool b)
 
 void THT::loadTicker(const QString &ticker, MasterLoadingPolicy masterPolicy)
 {
-    qDebug("Load ticker \"%s\"", qPrintable(ticker));
+    qDebug("Loading ticker \"%s\"", qPrintable(ticker));
 
     if(isBusy() || ticker.isEmpty())
         return;
@@ -1103,7 +1099,7 @@ void THT::slotCheckActive()
         return;
     }
 
-    Link &link = (*m_windows)[m_currentWindow];
+    const Link &link = (*m_windows)[m_currentWindow];
 
     if(GetForegroundWindow() == link.hwnd)
     {
@@ -1337,6 +1333,9 @@ void THT::slotCopyTo(const Ticker &ticker, int index)
 
 void THT::slotLoadTicker(const QString &ticker)
 {
+    if(isBusy())
+        return;
+
     m_windows = &m_windowsLoad;
     loadTicker(ticker);
 }
@@ -1457,6 +1456,9 @@ void THT::slotClearLinks()
 {
     qDebug("Clear links");
 
+    if(isBusy())
+        return;
+
     m_windows = &m_windowsLoad;
 
     if(m_windows->isEmpty())
@@ -1533,6 +1535,9 @@ void THT::slotLockLinks()
 
 void THT::slotTickerDropped(const Ticker &ticker, const QPoint &p)
 {
+    if(isBusy())
+        return;
+
     m_windows = &m_windowsDrop;
     m_windows->clear();
 
@@ -1790,6 +1795,9 @@ void THT::slotRestoreLinks()
 
 void THT::targetDropped(const QPoint &p, MasterSettings master, bool beep)
 {
+    if(isBusy())
+        return;
+
     m_windows = &m_windowsLoad;
 
     removeWindowMarker();
