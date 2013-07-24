@@ -1014,7 +1014,7 @@ void THT::loadTicker(const QString &ticker, MasterLoadingPolicy masterPolicy)
 {
     qDebug("Load ticker \"%s\"", qPrintable(ticker));
 
-    if(isBusy())
+    if(isBusy() || ticker.isEmpty())
         return;
 
     if(m_sectors && sender() != m_sectors)
