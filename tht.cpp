@@ -731,7 +731,7 @@ void THT::checkWindow(Link *link)
                                                                     qPrintable(sname),
                                                                     qPrintable(cname));
 
-    if(sname == "advancedget.exe" || sname == "winsig.exe")
+    if(sname == "advancedget.exe" || sname == "winsig.exe" || sname == "esignal.exe")
         link->type = LinkTypeAdvancedGet;
     else if(sname == "dastrader.exe")
         link->type = LinkTypeDASTraderPro;
