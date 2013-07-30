@@ -21,15 +21,5 @@
         <source>Add from Briefing Stock Splits</source>
         <translation>Добавить из Briefing Stock Splits</translation>
     </message>
-    <message>
-        <location filename="../briefingsplitsplugin.cpp" line="51"/>
-        <source>This month</source>
-        <translation>Этот месяц</translation>
-    </message>
-    <message>
-        <location filename="../briefingsplitsplugin.cpp" line="56"/>
-        <source>Next month</source>
-        <translation>Следующий месяц</translation>
-    </message>
 </context>
 </TS>
