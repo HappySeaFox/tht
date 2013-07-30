@@ -93,15 +93,6 @@ void FomcPlugin::delayedInit()
 
     m_label->setParent(c);
     c->layout()->addWidget(m_label);
-    /*
-    c->layout()->addWidget(new QLabel("r1", c));
-    QLabel *l1 = new QLabel("l1", containerLeft());
-    l1->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Preferred);
-    QLabel *l2 = new QLabel("l2", containerLeft());
-    l2->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Preferred);
-    containerLeft()->layout()->addWidget(l1);
-    containerLeft()->layout()->addWidget(l2);
-    */
     m_label->hide();
 
     QTimer::singleShot(0, this, SLOT(slotCheck()));
