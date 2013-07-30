@@ -39,7 +39,6 @@ SOURCES += main.cpp\
     listdetails.cpp \
     inlinetextinput.cpp \
     tickercommentinput.cpp \
-    clickablelabel.cpp \
     pluginloader.cpp \
     pluginmanager.cpp \
     plugindetails.cpp \
@@ -84,7 +83,6 @@ HEADERS += tht.h \
     inlinetextinput.h \
     ticker.h \
     tickercommentinput.h \
-    clickablelabel.h \
     pluginloader.h \
     pluginmanager.h \
     plugindetails.h \
@@ -145,8 +143,8 @@ BEARERPLUGINS=qgenericbearer4.dll qnativewifibearer4.dll
 QTLIBS=QtCore4.dll QtGui4.dll QtNetwork4.dll QtScript4.dll QtSql4.dll QtXml4.dll QtXmlPatterns4.dll
 SSLLIBS=libeay32.dll ssleay32.dll
 MINGWLIBS=libgcc_s_sjlj-1.dll libwinpthread-1.dll libstdc++-6.dll
-OTHERQMFILES=tht_lib_ru.qm tht_lib_uk.qm addtickersfrom_finviz_ru.qm addtickersfrom_finviz_uk.qm addtickersfrom_briefing_splits_ru.qm addtickersfrom_briefing_splits_uk.qm
-PLUGINS=addtickersfrom-finviz.dll addtickersfrom-briefing-splits.dll
+OTHERQMFILES=tht_lib_ru.qm tht_lib_uk.qm addtickersfrom_finviz_ru.qm addtickersfrom_finviz_uk.qm addtickersfrom_briefing_splits_ru.qm addtickersfrom_briefing_splits_uk.qm common_fomc_ru.qm common_fomc_uk.qm
+PLUGINS=addtickersfrom-finviz.dll addtickersfrom-briefing-splits.dll common-fomc.dll
 QTQMFILES=qt_ru.qm qt_uk.qm
 LICENSES=LICENSE.txt LICENSE-LGPL-2.1.txt LICENSE-LGPL-3.txt
 USEUPX=y

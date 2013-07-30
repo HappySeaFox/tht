@@ -69,6 +69,36 @@ QWidget *Plugin::topLevelWidget() const
     return topLevelWidget;
 }
 
+QWidget *Plugin::containerLeft() const
+{
+    static QWidget *c = 0;
+
+    if(!c)
+    {
+        QWidget *tht = topLevelWidget();
+
+        if(tht)
+            c = tht->findChild<QWidget *>("containerLeft");
+    }
+
+    return c;
+}
+
+QWidget *Plugin::containerRight() const
+{
+    static QWidget *c = 0;
+
+    if(!c)
+    {
+        QWidget *tht = topLevelWidget();
+
+        if(tht)
+            c = tht->findChild<QWidget *>("containerRight");
+    }
+
+    return c;
+}
+
 void Plugin::delayedInit()
 {
 }

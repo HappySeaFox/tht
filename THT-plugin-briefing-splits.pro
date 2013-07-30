@@ -5,7 +5,7 @@ QT += core gui network
 greaterThan(QT_MAJOR_VERSION, 4): QT *= widgets
 
 NVER1=0
-NVER2=3
+NVER2=9
 NVER3=0
 
 SOURCES += briefingsplitsplugin.cpp \

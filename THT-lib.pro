@@ -22,7 +22,8 @@ SOURCES += datamanagerbase.cpp \
     remotedate.cpp \
     sqltools.cpp \
     hotkey.cpp \
-    datadownloader.cpp
+    datadownloader.cpp \
+    clickablelabel.cpp
 
 HEADERS += datamanagerbase.h \
     settings.h \
@@ -38,7 +39,8 @@ HEADERS += datamanagerbase.h \
     uppercasevalidator.h \
     remotedate.h \
     sqltools.h \
-    datadownloader.h
+    datadownloader.h \
+    clickablelabel.h
 
 FORMS += datamanagerbase.ui \
     datadownloader.ui
