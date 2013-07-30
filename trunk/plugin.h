@@ -71,6 +71,23 @@ protected:
      */
     QWidget *topLevelWidget() const;
 
+    /*
+     *  Pointers to left-aligned and right-aligned containers for
+     *  plugins' widgets. The containters are created in the bootom of the
+     *  THT window like that:
+     *
+     *  |                                                |
+     *  |            +----------++----------+            |
+     *  | + No links | LEFT     ||    RIGHT | [] =N  \/  |
+     *  |            +----------++----------+            |
+     *  +------------------------------------------------+
+     *
+     *
+     *  Any plugin can embed widgets to them
+     */
+    QWidget *containerLeft() const;
+    QWidget *containerRight() const;
+
 protected slots:
     /*
      *  Delayed initialization. This slot is optional, you can

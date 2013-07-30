@@ -26,6 +26,7 @@
 #include <QMutexLocker>
 #include <QMapIterator>
 #include <QGridLayout>
+#include <QHBoxLayout>
 #include <QMessageBox>
 #include <QCloseEvent>
 #include <QWheelEvent>
@@ -57,7 +58,6 @@
 #include "regionselect.h"
 #include "pluginloader.h"
 #include "tickerinput.h"
-#include "remotedate.h"
 #include "settings.h"
 #include "sqltools.h"
 #include "options.h"
@@ -145,6 +145,18 @@ THT::THT() :
         setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
 
     ui->setupUi(this);
+
+    // containers for plugins' widgets
+    QHBoxLayout *l;
+
+    l = new QHBoxLayout(ui->containerLeft);
+    l->setContentsMargins(0, 0, 0, 0);
+    ui->containerLeft->setLayout(l);
+
+    l = new QHBoxLayout(ui->containerRight);
+    l->setContentsMargins(0, 0, 0, 0);
+    l->addStretch(1);
+    ui->containerRight->setLayout(l);
 
     qDebug("Registered master data event type: %s",
            (QEvent::registerEventType(THT_MASTER_DATA_EVENT_TYPE) == THT_MASTER_DATA_EVENT_TYPE) ? "yes" : "no");
@@ -318,16 +330,6 @@ THT::THT() :
     if(!SETTINGS_GET_BOOL(SETTING_FOOLSDAY_SEEN))
         QTimer::singleShot(0, this, SLOT(slotFoolsDay()));
 
-    m_newYorkDate = new RemoteDate("Eastern Standard Time");
-
-    // FOMC warning
-    m_timerFomcCheck = new QTimer(this);
-    m_timerFomcCheck->setSingleShot(true);
-    m_timerFomcCheck->setInterval(60*60*1000); // check every 1 hour
-    connect(m_timerFomcCheck, SIGNAL(timeout()), this, SLOT(slotFomcCheck()));
-
-    QTimer::singleShot(0, this, SLOT(slotFomcCheck()));
-
     // link points
     QMenu *linkPointsMenu = new QMenu(ui->pushLinks);
     ui->pushLinks->setMenu(linkPointsMenu);
@@ -375,7 +377,6 @@ THT::~THT()
 
     SETTINGS_SET_BOOL(SETTING_SHOW_NEIGHBORS_AT_STARTUP, (bool)m_sectors);
 
-    delete m_newYorkDate;
     delete ui;
 }
 
@@ -1745,37 +1746,6 @@ bool THT::isBusy() const
     return false;
 }
 
-void THT::slotFomcCheck()
-{
-    // start check timer again
-    m_timerFomcCheck->start();
-
-    // determine the New York time
-    QDateTime datetime = m_newYorkDate->dateTime();
-
-    if(datetime.isValid())
-    {
-        qDebug("New York time: %s", qPrintable(datetime.toString("dd.MM.yyyy hh:mm:ss")));
-
-        // query FOMC date
-        QString date = datetime.toString("yyyy MM dd");
-        QList<QVariantList> lists = SqlTools::query("SELECT date FROM fomc WHERE date = :date", ":date", date);
-
-        if(!lists.isEmpty() && lists.at(0).size() == 1)
-        {
-            qDebug("News from FOMC is today");
-            ui->labelFomc->show();
-            return;
-        }
-        else
-            qDebug("Cannot query FOMC date");
-    }
-    else
-        qDebug("New York time is invalid");
-
-    ui->labelFomc->hide();
-}
-
 void THT::slotRestoreLinks()
 {
     // restore link points
@@ -1970,11 +1940,6 @@ void THT::slotFoolsDay()
 
         SETTINGS_SET_BOOL(SETTING_FOOLSDAY_SEEN, true);
     }
-}
-
-void THT::slotFomcClicked()
-{
-    QDesktopServices::openUrl(QUrl("http://www.bloomberg.com/markets/economic-calendar"));
 }
 
 bool THT::setForeignFocus(const Link &link)

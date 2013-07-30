@@ -38,7 +38,6 @@ class QPoint;
 class QTimer;
 class QMenu;
 
-class RemoteDate;
 class Ticker;
 class List;
 
@@ -191,8 +190,6 @@ private slots:
     void slotOpenOrCloseSearchTicker();
     void slotShowNeighbors(const QString &);
     void slotFoolsDay();
-    void slotFomcClicked();
-    void slotFomcCheck();
     void slotRestoreLinks();
     void targetDropped(const QPoint &, MasterSettings master = MasterAuto, bool beep = true);
 
@@ -221,8 +218,6 @@ private:
     QPointer<TickerNeighbors> m_sectors;
     QxtGlobalShortcut *m_takeScreen, *m_restore;
     HWND m_drawnWindow;
-    QTimer *m_timerFomcCheck;
-    RemoteDate *m_newYorkDate;
     bool m_linksChanged;
     MasterLoadingPolicy m_checkForMaster;
     HWND m_wasActive;

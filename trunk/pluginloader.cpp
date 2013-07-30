@@ -113,7 +113,8 @@ void PluginLoader::init()
             continue;
         }
 
-        qDebug("Loading plugin translation: %s",
+        qDebug("Loading translation for plugin \"%s\": %s",
+               qPrintable(fi.fileName()),
                (*it).translator->load(fi.baseName().replace('-', '_') + '_' + ts, tsDir) ? "ok" : "failed");
 
         qApp->installTranslator((*it).translator);
