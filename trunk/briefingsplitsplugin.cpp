@@ -44,19 +44,19 @@ bool BriefingSplitsPlugin::embed(int list, QMenu *parentMenu)
     menu->setIcon(QIcon(":/images/briefing.png"));
     menu->clear();
 
-    QAction *a;
     QDate currentDate = QDate::currentDate();
-    QDate nextMonthDate = currentDate.addMonths(1);
+    QList<QDate> dates = QList<QDate>() << currentDate << currentDate.addMonths(1) << currentDate.addMonths(2);
 
-    a = menu->addAction(tr("This month"), this, SLOT(slotAdd()));
-    a->setData(QString("http://www.briefing.com/investor/calendars/stock-splits/%1/%2")
-               .arg(currentDate.year())
-               .arg(currentDate.month()));
+    foreach(QDate d, dates)
+    {
+        QAction *a = menu->addAction(QDate::longMonthName(d.month(), QDate::StandaloneFormat),
+                            this,
+                            SLOT(slotAdd()));
 
-    a = menu->addAction(tr("Next month"), this, SLOT(slotAdd()));
-    a->setData(QString("http://www.briefing.com/investor/calendars/stock-splits/%1/%2")
-               .arg(nextMonthDate.year())
-               .arg(nextMonthDate.month()));
+        a->setData(QString("http://www.briefing.com/investor/calendars/stock-splits/%1/%2")
+                   .arg(d.year())
+                   .arg(d.month()));
+    }
 
     parentMenu->addMenu(menu);
 
