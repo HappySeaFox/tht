@@ -80,6 +80,8 @@ protected:
      */
     QPushButton *buttonAdd() const;
 
+    virtual bool event(QEvent *e);
+
 private:
     void moveItem(int index, int diff);
     void resetTabOrders();

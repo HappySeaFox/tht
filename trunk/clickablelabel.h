@@ -26,10 +26,10 @@ class ClickableLabel : public QLabel
 
 public:
     explicit ClickableLabel(QWidget *parent = 0);
+    virtual ~ClickableLabel();
 
 protected:
-    virtual void mousePressEvent(QMouseEvent *e);
-    virtual void mouseReleaseEvent(QMouseEvent *e);
+    virtual bool event(QEvent *e);
 
 signals:
     void clicked();

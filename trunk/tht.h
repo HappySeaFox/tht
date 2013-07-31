@@ -86,18 +86,14 @@ private:
 
     struct Link
     {
-        Link(HWND h = (HWND)0, LinkType lt = LinkTypeNotInitialized)
-        {
-            hwnd = h;
-            type = lt;
-            processId = 0;
-            threadId = 0;
-            subControl = 0;
-            subControlSupportsClearing = false;
-            hook = 0;
-        }
-
-        ~Link()
+        Link(HWND h = (HWND)0, LinkType lt = LinkTypeNotInitialized) :
+            hwnd(h),
+            type(lt),
+            processId(0),
+            threadId(0),
+            subControl(0),
+            subControlSupportsClearing(false),
+            hook(0)
         {}
 
         void unhook();

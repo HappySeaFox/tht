@@ -27,8 +27,9 @@ class UpperCaseValidator : public QRegExpValidator
 {
 public:
     explicit UpperCaseValidator(QObject *parent = 0);
+    virtual ~UpperCaseValidator();
 
-    QValidator::State validate(QString &input, int &pos) const;
+    virtual QValidator::State validate(QString &input, int &pos) const;
 };
 
 #endif // UPPERCASEVALIDATOR_H

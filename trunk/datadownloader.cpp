@@ -90,6 +90,11 @@ void DataDownloader::showError(const QString &e)
     d->ui->progressBar->setValue(1);
 }
 
+bool DataDownloader::event(QEvent *e)
+{
+    return QDialog::event(e);
+}
+
 void DataDownloader::slotFinished()
 {
     if(d->net->error() != QNetworkReply::NoError)

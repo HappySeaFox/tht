@@ -15,11 +15,14 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "settings.h"
 #include "uppercasevalidator.h"
+#include "settings.h"
 
 UpperCaseValidator::UpperCaseValidator(QObject *parent) :
     QRegExpValidator(Settings::instance()->tickerValidator(), parent)
+{}
+
+UpperCaseValidator::~UpperCaseValidator()
 {}
 
 QValidator::State UpperCaseValidator::validate(QString &input, int &pos) const

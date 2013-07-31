@@ -17,6 +17,11 @@
 
 #include "hotkey.h"
 
+Hotkey::Hotkey(const Qt::Key &_key, const Qt::KeyboardModifiers &_modifiers) :
+    key(_key),
+    modifiers(_modifiers)
+{}
+
 bool operator== (const Hotkey &a, const Hotkey &b)
 {
     return a.key == b.key
