@@ -936,7 +936,7 @@ void THT::nextLoadableWindowIndex(int delta)
 {
     m_currentWindow += delta;
 
-    if(m_ticker.startsWith('$'))
+    if(m_ticker.startsWith(QString(THT_PRIVATE_TICKER_PREFIX) + '$'))
     {
         while(m_currentWindow < m_windows->size() && m_windows->at(m_currentWindow).type != LinkTypeAdvancedGet)
             m_currentWindow++;
