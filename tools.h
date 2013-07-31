@@ -18,6 +18,7 @@
 #ifndef TOOLS_H
 #define TOOLS_H
 
+#include <QString>
 #include <QPoint>
 
 #include <windows.h>
@@ -49,6 +50,11 @@ public:
      *  Check for option 'opt' in the command line arguments
      */
     static bool hasOption(const QString &opt);
+
+    /*
+     *  Replace all whitespaces with &nbsp;
+     */
+    static QString nonBreakable(const QString &str);
 
     /*
      *  Invalid QPoint
