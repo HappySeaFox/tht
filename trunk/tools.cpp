@@ -18,6 +18,7 @@
 #include <QCoreApplication>
 #include <QDesktopWidget>
 #include <QApplication>
+#include <QRegExp>
 #include <QWidget>
 #include <QRect>
 
@@ -139,6 +140,11 @@ bool Tools::isDesktop(HWND hwnd)
 bool Tools::hasOption(const QString &opt)
 {
     return (QCoreApplication::arguments().indexOf(opt) >= 0);
+}
+
+QString Tools::nonBreakable(const QString &str)
+{
+    return QString(str).replace(QRegExp("\\s"), "&nbsp;");
 }
 
 Tools::Tools()

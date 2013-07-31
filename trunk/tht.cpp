@@ -926,7 +926,7 @@ void THT::checkWindows()
         tooltip += QString("<tr><td>%1:</td><td>%2</td></tr>").arg(tr("Unknown")).arg(others);
 
     tooltip += "</table>";
-    tooltip.replace(QRegExp("\\s"), "&nbsp;");
+    tooltip = Tools::nonBreakable(tooltip);
 
     ui->labelLinks->setToolTip(tooltip);
     ui->labelLinks_n->setToolTip(tooltip);
