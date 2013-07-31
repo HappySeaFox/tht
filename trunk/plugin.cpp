@@ -25,8 +25,7 @@ class PluginPrivate
 {
 public:
     PluginPrivate()
-    {
-    }
+    {}
 };
 
 /****************************************/
@@ -100,5 +99,4 @@ QWidget *Plugin::containerRight() const
 }
 
 void Plugin::delayedInit()
-{
-}
+{}
