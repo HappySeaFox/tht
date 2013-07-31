@@ -936,46 +936,38 @@ void THT::nextLoadableWindowIndex(int delta)
 {
     m_currentWindow += delta;
 
-    if(m_ticker.startsWith(QString(THT_PRIVATE_TICKER_PREFIX) + '$'))
-    {
-        while(m_currentWindow < m_windows->size() && m_windows->at(m_currentWindow).type != LinkTypeAdvancedGet)
-            m_currentWindow++;
-    }
-    else
+    if(m_checkForMaster == MasterPolicyAuto)
     {
         int index = m_currentWindow;
         int masterIndex = -1;
 
-        if(m_checkForMaster == MasterPolicyAuto)
+        while(index < m_windows->size())
         {
-            while(index < m_windows->size())
+            if(m_windows->at(index).hook)
             {
-                if(m_windows->at(index).hook)
-                {
-                    masterIndex = index;
-                    break;
-                }
-
-                index++;
+                masterIndex = index;
+                break;
             }
+
+            index++;
         }
 
-        if(m_checkForMaster == MasterPolicyAuto && masterIndex >= 0)
+        if(masterIndex >= 0)
         {
             m_currentWindow = masterIndex;
             qDebug("Found AUTO index %d", m_currentWindow);
         }
-        else if(m_checkForMaster == MasterPolicySkip)
-        {
-            while(m_currentWindow < m_windows->size() && m_windows->at(m_currentWindow).hook)
-                m_currentWindow++;
+    }
+    else if(m_checkForMaster == MasterPolicySkip)
+    {
+        while(m_currentWindow < m_windows->size() && m_windows->at(m_currentWindow).hook)
+            m_currentWindow++;
 
-            qDebug("Found SKIP index %d", m_currentWindow);
-        }
-        else if(m_checkForMaster == MasterPolicyIgnore)
-        {
-            qDebug("Found IGNORE index %d", m_currentWindow);
-        }
+        qDebug("Found SKIP index %d", m_currentWindow);
+    }
+    else if(m_checkForMaster == MasterPolicyIgnore)
+    {
+        qDebug("Found IGNORE index %d", m_currentWindow);
     }
 }
 
