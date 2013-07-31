@@ -26,18 +26,29 @@ ClickableLabel::ClickableLabel(QWidget *parent) :
     setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
 }
 
-void ClickableLabel::mousePressEvent(QMouseEvent *e)
+ClickableLabel::~ClickableLabel()
+{}
+
+bool ClickableLabel::event(QEvent *e)
 {
-    e->accept();
-    m_clicked = true;
-}
+    QEvent::Type type = e->type();
 
-void ClickableLabel::mouseReleaseEvent(QMouseEvent *e)
-{
-    e->accept();
+    switch(type)
+    {
+        case QEvent::MouseButtonPress:
+            m_clicked = true;
+        return true;
 
-    if(m_clicked)
-        emit clicked();
+        case QEvent::MouseButtonRelease:
+            if(m_clicked)
+                emit clicked();
 
-    m_clicked = false;
+            m_clicked = false;
+        return true;
+
+        default:
+        break;
+    }
+
+    return QLabel::event(e);
 }

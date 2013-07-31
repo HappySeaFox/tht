@@ -109,6 +109,8 @@ protected:
      */
     virtual bool finished() = 0;
 
+    virtual bool event(QEvent *e);
+
 private slots:
     void slotFinished();
     void slotDelayedGet();

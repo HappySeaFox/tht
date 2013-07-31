@@ -85,6 +85,11 @@ QPushButton *DataManagerBase::buttonAdd() const
     return d->ui->pushAdd;
 }
 
+bool DataManagerBase::event(QEvent *e)
+{
+    return QDialog::event(e);
+}
+
 void DataManagerBase::addItem(const QStringList &strings, const QVariant &data, bool edit)
 {
     QTreeWidgetItem *i = new QTreeWidgetItem(strings);

@@ -23,9 +23,7 @@
 struct Hotkey
 {
     Hotkey(const Qt::Key &_key = Qt::Key_0,
-           const Qt::KeyboardModifiers &_modifiers = Qt::NoModifier)
-        : key(_key), modifiers(_modifiers)
-    {}
+           const Qt::KeyboardModifiers &_modifiers = Qt::NoModifier);
 
     Qt::Key key;
     Qt::KeyboardModifiers modifiers;
