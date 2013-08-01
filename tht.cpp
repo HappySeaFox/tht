@@ -595,7 +595,7 @@ void THT::sendString(const QString &ticker, LinkType type)
     for(int i = 0;i < ticker.length();i++)
         sendKey(ticker.at(i).toLatin1());
 
-    // Fix for TOS@paperMoney
+    // Fix for TOS
     if(type == LinkTypeThinkorswim)
         Sleep(10);
 
