@@ -15,12 +15,16 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <QMutableListIterator>
+#include <QHashIterator>
 #include <QApplication>
+#include <QStringList>
 #include <QTranslator>
 #include <QFileInfo>
 #include <QLibrary>
 #include <QVariant>
 #include <QDebug>
+#include <QHash>
 #include <QDir>
 
 #include "pluginloader.h"
@@ -39,6 +43,8 @@ PluginLoader::PluginLoader(QObject *parent) : QObject(parent)
     QFileInfoList plugins = pluginsDir.entryInfoList(QStringList() << "*.dll",
                                                      QDir::Files | QDir::NoDotAndDotDot | QDir::Readable,
                                                      QDir::Name);
+
+    QHash<QString, QStringList> deprecatedUuids;
 
     foreach(QFileInfo fi, plugins)
     {
@@ -71,9 +77,48 @@ PluginLoader::PluginLoader(QObject *parent) : QObject(parent)
                 continue;
             }
 
+            QStringList uuids = p.plugin->property(THT_PLUGIN_PROPERTY_DEPRECATES_UUIDS).toString().split(',', QString::SkipEmptyParts);
+
+            if(!uuids.isEmpty())
+            {
+                deprecatedUuids[
+                                p.plugin->property(THT_PLUGIN_PROPERTY_NAME).toString()
+                                + '/'
+                                + p.plugin->property(THT_PLUGIN_PROPERTY_UUID).toString()
+                                ] = uuids;
+            }
+
             append(p);
 
             qDebug("Loaded plugin \"%s\"", qPrintable(fi.fileName()));
+        }
+    }
+
+    QMutableListIterator<PluginLibrary> itPlugins(*this);
+
+    while(itPlugins.hasNext())
+    {
+        itPlugins.next();
+
+        QString uuid = itPlugins.value().plugin->property(THT_PLUGIN_PROPERTY_UUID).toString();
+
+        QHashIterator<QString, QStringList> itDeprecated(deprecatedUuids);
+
+        while(itDeprecated.hasNext())
+        {
+            itDeprecated.next();
+
+            if(itDeprecated.value().indexOf(uuid) >= 0)
+            {
+                qDebug("Plugin \"%s/%s\" is deprecated by \"%s\"",
+                       qPrintable(itPlugins.value().plugin->property(THT_PLUGIN_PROPERTY_NAME).toString()),
+                       qPrintable(uuid),
+                       qPrintable(itDeprecated.key()));
+
+                itPlugins.value().plugin_destroy(itPlugins.value().plugin);
+                delete itPlugins.value().library;
+                itPlugins.remove();
+            }
         }
     }
 }
