@@ -28,7 +28,10 @@
 #include "sqltools.h"
 
 FomcPlugin::FomcPlugin() :
-    Plugin()
+    Plugin(),
+    m_timerFomcCheck(0),
+    m_newYorkDate(0),
+    m_label(0)
 {
     THT_PLUGIN_INTERFACE_IMPLEMENTATION
 }
@@ -36,6 +39,7 @@ FomcPlugin::FomcPlugin() :
 FomcPlugin::~FomcPlugin()
 {
     delete m_newYorkDate;
+    delete m_label;
 }
 
 bool FomcPlugin::init()
