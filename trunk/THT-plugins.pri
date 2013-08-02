@@ -28,6 +28,7 @@ DEFINES += THT_PLUGIN_NAME=$$sprintf("\"\\\"%1\\\"\"", $$THT_PLUGIN_NAME)
 DEFINES += THT_PLUGIN_AUTHOR=$$sprintf("\"\\\"%1\\\"\"", $$THT_PLUGIN_AUTHOR)
 DEFINES += THT_PLUGIN_VERSION=$$sprintf("\"\\\"%1\\\"\"", $$VERSION)
 DEFINES += THT_PLUGIN_UUID=$$sprintf("\"\\\"%1\\\"\"", $$THT_PLUGIN_UUID)
+DEFINES += THT_PLUGIN_DEPRECATES_UUIDS=$$sprintf("\"\\\"%1\\\"\"", $$THT_PLUGIN_DEPRECATES_UUIDS)
 DEFINES += THT_PLUGIN_URL=$$sprintf("\"\\\"%1\\\"\"", $$THT_PLUGIN_URL)
 DEFINES += THT_PLUGIN_COPYRIGHT=$$sprintf("\"\\\"%1\\\"\"", $$THT_PLUGIN_COPYRIGHT)
 

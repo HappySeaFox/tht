@@ -24,11 +24,12 @@
 class PluginPrivate;
 
 // set by the plugin, see THT_PLUGIN_INTERFACE_IMPLEMENTATION below
-#define THT_PLUGIN_PROPERTY_NAME         "name"
-#define THT_PLUGIN_PROPERTY_AUTHOR       "author"
-#define THT_PLUGIN_PROPERTY_VERSION      "version"
-#define THT_PLUGIN_PROPERTY_URL          "url"
-#define THT_PLUGIN_PROPERTY_UUID         "uuid"
+#define THT_PLUGIN_PROPERTY_NAME             "name"
+#define THT_PLUGIN_PROPERTY_AUTHOR           "author"
+#define THT_PLUGIN_PROPERTY_VERSION          "version"
+#define THT_PLUGIN_PROPERTY_URL              "url"
+#define THT_PLUGIN_PROPERTY_UUID             "uuid"
+#define THT_PLUGIN_PROPERTY_DEPRECATES_UUIDS "deprecates-uuids"
 
 // set by the plugin loader
 #define THT_PLUGIN_PROPERTY_LICENSE_FILE "license"
@@ -123,6 +124,7 @@ setProperty(THT_PLUGIN_PROPERTY_NAME, THT_PLUGIN_NAME);       \
 setProperty(THT_PLUGIN_PROPERTY_AUTHOR, THT_PLUGIN_AUTHOR);   \
 setProperty(THT_PLUGIN_PROPERTY_VERSION, THT_PLUGIN_VERSION); \
 setProperty(THT_PLUGIN_PROPERTY_URL, THT_PLUGIN_URL);         \
-setProperty(THT_PLUGIN_PROPERTY_UUID, THT_PLUGIN_UUID);
+setProperty(THT_PLUGIN_PROPERTY_UUID, THT_PLUGIN_UUID);       \
+setProperty(THT_PLUGIN_PROPERTY_DEPRECATES_UUIDS, THT_PLUGIN_DEPRECATES_UUIDS);
 
 #endif
