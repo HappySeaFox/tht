@@ -1,0 +1,14 @@
+QXMPP AUTHORS
+-------------
+
+Manjeet Dahiya <manjeetdahiya@gmail.com>
+ * Initial author of QXmpp.
+
+Jeremy Lainé <jeremy.laine@m4x.org>
+ * Co-author of QXmpp.
+
+Ian Reinhart Geiser <geiseri@kde.org>
+ * Initial author of Jabber-RPC support.
+
+Georg Rudoy <0xd34df00d@gmail.com>
+ * Author of receipts manager, extended stanza addressing.

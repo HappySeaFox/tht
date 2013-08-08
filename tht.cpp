@@ -163,6 +163,7 @@ THT::THT() :
 
     // initialize all plugins
     PluginLoader::instance()->init();
+    connect(PluginLoader::instance(), SIGNAL(openTicker(QString)), this, SLOT(slotLoadTicker(QString)));
 
     setAcceptDrops(true);
 

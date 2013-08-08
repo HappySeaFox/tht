@@ -146,7 +146,7 @@ Settings::Settings()
 
     d->databaseTimestampFormat = "yyyy-MM-dd hh:mm:ss.zzz";
 
-    d->rxTicker = QRegExp("[a-zA-Z0-9\\-\\.$]{1,8}");
+    d->rxTicker = QRegExp("[a-zA-Z0-9\\-\\.\\$]{1,8}");
 
     // migrate from old settings
     if(d->settings->childGroups().isEmpty())
@@ -257,6 +257,8 @@ Settings::Settings()
     d->defaultValues.insert(SETTING_SAVE_GEOMETRY, true);
     d->defaultValues.insert(SETTING_GLOBAL_HOTKEY_SCREENSHOT, true);
     d->defaultValues.insert(SETTING_GLOBAL_HOTKEY_RESTORE, true);
+    d->defaultValues.insert(SETTING_POSITION, Tools::invalidQPoint);
+    d->defaultValues.insert(SETTING_NEIGHBORS_POSITION, Tools::invalidQPoint);
 }
 
 Settings::~Settings()
@@ -391,16 +393,6 @@ void Settings::fillTranslations()
 
     //: English language
     d->translations.insert(QObject::tr("English"), "en");
-}
-
-QPoint Settings::point(const QString &key)
-{
-    QString fullKey = "settings/" + key;
-
-    if(d->settings->contains(fullKey))
-        return d->settings->value(fullKey).value<QPoint>();
-    else
-        return Tools::invalidQPoint;
 }
 
 QHash<QString, QVariant>& Settings::defaultValues()

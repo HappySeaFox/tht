@@ -232,8 +232,6 @@ private:
 
     void fillTranslations();
 
-    QPoint point(const QString &key);
-
     QHash<QString, QVariant> &defaultValues();
 
     QSettings *settings();

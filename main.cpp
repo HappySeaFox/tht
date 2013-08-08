@@ -239,6 +239,8 @@ int main(int argc, char *argv[])
 
     int code = app.exec();
 
+    PluginLoader::instance()->unload();
+
     qDebug("Goodbye at %s (exit code %d)", qPrintable(QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss")), code);
 
     return code;

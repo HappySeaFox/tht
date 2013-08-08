@@ -62,9 +62,14 @@ public:
 
     void init();
 
+    void unload();
+
     QList<Plugin *> byType(Plugin::Type) const;
 
     Plugin* byUuid(const QString &uuid) const;
+
+signals:
+    void openTicker(const QString &);
 
 private:
     PluginLoader(QObject *parent = 0);
