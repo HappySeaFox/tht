@@ -61,6 +61,8 @@ bool ChatPlugin::init()
 
     m_button->setFixedSize(22, 22);
     m_button->setIcon(QIcon(":/images/chat.png"));
+    m_button->setToolTip(tr("Chat"));
+
     connect(m_button, SIGNAL(clicked()), this, SLOT(slotClicked()));
 
     return true;
@@ -82,11 +84,16 @@ void ChatPlugin::slotClicked()
     if(!m_window)
     {
         m_window = new ChatWindow;
+
+        if(!m_window)
+            return;
+
         m_window->setWindowIcon(QIcon(":/images/chat.png"));
         connect(m_window, SIGNAL(openTicker(QString)), this, SIGNAL(openTicker(QString)));
     }
 
-    m_window->show();
+    Tools::raiseWindow(m_window);
+    m_window->activateWindow();
 }
 
 PLUGIN_CONSTRUCTOR(ChatPlugin)

@@ -201,6 +201,14 @@
     </message>
 </context>
 <context>
+    <name>ChatPlugin</name>
+    <message>
+        <location filename="../chatplugin.cpp" line="64"/>
+        <source>Chat</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ChatWindow</name>
     <message>
         <location filename="../chatwindow.ui" line="14"/>

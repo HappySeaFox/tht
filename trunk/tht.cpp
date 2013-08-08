@@ -1064,9 +1064,9 @@ void THT::activate()
     qDebug("Activating");
 
     if(m_sectors)
-        raiseWindow(m_sectors);
+        Tools::raiseWindow(m_sectors);
 
-    raiseWindow(this);
+    Tools::raiseWindow(this);
 
     if(m_sectors && m_lastActiveWindow == m_sectors)
         m_sectors->activateWindow();
@@ -1904,7 +1904,7 @@ void THT::slotShowNeighbors(const QString &ticker)
     if(m_sectors)
     {
         m_sectors->showTicker(ticker);
-        raiseWindow(m_sectors);
+        Tools::raiseWindow(m_sectors);
         m_sectors->activateWindow();
         return;
     }
@@ -1983,16 +1983,6 @@ void THT::rebuildLinks()
         menu->addSeparator();
 
     menu->addAction(QIcon(":/images/links-customize.png"), tr("Customize..."), this, SLOT(slotManageLinks()));
-}
-
-void THT::raiseWindow(QWidget *w)
-{
-    if(!w)
-        return;
-
-    w->show();
-    w->setWindowState(w->windowState() & ~Qt::WindowMinimized);
-    w->raise();
 }
 
 void THT::Link::unhook()

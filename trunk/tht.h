@@ -137,7 +137,6 @@ private:
     void startDelayedScreenshot(bool);
     bool setForeignFocus(const Link &);
     void rebuildLinks();
-    void raiseWindow(QWidget *);
     void drawWindowMarker();
     void removeWindowMarker();
     void reconfigureGlobalShortcuts();

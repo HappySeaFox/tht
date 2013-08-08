@@ -147,5 +147,15 @@ QString Tools::nonBreakable(const QString &str)
     return QString(str).replace(QRegExp("\\s"), "&nbsp;");
 }
 
+void Tools::raiseWindow(QWidget *w)
+{
+    if(!w)
+        return;
+
+    w->show();
+    w->setWindowState(w->windowState() & ~Qt::WindowMinimized);
+    w->raise();
+}
+
 Tools::Tools()
 {}
