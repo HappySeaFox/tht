@@ -18,6 +18,8 @@
 #ifndef PLUGIN_H
 #define PLUGIN_H
 
+#include <QVariant>
+#include <QString>
 #include <QObject>
 #include <QWidget>
 
@@ -88,6 +90,9 @@ protected:
      */
     QWidget *containerLeft() const;
     QWidget *containerRight() const;
+
+signals:
+    void openTicker(const QString &);
 
 protected slots:
     /*

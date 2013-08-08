@@ -1,6 +1,7 @@
 TEMPLATE = subdirs
-SUBDIRS = lib
+CONFIG += ordered
 
+SUBDIRS = lib
 lib.file = THT-lib.pro
 
 # find plugins
@@ -15,6 +16,5 @@ for(pro, PROS) {
 }
 
 SUBDIRS += app
-
 app.file = THT-app.pro
 app.depends = lib

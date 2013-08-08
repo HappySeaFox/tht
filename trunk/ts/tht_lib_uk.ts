@@ -50,19 +50,19 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../settings.cpp" line="387"/>
+        <location filename="../settings.cpp" line="389"/>
         <source>Russian</source>
         <extracomment>Russian language</extracomment>
         <translation>Російська</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="390"/>
+        <location filename="../settings.cpp" line="392"/>
         <source>Ukrainian</source>
         <extracomment>Ukrainian language</extracomment>
         <translation>Українська</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="393"/>
+        <location filename="../settings.cpp" line="395"/>
         <source>English</source>
         <extracomment>English language</extracomment>
         <translation>Англійська</translation>

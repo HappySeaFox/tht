@@ -125,17 +125,7 @@ PluginLoader::PluginLoader(QObject *parent) : QObject(parent)
 
 PluginLoader::~PluginLoader()
 {
-    iterator itEnd = end();
-
-    for(iterator it = begin();it != itEnd;++it)
-    {
-        qDebug("Removing plugin \"%s\"", qPrintable((*it).library->fileName()));
-
-        delete (*it).translator;
-        (*it).plugin_destroy((*it).plugin);
-        delete (*it).library;
-    }
-
+    unload();
     clear();
 }
 
@@ -169,7 +159,24 @@ void PluginLoader::init()
                                                                             + QDir::separator()
                                                                             + fi.baseName()
                                                                             + "-LICENSE.txt"));
+
+        connect((*it).plugin, SIGNAL(openTicker(QString)), this, SIGNAL(openTicker(QString)));
+
         (*it).plugin->init();
+    }
+}
+
+void PluginLoader::unload()
+{
+    iterator itEnd = end();
+
+    for(iterator it = begin();it != itEnd;++it)
+    {
+        qDebug("Removing plugin \"%s\"", qPrintable((*it).library->fileName()));
+
+        delete (*it).translator;
+        (*it).plugin_destroy((*it).plugin);
+        delete (*it).library;
     }
 }
 
