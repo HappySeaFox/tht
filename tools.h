@@ -57,6 +57,11 @@ public:
     static QString nonBreakable(const QString &str);
 
     /*
+     *  Show and raise the specified window
+     */
+    static void raiseWindow(QWidget *);
+
+    /*
      *  Invalid QPoint
      */
     static const QPoint invalidQPoint;
