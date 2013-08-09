@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>260</width>
-    <height>150</height>
+    <height>167</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,13 +16,6 @@
   <layout class="QGridLayout" name="gridLayout_2">
    <item row="0" column="0" rowspan="2">
     <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="0">
-      <widget class="QCheckBox" name="checkAutoLogin">
-       <property name="text">
-        <string>Auto login</string>
-       </property>
-      </widget>
-     </item>
      <item row="1" column="0">
       <widget class="QCheckBox" name="checkSaveRooms">
        <property name="text">
@@ -43,10 +36,10 @@
        </property>
       </spacer>
      </item>
-     <item row="2" column="0">
-      <widget class="QCheckBox" name="checkAutoLoginToRooms">
+     <item row="0" column="0">
+      <widget class="QCheckBox" name="checkAutoLogin">
        <property name="text">
-        <string>Auto login to rooms</string>
+        <string>Auto login</string>
        </property>
       </widget>
      </item>
@@ -54,6 +47,20 @@
       <widget class="QCheckBox" name="checkRestoreChat">
        <property name="text">
         <string>Restore chat at startup</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QCheckBox" name="checkAutoLoginToRooms">
+       <property name="text">
+        <string>Auto login to rooms</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QCheckBox" name="checkTime">
+       <property name="text">
+        <string>Show time of message</string>
        </property>
       </widget>
      </item>
@@ -118,6 +125,7 @@
   <tabstop>checkSaveRooms</tabstop>
   <tabstop>checkAutoLoginToRooms</tabstop>
   <tabstop>checkRestoreChat</tabstop>
+  <tabstop>checkTime</tabstop>
   <tabstop>buttonBox</tabstop>
  </tabstops>
  <resources/>

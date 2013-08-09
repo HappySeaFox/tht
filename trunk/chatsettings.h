@@ -23,6 +23,7 @@
 #define SETTING_CHAT_PASSWORD            "chat-password"
 #define SETTING_CHAT_SIZE                "chat-size"
 #define SETTING_CHAT_POSITION            "chat-position"
+#define SETTING_CHAT_SHOW_TIME           "chat-show-time"
 
 #define SETTING_CHAT_AUTO_LOGIN          "chat-auto-login"
 #define SETTING_CHAT_SAVE_ROOMS          "chat-save-rooms"
