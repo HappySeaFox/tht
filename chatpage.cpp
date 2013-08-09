@@ -33,9 +33,9 @@
 
 #include "coloranimation.h"
 #include "messagedialog.h"
+#include "chatsettings.h"
 #include "settings.h"
 #include "chatpage.h"
-#include "roominfo.h"
 #include "sqltools.h"
 #include "ui_chatpage.h"
 

@@ -2,6 +2,34 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="uk_UA">
 <context>
+    <name>ChatOptions</name>
+    <message>
+        <location filename="../chatoptions.ui" line="14"/>
+        <source>Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../chatoptions.ui" line="22"/>
+        <source>Auto login</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../chatoptions.ui" line="29"/>
+        <source>Save rooms</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../chatoptions.ui" line="49"/>
+        <source>Auto login to rooms</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../chatoptions.ui" line="56"/>
+        <source>Restore chat at startup</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ChatPage</name>
     <message>
         <location filename="../chatpage.ui" line="53"/>
@@ -242,59 +270,49 @@
     </message>
     <message>
         <location filename="../chatwindow.cpp" line="53"/>
-        <source>Auto login</source>
+        <source>Options...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="57"/>
-        <source>Save rooms</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../chatwindow.cpp" line="61"/>
-        <source>Auto login to rooms</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../chatwindow.cpp" line="167"/>
-        <location filename="../chatwindow.cpp" line="212"/>
-        <location filename="../chatwindow.cpp" line="330"/>
-        <location filename="../chatwindow.cpp" line="355"/>
+        <location filename="../chatwindow.cpp" line="149"/>
+        <location filename="../chatwindow.cpp" line="194"/>
+        <location filename="../chatwindow.cpp" line="312"/>
+        <location filename="../chatwindow.cpp" line="337"/>
         <source>Room</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="248"/>
+        <location filename="../chatwindow.cpp" line="230"/>
         <source>Connecting...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="257"/>
+        <location filename="../chatwindow.cpp" line="239"/>
         <source>Sign in cancelled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="275"/>
+        <location filename="../chatwindow.cpp" line="257"/>
         <source>Socket error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="279"/>
+        <location filename="../chatwindow.cpp" line="261"/>
         <source>Keep alive error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="286"/>
+        <location filename="../chatwindow.cpp" line="268"/>
         <source>Invalid password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="290"/>
+        <location filename="../chatwindow.cpp" line="272"/>
         <source>Stream error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="296"/>
+        <location filename="../chatwindow.cpp" line="278"/>
         <source>Unknown error</source>
         <translation>Невідома помилка</translation>
     </message>
