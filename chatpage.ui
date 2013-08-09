@@ -145,9 +145,6 @@
        </item>
        <item row="1" column="0">
         <widget class="QTextBrowser" name="textMessages">
-         <property name="focusPolicy">
-          <enum>Qt::NoFocus</enum>
-         </property>
          <property name="openLinks">
           <bool>false</bool>
          </property>

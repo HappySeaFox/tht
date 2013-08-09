@@ -61,22 +61,23 @@ ChatPage::ChatPage(QXmppMucManager *manager,
             + "<tr><td>" + tr("Exchange:")       + "</td><td>%2</td></tr>"
             + "<tr><td>" + tr("Sector:")         + "</td><td>%3</td></tr>"
             + "<tr><td>" + tr("Industry:")       + "</td><td>%4</td></tr>"
-            + "<tr><td>" + tr("Capitalization:") + "</td><td>%5 " + tr("mln") + "</td></tr>"
+            + "<tr><td>" + tr("Capitalization:") + "</td><td>%L5 " + tr("mln") + "</td></tr>"
             + "</table><br>";
 
-    m_colors << QColor(255, 0, 0)
-             << QColor(128, 9, 0)
-             << QColor(0, 255, 0)
-             << QColor(0, 128, 0)
-             << QColor(0, 0, 255)
-             << QColor(0, 0, 128)
-             << QColor(0, 128, 128)
-             << QColor(255, 0, 255)
-             << QColor(128, 0, 128)
-             << QColor(128, 128, 0)
-             << QColor(160, 160, 164)
-             << QColor(128, 128, 128)
-             << QColor(222, 0, 0);
+    m_colors << QColor(0,0,0)
+             << QColor(0,0,80)
+             << QColor(128,128,0)
+             << QColor(0,0,128)
+             << QColor(0,128,0)
+             << QColor(128,0,128)
+             << QColor(128,0,0)
+             << QColor(90,90,90)
+             << QColor(41,133,199)
+             << QColor(0,85,175)
+             << QColor(0,170,0)
+             << QColor(210,0,0)
+             << QColor(205,80,80)
+                ;
 
     // NOTE
     // http://www.qtcentre.org/wiki/index.php?title=QTextBrowser_with_images_and_CSS
@@ -129,6 +130,7 @@ void ChatPage::slotMessageReceived(const QXmppMessage &msg)
     else
         stamp = QDateTime::currentDateTime();
 
+    QString color = m_colors.at(qrand() % m_colors.size()).name();
     QString body;
 
     if(msg.error().code())
@@ -163,6 +165,7 @@ void ChatPage::slotMessageReceived(const QXmppMessage &msg)
                     if(!company.isEmpty())
                     {
                         ok = true;
+                        double cap = values.at(4).toDouble();
 
                         body = tickerToLink(ticker)
                                 + ':'
@@ -171,7 +174,7 @@ void ChatPage::slotMessageReceived(const QXmppMessage &msg)
                                                 .arg(values.at(1).toString())
                                                 .arg(values.at(2).toString())
                                                 .arg(values.at(3).toString())
-                                                .arg(QString::number(values.at(4).toDouble(), 'f', 1));
+                                                .arg(cap, 0, 'f', cap > 100 ? 0 : 1);
                     }
                 }
             }
@@ -194,17 +197,17 @@ void ChatPage::slotMessageReceived(const QXmppMessage &msg)
     }
 
     body.replace("\n", "<br>");
+    body = "<font color=\"" + color + "\">" + body + "</font>";
 
-    QString color = m_colors.at(qrand() % m_colors.size()).name();
-
-    QString msgToAdd = QString('[')
-                        + "<font color=\"" + color + "\">" + stamp.toString("hh:mm:ss") + "</font>"
-                        + "] &lt;<a href=\"chat-user://"
+    QString msgToAdd = (SETTINGS_GET_BOOL(SETTING_CHAT_SHOW_TIME)
+                         ? ("<font color=\"" + color + "\">[" + stamp.toString("hh:mm:ss") + "]</font>")
+                         : QString())
+                        + " &lt;<a href=\"chat-user://"
                         + QString(nick).replace('@', "%40")
                         + "@\">"
                         + nick
                         + "</a>&gt;: "
-                        + body;
+                        + body+color;
 
     // show message or save in buffer
     if(m_joinMode)

@@ -43,7 +43,8 @@ void ChatOptions::saveSettings()
     SETTINGS_SET_BOOL(SETTING_CHAT_AUTO_LOGIN, ui->checkAutoLogin->isChecked(), Settings::NoSync);
     SETTINGS_SET_BOOL(SETTING_CHAT_SAVE_ROOMS, ui->checkSaveRooms->isChecked(), Settings::NoSync);
     SETTINGS_SET_BOOL(SETTING_CHAT_AUTO_LOGIN_TO_ROOMS, ui->checkAutoLoginToRooms->isChecked(), Settings::NoSync);
-    SETTINGS_SET_BOOL(SETTING_CHAT_RESTORE_AT_STARTUP, ui->checkRestoreChat->isChecked());
+    SETTINGS_SET_BOOL(SETTING_CHAT_RESTORE_AT_STARTUP, ui->checkRestoreChat->isChecked(), Settings::NoSync);
+    SETTINGS_SET_BOOL(SETTING_CHAT_SHOW_TIME, ui->checkTime->isChecked());
 }
 
 void ChatOptions::load()
@@ -52,4 +53,5 @@ void ChatOptions::load()
     ui->checkSaveRooms->setChecked(SETTINGS_GET_BOOL(SETTING_CHAT_SAVE_ROOMS));
     ui->checkAutoLoginToRooms->setChecked(SETTINGS_GET_BOOL(SETTING_CHAT_AUTO_LOGIN_TO_ROOMS));
     ui->checkRestoreChat->setChecked(SETTINGS_GET_BOOL(SETTING_CHAT_RESTORE_AT_STARTUP));
+    ui->checkTime->setChecked(SETTINGS_GET_BOOL(SETTING_CHAT_SHOW_TIME));
 }
