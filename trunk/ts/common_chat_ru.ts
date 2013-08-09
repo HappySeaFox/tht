@@ -274,50 +274,50 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="53"/>
+        <location filename="../chatwindow.cpp" line="54"/>
         <source>Options...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="149"/>
-        <location filename="../chatwindow.cpp" line="194"/>
-        <location filename="../chatwindow.cpp" line="312"/>
-        <location filename="../chatwindow.cpp" line="337"/>
+        <location filename="../chatwindow.cpp" line="150"/>
+        <location filename="../chatwindow.cpp" line="195"/>
+        <location filename="../chatwindow.cpp" line="313"/>
+        <location filename="../chatwindow.cpp" line="338"/>
         <source>Room</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="230"/>
+        <location filename="../chatwindow.cpp" line="231"/>
         <source>Connecting...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="239"/>
+        <location filename="../chatwindow.cpp" line="240"/>
         <source>Sign in cancelled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="257"/>
+        <location filename="../chatwindow.cpp" line="258"/>
         <source>Socket error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="261"/>
+        <location filename="../chatwindow.cpp" line="262"/>
         <source>Keep alive error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="268"/>
+        <location filename="../chatwindow.cpp" line="269"/>
         <source>Invalid password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="272"/>
+        <location filename="../chatwindow.cpp" line="273"/>
         <source>Stream error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="278"/>
+        <location filename="../chatwindow.cpp" line="279"/>
         <source>Unknown error</source>
         <translation>Неизвестная ошибка</translation>
     </message>
