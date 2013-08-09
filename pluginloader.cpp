@@ -126,7 +126,6 @@ PluginLoader::PluginLoader(QObject *parent) : QObject(parent)
 PluginLoader::~PluginLoader()
 {
     unload();
-    clear();
 }
 
 void PluginLoader::init()
@@ -178,6 +177,8 @@ void PluginLoader::unload()
         (*it).plugin_destroy((*it).plugin);
         delete (*it).library;
     }
+
+    clear();
 }
 
 QList<Plugin *> PluginLoader::byType(Plugin::Type type) const
