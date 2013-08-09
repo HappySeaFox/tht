@@ -16,6 +16,7 @@
  */
 
 #include <QContextMenuEvent>
+#include <QApplication>
 #include <QMessageBox>
 #include <QPushButton>
 #include <QTextEdit>
@@ -384,6 +385,8 @@ void ChatWindow::slotMessage()
         qDebug("Setting page %d to be in an alert state", from);
         ui->tabs->setTabIcon(from, m_unreadMessage);
     }
+
+    QApplication::alert(this);
 }
 
 void ChatWindow::slotOptions()
