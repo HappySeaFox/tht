@@ -87,6 +87,13 @@ http://p.yusukekamiyamane.com/
 Author: Yusuke Kamiyamane
 License: Creative Commons Attribution 3.0 License
 
+* "Chat" icon is taken from
+
+http://findicons.com/icon/73394/chat_bubble?id=332798
+
+Author: Burak OZTURK
+License: Free
+
 * Interface layout is based on the original idea by Krupachev
   Konstantin and his project "Clicker"
 

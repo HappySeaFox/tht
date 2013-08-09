@@ -9,7 +9,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatoptions.ui" line="42"/>
+        <location filename="../chatoptions.ui" line="22"/>
         <source>Auto login</source>
         <translation type="unfinished"></translation>
     </message>
@@ -19,17 +19,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatoptions.ui" line="22"/>
+        <location filename="../chatoptions.ui" line="29"/>
         <source>Save rooms</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatoptions.ui" line="56"/>
+        <location filename="../chatoptions.ui" line="49"/>
         <source>Auto login to rooms</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatoptions.ui" line="49"/>
+        <location filename="../chatoptions.ui" line="56"/>
         <source>Restore chat at startup</source>
         <translation type="unfinished"></translation>
     </message>
