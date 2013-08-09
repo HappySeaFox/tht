@@ -1068,8 +1068,8 @@ void THT::activate()
 
     Tools::raiseWindow(this);
 
-    if(m_sectors && m_lastActiveWindow == m_sectors)
-        m_sectors->activateWindow();
+    if(m_lastActiveWindow)
+        m_lastActiveWindow->activateWindow();
     else
         activateWindow();
 
