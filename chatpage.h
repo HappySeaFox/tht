@@ -19,6 +19,7 @@
 #define CHATPAGE_H
 
 #include <QWidget>
+#include <QColor>
 #include <QList>
 
 #include "QXmppMucManager.h"
@@ -102,6 +103,7 @@ private:
     QStringList m_unreadMessages;
     ColorAnimation *m_unreadMesagesAnimation;
     QString m_companyTemplate;
+    QList<QColor> m_colors;
 };
 
 #endif // CHATPAGE_H

@@ -22,8 +22,6 @@
 #include <QAction>
 #include <QMovie>
 #include <QDebug>
-#include <QTimer>
-#include <QStyle>
 #include <QMenu>
 #include <QIcon>
 
@@ -108,11 +106,8 @@ ChatWindow::ChatWindow(QWidget *parent) :
         if(sz.isValid())
             resize(sz);
 
-        qDebug() << "CHAT POS" << SETTINGS_GET_POINT(SETTING_CHAT_POSITION);
         Tools::moveWindow(this, SETTINGS_GET_POINT(SETTING_CHAT_POSITION));
     }
-
-    //QTimer::singleShot(3000, this, SLOT(slotError()));
 }
 
 ChatWindow::~ChatWindow()

@@ -25,6 +25,8 @@
 #include <QUrl>
 #include <Qt>
 
+#include <ctime>
+
 #include "QXmppMessage.h"
 #include "QXmppUtils.h"
 #include "QXmppMucIq.h"
@@ -54,13 +56,32 @@ ChatPage::ChatPage(QXmppMucManager *manager,
     m_unreadMesagesAnimation = new ColorAnimation(ui->labelUnreadMessages, this);
 
     m_companyTemplate =
-            QString("<table>")
+            QString("<br><table>")
             + "<tr><td>" + tr("Company:")        + "</td><td>%1</td></tr>"
             + "<tr><td>" + tr("Exchange:")       + "</td><td>%2</td></tr>"
             + "<tr><td>" + tr("Sector:")         + "</td><td>%3</td></tr>"
             + "<tr><td>" + tr("Industry:")       + "</td><td>%4</td></tr>"
             + "<tr><td>" + tr("Capitalization:") + "</td><td>%5 " + tr("mln") + "</td></tr>"
-            + "</table>";
+            + "</table><br>";
+
+    m_colors << QColor(255, 0, 0)
+             << QColor(128, 9, 0)
+             << QColor(0, 255, 0)
+             << QColor(0, 128, 0)
+             << QColor(0, 0, 255)
+             << QColor(0, 0, 128)
+             << QColor(0, 128, 128)
+             << QColor(255, 0, 255)
+             << QColor(128, 0, 128)
+             << QColor(128, 128, 0)
+             << QColor(160, 160, 164)
+             << QColor(128, 128, 128)
+             << QColor(222, 0, 0);
+
+    // NOTE
+    // http://www.qtcentre.org/wiki/index.php?title=QTextBrowser_with_images_and_CSS
+
+    qsrand(time(0) + QCoreApplication::applicationPid());
 
     ui->plainMessage->installEventFilter(this);
     ui->lineRoom->setText(jid);
@@ -174,8 +195,10 @@ void ChatPage::slotMessageReceived(const QXmppMessage &msg)
 
     body.replace("\n", "<br>");
 
-    QString msgToAdd = '['
-                        + stamp.toString("hh:mm:ss")
+    QString color = m_colors.at(qrand() % m_colors.size()).name();
+
+    QString msgToAdd = QString('[')
+                        + "<font color=\"" + color + "\">" + stamp.toString("hh:mm:ss") + "</font>"
                         + "] &lt;<a href=\"chat-user://"
                         + QString(nick).replace('@', "%40")
                         + "@\">"
