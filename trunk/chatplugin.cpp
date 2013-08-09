@@ -78,6 +78,9 @@ void ChatPlugin::delayedInit()
 
     m_button->setParent(c);
     c->layout()->addWidget(m_button);
+
+    if(SETTINGS_GET_BOOL(SETTING_CHAT_RESTORE_AT_STARTUP))
+        m_button->click();
 }
 
 void ChatPlugin::slotClicked()

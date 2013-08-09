@@ -23,7 +23,6 @@
 #include <QWidget>
 #include <QIcon>
 
-class QAction;
 class QMenu;
 
 class QXmppMucManager;
@@ -74,13 +73,13 @@ private slots:
     void slotJoinRequested(const QString &jid);
     void slotCurrentTabChanged(int);
     void slotMessage();
+    void slotOptions();
 
 private:
     Ui::ChatWindow *ui;
     QXmppClient *m_xmppClient;
     QXmppMucManager *m_muc;
     QMenu *m_menu;
-    QAction *m_actionAutoLogin, *m_actionSaveRooms, *m_actionAutoLoginToRooms;
     QIcon m_unreadMessage;
 };
 

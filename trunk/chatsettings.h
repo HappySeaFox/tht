@@ -25,5 +25,10 @@
 #define SETTING_CHAT_POSITION            "chat-position"
 
 #define SETTING_CHAT_AUTO_LOGIN          "chat-auto-login"
+#define SETTING_CHAT_SAVE_ROOMS          "chat-save-rooms"
+#define SETTING_CHAT_AUTO_LOGIN_TO_ROOMS "chat-auto-login-to-rooms"
+
+#define SETTING_CHAT_ROOMS_INFO          "chat-rooms-info"
+#define SETTING_CHAT_RESTORE_AT_STARTUP  "chat-restore-at-startup"
 
 #endif // CHATSETTINGS_H

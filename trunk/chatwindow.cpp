@@ -19,7 +19,6 @@
 #include <QMessageBox>
 #include <QPushButton>
 #include <QTextEdit>
-#include <QAction>
 #include <QMovie>
 #include <QDebug>
 #include <QMenu>
@@ -31,6 +30,7 @@
 #include "QXmppUtils.h"
 
 #include "chatsettings.h"
+#include "chatoptions.h"
 #include "chatwindow.h"
 #include "chatpage.h"
 #include "settings.h"
@@ -42,6 +42,7 @@ ChatWindow::ChatWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ChatWindow)
 {
+    // pythonr@conference.jabber.ru
     ui->setupUi(this);
 
     m_unreadMessage = QIcon(":/images/unread.png");
@@ -49,22 +50,7 @@ ChatWindow::ChatWindow(QWidget *parent) :
     // context menu
     m_menu = new QMenu(this);
 
-    // pythonr@conference.jabber.ru
-    m_actionAutoLogin = new QAction(tr("Auto login"), m_menu);
-    m_actionAutoLogin->setCheckable(true);
-    m_actionAutoLogin->setChecked(SETTINGS_GET_BOOL(SETTING_CHAT_AUTO_LOGIN));
-
-    m_actionSaveRooms = new QAction(tr("Save rooms"), m_menu);
-    m_actionSaveRooms->setCheckable(true);
-    m_actionSaveRooms->setChecked(SETTINGS_GET_BOOL(SETTING_CHAT_SAVE_ROOMS));
-
-    m_actionAutoLoginToRooms = new QAction(tr("Auto login to rooms"), m_menu);
-    m_actionAutoLoginToRooms->setCheckable(true);
-    m_actionAutoLoginToRooms->setChecked(SETTINGS_GET_BOOL(SETTING_CHAT_AUTO_LOGIN_TO_ROOMS));
-
-    m_menu->addAction(m_actionAutoLogin);
-    m_menu->addAction(m_actionSaveRooms);
-    m_menu->addAction(m_actionAutoLoginToRooms);
+    m_menu->addAction(QIcon(":/images/options.png"), tr("Options..."), this, SLOT(slotOptions()));
 
     // XMPP client
     m_xmppClient = new QXmppClient(this);
@@ -128,10 +114,6 @@ void ChatWindow::contextMenuEvent(QContextMenuEvent *e)
     e->accept();
 
     m_menu->exec(e->globalPos());
-
-    SETTINGS_SET_BOOL(SETTING_CHAT_AUTO_LOGIN, m_actionAutoLogin->isChecked());
-    SETTINGS_SET_BOOL(SETTING_CHAT_SAVE_ROOMS, m_actionSaveRooms->isChecked());
-    SETTINGS_SET_BOOL(SETTING_CHAT_AUTO_LOGIN_TO_ROOMS, m_actionAutoLoginToRooms->isChecked());
 }
 
 void ChatWindow::showSignInPage()
@@ -401,5 +383,15 @@ void ChatWindow::slotMessage()
     {
         qDebug("Setting page %d to be in an alert state", from);
         ui->tabs->setTabIcon(from, m_unreadMessage);
+    }
+}
+
+void ChatWindow::slotOptions()
+{
+    ChatOptions opt(this);
+
+    if(opt.exec() == QDialog::Accepted)
+    {
+        opt.saveSettings();
     }
 }
