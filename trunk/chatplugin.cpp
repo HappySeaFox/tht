@@ -24,6 +24,7 @@
 #include "chatsettings.h"
 #include "chatwindow.h"
 #include "chatplugin.h"
+#include "chattools.h"
 #include "settings.h"
 #include "roominfo.h"
 #include "tools.h"
@@ -41,8 +42,11 @@ ChatPlugin::ChatPlugin() :
     QHash<QString, QVariant> defaltValues;
 
     defaltValues.insert(SETTING_CHAT_POSITION, Tools::invalidQPoint);
+    defaltValues.insert(SETTING_CHAT_FONT_SIZE, 8);
 
     Settings::instance()->addDefaultValues(defaltValues);
+
+    ChatTools::init();
 }
 
 ChatPlugin::~ChatPlugin()

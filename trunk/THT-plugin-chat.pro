@@ -35,7 +35,8 @@ SOURCES += chatwindow.cpp \
     messagedialog.cpp \
     coloranimation.cpp \
     chatplugin.cpp \
-    chatoptions.cpp
+    chatoptions.cpp \
+    chattools.cpp
 
 HEADERS += chatwindow.h \
     chatpage.h \
@@ -44,7 +45,8 @@ HEADERS += chatwindow.h \
     coloranimation.h \
     chatplugin.h \
     chatsettings.h \
-    chatoptions.h
+    chatoptions.h \
+    chattools.h
 
 FORMS += chatwindow.ui \
     chatpage.ui \

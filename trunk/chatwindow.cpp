@@ -396,5 +396,12 @@ void ChatWindow::slotOptions()
     if(opt.exec() == QDialog::Accepted)
     {
         opt.saveSettings();
+
+        const int fontSize = SETTINGS_GET_INT(SETTING_CHAT_FONT_SIZE);
+        int index = 0;
+        ChatPage *p;
+
+        while((p = qobject_cast<ChatPage *>(ui->tabs->widget(index++))))
+            p->setFontSize(fontSize);
     }
 }

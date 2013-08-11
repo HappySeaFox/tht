@@ -25,8 +25,6 @@
 #include <QUrl>
 #include <Qt>
 
-#include <ctime>
-
 #include "QXmppMessage.h"
 #include "QXmppUtils.h"
 #include "QXmppMucIq.h"
@@ -34,6 +32,7 @@
 #include "coloranimation.h"
 #include "messagedialog.h"
 #include "chatsettings.h"
+#include "chattools.h"
 #include "settings.h"
 #include "chatpage.h"
 #include "sqltools.h"
@@ -53,6 +52,8 @@ ChatPage::ChatPage(QXmppMucManager *manager,
 {
     ui->setupUi(this);
 
+    setFontSize(SETTINGS_GET_INT(SETTING_CHAT_FONT_SIZE));
+
     m_unreadMesagesAnimation = new ColorAnimation(ui->labelUnreadMessages, this);
 
     m_companyTemplate =
@@ -64,25 +65,10 @@ ChatPage::ChatPage(QXmppMucManager *manager,
             + "<tr><td>" + tr("Capitalization:") + "</td><td>%L5 " + tr("mln") + "</td></tr>"
             + "</table><br>";
 
-    m_colors << QColor(0,0,0)
-             << QColor(0,0,80)
-             << QColor(128,128,0)
-             << QColor(0,0,128)
-             << QColor(0,128,0)
-             << QColor(128,0,128)
-             << QColor(128,0,0)
-             << QColor(90,90,90)
-             << QColor(41,133,199)
-             << QColor(0,85,175)
-             << QColor(0,170,0)
-             << QColor(210,0,0)
-             << QColor(205,80,80)
-                ;
+    ui->textMessages->document()->setDefaultStyleSheet(ChatTools::cssForLinks());
 
     // NOTE
     // http://www.qtcentre.org/wiki/index.php?title=QTextBrowser_with_images_and_CSS
-
-    qsrand(time(0) + QCoreApplication::applicationPid());
 
     ui->plainMessage->installEventFilter(this);
     ui->lineRoom->setText(jid);
@@ -130,7 +116,7 @@ void ChatPage::slotMessageReceived(const QXmppMessage &msg)
     else
         stamp = QDateTime::currentDateTime();
 
-    QString color = m_colors.at(qrand() % m_colors.size()).name();
+    QString color = ChatTools::randomColor().name();
     QString body;
 
     if(msg.error().code())
@@ -197,17 +183,19 @@ void ChatPage::slotMessageReceived(const QXmppMessage &msg)
     }
 
     body.replace("\n", "<br>");
-    body = "<font color=\"" + color + "\">" + body + "</font>";
 
-    QString msgToAdd = (SETTINGS_GET_BOOL(SETTING_CHAT_SHOW_TIME)
-                         ? ("<font color=\"" + color + "\">[" + stamp.toString("hh:mm:ss") + "]</font>")
-                         : QString())
-                        + " &lt;<a href=\"chat-user://"
+    QString msgToAdd = QString("<font color=\"")
+                        + color
+                        + "\">"
+                        + (SETTINGS_GET_BOOL(SETTING_CHAT_SHOW_TIME)
+                            ? ('[' + stamp.toString("hh:mm:ss") + ']')
+                            : QString())
+                        + QString(" <a class=\"%1\" href=\"chat-user://").arg(QString(color).replace(0, 1, 'c'))
                         + QString(nick).replace('@', "%40")
                         + "@\">"
                         + nick
-                        + "</a>&gt;: "
-                        + body+color;
+                        + "</a>:</font> "
+                        + body;
 
     // show message or save in buffer
     if(m_joinMode)
@@ -411,6 +399,17 @@ void ChatPage::proceedJoin()
     m_room->setNickName("xxx13");
     m_room->setPassword(ui->linePassword->text());
     m_room->join();
+}
+
+void ChatPage::setFontSize(int size)
+{
+    if(size < 6)
+        size = 6;
+
+    QFont f = ui->textMessages->font();
+    f.setPointSize(size);
+    ui->textMessages->setFont(f);
+    //ui->textMessages->scroll
 }
 
 bool ChatPage::eventFilter(QObject *obj, QEvent *event)
