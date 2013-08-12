@@ -99,7 +99,7 @@ private:
     QXmppMucRoom *m_room;
     QXmppMucRoom::Actions m_actions;
     bool m_joinMode;
-    QRegExp m_rxTickerInfo, m_rxOpenTicker, m_rxLink;
+    QRegExp m_rxTickerInfo, m_rxOpenTicker;
     QString m_lastMessage;
     QStringList m_unreadMessages;
     ColorAnimation *m_unreadMesagesAnimation;

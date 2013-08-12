@@ -73,7 +73,6 @@ ChatPage::ChatPage(QXmppMucManager *manager,
 
     m_rxTickerInfo = QRegExp(QString("/(%1)").arg(Settings::instance()->tickerValidator().pattern()));
     m_rxOpenTicker = QRegExp(QString("=(%1)=(?=\\s|$)").arg(Settings::instance()->tickerValidator().pattern()));
-    m_rxLink = QRegExp("((?:[hH][tT]{2}[pP][sS]?|[fF][tT][pP][sS]?)://\\S+)");
 
     setJoinMode(true);
 
@@ -177,6 +176,8 @@ void ChatPage::slotMessageReceived(const QXmppMessage &msg)
             int pos = 0;
             QString res;
 
+            body.replace(ChatTools::urlRegExp(), "<a href='\\1'>\\1</a>");
+
             // replace "=ABC=" with link which will open ABC in the linked windows
             while((pos = m_rxOpenTicker.indexIn(body, pos)) != -1)
             {
@@ -190,6 +191,7 @@ void ChatPage::slotMessageReceived(const QXmppMessage &msg)
                     pos += m_rxOpenTicker.matchedLength();
             }
 
+            /*
             pos = 0;
 
             // replace text links with <a href>
@@ -199,6 +201,7 @@ void ChatPage::slotMessageReceived(const QXmppMessage &msg)
                 body.replace(pos, m_rxLink.matchedLength(), res);
                 pos += res.length();
             }
+            */
         }
     }
 
@@ -217,7 +220,6 @@ void ChatPage::slotMessageReceived(const QXmppMessage &msg)
                         + "</a>:</font> "
                         + body;
 
-    qDebug()<<msgToAdd;
     // show message or save in buffer
     if(m_joinMode)
     {

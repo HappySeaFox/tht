@@ -23,6 +23,7 @@
 
 QList<QColor> ChatTools::m_colors;
 QList<QColor> ChatTools::m_tempColors;
+QRegExp ChatTools::m_rxLink;
 
 void ChatTools::init()
 {
@@ -43,6 +44,8 @@ void ChatTools::init()
                         << QColor(210,0,0)
                         << QColor(205,80,80)
                            ;
+
+    ChatTools::m_rxLink = QRegExp("((([A-Za-z]{3,9}:(?:\\/\\/)?)(?:[\\-;:&=\\+\\$,\\w]+@)?[A-Za-z0-9\\.\\-]+|(?:www\\.|[\\-;:&=\\+\\$,\\w]+@)[A-Za-z0-9\\.\\-]+)((?:\\/[\\+~%\\/\\.\\w\\-]*)?\\0077?(?:[\\-\\+=&;%@\\.\\w]*)#?(?:[\\.\\!\\/\\\\\\w]*))?)");
 
     qsrand(time(0) + QCoreApplication::applicationPid());
 }
@@ -67,6 +70,11 @@ QColor ChatTools::randomColor()
         ChatTools::m_tempColors = ChatTools::m_colors;
 
     return ChatTools::m_tempColors.takeAt(qrand() % ChatTools::m_tempColors.size());
+}
+
+QRegExp ChatTools::urlRegExp()
+{
+    return ChatTools::m_rxLink;
 }
 
 ChatTools::ChatTools()
