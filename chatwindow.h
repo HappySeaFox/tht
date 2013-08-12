@@ -21,7 +21,6 @@
 #include "QXmppClient.h"
 
 #include <QWidget>
-#include <QIcon>
 
 class QMenu;
 
@@ -80,7 +79,6 @@ private:
     QXmppClient *m_xmppClient;
     QXmppMucManager *m_muc;
     QMenu *m_menu;
-    QIcon m_unreadMessage;
 };
 
 #endif // CHATWINDOW_H

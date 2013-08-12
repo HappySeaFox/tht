@@ -24,6 +24,8 @@
 #include "QXmppMucManager.h"
 #include "QXmppStanza.h"
 
+class QTextBrowser;
+class QTabBar;
 class QUrl;
 
 class QXmppMucManager;
@@ -31,6 +33,7 @@ class QXmppMucItem;
 class QXmppMessage;
 
 class ColorAnimation;
+class ChatMessages;
 
 namespace Ui
 {
@@ -68,6 +71,7 @@ private:
     void showUnreadMessagesCount();
     void blinkUnreadMessages(bool);
     QString tickerToLink(const QString &) const;
+    ChatMessages *addPrivateChat(const QString &nick, bool switchTo = true);
 
 signals:
     void requestJoin(const QString &jid);
@@ -91,6 +95,8 @@ private slots:
     void slotParticipantRemoved(const QString &);
     void slotPermissionsReceived(const QList<QXmppMucItem> &);
     void slotAnchorClicked(const QUrl &);
+    void slotTabCloseRequested(int);
+    void slotCurrentTabChanged(int);
     void slotUnreadMessagesClicked();
 
 private:
@@ -104,6 +110,8 @@ private:
     QStringList m_unreadMessages;
     ColorAnimation *m_unreadMesagesAnimation;
     QString m_companyTemplate;
+    QTabBar *m_bar;
+    QTextBrowser *m_generalMessages;
 };
 
 #endif // CHATPAGE_H

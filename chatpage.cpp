@@ -17,9 +17,12 @@
 
 #include <QDesktopServices>
 #include <QTextDocument>
+#include <QApplication>
+#include <QTextBrowser>
 #include <QMessageBox>
 #include <QDateTime>
 #include <QKeyEvent>
+#include <QTabBar>
 #include <QTimer>
 #include <QDebug>
 #include <QUrl>
@@ -32,6 +35,7 @@
 #include "coloranimation.h"
 #include "messagedialog.h"
 #include "chatsettings.h"
+#include "chatmessages.h"
 #include "chattools.h"
 #include "settings.h"
 #include "chatpage.h"
@@ -52,6 +56,17 @@ ChatPage::ChatPage(QXmppMucManager *manager,
 {
     ui->setupUi(this);
 
+    ChatMessages *chatMessages = new ChatMessages(ui->tabsChats);
+
+    ui->tabsChats->addTab(chatMessages, tr("General"));
+
+    m_generalMessages = chatMessages->messages();
+    connect(m_generalMessages, SIGNAL(anchorClicked(QUrl)), this, SLOT(slotAnchorClicked(QUrl)));
+
+    m_bar = ui->tabsChats->findChild<QTabBar *>();
+
+    m_bar->hide();
+
     setFontSize(SETTINGS_GET_INT(SETTING_CHAT_FONT_SIZE));
 
     m_unreadMesagesAnimation = new ColorAnimation(ui->labelUnreadMessages, this);
@@ -65,7 +80,7 @@ ChatPage::ChatPage(QXmppMucManager *manager,
             + "<tr><td>" + tr("Capitalization:") + "</td><td>%L5 " + tr("mln") + "</td></tr>"
             + "</table><br>";
 
-    ui->textMessages->document()->setDefaultStyleSheet(ChatTools::cssForLinks());
+    m_generalMessages->document()->setDefaultStyleSheet(ChatTools::cssForLinks());
 
     ui->plainMessage->installEventFilter(this);
     ui->lineRoom->setText(jid);
@@ -136,7 +151,6 @@ void ChatPage::slotMessageReceived(const QXmppMessage &msg)
             QString ticker = m_rxTickerInfo.cap(1).toUpper();
             bool ok = false;
 
-            // TODO company name
             QList<QVariantList> lists = SqlTools::query(
                                             "SELECT company, exchange, sector, industry, cap FROM tickers WHERE ticker = :ticker",
                                             ":ticker",
@@ -190,18 +204,6 @@ void ChatPage::slotMessageReceived(const QXmppMessage &msg)
                 else
                     pos += m_rxOpenTicker.matchedLength();
             }
-
-            /*
-            pos = 0;
-
-            // replace text links with <a href>
-            while((pos = m_rxLink.indexIn(body, pos)) != -1)
-            {
-                res = "<a href=\"" + m_rxLink.cap(1) + "\">" + m_rxLink.cap(1) + "</a>";
-                body.replace(pos, m_rxLink.matchedLength(), res);
-                pos += res.length();
-            }
-            */
         }
     }
 
@@ -227,7 +229,18 @@ void ChatPage::slotMessageReceived(const QXmppMessage &msg)
         showUnreadMessagesCount();
     }
     else
-        ui->textMessages->append(msgToAdd);
+    {
+        if(msg.type() == QXmppMessage::Chat)
+        {
+            ChatMessages *chatMessages = addPrivateChat(nick, false);
+            chatMessages->messages()->append(msgToAdd);
+
+            if(ui->tabsChats->currentWidget() != chatMessages)
+                ui->tabsChats->setTabIcon(ui->tabsChats->indexOf(chatMessages), ChatTools::unreadIcon());
+        }
+        else
+            m_generalMessages->append(msgToAdd);
+    }
 
     emit message();
 }
@@ -262,7 +275,7 @@ void ChatPage::slotJoined()
 
     setJoinMode(false);
 
-    ui->textMessages->clear();
+    m_generalMessages->clear();
     ui->plainMessage->setEnabled(true);
 
     slotSubjectChanged(m_room->subject());
@@ -271,7 +284,7 @@ void ChatPage::slotJoined()
     // clear unread messages
     foreach(QString s, m_unreadMessages)
     {
-        ui->textMessages->append(s);
+        m_generalMessages->append(s);
     }
 
     m_unreadMessages.clear();
@@ -346,8 +359,18 @@ void ChatPage::slotAnchorClicked(const QUrl &url)
     if(url.scheme() == "chat-user")
     {
         qDebug("Clicked: user");
-        ui->plainMessage->appendPlainText(url.userName() + ": ");
-        ui->plainMessage->setFocus();
+        Qt::KeyboardModifiers mods = QApplication::keyboardModifiers();
+
+        if(mods == Qt::NoModifier)
+        {
+            ui->plainMessage->appendPlainText(url.userName() + ": ");
+            ui->plainMessage->setFocus();
+        }
+        else if(mods == Qt::ControlModifier)
+        {
+            qDebug("Starting private chat");
+            addPrivateChat(url.userName());
+        }
     }
     else if(url.scheme() == "chat-open-ticker")
     {
@@ -359,6 +382,22 @@ void ChatPage::slotAnchorClicked(const QUrl &url)
         qDebug("Clicked: link");
         QDesktopServices::openUrl(url);
     }
+}
+
+void ChatPage::slotTabCloseRequested(int index)
+{
+    if(!index)
+        return;
+
+    delete ui->tabsChats->widget(index);
+
+    if(ui->tabsChats->count() == 1)
+        m_bar->hide();
+}
+
+void ChatPage::slotCurrentTabChanged(int index)
+{
+    ui->tabsChats->setTabIcon(index, QIcon());
 }
 
 void ChatPage::slotUnreadMessagesClicked()
@@ -429,10 +468,10 @@ void ChatPage::setFontSize(int size)
     if(size < 6)
         size = 6;
 
-    QFont f = ui->textMessages->font();
+    QFont f = m_generalMessages->font();
     f.setPointSize(size);
-    ui->textMessages->setFont(f);
-    //ui->textMessages->scroll
+    m_generalMessages->setFont(f);
+    //m_generalMessages->scroll
 }
 
 bool ChatPage::eventFilter(QObject *obj, QEvent *event)
@@ -447,10 +486,11 @@ bool ChatPage::eventFilter(QObject *obj, QEvent *event)
             if(ke->modifiers() == Qt::NoModifier)
             {
                 m_lastMessage = ui->plainMessage->toPlainText();
+                // TODO send to private chat
                 m_room->sendMessage(m_lastMessage);
                 ui->plainMessage->clear();
             }
-            else if(ke->modifiers() == Qt::ControlModifier)
+            else if(ke->modifiers() == Qt::ShiftModifier)
                 ui->plainMessage->insertPlainText("\n");
             else
                 ate = false;
@@ -492,7 +532,7 @@ void ChatPage::appendError(const QString &s)
     if(m_joinMode)
         ui->labelStatus->setText("<font color=red><b>" + s + "</b></font>");
     else
-        ui->textMessages->append("<font color=red><b>" + s + "</b></font>");
+        m_generalMessages->append("<font color=red><b>" + s + "</b></font>");
 }
 
 QString ChatPage::errorToString(const QXmppStanza::Error &error)
@@ -556,4 +596,35 @@ QString ChatPage::tickerToLink(const QString &ticker) const
     return QString("<a href=\"chat-open-ticker://%1@\">%2</a>")
             .arg(QString(upper).replace('@', "%40"))
             .arg(upper);
+}
+
+ChatMessages *ChatPage::addPrivateChat(const QString &nick, bool switchTo)
+{
+    int index = 1;
+
+    // do we chat with this user already?
+    while(index < ui->tabsChats->count())
+    {
+        if(ui->tabsChats->tabText(index) == nick)
+        {
+            if(switchTo)
+                ui->tabsChats->setCurrentIndex(index);
+
+            return qobject_cast<ChatMessages *>(ui->tabsChats->widget(index));
+        }
+
+        index++;
+    }
+
+    // not found
+    ChatMessages *chatMessages = new ChatMessages(ui->tabsChats);
+    connect(chatMessages, SIGNAL(anchorClicked(QUrl)), this, SLOT(slotAnchorClicked(QUrl)));
+    index = ui->tabsChats->addTab(chatMessages, nick);
+
+    if(switchTo)
+        ui->tabsChats->setCurrentIndex(index);
+
+    m_bar->show();
+
+    return chatMessages;
 }

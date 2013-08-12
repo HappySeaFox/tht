@@ -15,43 +15,30 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef CHATTOOLS_H
-#define CHATTOOLS_H
+#ifndef CHATMESSAGES_H
+#define CHATMESSAGES_H
 
-#include <QString>
-#include <QRegExp>
-#include <QColor>
-#include <QList>
-#include <QIcon>
+#include <QWidget>
 
-class ChatTools
+class QTextBrowser;
+
+namespace Ui
 {
-public:
-    static void init();
-
-    static QList<QColor> colors();
-
-    static QString cssForLinks();
-
-    static QColor randomColor();
-
-    static QRegExp urlRegExp();
-
-    static QIcon unreadIcon();
-
-private:
-    ChatTools();
-
-    static QList<QColor> m_colors;
-    static QList<QColor> m_tempColors;
-    static QRegExp m_rxLink;
-    static QIcon m_unreadIcon;
-};
-
-inline
-QList<QColor> ChatTools::colors()
-{
-    return ChatTools::m_colors;
+    class ChatMessages;
 }
 
-#endif // CHATTOOLS_H
+class ChatMessages : public QWidget
+{
+    Q_OBJECT
+
+public:
+    explicit ChatMessages(QWidget *parent = 0);
+    ~ChatMessages();
+
+    QTextBrowser *messages() const;
+
+private:
+    Ui::ChatMessages *ui;
+};
+
+#endif // CHATMESSAGES_H
