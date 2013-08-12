@@ -76,7 +76,7 @@ ChatPage::ChatPage(QXmppMucManager *manager,
 
     m_rxTickerInfo = QRegExp(QString("/(%1)").arg(Settings::instance()->tickerValidator().pattern()));
     m_rxOpenTicker = QRegExp(QString("\\B=(%1)=(?=\\s|$)").arg(Settings::instance()->tickerValidator().pattern()));
-    m_rxLink = QRegExp("((?:[hH][tT]{2}[pP][sS]?|[fF][tT][pP])://\\S+)");
+    m_rxLink = QRegExp("((?:[hH][tT]{2}[pP][sS]?|[fF][tT][pP][sS]?)://\\S+)");
 
     setJoinMode(true);
 
