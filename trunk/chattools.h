@@ -19,6 +19,7 @@
 #define CHATTOOLS_H
 
 #include <QString>
+#include <QRegExp>
 #include <QColor>
 #include <QList>
 
@@ -33,11 +34,14 @@ public:
 
     static QColor randomColor();
 
+    static QRegExp urlRegExp();
+
 private:
     ChatTools();
 
     static QList<QColor> m_colors;
     static QList<QColor> m_tempColors;
+    static QRegExp m_rxLink;
 };
 
 inline
