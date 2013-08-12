@@ -67,15 +67,12 @@ ChatPage::ChatPage(QXmppMucManager *manager,
 
     ui->textMessages->document()->setDefaultStyleSheet(ChatTools::cssForLinks());
 
-    // NOTE
-    // http://www.qtcentre.org/wiki/index.php?title=QTextBrowser_with_images_and_CSS
-
     ui->plainMessage->installEventFilter(this);
     ui->lineRoom->setText(jid);
     ui->linePassword->setText(password);
 
     m_rxTickerInfo = QRegExp(QString("/(%1)").arg(Settings::instance()->tickerValidator().pattern()));
-    m_rxOpenTicker = QRegExp(QString("\\B=(%1)=(?=\\s|$)").arg(Settings::instance()->tickerValidator().pattern()));
+    m_rxOpenTicker = QRegExp(QString("=(%1)=(?=\\s|$)").arg(Settings::instance()->tickerValidator().pattern()));
     m_rxLink = QRegExp("((?:[hH][tT]{2}[pP][sS]?|[fF][tT][pP][sS]?)://\\S+)");
 
     setJoinMode(true);
@@ -109,6 +106,12 @@ void ChatPage::slotMessageReceived(const QXmppMessage &msg)
 
     QString nick = msg.from();
     nick = Qt::escape(nick.right(nick.length() - m_room->jid().length() - 1));
+
+    if(nick.isEmpty())
+    {
+        qWarning("Nick is empty");
+        return;
+    }
 
     QDateTime stamp;
 
@@ -177,11 +180,14 @@ void ChatPage::slotMessageReceived(const QXmppMessage &msg)
             // replace "=ABC=" with link which will open ABC in the linked windows
             while((pos = m_rxOpenTicker.indexIn(body, pos)) != -1)
             {
-                res = tickerToLink(m_rxOpenTicker.cap(1));
-
-                body.replace(pos, m_rxOpenTicker.matchedLength(), res);
-
-                pos += res.length();
+                if(!pos || body.at(pos-1).isSpace())
+                {
+                    res = tickerToLink(m_rxOpenTicker.cap(1));
+                    body.replace(pos, m_rxOpenTicker.matchedLength(), res);
+                    pos += res.length();
+                }
+                else
+                    pos += m_rxOpenTicker.matchedLength();
             }
 
             pos = 0;
@@ -191,7 +197,6 @@ void ChatPage::slotMessageReceived(const QXmppMessage &msg)
             {
                 res = "<a href=\"" + m_rxLink.cap(1) + "\">" + m_rxLink.cap(1) + "</a>";
                 body.replace(pos, m_rxLink.matchedLength(), res);
-
                 pos += res.length();
             }
         }
@@ -212,6 +217,7 @@ void ChatPage::slotMessageReceived(const QXmppMessage &msg)
                         + "</a>:</font> "
                         + body;
 
+    qDebug()<<msgToAdd;
     // show message or save in buffer
     if(m_joinMode)
     {
