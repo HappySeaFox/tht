@@ -810,47 +810,47 @@ right/middle mouse button to cancel.</source>
         <translation>Восстановить</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="412"/>
+        <location filename="../tht.cpp" line="415"/>
         <source>Notice</source>
         <translation>Заметка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="412"/>
+        <location filename="../tht.cpp" line="415"/>
         <source>THT will continue to run in a system tray</source>
         <translation>THT продолжит работу в системном лотке</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="927"/>
+        <location filename="../tht.cpp" line="930"/>
         <source>Unknown</source>
         <translation>Неизвестные</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1430"/>
+        <location filename="../tht.cpp" line="1433"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1430"/>
+        <location filename="../tht.cpp" line="1433"/>
         <source>Cannot take screenshot</source>
         <translation>Невозможно сделать снимок экрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1476"/>
+        <location filename="../tht.cpp" line="1479"/>
         <source>New points</source>
         <translation>Новые точки</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1931"/>
+        <location filename="../tht.cpp" line="1934"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <translation>Все крупные современные состояния нажиты&lt;br&gt;самым бесчестным путём.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1932"/>
+        <location filename="../tht.cpp" line="1935"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <translation>&quot;Золотой Телёнок&quot; И.Ильф, Е.Петров</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1985"/>
+        <location filename="../tht.cpp" line="1988"/>
         <source>Customize...</source>
         <translation>Настроить...</translation>
     </message>
