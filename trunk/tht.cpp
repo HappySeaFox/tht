@@ -324,6 +324,9 @@ THT::THT() :
     // db updater
     new TickersDatabaseUpdater(this);
 
+    // plugins can open windows so reactivate THT
+    QTimer::singleShot(0, this, SLOT(activate()));
+
     // sectors
     if(SETTINGS_GET_BOOL(SETTING_RESTORE_NEIGHBORS_AT_STARTUP) && SETTINGS_GET_BOOL(SETTING_SHOW_NEIGHBORS_AT_STARTUP))
         slotShowNeighbors(startupTicker);
