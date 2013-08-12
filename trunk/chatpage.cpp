@@ -76,6 +76,7 @@ ChatPage::ChatPage(QXmppMucManager *manager,
 
     m_rxTickerInfo = QRegExp(QString("/(%1)").arg(Settings::instance()->tickerValidator().pattern()));
     m_rxOpenTicker = QRegExp(QString("\\B=(%1)=(?=\\s|$)").arg(Settings::instance()->tickerValidator().pattern()));
+    m_rxLink = QRegExp("((?:[hH][tT]{2}[pP][sS]?|[fF][tT][pP])://\\S+)");
 
     setJoinMode(true);
 
@@ -171,13 +172,27 @@ void ChatPage::slotMessageReceived(const QXmppMessage &msg)
         else
         {
             int pos = 0;
+            QString res;
 
             // replace "=ABC=" with link which will open ABC in the linked windows
             while((pos = m_rxOpenTicker.indexIn(body, pos)) != -1)
             {
-                body.replace(pos, m_rxOpenTicker.matchedLength(), tickerToLink(m_rxOpenTicker.cap(1)));
+                res = tickerToLink(m_rxOpenTicker.cap(1));
 
-                pos += m_rxOpenTicker.matchedLength();
+                body.replace(pos, m_rxOpenTicker.matchedLength(), res);
+
+                pos += res.length();
+            }
+
+            pos = 0;
+
+            // replace text links with <a href>
+            while((pos = m_rxLink.indexIn(body, pos)) != -1)
+            {
+                res = "<a href=\"" + m_rxLink.cap(1) + "\">" + m_rxLink.cap(1) + "</a>";
+                body.replace(pos, m_rxLink.matchedLength(), res);
+
+                pos += res.length();
             }
         }
     }
@@ -528,7 +543,9 @@ void ChatPage::blinkUnreadMessages(bool blink)
 
 QString ChatPage::tickerToLink(const QString &ticker) const
 {
+    QString upper = ticker.toUpper();
+
     return QString("<a href=\"chat-open-ticker://%1@\">%2</a>")
-            .arg(QString(ticker).replace('@', "%40"))
-            .arg(ticker);
+            .arg(QString(upper).replace('@', "%40"))
+            .arg(upper);
 }
