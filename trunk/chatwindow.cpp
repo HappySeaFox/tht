@@ -33,6 +33,7 @@
 #include "chatsettings.h"
 #include "chatoptions.h"
 #include "chatwindow.h"
+#include "chattools.h"
 #include "chatpage.h"
 #include "settings.h"
 #include "roominfo.h"
@@ -45,8 +46,6 @@ ChatWindow::ChatWindow(QWidget *parent) :
 {
     // pythonr@conference.jabber.ru
     ui->setupUi(this);
-
-    m_unreadMessage = QIcon(":/images/unread.png");
 
     // context menu
     m_menu = new QMenu(this);
@@ -383,7 +382,7 @@ void ChatWindow::slotMessage()
     if(from != active)
     {
         qDebug("Setting page %d to be in an alert state", from);
-        ui->tabs->setTabIcon(from, m_unreadMessage);
+        ui->tabs->setTabIcon(from, ChatTools::unreadIcon());
     }
 
     QApplication::alert(this);

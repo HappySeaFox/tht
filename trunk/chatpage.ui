@@ -127,6 +127,35 @@
      </widget>
      <widget class="QWidget" name="page_2">
       <layout class="QGridLayout" name="gridLayout_3">
+       <item row="0" column="0">
+        <widget class="QLineEdit" name="lineSubject">
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="placeholderText">
+          <string>Subject</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QTabWidget" name="tabsChats">
+         <property name="tabPosition">
+          <enum>QTabWidget::South</enum>
+         </property>
+         <property name="elideMode">
+          <enum>Qt::ElideRight</enum>
+         </property>
+         <property name="tabsClosable">
+          <bool>true</bool>
+         </property>
+         <property name="movable">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
        <item row="2" column="0">
         <widget class="QPlainTextEdit" name="plainMessage">
          <property name="minimumSize">
@@ -140,26 +169,6 @@
            <width>16777215</width>
            <height>100</height>
           </size>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QTextBrowser" name="textMessages">
-         <property name="openLinks">
-          <bool>false</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="0">
-        <widget class="QLineEdit" name="lineSubject">
-         <property name="focusPolicy">
-          <enum>Qt::NoFocus</enum>
-         </property>
-         <property name="readOnly">
-          <bool>true</bool>
-         </property>
-         <property name="placeholderText">
-          <string>Subject</string>
          </property>
         </widget>
        </item>
@@ -184,8 +193,7 @@
   <tabstop>linePassword</tabstop>
   <tabstop>pushJoin</tabstop>
   <tabstop>pushCancel</tabstop>
-  <tabstop>lineSubject</tabstop>
-  <tabstop>textMessages</tabstop>
+  <tabstop>tabsChats</tabstop>
   <tabstop>plainMessage</tabstop>
  </tabstops>
  <resources/>
@@ -255,22 +263,6 @@
    </hints>
   </connection>
   <connection>
-   <sender>textMessages</sender>
-   <signal>anchorClicked(QUrl)</signal>
-   <receiver>ChatPage</receiver>
-   <slot>slotAnchorClicked(QUrl)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>305</x>
-     <y>136</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>456</x>
-     <y>147</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>labelUnreadMessages</sender>
    <signal>clicked()</signal>
    <receiver>ChatPage</receiver>
@@ -286,11 +278,45 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>tabsChats</sender>
+   <signal>tabCloseRequested(int)</signal>
+   <receiver>ChatPage</receiver>
+   <slot>slotTabCloseRequested(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>385</x>
+     <y>258</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>440</x>
+     <y>258</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tabsChats</sender>
+   <signal>currentChanged(int)</signal>
+   <receiver>ChatPage</receiver>
+   <slot>slotCurrentTabChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>374</x>
+     <y>399</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>439</x>
+     <y>399</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>slotJoin()</slot>
   <slot>slotCancel()</slot>
   <slot>slotAnchorClicked(QUrl)</slot>
   <slot>slotUnreadMessagesClicked()</slot>
+  <slot>slotTabCloseRequested(int)</slot>
+  <slot>slotCurrentTabChanged(int)</slot>
  </slots>
 </ui>
