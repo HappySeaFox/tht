@@ -73,6 +73,7 @@ private slots:
     void slotCurrentTabChanged(int);
     void slotMessage();
     void slotOptions();
+    void slotHelp();
 
 private:
     Ui::ChatWindow *ui;
