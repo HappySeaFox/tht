@@ -124,7 +124,9 @@ OTHER_FILES += \
     LICENSE.txt \
     THT-version.tag
 
-TRANSLATIONS += ts/tht_ru.ts \
+TRANSLATIONS += ts/tht_en.ts \
+                ts/tht_ru.ts \
+                ts/tht_tr.ts \
                 ts/tht_uk.ts
 
 RC_FILE = tht.rc

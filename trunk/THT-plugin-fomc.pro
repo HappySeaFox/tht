@@ -11,7 +11,9 @@ NVER3=1
 SOURCES += fomcplugin.cpp
 HEADERS += fomcplugin.h
 
-TRANSLATIONS += ts/common_fomc_ru.ts \
+TRANSLATIONS += ts/common_fomc_en.ts \
+                ts/common_fomc_ru.ts \
+                ts/common_fomc_tr.ts \
                 ts/common_fomc_uk.ts
 
 THT_PLUGIN_NAME="FOMC"
