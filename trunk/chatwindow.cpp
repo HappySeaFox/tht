@@ -19,6 +19,7 @@
 #include <QApplication>
 #include <QMessageBox>
 #include <QPushButton>
+#include <QShortcut>
 #include <QTextEdit>
 #include <QMovie>
 #include <QDebug>
@@ -47,10 +48,14 @@ ChatWindow::ChatWindow(QWidget *parent) :
     // pythonr@conference.jabber.ru
     ui->setupUi(this);
 
+    QShortcut *helpShortcut = new QShortcut(QKeySequence::HelpContents, this, SLOT(slotHelp()));
+
     // context menu
     m_menu = new QMenu(this);
 
     m_menu->addAction(QIcon(":/images/options.png"), tr("Options..."), this, SLOT(slotOptions()));
+    m_menu->addSeparator();
+    m_menu->addAction(tr("Help...")  + '\t' + helpShortcut->key().toString(), this, SLOT(slotHelp()));
 
     // XMPP client
     m_xmppClient = new QXmppClient(this);
@@ -151,7 +156,7 @@ void ChatWindow::setTabName(QWidget *tab, const QString &roomName)
 
 ChatPage *ChatWindow::createPage(bool checkForAutoLogin, const QString &jid, const QString &password)
 {
-    ChatPage *p = new ChatPage(m_muc, checkForAutoLogin, jid, password, ui->tabs);
+    ChatPage *p = new ChatPage(m_xmppClient, m_muc, checkForAutoLogin, jid, password, ui->tabs);
 
     connect(p, SIGNAL(requestJoin(QString)), this, SLOT(slotJoinRequested(QString)));
     connect(p, SIGNAL(joined(QString)),      this, SLOT(slotJoined(QString)));
@@ -403,4 +408,17 @@ void ChatWindow::slotOptions()
         while((p = qobject_cast<ChatPage *>(ui->tabs->widget(index++))))
             p->setFontSize(fontSize);
     }
+}
+
+void ChatWindow::slotHelp()
+{
+    QMessageBox::information(this,
+                             tr("Help"),
+                             QString("<table cellspacing=10>"
+                                     "<tr><td align=center>=ABC=</td><td>%1</td></tr>"
+                                     "<tr><td align=center>/ABC</td><td>%2</td></tr>"
+                                     "</table>")
+                             .arg(tr("Send the ticker to the chat. User can click on it and it will be loaded into all the linked windows"))
+                             .arg(tr("Show the ticker information"))
+                             );
 }
