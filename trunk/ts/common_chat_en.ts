@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="ru_RU">
+<TS version="2.0" language="en_US">
 <context>
     <name>ChatOptions</name>
     <message>
@@ -11,16 +11,6 @@
     <message>
         <location filename="../chatoptions.ui" line="22"/>
         <source>Auto login</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../chatoptions.ui" line="63"/>
-        <source>Show time of message</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../chatoptions.ui" line="72"/>
-        <source>Font size:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -36,6 +26,16 @@
     <message>
         <location filename="../chatoptions.ui" line="56"/>
         <source>Restore chat at startup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../chatoptions.ui" line="63"/>
+        <source>Show time of message</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../chatoptions.ui" line="72"/>
+        <source>Font size:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -59,7 +59,7 @@
     <message>
         <location filename="../chatpage.ui" line="103"/>
         <source>Cancel</source>
-        <translation>Отмена</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../chatpage.ui" line="139"/>
@@ -235,7 +235,7 @@
     <message>
         <location filename="../chatpage.cpp" line="590"/>
         <source>Unknown error</source>
-        <translation>Неизвестная ошибка</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../chatpage.cpp" line="603"/>
@@ -276,7 +276,7 @@
     <message>
         <location filename="../chatwindow.ui" line="89"/>
         <source>Cancel</source>
-        <translation>Отмена</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../chatwindow.ui" line="111"/>
@@ -329,7 +329,7 @@
     <message>
         <location filename="../chatwindow.cpp" line="285"/>
         <source>Unknown error</source>
-        <translation>Неизвестная ошибка</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
