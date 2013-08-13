@@ -45,7 +45,9 @@ HEADERS += datamanagerbase.h \
 FORMS += datamanagerbase.ui \
     datadownloader.ui
 
-TRANSLATIONS += ts/tht_lib_ru.ts \
+TRANSLATIONS += ts/tht_lib_en.ts \
+                ts/tht_lib_ru.ts \
+                ts/tht_lib_tr.ts \
                 ts/tht_lib_uk.ts
 
 RC_FILE = tht-lib.rc

@@ -30,7 +30,9 @@ FORMS += \
     finvizlinkselector.ui \
     finvizaccesssetup.ui
 
-TRANSLATIONS += ts/addtickersfrom_finviz_ru.ts \
+TRANSLATIONS += ts/addtickersfrom_finviz_en.ts \
+                ts/addtickersfrom_finviz_ru.ts \
+                ts/addtickersfrom_finviz_tr.ts \
                 ts/addtickersfrom_finviz_uk.ts
 
 RESOURCES += THT-plugin-finviz.qrc
