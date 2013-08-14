@@ -18,6 +18,7 @@
 #ifndef CHATPAGE_H
 #define CHATPAGE_H
 
+#include <QStringList>
 #include <QWidget>
 #include <QList>
 #include <QHash>
@@ -76,6 +77,8 @@ private:
     QString tickerToLink(const QString &) const;
     ChatMessages *addPrivateChat(const QString &nick, bool switchTo = true);
     QStringList formatMessage(const QXmppMessage &);
+    QStringList formatSystemMessage(const QString &message);
+    void sendSystemMessageToPrivateChat(const QString &nick, const QString &message);
     QString jidToNick(const QString &jid);
 
 signals:
@@ -120,6 +123,7 @@ private:
     QTabBar *m_bar;
     QTextBrowser *m_generalMessages;
     QHash<QString, QXmppMessage> m_undeliveredMessages;
+    QStringList m_users;
 };
 
 #endif // CHATPAGE_H

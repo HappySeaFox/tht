@@ -239,11 +239,23 @@ void ChatPage::slotAllowedActionsChanged(QXmppMucRoom::Actions actions)
 void ChatPage::slotParticipantAdded(const QString &jid)
 {
     qDebug("Added user %s", qPrintable(jid));
+
+    QString nick = jidToNick(jid);
+
+    m_users.append(nick);
+
+    sendSystemMessageToPrivateChat(nick, tr("User is connected"));
 }
 
 void ChatPage::slotParticipantRemoved(const QString &jid)
 {
     qDebug("Removed user %s", qPrintable(jid));
+
+    QString nick = jidToNick(jid);
+
+    m_users.removeAll(nick);
+
+    sendSystemMessageToPrivateChat(nick, tr("User is disconnected"));
 }
 
 void ChatPage::slotPermissionsReceived(const QList<QXmppMucItem> &list)
@@ -572,7 +584,7 @@ ChatMessages *ChatPage::addPrivateChat(const QString &nick, bool switchTo)
         index++;
     }
 
-    // not found
+    // not found, create a new one
     ChatMessages *chatMessages = new ChatMessages(ui->tabsChats);
     connect(chatMessages->messages(), SIGNAL(anchorClicked(QUrl)), this, SLOT(slotAnchorClicked(QUrl)));
     index = ui->tabsChats->addTab(chatMessages, nick);
@@ -581,6 +593,9 @@ ChatMessages *ChatPage::addPrivateChat(const QString &nick, bool switchTo)
         ui->tabsChats->setCurrentIndex(index);
 
     m_bar->show();
+
+    if(m_users.indexOf(nick) < 0)
+        sendSystemMessageToPrivateChat(nick, tr("User is disconnected"));
 
     return chatMessages;
 }
@@ -697,6 +712,32 @@ QStringList ChatPage::formatMessage(const QXmppMessage &msg)
                 + nick
                 + "</a>:</font> "
                 + body);
+}
+
+QStringList ChatPage::formatSystemMessage(const QString &message)
+{
+    return formatMessage(QXmppMessage(m_room->jid(), QString(), "*** " + message + " ***"));
+}
+
+void ChatPage::sendSystemMessageToPrivateChat(const QString &nick, const QString &message)
+{
+    int index = 1;
+
+    // do we chat with this user already?
+    while(index < ui->tabsChats->count())
+    {
+        if(ui->tabsChats->tabText(index) == nick)
+        {
+            ChatMessages *chatMessages = qobject_cast<ChatMessages *>(ui->tabsChats->widget(index));
+
+            QStringList parsed = formatSystemMessage(message);
+
+            if(parsed.size() > 1)
+                chatMessages->messages()->append(parsed.at(1));
+
+            break;
+        }
+    }
 }
 
 QString ChatPage::jidToNick(const QString &jid)
