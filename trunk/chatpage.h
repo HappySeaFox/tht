@@ -23,7 +23,6 @@
 #include <QHash>
 
 #include "QXmppMucManager.h"
-#include "QXmppMessage.h"
 #include "QXmppStanza.h"
 
 class QTextBrowser;
@@ -32,6 +31,7 @@ class QUrl;
 
 class QXmppMucManager;
 class QXmppMucItem;
+class QXmppMessage;
 class QXmppClient;
 
 class ColorAnimation;
