@@ -20,6 +20,7 @@
 #include <QApplication>
 #include <QTextBrowser>
 #include <QMessageBox>
+#include <QScrollBar>
 #include <QDateTime>
 #include <QKeyEvent>
 #include <QTabBar>
@@ -60,17 +61,19 @@ ChatPage::ChatPage(QXmppClient *client,
 {
     ui->setupUi(this);
 
-    ChatMessages *chatMessages = new ChatMessages(ui->tabsChats);
+    // General discussion
+    m_generalPage = new ChatMessages(ui->tabsChats);
 
-    ui->tabsChats->addTab(chatMessages, tr("General"));
+    ui->tabsChats->addTab(m_generalPage, tr("General"));
 
-    m_generalMessages = chatMessages->messages();
+    m_generalMessages = m_generalPage->messages();
     connect(m_generalMessages, SIGNAL(anchorClicked(QUrl)), this, SLOT(slotAnchorClicked(QUrl)));
 
+    // hide tabbar
     m_bar = ui->tabsChats->findChild<QTabBar *>();
-
     m_bar->hide();
 
+    // font size
     setFontSize(SETTINGS_GET_INT(SETTING_CHAT_FONT_SIZE));
 
     m_unreadMesagesAnimation = new ColorAnimation(ui->labelUnreadMessages, this);
@@ -130,16 +133,17 @@ void ChatPage::slotMessageReceived(const QXmppMessage &msg)
     }
     else
     {
-        if(msg.type() == QXmppMessage::Chat)
-        {
-            ChatMessages *chatMessages = addPrivateChat(parsed.at(0), false);
-            chatMessages->messages()->append(parsed.at(1));
+        ChatMessages *chatMessages;
 
-            if(ui->tabsChats->currentWidget() != chatMessages)
-                ui->tabsChats->setTabIcon(ui->tabsChats->indexOf(chatMessages), ChatTools::unreadIcon());
-        }
+        if(msg.type() == QXmppMessage::Chat)
+            chatMessages = addPrivateChat(parsed.at(0), false);
         else
-            m_generalMessages->append(parsed.at(1));
+            chatMessages = m_generalPage;
+
+        chatMessages->messages()->append(parsed.at(1));
+
+        if(ui->tabsChats->currentWidget() != chatMessages)
+            ui->tabsChats->setTabIcon(ui->tabsChats->indexOf(chatMessages), ChatTools::unreadIcon());
     }
 
     emit message();
@@ -591,8 +595,6 @@ ChatMessages *ChatPage::addPrivateChat(const QString &nick, bool switchTo)
 
     if(switchTo)
         ui->tabsChats->setCurrentIndex(index);
-
-    m_bar->show();
 
     if(m_users.indexOf(nick) < 0)
         sendSystemMessageToPrivateChat(nick, tr("User is disconnected"));
