@@ -26,6 +26,7 @@
 #include <QMenu>
 #include <QIcon>
 
+#include "QXmppMessageReceiptManager.h"
 #include "QXmppVersionManager.h"
 #include "QXmppConfiguration.h"
 #include "QXmppMucManager.h"
@@ -62,6 +63,10 @@ ChatWindow::ChatWindow(QWidget *parent) :
 
     m_xmppClient->versionManager().setClientName("THT Chat");
     m_xmppClient->versionManager().setClientVersion(NVER_STRING);
+
+    // listen for delivery signals
+    m_receiptManager = new QXmppMessageReceiptManager;
+    m_xmppClient->addExtension(m_receiptManager);
 
     // MUC
     m_muc = new QXmppMucManager;
@@ -156,6 +161,8 @@ void ChatWindow::setTabName(QWidget *tab, const QString &roomName)
 
 ChatPage *ChatWindow::createPage(bool checkForAutoLogin, const QString &jid, const QString &password)
 {
+    qDebug("Creating page for jid \"%s\"", qPrintable(jid));
+
     ChatPage *p = new ChatPage(m_xmppClient, m_muc, checkForAutoLogin, jid, password, ui->tabs);
 
     connect(p, SIGNAL(requestJoin(QString)), this, SLOT(slotJoinRequested(QString)));
@@ -164,6 +171,8 @@ ChatPage *ChatWindow::createPage(bool checkForAutoLogin, const QString &jid, con
     connect(p, SIGNAL(nameChanged(QString)), this, SLOT(slotNameChanged(QString)));
     connect(p, SIGNAL(message()),            this, SLOT(slotMessage()));
     connect(p, SIGNAL(openTicker(QString)),  this, SIGNAL(openTicker(QString)));
+
+    connect(m_receiptManager, SIGNAL(messageDelivered(QString,QString)), p, SLOT(slotMessageDelivered(QString,QString)));
 
     return p;
 }
