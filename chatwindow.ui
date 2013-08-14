@@ -82,14 +82,21 @@
            </property>
           </widget>
          </item>
-         <item row="2" column="1">
+         <item row="2" column="1" colspan="2">
+          <widget class="QCheckBox" name="checkRememberPassword">
+           <property name="text">
+            <string>Remember password</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
           <widget class="QPushButton" name="pushSignIn">
            <property name="text">
             <string>Sign In</string>
            </property>
           </widget>
          </item>
-         <item row="2" column="2">
+         <item row="3" column="2">
           <widget class="QPushButton" name="pushCancel">
            <property name="text">
             <string>Cancel</string>
@@ -112,13 +119,6 @@
         </spacer>
        </item>
        <item row="2" column="1">
-        <widget class="QCheckBox" name="checkRememberPassword">
-         <property name="text">
-          <string>Remember password</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="1">
         <widget class="QLabel" name="labelStatus">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -131,7 +131,7 @@
          </property>
         </widget>
        </item>
-       <item row="4" column="1">
+       <item row="3" column="1">
         <spacer name="verticalSpacer_2">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -177,6 +177,14 @@
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>lineJid</tabstop>
+  <tabstop>linePassword</tabstop>
+  <tabstop>checkRememberPassword</tabstop>
+  <tabstop>pushSignIn</tabstop>
+  <tabstop>pushCancel</tabstop>
+  <tabstop>tabs</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>
