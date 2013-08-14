@@ -269,17 +269,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.ui" line="88"/>
+        <location filename="../chatwindow.ui" line="95"/>
         <source>Sign In</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.ui" line="95"/>
+        <location filename="../chatwindow.ui" line="102"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.ui" line="117"/>
+        <location filename="../chatwindow.ui" line="88"/>
         <source>Remember password</source>
         <translation type="unfinished"></translation>
     </message>
