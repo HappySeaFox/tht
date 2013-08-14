@@ -49,6 +49,7 @@ private:
     void showSignInPage();
     void showChatsPage();
     void showLoginStatus(const QString &);
+    void showError(const QString &);
     void setTabName(QWidget *tab, const QString &roomName);
     ChatPage *createPage(bool checkForAutoLogin, const QString &jid = QString(), const QString &password = QString());
     void saveRooms();

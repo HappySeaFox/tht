@@ -146,6 +146,11 @@ void ChatWindow::showLoginStatus(const QString &s)
     ui->labelStatus->setText(s);
 }
 
+void ChatWindow::showError(const QString &s)
+{
+    showLoginStatus("<font color=red><b>" + s + "</b></font>");
+}
+
 void ChatWindow::setTabName(QWidget *tab, const QString &roomName)
 {
     int index = ui->tabs->indexOf(tab);
@@ -230,7 +235,16 @@ void ChatWindow::slotSignIn()
 {
     m_xmppClient->disconnectFromServer();
 
-    SETTINGS_SET_STRING(SETTING_CHAT_JID, ui->lineJid->text());
+    QString jid = ui->lineJid->text();
+
+    if(jid.isEmpty())
+    {
+        qWarning("Jid is empty");
+        showError(tr("JID is empty"));
+        return;
+    }
+
+    SETTINGS_SET_STRING(SETTING_CHAT_JID, jid);
     SETTINGS_SET_BOOL(SETTING_CHAT_REMEMBER_PASSWORD, ui->checkRememberPassword->isChecked());
 
     ui->pushCancel->setEnabled(true);
@@ -238,7 +252,7 @@ void ChatWindow::slotSignIn()
     ui->lineJid->setEnabled(false);
     ui->linePassword->setEnabled(false);
 
-    m_xmppClient->configuration().setJid(ui->lineJid->text());
+    m_xmppClient->configuration().setJid(jid);
     m_xmppClient->configuration().setPassword(ui->linePassword->text());
 
     showLoginStatus(tr("Connecting..."));
@@ -293,7 +307,7 @@ void ChatWindow::slotError(QXmppClient::Error error)
         break;
     }
 
-    showLoginStatus("<font color=red><b>" + err + "</b></font>");
+    showError(err);
 }
 
 void ChatWindow::slotConnected()

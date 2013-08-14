@@ -28,6 +28,7 @@
 #include <QUrl>
 #include <Qt>
 
+#include "QXmppConfiguration.h"
 #include "QXmppMessage.h"
 #include "QXmppClient.h"
 #include "QXmppUtils.h"
@@ -402,7 +403,7 @@ void ChatPage::proceedJoin()
     ui->labelStatus->clear();
     ui->plainMessage->setEnabled(false);
 
-    m_room->setNickName("xxx13");
+    m_room->setNickName(QXmppUtils::jidToUser(m_xmppClient->configuration().jidBare()));
     m_room->setPassword(ui->linePassword->text());
     m_room->join();
 }
