@@ -31,6 +31,7 @@ class QUrl;
 class QXmppMucManager;
 class QXmppMucItem;
 class QXmppMessage;
+class QXmppClient;
 
 class ColorAnimation;
 class ChatMessages;
@@ -45,7 +46,8 @@ class ChatPage : public QWidget
     Q_OBJECT
 
 public:
-    explicit ChatPage(QXmppMucManager *manager,
+    explicit ChatPage(QXmppClient *client,
+                      QXmppMucManager *manager,
                       bool checkForAutoLogin,
                       const QString &jid = QString(),
                       const QString &password = QString(),
@@ -72,6 +74,7 @@ private:
     void blinkUnreadMessages(bool);
     QString tickerToLink(const QString &) const;
     ChatMessages *addPrivateChat(const QString &nick, bool switchTo = true);
+    QStringList formatMessage(const QXmppMessage &);
 
 signals:
     void requestJoin(const QString &jid);
@@ -101,6 +104,7 @@ private slots:
 
 private:
     Ui::ChatPage *ui;
+    QXmppClient *m_xmppClient;
     QXmppMucManager *m_muc;
     QXmppMucRoom *m_room;
     QXmppMucRoom::Actions m_actions;

@@ -29,6 +29,7 @@
 #include <Qt>
 
 #include "QXmppMessage.h"
+#include "QXmppClient.h"
 #include "QXmppUtils.h"
 #include "QXmppMucIq.h"
 
@@ -42,13 +43,15 @@
 #include "sqltools.h"
 #include "ui_chatpage.h"
 
-ChatPage::ChatPage(QXmppMucManager *manager,
+ChatPage::ChatPage(QXmppClient *client,
+                   QXmppMucManager *manager,
                    bool checkForAutoLogin,
                    const QString &jid,
                    const QString &password,
                    QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ChatPage),
+    m_xmppClient(client),
     m_muc(manager),
     m_room(0),
     m_actions(0),
@@ -115,131 +118,29 @@ ChatPage::~ChatPage()
 
 void ChatPage::slotMessageReceived(const QXmppMessage &msg)
 {
-    if(msg.body().isEmpty())
+    QStringList parsed = formatMessage(msg);
+
+    if(parsed.size() < 2)
         return;
-
-    QString nick = msg.from();
-    nick = Qt::escape(nick.right(nick.length() - m_room->jid().length() - 1));
-
-    if(nick.isEmpty())
-    {
-        qWarning("Nick is empty");
-        return;
-    }
-
-    QDateTime stamp;
-
-    if(msg.stamp().isValid())
-        stamp = msg.stamp().toTimeSpec(Qt::LocalTime);
-    else
-        stamp = QDateTime::currentDateTime();
-
-    QString color = ChatTools::randomColor().name();
-    QString body;
-
-    if(msg.error().code())
-    {
-        body = "<font color=red><b>" + errorToString(msg.error()) + "</b></font>";
-    }
-    else
-    {
-        body = Qt::escape(msg.body());
-
-        // ticker info
-        if(m_rxTickerInfo.exactMatch(body))
-        {
-            QString ticker = m_rxTickerInfo.cap(1).toUpper();
-            bool ok = false;
-
-            QList<QVariantList> lists = SqlTools::query(
-                                            "SELECT company, exchange, sector, industry, cap FROM tickers WHERE ticker = :ticker",
-                                            ":ticker",
-                                            ticker);
-
-            if(!lists.isEmpty())
-            {
-                QVariantList values = lists.at(0);
-
-                // must be 5 values
-                if(values.size() == 5)
-                {
-                    QString company = values.at(0).toString();
-
-                    if(!company.isEmpty())
-                    {
-                        ok = true;
-                        double cap = values.at(4).toDouble();
-
-                        body = tickerToLink(ticker)
-                                + ':'
-                                + m_companyTemplate
-                                                .arg(company)
-                                                .arg(values.at(1).toString())
-                                                .arg(values.at(2).toString())
-                                                .arg(values.at(3).toString())
-                                                .arg(cap, 0, 'f', cap > 100 ? 0 : 1);
-                    }
-                }
-            }
-
-            if(!ok)
-                body = ticker + ": " + tr("not found");
-        }
-        else
-        {
-            int pos = 0;
-            QString res;
-
-            body.replace(ChatTools::urlRegExp(), "<a href='\\1'>\\1</a>");
-
-            // replace "=ABC=" with link which will open ABC in the linked windows
-            while((pos = m_rxOpenTicker.indexIn(body, pos)) != -1)
-            {
-                if(!pos || body.at(pos-1).isSpace())
-                {
-                    res = tickerToLink(m_rxOpenTicker.cap(1));
-                    body.replace(pos, m_rxOpenTicker.matchedLength(), res);
-                    pos += res.length();
-                }
-                else
-                    pos += m_rxOpenTicker.matchedLength();
-            }
-        }
-    }
-
-    body.replace("\n", "<br>");
-
-    QString msgToAdd = QString("<font color=\"")
-                        + color
-                        + "\">"
-                        + (SETTINGS_GET_BOOL(SETTING_CHAT_SHOW_TIME)
-                            ? ('[' + stamp.toString("hh:mm:ss") + ']')
-                            : QString())
-                        + QString(" <a class=\"%1\" href=\"chat-user://").arg(QString(color).replace(0, 1, 'c'))
-                        + QString(nick).replace('@', "%40")
-                        + "@\">"
-                        + nick
-                        + "</a>:</font> "
-                        + body;
 
     // show message or save in buffer
     if(m_joinMode)
     {
-        m_unreadMessages.append(msgToAdd);
+        m_unreadMessages.append(parsed.at(1));
         showUnreadMessagesCount();
     }
     else
     {
         if(msg.type() == QXmppMessage::Chat)
         {
-            ChatMessages *chatMessages = addPrivateChat(nick, false);
-            chatMessages->messages()->append(msgToAdd);
+            ChatMessages *chatMessages = addPrivateChat(parsed.at(0), false);
+            chatMessages->messages()->append(parsed.at(1));
 
             if(ui->tabsChats->currentWidget() != chatMessages)
                 ui->tabsChats->setTabIcon(ui->tabsChats->indexOf(chatMessages), ChatTools::unreadIcon());
         }
         else
-            m_generalMessages->append(msgToAdd);
+            m_generalMessages->append(parsed.at(1));
     }
 
     emit message();
@@ -370,9 +271,10 @@ void ChatPage::slotAnchorClicked(const QUrl &url)
         {
             qDebug("Starting private chat");
             addPrivateChat(url.userName());
+            ui->plainMessage->setFocus();
         }
     }
-    else if(url.scheme() == "chat-open-ticker")
+    else if(url.scheme() == "chat-ticker")
     {
         qDebug("Clicked: ticker");
         emit openTicker(url.userName());
@@ -486,8 +388,28 @@ bool ChatPage::eventFilter(QObject *obj, QEvent *event)
             if(ke->modifiers() == Qt::NoModifier)
             {
                 m_lastMessage = ui->plainMessage->toPlainText();
-                // TODO send to private chat
-                m_room->sendMessage(m_lastMessage);
+
+                if(!ui->tabsChats->currentIndex())
+                    m_room->sendMessage(m_lastMessage);
+                else
+                {
+                    QString jid = m_room->jid() + '/' + ui->tabsChats->tabText(ui->tabsChats->currentIndex());
+                    m_xmppClient->sendMessage(jid, m_lastMessage);
+
+                    QXmppMessage msg;
+                    msg.setFrom(m_room->jid() + '/' + m_room->nickName());
+                    msg.setType(QXmppMessage::Chat);
+                    msg.setBody(m_lastMessage);
+
+                    QStringList parsed = formatMessage(msg);
+
+                    if(parsed.size() > 1)
+                    {
+                        ChatMessages *chatMessages = qobject_cast<ChatMessages *>(ui->tabsChats->currentWidget());
+                        chatMessages->messages()->append(parsed.at(1));
+                    }
+                }
+
                 ui->plainMessage->clear();
             }
             else if(ke->modifiers() == Qt::ShiftModifier)
@@ -593,7 +515,7 @@ QString ChatPage::tickerToLink(const QString &ticker) const
 {
     QString upper = ticker.toUpper();
 
-    return QString("<a href=\"chat-open-ticker://%1@\">%2</a>")
+    return QString("<a href=\"chat-ticker://%1@\">%2</a>")
             .arg(QString(upper).replace('@', "%40"))
             .arg(upper);
 }
@@ -618,7 +540,7 @@ ChatMessages *ChatPage::addPrivateChat(const QString &nick, bool switchTo)
 
     // not found
     ChatMessages *chatMessages = new ChatMessages(ui->tabsChats);
-    connect(chatMessages, SIGNAL(anchorClicked(QUrl)), this, SLOT(slotAnchorClicked(QUrl)));
+    connect(chatMessages->messages(), SIGNAL(anchorClicked(QUrl)), this, SLOT(slotAnchorClicked(QUrl)));
     index = ui->tabsChats->addTab(chatMessages, nick);
 
     if(switchTo)
@@ -627,4 +549,122 @@ ChatMessages *ChatPage::addPrivateChat(const QString &nick, bool switchTo)
     m_bar->show();
 
     return chatMessages;
+}
+
+QStringList ChatPage::formatMessage(const QXmppMessage &msg)
+{
+    // construct nick
+    QString nick = msg.from();
+
+    const int pos = nick.indexOf('/');
+
+    nick = Qt::escape(pos < 0 ? nick : nick.mid(pos+1));
+
+    if(nick.isEmpty())
+    {
+        qWarning("Nick is empty");
+        return QStringList();
+    }
+
+    // timestamp
+    QDateTime stamp;
+
+    if(msg.stamp().isValid())
+        stamp = msg.stamp().toTimeSpec(Qt::LocalTime);
+    else
+        stamp = QDateTime::currentDateTime();
+
+    QString color = ChatTools::randomColor().name();
+    QString body;
+
+    // error message?
+    if(msg.error().code())
+    {
+        body = "<font color=red><b>" + errorToString(msg.error()) + "</b></font>";
+    }
+    else
+    {
+        body = Qt::escape(msg.body());
+
+        if(body.isEmpty())
+            return QStringList();
+
+        // ticker info
+        if(m_rxTickerInfo.exactMatch(body))
+        {
+            QString ticker = m_rxTickerInfo.cap(1).toUpper();
+            bool ok = false;
+
+            QList<QVariantList> lists = SqlTools::query(
+                                            "SELECT company, exchange, sector, industry, cap FROM tickers WHERE ticker = :ticker",
+                                            ":ticker",
+                                            ticker);
+
+            if(!lists.isEmpty())
+            {
+                QVariantList values = lists.at(0);
+
+                // must be 5 values
+                if(values.size() == 5)
+                {
+                    QString company = values.at(0).toString();
+
+                    if(!company.isEmpty())
+                    {
+                        ok = true;
+                        double cap = values.at(4).toDouble();
+
+                        body = tickerToLink(ticker)
+                                + ':'
+                                + m_companyTemplate
+                                                .arg(company)
+                                                .arg(values.at(1).toString())
+                                                .arg(values.at(2).toString())
+                                                .arg(values.at(3).toString())
+                                                .arg(cap, 0, 'f', cap > 100 ? 0 : 1);
+                    }
+                }
+            }
+
+            if(!ok)
+                body = ticker + ": " + tr("not found");
+        }
+        else
+        {
+            int pos = 0;
+            QString res;
+
+            body.replace(ChatTools::urlRegExp(), "<a href='\\1'>\\1</a>");
+
+            // replace "=ABC=" with link which will open ABC in the linked windows
+            while((pos = m_rxOpenTicker.indexIn(body, pos)) != -1)
+            {
+                if(!pos || body.at(pos-1).isSpace())
+                {
+                    res = tickerToLink(m_rxOpenTicker.cap(1));
+                    body.replace(pos, m_rxOpenTicker.matchedLength(), res);
+                    pos += res.length();
+                }
+                else
+                    pos += m_rxOpenTicker.matchedLength();
+            }
+        }
+    }
+
+    body.replace("\n", "<br>");
+
+    return QStringList()
+            << nick
+            << (QString("<font color=\"")
+                + color
+                + "\">"
+                + (SETTINGS_GET_BOOL(SETTING_CHAT_SHOW_TIME)
+                    ? ('[' + stamp.toString("hh:mm:ss") + ']')
+                    : QString())
+                + QString(" <a class=\"%1\" href=\"chat-user://").arg(QString(color).replace(0, 1, 'c'))
+                + QString(nick).replace('@', "%40")
+                + "@\">"
+                + nick
+                + "</a>:</font> "
+                + body);
 }
