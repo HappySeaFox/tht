@@ -122,6 +122,7 @@ private:
     QString m_companyTemplate;
     QTabBar *m_bar;
     QTextBrowser *m_generalMessages;
+    ChatMessages *m_generalPage;
     QHash<QString, QXmppMessage> m_undeliveredMessages;
     QStringList m_users;
 };
