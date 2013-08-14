@@ -15,7 +15,10 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <QTextDocument>
+
 #include "chatmessages.h"
+#include "chattools.h"
 #include "ui_chatmessages.h"
 
 ChatMessages::ChatMessages(QWidget *parent) :
@@ -23,6 +26,8 @@ ChatMessages::ChatMessages(QWidget *parent) :
     ui(new Ui::ChatMessages)
 {
     ui->setupUi(this);
+
+    ui->textMessages->document()->setDefaultStyleSheet(ChatTools::cssForLinks());
 }
 
 ChatMessages::~ChatMessages()

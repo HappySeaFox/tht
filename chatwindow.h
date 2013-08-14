@@ -24,6 +24,7 @@
 
 class QMenu;
 
+class QXmppMessageReceiptManager;
 class QXmppMucManager;
 
 class ChatPage;
@@ -79,6 +80,7 @@ private:
     Ui::ChatWindow *ui;
     QXmppClient *m_xmppClient;
     QXmppMucManager *m_muc;
+    QXmppMessageReceiptManager *m_receiptManager;
     QMenu *m_menu;
 };
 

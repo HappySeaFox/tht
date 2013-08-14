@@ -83,8 +83,6 @@ ChatPage::ChatPage(QXmppClient *client,
             + "<tr><td>" + tr("Capitalization:") + "</td><td>%L5 " + tr("mln") + "</td></tr>"
             + "</table><br>";
 
-    m_generalMessages->document()->setDefaultStyleSheet(ChatTools::cssForLinks());
-
     ui->plainMessage->installEventFilter(this);
     ui->lineRoom->setText(jid);
     ui->linePassword->setText(password);
@@ -269,9 +267,12 @@ void ChatPage::slotAnchorClicked(const QUrl &url)
         }
         else if(mods == Qt::ControlModifier)
         {
-            qDebug("Starting private chat");
-            addPrivateChat(url.userName());
-            ui->plainMessage->setFocus();
+            if(url.userName() != m_room->nickName())
+            {
+                qDebug("Starting private chat");
+                addPrivateChat(url.userName());
+                ui->plainMessage->setFocus();
+            }
         }
     }
     else if(url.scheme() == "chat-ticker")
@@ -312,6 +313,47 @@ void ChatPage::slotUnreadMessagesClicked()
 
     m_unreadMessages.removeLast();
     showUnreadMessagesCount();
+}
+
+void ChatPage::slotMessageDelivered(const QString &jid, const QString &id)
+{
+    qDebug("Delivery for jid \"%s\", id \"%s\"", qPrintable(jid), qPrintable(id));
+
+    QHash<QString, QXmppMessage>::iterator it = m_undeliveredMessages.find(id);
+
+    if(it == m_undeliveredMessages.end())
+    {
+        qWarning("Delivered id \"%s\" is not found", qPrintable(id));
+        return;
+    }
+
+    QXmppMessage msg = it.value();
+    msg.setFrom(m_room->nickName());
+    QStringList parsed = formatMessage(msg);
+
+    m_undeliveredMessages.remove(id);
+
+    if(parsed.size() > 1)
+    {
+        int index = 1;
+        QString nick = jidToNick(jid);
+        ChatMessages *chatMessages = 0;
+
+        // do we chat with this user already?
+        while(index < ui->tabsChats->count())
+        {
+            if(ui->tabsChats->tabText(index) == nick)
+            {
+                chatMessages = qobject_cast<ChatMessages *>(ui->tabsChats->widget(index));
+                break;
+            }
+
+            index++;
+        }
+
+        if(chatMessages)
+            chatMessages->messages()->append(parsed.at(1));
+    }
 }
 
 QString ChatPage::roomName() const
@@ -394,20 +436,11 @@ bool ChatPage::eventFilter(QObject *obj, QEvent *event)
                 else
                 {
                     QString jid = m_room->jid() + '/' + ui->tabsChats->tabText(ui->tabsChats->currentIndex());
-                    m_xmppClient->sendMessage(jid, m_lastMessage);
 
-                    QXmppMessage msg;
-                    msg.setFrom(m_room->jid() + '/' + m_room->nickName());
-                    msg.setType(QXmppMessage::Chat);
-                    msg.setBody(m_lastMessage);
-
-                    QStringList parsed = formatMessage(msg);
-
-                    if(parsed.size() > 1)
-                    {
-                        ChatMessages *chatMessages = qobject_cast<ChatMessages *>(ui->tabsChats->currentWidget());
-                        chatMessages->messages()->append(parsed.at(1));
-                    }
+                    QXmppMessage msg(QString(), jid, m_lastMessage);
+                    msg.setReceiptRequested(true);
+                    m_undeliveredMessages[msg.id()] = msg;
+                    m_xmppClient->sendPacket(msg);
                 }
 
                 ui->plainMessage->clear();
@@ -554,11 +587,7 @@ ChatMessages *ChatPage::addPrivateChat(const QString &nick, bool switchTo)
 QStringList ChatPage::formatMessage(const QXmppMessage &msg)
 {
     // construct nick
-    QString nick = msg.from();
-
-    const int pos = nick.indexOf('/');
-
-    nick = Qt::escape(pos < 0 ? nick : nick.mid(pos+1));
+    QString nick = Qt::escape(jidToNick(msg.from()));
 
     if(nick.isEmpty())
     {
@@ -667,4 +696,11 @@ QStringList ChatPage::formatMessage(const QXmppMessage &msg)
                 + nick
                 + "</a>:</font> "
                 + body);
+}
+
+QString ChatPage::jidToNick(const QString &jid)
+{
+    const int pos = jid.indexOf('/');
+
+    return (pos < 0 ? jid : jid.mid(pos+1));
 }

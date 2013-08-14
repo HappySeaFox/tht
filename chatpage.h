@@ -20,8 +20,10 @@
 
 #include <QWidget>
 #include <QList>
+#include <QHash>
 
 #include "QXmppMucManager.h"
+#include "QXmppMessage.h"
 #include "QXmppStanza.h"
 
 class QTextBrowser;
@@ -30,7 +32,6 @@ class QUrl;
 
 class QXmppMucManager;
 class QXmppMucItem;
-class QXmppMessage;
 class QXmppClient;
 
 class ColorAnimation;
@@ -75,6 +76,7 @@ private:
     QString tickerToLink(const QString &) const;
     ChatMessages *addPrivateChat(const QString &nick, bool switchTo = true);
     QStringList formatMessage(const QXmppMessage &);
+    QString jidToNick(const QString &jid);
 
 signals:
     void requestJoin(const QString &jid);
@@ -101,6 +103,7 @@ private slots:
     void slotTabCloseRequested(int);
     void slotCurrentTabChanged(int);
     void slotUnreadMessagesClicked();
+    void slotMessageDelivered(const QString &, const QString &);
 
 private:
     Ui::ChatPage *ui;
@@ -116,6 +119,7 @@ private:
     QString m_companyTemplate;
     QTabBar *m_bar;
     QTextBrowser *m_generalMessages;
+    QHash<QString, QXmppMessage> m_undeliveredMessages;
 };
 
 #endif // CHATPAGE_H

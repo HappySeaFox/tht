@@ -57,10 +57,8 @@ ChatPlugin::ChatPlugin() :
 
     ChatTools::init();
 
-/*
-  NOTE logging?
-
-    QXmppLogger::getLogger()->setLoggingType(QXmppLogger::FileLogging);
+    // NOTE log to file?
+    QXmppLogger::getLogger()->setLoggingType(QXmppLogger::NoLogging);
     QXmppLogger::getLogger()->setLogFilePath(
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
                                              QStandardPaths::writableLocation(QStandardPaths::TempLocation)
@@ -69,7 +67,6 @@ ChatPlugin::ChatPlugin() :
 #endif
                                              + QDir::separator()
                                              + "tht-chat-qxmpp.log");
-*/
 }
 
 ChatPlugin::~ChatPlugin()
