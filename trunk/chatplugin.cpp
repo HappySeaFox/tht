@@ -20,6 +20,15 @@
 #include <QLayout>
 #include <QHash>
 #include <QIcon>
+#include <QDir>
+
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+#include <QStandardPaths>
+#else
+#include <QDesktopServices>
+#endif
+
+#include "QXmppLogger.h"
 
 #include "chatsettings.h"
 #include "chatwindow.h"
@@ -47,6 +56,20 @@ ChatPlugin::ChatPlugin() :
     Settings::instance()->addDefaultValues(defaltValues);
 
     ChatTools::init();
+
+/*
+  NOTE logging?
+
+    QXmppLogger::getLogger()->setLoggingType(QXmppLogger::FileLogging);
+    QXmppLogger::getLogger()->setLogFilePath(
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+                                             QStandardPaths::writableLocation(QStandardPaths::TempLocation)
+#else
+                                             QDesktopServices::storageLocation(QDesktopServices::TempLocation)
+#endif
+                                             + QDir::separator()
+                                             + "tht-chat-qxmpp.log");
+*/
 }
 
 ChatPlugin::~ChatPlugin()
