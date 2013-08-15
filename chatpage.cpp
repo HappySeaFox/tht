@@ -90,16 +90,16 @@ ChatPage::ChatPage(QXmppClient *client,
             + "</table><br>";
 
     // exchange binds
-    m_exchangeBinds.insert("=N", "NYSE");
-    m_exchangeBinds.insert("=D", "NASD");
-    m_exchangeBinds.insert("=A", "AMEX");
+    m_exchangeBinds.insert("N", "NYSE");
+    m_exchangeBinds.insert("D", "NASD");
+    m_exchangeBinds.insert("A", "AMEX");
 
     ui->plainMessage->installEventFilter(this);
     ui->lineRoom->setText(jid);
     ui->linePassword->setText(password);
 
     m_rxTickerInfo = QRegExp(QString("/(%1)").arg(Settings::instance()->tickerValidator().pattern()));
-    m_rxIndustryInfo = QRegExp("//([a-zA-Z\\s]+)((?:=[nNdDaA])?)");
+    m_rxIndustryInfo = QRegExp("//([a-zA-Z\\s]+)((?:=[nNdDaA]+)?)");
     m_rxOpenTicker = QRegExp(QString("=(%1)=(?=\\s|$)").arg(Settings::instance()->tickerValidator().pattern()));
 
     setJoinMode(true);
@@ -655,24 +655,38 @@ QStringList ChatPage::formatMessage(const QXmppMessage &msg)
         if(m_rxIndustryInfo.exactMatch(body))
         {
             QString industry = m_rxIndustryInfo.cap(1);
-            QString exchange =  m_rxIndustryInfo.cap(2);
+            QString exchange =  m_rxIndustryInfo.cap(2).toUpper().mid(1);
             QMap<QString, QString> binds;
 
             binds.insert(":industry", industry);
 
             if(!exchange.isEmpty())
             {
-                exchange = exchange.toUpper();
+                QStringList queries;
+                QString seen;
+                int q = 0;
 
-                QHash<QString, QString>::iterator it = m_exchangeBinds.find(exchange);
+                foreach(QChar ch, exchange)
+                {
+                    if(seen.indexOf(ch) >= 0)
+                        continue;
 
-                if(it == m_exchangeBinds.end())
+                    seen.append(ch);
+
+                    QHash<QString, QString>::iterator it = m_exchangeBinds.find(QString(ch));
+
+                    if(it != m_exchangeBinds.end())
+                    {
+                        QString s = QString("exchange%1").arg(q++);
+                        queries += QString("exchange = :%1").arg(s);
+                        binds.insert(QString(":%1").arg(s), it.value());
+                    }
+                }
+
+                if(queries.isEmpty())
                     exchange.clear();
                 else
-                {
-                    exchange = "AND exchange = :exchange";
-                    binds.insert(":exchange", it.value());
-                }
+                    exchange = "AND ( " + queries.join(" OR ") + " )";
             }
 
             bool ok = false;

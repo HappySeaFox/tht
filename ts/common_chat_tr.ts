@@ -249,12 +249,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="700"/>
+        <location filename="../chatpage.cpp" line="714"/>
         <source>industry is not found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="745"/>
+        <location filename="../chatpage.cpp" line="759"/>
         <source>ticker is not found</source>
         <translation type="unfinished"></translation>
     </message>
@@ -368,33 +368,38 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="447"/>
+        <location filename="../chatwindow.cpp" line="448"/>
         <source>Send the ticker &quot;ABC&quot; to the chat. User can click on it and it will be loaded into all the linked windows</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="448"/>
+        <location filename="../chatwindow.cpp" line="449"/>
         <source>Show the ticker information about the ticker &quot;ABC&quot;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="449"/>
+        <location filename="../chatwindow.cpp" line="450"/>
         <source>Show the tickers from the industry &quot;Gold&quot; (all exchanges)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="450"/>
+        <location filename="../chatwindow.cpp" line="451"/>
         <source>Show the AMEX tickers from the industry &quot;Gold&quot;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="451"/>
+        <location filename="../chatwindow.cpp" line="452"/>
         <source>Show the NASDAQ tickers from the industry &quot;Gold&quot;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="452"/>
+        <location filename="../chatwindow.cpp" line="453"/>
         <source>Show the NYSE tickers from the industry &quot;Gold&quot;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../chatwindow.cpp" line="454"/>
+        <source>Show the NYSE and NASDAQ tickers from the industry &quot;Gold&quot;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

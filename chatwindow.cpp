@@ -443,6 +443,7 @@ void ChatWindow::slotHelp()
                                      "<tr><td align=center>//Gold=A</td><td>%4</td></tr>"
                                      "<tr><td align=center>//Gold=D</td><td>%5</td></tr>"
                                      "<tr><td align=center>//Gold=N</td><td>%6</td></tr>"
+                                     "<tr><td align=center>//Gold=ND</td><td>%7</td></tr>"
                                      "</table>")
                              .arg(tr("Send the ticker \"ABC\" to the chat. User can click on it and it will be loaded into all the linked windows"))
                              .arg(tr("Show the ticker information about the ticker \"ABC\""))
@@ -450,5 +451,6 @@ void ChatWindow::slotHelp()
                              .arg(tr("Show the AMEX tickers from the industry \"Gold\""))
                              .arg(tr("Show the NASDAQ tickers from the industry \"Gold\""))
                              .arg(tr("Show the NYSE tickers from the industry \"Gold\""))
+                             .arg(tr("Show the NYSE and NASDAQ tickers from the industry \"Gold\""))
                              );
 }
