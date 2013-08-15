@@ -214,6 +214,7 @@ void ChatPage::slotKicked(const QString &jid, const QString &reason)
 void ChatPage::slotSubjectChanged(const QString &subject)
 {
     ui->lineSubject->setText(subject);
+    ui->lineSubject->setCursorPosition(0);
 }
 
 void ChatPage::slotError(const QXmppStanza::Error &error)
