@@ -18,7 +18,6 @@
 #include <QContextMenuEvent>
 #include <QApplication>
 #include <QMessageBox>
-#include <QPushButton>
 #include <QShortcut>
 #include <QTextEdit>
 #include <QMovie>
@@ -54,6 +53,8 @@ ChatWindow::ChatWindow(QWidget *parent) :
     // context menu
     m_menu = new QMenu(this);
 
+    m_menu->addAction(tr("Add room"), this, SLOT(slotAddTab()));
+    m_menu->addSeparator();
     m_menu->addAction(QIcon(":/images/options.png"), tr("Options..."), this, SLOT(slotOptions()));
     m_menu->addSeparator();
     m_menu->addAction(tr("Help...")  + '\t' + helpShortcut->key().toString(), this, SLOT(slotHelp()));
@@ -82,12 +83,6 @@ ChatWindow::ChatWindow(QWidget *parent) :
         ui->linePassword->setText(SETTINGS_GET_STRING(SETTING_CHAT_PASSWORD));
 
     ui->lineJid->setText(SETTINGS_GET_STRING(SETTING_CHAT_JID));
-
-    // corner widget
-    QPushButton *b = new QPushButton("+", ui->tabs);
-    connect(b, SIGNAL(clicked()), this, SLOT(slotAddTab()));
-    ui->tabs->setCornerWidget(b);
-    b->show();
 
     showSignInPage();
 
@@ -322,7 +317,6 @@ void ChatWindow::slotConnected()
 
     restoreRooms();
 
-    // TODO new "+" button
     if(!ui->tabs->count())
         slotAddTab();
 

@@ -295,75 +295,80 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="57"/>
+        <location filename="../chatwindow.cpp" line="56"/>
+        <source>Add room</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../chatwindow.cpp" line="58"/>
         <source>Options...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="59"/>
+        <location filename="../chatwindow.cpp" line="60"/>
         <source>Help...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="164"/>
-        <location filename="../chatwindow.cpp" line="213"/>
-        <location filename="../chatwindow.cpp" line="340"/>
-        <location filename="../chatwindow.cpp" line="365"/>
+        <location filename="../chatwindow.cpp" line="159"/>
+        <location filename="../chatwindow.cpp" line="208"/>
+        <location filename="../chatwindow.cpp" line="334"/>
+        <location filename="../chatwindow.cpp" line="359"/>
         <source>Room</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="243"/>
+        <location filename="../chatwindow.cpp" line="238"/>
         <source>JID is empty</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="258"/>
+        <location filename="../chatwindow.cpp" line="253"/>
         <source>Connecting...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="267"/>
+        <location filename="../chatwindow.cpp" line="262"/>
         <source>Sign in cancelled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="285"/>
+        <location filename="../chatwindow.cpp" line="280"/>
         <source>Socket error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="289"/>
+        <location filename="../chatwindow.cpp" line="284"/>
         <source>Keep alive error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="296"/>
+        <location filename="../chatwindow.cpp" line="291"/>
         <source>Invalid password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="300"/>
+        <location filename="../chatwindow.cpp" line="295"/>
         <source>Stream error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="306"/>
+        <location filename="../chatwindow.cpp" line="301"/>
         <source>Unknown error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="439"/>
+        <location filename="../chatwindow.cpp" line="433"/>
         <source>Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="444"/>
+        <location filename="../chatwindow.cpp" line="438"/>
         <source>Send the ticker to the chat. User can click on it and it will be loaded into all the linked windows</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="445"/>
+        <location filename="../chatwindow.cpp" line="439"/>
         <source>Show the ticker information</source>
         <translation type="unfinished"></translation>
     </message>
