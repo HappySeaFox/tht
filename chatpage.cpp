@@ -336,11 +336,11 @@ void ChatPage::slotUnreadMessagesClicked()
     if(m_unreadMessages.isEmpty())
         return;
 
-    MessageDialog msg(m_unreadMessages.last(), this);
-    msg.exec();
-
-    m_unreadMessages.removeLast();
+    QString m = m_unreadMessages.takeLast();
     showUnreadMessagesCount();
+
+    MessageDialog msg(m, this);
+    msg.exec();
 }
 
 void ChatPage::slotMessageDelivered(const QString &jid, const QString &id)
