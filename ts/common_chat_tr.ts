@@ -118,17 +118,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="254"/>
-        <source>User is connected</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../chatpage.cpp" line="265"/>
-        <location filename="../chatpage.cpp" line="608"/>
-        <source>User is disconnected</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../chatpage.cpp" line="520"/>
         <source>Bad request</source>
         <translation type="unfinished"></translation>
@@ -246,6 +235,17 @@
     <message>
         <location filename="../chatpage.cpp" line="557"/>
         <source>Messages: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../chatpage.cpp" line="265"/>
+        <location filename="../chatpage.cpp" line="608"/>
+        <source>User is not available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../chatpage.cpp" line="254"/>
+        <source>User is available</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
