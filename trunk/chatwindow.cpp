@@ -436,13 +436,19 @@ void ChatWindow::slotHelp()
 {
     QMessageBox::information(this,
                              tr("Help"),
-                             QString("<table cellspacing=10>"
+                             QString("<table cellspacing=6>"
                                      "<tr><td align=center>=ABC=</td><td>%1</td></tr>"
                                      "<tr><td align=center>/ABC</td><td>%2</td></tr>"
                                      "<tr><td align=center>//Gold</td><td>%3</td></tr>"
+                                     "<tr><td align=center>//Gold=A</td><td>%4</td></tr>"
+                                     "<tr><td align=center>//Gold=D</td><td>%5</td></tr>"
+                                     "<tr><td align=center>//Gold=N</td><td>%6</td></tr>"
                                      "</table>")
-                             .arg(tr("Send the ticker to the chat. User can click on it and it will be loaded into all the linked windows"))
-                             .arg(tr("Show the ticker information"))
-                             .arg(tr("Show the tickers from the industry"))
+                             .arg(tr("Send the ticker \"ABC\" to the chat. User can click on it and it will be loaded into all the linked windows"))
+                             .arg(tr("Show the ticker information about the ticker \"ABC\""))
+                             .arg(tr("Show the tickers from the industry \"Gold\" (all exchanges)"))
+                             .arg(tr("Show the AMEX tickers from the industry \"Gold\""))
+                             .arg(tr("Show the NASDAQ tickers from the industry \"Gold\""))
+                             .arg(tr("Show the NYSE tickers from the industry \"Gold\""))
                              );
 }
