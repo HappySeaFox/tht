@@ -57,7 +57,8 @@ ChatPage::ChatPage(QXmppClient *client,
     m_muc(manager),
     m_room(0),
     m_actions(0),
-    m_joinMode(false)
+    m_joinMode(false),
+    m_wasAtEnd(false)
 {
     ui->setupUi(this);
 
