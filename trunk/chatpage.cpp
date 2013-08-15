@@ -251,7 +251,7 @@ void ChatPage::slotParticipantAdded(const QString &jid)
 
     m_users.append(nick);
 
-    sendSystemMessageToPrivateChat(nick, tr("User is connected"));
+    sendSystemMessageToPrivateChat(nick, tr("User is available"));
 }
 
 void ChatPage::slotParticipantRemoved(const QString &jid)
@@ -262,7 +262,7 @@ void ChatPage::slotParticipantRemoved(const QString &jid)
 
     m_users.removeAll(nick);
 
-    sendSystemMessageToPrivateChat(nick, tr("User is disconnected"));
+    sendSystemMessageToPrivateChat(nick, tr("User is not available"));
 }
 
 void ChatPage::slotPermissionsReceived(const QList<QXmppMucItem> &list)
@@ -605,7 +605,7 @@ ChatMessages *ChatPage::addPrivateChat(const QString &nick, bool switchTo)
     m_bar->show();
 
     if(m_users.indexOf(nick) < 0)
-        sendSystemMessageToPrivateChat(nick, tr("User is disconnected"));
+        sendSystemMessageToPrivateChat(nick, tr("User is not available"));
 
     return chatMessages;
 }
