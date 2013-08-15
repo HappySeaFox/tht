@@ -67,194 +67,194 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="69"/>
+        <location filename="../chatpage.cpp" line="70"/>
         <source>General</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="84"/>
+        <location filename="../chatpage.cpp" line="85"/>
         <source>Company:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="85"/>
+        <location filename="../chatpage.cpp" line="86"/>
         <source>Exchange:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="86"/>
+        <location filename="../chatpage.cpp" line="87"/>
         <source>Sector:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="87"/>
+        <location filename="../chatpage.cpp" line="88"/>
         <source>Industry:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="88"/>
+        <location filename="../chatpage.cpp" line="89"/>
         <source>Capitalization:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="88"/>
+        <location filename="../chatpage.cpp" line="89"/>
         <source>mln</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="210"/>
-        <location filename="../chatpage.cpp" line="212"/>
+        <location filename="../chatpage.cpp" line="216"/>
+        <location filename="../chatpage.cpp" line="218"/>
         <source>Kicked</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="210"/>
+        <location filename="../chatpage.cpp" line="216"/>
         <source>You have been kicked from &quot;%1&quot;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="212"/>
+        <location filename="../chatpage.cpp" line="218"/>
         <source>You have been kicked from &quot;%1&quot;. Reason: %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="520"/>
+        <location filename="../chatpage.cpp" line="526"/>
         <source>Bad request</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="521"/>
+        <location filename="../chatpage.cpp" line="527"/>
         <source>User conflict</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="522"/>
+        <location filename="../chatpage.cpp" line="528"/>
         <source>Feature not implemented</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="523"/>
+        <location filename="../chatpage.cpp" line="529"/>
         <source>Forbidden</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="524"/>
+        <location filename="../chatpage.cpp" line="530"/>
         <source>Gone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="525"/>
+        <location filename="../chatpage.cpp" line="531"/>
         <source>Internal server error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="526"/>
+        <location filename="../chatpage.cpp" line="532"/>
         <source>Item not found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="527"/>
+        <location filename="../chatpage.cpp" line="533"/>
         <source>JID is malformed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="528"/>
+        <location filename="../chatpage.cpp" line="534"/>
         <source>Not acceptable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="529"/>
+        <location filename="../chatpage.cpp" line="535"/>
         <source>Not allowed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="530"/>
+        <location filename="../chatpage.cpp" line="536"/>
         <source>Not authorized</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="531"/>
+        <location filename="../chatpage.cpp" line="537"/>
         <source>Payment required</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="532"/>
+        <location filename="../chatpage.cpp" line="538"/>
         <source>Recipient is unavailable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="533"/>
+        <location filename="../chatpage.cpp" line="539"/>
         <source>Redirect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="534"/>
+        <location filename="../chatpage.cpp" line="540"/>
         <source>Registration required</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="535"/>
+        <location filename="../chatpage.cpp" line="541"/>
         <source>Remote server is not found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="536"/>
+        <location filename="../chatpage.cpp" line="542"/>
         <source>Remote server timeout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="537"/>
+        <location filename="../chatpage.cpp" line="543"/>
         <source>Resource constraint</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="538"/>
+        <location filename="../chatpage.cpp" line="544"/>
         <source>Service is unavailable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="539"/>
+        <location filename="../chatpage.cpp" line="545"/>
         <source>Subscription required</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="540"/>
+        <location filename="../chatpage.cpp" line="546"/>
         <source>Undefined condition</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="541"/>
+        <location filename="../chatpage.cpp" line="547"/>
         <source>Unexpected request</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="544"/>
+        <location filename="../chatpage.cpp" line="550"/>
         <source>Unknown error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="557"/>
+        <location filename="../chatpage.cpp" line="563"/>
         <source>Messages: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="265"/>
-        <location filename="../chatpage.cpp" line="608"/>
+        <location filename="../chatpage.cpp" line="271"/>
+        <location filename="../chatpage.cpp" line="614"/>
         <source>User is not available</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="254"/>
+        <location filename="../chatpage.cpp" line="260"/>
         <source>User is available</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="674"/>
+        <location filename="../chatpage.cpp" line="700"/>
         <source>industry is not found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="719"/>
+        <location filename="../chatpage.cpp" line="745"/>
         <source>ticker is not found</source>
         <translation type="unfinished"></translation>
     </message>
@@ -368,18 +368,33 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="444"/>
-        <source>Send the ticker to the chat. User can click on it and it will be loaded into all the linked windows</source>
+        <location filename="../chatwindow.cpp" line="447"/>
+        <source>Send the ticker &quot;ABC&quot; to the chat. User can click on it and it will be loaded into all the linked windows</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="445"/>
-        <source>Show the ticker information</source>
+        <location filename="../chatwindow.cpp" line="448"/>
+        <source>Show the ticker information about the ticker &quot;ABC&quot;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="446"/>
-        <source>Show the tickers from the industry</source>
+        <location filename="../chatwindow.cpp" line="449"/>
+        <source>Show the tickers from the industry &quot;Gold&quot; (all exchanges)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../chatwindow.cpp" line="450"/>
+        <source>Show the AMEX tickers from the industry &quot;Gold&quot;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../chatwindow.cpp" line="451"/>
+        <source>Show the NASDAQ tickers from the industry &quot;Gold&quot;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../chatwindow.cpp" line="452"/>
+        <source>Show the NYSE tickers from the industry &quot;Gold&quot;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

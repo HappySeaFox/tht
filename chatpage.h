@@ -128,6 +128,7 @@ private:
     QHash<QString, QXmppMessage> m_undeliveredMessages;
     QStringList m_users;
     bool m_wasAtEnd;
+    QHash<QString, QString> m_exchangeBinds;
 };
 
 inline

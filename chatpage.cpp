@@ -26,6 +26,7 @@
 #include <QTabBar>
 #include <QTimer>
 #include <QDebug>
+#include <QMap>
 #include <QUrl>
 #include <Qt>
 
@@ -88,12 +89,17 @@ ChatPage::ChatPage(QXmppClient *client,
             + "<tr><td>" + tr("Capitalization:") + "</td><td>%L5 " + tr("mln") + "</td></tr>"
             + "</table><br>";
 
+    // exchange binds
+    m_exchangeBinds.insert("=N", "NYSE");
+    m_exchangeBinds.insert("=D", "NASD");
+    m_exchangeBinds.insert("=A", "AMEX");
+
     ui->plainMessage->installEventFilter(this);
     ui->lineRoom->setText(jid);
     ui->linePassword->setText(password);
 
     m_rxTickerInfo = QRegExp(QString("/(%1)").arg(Settings::instance()->tickerValidator().pattern()));
-    m_rxIndustryInfo = QRegExp("//(.*)");
+    m_rxIndustryInfo = QRegExp("//([a-zA-Z\\s]+)((?:=[nNdDaA])?)");
     m_rxOpenTicker = QRegExp(QString("=(%1)=(?=\\s|$)").arg(Settings::instance()->tickerValidator().pattern()));
 
     setJoinMode(true);
@@ -649,12 +655,32 @@ QStringList ChatPage::formatMessage(const QXmppMessage &msg)
         if(m_rxIndustryInfo.exactMatch(body))
         {
             QString industry = m_rxIndustryInfo.cap(1);
+            QString exchange =  m_rxIndustryInfo.cap(2);
+            QMap<QString, QString> binds;
+
+            binds.insert(":industry", industry);
+
+            if(!exchange.isEmpty())
+            {
+                exchange = exchange.toUpper();
+
+                QHash<QString, QString>::iterator it = m_exchangeBinds.find(exchange);
+
+                if(it == m_exchangeBinds.end())
+                    exchange.clear();
+                else
+                {
+                    exchange = "AND exchange = :exchange";
+                    binds.insert(":exchange", it.value());
+                }
+            }
+
             bool ok = false;
 
             QList<QVariantList> lists = SqlTools::query(
-                                            "SELECT ticker FROM tickers WHERE industry = :industry ORDER BY cap DESC",
-                                            ":industry",
-                                            industry);
+                                            QString("SELECT ticker FROM tickers WHERE industry = :industry %1 ORDER BY cap DESC")
+                                                    .arg(exchange),
+                                            binds);
 
             if(!lists.isEmpty())
             {
