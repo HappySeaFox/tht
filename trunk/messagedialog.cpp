@@ -15,6 +15,8 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <QDesktopServices>
+
 #include "messagedialog.h"
 #include "ui_messagedialog.h"
 
@@ -30,4 +32,9 @@ MessageDialog::MessageDialog(const QString &msg, QWidget *parent) :
 MessageDialog::~MessageDialog()
 {
     delete ui;
+}
+
+void MessageDialog::slotAnchorClicked(const QUrl &url)
+{
+    QDesktopServices::openUrl(url);
 }

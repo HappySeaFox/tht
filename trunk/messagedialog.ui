@@ -42,8 +42,8 @@
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>533</x>
-     <y>231</y>
+     <x>421</x>
+     <y>161</y>
     </hint>
     <hint type="destinationlabel">
      <x>535</x>
@@ -58,8 +58,8 @@
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>445</x>
-     <y>231</y>
+     <x>421</x>
+     <y>161</y>
     </hint>
     <hint type="destinationlabel">
      <x>443</x>
@@ -67,5 +67,24 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>textMessage</sender>
+   <signal>anchorClicked(QUrl)</signal>
+   <receiver>MessageDialog</receiver>
+   <slot>slotAnchorClicked(QUrl)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>330</x>
+     <y>72</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>461</x>
+     <y>71</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
+ <slots>
+  <slot>slotAnchorClicked(QUrl)</slot>
+ </slots>
 </ui>

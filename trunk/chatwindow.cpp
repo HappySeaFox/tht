@@ -347,6 +347,8 @@ void ChatWindow::slotTabCloseRequested(int index)
     qDebug("Removing page \"%s\"", qPrintable(p->roomName()));
 
     delete p;
+
+    saveRooms();
 }
 
 void ChatWindow::slotJoined(const QString &roomName)
@@ -385,7 +387,10 @@ void ChatWindow::slotJoinRequested(const QString &jid)
     p = qobject_cast<ChatPage *>(sender());
 
     if(p)
+    {
+        saveRooms();
         p->proceedJoin();
+    }
 }
 
 void ChatWindow::slotCurrentTabChanged(int index)
