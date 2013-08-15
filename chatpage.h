@@ -79,7 +79,9 @@ private:
     QStringList formatMessage(const QXmppMessage &);
     QStringList formatSystemMessage(const QString &message);
     void sendSystemMessageToPrivateChat(const QString &nick, const QString &message);
-    QString jidToNick(const QString &jid);
+    QString jidToNick(const QString &jid) const;
+    QString escapeDog(const QString &str) const;
+    void sendMessageToCurrentChat(const QString &text);
 
 signals:
     void requestJoin(const QString &jid);
@@ -115,7 +117,7 @@ private:
     QXmppMucRoom *m_room;
     QXmppMucRoom::Actions m_actions;
     bool m_joinMode;
-    QRegExp m_rxTickerInfo, m_rxOpenTicker;
+    QRegExp m_rxTickerInfo, m_rxIndustryInfo, m_rxOpenTicker;
     QString m_lastMessage;
     QStringList m_unreadMessages;
     ColorAnimation *m_unreadMesagesAnimation;
@@ -127,5 +129,19 @@ private:
     QStringList m_users;
     bool m_wasAtEnd;
 };
+
+inline
+QString ChatPage::jidToNick(const QString &jid) const
+{
+    const int pos = jid.indexOf('/');
+
+    return (pos < 0 ? jid : jid.mid(pos+1));
+}
+
+inline
+QString ChatPage::escapeDog(const QString &str) const
+{
+    return QString(str).replace('@', "%40");
+}
 
 #endif // CHATPAGE_H
