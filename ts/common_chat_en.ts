@@ -62,7 +62,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.ui" line="139"/>
+        <location filename="../chatpage.ui" line="146"/>
         <source>Subject</source>
         <translation type="unfinished"></translation>
     </message>
@@ -313,7 +313,7 @@
         <location filename="../chatwindow.cpp" line="159"/>
         <location filename="../chatwindow.cpp" line="208"/>
         <location filename="../chatwindow.cpp" line="334"/>
-        <location filename="../chatwindow.cpp" line="359"/>
+        <location filename="../chatwindow.cpp" line="361"/>
         <source>Room</source>
         <translation type="unfinished"></translation>
     </message>
@@ -358,17 +358,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="433"/>
+        <location filename="../chatwindow.cpp" line="438"/>
         <source>Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="438"/>
+        <location filename="../chatwindow.cpp" line="443"/>
         <source>Send the ticker to the chat. User can click on it and it will be loaded into all the linked windows</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="439"/>
+        <location filename="../chatwindow.cpp" line="444"/>
         <source>Show the ticker information</source>
         <translation type="unfinished"></translation>
     </message>

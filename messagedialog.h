@@ -20,6 +20,8 @@
 
 #include <QDialog>
 
+class QUrl;
+
 namespace Ui
 {
     class MessageDialog;
@@ -28,11 +30,14 @@ namespace Ui
 class MessageDialog : public QDialog
 {
     Q_OBJECT
-    
+
 public:
     explicit MessageDialog(const QString &msg, QWidget *parent = 0);
     ~MessageDialog();
-    
+
+private slots:
+    void slotAnchorClicked(const QUrl &);
+
 private:
     Ui::MessageDialog *ui;
 };
