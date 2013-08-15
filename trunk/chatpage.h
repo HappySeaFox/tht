@@ -125,6 +125,7 @@ private:
     ChatMessages *m_generalPage;
     QHash<QString, QXmppMessage> m_undeliveredMessages;
     QStringList m_users;
+    bool m_wasAtEnd;
 };
 
 #endif // CHATPAGE_H

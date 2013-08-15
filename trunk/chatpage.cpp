@@ -63,10 +63,10 @@ ChatPage::ChatPage(QXmppClient *client,
 
     // General discussion
     m_generalPage = new ChatMessages(ui->tabsChats);
+    m_generalMessages = m_generalPage->messages();
 
     ui->tabsChats->addTab(m_generalPage, tr("General"));
 
-    m_generalMessages = m_generalPage->messages();
     connect(m_generalMessages, SIGNAL(anchorClicked(QUrl)), this, SLOT(slotAnchorClicked(QUrl)));
 
     // hide tabbar
@@ -317,6 +317,16 @@ void ChatPage::slotTabCloseRequested(int index)
 
 void ChatPage::slotCurrentTabChanged(int index)
 {
+    QScrollBar *s = m_generalMessages->verticalScrollBar();
+
+    if(s)
+    {
+        if(index > 0)
+            m_wasAtEnd = (s->value() == s->maximum());
+        else if(m_wasAtEnd)
+            s->setValue(s->maximum());
+    }
+
     ui->tabsChats->setTabIcon(index, QIcon());
 }
 
@@ -596,6 +606,8 @@ ChatMessages *ChatPage::addPrivateChat(const QString &nick, bool switchTo)
     if(switchTo)
         ui->tabsChats->setCurrentIndex(index);
 
+    m_bar->show();
+
     if(m_users.indexOf(nick) < 0)
         sendSystemMessageToPrivateChat(nick, tr("User is disconnected"));
 
@@ -627,6 +639,7 @@ QStringList ChatPage::formatMessage(const QXmppMessage &msg)
     // error message?
     if(msg.error().code())
     {
+        nick = Qt::escape(m_room->jid());
         body = "<font color=red><b>" + errorToString(msg.error()) + "</b></font>";
     }
     else
