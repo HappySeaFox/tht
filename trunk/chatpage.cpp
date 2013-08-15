@@ -93,6 +93,7 @@ ChatPage::ChatPage(QXmppClient *client,
     ui->linePassword->setText(password);
 
     m_rxTickerInfo = QRegExp(QString("/(%1)").arg(Settings::instance()->tickerValidator().pattern()));
+    m_rxIndustryInfo = QRegExp("//(.*)");
     m_rxOpenTicker = QRegExp(QString("=(%1)=(?=\\s|$)").arg(Settings::instance()->tickerValidator().pattern()));
 
     setJoinMode(true);
@@ -299,6 +300,11 @@ void ChatPage::slotAnchorClicked(const QUrl &url)
         qDebug("Clicked: ticker");
         emit openTicker(url.userName());
     }
+    else if(url.scheme() == "chat-industry")
+    {
+        qDebug("Clicked: industry");
+        sendMessageToCurrentChat("//" + url.userName());
+    }
     else
     {
         qDebug("Clicked: link");
@@ -459,19 +465,7 @@ bool ChatPage::eventFilter(QObject *obj, QEvent *event)
             if(ke->modifiers() == Qt::NoModifier)
             {
                 m_lastMessage = ui->plainMessage->toPlainText();
-
-                if(!ui->tabsChats->currentIndex())
-                    m_room->sendMessage(m_lastMessage);
-                else
-                {
-                    QString jid = m_room->jid() + '/' + ui->tabsChats->tabText(ui->tabsChats->currentIndex());
-
-                    QXmppMessage msg(QString(), jid, m_lastMessage);
-                    msg.setReceiptRequested(true);
-                    m_undeliveredMessages[msg.id()] = msg;
-                    m_xmppClient->sendPacket(msg);
-                }
-
+                sendMessageToCurrentChat(m_lastMessage);
                 ui->plainMessage->clear();
             }
             else if(ke->modifiers() == Qt::ShiftModifier)
@@ -578,7 +572,7 @@ QString ChatPage::tickerToLink(const QString &ticker) const
     QString upper = ticker.toUpper();
 
     return QString("<a href=\"chat-ticker://%1@\">%2</a>")
-            .arg(QString(upper).replace('@', "%40"))
+            .arg(escapeDog(upper))
             .arg(upper);
 }
 
@@ -651,6 +645,35 @@ QStringList ChatPage::formatMessage(const QXmppMessage &msg)
         if(body.isEmpty())
             return QStringList();
 
+        // tickers from the industry
+        if(m_rxIndustryInfo.exactMatch(body))
+        {
+            QString industry = m_rxIndustryInfo.cap(1);
+            bool ok = false;
+
+            QList<QVariantList> lists = SqlTools::query(
+                                            "SELECT ticker FROM tickers WHERE industry = :industry ORDER BY cap DESC",
+                                            ":industry",
+                                            industry);
+
+            if(!lists.isEmpty())
+            {
+                ok = true;
+                body = industry + ": ";
+
+                foreach(QVariantList values, lists)
+                {
+                    if(values.isEmpty())
+                        continue;
+
+                    body += QString(" =%1= ").arg(values.at(0).toString());
+                }
+            }
+
+            if(!ok)
+                body = industry + ": " + tr("industry is not found");
+        }
+
         // ticker info
         if(m_rxTickerInfo.exactMatch(body))
         {
@@ -675,6 +698,7 @@ QStringList ChatPage::formatMessage(const QXmppMessage &msg)
                     {
                         ok = true;
                         double cap = values.at(4).toDouble();
+                        QString industry = values.at(3).toString();
 
                         body = tickerToLink(ticker)
                                 + ':'
@@ -682,14 +706,17 @@ QStringList ChatPage::formatMessage(const QXmppMessage &msg)
                                                 .arg(company)
                                                 .arg(values.at(1).toString())
                                                 .arg(values.at(2).toString())
-                                                .arg(values.at(3).toString())
+                                                .arg(QString("<a href=\"chat-industry://%1@\">%2</a>")
+                                                     .arg(escapeDog(industry))
+                                                     .arg(industry)
+                                                    )
                                                 .arg(cap, 0, 'f', cap > 100 ? 0 : 1);
                     }
                 }
             }
 
             if(!ok)
-                body = ticker + ": " + tr("not found");
+                body = ticker + ": " + tr("ticker is not found");
         }
         else
         {
@@ -724,7 +751,7 @@ QStringList ChatPage::formatMessage(const QXmppMessage &msg)
                     ? ('[' + stamp.toString("hh:mm:ss") + ']')
                     : QString())
                 + QString(" <a class=\"%1\" href=\"chat-user://").arg(QString(color).replace(0, 1, 'c'))
-                + QString(nick).replace('@', "%40")
+                + escapeDog(nick)
                 + "@\">"
                 + nick
                 + "</a>:</font> "
@@ -757,9 +784,17 @@ void ChatPage::sendSystemMessageToPrivateChat(const QString &nick, const QString
     }
 }
 
-QString ChatPage::jidToNick(const QString &jid)
+void ChatPage::sendMessageToCurrentChat(const QString &text)
 {
-    const int pos = jid.indexOf('/');
+    if(!ui->tabsChats->currentIndex())
+        m_room->sendMessage(text);
+    else
+    {
+        QString jid = m_room->jid() + '/' + ui->tabsChats->tabText(ui->tabsChats->currentIndex());
 
-    return (pos < 0 ? jid : jid.mid(pos+1));
+        QXmppMessage msg(QString(), jid, text);
+        msg.setReceiptRequested(true);
+        m_undeliveredMessages[msg.id()] = msg;
+        m_xmppClient->sendPacket(msg);
+    }
 }

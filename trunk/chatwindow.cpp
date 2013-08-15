@@ -439,8 +439,10 @@ void ChatWindow::slotHelp()
                              QString("<table cellspacing=10>"
                                      "<tr><td align=center>=ABC=</td><td>%1</td></tr>"
                                      "<tr><td align=center>/ABC</td><td>%2</td></tr>"
+                                     "<tr><td align=center>//Gold</td><td>%3</td></tr>"
                                      "</table>")
                              .arg(tr("Send the ticker to the chat. User can click on it and it will be loaded into all the linked windows"))
                              .arg(tr("Show the ticker information"))
+                             .arg(tr("Show the tickers from the industry"))
                              );
 }
