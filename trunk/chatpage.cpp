@@ -50,6 +50,8 @@
 #include "sqltools.h"
 #include "ui_chatpage.h"
 
+static const char * const THT_CHAT_SPLITTER_STATE_SUFFIX = "-splitter-state";
+
 ChatPage::ChatPage(QXmppClient *client,
                    QXmppMucManager *manager,
                    bool checkForAutoLogin,
@@ -68,24 +70,18 @@ ChatPage::ChatPage(QXmppClient *client,
     ui->setupUi(this);
 
     // General discussion
-    QSplitter *splitter = new QSplitter(Qt::Horizontal, ui->tabsChats);
-    m_generalPage = new ChatMessages(splitter);
+    m_splitter = new QSplitter(Qt::Horizontal, ui->tabsChats);
+    m_generalPage = new ChatMessages(m_splitter);
     m_generalMessages = m_generalPage->messages();
-    m_listUsers = new QListWidget(splitter);
+    m_listUsers = new QListWidget(m_splitter);
 
     connect(m_listUsers, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(slotUserDoubleClicked(QModelIndex)));
 
-    splitter->addWidget(m_generalPage);
-    splitter->addWidget(m_listUsers);
-    splitter->setCollapsible(0, false);
+    m_splitter->addWidget(m_generalPage);
+    m_splitter->addWidget(m_listUsers);
+    m_splitter->setCollapsible(0, false);
 
-    // stretch factors
-    QList<int> sizes;
-    sizes.append(300);
-    sizes.append(100);
-    splitter->setSizes(sizes);
-
-    ui->tabsChats->addTab(splitter, tr("General"));
+    ui->tabsChats->addTab(m_splitter, tr("General"));
 
     connect(m_generalMessages, SIGNAL(anchorClicked(QUrl)), this, SLOT(slotAnchorClicked(QUrl)));
 
@@ -122,6 +118,8 @@ ChatPage::ChatPage(QXmppClient *client,
 
     setJoinMode(true);
 
+    bool setDefaultSizes = true;
+
     if(checkForAutoLogin && SETTINGS_GET_BOOL(SETTING_CHAT_AUTO_LOGIN_TO_ROOMS))
     {
         if(jid.isEmpty())
@@ -131,12 +129,36 @@ ChatPage::ChatPage(QXmppClient *client,
             slotError(error);
         }
         else
+        {
+            QByteArray state = SETTINGS_GET_BYTE_ARRAY(ui->lineRoom->text() + THT_CHAT_SPLITTER_STATE_SUFFIX);
+
+            if(!state.isEmpty())
+            {
+                setDefaultSizes = false;
+                m_splitter->restoreState(state);
+            }
+
             QTimer::singleShot(0, ui->pushJoin, SLOT(click()));
+        }
+    }
+
+    if(setDefaultSizes)
+    {
+        // stretch factors
+        QList<int> sizes;
+
+        sizes.append(300);
+        sizes.append(100);
+
+        m_splitter->setSizes(sizes);
     }
 }
 
 ChatPage::~ChatPage()
 {
+    if(m_room && SETTINGS_GET_BOOL(SETTING_CHAT_AUTO_LOGIN_TO_ROOMS))
+        SETTINGS_SET_BYTE_ARRAY(m_room->jid() + THT_CHAT_SPLITTER_STATE_SUFFIX, m_splitter->saveState());
+
     if(m_room)
         m_room->leave();
 

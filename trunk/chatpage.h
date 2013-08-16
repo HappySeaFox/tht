@@ -30,6 +30,7 @@
 class QTextBrowser;
 class QModelIndex;
 class QListWidget;
+class QSplitter;
 class QTabBar;
 class QUrl;
 
@@ -136,6 +137,7 @@ private:
     bool m_wasAtEnd;
     QHash<QString, QString> m_exchangeBinds;
     QListWidget *m_listUsers;
+    QSplitter *m_splitter;
 };
 
 inline
