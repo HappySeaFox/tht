@@ -28,6 +28,7 @@
 #include "QXmppStanza.h"
 
 class QTextBrowser;
+class QModelIndex;
 class QListWidget;
 class QTabBar;
 class QUrl;
@@ -80,6 +81,7 @@ private:
     void blinkUnreadMessages(bool);
     QString tickerToLink(const QString &) const;
     ChatMessages *addPrivateChat(const QString &nick, bool switchTo = true);
+    void startPrivateChat(const QString &nick);
     QStringList formatMessage(const QXmppMessage &);
     QStringList formatSystemMessage(const QString &message);
     void sendSystemMessageToPrivateChat(const QString &nick, const QString &message);
@@ -113,6 +115,7 @@ private slots:
     void slotCurrentTabChanged(int);
     void slotUnreadMessagesClicked();
     void slotMessageDelivered(const QString &, const QString &);
+    void slotUserDoubleClicked(const QModelIndex &);
 
 private:
     Ui::ChatPage *ui;
