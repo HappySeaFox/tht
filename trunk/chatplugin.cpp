@@ -40,8 +40,7 @@
 
 ChatPlugin::ChatPlugin() :
     Plugin(),
-    m_window(0),
-    m_icon(":/images/chat.ico")
+    m_window(0)
 {
     THT_PLUGIN_INTERFACE_IMPLEMENTATION
 
@@ -85,7 +84,7 @@ bool ChatPlugin::init()
     }
 
     m_button->setFixedSize(22, 22);
-    m_button->setIcon(m_icon.pixmap(16, 16));
+    m_button->setIcon(ChatTools::chatIcon().pixmap(16, 16));
     m_button->setToolTip(tr("Chat"));
 
     connect(m_button, SIGNAL(clicked()), this, SLOT(slotClicked()));
@@ -116,7 +115,7 @@ void ChatPlugin::slotClicked()
         if(!m_window)
             return;
 
-        m_window->setWindowIcon(m_icon);
+        m_window->setWindowIcon(ChatTools::chatIcon());
         connect(m_window, SIGNAL(openTicker(QString)), this, SIGNAL(openTicker(QString)));
     }
 

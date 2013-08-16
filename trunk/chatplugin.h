@@ -18,8 +18,6 @@
 #ifndef CHATPLUGIN_H
 #define CHATPLUGIN_H
 
-#include <QIcon>
-
 #include "plugin.h"
 
 class QToolButton;
@@ -50,7 +48,6 @@ private slots:
 private:
     QToolButton *m_button;
     ChatWindow *m_window;
-    QIcon m_icon;
 };
 
 #endif // CHATPLUGIN_H

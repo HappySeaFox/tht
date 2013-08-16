@@ -30,6 +30,7 @@
 #include <QTabBar>
 #include <QTimer>
 #include <QDebug>
+#include <QMenu>
 #include <QMap>
 #include <QUrl>
 #include <Qt>
@@ -69,13 +70,22 @@ ChatPage::ChatPage(QXmppClient *client,
 {
     ui->setupUi(this);
 
+    m_userMenu = new QMenu(this);
+
+    m_userMenu->addAction(ChatTools::chatIcon(), tr("Chat"), this, SLOT(slotStartChatFromMenu()));
+
     // General discussion
     m_splitter = new QSplitter(Qt::Horizontal, ui->tabsChats);
+
     m_generalPage = new ChatMessages(m_splitter);
     m_generalMessages = m_generalPage->messages();
-    m_listUsers = new QListWidget(m_splitter);
 
-    connect(m_listUsers, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(slotUserDoubleClicked(QModelIndex)));
+    m_listUsers = new QListWidget(m_splitter);
+    m_listUsers->setContextMenuPolicy(Qt::CustomContextMenu);
+    m_listUsers->setSortingEnabled(true);
+
+    connect(m_listUsers, SIGNAL(itemDoubleClicked(QListWidgetItem*)), this, SLOT(slotUserDoubleClicked(QListWidgetItem*)));
+    connect(m_listUsers, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotCustomContextMenuRequested(QPoint)));
 
     m_splitter->addWidget(m_generalPage);
     m_splitter->addWidget(m_listUsers);
@@ -436,14 +446,32 @@ void ChatPage::slotMessageDelivered(const QString &jid, const QString &id)
     }
 }
 
-void ChatPage::slotUserDoubleClicked(const QModelIndex &index)
+void ChatPage::slotUserDoubleClicked(QListWidgetItem *item)
 {
-    QListWidgetItem *i = m_listUsers->item(index.row());
-
-    if(!i)
+    if(!item)
         return;
 
-    startPrivateChat(i->text());
+    startPrivateChat(item->text());
+}
+
+void ChatPage::slotCustomContextMenuRequested(const QPoint &point)
+{
+    QListWidgetItem *item = m_listUsers->itemAt(point);
+
+    if(!item)
+        return;
+
+    m_userMenu->exec(m_listUsers->mapToGlobal(point));
+}
+
+void ChatPage::slotStartChatFromMenu()
+{
+    QListWidgetItem *item = m_listUsers->currentItem();
+
+    if(!item)
+        return;
+
+    startPrivateChat(item->text());
 }
 
 QString ChatPage::roomName() const

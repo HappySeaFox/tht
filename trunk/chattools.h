@@ -40,6 +40,8 @@ public:
 
     static QRegExp urlRegExp();
 
+    static QIcon chatIcon();
+
     static QIcon unreadIcon();
 
     static QIcon statusIcon(QXmppPresence::AvailableStatusType);
@@ -50,6 +52,7 @@ private:
     static QList<QColor> m_colors;
     static QList<QColor> m_tempColors;
     static QRegExp m_rxLink;
+    static QIcon m_chatIcon;
     static QIcon m_unreadIcon;
     static QHash<QXmppPresence::AvailableStatusType, QIcon> m_statusIcons;
 };
