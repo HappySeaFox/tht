@@ -62,6 +62,7 @@ private slots:
     void slotSelectionChanged();
     void slotActivated(const QModelIndex &);
     void slotCheckboxChanged();
+    void slotCopyCombo();
 
 private:
     Ui::TickerNeighbors *ui;

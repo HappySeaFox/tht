@@ -903,20 +903,26 @@ right/middle mouse button to cancel.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tickerneighbors.ui" line="101"/>
+        <location filename="../tickerneighbors.ui" line="109"/>
         <source>By capitalization</source>
         <comment>Means &quot;Sort by capitalization&quot;</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tickerneighbors.ui" line="114"/>
+        <location filename="../tickerneighbors.ui" line="122"/>
         <source>U.S. only</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tickerneighbors.cpp" line="268"/>
-        <location filename="../tickerneighbors.cpp" line="384"/>
-        <location filename="../tickerneighbors.cpp" line="415"/>
+        <location filename="../tickerneighbors.cpp" line="50"/>
+        <location filename="../tickerneighbors.cpp" line="54"/>
+        <source>Copy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../tickerneighbors.cpp" line="279"/>
+        <location filename="../tickerneighbors.cpp" line="395"/>
+        <location filename="../tickerneighbors.cpp" line="426"/>
         <source>Copy (%1)</source>
         <translation type="unfinished"></translation>
     </message>

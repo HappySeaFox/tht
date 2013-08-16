@@ -44,6 +44,17 @@ TickerNeighbors::TickerNeighbors(const QString &ticker, QWidget *parent) :
 
     setAttribute(Qt::WA_DeleteOnClose);
 
+    // setup context menus for combos
+    QAction *a;
+
+    a = new QAction(tr("Copy"), ui->comboSector);
+    connect(a, SIGNAL(triggered()), this, SLOT(slotCopyCombo()));
+    ui->comboSector->addAction(a);
+
+    a = new QAction(tr("Copy"), ui->comboIndustry);
+    connect(a, SIGNAL(triggered()), this, SLOT(slotCopyCombo()));
+    ui->comboIndustry->addAction(a);
+
     // Ctrl+C to copy
     m_copy = QKeySequence::Copy;
     new QShortcut(m_copy, ui->pushCopy, SLOT(animateClick()));
@@ -433,4 +444,14 @@ void TickerNeighbors::slotCheckboxChanged()
     Settings::instance()->setCheckBoxState(box->objectName(), box->isChecked(), Settings::NoSync);
 
     filterAndFetch();
+}
+
+void TickerNeighbors::slotCopyCombo()
+{
+    QComboBox *box = qobject_cast<QComboBox *>(sender()->parent());
+
+    if(!box)
+        return;
+
+    QApplication::clipboard()->setText(box->currentText());
 }
