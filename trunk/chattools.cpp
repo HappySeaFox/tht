@@ -25,6 +25,7 @@ QList<QColor> ChatTools::m_colors;
 QList<QColor> ChatTools::m_tempColors;
 QRegExp ChatTools::m_rxLink;
 QIcon ChatTools::m_unreadIcon;
+QHash<QXmppPresence::AvailableStatusType, QIcon> ChatTools::m_statusIcons;
 
 void ChatTools::init()
 {
@@ -49,6 +50,13 @@ void ChatTools::init()
     ChatTools::m_unreadIcon = QIcon(":/images/unread.png");
 
     ChatTools::m_rxLink = QRegExp("((([A-Za-z]{3,9}:(?:\\/\\/)?)(?:[\\-;:&=\\+\\$,\\w]+@)?[A-Za-z0-9\\.\\-]+|(?:www\\.|[\\-;:&=\\+\\$,\\w]+@)[A-Za-z0-9\\.\\-]+)((?:\\/[\\+~%\\/\\.\\w\\-]*)?\\0077?(?:[\\-\\+=&;%@\\.\\w]*)#?(?:[\\.\\!\\/\\\\\\w]*))?)");
+
+    ChatTools::m_statusIcons.insert(QXmppPresence::Online,    QIcon(":/images/status-available.png"));
+    ChatTools::m_statusIcons.insert(QXmppPresence::Chat,      QIcon(":/images/status-available.png"));
+    ChatTools::m_statusIcons.insert(QXmppPresence::Away,      QIcon(":/images/status-idle.png"));
+    ChatTools::m_statusIcons.insert(QXmppPresence::XA,        QIcon(":/images/status-away.png"));
+    ChatTools::m_statusIcons.insert(QXmppPresence::DND,       QIcon(":/images/status-offline.png"));
+    ChatTools::m_statusIcons.insert(QXmppPresence::Invisible, QIcon(":/images/status-invisible.png"));
 
     qsrand(time(0) + QCoreApplication::applicationPid());
 }
@@ -83,6 +91,11 @@ QRegExp ChatTools::urlRegExp()
 QIcon ChatTools::unreadIcon()
 {
     return ChatTools::m_unreadIcon;
+}
+
+QIcon ChatTools::statusIcon(QXmppPresence::AvailableStatusType type)
+{
+    return ChatTools::m_statusIcons.value(type);
 }
 
 ChatTools::ChatTools()

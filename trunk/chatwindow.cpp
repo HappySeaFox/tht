@@ -266,8 +266,24 @@ void ChatWindow::slotCancelSignIn()
 
 void ChatWindow::slotPresenceReceived(const QXmppPresence &presence)
 {
-    QString from = presence.from();
+    QString from = QXmppUtils::jidToBareJid(presence.from());
     QString message;
+
+    int index = 0;
+    ChatPage *p;
+
+    while((p = qobject_cast<ChatPage *>(ui->tabs->widget(index++))))
+    {
+        if(p->jid() == from)
+        {
+            QString user = QXmppUtils::jidToResource(presence.from());
+
+            if(!user.isEmpty())
+                p->presenceChanged(user, presence.availableStatusType());
+
+            break;
+        }
+    }
 
     switch(presence.type())
     {

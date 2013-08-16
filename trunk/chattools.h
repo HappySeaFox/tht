@@ -23,6 +23,9 @@
 #include <QColor>
 #include <QList>
 #include <QIcon>
+#include <QHash>
+
+#include "QXmppPresence.h"
 
 class ChatTools
 {
@@ -39,6 +42,8 @@ public:
 
     static QIcon unreadIcon();
 
+    static QIcon statusIcon(QXmppPresence::AvailableStatusType);
+
 private:
     ChatTools();
 
@@ -46,6 +51,7 @@ private:
     static QList<QColor> m_tempColors;
     static QRegExp m_rxLink;
     static QIcon m_unreadIcon;
+    static QHash<QXmppPresence::AvailableStatusType, QIcon> m_statusIcons;
 };
 
 inline
