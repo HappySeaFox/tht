@@ -670,6 +670,7 @@ QStringList ChatPage::formatMessage(const QXmppMessage &msg)
 
         QHash<QString, QXmppMessage>::iterator it = m_undeliveredMessages.find(msg.id());
 
+        // replace the undelivered private message with a new one
         if(it != m_undeliveredMessages.end())
         {
             QXmppMessage newMsg(msg.from(), QString(), body);

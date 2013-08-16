@@ -249,12 +249,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="773"/>
+        <location filename="../chatpage.cpp" line="774"/>
         <source>industry is not found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="818"/>
+        <location filename="../chatpage.cpp" line="819"/>
         <source>ticker is not found</source>
         <translation type="unfinished"></translation>
     </message>
