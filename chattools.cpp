@@ -49,7 +49,7 @@ void ChatTools::init()
 
     ChatTools::m_unreadIcon = QIcon(":/images/unread.png");
 
-    ChatTools::m_rxLink = QRegExp("((([A-Za-z]{3,9}:(?:\\/\\/)?)(?:[\\-;:&=\\+\\$,\\w]+@)?[A-Za-z0-9\\.\\-]+|(?:www\\.|[\\-;:&=\\+\\$,\\w]+@)[A-Za-z0-9\\.\\-]+)((?:\\/[\\+~%\\/\\.\\w\\-]*)?\\0077?(?:[\\-\\+=&;%@\\.\\w]*)#?(?:[\\.\\!\\/\\\\\\w]*))?)");
+    ChatTools::m_rxLink = QRegExp("((([A-Za-z]{3,9}:(?:\\/\\/)?)(?:[\\-;:&=\\+\\$,\\w]+@)?[A-Za-z0-9\\.\\-]+|(?:[wW]{3}\\.|[\\-;:&=\\+\\$,\\w]+@)[A-Za-z0-9\\.\\-]+)((?:\\/[\\+~%\\/\\.\\w\\-]*)?\\0077?(?:[\\-\\+=&;%@\\.\\w]*)#?(?:[\\.\\!\\/\\\\\\w]*))?)");
 
     ChatTools::m_statusIcons.insert(QXmppPresence::Online,    QIcon(":/images/status-available.png"));
     ChatTools::m_statusIcons.insert(QXmppPresence::Chat,      QIcon(":/images/status-available.png"));
