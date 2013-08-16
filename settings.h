@@ -55,6 +55,9 @@ Q_DECLARE_METATYPE(LinkPointSession)
 Q_DECLARE_METATYPE(QList<LinkPointSession>)
 Q_DECLARE_METATYPE(Qt::AlignmentFlag)
 
+#define SETTINGS_GET_BYTE_ARRAY Settings::instance()->value<QByteArray>
+#define SETTINGS_SET_BYTE_ARRAY Settings::instance()->setValue<QByteArray>
+
 #define SETTINGS_GET_BOOL Settings::instance()->value<bool>
 #define SETTINGS_SET_BOOL Settings::instance()->setValue<bool>
 
