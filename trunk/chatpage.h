@@ -27,6 +27,7 @@
 #include "QXmppStanza.h"
 
 class QTextBrowser;
+class QListWidget;
 class QTabBar;
 class QUrl;
 
@@ -129,6 +130,7 @@ private:
     QStringList m_users;
     bool m_wasAtEnd;
     QHash<QString, QString> m_exchangeBinds;
+    QListWidget *m_listUsers;
 };
 
 inline

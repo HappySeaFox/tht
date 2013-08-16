@@ -16,14 +16,17 @@
  */
 
 #include <QDesktopServices>
+#include <QListWidgetItem>
 #include <QTextDocument>
 #include <QApplication>
 #include <QTextBrowser>
 #include <QMapIterator>
 #include <QMessageBox>
+#include <QListWidget>
 #include <QScrollBar>
 #include <QDateTime>
 #include <QKeyEvent>
+#include <QSplitter>
 #include <QTabBar>
 #include <QTimer>
 #include <QDebug>
@@ -65,10 +68,21 @@ ChatPage::ChatPage(QXmppClient *client,
     ui->setupUi(this);
 
     // General discussion
-    m_generalPage = new ChatMessages(ui->tabsChats);
+    QSplitter *splitter = new QSplitter(Qt::Horizontal, ui->tabsChats);
+    m_generalPage = new ChatMessages(splitter);
     m_generalMessages = m_generalPage->messages();
+    m_listUsers = new QListWidget(splitter);
 
-    ui->tabsChats->addTab(m_generalPage, tr("General"));
+    splitter->addWidget(m_generalPage);
+    splitter->addWidget(m_listUsers);
+
+    // stretch factors
+    QList<int> sizes;
+    sizes.append(300);
+    sizes.append(100);
+    splitter->setSizes(sizes);
+
+    ui->tabsChats->addTab(splitter, tr("General"));
 
     connect(m_generalMessages, SIGNAL(anchorClicked(QUrl)), this, SLOT(slotAnchorClicked(QUrl)));
 
@@ -256,6 +270,8 @@ void ChatPage::slotParticipantAdded(const QString &jid)
 
     QString nick = jidToNick(jid);
 
+    m_listUsers->addItem(nick);
+
     m_users.append(nick);
 
     sendSystemMessageToPrivateChat(nick, tr("User is available"));
@@ -266,6 +282,13 @@ void ChatPage::slotParticipantRemoved(const QString &jid)
     qDebug("Removed user %s", qPrintable(jid));
 
     QString nick = jidToNick(jid);
+
+    QList<QListWidgetItem *> items = m_listUsers->findItems(nick, Qt::MatchExactly);
+
+    foreach(QListWidgetItem *i, items)
+    {
+        delete i;
+    }
 
     m_users.removeAll(nick);
 
