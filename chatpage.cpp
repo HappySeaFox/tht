@@ -393,31 +393,28 @@ void ChatPage::slotMessageDelivered(const QString &jid, const QString &id)
     }
 
     QXmppMessage msg = it.value();
+    m_undeliveredMessages.erase(it);
+
     msg.setFrom(m_room->nickName());
     QStringList parsed = formatMessage(msg);
-
-    m_undeliveredMessages.remove(id);
 
     if(parsed.size() > 1)
     {
         int index = 1;
         QString nick = jidToNick(jid);
-        ChatMessages *chatMessages = 0;
 
         // do we chat with this user already?
         while(index < ui->tabsChats->count())
         {
             if(ui->tabsChats->tabText(index) == nick)
             {
-                chatMessages = qobject_cast<ChatMessages *>(ui->tabsChats->widget(index));
+                ChatMessages *chatMessages = qobject_cast<ChatMessages *>(ui->tabsChats->widget(index));
+                chatMessages->messages()->append(parsed.at(1));
                 break;
             }
 
             index++;
         }
-
-        if(chatMessages)
-            chatMessages->messages()->append(parsed.at(1));
     }
 }
 
@@ -665,8 +662,23 @@ QStringList ChatPage::formatMessage(const QXmppMessage &msg)
     // error message?
     if(msg.error().code())
     {
+        QString errorText = Qt::escape(msg.error().text());
+        body = "<font color=red><b>"
+                + errorToString(msg.error())
+                + (errorText.isEmpty() ? QString() : (" (" + errorText + ')'))
+                + "</b></font>";
+
+        QHash<QString, QXmppMessage>::iterator it = m_undeliveredMessages.find(msg.id());
+
+        if(it != m_undeliveredMessages.end())
+        {
+            QXmppMessage newMsg(msg.from(), QString(), body);
+            newMsg.setError(msg.error());
+            it.value() = newMsg;
+            return QStringList();
+        }
+
         nick = Qt::escape(m_room->jid());
-        body = "<font color=red><b>" + errorToString(msg.error()) + "</b></font>";
     }
     else
     {

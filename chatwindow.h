@@ -26,6 +26,7 @@ class QMenu;
 
 class QXmppMessageReceiptManager;
 class QXmppMucManager;
+class QXmppPresence;
 
 class ChatPage;
 
@@ -63,6 +64,7 @@ signals:
 private slots:
     void slotSignIn();
     void slotCancelSignIn();
+    void slotPresenceReceived(const QXmppPresence &);
     void slotError(QXmppClient::Error = QXmppClient::SocketError);
     void slotConnected();
     void slotDisconnected();
