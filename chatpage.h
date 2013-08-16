@@ -27,11 +27,13 @@
 #include "QXmppPresence.h"
 #include "QXmppStanza.h"
 
+class QListWidgetItem;
 class QTextBrowser;
-class QModelIndex;
 class QListWidget;
 class QSplitter;
 class QTabBar;
+class QPoint;
+class QMenu;
 class QUrl;
 
 class QXmppMucManager;
@@ -116,7 +118,9 @@ private slots:
     void slotCurrentTabChanged(int);
     void slotUnreadMessagesClicked();
     void slotMessageDelivered(const QString &, const QString &);
-    void slotUserDoubleClicked(const QModelIndex &);
+    void slotUserDoubleClicked(QListWidgetItem *);
+    void slotCustomContextMenuRequested(const QPoint &);
+    void slotStartChatFromMenu();
 
 private:
     Ui::ChatPage *ui;
@@ -138,6 +142,7 @@ private:
     QHash<QString, QString> m_exchangeBinds;
     QListWidget *m_listUsers;
     QSplitter *m_splitter;
+    QMenu *m_userMenu;
 };
 
 inline

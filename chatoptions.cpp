@@ -19,6 +19,7 @@
 
 #include "chatsettings.h"
 #include "chatoptions.h"
+#include "chattools.h"
 #include "settings.h"
 #include "ui_chatoptions.h"
 
@@ -30,7 +31,7 @@ ChatOptions::ChatOptions(QWidget *parent) :
 
     load();
 
-    ui->labelIcon->setPixmap(QIcon(":/images/chat.ico").pixmap(ui->labelIcon->size()));
+    ui->labelIcon->setPixmap(ChatTools::chatIcon().pixmap(ui->labelIcon->size()));
 }
 
 ChatOptions::~ChatOptions()

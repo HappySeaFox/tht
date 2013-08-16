@@ -24,6 +24,7 @@
 QList<QColor> ChatTools::m_colors;
 QList<QColor> ChatTools::m_tempColors;
 QRegExp ChatTools::m_rxLink;
+QIcon ChatTools::m_chatIcon;
 QIcon ChatTools::m_unreadIcon;
 QHash<QXmppPresence::AvailableStatusType, QIcon> ChatTools::m_statusIcons;
 
@@ -47,6 +48,7 @@ void ChatTools::init()
                         << QColor(205,80,80)
                            ;
 
+    ChatTools::m_chatIcon = QIcon(":/images/chat.ico");
     ChatTools::m_unreadIcon = QIcon(":/images/unread.png");
 
     ChatTools::m_rxLink = QRegExp("((([A-Za-z]{3,9}:(?:\\/\\/)?)(?:[\\-;:&=\\+\\$,\\w]+@)?[A-Za-z0-9\\.\\-]+|(?:[wW]{3}\\.|[\\-;:&=\\+\\$,\\w]+@)[A-Za-z0-9\\.\\-]+)((?:\\/[\\+~%\\/\\.\\w\\-]*)?\\0077?(?:[\\-\\+=&;%@\\.\\w]*)#?(?:[\\.\\!\\/\\\\\\w]*))?)");
@@ -86,6 +88,11 @@ QColor ChatTools::randomColor()
 QRegExp ChatTools::urlRegExp()
 {
     return ChatTools::m_rxLink;
+}
+
+QIcon ChatTools::chatIcon()
+{
+    return ChatTools::m_chatIcon;
 }
 
 QIcon ChatTools::unreadIcon()
