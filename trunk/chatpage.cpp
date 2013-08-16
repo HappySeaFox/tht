@@ -91,6 +91,7 @@ ChatPage::ChatPage(QXmppClient *client,
     m_splitter->addWidget(m_listUsers);
     m_splitter->setCollapsible(0, false);
 
+    //: Means "General chat"
     ui->tabsChats->addTab(m_splitter, tr("General"));
 
     connect(m_generalMessages, SIGNAL(anchorClicked(QUrl)), this, SLOT(slotAnchorClicked(QUrl)));
