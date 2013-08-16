@@ -74,8 +74,10 @@ ChatPage::ChatPage(QXmppClient *client,
     m_listUsers = new QListWidget(splitter);
 
     connect(m_listUsers, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(slotUserDoubleClicked(QModelIndex)));
+
     splitter->addWidget(m_generalPage);
     splitter->addWidget(m_listUsers);
+    splitter->setCollapsible(0, false);
 
     // stretch factors
     QList<int> sizes;
@@ -414,13 +416,12 @@ void ChatPage::slotMessageDelivered(const QString &jid, const QString &id)
 
 void ChatPage::slotUserDoubleClicked(const QModelIndex &index)
 {
-    if(!index.isValid())
-        return;
-
     QListWidgetItem *i = m_listUsers->item(index.row());
 
-    if(i)
-        startPrivateChat(i->text());
+    if(!i)
+        return;
+
+    startPrivateChat(i->text());
 }
 
 QString ChatPage::roomName() const
