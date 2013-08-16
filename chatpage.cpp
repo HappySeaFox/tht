@@ -657,6 +657,7 @@ QStringList ChatPage::formatMessage(const QXmppMessage &msg)
             QString industry = m_rxIndustryInfo.cap(1);
             QString exchange =  m_rxIndustryInfo.cap(2).toUpper().mid(1);
             QMap<QString, QString> binds;
+            QStringList exchangesAppend;
 
             binds.insert(":industry", industry);
 
@@ -679,6 +680,7 @@ QStringList ChatPage::formatMessage(const QXmppMessage &msg)
                     {
                         QString s = QString("exchange%1").arg(q++);
                         queries += QString("exchange = :%1").arg(s);
+                        exchangesAppend.append(it.value());
                         binds.insert(QString(":%1").arg(s), it.value());
                     }
                 }
@@ -699,7 +701,7 @@ QStringList ChatPage::formatMessage(const QXmppMessage &msg)
             if(!lists.isEmpty())
             {
                 ok = true;
-                body = industry + ": ";
+                body = industry + (exchangesAppend.isEmpty() ? QString() : (' ' + exchangesAppend.join(","))) + ": ";
 
                 foreach(QVariantList values, lists)
                 {

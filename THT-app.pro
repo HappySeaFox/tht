@@ -145,7 +145,28 @@ BEARERPLUGINS=qgenericbearer4.dll qnativewifibearer4.dll
 QTLIBS=QtCore4.dll QtGui4.dll QtNetwork4.dll QtScript4.dll QtSql4.dll QtXml4.dll QtXmlPatterns4.dll
 SSLLIBS=libeay32.dll ssleay32.dll
 MINGWLIBS=libgcc_s_sjlj-1.dll libwinpthread-1.dll libstdc++-6.dll
-OTHERQMFILES=tht_lib_ru.qm tht_lib_uk.qm addtickersfrom_finviz_ru.qm addtickersfrom_finviz_uk.qm addtickersfrom_briefing_splits_ru.qm addtickersfrom_briefing_splits_uk.qm common_fomc_ru.qm common_fomc_uk.qm common_chat_ru.qm common_chat_uk.qm
+
+OTHERQMFILES=tht_lib_en.qm \
+                tht_lib_ru.qm \
+                tht_lib_tr.qm \
+                tht_lib_uk.qm \
+                addtickersfrom_finviz_en.qm \
+                addtickersfrom_finviz_ru.qm \
+                addtickersfrom_finviz_tr.qm \
+                addtickersfrom_finviz_uk.qm \
+                addtickersfrom_briefing_splits_en.qm \
+                addtickersfrom_briefing_splits_ru.qm \
+                addtickersfrom_briefing_splits_tr.qm \
+                addtickersfrom_briefing_splits_uk.qm \
+                common_fomc_en.qm \
+                common_fomc_ru.qm \
+                common_fomc_tr.qm \
+                common_fomc_uk.qm \
+                common_chat_en.qm \
+                common_chat_ru.qm \
+                common_chat_tr.qm \
+                common_chat_uk.qm
+
 PLUGINS=addtickersfrom-finviz.dll addtickersfrom-briefing-splits.dll common-fomc.dll common-chat.dll
 QTQMFILES=qt_ru.qm qt_uk.qm
 LICENSES=LICENSE.txt LICENSE-LGPL-2.1.txt LICENSE-LGPL-3.txt

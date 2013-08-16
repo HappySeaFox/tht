@@ -65,7 +65,7 @@
         <location filename="../settings.cpp" line="395"/>
         <source>Turkish</source>
         <extracomment>Turkish language</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Турецька</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="398"/>

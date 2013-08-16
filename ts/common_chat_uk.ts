@@ -249,12 +249,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="714"/>
+        <location filename="../chatpage.cpp" line="716"/>
         <source>industry is not found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="759"/>
+        <location filename="../chatpage.cpp" line="761"/>
         <source>ticker is not found</source>
         <translation type="unfinished"></translation>
     </message>
@@ -399,7 +399,7 @@
     </message>
     <message>
         <location filename="../chatwindow.cpp" line="454"/>
-        <source>Show the NYSE and NASDAQ tickers from the industry &quot;Gold&quot;</source>
+        <source>Show the NYSE and NASDAQ tickers from the industry &quot;Gold&quot; (you can mix exchanges)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
