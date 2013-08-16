@@ -451,6 +451,6 @@ void ChatWindow::slotHelp()
                              .arg(tr("Show the AMEX tickers from the industry \"Gold\""))
                              .arg(tr("Show the NASDAQ tickers from the industry \"Gold\""))
                              .arg(tr("Show the NYSE tickers from the industry \"Gold\""))
-                             .arg(tr("Show the NYSE and NASDAQ tickers from the industry \"Gold\""))
+                             .arg(tr("Show the NYSE and NASDAQ tickers from the industry \"Gold\" (you can mix exchanges)"))
                              );
 }
