@@ -73,6 +73,7 @@ ChatPage::ChatPage(QXmppClient *client,
     m_generalMessages = m_generalPage->messages();
     m_listUsers = new QListWidget(splitter);
 
+    connect(m_listUsers, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(slotUserDoubleClicked(QModelIndex)));
     splitter->addWidget(m_generalPage);
     splitter->addWidget(m_listUsers);
 
@@ -315,12 +316,7 @@ void ChatPage::slotAnchorClicked(const QUrl &url)
         }
         else if(mods == Qt::ControlModifier)
         {
-            if(url.userName() != m_room->nickName())
-            {
-                qDebug("Starting private chat");
-                addPrivateChat(url.userName());
-                ui->plainMessage->setFocus();
-            }
+            startPrivateChat(url.userName());
         }
     }
     else if(url.scheme() == "chat-ticker")
@@ -414,6 +410,17 @@ void ChatPage::slotMessageDelivered(const QString &jid, const QString &id)
             index++;
         }
     }
+}
+
+void ChatPage::slotUserDoubleClicked(const QModelIndex &index)
+{
+    if(!index.isValid())
+        return;
+
+    QListWidgetItem *i = m_listUsers->item(index.row());
+
+    if(i)
+        startPrivateChat(i->text());
 }
 
 QString ChatPage::roomName() const
@@ -644,6 +651,16 @@ ChatMessages *ChatPage::addPrivateChat(const QString &nick, bool switchTo)
         sendSystemMessageToPrivateChat(nick, tr("User is not available"));
 
     return chatMessages;
+}
+
+void ChatPage::startPrivateChat(const QString &nick)
+{
+    if(nick != m_room->nickName())
+    {
+        qDebug("Starting private chat");
+        addPrivateChat(nick);
+        ui->plainMessage->setFocus();
+    }
 }
 
 QStringList ChatPage::formatMessage(const QXmppMessage &msg)
