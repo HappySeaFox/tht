@@ -391,6 +391,9 @@ void Settings::fillTranslations()
     //: Ukrainian language
     d->translations.insert(QObject::tr("Ukrainian"), "uk");
 
+    //: Turkish language
+    d->translations.insert(QObject::tr("Turkish"), "tr");
+
     //: English language
     d->translations.insert(QObject::tr("English"), "en");
 }
