@@ -19,6 +19,7 @@
 #include <QTextDocument>
 #include <QApplication>
 #include <QTextBrowser>
+#include <QMapIterator>
 #include <QMessageBox>
 #include <QScrollBar>
 #include <QDateTime>
@@ -663,6 +664,7 @@ QStringList ChatPage::formatMessage(const QXmppMessage &msg)
 
             if(!exchange.isEmpty())
             {
+                QMap<QString, QString> exchangeBinds;
                 QStringList queries;
                 QString seen;
                 int q = 0;
@@ -681,14 +683,34 @@ QStringList ChatPage::formatMessage(const QXmppMessage &msg)
                         QString s = QString("exchange%1").arg(q++);
                         queries += QString("exchange = :%1").arg(s);
                         exchangesAppend.append(it.value());
-                        binds.insert(QString(":%1").arg(s), it.value());
+                        exchangeBinds.insert(QString(":%1").arg(s), it.value());
                     }
                 }
 
                 if(queries.isEmpty())
                     exchange.clear();
                 else
-                    exchange = "AND ( " + queries.join(" OR ") + " )";
+                {
+                    // all the exchanges?
+                    if(seen.size() == m_exchangeBinds.size())
+                    {
+                        exchange.clear();
+                        exchangesAppend.clear();
+                    }
+                    else
+                    {
+                        exchange = "AND ( " + queries.join(" OR ") + " )";
+
+                        // append binds
+                        QMapIterator<QString, QString> i(exchangeBinds);
+
+                        while(i.hasNext())
+                        {
+                            i.next();
+                            binds.insert(i.key(), i.value());
+                        }
+                    }
+                }
             }
 
             bool ok = false;
