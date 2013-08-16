@@ -919,7 +919,7 @@ right/middle mouse button to cancel.</source>
         <location filename="../tickerneighbors.cpp" line="50"/>
         <location filename="../tickerneighbors.cpp" line="54"/>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Копіювати</translation>
     </message>
     <message>
         <location filename="../tickerneighbors.cpp" line="279"/>
