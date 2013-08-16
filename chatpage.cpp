@@ -272,7 +272,7 @@ void ChatPage::slotParticipantAdded(const QString &jid)
 
     m_listUsers->addItem(nick);
 
-    m_users.append(nick);
+    presenceChanged(nick, m_room->participantPresence(jid).availableStatusType());
 
     sendSystemMessageToPrivateChat(nick, tr("User is available"));
 }
@@ -283,14 +283,12 @@ void ChatPage::slotParticipantRemoved(const QString &jid)
 
     QString nick = jidToNick(jid);
 
-    QList<QListWidgetItem *> items = m_listUsers->findItems(nick, Qt::MatchExactly);
+    QList<QListWidgetItem *> items = m_listUsers->findItems(nick, Qt::MatchFixedString | Qt::MatchCaseSensitive);
 
     foreach(QListWidgetItem *i, items)
     {
         delete i;
     }
-
-    m_users.removeAll(nick);
 
     sendSystemMessageToPrivateChat(nick, tr("User is not available"));
 }
@@ -477,7 +475,18 @@ void ChatPage::setFontSize(int size)
     QFont f = m_generalMessages->font();
     f.setPointSize(size);
     m_generalMessages->setFont(f);
-    //m_generalMessages->scroll
+}
+
+void ChatPage::presenceChanged(const QString &nick, QXmppPresence::AvailableStatusType type)
+{
+    // user status
+    QIcon icon = ChatTools::statusIcon(type);
+    QList<QListWidgetItem *> items = m_listUsers->findItems(nick, Qt::MatchFixedString | Qt::MatchCaseSensitive);
+
+    foreach(QListWidgetItem *i, items)
+    {
+        i->setIcon(icon);
+    }
 }
 
 bool ChatPage::eventFilter(QObject *obj, QEvent *event)
@@ -631,7 +640,7 @@ ChatMessages *ChatPage::addPrivateChat(const QString &nick, bool switchTo)
 
     m_bar->show();
 
-    if(m_users.indexOf(nick) < 0)
+    if(m_listUsers->findItems(nick, Qt::MatchFixedString | Qt::MatchCaseSensitive).isEmpty())
         sendSystemMessageToPrivateChat(nick, tr("User is not available"));
 
     return chatMessages;

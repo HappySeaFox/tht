@@ -24,6 +24,7 @@
 #include <QHash>
 
 #include "QXmppMucManager.h"
+#include "QXmppPresence.h"
 #include "QXmppStanza.h"
 
 class QTextBrowser;
@@ -65,6 +66,8 @@ public:
     void proceedJoin();
 
     void setFontSize(int size);
+
+    void presenceChanged(const QString &nick, QXmppPresence::AvailableStatusType);
 
 protected:
     virtual bool eventFilter(QObject *obj, QEvent *event);
@@ -127,7 +130,6 @@ private:
     QTextBrowser *m_generalMessages;
     ChatMessages *m_generalPage;
     QHash<QString, QXmppMessage> m_undeliveredMessages;
-    QStringList m_users;
     bool m_wasAtEnd;
     QHash<QString, QString> m_exchangeBinds;
     QListWidget *m_listUsers;
