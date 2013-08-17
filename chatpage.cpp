@@ -18,6 +18,7 @@
 #include <QDesktopServices>
 #include <QListWidgetItem>
 #include <QTextDocument>
+#include <QInputDialog>
 #include <QApplication>
 #include <QTextBrowser>
 #include <QMapIterator>
@@ -70,9 +71,32 @@ ChatPage::ChatPage(QXmppClient *client,
 {
     ui->setupUi(this);
 
+    // context menu for user list
     m_userMenu = new QMenu(this);
 
     m_userMenu->addAction(ChatTools::chatIcon(), tr("Chat"), this, SLOT(slotStartChatFromMenu()));
+
+    // kick
+    m_kickNow = new QAction(tr("Kick now"), this);
+    connect(m_kickNow, SIGNAL(triggered()), this, SLOT(slotKickNow()));
+
+    m_kickWithReason = new QAction(tr("Kick with reason..."), this);
+    connect(m_kickWithReason, SIGNAL(triggered()), this, SLOT(slotKickWithReason()));
+
+    m_userMenu->addSeparator();
+    m_userMenu->addAction(m_kickNow);
+    m_userMenu->addAction(m_kickWithReason);
+
+    // ban
+    m_banNow = new QAction(tr("Ban now"), this);
+    connect(m_banNow, SIGNAL(triggered()), this, SLOT(slotBanNow()));
+
+    m_banWithReason = new QAction(tr("Ban with reason..."), this);
+    connect(m_banWithReason, SIGNAL(triggered()), this, SLOT(slotBanWithReason()));
+
+    m_userMenu->addSeparator();
+    m_userMenu->addAction(m_banNow);
+    m_userMenu->addAction(m_banWithReason);
 
     // General discussion
     m_splitter = new QSplitter(Qt::Horizontal, ui->tabsChats);
@@ -294,10 +318,14 @@ void ChatPage::slotAllowedActionsChanged(QXmppMucRoom::Actions actions)
 {
     m_actions = actions;
 
-    if(m_actions & QXmppMucRoom::KickAction)
+    bool allowedToKick  = (m_actions & QXmppMucRoom::KickAction);
+
+    if(allowedToKick)
         qDebug("Allowed to kick");
     else
         qDebug("Is NOT allowed to kick");
+
+    enableKickActions(allowedToKick);
 }
 
 void ChatPage::slotParticipantAdded(const QString &jid)
@@ -473,6 +501,68 @@ void ChatPage::slotStartChatFromMenu()
         return;
 
     startPrivateChat(item->text());
+}
+
+void ChatPage::slotKickNow(const QString &reason)
+{
+    if(!m_room)
+        return;
+
+    QListWidgetItem *item = m_listUsers->currentItem();
+
+    if(!item)
+        return;
+
+    QString jid = m_room->jid() + '/' + item->text();
+
+    qDebug("Kick \"%s\"", qPrintable(jid));
+
+    m_room->kick(jid, reason);
+}
+
+void ChatPage::slotKickWithReason()
+{
+    bool ok;
+    QString reason = QInputDialog::getText(this, tr("Kick"), tr("Reason:"), QLineEdit::Normal, QString(), &ok);
+
+    if(!ok)
+        return;
+
+    slotKickNow(reason);
+}
+
+void ChatPage::slotBanNow(const QString &reason)
+{
+    if(!m_room)
+        return;
+
+    QListWidgetItem *item = m_listUsers->currentItem();
+
+    if(!item)
+        return;
+
+    QString jid = m_room->participantFullJid(m_room->jid() + '/' + item->text());
+
+    if(jid.isEmpty())
+    {
+        QMessageBox::critical(this, tr("Error"), tr("Failed to find the JID of the user \"%1\"").arg(item->text()));
+        return;
+    }
+
+    qDebug("Ban \"%s\"", qPrintable(jid));
+
+    m_room->ban(QXmppUtils::jidToBareJid(jid), reason);
+}
+
+void ChatPage::slotBanWithReason()
+{
+    bool ok;
+    QString reason = QInputDialog::getText(this, tr("Ban"), tr("Reason:"), QLineEdit::Normal, QString(), &ok);
+
+    if(!ok)
+        return;
+
+    slotBanNow(reason);
 }
 
 QString ChatPage::roomName() const
@@ -975,4 +1065,12 @@ void ChatPage::sendMessageToCurrentChat(const QString &text)
         m_undeliveredMessages[msg.id()] = msg;
         m_xmppClient->sendPacket(msg);
     }
+}
+
+void ChatPage::enableKickActions(bool enab)
+{
+    m_kickNow->setEnabled(enab);
+    m_kickWithReason->setEnabled(enab);
+    m_banNow->setEnabled(enab);
+    m_banWithReason->setEnabled(enab);
 }
