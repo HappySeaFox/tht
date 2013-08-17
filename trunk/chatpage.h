@@ -31,6 +31,7 @@ class QListWidgetItem;
 class QTextBrowser;
 class QListWidget;
 class QSplitter;
+class QAction;
 class QTabBar;
 class QPoint;
 class QMenu;
@@ -91,6 +92,7 @@ private:
     QString jidToNick(const QString &jid) const;
     QString escapeDog(const QString &str) const;
     void sendMessageToCurrentChat(const QString &text);
+    void enableKickActions(bool);
 
 signals:
     void requestJoin(const QString &jid);
@@ -121,6 +123,10 @@ private slots:
     void slotUserDoubleClicked(QListWidgetItem *);
     void slotCustomContextMenuRequested(const QPoint &);
     void slotStartChatFromMenu();
+    void slotKickNow(const QString &reason = QString());
+    void slotKickWithReason();
+    void slotBanNow(const QString &reason = QString());
+    void slotBanWithReason();
 
 private:
     Ui::ChatPage *ui;
@@ -143,6 +149,8 @@ private:
     QListWidget *m_listUsers;
     QSplitter *m_splitter;
     QMenu *m_userMenu;
+    QAction *m_kickNow, *m_kickWithReason;
+    QAction *m_banNow, *m_banWithReason;
 };
 
 inline
