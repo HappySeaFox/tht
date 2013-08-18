@@ -115,7 +115,6 @@ private slots:
     void slotSubjectChanged(const QString &subject);
     void slotError(const QXmppStanza::Error &);
     void slotAllowedActionsChanged();
-    void slotConfigurationReceived(const QXmppDataForm &);
     void slotParticipantAdded(const QString &);
     void slotParticipantRemoved(const QString &);
     void slotPermissionsReceived(const QList<QXmppMucItem> &);

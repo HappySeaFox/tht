@@ -37,7 +37,8 @@ SOURCES += chatwindow.cpp \
     chatplugin.cpp \
     chatoptions.cpp \
     chattools.cpp \
-    chatmessages.cpp
+    chatmessages.cpp \
+    configureroom.cpp
 
 HEADERS += chatwindow.h \
     chatpage.h \
@@ -48,13 +49,15 @@ HEADERS += chatwindow.h \
     chatsettings.h \
     chatoptions.h \
     chattools.h \
-    chatmessages.h
+    chatmessages.h \
+    configureroom.h
 
 FORMS += chatwindow.ui \
     chatpage.ui \
     messagedialog.ui \
     chatoptions.ui \
-    chatmessages.ui
+    chatmessages.ui \
+    configureroom.ui
 
 TRANSLATIONS += ts/common_chat_en.ts \
                 ts/common_chat_ru.ts \

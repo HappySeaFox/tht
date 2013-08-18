@@ -39,13 +39,13 @@
 #include "QXmppConfiguration.h"
 #include "QXmppMucManager.h"
 #include "QXmppPresence.h"
-#include "QXmppDataForm.h"
 #include "QXmppMessage.h"
 #include "QXmppClient.h"
 #include "QXmppUtils.h"
 #include "QXmppMucIq.h"
 
 #include "coloranimation.h"
+#include "configureroom.h"
 #include "messagedialog.h"
 #include "chatsettings.h"
 #include "chatmessages.h"
@@ -340,16 +340,6 @@ void ChatPage::slotAllowedActionsChanged()
     enableKickActions(allowedToKick);
 }
 
-void ChatPage::slotConfigurationReceived(const QXmppDataForm &df)
-{
-    QList<QXmppDataForm::Field> fields = df.fields();
-
-    foreach (QXmppDataForm::Field f, fields)
-    {
-        qDebug() << "CONFIGURATION" << f.description() << f.label() << f.options();
-    }
-}
-
 void ChatPage::slotParticipantAdded(const QString &jid)
 {
     qDebug("Added user %s", qPrintable(jid));
@@ -390,8 +380,6 @@ void ChatPage::slotPermissionsReceived(const QList<QXmppMucItem> &list)
             enableAdminActions(i.affiliation() == QXmppMucItem::OwnerAffiliation || i.affiliation() == QXmppMucItem::AdminAffiliation);
             enableOwnerActions(i.affiliation() == QXmppMucItem::OwnerAffiliation);
         }
-
-        qDebug() << "PERMISSION" << i.jid() << QXmppMucItem::affiliationToString(i.affiliation()) << QXmppMucItem::roleToString(i.role());
     }
 }
 
@@ -597,7 +585,13 @@ void ChatPage::slotBanWithReason()
 
 void ChatPage::slotConfigureRoom()
 {
-    qDebug("Configuration request sent: %s", m_room->requestConfiguration() ? "yes" : "no");
+    ConfigureRoom cr(m_room, this);
+
+    if(cr.exec() == QDialog::Accepted)
+    {
+        qDebug("Saving configuration");
+        m_room->setPermissions(cr.permissions());
+    }
 }
 
 QString ChatPage::roomName() const
@@ -642,8 +636,6 @@ void ChatPage::proceedJoin()
             this, SLOT(slotPermissionsReceived(QList<QXmppMucItem>)));
     connect(m_room, SIGNAL(allowedActionsChanged(QXmppMucRoom::Actions)),
             this, SLOT(slotAllowedActionsChanged()));
-    connect(m_room, SIGNAL(configurationReceived(QXmppDataForm)),
-            this, SLOT(slotConfigurationReceived(QXmppDataForm)));
 
     ui->labelStatus->clear();
     ui->plainMessage->setEnabled(false);
