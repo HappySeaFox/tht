@@ -15,7 +15,7 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
-    <widget class="QTabWidget" name="tabWidget">
+    <widget class="QTabWidget" name="tabsConfiguration">
      <property name="currentIndex">
       <number>0</number>
      </property>
@@ -187,6 +187,28 @@
       <attribute name="title">
        <string>General</string>
       </attribute>
+      <layout class="QGridLayout" name="gridLayout_3">
+       <property name="margin">
+        <number>0</number>
+       </property>
+       <item row="0" column="0">
+        <widget class="QScrollArea" name="scrollArea">
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>525</width>
+            <height>273</height>
+           </rect>
+          </property>
+         </widget>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </widget>
    </item>
@@ -203,7 +225,7 @@
   </layout>
  </widget>
  <tabstops>
-  <tabstop>tabWidget</tabstop>
+  <tabstop>tabsConfiguration</tabstop>
   <tabstop>treeAffiliations</tabstop>
   <tabstop>pushAddJid</tabstop>
   <tabstop>pushRemoveJid</tabstop>
@@ -240,22 +262,6 @@
     <hint type="destinationlabel">
      <x>286</x>
      <y>274</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>tabWidget</sender>
-   <signal>currentChanged(int)</signal>
-   <receiver>ConfigureRoom</receiver>
-   <slot>slotCurrentTabChanged(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>358</x>
-     <y>163</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>657</x>
-     <y>166</y>
     </hint>
    </hints>
   </connection>

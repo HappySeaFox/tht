@@ -22,6 +22,9 @@
 #include <QList>
 
 class QTreeWidgetItem;
+class QBoxLayout;
+class QLineEdit;
+class QTextEdit;
 class QMovie;
 
 class QXmppDataForm;
@@ -45,6 +48,8 @@ public:
 
 private:
     void stopLoadingMovie();
+    QLineEdit *addLineEdit(QBoxLayout *layout, const QString &label, const QString &value) const;
+    QTextEdit *addTextEdit(QBoxLayout *layout, const QString &label, const QString &value) const;
 
 private slots:
     void slotCurrentTabChanged(int);
