@@ -21,13 +21,14 @@
 #include <QDialog>
 #include <QList>
 
+#include "QXmppDataForm.h"
+
 class QTreeWidgetItem;
 class QBoxLayout;
 class QLineEdit;
 class QTextEdit;
 class QMovie;
 
-class QXmppDataForm;
 class QXmppMucItem;
 class QXmppMucRoom;
 
@@ -44,9 +45,10 @@ public:
     explicit ConfigureRoom(QXmppMucRoom *room, QWidget *parent = 0);
     ~ConfigureRoom();
 
-    QList<QXmppMucItem> permissions() const;
-
 private:
+    QList<QXmppMucItem> permissions() const;
+    QXmppDataForm configuration() const;
+    void setKey(QWidget *w, const QString &key);
     void stopLoadingMovie();
     QLineEdit *addLineEdit(QBoxLayout *layout, const QString &label, const QString &value) const;
     QTextEdit *addTextEdit(QBoxLayout *layout, const QString &label, const QString &value) const;
@@ -58,11 +60,13 @@ private slots:
     void slotAddJid();
     void slotRemoveJid();
     void slotCurrentItemChanged(QTreeWidgetItem *current, QTreeWidgetItem *previous);
+    void slotApply();
 
 private:
     Ui::ConfigureRoom *ui;
     QXmppMucRoom *m_room;
     QMovie *m_loadingMovie;
+    bool m_affiliationsChanged;
 };
 
 #endif // CONFIGUREROOM_H
