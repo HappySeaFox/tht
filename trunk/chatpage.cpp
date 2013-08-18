@@ -37,6 +37,8 @@
 #include <Qt>
 
 #include "QXmppConfiguration.h"
+#include "QXmppMucManager.h"
+#include "QXmppPresence.h"
 #include "QXmppDataForm.h"
 #include "QXmppMessage.h"
 #include "QXmppClient.h"
@@ -66,7 +68,6 @@ ChatPage::ChatPage(QXmppClient *client,
     m_xmppClient(client),
     m_muc(manager),
     m_room(0),
-    m_actions(0),
     m_joinMode(false),
     m_wasAtEnd(false)
 {
@@ -151,6 +152,8 @@ ChatPage::ChatPage(QXmppClient *client,
     m_rxTickerInfo = QRegExp(QString("/(%1)").arg(Settings::instance()->tickerValidator().pattern()));
     m_rxIndustryInfo = QRegExp("//([a-zA-Z\\s]+)((?:=[nNdDaA]+)?)");
     m_rxOpenTicker = QRegExp(QString("=(%1)=(?=\\s|$)").arg(Settings::instance()->tickerValidator().pattern()));
+
+    enableAdminActions(false);
 
     setJoinMode(true);
 
@@ -267,7 +270,7 @@ void ChatPage::slotJoined()
     ui->plainMessage->setEnabled(true);
 
     slotSubjectChanged(m_room->subject());
-    slotAllowedActionsChanged(m_room->allowedActions());
+    slotAllowedActionsChanged();
 
     // clear unread messages
     foreach(QString s, m_unreadMessages)
@@ -316,11 +319,9 @@ void ChatPage::slotError(const QXmppStanza::Error &error)
     }
 }
 
-void ChatPage::slotAllowedActionsChanged(QXmppMucRoom::Actions actions)
+void ChatPage::slotAllowedActionsChanged()
 {
-    m_actions = actions;
-
-    bool allowedToKick  = (m_actions & QXmppMucRoom::KickAction);
+    bool allowedToKick  = (m_room->allowedActions() & QXmppMucRoom::KickAction);
 
     if(allowedToKick)
         qDebug("Allowed to kick");
@@ -348,7 +349,7 @@ void ChatPage::slotParticipantAdded(const QString &jid)
 
     m_listUsers->addItem(nick);
 
-    presenceChanged(nick, m_room->participantPresence(jid).availableStatusType());
+    presenceChanged(m_room->participantPresence(jid));
 
     sendSystemMessageToPrivateChat(nick, tr("User is available"));
 }
@@ -371,8 +372,13 @@ void ChatPage::slotParticipantRemoved(const QString &jid)
 
 void ChatPage::slotPermissionsReceived(const QList<QXmppMucItem> &list)
 {
+    QString myJid = m_xmppClient->configuration().jidBare();
+
     foreach(QXmppMucItem i, list)
     {
+        if(i.jid() == myJid)
+            enableAdminActions(i.affiliation() == QXmppMucItem::OwnerAffiliation || i.affiliation() == QXmppMucItem::AdminAffiliation);
+
         qDebug() << "PERMISSION" << i.jid() << QXmppMucItem::affiliationToString(i.affiliation()) << QXmppMucItem::roleToString(i.role());
     }
 }
@@ -618,7 +624,7 @@ void ChatPage::proceedJoin()
     connect(m_room, SIGNAL(permissionsReceived(QList<QXmppMucItem>)),
             this, SLOT(slotPermissionsReceived(QList<QXmppMucItem>)));
     connect(m_room, SIGNAL(allowedActionsChanged(QXmppMucRoom::Actions)),
-            this, SLOT(slotAllowedActionsChanged(QXmppMucRoom::Actions)));
+            this, SLOT(slotAllowedActionsChanged()));
     connect(m_room, SIGNAL(configurationReceived(QXmppDataForm)),
             this, SLOT(slotConfigurationReceived(QXmppDataForm)));
 
@@ -640,15 +646,23 @@ void ChatPage::setFontSize(int size)
     m_generalMessages->setFont(f);
 }
 
-void ChatPage::presenceChanged(const QString &nick, QXmppPresence::AvailableStatusType type)
+void ChatPage::presenceChanged(const QXmppPresence &presence)
 {
+    QString nick = QXmppUtils::jidToResource(presence.from());
+
     // user status
-    QIcon icon = ChatTools::statusIcon(type);
+    QIcon icon = ChatTools::statusIcon(presence.availableStatusType());
     QList<QListWidgetItem *> items = m_listUsers->findItems(nick, Qt::MatchFixedString | Qt::MatchCaseSensitive);
 
     foreach(QListWidgetItem *i, items)
     {
         i->setIcon(icon);
+    }
+
+    if(nick == m_room->nickName())
+    {
+        const QXmppMucItem::Affiliation a = presence.mucItem().affiliation();
+        enableAdminActions(a == QXmppMucItem::OwnerAffiliation || a == QXmppMucItem::AdminAffiliation);
     }
 }
 
@@ -1085,6 +1099,10 @@ void ChatPage::enableKickActions(bool enab)
 {
     m_kickNow->setEnabled(enab);
     m_kickWithReason->setEnabled(enab);
+}
+
+void ChatPage::enableAdminActions(bool enab)
+{
     m_banNow->setEnabled(enab);
     m_banWithReason->setEnabled(enab);
 }
