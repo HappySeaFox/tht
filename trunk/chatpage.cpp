@@ -100,6 +100,15 @@ ChatPage::ChatPage(QXmppClient *client,
     m_userMenu->addAction(m_banNow);
     m_userMenu->addAction(m_banWithReason);
 
+    // context menu for room
+    m_roomMenu = new QMenu(this);
+
+    // configure room
+    m_configureRoom = new QAction(tr("Configure room..."), this);
+    connect(m_configureRoom, SIGNAL(triggered()), this, SLOT(slotConfigureRoom()));
+
+    m_roomMenu->addAction(m_configureRoom);
+
     // General discussion
     m_splitter = new QSplitter(Qt::Horizontal, ui->tabsChats);
 
@@ -154,6 +163,7 @@ ChatPage::ChatPage(QXmppClient *client,
     m_rxOpenTicker = QRegExp(QString("=(%1)=(?=\\s|$)").arg(Settings::instance()->tickerValidator().pattern()));
 
     enableAdminActions(false);
+    enableOwnerActions(false);
 
     setJoinMode(true);
 
@@ -281,7 +291,6 @@ void ChatPage::slotJoined()
     m_unreadMessages.clear();
 
     qDebug("Permissions request sent: %s", m_room->requestPermissions() ? "yes" : "no");
-    qDebug("Configuration request sent: %s", m_room->requestConfiguration() ? "yes" : "no");
 
     emit joined(m_room->name());
 }
@@ -377,7 +386,10 @@ void ChatPage::slotPermissionsReceived(const QList<QXmppMucItem> &list)
     foreach(QXmppMucItem i, list)
     {
         if(i.jid() == myJid)
+        {
             enableAdminActions(i.affiliation() == QXmppMucItem::OwnerAffiliation || i.affiliation() == QXmppMucItem::AdminAffiliation);
+            enableOwnerActions(i.affiliation() == QXmppMucItem::OwnerAffiliation);
+        }
 
         qDebug() << "PERMISSION" << i.jid() << QXmppMucItem::affiliationToString(i.affiliation()) << QXmppMucItem::roleToString(i.role());
     }
@@ -506,9 +518,9 @@ void ChatPage::slotCustomContextMenuRequested(const QPoint &point)
     QListWidgetItem *item = m_listUsers->itemAt(point);
 
     if(!item)
-        return;
-
-    m_userMenu->exec(m_listUsers->mapToGlobal(point));
+        m_roomMenu->exec(m_listUsers->mapToGlobal(point));
+    else
+        m_userMenu->exec(m_listUsers->mapToGlobal(point));
 }
 
 void ChatPage::slotStartChatFromMenu()
@@ -581,6 +593,11 @@ void ChatPage::slotBanWithReason()
         return;
 
     slotBanNow(reason);
+}
+
+void ChatPage::slotConfigureRoom()
+{
+    qDebug("Configuration request sent: %s", m_room->requestConfiguration() ? "yes" : "no");
 }
 
 QString ChatPage::roomName() const
@@ -663,6 +680,7 @@ void ChatPage::presenceChanged(const QXmppPresence &presence)
     {
         const QXmppMucItem::Affiliation a = presence.mucItem().affiliation();
         enableAdminActions(a == QXmppMucItem::OwnerAffiliation || a == QXmppMucItem::AdminAffiliation);
+        enableOwnerActions(a == QXmppMucItem::OwnerAffiliation);
     }
 }
 
@@ -1105,4 +1123,9 @@ void ChatPage::enableAdminActions(bool enab)
 {
     m_banNow->setEnabled(enab);
     m_banWithReason->setEnabled(enab);
+}
+
+void ChatPage::enableOwnerActions(bool enab)
+{
+    m_configureRoom->setEnabled(enab);
 }

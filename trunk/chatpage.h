@@ -95,6 +95,7 @@ private:
     void sendMessageToCurrentChat(const QString &text);
     void enableKickActions(bool);
     void enableAdminActions(bool);
+    void enableOwnerActions(bool);
 
 signals:
     void requestJoin(const QString &jid);
@@ -130,6 +131,7 @@ private slots:
     void slotKickWithReason();
     void slotBanNow(const QString &reason = QString());
     void slotBanWithReason();
+    void slotConfigureRoom();
 
 private:
     Ui::ChatPage *ui;
@@ -151,8 +153,10 @@ private:
     QListWidget *m_listUsers;
     QSplitter *m_splitter;
     QMenu *m_userMenu;
+    QMenu *m_roomMenu;
     QAction *m_kickNow, *m_kickWithReason;
     QAction *m_banNow, *m_banWithReason;
+    QAction *m_configureRoom;
 };
 
 inline
