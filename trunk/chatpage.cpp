@@ -586,12 +586,7 @@ void ChatPage::slotBanWithReason()
 void ChatPage::slotConfigureRoom()
 {
     ConfigureRoom cr(m_room, this);
-
-    if(cr.exec() == QDialog::Accepted)
-    {
-        qDebug("Saving configuration");
-        m_room->setPermissions(cr.permissions());
-    }
+    cr.exec();
 }
 
 QString ChatPage::roomName() const

@@ -17,6 +17,7 @@
 
 #include <QTreeWidgetItem>
 #include <QInputDialog>
+#include <QStringList>
 #include <QHeaderView>
 #include <QMessageBox>
 #include <QGridLayout>
@@ -30,7 +31,6 @@
 #include <Qt>
 
 #include "QXmppMucManager.h"
-#include "QXmppDataForm.h"
 
 #include "configureroom.h"
 #include "ui_configureroom.h"
@@ -40,7 +40,8 @@ typedef QPair<QString, QString> QStringPair;
 ConfigureRoom::ConfigureRoom(QXmppMucRoom *room, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ConfigureRoom),
-    m_room(room)
+    m_room(room),
+    m_affiliationsChanged(false)
 {
     ui->setupUi(this);
 
@@ -97,6 +98,82 @@ QList<QXmppMucItem> ConfigureRoom::permissions() const
     return list;
 }
 
+QXmppDataForm ConfigureRoom::configuration() const
+{
+    QXmppDataForm df;
+    QList<QXmppDataForm::Field> fields;
+
+    QList<QWidget *> widgets = ui->scrollArea->widget()->findChildren<QWidget *>();
+
+    foreach(QWidget *w, widgets)
+    {
+        QString key = w->property("data-form-key").toString();
+
+        if(key.isEmpty())
+            continue;
+
+        QXmppDataForm::Field field;
+
+        QVariant typeVariant = w->property("data-form-type");
+
+        if(typeVariant.isValid())
+            field.setType(static_cast<QXmppDataForm::Field::Type>(typeVariant.toInt()));
+        else
+            continue;
+
+        field.setKey(key);
+
+        const char *cname = w->metaObject()->className();
+
+        if(!qstrcmp(cname, "QWidget"))
+            field.setValue(w->property("data-form-hidden-value"));
+        else if(!qstrcmp(cname, "QCheckBox"))
+            field.setValue(qobject_cast<QCheckBox *>(w)->isChecked());
+        else if(!qstrcmp(cname, "QLineEdit"))
+            field.setValue(qobject_cast<QLineEdit *>(w)->text());
+        else if(!qstrcmp(cname, "QTextEdit"))
+            field.setValue(qobject_cast<QTextEdit *>(w)->toPlainText());
+        else if(!qstrcmp(cname, "QComboBox"))
+        {
+            QComboBox *combo = qobject_cast<QComboBox *>(w);
+            field.setValue(combo->itemData(combo->currentIndex()).toString());
+        }
+        else if(!qstrcmp(cname, "QListWidget"))
+        {
+            QListWidget *list = qobject_cast<QListWidget *>(w);
+            QList<QListWidgetItem *> items = list->selectedItems();
+            QStringList value;
+
+            foreach(QListWidgetItem *item, items)
+            {
+                value.append(item->data(Qt::UserRole).toString());
+            }
+
+            field.setValue(value);
+        }
+
+        fields.append(field);
+    }
+
+    if(fields.isEmpty())
+        df.setType(QXmppDataForm::None);
+    else
+    {
+        df.setFields(fields);
+        df.setType(QXmppDataForm::Submit);
+    }
+
+    return df;
+}
+
+void ConfigureRoom::setKey(QWidget *w, const QString &key)
+{
+    if(!w)
+        return;
+
+    w->setProperty("data-form-key", key);
+}
+
 void ConfigureRoom::stopLoadingMovie()
 {
     ui->labelLoading->hide();
@@ -131,28 +208,43 @@ QTextEdit *ConfigureRoom::addTextEdit(QBoxLayout *layout, const QString &label, 
 
 void ConfigureRoom::slotCurrentTabChanged(int index)
 {
-    if(!index)
-        qDebug("Permissions request sent: %s", m_room->requestPermissions() ? "yes" : "no");
-    else
-        qDebug("Configuration request sent: %s", m_room->requestConfiguration() ? "yes" : "no");
-
     ui->labelLoading->show();
     m_loadingMovie->start();
+
+    if(!index)
+    {
+        m_affiliationsChanged = false;
+
+        // clear old items
+        int index = 0;
+        QTreeWidgetItem *item;
+
+        while((item = ui->treeAffiliations->topLevelItem(index++)))
+        {
+            QTreeWidgetItem *childItem;
+
+            while((childItem = item->takeChild(0)))
+                delete childItem;
+        }
+
+        qDebug("Permissions request sent: %s", m_room->requestPermissions() ? "yes" : "no");
+    }
+    else
+    {
+        // recreate widget
+        QWidget *generalWidget = new QWidget;
+        QVBoxLayout *vlayout = new QVBoxLayout;
+        generalWidget->setLayout(vlayout);
+        ui->scrollArea->setWidget(generalWidget);
+        generalWidget->show();
+
+        qDebug("Configuration request sent: %s", m_room->requestConfiguration() ? "yes" : "no");
+    }
 }
 
 void ConfigureRoom::slotPermissionsReceived(const QList<QXmppMucItem> &list)
 {
-    // clear old items
-    int index = 0;
     QTreeWidgetItem *item;
-
-    while((item = ui->treeAffiliations->topLevelItem(index++)))
-    {
-        QTreeWidgetItem *childItem;
-
-        while((childItem = item->takeChild(0)))
-            delete childItem;
-    }
 
     foreach(QXmppMucItem i, list)
     {
@@ -171,7 +263,7 @@ void ConfigureRoom::slotPermissionsReceived(const QList<QXmppMucItem> &list)
         new QTreeWidgetItem(item, QStringList() << i.jid() << i.reason());
     }
 
-    index = 0;
+    int index = 0;
 
     while((item = ui->treeAffiliations->topLevelItem(index++)))
     {
@@ -184,39 +276,39 @@ void ConfigureRoom::slotPermissionsReceived(const QList<QXmppMucItem> &list)
 
 void ConfigureRoom::slotConfigurationReceived(const QXmppDataForm &df)
 {
-    // recreate widget
-    QWidget *generalWidget = new QWidget;
-    QVBoxLayout *vlayout = new QVBoxLayout;
-    generalWidget->setLayout(vlayout);
-    ui->scrollArea->setWidget(generalWidget);
-    generalWidget->show();
+    QWidget *generalWidget = ui->scrollArea->widget();
+    QBoxLayout *vlayout = qobject_cast<QBoxLayout *>(generalWidget->layout());
 
     QList<QXmppDataForm::Field> fields = df.fields();
 
     foreach(QXmppDataForm::Field f, fields)
     {
+        QWidget *w = 0;
+
         switch(f.type())
         {
             case QXmppDataForm::Field::BooleanField:
             {
                 QCheckBox *box = new QCheckBox(f.label(), generalWidget);
                 box->setChecked(f.value().toBool());
+                w = box;
                 vlayout->addWidget(box);
             }
             break;
             case QXmppDataForm::Field::FixedField:
             {
                 QLabel *label = new QLabel(f.value().toString(), generalWidget);
+                w = label;
                 vlayout->addWidget(label);
             }
             break;
             case QXmppDataForm::Field::HiddenField:
-            break;
-            case QXmppDataForm::Field::JidMultiField:
-                addTextEdit(vlayout, f.label(), f.value().toString());
-            break;
-            case QXmppDataForm::Field::JidSingleField:
-                addLineEdit(vlayout, f.label(), f.value().toString());
+            {
+                QWidget *widget = new QWidget(generalWidget);
+                widget->hide();
+                widget->setProperty("data-form-hidden-value", f.value());
+                w = widget;
+            }
             break;
             case QXmppDataForm::Field::ListMultiField:
             {
@@ -236,6 +328,8 @@ void ConfigureRoom::slotConfigurationReceived(const QXmppDataForm &df)
                         i->setSelected(true);
                 }
 
+                w = list;
+
                 hlayout->addWidget(list);
                 hlayout->addStretch(1);
                 vlayout->addLayout(hlayout);
@@ -254,23 +348,43 @@ void ConfigureRoom::slotConfigurationReceived(const QXmppDataForm &df)
                 }
 
                 combo->setCurrentIndex(combo->findData(f.value().toString()));
+                w = combo;
+
                 hlayout->addWidget(combo);
                 hlayout->addStretch(1);
                 vlayout->addLayout(hlayout);
             }
             break;
+            case QXmppDataForm::Field::JidMultiField:
             case QXmppDataForm::Field::TextMultiField:
-                addTextEdit(vlayout, f.label(), f.value().toString());
+            {
+                QTextEdit *edit = addTextEdit(vlayout, f.label(), f.value().toString());
+                edit->setProperty("data-form-type", f.type());
+                w = edit;
+            }
             break;
             case QXmppDataForm::Field::TextPrivateField:
             {
                 QLineEdit *line = addLineEdit(vlayout, f.label(), f.value().toString());
                 line->setEchoMode(QLineEdit::Password);
+                line->setProperty("data-form-type", f.type());
+                w = line;
             }
             break;
+            case QXmppDataForm::Field::JidSingleField:
             case QXmppDataForm::Field::TextSingleField:
-                addLineEdit(vlayout, f.label(), f.value().toString());
+            {
+                QLineEdit *line = addLineEdit(vlayout, f.label(), f.value().toString());
+                line->setProperty("data-form-type", f.type());
+                w = line;
+            }
             break;
+        }
+
+        if(w)
+        {
+            w->setProperty("data-form-type", f.type());
+            setKey(w, f.key());
         }
     }
 
@@ -306,6 +420,8 @@ void ConfigureRoom::slotAddJid()
         }
     }
 
+    m_affiliationsChanged = true;
+
     new QTreeWidgetItem(item, QStringList() << jid);
 }
 
@@ -319,6 +435,7 @@ void ConfigureRoom::slotRemoveJid()
     if(item->parent())
     {
         qDebug("Removing JID \"%s\"", qPrintable(item->text(0)));
+        m_affiliationsChanged = true;
         delete item;
     }
 }
@@ -327,8 +444,22 @@ void ConfigureRoom::slotCurrentItemChanged(QTreeWidgetItem *current, QTreeWidget
 {
     Q_UNUSED(previous)
 
-    if(!current || !current->parent())
-        ui->pushRemoveJid->setEnabled(false);
-    else
-        ui->pushRemoveJid->setEnabled(true);
+    ui->pushAddJid->setEnabled(current);
+    ui->pushRemoveJid->setEnabled(current && current->parent());
+}
+
+void ConfigureRoom::slotApply()
+{
+    if(!m_room)
+        return;
+
+    qDebug("Saving configuration");
+
+    if(m_affiliationsChanged)
+        m_room->setPermissions(permissions());
+
+    QXmppDataForm df = configuration();
+
+    if(df.type() == QXmppDataForm::Submit)
+        m_room->setConfiguration(configuration());
 }
