@@ -20,6 +20,7 @@
 #include <QHeaderView>
 #include <QMessageBox>
 #include <QDebug>
+#include <QMovie>
 #include <Qt>
 
 #include "QXmppMucManager.h"
@@ -34,6 +35,9 @@ ConfigureRoom::ConfigureRoom(QXmppMucRoom *room, QWidget *parent) :
     m_room(room)
 {
     ui->setupUi(this);
+
+    m_loadingMovie = new QMovie(":/images/wait.gif", "GIF", this);
+    ui->labelLoading->setMovie(m_loadingMovie);
 
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
     ui->treeAffiliations->header()->setSectionResizeMode(QHeaderView::ResizeToContents);
@@ -84,6 +88,12 @@ QList<QXmppMucItem> ConfigureRoom::permissions() const
     return list;
 }
 
+void ConfigureRoom::stopLoadingMovie()
+{
+    ui->labelLoading->hide();
+    m_loadingMovie->stop();
+}
+
 void ConfigureRoom::slotCurrentTabChanged(int index)
 {
     if(!index)
@@ -94,6 +104,9 @@ void ConfigureRoom::slotCurrentTabChanged(int index)
     {
         qDebug("Configuration request sent: %s", m_room->requestConfiguration() ? "yes" : "no");
     }
+
+    ui->labelLoading->show();
+    m_loadingMovie->start();
 }
 
 void ConfigureRoom::slotPermissionsReceived(const QList<QXmppMucItem> &list)
@@ -134,6 +147,8 @@ void ConfigureRoom::slotPermissionsReceived(const QList<QXmppMucItem> &list)
         item->sortChildren(0, Qt::AscendingOrder);
         item->setExpanded(true);
     }
+
+    stopLoadingMovie();
 }
 
 void ConfigureRoom::slotConfigurationReceived(const QXmppDataForm &df)
@@ -144,6 +159,8 @@ void ConfigureRoom::slotConfigurationReceived(const QXmppDataForm &df)
     {
         qDebug() << "CONFIGURATION" << f.description() << f.label() << f.options();
     }
+
+    stopLoadingMovie();
 }
 
 void ConfigureRoom::slotAddJid()
