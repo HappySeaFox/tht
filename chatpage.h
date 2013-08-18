@@ -23,8 +23,6 @@
 #include <QList>
 #include <QHash>
 
-#include "QXmppMucManager.h"
-#include "QXmppPresence.h"
 #include "QXmppStanza.h"
 
 class QListWidgetItem;
@@ -38,9 +36,11 @@ class QMenu;
 class QUrl;
 
 class QXmppMucManager;
+class QXmppPresence;
 class QXmppDataForm;
 class QXmppMucItem;
 class QXmppMessage;
+class QXmppMucRoom;
 class QXmppClient;
 
 class ColorAnimation;
@@ -73,7 +73,7 @@ public:
 
     void setFontSize(int size);
 
-    void presenceChanged(const QString &nick, QXmppPresence::AvailableStatusType);
+    void presenceChanged(const QXmppPresence &presence);
 
 protected:
     virtual bool eventFilter(QObject *obj, QEvent *event);
@@ -94,6 +94,7 @@ private:
     QString escapeDog(const QString &str) const;
     void sendMessageToCurrentChat(const QString &text);
     void enableKickActions(bool);
+    void enableAdminActions(bool);
 
 signals:
     void requestJoin(const QString &jid);
@@ -112,7 +113,7 @@ private slots:
     void slotKicked(const QString &jid, const QString &reason);
     void slotSubjectChanged(const QString &subject);
     void slotError(const QXmppStanza::Error &);
-    void slotAllowedActionsChanged(QXmppMucRoom::Actions);
+    void slotAllowedActionsChanged();
     void slotConfigurationReceived(const QXmppDataForm &);
     void slotParticipantAdded(const QString &);
     void slotParticipantRemoved(const QString &);
@@ -135,7 +136,6 @@ private:
     QXmppClient *m_xmppClient;
     QXmppMucManager *m_muc;
     QXmppMucRoom *m_room;
-    QXmppMucRoom::Actions m_actions;
     bool m_joinMode;
     QRegExp m_rxTickerInfo, m_rxIndustryInfo, m_rxOpenTicker;
     QString m_lastMessage;

@@ -268,7 +268,6 @@ void ChatWindow::slotCancelSignIn()
 void ChatWindow::slotPresenceReceived(const QXmppPresence &presence)
 {
     QString from = QXmppUtils::jidToBareJid(presence.from());
-    QString message;
 
     int index = 0;
     ChatPage *p;
@@ -277,11 +276,7 @@ void ChatWindow::slotPresenceReceived(const QXmppPresence &presence)
     {
         if(p->jid() == from)
         {
-            QString user = QXmppUtils::jidToResource(presence.from());
-
-            if(!user.isEmpty())
-                p->presenceChanged(user, presence.availableStatusType());
-
+            p->presenceChanged(presence);
             break;
         }
     }
@@ -290,66 +285,16 @@ void ChatWindow::slotPresenceReceived(const QXmppPresence &presence)
     {
         case QXmppPresence::Subscribe:
         {
-            message = "<B>%1</B> wants to subscribe";
-
-            int retButton = QMessageBox::question(
-                    this, "Contact Subscription", message.arg(from),
-                    QMessageBox::Yes, QMessageBox::No);
-
-            switch(retButton)
-            {
-                case QMessageBox::Yes:
-                {
-                    QXmppPresence subscribed;
-                    subscribed.setTo(from);
-                    subscribed.setType(QXmppPresence::Subscribed);
-                    m_xmppClient->sendPacket(subscribed);
-
-                    // reciprocal subscription
-                    QXmppPresence subscribe;
-                    subscribe.setTo(from);
-                    subscribe.setType(QXmppPresence::Subscribe);
-                    m_xmppClient->sendPacket(subscribe);
-                }
-                break;
-
-                case QMessageBox::No:
-                {
-                    QXmppPresence unsubscribed;
-                    unsubscribed.setTo(from);
-                    unsubscribed.setType(QXmppPresence::Unsubscribed);
-                    m_xmppClient->sendPacket(unsubscribed);
-                }
-                break;
-
-                default:
-                break;
-            }
-
-            return;
+            QXmppPresence unsubscribed;
+            unsubscribed.setTo(from);
+            unsubscribed.setType(QXmppPresence::Unsubscribed);
+            m_xmppClient->sendPacket(unsubscribed);
         }
         break;
 
-        case QXmppPresence::Subscribed:
-            message = "<B>%1</B> accepted your request";
-        break;
-
-        case QXmppPresence::Unsubscribe:
-            message = "<B>%1</B> unsubscribe";
-        break;
-
-        case QXmppPresence::Unsubscribed:
-            message = "<B>%1</B> unsubscribed";
-        break;
-
         default:
-        return;
+        break;
     }
-
-    if(message.isEmpty())
-        return;
-
-    QMessageBox::information(this, "Contact Subscription", message.arg(from), QMessageBox::Ok);
 }
 
 void ChatWindow::slotError(QXmppClient::Error error)
