@@ -7,5 +7,6 @@
         <file>images/status-idle.png</file>
         <file>images/status-invisible.png</file>
         <file>images/status-offline.png</file>
+        <file>images/addroom.png</file>
     </qresource>
 </RCC>

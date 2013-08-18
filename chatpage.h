@@ -38,6 +38,7 @@ class QMenu;
 class QUrl;
 
 class QXmppMucManager;
+class QXmppDataForm;
 class QXmppMucItem;
 class QXmppMessage;
 class QXmppClient;
@@ -112,6 +113,7 @@ private slots:
     void slotSubjectChanged(const QString &subject);
     void slotError(const QXmppStanza::Error &);
     void slotAllowedActionsChanged(QXmppMucRoom::Actions);
+    void slotConfigurationReceived(const QXmppDataForm &);
     void slotParticipantAdded(const QString &);
     void slotParticipantRemoved(const QString &);
     void slotPermissionsReceived(const QList<QXmppMucItem> &);
