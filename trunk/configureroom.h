@@ -22,6 +22,7 @@
 #include <QList>
 
 class QTreeWidgetItem;
+class QMovie;
 
 class QXmppDataForm;
 class QXmppMucItem;
@@ -42,6 +43,9 @@ public:
 
     QList<QXmppMucItem> permissions() const;
 
+private:
+    void stopLoadingMovie();
+
 private slots:
     void slotCurrentTabChanged(int);
     void slotPermissionsReceived(const QList<QXmppMucItem> &list);
@@ -53,6 +57,7 @@ private slots:
 private:
     Ui::ConfigureRoom *ui;
     QXmppMucRoom *m_room;
+    QMovie *m_loadingMovie;
 };
 
 #endif // CONFIGUREROOM_H

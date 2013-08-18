@@ -478,67 +478,67 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../configureroom.ui" line="42"/>
+        <location filename="../configureroom.ui" line="124"/>
         <source>Reason</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../configureroom.ui" line="47"/>
+        <location filename="../configureroom.ui" line="129"/>
         <source>Owners</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../configureroom.ui" line="69"/>
+        <location filename="../configureroom.ui" line="151"/>
         <source>Members</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../configureroom.ui" line="80"/>
+        <location filename="../configureroom.ui" line="162"/>
         <source>Banned</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../configureroom.ui" line="58"/>
+        <location filename="../configureroom.ui" line="140"/>
         <source>Administrators</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../configureroom.ui" line="91"/>
+        <location filename="../configureroom.ui" line="173"/>
         <source>Other</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../configureroom.ui" line="105"/>
+        <location filename="../configureroom.ui" line="89"/>
         <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../configureroom.ui" line="115"/>
+        <location filename="../configureroom.ui" line="99"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../configureroom.ui" line="136"/>
+        <location filename="../configureroom.ui" line="188"/>
         <source>General</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../configureroom.cpp" line="162"/>
+        <location filename="../configureroom.cpp" line="179"/>
         <source>Add affiliation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../configureroom.cpp" line="162"/>
+        <location filename="../configureroom.cpp" line="179"/>
         <source>JID:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../configureroom.cpp" line="173"/>
+        <location filename="../configureroom.cpp" line="190"/>
         <source>Adding JID</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../configureroom.cpp" line="173"/>
+        <location filename="../configureroom.cpp" line="190"/>
         <source>JID &quot;%1&quot; is already in this section</source>
         <translation type="unfinished"></translation>
     </message>
