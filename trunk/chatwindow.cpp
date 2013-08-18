@@ -49,17 +49,6 @@ ChatWindow::ChatWindow(QWidget *parent) :
     // pythonr@conference.jabber.ru
     ui->setupUi(this);
 
-    QShortcut *helpShortcut = new QShortcut(QKeySequence::HelpContents, this, SLOT(slotHelp()));
-
-    // context menu
-    m_menu = new QMenu(this);
-
-    m_menu->addAction(tr("Add room"), this, SLOT(slotAddTab()));
-    m_menu->addSeparator();
-    m_menu->addAction(QIcon(":/images/options.png"), tr("Options..."), this, SLOT(slotOptions()));
-    m_menu->addSeparator();
-    m_menu->addAction(tr("Help...")  + '\t' + helpShortcut->key().toString(), this, SLOT(slotHelp()));
-
     // XMPP client
     m_xmppClient = new QXmppClient(this);
 
@@ -85,6 +74,18 @@ ChatWindow::ChatWindow(QWidget *parent) :
         ui->linePassword->setText(SETTINGS_GET_STRING(SETTING_CHAT_PASSWORD));
 
     ui->lineJid->setText(SETTINGS_GET_STRING(SETTING_CHAT_JID));
+
+    QShortcut *helpShortcut = new QShortcut(QKeySequence::HelpContents, this, SLOT(slotHelp()));
+
+    // context menu
+    m_menu = new QMenu(this);
+
+    m_menu->addAction(QIcon(":/images/addroom.png"), tr("Add room"), this, SLOT(slotAddTab()));
+    m_menu->addAction(tr("Disconnect"), m_xmppClient, SLOT(disconnectFromServer()));
+    m_menu->addSeparator();
+    m_menu->addAction(QIcon(":/images/options.png"), tr("Options..."), this, SLOT(slotOptions()));
+    m_menu->addSeparator();
+    m_menu->addAction(tr("Help...")  + '\t' + helpShortcut->key().toString(), this, SLOT(slotHelp()));
 
     showSignInPage();
 

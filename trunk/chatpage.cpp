@@ -37,6 +37,7 @@
 #include <Qt>
 
 #include "QXmppConfiguration.h"
+#include "QXmppDataForm.h"
 #include "QXmppMessage.h"
 #include "QXmppClient.h"
 #include "QXmppUtils.h"
@@ -277,6 +278,7 @@ void ChatPage::slotJoined()
     m_unreadMessages.clear();
 
     qDebug("Permissions request sent: %s", m_room->requestPermissions() ? "yes" : "no");
+    qDebug("Configuration request sent: %s", m_room->requestConfiguration() ? "yes" : "no");
 
     emit joined(m_room->name());
 }
@@ -326,6 +328,16 @@ void ChatPage::slotAllowedActionsChanged(QXmppMucRoom::Actions actions)
         qDebug("Is NOT allowed to kick");
 
     enableKickActions(allowedToKick);
+}
+
+void ChatPage::slotConfigurationReceived(const QXmppDataForm &df)
+{
+    QList<QXmppDataForm::Field> fields = df.fields();
+
+    foreach (QXmppDataForm::Field f, fields)
+    {
+        qDebug() << "CONFIGURATION" << f.description() << f.label() << f.options();
+    }
 }
 
 void ChatPage::slotParticipantAdded(const QString &jid)
@@ -607,6 +619,8 @@ void ChatPage::proceedJoin()
             this, SLOT(slotPermissionsReceived(QList<QXmppMucItem>)));
     connect(m_room, SIGNAL(allowedActionsChanged(QXmppMucRoom::Actions)),
             this, SLOT(slotAllowedActionsChanged(QXmppMucRoom::Actions)));
+    connect(m_room, SIGNAL(configurationReceived(QXmppDataForm)),
+            this, SLOT(slotConfigurationReceived(QXmppDataForm)));
 
     ui->labelStatus->clear();
     ui->plainMessage->setEnabled(false);
