@@ -478,47 +478,47 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../configureroom.ui" line="124"/>
+        <location filename="../configureroom.ui" line="42"/>
         <source>Reason</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../configureroom.ui" line="129"/>
+        <location filename="../configureroom.ui" line="47"/>
         <source>Owners</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../configureroom.ui" line="151"/>
+        <location filename="../configureroom.ui" line="69"/>
         <source>Members</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../configureroom.ui" line="162"/>
+        <location filename="../configureroom.ui" line="80"/>
         <source>Banned</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../configureroom.ui" line="140"/>
+        <location filename="../configureroom.ui" line="58"/>
         <source>Administrators</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../configureroom.ui" line="173"/>
+        <location filename="../configureroom.ui" line="91"/>
         <source>Other</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../configureroom.ui" line="89"/>
+        <location filename="../configureroom.ui" line="105"/>
         <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../configureroom.ui" line="99"/>
+        <location filename="../configureroom.ui" line="115"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../configureroom.ui" line="188"/>
+        <location filename="../configureroom.ui" line="136"/>
         <source>General</source>
         <translation type="unfinished"></translation>
     </message>
