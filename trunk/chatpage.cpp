@@ -1005,9 +1005,11 @@ QStringList ChatPage::formatMessage(const QXmppMessage &msg)
                         if(cap > 1000)
                         {
                             cap /= 1000;
+                            //: Means "billion (1000*million)"
                             capRank = tr("bln");
                         }
                         else
+                            //: Means "million"
                             capRank = tr("mln");
 
                         body = tickerToLink(ticker)
