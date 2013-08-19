@@ -505,12 +505,12 @@
         <translation>Забаненые</translation>
     </message>
     <message>
-        <location filename="../configureroom.ui" line="200"/>
+        <location filename="../configureroom.ui" line="203"/>
         <source>Apply</source>
         <translation>Применить</translation>
     </message>
     <message>
-        <location filename="../configureroom.ui" line="207"/>
+        <location filename="../configureroom.ui" line="210"/>
         <source>Close</source>
         <translation>Закрыть</translation>
     </message>
