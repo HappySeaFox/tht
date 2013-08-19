@@ -505,12 +505,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../configureroom.ui" line="200"/>
+        <location filename="../configureroom.ui" line="203"/>
         <source>Apply</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../configureroom.ui" line="207"/>
+        <location filename="../configureroom.ui" line="210"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
