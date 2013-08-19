@@ -98,8 +98,9 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="1011"/>
+        <location filename="../chatpage.cpp" line="1013"/>
         <source>mln</source>
+        <extracomment>Means &quot;million&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -311,12 +312,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="1008"/>
+        <location filename="../chatpage.cpp" line="1009"/>
         <source>bln</source>
+        <extracomment>Means &quot;billion (1000*million)&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="1030"/>
+        <location filename="../chatpage.cpp" line="1032"/>
         <source>ticker is not found</source>
         <translation type="unfinished"></translation>
     </message>
