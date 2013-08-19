@@ -739,7 +739,7 @@ QString ChatPage::errorToString(const QXmppStanza::Error &error)
         case QXmppStanza::Error::Conflict:              return tr("User conflict");
         case QXmppStanza::Error::FeatureNotImplemented: return tr("Feature not implemented");
         case QXmppStanza::Error::Forbidden:             return tr("Forbidden");
-        case QXmppStanza::Error::Gone:                  return tr("Gone");
+        case QXmppStanza::Error::Gone:                  return tr("User has gone");
         case QXmppStanza::Error::InternalServerError:   return tr("Internal server error");
         case QXmppStanza::Error::ItemNotFound:          return tr("Item not found");
         case QXmppStanza::Error::JidMalformed:          return tr("JID is malformed");

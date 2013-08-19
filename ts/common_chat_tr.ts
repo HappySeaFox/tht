@@ -155,11 +155,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="742"/>
-        <source>Gone</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../chatpage.cpp" line="743"/>
         <source>Internal server error</source>
         <translation type="unfinished"></translation>
@@ -303,6 +298,11 @@
     <message>
         <location filename="../chatpage.cpp" line="578"/>
         <source>Ban</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../chatpage.cpp" line="742"/>
+        <source>User has gone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
