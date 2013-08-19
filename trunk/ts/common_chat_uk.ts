@@ -6,7 +6,7 @@
     <message>
         <location filename="../chatoptions.ui" line="14"/>
         <source>Options</source>
-        <translation>Параметри</translation>
+        <translation type="unfinished">Параметри</translation>
     </message>
     <message>
         <location filename="../chatoptions.ui" line="22"/>
