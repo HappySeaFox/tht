@@ -146,7 +146,7 @@ ChatPage::ChatPage(QXmppClient *client,
             + "<tr><td>" + tr("Exchange:")       + "</td><td>%2</td></tr>"
             + "<tr><td>" + tr("Sector:")         + "</td><td>%3</td></tr>"
             + "<tr><td>" + tr("Industry:")       + "</td><td>%4</td></tr>"
-            + "<tr><td>" + tr("Capitalization:") + "</td><td>%L5 " + tr("mln") + "</td></tr>"
+            + "<tr><td>" + tr("Capitalization:") + "</td><td>%L5 %6</td></tr>"
             + "</table><br>";
 
     // exchange binds
@@ -1000,6 +1000,15 @@ QStringList ChatPage::formatMessage(const QXmppMessage &msg)
                         ok = true;
                         double cap = values.at(4).toDouble();
                         QString industry = values.at(3).toString();
+                        QString capRank;
+
+                        if(cap > 1000)
+                        {
+                            cap /= 1000;
+                            capRank = tr("bln");
+                        }
+                        else
+                            capRank = tr("mln");
 
                         body = tickerToLink(ticker)
                                 + ':'
@@ -1011,7 +1020,8 @@ QStringList ChatPage::formatMessage(const QXmppMessage &msg)
                                                      .arg(escapeDog(industry))
                                                      .arg(industry)
                                                     )
-                                                .arg(cap, 0, 'f', cap > 100 ? 0 : 1);
+                                                .arg(cap, 0, 'f', cap > 100 ? 1 : 2)
+                                                .arg(capRank);
                     }
                 }
             }

@@ -98,7 +98,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="149"/>
+        <location filename="../chatpage.cpp" line="1011"/>
         <source>mln</source>
         <translation type="unfinished"></translation>
     </message>
@@ -311,7 +311,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="1020"/>
+        <location filename="../chatpage.cpp" line="1008"/>
+        <source>bln</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../chatpage.cpp" line="1030"/>
         <source>ticker is not found</source>
         <translation type="unfinished"></translation>
     </message>
