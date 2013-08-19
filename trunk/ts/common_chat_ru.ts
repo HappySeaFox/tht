@@ -155,11 +155,6 @@
         <translation>Запрещено</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="742"/>
-        <source>Gone</source>
-        <translation>Вышел</translation>
-    </message>
-    <message>
         <location filename="../chatpage.cpp" line="743"/>
         <source>Internal server error</source>
         <translation>Внутренняя ошибка сервера</translation>
@@ -304,6 +299,11 @@
         <location filename="../chatpage.cpp" line="578"/>
         <source>Ban</source>
         <translation>Забанить</translation>
+    </message>
+    <message>
+        <location filename="../chatpage.cpp" line="742"/>
+        <source>User has gone</source>
+        <translation>Пользователь вышел</translation>
     </message>
     <message>
         <location filename="../chatpage.cpp" line="975"/>
