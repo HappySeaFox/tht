@@ -326,7 +326,7 @@
 <context>
     <name>ChatPlugin</name>
     <message>
-        <location filename="../chatplugin.cpp" line="88"/>
+        <location filename="../chatplugin.cpp" line="91"/>
         <source>Chat</source>
         <translation type="unfinished"></translation>
     </message>

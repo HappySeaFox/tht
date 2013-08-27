@@ -51,6 +51,9 @@ ChatPlugin::ChatPlugin() :
 
     defaltValues.insert(SETTING_CHAT_POSITION, Tools::invalidQPoint);
     defaltValues.insert(SETTING_CHAT_FONT_SIZE, 8);
+    defaltValues.insert(SETTING_CHAT_AUTO_LOGIN, true);
+    defaltValues.insert(SETTING_CHAT_SAVE_ROOMS, true);
+    defaltValues.insert(SETTING_CHAT_AUTO_LOGIN_TO_ROOMS, true);
 
     Settings::instance()->addDefaultValues(defaltValues);
 
