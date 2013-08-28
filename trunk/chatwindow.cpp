@@ -68,9 +68,7 @@ ChatWindow::ChatWindow(QWidget *parent) :
     connect(m_xmppClient, SIGNAL(connected()), this, SLOT(slotConnected()));
     connect(m_xmppClient, SIGNAL(disconnected()), this, SLOT(slotDisconnected()));
 
-    ui->checkRememberPassword->setChecked(SETTINGS_GET_BOOL(SETTING_CHAT_REMEMBER_PASSWORD));
-
-    if(ui->checkRememberPassword->isChecked())
+    if(SETTINGS_GET_BOOL(SETTING_CHAT_AUTO_LOGIN))
         ui->linePassword->setText(SETTINGS_GET_STRING(SETTING_CHAT_PASSWORD));
 
     ui->lineJid->setText(SETTINGS_GET_STRING(SETTING_CHAT_JID));
@@ -243,7 +241,6 @@ void ChatWindow::slotSignIn()
     }
 
     SETTINGS_SET_STRING(SETTING_CHAT_JID, jid);
-    SETTINGS_SET_BOOL(SETTING_CHAT_REMEMBER_PASSWORD, ui->checkRememberPassword->isChecked());
 
     ui->pushCancel->setEnabled(true);
     ui->pushSignIn->setEnabled(false);
@@ -345,7 +342,7 @@ void ChatWindow::slotConnected()
     // remove old tabs
     removeTabs();
 
-    if(ui->checkRememberPassword->isChecked())
+    if(SETTINGS_GET_BOOL(SETTING_CHAT_AUTO_LOGIN))
         SETTINGS_SET_STRING(SETTING_CHAT_PASSWORD, ui->linePassword->text());
     else
         SETTINGS_SET_STRING(SETTING_CHAT_PASSWORD, QString());
