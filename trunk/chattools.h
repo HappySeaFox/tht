@@ -46,6 +46,8 @@ public:
 
     static QIcon statusIcon(QXmppPresence::AvailableStatusType);
 
+    static QString escapeBrackets(const QString &plain);
+
 private:
     ChatTools();
 
@@ -61,6 +63,30 @@ inline
 QList<QColor> ChatTools::colors()
 {
     return ChatTools::m_colors;
+}
+
+inline
+QRegExp ChatTools::urlRegExp()
+{
+    return ChatTools::m_rxLink;
+}
+
+inline
+QIcon ChatTools::chatIcon()
+{
+    return ChatTools::m_chatIcon;
+}
+
+inline
+QIcon ChatTools::unreadIcon()
+{
+    return ChatTools::m_unreadIcon;
+}
+
+inline
+QIcon ChatTools::statusIcon(QXmppPresence::AvailableStatusType type)
+{
+    return ChatTools::m_statusIcons.value(type);
 }
 
 #endif // CHATTOOLS_H

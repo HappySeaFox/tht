@@ -85,24 +85,23 @@ QColor ChatTools::randomColor()
     return ChatTools::m_tempColors.takeAt(qrand() % ChatTools::m_tempColors.size());
 }
 
-QRegExp ChatTools::urlRegExp()
+QString ChatTools::escapeBrackets(const QString &plain)
 {
-    return ChatTools::m_rxLink;
-}
+    QString rich;
 
-QIcon ChatTools::chatIcon()
-{
-    return ChatTools::m_chatIcon;
-}
+    rich.reserve(int(plain.length() * qreal(1.1)));
 
-QIcon ChatTools::unreadIcon()
-{
-    return ChatTools::m_unreadIcon;
-}
+    for(int i = 0; i < plain.length(); ++i)
+    {
+        if (plain.at(i) == '<')
+            rich +="&lt;";
+        else if (plain.at(i) == '>')
+            rich += "&gt;";
+        else
+            rich += plain.at(i);
+    }
 
-QIcon ChatTools::statusIcon(QXmppPresence::AvailableStatusType type)
-{
-    return ChatTools::m_statusIcons.value(type);
+    return rich;
 }
 
 ChatTools::ChatTools()

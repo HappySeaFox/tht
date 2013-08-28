@@ -19,9 +19,11 @@
 #define CHATPAGE_H
 
 #include <QStringList>
+#include <QString>
 #include <QWidget>
 #include <QList>
 #include <QHash>
+#include <QPair>
 
 #include "QXmppStanza.h"
 
@@ -87,8 +89,8 @@ private:
     QString tickerToLink(const QString &) const;
     ChatMessages *addPrivateChat(const QString &nick, bool switchTo = true);
     void startPrivateChat(const QString &nick);
-    QStringList formatMessage(const QXmppMessage &);
-    QStringList formatSystemMessage(const QString &message);
+    QPair<QString, QString> formatMessage(const QXmppMessage &);
+    QPair<QString, QString> formatSystemMessage(const QString &message);
     void sendSystemMessageToPrivateChat(const QString &nick, const QString &message);
     QString jidToNick(const QString &jid) const;
     QString escapeDog(const QString &str) const;
