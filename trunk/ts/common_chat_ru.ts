@@ -10,8 +10,8 @@
     </message>
     <message>
         <location filename="../chatoptions.ui" line="22"/>
-        <source>Auto login</source>
-        <translation>Авто логин</translation>
+        <source>Autologin</source>
+        <translation>Автологин</translation>
     </message>
     <message>
         <location filename="../chatoptions.ui" line="63"/>
@@ -26,12 +26,12 @@
     <message>
         <location filename="../chatoptions.ui" line="29"/>
         <source>Save rooms</source>
-        <translation>Сохранять команты</translation>
+        <translation>Сохранять комнаты</translation>
     </message>
     <message>
         <location filename="../chatoptions.ui" line="49"/>
-        <source>Auto login to rooms</source>
-        <translation>Авто логин в комнаты</translation>
+        <source>Autologin to rooms</source>
+        <translation>Автологин в комнаты</translation>
     </message>
     <message>
         <location filename="../chatoptions.ui" line="56"/>
@@ -107,7 +107,7 @@
         <location filename="../chatpage.cpp" line="302"/>
         <location filename="../chatpage.cpp" line="304"/>
         <source>Kicked</source>
-        <translation>Кикнут</translation>
+        <translation>Кикнули</translation>
     </message>
     <message>
         <location filename="../chatpage.cpp" line="302"/>
@@ -168,17 +168,17 @@
     <message>
         <location filename="../chatpage.cpp" line="739"/>
         <source>JID is malformed</source>
-        <translation>Неверный JID</translation>
+        <translation>JID имеет неверный формат</translation>
     </message>
     <message>
         <location filename="../chatpage.cpp" line="740"/>
         <source>Not acceptable</source>
-        <translation>Неприемлимый запрос</translation>
+        <translation>Неприемлемый запрос</translation>
     </message>
     <message>
         <location filename="../chatpage.cpp" line="741"/>
         <source>Not allowed</source>
-        <translation>Не разрешено</translation>
+        <translation>Не допускается</translation>
     </message>
     <message>
         <location filename="../chatpage.cpp" line="742"/>

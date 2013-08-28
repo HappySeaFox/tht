@@ -10,7 +10,7 @@
     </message>
     <message>
         <location filename="../chatoptions.ui" line="22"/>
-        <source>Auto login</source>
+        <source>Autologin</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -20,7 +20,7 @@
     </message>
     <message>
         <location filename="../chatoptions.ui" line="49"/>
-        <source>Auto login to rooms</source>
+        <source>Autologin to rooms</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
