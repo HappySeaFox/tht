@@ -19,7 +19,7 @@
      <item row="0" column="0">
       <widget class="QCheckBox" name="checkAutoLogin">
        <property name="text">
-        <string>Auto login</string>
+        <string>Autologin</string>
        </property>
       </widget>
      </item>
@@ -46,7 +46,7 @@
      <item row="2" column="0">
       <widget class="QCheckBox" name="checkAutoLoginToRooms">
        <property name="text">
-        <string>Auto login to rooms</string>
+        <string>Autologin to rooms</string>
        </property>
       </widget>
      </item>
