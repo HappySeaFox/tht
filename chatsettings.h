@@ -18,7 +18,6 @@
 #ifndef CHATSETTINGS_H
 #define CHATSETTINGS_H
 
-#define SETTING_CHAT_REMEMBER_PASSWORD   "chat-remember-password"
 #define SETTING_CHAT_JID                 "chat-jid"
 #define SETTING_CHAT_PASSWORD            "chat-password"
 #define SETTING_CHAT_SIZE                "chat-size"
