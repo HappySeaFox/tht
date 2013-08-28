@@ -159,7 +159,7 @@ ChatPage::ChatPage(QXmppClient *client,
     ui->linePassword->setText(password);
 
     m_rxTickerInfo = QRegExp(QString("/(%1)").arg(Settings::instance()->tickerValidator().pattern()));
-    m_rxIndustryInfo = QRegExp("//([a-zA-Z\\s]+)((?:=[nNdDaA]+)?)");
+    m_rxIndustryInfo = QRegExp("//([a-zA-Z\\s&,\\-\\\\/]+)((?:=[nNdDaA]+)?)");
     m_rxOpenTicker = QRegExp(QString("=(%1)=(?=\\s|$)").arg(Settings::instance()->tickerValidator().pattern()));
 
     enableAdminActions(false);
@@ -217,15 +217,12 @@ ChatPage::~ChatPage()
 
 void ChatPage::slotMessageReceived(const QXmppMessage &msg)
 {
-    QStringList parsed = formatMessage(msg);
-
-    if(parsed.size() < 2)
-        return;
+    QPair<QString, QString> parsed = formatMessage(msg);
 
     // show message or save in buffer
     if(m_joinMode)
     {
-        m_unreadMessages.append(parsed.at(1));
+        m_unreadMessages.append(parsed.second);
         showUnreadMessagesCount();
     }
     else
@@ -233,11 +230,11 @@ void ChatPage::slotMessageReceived(const QXmppMessage &msg)
         ChatMessages *chatMessages;
 
         if(msg.type() == QXmppMessage::Chat)
-            chatMessages = addPrivateChat(parsed.at(0), false);
+            chatMessages = addPrivateChat(parsed.first, false);
         else
             chatMessages = m_generalPage;
 
-        chatMessages->messages()->append(parsed.at(1));
+        chatMessages->messages()->append(parsed.second);
 
         if(ui->tabsChats->currentWidget() != chatMessages)
             ui->tabsChats->setTabIcon(ui->tabsChats->indexOf(chatMessages), ChatTools::unreadIcon());
@@ -471,25 +468,22 @@ void ChatPage::slotMessageDelivered(const QString &jid, const QString &id)
     m_undeliveredMessages.erase(it);
 
     msg.setFrom(m_room->nickName());
-    QStringList parsed = formatMessage(msg);
+    QPair<QString, QString> parsed = formatMessage(msg);
 
-    if(parsed.size() > 1)
+    int index = 1;
+    QString nick = jidToNick(jid);
+
+    // do we chat with this user already?
+    while(index < ui->tabsChats->count())
     {
-        int index = 1;
-        QString nick = jidToNick(jid);
-
-        // do we chat with this user already?
-        while(index < ui->tabsChats->count())
+        if(ui->tabsChats->tabText(index) == nick)
         {
-            if(ui->tabsChats->tabText(index) == nick)
-            {
-                ChatMessages *chatMessages = qobject_cast<ChatMessages *>(ui->tabsChats->widget(index));
-                chatMessages->messages()->append(parsed.at(1));
-                break;
-            }
-
-            index++;
+            ChatMessages *chatMessages = qobject_cast<ChatMessages *>(ui->tabsChats->widget(index));
+            chatMessages->messages()->append(parsed.second);
+            break;
         }
+
+        index++;
     }
 }
 
@@ -838,7 +832,7 @@ void ChatPage::startPrivateChat(const QString &nick)
     }
 }
 
-QStringList ChatPage::formatMessage(const QXmppMessage &msg)
+QPair<QString, QString> ChatPage::formatMessage(const QXmppMessage &msg)
 {
     // construct nick
     QString nick = Qt::escape(jidToNick(msg.from()));
@@ -846,7 +840,7 @@ QStringList ChatPage::formatMessage(const QXmppMessage &msg)
     if(nick.isEmpty())
     {
         qWarning("Nick is empty");
-        return QStringList();
+        return QPair<QString, QString>();
     }
 
     // timestamp
@@ -877,17 +871,17 @@ QStringList ChatPage::formatMessage(const QXmppMessage &msg)
             QXmppMessage newMsg(msg.from(), QString(), body);
             newMsg.setError(msg.error());
             it.value() = newMsg;
-            return QStringList();
+            return QPair<QString, QString>();
         }
 
         nick = Qt::escape(m_room->jid());
     }
     else
     {
-        body = Qt::escape(msg.body());
+        body = ChatTools::escapeBrackets(msg.body());
 
         if(body.isEmpty())
-            return QStringList();
+            return QPair<QString, QString>();
 
         // tickers from the industry
         if(m_rxIndustryInfo.exactMatch(body))
@@ -1005,7 +999,7 @@ QStringList ChatPage::formatMessage(const QXmppMessage &msg)
                         if(cap > 1000)
                         {
                             cap /= 1000;
-                            //: Means "billion (1000*million)"
+                            //: Means "billion" (1000*million)
                             capRank = tr("bln");
                         }
                         else
@@ -1036,6 +1030,7 @@ QStringList ChatPage::formatMessage(const QXmppMessage &msg)
             int pos = 0;
             QString res;
 
+            // replace links
             body.replace(ChatTools::urlRegExp(), "<a href='\\1'>\\1</a>");
 
             // replace "=ABC=" with link which will open ABC in the linked windows
@@ -1055,9 +1050,9 @@ QStringList ChatPage::formatMessage(const QXmppMessage &msg)
 
     body.replace("\n", "<br>");
 
-    return QStringList()
-            << nick
-            << (QString("<font color=\"")
+    return QPair<QString, QString>(
+            nick,
+            (QString("<font color=\"")
                 + color
                 + "\">"
                 + (SETTINGS_GET_BOOL(SETTING_CHAT_SHOW_TIME)
@@ -1068,10 +1063,10 @@ QStringList ChatPage::formatMessage(const QXmppMessage &msg)
                 + "@\">"
                 + nick
                 + "</a>:</font> "
-                + body);
+                + body));
 }
 
-QStringList ChatPage::formatSystemMessage(const QString &message)
+QPair<QString, QString> ChatPage::formatSystemMessage(const QString &message)
 {
     return formatMessage(QXmppMessage(m_room->jid(), QString(), "*** " + message + " ***"));
 }
@@ -1087,10 +1082,7 @@ void ChatPage::sendSystemMessageToPrivateChat(const QString &nick, const QString
         {
             ChatMessages *chatMessages = qobject_cast<ChatMessages *>(ui->tabsChats->widget(index));
 
-            QStringList parsed = formatSystemMessage(message);
-
-            if(parsed.size() > 1)
-                chatMessages->messages()->append(parsed.at(1));
+            chatMessages->messages()->append(formatSystemMessage(message).second);
 
             break;
         }
