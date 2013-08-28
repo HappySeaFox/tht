@@ -379,90 +379,90 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="160"/>
-        <location filename="../chatwindow.cpp" line="209"/>
-        <location filename="../chatwindow.cpp" line="366"/>
-        <location filename="../chatwindow.cpp" line="393"/>
+        <location filename="../chatwindow.cpp" line="161"/>
+        <location filename="../chatwindow.cpp" line="210"/>
+        <location filename="../chatwindow.cpp" line="367"/>
+        <location filename="../chatwindow.cpp" line="394"/>
         <source>Room</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="239"/>
+        <location filename="../chatwindow.cpp" line="240"/>
         <source>JID is empty</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="253"/>
+        <location filename="../chatwindow.cpp" line="254"/>
         <source>Connecting...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="262"/>
+        <location filename="../chatwindow.cpp" line="263"/>
         <source>Sign in cancelled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="312"/>
+        <location filename="../chatwindow.cpp" line="313"/>
         <source>Socket error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="316"/>
+        <location filename="../chatwindow.cpp" line="317"/>
         <source>Keep alive error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="323"/>
+        <location filename="../chatwindow.cpp" line="324"/>
         <source>Invalid password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="327"/>
+        <location filename="../chatwindow.cpp" line="328"/>
         <source>Stream error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="333"/>
+        <location filename="../chatwindow.cpp" line="334"/>
         <source>Unknown error</source>
         <translation>Невідома помилка</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="470"/>
+        <location filename="../chatwindow.cpp" line="471"/>
         <source>Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="480"/>
+        <location filename="../chatwindow.cpp" line="481"/>
         <source>Send the ticker &quot;ABC&quot; to the chat. User can click on it and it will be loaded into all the linked windows</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="481"/>
+        <location filename="../chatwindow.cpp" line="482"/>
         <source>Show the ticker information about the ticker &quot;ABC&quot;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="482"/>
+        <location filename="../chatwindow.cpp" line="483"/>
         <source>Show the tickers from the industry &quot;Gold&quot; (all exchanges, tickers are sorted by capitalization)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="483"/>
+        <location filename="../chatwindow.cpp" line="484"/>
         <source>Show the AMEX tickers from the industry &quot;Gold&quot;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="484"/>
+        <location filename="../chatwindow.cpp" line="485"/>
         <source>Show the NASDAQ tickers from the industry &quot;Gold&quot;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="485"/>
+        <location filename="../chatwindow.cpp" line="486"/>
         <source>Show the NYSE tickers from the industry &quot;Gold&quot;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="486"/>
+        <location filename="../chatwindow.cpp" line="487"/>
         <source>Show the NYSE and NASDAQ tickers from the industry &quot;Gold&quot; (you can mix exchanges)</source>
         <translation type="unfinished"></translation>
     </message>
