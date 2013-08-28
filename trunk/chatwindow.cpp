@@ -129,6 +129,7 @@ void ChatWindow::showSignInPage()
     ui->lineJid->setEnabled(true);
     ui->linePassword->setEnabled(true);
 
+    ui->labelStatus->clear();
     ui->stack->setCurrentIndex(0);
 }
 
