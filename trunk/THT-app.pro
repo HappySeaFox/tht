@@ -145,32 +145,49 @@ BEARERPLUGINS=qgenericbearer4.dll qnativewifibearer4.dll
 QTLIBS=QtCore4.dll QtGui4.dll QtNetwork4.dll QtScript4.dll QtSql4.dll QtXml4.dll QtXmlPatterns4.dll
 SSLLIBS=libeay32.dll ssleay32.dll
 MINGWLIBS=libgcc_s_sjlj-1.dll libwinpthread-1.dll libstdc++-6.dll
-
 OTHERQMFILES=tht_lib_en.qm \
                 tht_lib_ru.qm \
                 tht_lib_tr.qm \
-                tht_lib_uk.qm \
-                addtickersfrom_finviz_en.qm \
-                addtickersfrom_finviz_ru.qm \
-                addtickersfrom_finviz_tr.qm \
-                addtickersfrom_finviz_uk.qm \
-                addtickersfrom_briefing_splits_en.qm \
-                addtickersfrom_briefing_splits_ru.qm \
-                addtickersfrom_briefing_splits_tr.qm \
-                addtickersfrom_briefing_splits_uk.qm \
-                common_fomc_en.qm \
-                common_fomc_ru.qm \
-                common_fomc_tr.qm \
-                common_fomc_uk.qm \
-                common_chat_en.qm \
-                common_chat_ru.qm \
-                common_chat_tr.qm \
-                common_chat_uk.qm
+                tht_lib_uk.qm
 
-PLUGINS=addtickersfrom-finviz.dll addtickersfrom-briefing-splits.dll common-fomc.dll common-chat.dll
 QTQMFILES=qt_ru.qm qt_uk.qm
 LICENSES=LICENSE.txt LICENSE-LGPL-2.1.txt LICENSE-LGPL-3.txt
 USEUPX=y
+
+COMPONENT1="Finviz"
+COMPONENT1_TYPE="addtickersfromfinviz"
+COMPONENT1_FILES="addtickersfrom-finviz.dll"
+COMPONENT1_TRANSLATIONS=addtickersfrom_finviz_en.qm \
+                           addtickersfrom_finviz_ru.qm \
+                           addtickersfrom_finviz_tr.qm \
+                           addtickersfrom_finviz_uk.qm
+
+COMPONENT2="Briefing Stock Splits"
+COMPONENT2_TYPE="addtickersfrombriefingsplits"
+COMPONENT2_FILES="addtickersfrom-briefing-splits.dll"
+COMPONENT2_TRANSLATIONS=addtickersfrom_briefing_splits_en.qm \
+                           addtickersfrom_briefing_splits_ru.qm \
+                           addtickersfrom_briefing_splits_tr.qm \
+                           addtickersfrom_briefing_splits_uk.qm
+
+COMPONENT3="FOMC"
+COMPONENT3_TYPE="commonfomc"
+COMPONENT3_FILES="common-fomc.dll"
+COMPONENT3_TRANSLATIONS=common_fomc_en.qm \
+                           common_fomc_ru.qm \
+                           common_fomc_tr.qm \
+                           common_fomc_uk.qm
+
+COMPONENT4="Jabber Chat"
+COMPONENT4_TYPE="commonchat"
+COMPONENT4_FILES="common-chat.dll"
+COMPONENT4_TRANSLATIONS=common_chat_en.qm \
+                           common_chat_ru.qm \
+                           common_chat_tr.qm \
+                           common_chat_uk.qm
+
+# list of components' suffixes to install
+COMPONENTS=1 2 3 4
 
 include(THT-version.pri)
 include(THT-common.pri)
@@ -217,10 +234,6 @@ QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite
     distbin.commands += $$mle(copy /y \"$${OUT_PWD}/$(DESTDIR_TARGET)\" \"$$T\")
     distbin.commands += $$mle(copy /y \"$${OUT_PWD}/$(DESTDIR_TARGET)/../THT-lib.dll\" \"$$T\")
 
-    for(pl, PLUGINS) {
-        distbin.commands += $$mle(copy /y \"$${OUT_PWD}/$(DESTDIR_TARGET)/../$$pl\" \"$$T/plugins\")
-    }
-
     for(ql, QTLIBS) {
         distbin.commands += $$mle(copy /y \"$$[QT_INSTALL_BINS]\\$$ql\" \"$$T\")
     }
@@ -263,6 +276,19 @@ QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite
 
     for(lc, LICENSES) {
         distbin.commands += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\$$lc\" \"$$T\")
+    }
+
+    for(c, COMPONENTS) {
+        eval(COMPONENT_FILES=\$\${COMPONENT$${c}_FILES})
+        eval(COMPONENT_TRANSLATIONS=\$\${COMPONENT$${c}_TRANSLATIONS})
+
+        for(f, COMPONENT_FILES) {
+            distbin.commands += $$mle(copy /y \"$${OUT_PWD}/$(DESTDIR_TARGET)/../$$f\" \"$$T/plugins\")
+        }
+
+        for(f, COMPONENT_TRANSLATIONS) {
+            distbin.commands += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\ts\\$$f\" \"$$T/translations\")
+        }
     }
 
     distbin.commands += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite\" \"$$T\")
@@ -334,6 +360,41 @@ exists($$INNO) {
         }
     }
 
+    # Types
+    iss.commands += $$mle(echo [Types] >> $$ISS)
+
+    iss.commands += $$mle(echo Name: \"full\"; Description: \"{code:FullInstall}\" >> $$ISS)
+    iss.commands += $$mle(echo Name: \"custom\"; Description: \"{code:CustomInstall}\"; Flags: isCustom >> $$ISS)
+
+    # Components
+    iss.commands += $$mle(echo [Components] >> $$ISS)
+    iss.commands += $$mle(echo Name: "plugins"; Description: \"{code:ReadyMemoComponents}\"; Types: full >> $$ISS)
+
+    for(c, COMPONENTS) {
+        eval(COMPONENT=\$\${COMPONENT$$c})
+        eval(COMPONENT_TYPE=\$\${COMPONENT$${c}_TYPE})
+        eval(COMPONENT_FILES=\$\${COMPONENT$${c}_FILES})
+
+        iss.commands += $$mle(echo Name: \"plugins/$$COMPONENT_TYPE\"; Description: \"$$COMPONENT ($$COMPONENT_FILES)\"; Flags: disablenouninstallwarning; Types: full custom >> $$ISS)
+    }
+
+    # Files of the components
+    iss.commands += $$mle(echo [Files] >> $$ISS)
+
+    for(c, COMPONENTS) {
+        eval(COMPONENT_TYPE=\$\${COMPONENT$${c}_TYPE})
+        eval(COMPONENT_FILES=\$\${COMPONENT$${c}_FILES})
+        eval(COMPONENT_TRANSLATIONS=\$\${COMPONENT$${c}_TRANSLATIONS})
+
+        for(f, COMPONENT_FILES) {
+            iss.commands += $$mle(echo Source: \"$${OUT_PWD}/$(DESTDIR_TARGET)/../$$f\";  DestDir: \"{app}/plugins\"; Flags: ignoreversion; Components: plugins/$$COMPONENT_TYPE >> $$ISS)
+        }
+
+        for(f, COMPONENT_TRANSLATIONS) {
+            iss.commands += $$mle(echo Source: \"$${_PRO_FILE_PWD_}\\ts\\$$f\";  DestDir: \"{app}/translations\"; Flags: ignoreversion; Components: plugins/$$COMPONENT_TYPE >> $$ISS)
+        }
+    }
+
     iss.commands += $$mle(echo [Tasks] >> $$ISS)
     iss.commands += $$mle(echo Name: \"desktopicon\"; Description: \"{cm:CreateDesktopIcon}\"; GroupDescription: \"{cm:AdditionalIcons}\" >> $$ISS)
     iss.commands += $$mle(echo Name: \"quicklaunchicon\"; Description: \"{cm:CreateQuickLaunchIcon}\"; GroupDescription: \"{cm:AdditionalIcons}\"; OnlyBelowVersion: "0,6.1" >> $$ISS)
@@ -344,20 +405,12 @@ exists($$INNO) {
     iss.commands += $$mle(echo Source: \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite\"; DestDir: \"{app}\"; Flags: ignoreversion >> $$ISS)
     iss.commands += $$mle(echo Source: \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite.timestamp\"; DestDir: \"{app}\"; Flags: ignoreversion >> $$ISS)
 
-    for(pl, PLUGINS) {
-        iss.commands += $$mle(echo Source: \"$${OUT_PWD}/$(DESTDIR_TARGET)/../$$pl\"; DestDir: \"{app}/plugins\"; Flags: ignoreversion >> $$ISS)
-    }
-
     for(lc, LICENSES) {
         iss.commands += $$mle(echo Source: \"$${_PRO_FILE_PWD_}\\$$lc\"; DestDir: \"{app}\"; Flags: ignoreversion >> $$ISS)
     }
 
     for(qm, QMFILES) {
         iss.commands += $$mle(echo Source: \"$${_PRO_FILE_PWD_}\\$$qm\"; DestDir: \"{app}/translations\"; Flags: ignoreversion >> $$ISS)
-    }
-
-    for(qm, OTHERQMFILES) {
-        iss.commands += $$mle(echo Source: \"$${_PRO_FILE_PWD_}\\ts\\$$qm\"; DestDir: \"{app}/translations\"; Flags: ignoreversion >> $$ISS)
     }
 
     for(qm, QTQMFILES) {
@@ -424,6 +477,21 @@ exists($$INNO) {
     iss.commands += $$mle(echo       end; >> $$ISS)
     iss.commands += $$mle(echo     end; >> $$ISS)
     iss.commands += $$mle(echo   end; >> $$ISS)
+    iss.commands += $$mle(echo end; >> $$ISS)
+
+    iss.commands += $$mle(echo function FullInstall(Param: String) : String; >> $$ISS)
+    iss.commands += $$mle(echo begin >> $$ISS)
+    iss.commands += $$mle(echo result := SetupMessage(msgFullInstallation); >> $$ISS)
+    iss.commands += $$mle(echo end; >> $$ISS)
+
+    iss.commands += $$mle(echo function CustomInstall(Param: String) : String; >> $$ISS)
+    iss.commands += $$mle(echo begin >> $$ISS)
+    iss.commands += $$mle(echo result := SetupMessage(msgCustomInstallation); >> $$ISS)
+    iss.commands += $$mle(echo end; >> $$ISS)
+
+    iss.commands += $$mle(echo function ReadyMemoComponents(Param: String) : String; >> $$ISS)
+    iss.commands += $$mle(echo begin >> $$ISS)
+    iss.commands += $$mle(echo result := SetupMessage(msgReadyMemoComponents); >> $$ISS)
     iss.commands += $$mle(echo end; >> $$ISS)
 
     QMAKE_EXTRA_TARGETS += iss
