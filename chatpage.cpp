@@ -201,6 +201,12 @@ ChatPage::ChatPage(QXmppClient *client,
 
         m_splitter->setSizes(sizes);
     }
+
+    // context menu for subject lineedit
+    QAction *a;
+    a = new QAction(tr("Set subject..."), ui->lineSubject);
+    connect(a, SIGNAL(triggered()), this, SLOT(slotSetSubject()));
+    ui->lineSubject->addAction(a);
 }
 
 ChatPage::~ChatPage()
@@ -218,6 +224,9 @@ ChatPage::~ChatPage()
 void ChatPage::slotMessageReceived(const QXmppMessage &msg)
 {
     QPair<QString, QString> parsed = formatMessage(msg);
+
+    if(parsed.first.isEmpty() || parsed.second.isEmpty())
+        return;
 
     // show message or save in buffer
     if(m_joinMode)
@@ -470,6 +479,9 @@ void ChatPage::slotMessageDelivered(const QString &jid, const QString &id)
     msg.setFrom(m_room->nickName());
     QPair<QString, QString> parsed = formatMessage(msg);
 
+    if(parsed.second.isEmpty())
+        return;
+
     int index = 1;
     QString nick = jidToNick(jid);
 
@@ -581,6 +593,19 @@ void ChatPage::slotConfigureRoom()
 {
     ConfigureRoom cr(m_room, this);
     cr.exec();
+}
+
+void ChatPage::slotSetSubject()
+{
+    qDebug("Setting subject");
+
+    bool ok;
+    QString subject = QInputDialog::getText(this, tr("Subject"), tr("Subject") + ':', QLineEdit::Normal, ui->lineSubject->text(), &ok);
+
+    if(!ok)
+        return;
+
+    m_room->setSubject(subject);
 }
 
 QString ChatPage::roomName() const
@@ -881,7 +906,14 @@ QPair<QString, QString> ChatPage::formatMessage(const QXmppMessage &msg)
         body = ChatTools::escapeBrackets(msg.body());
 
         if(body.isEmpty())
-            return QPair<QString, QString>();
+        {
+            body = ChatTools::escapeBrackets(msg.subject());
+
+            if(body.isEmpty())
+                return QPair<QString, QString>();
+
+            body = "*** " + tr("New subject:") + ' ' + body;
+        }
 
         // tickers from the industry
         if(m_rxIndustryInfo.exactMatch(body))
