@@ -116,6 +116,11 @@
         <translation>Кікнулі</translation>
     </message>
     <message>
+        <location filename="../chatpage.cpp" line="107"/>
+        <source>Configure room</source>
+        <translation>Налаштувати кімнату</translation>
+    </message>
+    <message>
         <location filename="../chatpage.cpp" line="207"/>
         <location filename="../chatpage.cpp" line="603"/>
         <source>Set subject</source>
@@ -294,11 +299,6 @@
         <translation>Забанити з причини...</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="107"/>
-        <source>Configure room...</source>
-        <translation>Налаштувати кімнату...</translation>
-    </message>
-    <message>
         <location filename="../chatpage.cpp" line="359"/>
         <source>User is available</source>
         <translation>Користувач доступний</translation>
@@ -348,22 +348,22 @@
     <message>
         <location filename="../chatwindow.ui" line="14"/>
         <source>Chat</source>
-        <translation type="unfinished">Чат</translation>
+        <translation>Чат</translation>
     </message>
     <message>
         <location filename="../chatwindow.ui" line="58"/>
         <source>JID:</source>
-        <translation type="unfinished"></translation>
+        <translation>JID:</translation>
     </message>
     <message>
         <location filename="../chatwindow.ui" line="71"/>
         <source>Password:</source>
-        <translation type="unfinished">Пароль:</translation>
+        <translation>Пароль:</translation>
     </message>
     <message>
         <location filename="../chatwindow.ui" line="88"/>
         <source>Sign In</source>
-        <translation type="unfinished"></translation>
+        <translation>Увійти</translation>
     </message>
     <message>
         <location filename="../chatwindow.ui" line="95"/>
@@ -373,22 +373,17 @@
     <message>
         <location filename="../chatwindow.cpp" line="82"/>
         <source>Add room</source>
-        <translation type="unfinished"></translation>
+        <translation>Додати кімнату</translation>
     </message>
     <message>
         <location filename="../chatwindow.cpp" line="86"/>
         <source>Disconnect</source>
-        <translation type="unfinished"></translation>
+        <translation>Відключитися</translation>
     </message>
     <message>
         <location filename="../chatwindow.cpp" line="91"/>
         <source>Options...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../chatwindow.cpp" line="93"/>
-        <source>Help...</source>
-        <translation type="unfinished"></translation>
+        <translation>Налаштування...</translation>
     </message>
     <message>
         <location filename="../chatwindow.cpp" line="171"/>
@@ -396,42 +391,42 @@
         <location filename="../chatwindow.cpp" line="377"/>
         <location filename="../chatwindow.cpp" line="404"/>
         <source>Room</source>
-        <translation type="unfinished"></translation>
+        <translation>Кімната</translation>
     </message>
     <message>
         <location filename="../chatwindow.cpp" line="250"/>
         <source>JID is empty</source>
-        <translation type="unfinished"></translation>
+        <translation>JID порожній</translation>
     </message>
     <message>
         <location filename="../chatwindow.cpp" line="264"/>
         <source>Connecting...</source>
-        <translation type="unfinished"></translation>
+        <translation>Підключення...</translation>
     </message>
     <message>
         <location filename="../chatwindow.cpp" line="273"/>
         <source>Sign in cancelled</source>
-        <translation type="unfinished"></translation>
+        <translation>Вхід скасований</translation>
     </message>
     <message>
         <location filename="../chatwindow.cpp" line="323"/>
-        <source>Socket error</source>
-        <translation type="unfinished"></translation>
+        <source>Network error</source>
+        <translation>Помилка мережі</translation>
     </message>
     <message>
         <location filename="../chatwindow.cpp" line="327"/>
         <source>Keep alive error</source>
-        <translation type="unfinished"></translation>
+        <translation>Помилка підтримки з&apos;єднання</translation>
     </message>
     <message>
         <location filename="../chatwindow.cpp" line="334"/>
         <source>Invalid password</source>
-        <translation type="unfinished"></translation>
+        <translation>Неправильна пароль</translation>
     </message>
     <message>
         <location filename="../chatwindow.cpp" line="338"/>
         <source>Stream error</source>
-        <translation type="unfinished"></translation>
+        <translation>Помилка потоку</translation>
     </message>
     <message>
         <location filename="../chatwindow.cpp" line="344"/>
@@ -439,44 +434,45 @@
         <translation>Невідома помилка</translation>
     </message>
     <message>
+        <location filename="../chatwindow.cpp" line="93"/>
         <location filename="../chatwindow.cpp" line="481"/>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Допомога</translation>
     </message>
     <message>
         <location filename="../chatwindow.cpp" line="491"/>
         <source>Send the ticker &quot;ABC&quot; to the chat. User can click on it and it will be loaded into all the linked windows</source>
-        <translation type="unfinished"></translation>
+        <translation>Послати тікер &quot;ABC&quot; в чат. Користувач може клікнути по ньому і він буде завантажений в усі слінковать вікна</translation>
     </message>
     <message>
         <location filename="../chatwindow.cpp" line="492"/>
         <source>Show the ticker information about the ticker &quot;ABC&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Показати інформацію про тікер &quot;ABC&quot;</translation>
     </message>
     <message>
         <location filename="../chatwindow.cpp" line="493"/>
         <source>Show the tickers from the industry &quot;Gold&quot; (all exchanges, tickers are sorted by capitalization)</source>
-        <translation type="unfinished"></translation>
+        <translation>Показати тікери з індустрії &quot;Gold&quot; (всі біржі, тікери упорядковано капіталізації)</translation>
     </message>
     <message>
         <location filename="../chatwindow.cpp" line="494"/>
         <source>Show the AMEX tickers from the industry &quot;Gold&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Показати AMEX тікери з індустрії &quot;Gold&quot;</translation>
     </message>
     <message>
         <location filename="../chatwindow.cpp" line="495"/>
         <source>Show the NASDAQ tickers from the industry &quot;Gold&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Показати NASDAQ тікери з індустрії &quot;Gold&quot;</translation>
     </message>
     <message>
         <location filename="../chatwindow.cpp" line="496"/>
         <source>Show the NYSE tickers from the industry &quot;Gold&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Показати NYSE тікери з індустрії &quot;Gold&quot;</translation>
     </message>
     <message>
         <location filename="../chatwindow.cpp" line="497"/>
         <source>Show the NYSE and NASDAQ tickers from the industry &quot;Gold&quot; (you can mix exchanges)</source>
-        <translation type="unfinished"></translation>
+        <translation>Показати NYSE і NASDAQ тікери з індустрії &quot;Gold&quot; (ви можете перемішувати біржі)</translation>
     </message>
 </context>
 <context>
@@ -484,87 +480,89 @@
     <message>
         <location filename="../configureroom.ui" line="14"/>
         <source>Configure room</source>
-        <translation type="unfinished"></translation>
+        <translation>Налаштувати кімнату</translation>
     </message>
     <message>
         <location filename="../configureroom.ui" line="24"/>
         <source>Affiliations</source>
-        <translation type="unfinished"></translation>
+        <translation>Учасники</translation>
     </message>
     <message>
         <location filename="../configureroom.ui" line="42"/>
         <source>Reason</source>
-        <translation type="unfinished"></translation>
+        <translation>Причина</translation>
     </message>
     <message>
         <location filename="../configureroom.ui" line="47"/>
         <source>Owners</source>
-        <translation type="unfinished"></translation>
+        <translation>Власники</translation>
     </message>
     <message>
         <location filename="../configureroom.ui" line="69"/>
         <source>Members</source>
-        <translation type="unfinished"></translation>
+        <translation>Зареєстровані</translation>
     </message>
     <message>
         <location filename="../configureroom.ui" line="80"/>
         <source>Banned</source>
-        <translation type="unfinished"></translation>
+        <translation>Забанені</translation>
     </message>
     <message>
         <location filename="../configureroom.ui" line="203"/>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Застосувати</translation>
     </message>
     <message>
         <location filename="../configureroom.ui" line="210"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Закрити</translation>
     </message>
     <message>
         <location filename="../configureroom.ui" line="58"/>
         <source>Administrators</source>
-        <translation type="unfinished"></translation>
+        <translation>Адміністратори</translation>
     </message>
     <message>
         <location filename="../configureroom.ui" line="91"/>
         <source>Other</source>
-        <translation type="unfinished"></translation>
+        <extracomment>In plural. Means &quot;Other affiliations&quot;</extracomment>
+        <translation>Інші</translation>
     </message>
     <message>
         <location filename="../configureroom.ui" line="108"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Додати</translation>
     </message>
     <message>
         <location filename="../configureroom.ui" line="118"/>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Видалити</translation>
     </message>
     <message>
         <location filename="../configureroom.ui" line="139"/>
         <source>General</source>
-        <translation type="unfinished">Загальний</translation>
+        <extracomment>In plural. Means &quot;General options&quot;</extracomment>
+        <translation>Загальні</translation>
     </message>
     <message>
         <location filename="../configureroom.cpp" line="417"/>
         <source>Add affiliation</source>
-        <translation type="unfinished"></translation>
+        <translation>Додати учасника</translation>
     </message>
     <message>
         <location filename="../configureroom.cpp" line="417"/>
         <source>JID:</source>
-        <translation type="unfinished"></translation>
+        <translation>JID:</translation>
     </message>
     <message>
         <location filename="../configureroom.cpp" line="428"/>
         <source>Adding JID</source>
-        <translation type="unfinished"></translation>
+        <translation>Додавання JID</translation>
     </message>
     <message>
         <location filename="../configureroom.cpp" line="428"/>
         <source>JID &quot;%1&quot; is already in this section</source>
-        <translation type="unfinished"></translation>
+        <translation>JID &quot;%1&quot; вже знаходиться в цій секції</translation>
     </message>
 </context>
 <context>

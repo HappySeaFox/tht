@@ -116,6 +116,11 @@
         <translation>Кикнули</translation>
     </message>
     <message>
+        <location filename="../chatpage.cpp" line="107"/>
+        <source>Configure room</source>
+        <translation>Настроить комнату</translation>
+    </message>
+    <message>
         <location filename="../chatpage.cpp" line="207"/>
         <location filename="../chatpage.cpp" line="603"/>
         <source>Set subject</source>
@@ -294,11 +299,6 @@
         <translation>Забанить по причине...</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="107"/>
-        <source>Configure room...</source>
-        <translation>Настроить комнату...</translation>
-    </message>
-    <message>
         <location filename="../chatpage.cpp" line="359"/>
         <source>User is available</source>
         <translation>Пользователь доступен</translation>
@@ -386,11 +386,6 @@
         <translation>Настройки...</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="93"/>
-        <source>Help...</source>
-        <translation>Помощь...</translation>
-    </message>
-    <message>
         <location filename="../chatwindow.cpp" line="171"/>
         <location filename="../chatwindow.cpp" line="220"/>
         <location filename="../chatwindow.cpp" line="377"/>
@@ -415,7 +410,7 @@
     </message>
     <message>
         <location filename="../chatwindow.cpp" line="323"/>
-        <source>Socket error</source>
+        <source>Network error</source>
         <translation>Ошибка сети</translation>
     </message>
     <message>
@@ -439,6 +434,7 @@
         <translation>Неизвестная ошибка</translation>
     </message>
     <message>
+        <location filename="../chatwindow.cpp" line="93"/>
         <location filename="../chatwindow.cpp" line="481"/>
         <source>Help</source>
         <translation>Помощь</translation>
@@ -529,6 +525,7 @@
     <message>
         <location filename="../configureroom.ui" line="91"/>
         <source>Other</source>
+        <extracomment>In plural. Means &quot;Other affiliations&quot;</extracomment>
         <translation>Другие</translation>
     </message>
     <message>
@@ -544,6 +541,7 @@
     <message>
         <location filename="../configureroom.ui" line="139"/>
         <source>General</source>
+        <extracomment>In plural. Means &quot;General options&quot;</extracomment>
         <translation>Общие</translation>
     </message>
     <message>

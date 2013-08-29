@@ -88,7 +88,7 @@
          </item>
          <item>
           <property name="text">
-           <string>Other</string>
+           <string extracomment="In plural. Means &quot;Other affiliations&quot;">Other</string>
           </property>
           <property name="font">
            <font>
@@ -136,7 +136,7 @@
      </widget>
      <widget class="QWidget" name="tab_2">
       <attribute name="title">
-       <string>General</string>
+       <string extracomment="In plural. Means &quot;General options&quot;">General</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout_3">
        <property name="margin">

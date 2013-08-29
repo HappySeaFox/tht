@@ -90,7 +90,7 @@ ChatWindow::ChatWindow(QWidget *parent) :
     m_menu->addSeparator();
     m_menu->addAction(QIcon(":/images/options.png"), tr("Options..."), this, SLOT(slotOptions()));
     m_menu->addSeparator();
-    m_menu->addAction(tr("Help...")  + '\t' + helpShortcut->key().toString(), this, SLOT(slotHelp()));
+    m_menu->addAction(tr("Help") + "..."  + '\t' + helpShortcut->key().toString(), this, SLOT(slotHelp()));
 
     showSignInPage();
 
@@ -320,7 +320,7 @@ void ChatWindow::slotError(QXmppClient::Error error)
     switch(error)
     {
         case QXmppClient::SocketError:
-            err = tr("Socket error");
+            err = tr("Network error");
         break;
 
         case QXmppClient::KeepAliveError:
