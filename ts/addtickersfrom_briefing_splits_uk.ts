@@ -4,12 +4,13 @@
 <context>
     <name>BriefingSplitsDownloader</name>
     <message>
-        <location filename="../briefingsplitsdownloader.cpp" line="27"/>
+        <location filename="../briefingsplitsdownloader.cpp" line="28"/>
         <source>Briefing Stock Splits</source>
+        <extracomment>It&apos;s ok not to translate &quot;Briefing Stock Splits&quot; (e.g. just copy-paste &quot;Briefing Stock Splits&quot; to your translation)</extracomment>
         <translation>Briefing Stock Splits</translation>
     </message>
     <message>
-        <location filename="../briefingsplitsdownloader.cpp" line="28"/>
+        <location filename="../briefingsplitsdownloader.cpp" line="29"/>
         <source>Downloading tickers...</source>
         <translation>Завантаження тікерів...</translation>
     </message>
@@ -17,8 +18,9 @@
 <context>
     <name>BriefingSplitsPlugin</name>
     <message>
-        <location filename="../briefingsplitsplugin.cpp" line="39"/>
+        <location filename="../briefingsplitsplugin.cpp" line="40"/>
         <source>Add from Briefing Stock Splits</source>
+        <extracomment>It&apos;s ok not to translate &quot;Briefing Stock Splits&quot; (e.g. just copy-paste &quot;Briefing Stock Splits&quot; to your translation)</extracomment>
         <translation>Додати з Briefing Stock Splits</translation>
     </message>
 </context>
