@@ -133,6 +133,7 @@ private slots:
     void slotBanNow(const QString &reason = QString());
     void slotBanWithReason();
     void slotConfigureRoom();
+    void slotSetSubject();
 
 private:
     Ui::ChatPage *ui;
