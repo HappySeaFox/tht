@@ -22,6 +22,7 @@
 #include <QMessageBox>
 #include <QGridLayout>
 #include <QListWidget>
+#include <QShortcut>
 #include <QLineEdit>
 #include <QCheckBox>
 #include <QComboBox>
@@ -67,6 +68,15 @@ ConfigureRoom::ConfigureRoom(QXmppMucRoom *room, QWidget *parent) :
 
     connect(ui->tabsConfiguration, SIGNAL(currentChanged(int)), this, SLOT(slotCurrentTabChanged(int)));
     slotCurrentTabChanged(0);
+
+    QShortcut *s;
+
+    // some hotkeys
+    s = new QShortcut(Qt::Key_Delete, ui->treeAffiliations, 0, 0, Qt::WidgetShortcut);
+    connect(s, SIGNAL(activated()), this, SLOT(slotRemoveJid()));
+
+    s = new QShortcut(Qt::Key_Insert, ui->treeAffiliations, 0, 0, Qt::WidgetShortcut);
+    connect(s, SIGNAL(activated()), this, SLOT(slotAddJid()));
 }
 
 ConfigureRoom::~ConfigureRoom()
