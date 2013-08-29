@@ -204,7 +204,7 @@ ChatPage::ChatPage(QXmppClient *client,
 
     // context menu for subject lineedit
     QAction *a;
-    a = new QAction(tr("Set subject..."), ui->lineSubject);
+    a = new QAction(tr("Set subject") + "...", ui->lineSubject);
     connect(a, SIGNAL(triggered()), this, SLOT(slotSetSubject()));
     ui->lineSubject->addAction(a);
 }
@@ -600,7 +600,7 @@ void ChatPage::slotSetSubject()
     qDebug("Setting subject");
 
     bool ok;
-    QString subject = QInputDialog::getText(this, tr("Subject"), tr("Subject") + ':', QLineEdit::Normal, ui->lineSubject->text(), &ok);
+    QString subject = QInputDialog::getText(this, tr("Set subject"), tr("Subject") + ':', QLineEdit::Normal, ui->lineSubject->text(), &ok);
 
     if(!ok)
         return;

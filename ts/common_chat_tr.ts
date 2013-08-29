@@ -117,7 +117,8 @@
     </message>
     <message>
         <location filename="../chatpage.cpp" line="207"/>
-        <source>Set subject...</source>
+        <location filename="../chatpage.cpp" line="603"/>
+        <source>Set subject</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
