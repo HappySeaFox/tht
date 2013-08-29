@@ -20,6 +20,7 @@
 #include <QMessageBox>
 #include <QShortcut>
 #include <QTextEdit>
+#include <QAction>
 #include <QMovie>
 #include <QDebug>
 #include <QMenu>
@@ -78,8 +79,14 @@ ChatWindow::ChatWindow(QWidget *parent) :
     // context menu
     m_menu = new QMenu(this);
 
-    m_menu->addAction(QIcon(":/images/addroom.png"), tr("Add room"), this, SLOT(slotAddTab()));
-    m_menu->addAction(tr("Disconnect"), m_xmppClient, SLOT(disconnectFromServer()));
+    m_actionAddRoom = new QAction(QIcon(":/images/addroom.png"), tr("Add room"), this);
+    connect(m_actionAddRoom, SIGNAL(triggered()), this, SLOT(slotAddTab()));
+    m_menu->addAction(m_actionAddRoom);
+
+    m_actionDisconnect = new QAction(tr("Disconnect"), this);
+    connect(m_actionDisconnect, SIGNAL(triggered()), m_xmppClient, SLOT(disconnectFromServer()));
+    m_menu->addAction(m_actionDisconnect);
+
     m_menu->addSeparator();
     m_menu->addAction(QIcon(":/images/options.png"), tr("Options..."), this, SLOT(slotOptions()));
     m_menu->addSeparator();
@@ -118,6 +125,9 @@ ChatWindow::~ChatWindow()
 void ChatWindow::contextMenuEvent(QContextMenuEvent *e)
 {
     e->accept();
+
+    m_actionAddRoom->setEnabled(m_xmppClient->isConnected());
+    m_actionDisconnect->setEnabled(m_xmppClient->isConnected());
 
     m_menu->exec(e->globalPos());
 }
