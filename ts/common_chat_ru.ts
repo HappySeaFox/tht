@@ -370,110 +370,110 @@
         <translation>Отмена</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="81"/>
+        <location filename="../chatwindow.cpp" line="82"/>
         <source>Add room</source>
         <translation>Добавить комнату</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="82"/>
+        <location filename="../chatwindow.cpp" line="86"/>
         <source>Disconnect</source>
         <translation>Отключиться</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="84"/>
+        <location filename="../chatwindow.cpp" line="91"/>
         <source>Options...</source>
         <translation>Настройки...</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="86"/>
+        <location filename="../chatwindow.cpp" line="93"/>
         <source>Help...</source>
         <translation>Помощь...</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="161"/>
-        <location filename="../chatwindow.cpp" line="210"/>
-        <location filename="../chatwindow.cpp" line="367"/>
-        <location filename="../chatwindow.cpp" line="394"/>
+        <location filename="../chatwindow.cpp" line="171"/>
+        <location filename="../chatwindow.cpp" line="220"/>
+        <location filename="../chatwindow.cpp" line="377"/>
+        <location filename="../chatwindow.cpp" line="404"/>
         <source>Room</source>
         <translation>Комната</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="240"/>
+        <location filename="../chatwindow.cpp" line="250"/>
         <source>JID is empty</source>
         <translation>JID пуст</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="254"/>
+        <location filename="../chatwindow.cpp" line="264"/>
         <source>Connecting...</source>
         <translation>Соединение...</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="263"/>
+        <location filename="../chatwindow.cpp" line="273"/>
         <source>Sign in cancelled</source>
         <translation>Вход отменён</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="313"/>
+        <location filename="../chatwindow.cpp" line="323"/>
         <source>Socket error</source>
         <translation>Ошибка сети</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="317"/>
+        <location filename="../chatwindow.cpp" line="327"/>
         <source>Keep alive error</source>
         <translation>Ошибка поддержания соединения</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="324"/>
+        <location filename="../chatwindow.cpp" line="334"/>
         <source>Invalid password</source>
         <translation>Неверный пароль</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="328"/>
+        <location filename="../chatwindow.cpp" line="338"/>
         <source>Stream error</source>
         <translation>Ошибка потока</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="334"/>
+        <location filename="../chatwindow.cpp" line="344"/>
         <source>Unknown error</source>
         <translation>Неизвестная ошибка</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="471"/>
+        <location filename="../chatwindow.cpp" line="481"/>
         <source>Help</source>
         <translation>Помощь</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="481"/>
+        <location filename="../chatwindow.cpp" line="491"/>
         <source>Send the ticker &quot;ABC&quot; to the chat. User can click on it and it will be loaded into all the linked windows</source>
         <translation>Послать тикер &quot;ABC&quot; в чат. Пользователь может кликнуть по нему и он будет загружен во все слинкованные окна</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="482"/>
+        <location filename="../chatwindow.cpp" line="492"/>
         <source>Show the ticker information about the ticker &quot;ABC&quot;</source>
         <translation>Показать информацию о тикере &quot;ABC&quot;</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="483"/>
+        <location filename="../chatwindow.cpp" line="493"/>
         <source>Show the tickers from the industry &quot;Gold&quot; (all exchanges, tickers are sorted by capitalization)</source>
         <translation>Показать тикеры из индустрии &quot;Gold&quot; (все биржи, тикеры сортируются по капитализации)</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="484"/>
+        <location filename="../chatwindow.cpp" line="494"/>
         <source>Show the AMEX tickers from the industry &quot;Gold&quot;</source>
         <translation>Показать AMEX тикеры из индустрии &quot;Gold&quot;</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="485"/>
+        <location filename="../chatwindow.cpp" line="495"/>
         <source>Show the NASDAQ tickers from the industry &quot;Gold&quot;</source>
         <translation>Показать NASDAQ тикеры из индустрии &quot;Gold&quot;</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="486"/>
+        <location filename="../chatwindow.cpp" line="496"/>
         <source>Show the NYSE tickers from the industry &quot;Gold&quot;</source>
         <translation>Показать NYSE тикеры из индустрии &quot;Gold&quot;</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="487"/>
+        <location filename="../chatwindow.cpp" line="497"/>
         <source>Show the NYSE and NASDAQ tickers from the industry &quot;Gold&quot; (you can mix exchanges)</source>
         <translation>Показать NYSE и NASDAQ тикеры из индустрии &quot;Gold&quot; (вы можете перемешивать биржи)</translation>
     </message>

@@ -22,6 +22,7 @@
 
 #include <QWidget>
 
+class QAction;
 class QMenu;
 
 class QXmppMessageReceiptManager;
@@ -85,6 +86,7 @@ private:
     QXmppMucManager *m_muc;
     QXmppMessageReceiptManager *m_receiptManager;
     QMenu *m_menu;
+    QAction *m_actionAddRoom, *m_actionDisconnect;
 };
 
 #endif // CHATWINDOW_H
