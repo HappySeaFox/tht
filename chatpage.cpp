@@ -104,7 +104,7 @@ ChatPage::ChatPage(QXmppClient *client,
     m_roomMenu = new QMenu(this);
 
     // configure room
-    m_configureRoom = new QAction(tr("Configure room..."), this);
+    m_configureRoom = new QAction(tr("Configure room") + "...", this);
     connect(m_configureRoom, SIGNAL(triggered()), this, SLOT(slotConfigureRoom()));
 
     m_roomMenu->addAction(m_configureRoom);
