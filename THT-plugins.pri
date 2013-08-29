@@ -141,6 +141,7 @@ exists($$INNO) {
     }
 
     iss.commands += $$mle(echo DefaultDirName={pf}\\Trader\'s Home Task >> $$ISS)
+    iss.commands += $$mle(echo DirExistsWarning=no >> $$ISS)
     iss.commands += $$mle(echo DefaultGroupName={$${LITERAL_HASH}MyAppName} >> $$ISS)
 
     exists($$PLUGIN_LICENSE) {
