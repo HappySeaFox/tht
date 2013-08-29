@@ -156,7 +156,7 @@ USEUPX=y
 
 COMPONENT1="Finviz"
 COMPONENT1_TYPE="addtickersfromfinviz"
-COMPONENT1_FILES="addtickersfrom-finviz.dll"
+COMPONENT1_FILES=addtickersfrom-finviz.dll
 COMPONENT1_TRANSLATIONS=addtickersfrom_finviz_en.qm \
                            addtickersfrom_finviz_ru.qm \
                            addtickersfrom_finviz_tr.qm \
@@ -164,7 +164,7 @@ COMPONENT1_TRANSLATIONS=addtickersfrom_finviz_en.qm \
 
 COMPONENT2="Briefing Stock Splits"
 COMPONENT2_TYPE="addtickersfrombriefingsplits"
-COMPONENT2_FILES="addtickersfrom-briefing-splits.dll"
+COMPONENT2_FILES=addtickersfrom-briefing-splits.dll
 COMPONENT2_TRANSLATIONS=addtickersfrom_briefing_splits_en.qm \
                            addtickersfrom_briefing_splits_ru.qm \
                            addtickersfrom_briefing_splits_tr.qm \
@@ -172,7 +172,7 @@ COMPONENT2_TRANSLATIONS=addtickersfrom_briefing_splits_en.qm \
 
 COMPONENT3="FOMC"
 COMPONENT3_TYPE="commonfomc"
-COMPONENT3_FILES="common-fomc.dll"
+COMPONENT3_FILES=common-fomc.dll
 COMPONENT3_TRANSLATIONS=common_fomc_en.qm \
                            common_fomc_ru.qm \
                            common_fomc_tr.qm \
@@ -180,7 +180,7 @@ COMPONENT3_TRANSLATIONS=common_fomc_en.qm \
 
 COMPONENT4="Jabber Chat"
 COMPONENT4_TYPE="commonchat"
-COMPONENT4_FILES="common-chat.dll"
+COMPONENT4_FILES=common-chat.dll
 COMPONENT4_TRANSLATIONS=common_chat_en.qm \
                            common_chat_ru.qm \
                            common_chat_tr.qm \
@@ -375,7 +375,19 @@ exists($$INNO) {
         eval(COMPONENT_TYPE=\$\${COMPONENT$${c}_TYPE})
         eval(COMPONENT_FILES=\$\${COMPONENT$${c}_FILES})
 
-        iss.commands += $$mle(echo Name: \"plugins/$$COMPONENT_TYPE\"; Description: \"$$COMPONENT ($$COMPONENT_FILES)\"; Flags: disablenouninstallwarning; Types: full custom >> $$ISS)
+        SUFFIX=
+        CF=
+
+        for(cf, COMPONENT_FILES) {
+            isEmpty(CF) {
+                CF=$$replace(cf, \\.dll$, "")
+            } else {
+                SUFFIX="..."
+                break()
+            }
+        }
+
+        iss.commands += $$mle(echo Name: \"plugins/$$COMPONENT_TYPE\"; Description: \"$$COMPONENT ($$CF$$SUFFIX)\"; Flags: disablenouninstallwarning; Types: full custom >> $$ISS)
     }
 
     # Files of the components
