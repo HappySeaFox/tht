@@ -24,6 +24,7 @@
 #include <QMapIterator>
 #include <QMessageBox>
 #include <QListWidget>
+#include <QClipboard>
 #include <QScrollBar>
 #include <QDateTime>
 #include <QKeyEvent>
@@ -107,6 +108,8 @@ ChatPage::ChatPage(QXmppClient *client,
     m_configureRoom = new QAction(tr("Configure room") + "...", this);
     connect(m_configureRoom, SIGNAL(triggered()), this, SLOT(slotConfigureRoom()));
 
+    m_roomMenu->addAction(tr("Copy room JID"), this, SLOT(slotCopyRoomJid()));
+    m_roomMenu->addSeparator();
     m_roomMenu->addAction(m_configureRoom);
 
     // General discussion
@@ -606,6 +609,12 @@ void ChatPage::slotSetSubject()
         return;
 
     m_room->setSubject(subject);
+}
+
+void ChatPage::slotCopyRoomJid()
+{
+    if(m_room)
+        QApplication::clipboard()->setText(m_room->jid());
 }
 
 QString ChatPage::roomName() const
