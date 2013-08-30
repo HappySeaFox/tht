@@ -11,7 +11,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT *= widgets
 
 NVER1=0
 NVER2=9
-NVER3=1
+NVER3=2
 
 LIBS += -ldnsapi -lws2_32
 
