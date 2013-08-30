@@ -134,6 +134,7 @@ private slots:
     void slotBanWithReason();
     void slotConfigureRoom();
     void slotSetSubject();
+    void slotCopyRoomJid();
 
 private:
     Ui::ChatPage *ui;
