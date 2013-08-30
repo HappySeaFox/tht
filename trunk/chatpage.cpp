@@ -912,7 +912,7 @@ QPair<QString, QString> ChatPage::formatMessage(const QXmppMessage &msg)
             if(body.isEmpty())
                 return QPair<QString, QString>();
 
-            body = "*** " + tr("New subject:") + ' ' + body;
+            body = "*** " + tr("New subject:") + ' ' + body + " ***";
         }
 
         // tickers from the industry
