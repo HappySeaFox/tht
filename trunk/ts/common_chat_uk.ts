@@ -270,7 +270,7 @@
     <message>
         <location filename="../chatpage.cpp" line="803"/>
         <source>Messages: %1</source>
-        <translation>Повідомлення: %1</translation>
+        <translation>Повідомлень: %1</translation>
     </message>
     <message>
         <location filename="../chatpage.cpp" line="378"/>
