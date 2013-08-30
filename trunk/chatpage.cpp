@@ -753,10 +753,12 @@ void ChatPage::setJoinMode(bool jm)
 
 void ChatPage::appendError(const QString &s)
 {
+    QString msg = "<font color=red><b>" + s + "</b></font>";
+
     if(m_joinMode)
-        ui->labelStatus->setText("<font color=red><b>" + s + "</b></font>");
+        ui->labelStatus->setText(msg);
     else
-        m_generalMessages->append("<font color=red><b>" + s + "</b></font>");
+        m_generalMessages->append(msg);
 }
 
 QString ChatPage::errorToString(const QXmppStanza::Error &error)

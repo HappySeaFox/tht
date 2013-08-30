@@ -99,12 +99,12 @@
         <translation>Капіталізація:</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="924"/>
+        <location filename="../chatpage.cpp" line="926"/>
         <source>New subject:</source>
         <translation>Нова тема:</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="1048"/>
+        <location filename="../chatpage.cpp" line="1050"/>
         <source>mln</source>
         <extracomment>Means &quot;million&quot;</extracomment>
         <translation>млн</translation>
@@ -158,123 +158,123 @@
         <translation>JID користувача &quot;%1&quot; не знайдене</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="766"/>
+        <location filename="../chatpage.cpp" line="768"/>
         <source>Bad request</source>
         <translation>Неправильна запит</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="767"/>
+        <location filename="../chatpage.cpp" line="769"/>
         <source>User conflict</source>
         <translation>Конфлікт користувачів</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="768"/>
+        <location filename="../chatpage.cpp" line="770"/>
         <source>Feature not implemented</source>
         <translation>Можливість не реалізована</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="769"/>
+        <location filename="../chatpage.cpp" line="771"/>
         <source>Forbidden</source>
         <translation>Заборонено</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="771"/>
+        <location filename="../chatpage.cpp" line="773"/>
         <source>Internal server error</source>
         <translation>Внутрішня помилка сервера</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="772"/>
+        <location filename="../chatpage.cpp" line="774"/>
         <source>Item not found</source>
         <translation>Елемент не знайдено</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="773"/>
+        <location filename="../chatpage.cpp" line="775"/>
         <source>JID is malformed</source>
         <translation>JID має невірний формат</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="774"/>
+        <location filename="../chatpage.cpp" line="776"/>
         <source>Not acceptable</source>
         <translation>Неприйнятний запит</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="775"/>
+        <location filename="../chatpage.cpp" line="777"/>
         <source>Not allowed</source>
         <translation>Не допускається</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="776"/>
+        <location filename="../chatpage.cpp" line="778"/>
         <source>Not authorized</source>
         <translation>Не авторизований</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="777"/>
+        <location filename="../chatpage.cpp" line="779"/>
         <source>Payment required</source>
         <translation>Потрібен платіж</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="778"/>
+        <location filename="../chatpage.cpp" line="780"/>
         <source>Recipient is unavailable</source>
         <translation>Одержувач недоступний</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="779"/>
+        <location filename="../chatpage.cpp" line="781"/>
         <source>Redirect</source>
         <translation>Перенаправлення</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="780"/>
+        <location filename="../chatpage.cpp" line="782"/>
         <source>Registration required</source>
         <translation>Потрібна реєстрація</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="781"/>
+        <location filename="../chatpage.cpp" line="783"/>
         <source>Remote server is not found</source>
         <translation>Віддалений сервер не знайдений</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="782"/>
+        <location filename="../chatpage.cpp" line="784"/>
         <source>Remote server timeout</source>
         <translation>Віддалений сервер не відповідає</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="783"/>
+        <location filename="../chatpage.cpp" line="785"/>
         <source>Resource constraint</source>
         <translation>Вичерпання ресурсів</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="784"/>
+        <location filename="../chatpage.cpp" line="786"/>
         <source>Service is unavailable</source>
         <translation>Сервіс недоступний</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="785"/>
+        <location filename="../chatpage.cpp" line="787"/>
         <source>Subscription required</source>
         <translation>Потрібен підписка</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="786"/>
+        <location filename="../chatpage.cpp" line="788"/>
         <source>Undefined condition</source>
         <translation>Невідоме умова</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="787"/>
+        <location filename="../chatpage.cpp" line="789"/>
         <source>Unexpected request</source>
         <translation>Непередбачений запит</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="790"/>
+        <location filename="../chatpage.cpp" line="792"/>
         <source>Unknown error</source>
         <translation>Невідома помилка</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="803"/>
+        <location filename="../chatpage.cpp" line="805"/>
         <source>Messages: %1</source>
         <translation>Повідомлень: %1</translation>
     </message>
     <message>
         <location filename="../chatpage.cpp" line="378"/>
-        <location filename="../chatpage.cpp" line="854"/>
+        <location filename="../chatpage.cpp" line="856"/>
         <source>User is not available</source>
         <translation>Користувач недоступний</translation>
     </message>
@@ -319,23 +319,23 @@
         <translation>Забанити</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="770"/>
+        <location filename="../chatpage.cpp" line="772"/>
         <source>User has gone</source>
         <translation>Користувач вийшов</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="1010"/>
+        <location filename="../chatpage.cpp" line="1012"/>
         <source>industry is not found</source>
         <translation>промисловість не знайдена</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="1044"/>
+        <location filename="../chatpage.cpp" line="1046"/>
         <source>bln</source>
         <extracomment>Means &quot;billion&quot; (1000*million)</extracomment>
         <translation>млрд</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="1067"/>
+        <location filename="../chatpage.cpp" line="1069"/>
         <source>ticker is not found</source>
         <translation>тікер не знайдене</translation>
     </message>
