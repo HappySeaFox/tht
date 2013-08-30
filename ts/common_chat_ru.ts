@@ -505,7 +505,7 @@
     <message>
         <location filename="../configureroom.ui" line="80"/>
         <source>Banned</source>
-        <translation>Забаненые</translation>
+        <translation>Забаненные</translation>
     </message>
     <message>
         <location filename="../configureroom.ui" line="203"/>
