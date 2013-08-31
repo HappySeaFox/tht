@@ -550,22 +550,22 @@
         <translation>Загальні</translation>
     </message>
     <message>
-        <location filename="../configureroom.cpp" line="417"/>
+        <location filename="../configureroom.cpp" line="423"/>
         <source>Add affiliation</source>
         <translation>Додати учасника</translation>
     </message>
     <message>
-        <location filename="../configureroom.cpp" line="417"/>
+        <location filename="../configureroom.cpp" line="423"/>
         <source>JID:</source>
         <translation>JID:</translation>
     </message>
     <message>
-        <location filename="../configureroom.cpp" line="428"/>
+        <location filename="../configureroom.cpp" line="434"/>
         <source>Adding JID</source>
         <translation>Додавання JID</translation>
     </message>
     <message>
-        <location filename="../configureroom.cpp" line="428"/>
+        <location filename="../configureroom.cpp" line="434"/>
         <source>JID &quot;%1&quot; is already in this section</source>
         <translation>JID &quot;%1&quot; вже знаходиться в цій секції</translation>
     </message>
