@@ -33,6 +33,8 @@
 
 #include "QXmppMucManager.h"
 
+#include "noeditordelegate.h"
+
 #include "configureroom.h"
 #include "ui_configureroom.h"
 
@@ -55,6 +57,7 @@ ConfigureRoom::ConfigureRoom(QXmppMucRoom *room, QWidget *parent) :
     ui->treeAffiliations->header()->setResizeMode(QHeaderView::ResizeToContents);
 #endif
 
+    ui->treeAffiliations->setItemDelegateForColumn(1, new NoEditorDelegate(ui->treeAffiliations));
     ui->treeAffiliations->topLevelItem(0)->setData(0, Qt::UserRole, QXmppMucItem::OwnerAffiliation);
     ui->treeAffiliations->topLevelItem(1)->setData(0, Qt::UserRole, QXmppMucItem::AdminAffiliation);
     ui->treeAffiliations->topLevelItem(2)->setData(0, Qt::UserRole, QXmppMucItem::MemberAffiliation);
@@ -276,7 +279,8 @@ void ConfigureRoom::slotPermissionsReceived(const QList<QXmppMucItem> &list)
             break;
         }
 
-        new QTreeWidgetItem(item, QStringList() << i.jid() << i.reason());
+        QTreeWidgetItem *item2 = new QTreeWidgetItem(item, QStringList() << i.jid() << i.reason());
+        item2->setFlags(item2->flags() | Qt::ItemIsEditable);
     }
 
     int index = 0;
@@ -438,7 +442,8 @@ void ConfigureRoom::slotAddJid()
 
     m_affiliationsChanged = true;
 
-    new QTreeWidgetItem(item, QStringList() << jid);
+    QTreeWidgetItem *item2 = new QTreeWidgetItem(item, QStringList() << jid);
+    item2->setFlags(item2->flags() | Qt::ItemIsEditable);
 }
 
 void ConfigureRoom::slotRemoveJid()

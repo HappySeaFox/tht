@@ -44,7 +44,6 @@ SOURCES += main.cpp\
     plugindetails.cpp \
     persistentselectiondelegate.cpp \
     masterdataevent.cpp \
-    noeditordelegate.cpp \
     qtdropbox/qdropboxjson.cpp \
     qtdropbox/qdropboxfileinfo.cpp \
     qtdropbox/qdropboxfile.cpp \
@@ -88,7 +87,6 @@ HEADERS += tht.h \
     plugindetails.h \
     persistentselectiondelegate.h \
     masterdataevent.h \
-    noeditordelegate.h \
     qtdropbox/qtdropbox_global.h \
     qtdropbox/qtdropbox.h \
     qtdropbox/qdropboxjson.h \
