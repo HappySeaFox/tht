@@ -550,22 +550,22 @@
         <translation>Общие</translation>
     </message>
     <message>
-        <location filename="../configureroom.cpp" line="423"/>
+        <location filename="../configureroom.cpp" line="427"/>
         <source>Add affiliation</source>
         <translation>Добавить участника</translation>
     </message>
     <message>
-        <location filename="../configureroom.cpp" line="423"/>
+        <location filename="../configureroom.cpp" line="427"/>
         <source>JID:</source>
         <translation>JID:</translation>
     </message>
     <message>
-        <location filename="../configureroom.cpp" line="434"/>
+        <location filename="../configureroom.cpp" line="438"/>
         <source>Adding JID</source>
         <translation>Добавление JID</translation>
     </message>
     <message>
-        <location filename="../configureroom.cpp" line="434"/>
+        <location filename="../configureroom.cpp" line="438"/>
         <source>JID &quot;%1&quot; is already in this section</source>
         <translation>JID &quot;%1&quot; уже находится в этой секции</translation>
     </message>
