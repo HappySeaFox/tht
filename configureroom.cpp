@@ -184,10 +184,18 @@ void ConfigureRoom::setKey(QWidget *w, const QString &key)
     w->setProperty("data-form-key", key);
 }
 
-void ConfigureRoom::stopLoadingMovie()
+void ConfigureRoom::loadingMovie(bool on)
 {
-    ui->labelLoading->hide();
-    m_loadingMovie->stop();
+    if(on)
+    {
+        ui->labelLoading->show();
+        m_loadingMovie->start();
+    }
+    else
+    {
+        ui->labelLoading->hide();
+        m_loadingMovie->stop();
+    }
 }
 
 QLineEdit *ConfigureRoom::addLineEdit(QBoxLayout *layout, const QString &label, const QString &value) const
@@ -218,8 +226,7 @@ QTextEdit *ConfigureRoom::addTextEdit(QBoxLayout *layout, const QString &label, 
 
 void ConfigureRoom::slotCurrentTabChanged(int index)
 {
-    ui->labelLoading->show();
-    m_loadingMovie->start();
+    loadingMovie(true);
 
     if(!index)
     {
@@ -247,7 +254,6 @@ void ConfigureRoom::slotCurrentTabChanged(int index)
         generalWidget->setLayout(vlayout);
         ui->scrollArea->setWidget(generalWidget);
         generalWidget->show();
-
         qDebug("Configuration request sent: %s", m_room->requestConfiguration() ? "yes" : "no");
     }
 }
@@ -281,7 +287,7 @@ void ConfigureRoom::slotPermissionsReceived(const QList<QXmppMucItem> &list)
         item->setExpanded(true);
     }
 
-    stopLoadingMovie();
+    loadingMovie(false);
 }
 
 void ConfigureRoom::slotConfigurationReceived(const QXmppDataForm &df)
@@ -398,7 +404,7 @@ void ConfigureRoom::slotConfigurationReceived(const QXmppDataForm &df)
         }
     }
 
-    stopLoadingMovie();
+    loadingMovie(false);
 }
 
 void ConfigureRoom::slotAddJid()
@@ -463,13 +469,17 @@ void ConfigureRoom::slotApply()
     if(!m_room)
         return;
 
-    qDebug("Saving configuration");
-
     if(m_affiliationsChanged)
+    {
+        qDebug("Saving permissions");
         m_room->setPermissions(permissions());
+    }
 
     QXmppDataForm df = configuration();
 
     if(df.type() == QXmppDataForm::Submit)
-        m_room->setConfiguration(configuration());
+    {
+        qDebug("Saving room configuration");
+        m_room->setConfiguration(df);
+    }
 }

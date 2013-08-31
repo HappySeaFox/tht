@@ -49,7 +49,7 @@ private:
     QList<QXmppMucItem> permissions() const;
     QXmppDataForm configuration() const;
     void setKey(QWidget *w, const QString &key);
-    void stopLoadingMovie();
+    void loadingMovie(bool);
     QLineEdit *addLineEdit(QBoxLayout *layout, const QString &label, const QString &value) const;
     QTextEdit *addTextEdit(QBoxLayout *layout, const QString &label, const QString &value) const;
 
