@@ -18,6 +18,7 @@
 #include <QDesktopServices>
 #include <QMessageBox>
 #include <QTimer>
+#include <QDebug>
 #include <QUrl>
 
 #include "qdropboxaccount.h"
@@ -166,7 +167,7 @@ void DropBoxUploader::slotTokenExpired()
 
 void DropBoxUploader::slotErrorOccured(QDropbox::Error error)
 {
-    qDebug("Dropbox error #%d", error);
+    qDebug("Dropbox error #%d in state %d", error, m_state);
 
     if(error == QDropbox::TokenExpired && m_state != RequestingToken)
         QTimer::singleShot(0, this, SLOT(slotDelayedTokenRequest()));
@@ -183,7 +184,10 @@ void DropBoxUploader::slotDelayedTokenRequest()
     m_state = RequestingToken;
 
     SETTINGS_SET_STRING(SETTING_DROPBOX_TOKEN, QString(), Settings::NoSync);
-    SETTINGS_SET_STRING(SETTING_DROPBOX_TOKEN_SECRET, QString());
+    SETTINGS_SET_STRING(SETTING_DROPBOX_TOKEN_SECRET, QString(), Settings::NoSync);
+
+    SETTINGS_SET_STRING(SETTING_DROPBOX_ACCESS_TOKEN, QString(), Settings::NoSync);
+    SETTINGS_SET_STRING(SETTING_DROPBOX_ACCESS_TOKEN_SECRET, QString());
 
     m_api->setToken(QString());
     m_api->setTokenSecret(QString());
