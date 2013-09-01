@@ -47,18 +47,22 @@ DropBoxUploader::DropBoxUploader(const QString &fileName, const QByteArray &bina
     connect(m_api, SIGNAL(tokenExpired()), this, SLOT(slotTokenExpired()));
     connect(m_api, SIGNAL(errorOccured(QDropbox::Error)), this, SLOT(slotErrorOccured(QDropbox::Error)));
 
-    if(SETTINGS_GET_STRING(SETTING_DROPBOX_TOKEN).isEmpty())
+    QString t = SETTINGS_GET_STRING(SETTING_DROPBOX_TOKEN);
+
+    if(t.isEmpty())
         QTimer::singleShot(0, this, SLOT(slotDelayedTokenRequest()));
     else
     {
-        m_api->setToken(SETTINGS_GET_STRING(SETTING_DROPBOX_TOKEN));
+        m_api->setToken(t);
         m_api->setTokenSecret(SETTINGS_GET_STRING(SETTING_DROPBOX_TOKEN_SECRET));
 
-        if(SETTINGS_GET_STRING(SETTING_DROPBOX_ACCESS_TOKEN).isEmpty())
+        t = SETTINGS_GET_STRING(SETTING_DROPBOX_ACCESS_TOKEN);
+
+        if(t.isEmpty())
             QTimer::singleShot(0, this, SLOT(slotDelayedAccessTokenRequest()));
         else
         {
-            m_api->setToken(SETTINGS_GET_STRING(SETTING_DROPBOX_ACCESS_TOKEN));
+            m_api->setToken(t);
             m_api->setTokenSecret(SETTINGS_GET_STRING(SETTING_DROPBOX_ACCESS_TOKEN_SECRET));
 
             QTimer::singleShot(0, this, SLOT(slotDelayedWork()));
