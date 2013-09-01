@@ -77,7 +77,7 @@
     <name>DropBoxUploader</name>
     <message>
         <location filename="../dropboxuploader.ui" line="14"/>
-        <location filename="../dropboxuploader.cpp" line="120"/>
+        <location filename="../dropboxuploader.cpp" line="124"/>
         <source>Dropbox</source>
         <translation>Dropbox</translation>
     </message>
@@ -87,108 +87,108 @@
         <translation>Отмена</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="78"/>
+        <location filename="../dropboxuploader.cpp" line="82"/>
         <source>Network error</source>
         <translation>Ошибка сети</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="79"/>
+        <location filename="../dropboxuploader.cpp" line="83"/>
         <source>Used API version is not supported</source>
         <translation>Использованная версия API не поддерживается</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="80"/>
+        <location filename="../dropboxuploader.cpp" line="84"/>
         <source>Used authentication method is not supported</source>
         <translation>Использованный метод проверки подлинности не поддерживается</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="81"/>
+        <location filename="../dropboxuploader.cpp" line="85"/>
         <source>Unexpected response</source>
         <translation>Непредвиденный ответ</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="82"/>
+        <location filename="../dropboxuploader.cpp" line="86"/>
         <source>API error</source>
         <translation>Ошибка API</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="83"/>
+        <location filename="../dropboxuploader.cpp" line="87"/>
         <source>Unknown query method</source>
         <translation>Неизвестный метод запроса</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="84"/>
+        <location filename="../dropboxuploader.cpp" line="88"/>
         <source>Bad parameter</source>
         <translation>Некорректный параметр</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="85"/>
+        <location filename="../dropboxuploader.cpp" line="89"/>
         <source>Bad oAuth request</source>
         <translation>Некорректный запрос oAuth</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="86"/>
+        <location filename="../dropboxuploader.cpp" line="90"/>
         <source>Bad HTTP method</source>
         <translation>Некорректный HTTP метод</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="87"/>
+        <location filename="../dropboxuploader.cpp" line="91"/>
         <source>Maximum amount of requests exceeded</source>
         <translation>Исчерпано максимально допустимое количество запросов</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="88"/>
+        <location filename="../dropboxuploader.cpp" line="92"/>
         <source>Quota exceeded</source>
         <translation>Превышена квота</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="89"/>
+        <location filename="../dropboxuploader.cpp" line="93"/>
         <source>Token has expired</source>
         <translation>Маркер истёк</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="92"/>
+        <location filename="../dropboxuploader.cpp" line="96"/>
         <source>Unknown error</source>
         <translation>Неизвестная ошибка</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="158"/>
+        <location filename="../dropboxuploader.cpp" line="162"/>
         <source>Cannot get the link to the file</source>
         <translation>Невозможно получить ссылку на файл</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="180"/>
+        <location filename="../dropboxuploader.cpp" line="184"/>
         <source>Requesting new token...</source>
         <translation>Запрос нового маркера...</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="200"/>
+        <location filename="../dropboxuploader.cpp" line="204"/>
         <source>Requesting new access token...</source>
         <translation>Запрос нового маркера на доступ...</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="214"/>
+        <location filename="../dropboxuploader.cpp" line="218"/>
         <source>Uploading...</source>
         <translation>Загрузка...</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="232"/>
+        <location filename="../dropboxuploader.cpp" line="236"/>
         <source>Requesting link...</source>
         <translation>Запрос ссылки...</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="226"/>
-        <location filename="../dropboxuploader.cpp" line="239"/>
+        <location filename="../dropboxuploader.cpp" line="230"/>
+        <location filename="../dropboxuploader.cpp" line="243"/>
         <source>Cannot upload file (%1)</source>
         <translation>Невозможно загрузить файл (%1)</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="121"/>
+        <location filename="../dropboxuploader.cpp" line="125"/>
         <source>You need to authorize THT in your Dropbox account. Click &apos;OK&apos; to open the link in browser. After that open this dialog again</source>
         <translation>Вам необходимо авторизовать THT в вашем профиле Dropbox. Нажмите &apos;OK&apos; чтобы открыть ссылку в браузере. После этого откройте данный диалог снова</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="245"/>
+        <location filename="../dropboxuploader.cpp" line="249"/>
         <source>Close</source>
         <translation>Закрыть</translation>
     </message>
