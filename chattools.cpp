@@ -65,15 +65,7 @@ void ChatTools::init()
 
 QString ChatTools::cssForLinks()
 {
-    QList<QColor> colors = ChatTools::colors();
-    QString css;
-
-    foreach(QColor c, colors)
-    {
-        QString name = c.name();
-        css += QString("a.%1 {color: %2;}\n").arg(QString(name).replace(0, 1, 'c')).arg(name);
-    }
-
+    static QString css = ChatTools::cssForLinksReal();
     return css;
 }
 
@@ -106,3 +98,21 @@ QString ChatTools::escapeBrackets(const QString &plain)
 
 ChatTools::ChatTools()
 {}
+
+QString ChatTools::cssForLinksReal()
+{
+    QList<QColor> colors = ChatTools::colors();
+    QString css;
+
+    css.reserve(28 * colors.size());
+
+    foreach(QColor c, colors)
+    {
+        QString name = c.name();
+        css += QString("a.%1 {color: %2;}\n").arg(QString(name).replace(0, 1, 'c')).arg(name);
+    }
+
+    css.squeeze();
+
+    return css;
+}
