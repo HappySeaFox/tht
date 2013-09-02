@@ -356,24 +356,29 @@
         <translation>Чат</translation>
     </message>
     <message>
-        <location filename="../chatwindow.ui" line="58"/>
+        <location filename="../chatwindow.ui" line="45"/>
         <source>JID:</source>
         <translation>JID:</translation>
     </message>
     <message>
-        <location filename="../chatwindow.ui" line="71"/>
+        <location filename="../chatwindow.ui" line="58"/>
         <source>Password:</source>
         <translation>Пароль:</translation>
     </message>
     <message>
-        <location filename="../chatwindow.ui" line="88"/>
+        <location filename="../chatwindow.ui" line="75"/>
         <source>Sign In</source>
         <translation>Увійти</translation>
     </message>
     <message>
-        <location filename="../chatwindow.ui" line="95"/>
+        <location filename="../chatwindow.ui" line="82"/>
         <source>Cancel</source>
         <translation>Відміна</translation>
+    </message>
+    <message>
+        <location filename="../chatwindow.ui" line="117"/>
+        <source>Based on &lt;a href=&quot;http://xmpp.org&quot;&gt;XMPP&lt;/a&gt;</source>
+        <translation>На основі &lt;a href=&quot;http://xmpp.org&quot;&gt;XMPP&lt;/a&gt;</translation>
     </message>
     <message>
         <location filename="../chatwindow.cpp" line="82"/>

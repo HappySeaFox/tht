@@ -356,23 +356,28 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.ui" line="58"/>
+        <location filename="../chatwindow.ui" line="45"/>
         <source>JID:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.ui" line="71"/>
+        <location filename="../chatwindow.ui" line="58"/>
         <source>Password:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.ui" line="88"/>
+        <location filename="../chatwindow.ui" line="75"/>
         <source>Sign In</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.ui" line="95"/>
+        <location filename="../chatwindow.ui" line="82"/>
         <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../chatwindow.ui" line="117"/>
+        <source>Based on &lt;a href=&quot;http://xmpp.org&quot;&gt;XMPP&lt;/a&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
