@@ -51,6 +51,8 @@ public:
 private:
     ChatTools();
 
+    static QString cssForLinksReal();
+
     static QList<QColor> m_colors;
     static QList<QColor> m_tempColors;
     static QRegExp m_rxLink;
