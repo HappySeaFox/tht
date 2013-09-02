@@ -264,12 +264,12 @@ QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite
         distbin.commands += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\$$qm\" \"$$T/translations\")
     }
 
-    for(qm, OTHERQMFILES) {
-        distbin.commands += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\ts\\$$qm\" \"$$T/translations\")
-    }
-
     for(qm, QTQMFILES) {
         distbin.commands += $$mle(copy /y \"$$[QT_INSTALL_TRANSLATIONS]\\$$qm\" \"$$T/translations\")
+    }
+
+    for(qm, OTHERQMFILES) {
+        distbin.commands += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\ts\\$$qm\" \"$$T/translations\")
     }
 
     for(lc, LICENSES) {
@@ -425,6 +425,10 @@ exists($$INNO) {
 
     for(qm, QTQMFILES) {
         iss.commands += $$mle(echo Source: \"$$[QT_INSTALL_TRANSLATIONS]\\$$qm\"; DestDir: \"{app}/translations\"; Flags: ignoreversion >> $$ISS)
+    }
+
+    for(qm, OTHERQMFILES) {
+        iss.commands += $$mle(echo Source: \"$${_PRO_FILE_PWD_}\\ts\\$$qm\"; DestDir: \"{app}/translations\"; Flags: ignoreversion >> $$ISS)
     }
 
     for(ql, QTLIBS) {
