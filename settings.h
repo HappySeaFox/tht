@@ -182,6 +182,11 @@ public:
     bool contains(const QString &key) const;
 
     /*
+     *  Remove the specified key
+     */
+    void remove(const QString &key, SyncType sync = Sync);
+
+    /*
      *  Sync with the storage
      */
     void sync();

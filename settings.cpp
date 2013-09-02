@@ -413,6 +413,18 @@ bool Settings::contains(const QString &key) const
     return d->settings->contains(key);
 }
 
+void Settings::remove(const QString &key, Settings::SyncType sync)
+{
+    QSettings *s = settings();
+
+    s->beginGroup("settings");
+    s->remove(key);
+    s->endGroup();
+
+    if(sync == Sync)
+        s->sync();
+}
+
 QMap<QString, QString> Settings::translations()
 {
     if(d->translations.isEmpty())
