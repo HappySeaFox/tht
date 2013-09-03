@@ -653,7 +653,7 @@ Open the room now?</source>
     </message>
     <message>
         <location filename="../sendinvitations.cpp" line="84"/>
-        <source>Please remember that the server can decline invitations depending on its configuration</source>
+        <source>Please remember that the server can decline your invitations depending on its configuration</source>
         <translation>Пожалуйста помните, что сервер может отклонить ваши приглашения в зависимости от его настроек</translation>
     </message>
 </context>
