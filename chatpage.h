@@ -162,7 +162,6 @@ private:
     QMenu *m_roomMenu;
     QAction *m_kickNow, *m_kickWithReason;
     QAction *m_banNow, *m_banWithReason;
-    QAction *m_sendInvitations;
     QAction *m_configureRoom;
 };
 

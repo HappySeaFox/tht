@@ -109,11 +109,8 @@ ChatPage::ChatPage(QXmppClient *client,
     m_configureRoom = new QAction(tr("Configure room") + "...", this);
     connect(m_configureRoom, SIGNAL(triggered()), this, SLOT(slotConfigureRoom()));
 
-    m_sendInvitations = new QAction(tr("Send invitations") + "...", this);
-    connect(m_sendInvitations, SIGNAL(triggered()), this, SLOT(slotSendInvitations()));
-
     m_roomMenu->addAction(tr("Copy room JID"), this, SLOT(slotCopyRoomJid()));
-    m_roomMenu->addAction(m_sendInvitations);
+    m_roomMenu->addAction(tr("Send invitations") + "...", this, SLOT(slotSendInvitations()));
     m_roomMenu->addSeparator();
     m_roomMenu->addAction(m_configureRoom);
 
@@ -1171,7 +1168,6 @@ void ChatPage::enableKickActions(bool enab)
 
 void ChatPage::enableAdminActions(bool enab)
 {
-    m_sendInvitations->setEnabled(enab);
     m_banNow->setEnabled(enab);
     m_banWithReason->setEnabled(enab);
 }

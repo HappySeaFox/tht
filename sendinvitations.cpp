@@ -16,13 +16,18 @@
  */
 
 #include <QStringList>
+#include <QMessageBox>
+#include <QTimer>
 
 #include "sendinvitations.h"
+#include "chatsettings.h"
 #include "ui_sendinvitations.h"
 
 #include "QXmppMucManager.h"
 #include "QXmppMessage.h"
 #include "QXmppClient.h"
+
+#include "settings.h"
 
 SendInvitations::SendInvitations(QXmppMucRoom *room, QXmppClient *client, QWidget *parent) :
     QDialog(parent),
@@ -31,6 +36,9 @@ SendInvitations::SendInvitations(QXmppMucRoom *room, QXmppClient *client, QWidge
     m_xmppClient(client)
 {
     ui->setupUi(this);
+
+    if(!SETTINGS_GET_BOOL(SETTING_CHAT_INVITATIONS_NOTE_SEEN))
+        QTimer::singleShot(0, this, SLOT(slotHelpMessage()));
 }
 
 SendInvitations::~SendInvitations()
@@ -60,8 +68,18 @@ void SendInvitations::slotSend()
         if(!m_room->password().isEmpty())
             message.setBody(QString("Password: %1").arg(m_room->password()));
 
-        m_xmppClient->sendPacket(message);
+        if(!m_xmppClient->sendPacket(message))
+        {
+            QMessageBox::critical(this, tr("Error"), tr("Error sending invitation to %1").arg(jid));
+            break;
+        }
     }
 
     ui->pushSend->setEnabled(true);
+}
+
+void SendInvitations::slotHelpMessage()
+{
+    SETTINGS_SET_BOOL(SETTING_CHAT_INVITATIONS_NOTE_SEEN, true);
+    QMessageBox::information(this, tr("Information"), tr("Please remember that the server can decline invitations depending on its configuration"));
 }
