@@ -28,6 +28,7 @@ class QMenu;
 class QXmppMessageReceiptManager;
 class QXmppMucManager;
 class QXmppPresence;
+class QXmppMessage;
 
 class ChatPage;
 
@@ -69,6 +70,7 @@ private slots:
     void slotError(QXmppClient::Error = QXmppClient::SocketError);
     void slotConnected();
     void slotDisconnected();
+    void slotMessageReceived(const QXmppMessage &);
     void slotAddTab();
     void slotTabCloseRequested(int);
     void slotJoined(const QString &roomName);

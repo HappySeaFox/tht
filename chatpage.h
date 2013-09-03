@@ -77,6 +77,8 @@ public:
 
     void presenceChanged(const QXmppPresence &presence);
 
+    bool isJoined() const;
+
 protected:
     virtual bool eventFilter(QObject *obj, QEvent *event);
 
@@ -135,6 +137,7 @@ private slots:
     void slotConfigureRoom();
     void slotSetSubject();
     void slotCopyRoomJid();
+    void slotSendInvitations();
 
 private:
     Ui::ChatPage *ui;
@@ -159,6 +162,7 @@ private:
     QMenu *m_roomMenu;
     QAction *m_kickNow, *m_kickWithReason;
     QAction *m_banNow, *m_banWithReason;
+    QAction *m_sendInvitations;
     QAction *m_configureRoom;
 };
 
