@@ -81,5 +81,5 @@ void SendInvitations::slotSend()
 void SendInvitations::slotHelpMessage()
 {
     SETTINGS_SET_BOOL(SETTING_CHAT_INVITATIONS_NOTE_SEEN, true);
-    QMessageBox::information(this, tr("Information"), tr("Please remember that the server can decline invitations depending on its configuration"));
+    QMessageBox::information(this, tr("Information"), tr("Please remember that the server can decline your invitations depending on its configuration"));
 }
