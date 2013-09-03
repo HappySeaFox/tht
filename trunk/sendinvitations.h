@@ -38,6 +38,7 @@ public:
 
 private slots:
     void slotSend();
+    void slotHelpMessage();
 
 private:
     Ui::SendInvitations *ui;

@@ -32,4 +32,6 @@
 #define SETTING_CHAT_ROOMS_INFO          "chat-rooms-info"
 #define SETTING_CHAT_RESTORE_AT_STARTUP  "chat-restore-at-startup"
 
+#define SETTING_CHAT_INVITATIONS_NOTE_SEEN  "chat-invitations-note-seen"
+
 #endif // CHATSETTINGS_H
