@@ -38,7 +38,8 @@ SOURCES += chatwindow.cpp \
     chatoptions.cpp \
     chattools.cpp \
     chatmessages.cpp \
-    configureroom.cpp
+    configureroom.cpp \
+    sendinvitations.cpp
 
 HEADERS += chatwindow.h \
     chatpage.h \
@@ -50,14 +51,16 @@ HEADERS += chatwindow.h \
     chatoptions.h \
     chattools.h \
     chatmessages.h \
-    configureroom.h
+    configureroom.h \
+    sendinvitations.h
 
 FORMS += chatwindow.ui \
     chatpage.ui \
     messagedialog.ui \
     chatoptions.ui \
     chatmessages.ui \
-    configureroom.ui
+    configureroom.ui \
+    sendinvitations.ui
 
 TRANSLATIONS += ts/common_chat_en.ts \
                 ts/common_chat_ru.ts \

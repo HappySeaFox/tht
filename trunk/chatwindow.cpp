@@ -31,6 +31,7 @@
 #include "QXmppConfiguration.h"
 #include "QXmppMucManager.h"
 #include "QXmppPresence.h"
+#include "QXmppMessage.h"
 #include "QXmppUtils.h"
 
 #include "chatsettings.h"
@@ -68,6 +69,7 @@ ChatWindow::ChatWindow(QWidget *parent) :
     connect(m_xmppClient, SIGNAL(error(QXmppClient::Error)), this, SLOT(slotError(QXmppClient::Error)));
     connect(m_xmppClient, SIGNAL(connected()), this, SLOT(slotConnected()));
     connect(m_xmppClient, SIGNAL(disconnected()), this, SLOT(slotDisconnected()));
+    connect(m_xmppClient, SIGNAL(messageReceived(QXmppMessage)), this, SLOT(slotMessageReceived(QXmppMessage)));
 
     if(SETTINGS_GET_BOOL(SETTING_CHAT_AUTO_LOGIN))
         ui->linePassword->setText(SETTINGS_GET_STRING(SETTING_CHAT_PASSWORD));
@@ -370,6 +372,44 @@ void ChatWindow::slotDisconnected()
 {
     if(chatsPage())
         showSignInPage();
+}
+
+void ChatWindow::slotMessageReceived(const QXmppMessage &msg)
+{
+    if(msg.type() != QXmppMessage::Normal)
+        return;
+
+    if(!msg.mucInvitationJid().isEmpty())
+    {
+        int index = 0;
+        ChatPage *p;
+
+        while((p = qobject_cast<ChatPage *>(ui->tabs->widget(index++))))
+        {
+            if(p->jid() == msg.mucInvitationJid())
+            {
+                if(p->isJoined())
+                    return;
+                else
+                    break;
+            }
+        }
+
+        if(QMessageBox::question(this,
+                                 tr("Invitation"),
+                                 tr("You have been invited to %1%2%3%4\n\nOpen the room now?")
+                                    .arg(msg.mucInvitationJid())
+                                    .arg(msg.mucInvitationPassword().isEmpty() ? QString() : ('\n' + tr("Password:") + ' ' +  msg.mucInvitationPassword()))
+                                    .arg(msg.mucInvitationReason().isEmpty() ? QString() : ('\n' + tr("Reason:") + ' ' +  msg.mucInvitationReason()))
+                                    .arg(msg.body().isEmpty() ? QString() : ('\n' + tr("Message:") + ' ' + ChatTools::escapeBrackets(msg.body()))),
+                                 QMessageBox::Yes | QMessageBox::No) == QMessageBox::Yes)
+        {
+            if(p)
+                ui->tabs->setCurrentWidget(p);
+            else
+                ui->tabs->setCurrentIndex(ui->tabs->addTab(createPage(true, msg.mucInvitationJid(), msg.mucInvitationPassword()), tr("Room")));
+        }
+    }
 }
 
 void ChatWindow::slotAddTab()
