@@ -240,6 +240,14 @@ bool ChatWindow::chatsPage()
     return ui->stack->currentIndex();
 }
 
+void ChatWindow::savePassword()
+{
+    if(SETTINGS_GET_BOOL(SETTING_CHAT_AUTO_LOGIN))
+        SETTINGS_SET_STRING(SETTING_CHAT_PASSWORD, ui->linePassword->text());
+    else
+        SETTINGS_SET_STRING(SETTING_CHAT_PASSWORD, QString());
+}
+
 void ChatWindow::slotSignIn()
 {
     m_xmppClient->disconnectFromServer();
@@ -355,11 +363,7 @@ void ChatWindow::slotConnected()
     // remove old tabs
     removeTabs();
 
-    if(SETTINGS_GET_BOOL(SETTING_CHAT_AUTO_LOGIN))
-        SETTINGS_SET_STRING(SETTING_CHAT_PASSWORD, ui->linePassword->text());
-    else
-        SETTINGS_SET_STRING(SETTING_CHAT_PASSWORD, QString());
-
+    savePassword();
     restoreRooms();
 
     if(!ui->tabs->count())
@@ -384,6 +388,8 @@ void ChatWindow::slotMessageReceived(const QXmppMessage &msg)
         int index = 0;
         ChatPage *p;
 
+        qDebug("Invitation to \"%s\"", qPrintable(msg.mucInvitationJid()));
+
         while((p = qobject_cast<ChatPage *>(ui->tabs->widget(index++))))
         {
             if(p->jid() == msg.mucInvitationJid())
@@ -397,11 +403,11 @@ void ChatWindow::slotMessageReceived(const QXmppMessage &msg)
 
         if(QMessageBox::question(this,
                                  tr("Invitation"),
-                                 tr("You have been invited to room %1%2%3%4\n\nOpen the room now?")
-                                    .arg(msg.mucInvitationJid())
-                                    .arg(msg.mucInvitationPassword().isEmpty() ? QString() : ('\n' + tr("Password:") + ' ' +  msg.mucInvitationPassword()))
-                                    .arg(msg.mucInvitationReason().isEmpty() ? QString() : ('\n' + tr("Reason:") + ' ' +  msg.mucInvitationReason()))
-                                    .arg(msg.body().isEmpty() ? QString() : ('\n' + tr("Message:") + ' ' + ChatTools::escapeBrackets(msg.body()))),
+                                 tr("You have been invited to room %1%2%3%4<br><br>Open the room now?")
+                                    .arg("<b>" + msg.mucInvitationJid() + "</b>")
+                                 .arg(msg.mucInvitationPassword().isEmpty() ? QString() : ("<br>" + tr("Password:") + ' ' +  msg.mucInvitationPassword()))
+                                    .arg(msg.mucInvitationReason().isEmpty() ? QString() : ("<br>" + tr("Reason:") + ' ' +  msg.mucInvitationReason()))
+                                    .arg(msg.body().isEmpty() ? QString() : ("<br>" + tr("Message:") + ' ' + ChatTools::escapeBrackets(msg.body()))),
                                  QMessageBox::Yes | QMessageBox::No) == QMessageBox::Yes)
         {
             if(p)
@@ -516,6 +522,9 @@ void ChatWindow::slotOptions()
 
         while((p = qobject_cast<ChatPage *>(ui->tabs->widget(index++))))
             p->setFontSize(fontSize);
+
+        savePassword();
+        saveRooms();
     }
 }
 

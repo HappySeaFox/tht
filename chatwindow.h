@@ -59,6 +59,7 @@ private:
     void restoreRooms();
     void removeTabs();
     bool chatsPage();
+    void savePassword();
 
 signals:
     void openTicker(const QString &);
