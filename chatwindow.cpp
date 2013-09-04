@@ -405,7 +405,7 @@ void ChatWindow::slotMessageReceived(const QXmppMessage &msg)
                                  tr("Invitation"),
                                  tr("You have been invited to room %1%2%3%4<br><br>Open the room now?")
                                     .arg("<b>" + msg.mucInvitationJid() + "</b>")
-                                 .arg(msg.mucInvitationPassword().isEmpty() ? QString() : ("<br>" + tr("Password:") + ' ' +  msg.mucInvitationPassword()))
+                                    .arg(msg.mucInvitationPassword().isEmpty() ? QString() : ("<br>" + tr("Password:") + ' ' +  msg.mucInvitationPassword()))
                                     .arg(msg.mucInvitationReason().isEmpty() ? QString() : ("<br>" + tr("Reason:") + ' ' +  msg.mucInvitationReason()))
                                     .arg(msg.body().isEmpty() ? QString() : ("<br>" + tr("Message:") + ' ' + ChatTools::escapeBrackets(msg.body()))),
                                  QMessageBox::Yes | QMessageBox::No) == QMessageBox::Yes)
