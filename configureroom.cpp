@@ -475,16 +475,10 @@ void ConfigureRoom::slotApply()
         return;
 
     if(m_affiliationsChanged)
-    {
-        qDebug("Saving permissions");
-        m_room->setPermissions(permissions());
-    }
+        qDebug("New permissions sent: %s", m_room->setPermissions(permissions()) ? "yes" : "no");
 
     QXmppDataForm df = configuration();
 
     if(df.type() == QXmppDataForm::Submit)
-    {
-        qDebug("Saving room configuration");
-        m_room->setConfiguration(df);
-    }
+        qDebug("New room configuration sent: %s", m_room->setConfiguration(df) ? "yes" : "no");
 }
