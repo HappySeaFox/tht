@@ -64,9 +64,7 @@ void SendInvitations::slotSend()
         message.setTo(jid);
         message.setType(QXmppMessage::Normal);
         message.setMucInvitationJid(m_room->jid());
-
-        if(!m_room->password().isEmpty())
-            message.setBody(QString("Password: %1").arg(m_room->password()));
+        message.setMucInvitationPassword(m_room->password());
 
         if(!m_xmppClient->sendPacket(message))
         {

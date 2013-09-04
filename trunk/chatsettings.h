@@ -34,4 +34,6 @@
 
 #define SETTING_CHAT_INVITATIONS_NOTE_SEEN  "chat-invitations-note-seen"
 
+#define THT_CHAT_SPLITTER_STATE_SUFFIX "-splitter-state"
+
 #endif // CHATSETTINGS_H
