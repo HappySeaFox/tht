@@ -397,7 +397,7 @@ void ChatWindow::slotMessageReceived(const QXmppMessage &msg)
 
         if(QMessageBox::question(this,
                                  tr("Invitation"),
-                                 tr("You have been invited to %1%2%3%4\n\nOpen the room now?")
+                                 tr("You have been invited to room %1%2%3%4\n\nOpen the room now?")
                                     .arg(msg.mucInvitationJid())
                                     .arg(msg.mucInvitationPassword().isEmpty() ? QString() : ('\n' + tr("Password:") + ' ' +  msg.mucInvitationPassword()))
                                     .arg(msg.mucInvitationReason().isEmpty() ? QString() : ('\n' + tr("Reason:") + ' ' +  msg.mucInvitationReason()))
@@ -427,9 +427,13 @@ void ChatWindow::slotTabCloseRequested(int index)
         return;
     }
 
+    QString key = p->jid() + THT_CHAT_SPLITTER_STATE_SUFFIX;
+
     qDebug("Removing page \"%s\"", qPrintable(p->roomName()));
 
     delete p;
+
+    Settings::instance()->remove(key);
 
     saveRooms();
 }

@@ -57,8 +57,6 @@
 #include "sqltools.h"
 #include "ui_chatpage.h"
 
-static const char * const THT_CHAT_SPLITTER_STATE_SUFFIX = "-splitter-state";
-
 ChatPage::ChatPage(QXmppClient *client,
                    QXmppMucManager *manager,
                    bool checkForAutoLogin,
