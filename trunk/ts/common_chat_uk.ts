@@ -367,7 +367,7 @@
     </message>
     <message>
         <location filename="../chatwindow.ui" line="58"/>
-        <location filename="../chatwindow.cpp" line="402"/>
+        <location filename="../chatwindow.cpp" line="408"/>
         <source>Password:</source>
         <translation>Пароль:</translation>
     </message>
@@ -404,114 +404,110 @@
     <message>
         <location filename="../chatwindow.cpp" line="173"/>
         <location filename="../chatwindow.cpp" line="222"/>
-        <location filename="../chatwindow.cpp" line="410"/>
-        <location filename="../chatwindow.cpp" line="417"/>
-        <location filename="../chatwindow.cpp" line="448"/>
+        <location filename="../chatwindow.cpp" line="416"/>
+        <location filename="../chatwindow.cpp" line="423"/>
+        <location filename="../chatwindow.cpp" line="454"/>
         <source>Room</source>
         <translation>Кімната</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="252"/>
+        <location filename="../chatwindow.cpp" line="260"/>
         <source>JID is empty</source>
         <translation>JID порожній</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="266"/>
+        <location filename="../chatwindow.cpp" line="274"/>
         <source>Connecting...</source>
         <translation>Підключення...</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="275"/>
+        <location filename="../chatwindow.cpp" line="283"/>
         <source>Sign in cancelled</source>
         <translation>Вхід скасований</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="325"/>
+        <location filename="../chatwindow.cpp" line="333"/>
         <source>Network error</source>
         <translation>Помилка мережі</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="329"/>
+        <location filename="../chatwindow.cpp" line="337"/>
         <source>Keep alive error</source>
         <translation>Помилка підтримки з&apos;єднання</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="336"/>
+        <location filename="../chatwindow.cpp" line="344"/>
         <source>Invalid password</source>
         <translation>Неправильна пароль</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="340"/>
+        <location filename="../chatwindow.cpp" line="348"/>
         <source>Stream error</source>
         <translation>Помилка потоку</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="346"/>
+        <location filename="../chatwindow.cpp" line="354"/>
         <source>Unknown error</source>
         <translation>Невідома помилка</translation>
     </message>
     <message>
         <location filename="../chatwindow.cpp" line="95"/>
-        <location filename="../chatwindow.cpp" line="525"/>
+        <location filename="../chatwindow.cpp" line="534"/>
         <source>Help</source>
         <translation>Допомога</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="399"/>
+        <location filename="../chatwindow.cpp" line="405"/>
         <source>Invitation</source>
         <translation>Запрошення</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="400"/>
-        <source>You have been invited to room %1%2%3%4
-
-Open the room now?</source>
-        <translation>Вас запросили в кімнату %1%2%3%4
-
-Відкрити кімнату прямо зараз?</translation>
+        <location filename="../chatwindow.cpp" line="406"/>
+        <source>You have been invited to room %1%2%3%4&lt;br&gt;&lt;br&gt;Open the room now?</source>
+        <translation>Вас запросили в кімнату %1%2%3%4&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;Відкрити кімнату прямо зараз?</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="403"/>
+        <location filename="../chatwindow.cpp" line="409"/>
         <source>Reason:</source>
         <translation>Причина:</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="404"/>
+        <location filename="../chatwindow.cpp" line="410"/>
         <source>Message:</source>
         <translation>Повідомлення:</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="535"/>
+        <location filename="../chatwindow.cpp" line="544"/>
         <source>Send the ticker &quot;ABC&quot; to the chat. User can click on it and it will be loaded into all the linked windows</source>
         <translation>Послати тікер &quot;ABC&quot; в чат. Користувач може клікнути по ньому і він буде завантажений в усі слінковать вікна</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="536"/>
+        <location filename="../chatwindow.cpp" line="545"/>
         <source>Show the ticker information about the ticker &quot;ABC&quot;</source>
         <translation>Показати інформацію про тікер &quot;ABC&quot;</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="537"/>
+        <location filename="../chatwindow.cpp" line="546"/>
         <source>Show the tickers from the industry &quot;Gold&quot; (all exchanges, tickers are sorted by capitalization)</source>
         <translation>Показати тікери з індустрії &quot;Gold&quot; (всі біржі, тікери упорядковано капіталізації)</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="538"/>
+        <location filename="../chatwindow.cpp" line="547"/>
         <source>Show the AMEX tickers from the industry &quot;Gold&quot;</source>
         <translation>Показати AMEX тікери з індустрії &quot;Gold&quot;</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="539"/>
+        <location filename="../chatwindow.cpp" line="548"/>
         <source>Show the NASDAQ tickers from the industry &quot;Gold&quot;</source>
         <translation>Показати NASDAQ тікери з індустрії &quot;Gold&quot;</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="540"/>
+        <location filename="../chatwindow.cpp" line="549"/>
         <source>Show the NYSE tickers from the industry &quot;Gold&quot;</source>
         <translation>Показати NYSE тікери з індустрії &quot;Gold&quot;</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="541"/>
+        <location filename="../chatwindow.cpp" line="550"/>
         <source>Show the NYSE and NASDAQ tickers from the industry &quot;Gold&quot; (you can mix exchanges)</source>
         <translation>Показати NYSE і NASDAQ тікери з індустрії &quot;Gold&quot; (ви можете перемішувати біржі)</translation>
     </message>
