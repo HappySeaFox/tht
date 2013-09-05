@@ -378,25 +378,20 @@ void ConfigureRoom::slotConfigurationReceived(const QXmppDataForm &df)
             case QXmppDataForm::Field::JidMultiField:
             case QXmppDataForm::Field::TextMultiField:
             {
-                QTextEdit *edit = addTextEdit(vlayout, f.label(), f.value().toString());
-                edit->setProperty("data-form-type", f.type());
-                w = edit;
+                w = addTextEdit(vlayout, f.label(), f.value().toString());
             }
             break;
             case QXmppDataForm::Field::TextPrivateField:
             {
                 QLineEdit *line = addLineEdit(vlayout, f.label(), f.value().toString());
                 line->setEchoMode(QLineEdit::Password);
-                line->setProperty("data-form-type", f.type());
                 w = line;
             }
             break;
             case QXmppDataForm::Field::JidSingleField:
             case QXmppDataForm::Field::TextSingleField:
             {
-                QLineEdit *line = addLineEdit(vlayout, f.label(), f.value().toString());
-                line->setProperty("data-form-type", f.type());
-                w = line;
+                w = addLineEdit(vlayout, f.label(), f.value().toString());
             }
             break;
         }
