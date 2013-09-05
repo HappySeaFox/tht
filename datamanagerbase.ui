@@ -86,7 +86,7 @@
    <item row="4" column="1" colspan="2">
     <widget class="QPushButton" name="pushClear">
      <property name="text">
-      <string>Clear</string>
+      <string extracomment="Invinitive">Clear</string>
      </property>
     </widget>
    </item>

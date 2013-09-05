@@ -927,6 +927,7 @@ void THT::checkWindows()
     }
 
     if(others)
+        //: Means "Unknown links" (int the plural)
         tooltip += QString("<tr><td>%1:</td><td>%2</td></tr>").arg(tr("Unknown")).arg(others);
 
     tooltip += "</table>";

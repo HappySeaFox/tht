@@ -75,6 +75,7 @@ QString PluginManager::typeToString(int type)
     switch(type)
     {
         case Plugin::Common:
+        //: Means "Common plugins" (in the plural)
         return tr("Common");
 
         case Plugin::AddTickersFrom:
@@ -84,6 +85,7 @@ QString PluginManager::typeToString(int type)
         return tr("Export tickers");
 
         default:
+        //: Means "Unknown plugins" (in the plural)
         return tr("Unknown");
     }
 }

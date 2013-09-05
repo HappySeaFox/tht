@@ -86,29 +86,30 @@
         <translation>Додати</translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="36"/>
+        <location filename="../finvizurlmanager.cpp" line="37"/>
         <source>Link</source>
+        <extracomment>Noun</extracomment>
         <translation>Посилання</translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="37"/>
+        <location filename="../finvizurlmanager.cpp" line="38"/>
         <source>Open YouTube tutorial</source>
         <translation>Відкрити урок на YouTube</translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="51"/>
+        <location filename="../finvizurlmanager.cpp" line="52"/>
         <source>Access...</source>
-        <extracomment>noun</extracomment>
+        <extracomment>Noun</extracomment>
         <translation>Доступ...</translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="81"/>
+        <location filename="../finvizurlmanager.cpp" line="82"/>
         <source>Tickers</source>
         <translation>Тікери</translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="81"/>
-        <location filename="../finvizurlmanager.cpp" line="95"/>
+        <location filename="../finvizurlmanager.cpp" line="82"/>
+        <location filename="../finvizurlmanager.cpp" line="96"/>
         <source>&lt;Paste url here&gt;</source>
         <translation>&lt;Вставте сюди посилання&gt;</translation>
     </message>
