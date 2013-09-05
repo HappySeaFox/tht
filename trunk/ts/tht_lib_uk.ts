@@ -69,6 +69,12 @@
     </message>
     <message>
         <location filename="../settings.cpp" line="398"/>
+        <source>Vietnamese</source>
+        <extracomment>Vietnamese language</extracomment>
+        <translation>В&apos;єтнамська</translation>
+    </message>
+    <message>
+        <location filename="../settings.cpp" line="401"/>
         <source>English</source>
         <extracomment>English language</extracomment>
         <translation>Англійська</translation>
