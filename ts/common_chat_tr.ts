@@ -585,22 +585,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../configureroom.cpp" line="427"/>
+        <location filename="../configureroom.cpp" line="422"/>
         <source>Add affiliation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../configureroom.cpp" line="427"/>
+        <location filename="../configureroom.cpp" line="422"/>
         <source>JID:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../configureroom.cpp" line="438"/>
+        <location filename="../configureroom.cpp" line="433"/>
         <source>Adding JID</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../configureroom.cpp" line="438"/>
+        <location filename="../configureroom.cpp" line="433"/>
         <source>JID &quot;%1&quot; is already in this section</source>
         <translation type="unfinished"></translation>
     </message>
