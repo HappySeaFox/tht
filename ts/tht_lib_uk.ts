@@ -48,37 +48,4 @@
         <translation>Очистити</translation>
     </message>
 </context>
-<context>
-    <name>QObject</name>
-    <message>
-        <location filename="../settings.cpp" line="389"/>
-        <source>Russian</source>
-        <extracomment>Russian language</extracomment>
-        <translation>Російська</translation>
-    </message>
-    <message>
-        <location filename="../settings.cpp" line="392"/>
-        <source>Ukrainian</source>
-        <extracomment>Ukrainian language</extracomment>
-        <translation>Українська</translation>
-    </message>
-    <message>
-        <location filename="../settings.cpp" line="395"/>
-        <source>Turkish</source>
-        <extracomment>Turkish language</extracomment>
-        <translation>Турецька</translation>
-    </message>
-    <message>
-        <location filename="../settings.cpp" line="398"/>
-        <source>Vietnamese</source>
-        <extracomment>Vietnamese language</extracomment>
-        <translation>В&apos;єтнамська</translation>
-    </message>
-    <message>
-        <location filename="../settings.cpp" line="401"/>
-        <source>English</source>
-        <extracomment>English language</extracomment>
-        <translation>Англійська</translation>
-    </message>
-</context>
 </TS>

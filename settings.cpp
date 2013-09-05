@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of THT.
  *
  * THT is free software: you can redistribute it and/or modify
@@ -385,20 +385,12 @@ QDateTime Settings::readTimestamp(const QString &fileName) const
 
 void Settings::fillTranslations()
 {
-    //: Russian language
-    d->translations.insert(QObject::tr("Russian"), "ru");
+    d->translations.insert("en", "English (English)");
 
-    //: Ukrainian language
-    d->translations.insert(QObject::tr("Ukrainian"), "uk");
-
-    //: Turkish language
-    d->translations.insert(QObject::tr("Turkish"), "tr");
-
-    //: Vietnamese language
-    d->translations.insert(QObject::tr("Vietnamese"), "vi");
-
-    //: English language
-    d->translations.insert(QObject::tr("English"), "en");
+    d->translations.insert("ru", QString::fromUtf8("Русский")    + " (Russian)");
+    d->translations.insert("uk", QString::fromUtf8("Українська") + " (Ukrainian)");
+    d->translations.insert("tr", QString::fromUtf8("Türkçe")     + " (Turkish)");
+    d->translations.insert("vi", QString::fromUtf8("Việt Nam")   + " (Vietnamese)");
 }
 
 QHash<QString, QVariant>& Settings::defaultValues()
