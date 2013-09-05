@@ -44,6 +44,7 @@
     <message>
         <location filename="../datamanagerbase.ui" line="89"/>
         <source>Clear</source>
+        <extracomment>Invinitive</extracomment>
         <translation>Очистити</translation>
     </message>
 </context>

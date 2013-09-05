@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Enter text</string>
+   <string extracomment="Command. Means &quot;Enter text here:&quot;">Enter text</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="1" column="0">

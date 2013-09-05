@@ -550,7 +550,10 @@ void ChatPage::slotKickNow(const QString &reason)
 void ChatPage::slotKickWithReason()
 {
     bool ok;
-    QString reason = QInputDialog::getText(this, tr("Kick"), tr("Reason:"), QLineEdit::Normal, QString(), &ok);
+    QString reason = QInputDialog::getText(this,
+                                           //: Infinitive
+                                           tr("Kick"),
+                                           tr("Reason:"), QLineEdit::Normal, QString(), &ok);
 
     if(!ok)
         return;
@@ -584,7 +587,10 @@ void ChatPage::slotBanNow(const QString &reason)
 void ChatPage::slotBanWithReason()
 {
     bool ok;
-    QString reason = QInputDialog::getText(this, tr("Ban"), tr("Reason:"), QLineEdit::Normal, QString(), &ok);
+    QString reason = QInputDialog::getText(this,
+                                           //: Infinitive
+                                           tr("Ban"),
+                                           tr("Reason:"), QLineEdit::Normal, QString(), &ok);
 
     if(!ok)
         return;

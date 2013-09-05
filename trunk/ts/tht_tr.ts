@@ -188,8 +188,9 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="249"/>
+        <location filename="../dropboxuploader.cpp" line="250"/>
         <source>Close</source>
+        <extracomment>Infinitive</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -219,6 +220,7 @@
     <message>
         <location filename="../list.ui" line="150"/>
         <source>List</source>
+        <extracomment>Noun</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -237,81 +239,83 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="98"/>
+        <location filename="../list.cpp" line="99"/>
         <source>Clear</source>
+        <extracomment>Infinitive</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="100"/>
+        <location filename="../list.cpp" line="102"/>
         <source>Sort</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../list.cpp" line="101"/>
-        <source>Change title</source>
+        <extracomment>Infinitive</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../list.cpp" line="103"/>
+        <source>Change title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../list.cpp" line="105"/>
         <source>Reset priorities</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="110"/>
+        <location filename="../list.cpp" line="112"/>
         <source>Add one ticker...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="112"/>
+        <location filename="../list.cpp" line="114"/>
         <source>Add from file...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="113"/>
+        <location filename="../list.cpp" line="115"/>
         <source>Add from clipboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="119"/>
+        <location filename="../list.cpp" line="121"/>
         <source>Export to file...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="120"/>
+        <location filename="../list.cpp" line="122"/>
         <source>Export to clipboard</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../list.cpp" line="1269"/>
-        <location filename="../list.cpp" line="1344"/>
-        <source>Choose a file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../list.cpp" line="1271"/>
         <location filename="../list.cpp" line="1346"/>
-        <source>Text files (*.txt)</source>
+        <source>Choose a file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../list.cpp" line="1273"/>
         <location filename="../list.cpp" line="1348"/>
+        <source>Text files (*.txt)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../list.cpp" line="1275"/>
+        <location filename="../list.cpp" line="1350"/>
         <source>All files (*.*)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1308"/>
-        <location filename="../list.cpp" line="1358"/>
+        <location filename="../list.cpp" line="1310"/>
+        <location filename="../list.cpp" line="1360"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1308"/>
+        <location filename="../list.cpp" line="1310"/>
         <source>Cannot open the following files: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1358"/>
+        <location filename="../list.cpp" line="1360"/>
         <source>Cannot save to file %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -410,17 +414,19 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../options.cpp" line="39"/>
-        <source>General</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../options.cpp" line="40"/>
-        <source>List</source>
+        <source>General</source>
+        <extracomment>Means &quot;General options&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../options.cpp" line="41"/>
+        <location filename="../options.cpp" line="42"/>
+        <source>List</source>
+        <extracomment>Noun</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../options.cpp" line="43"/>
         <source>Hotkeys</source>
         <translation type="unfinished"></translation>
     </message>
@@ -496,23 +502,25 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pluginmanager.cpp" line="78"/>
+        <location filename="../pluginmanager.cpp" line="79"/>
         <source>Common</source>
+        <extracomment>Means &quot;Common plugins&quot; (in the plural)</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pluginmanager.cpp" line="81"/>
+        <location filename="../pluginmanager.cpp" line="82"/>
         <source>Add tickers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pluginmanager.cpp" line="84"/>
+        <location filename="../pluginmanager.cpp" line="85"/>
         <source>Export tickers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pluginmanager.cpp" line="87"/>
+        <location filename="../pluginmanager.cpp" line="89"/>
         <source>Unknown</source>
+        <extracomment>Means &quot;Unknown plugins&quot; (in the plural)</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -606,6 +614,7 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../screenshotcommentinput.ui" line="14"/>
         <source>Enter text</source>
+        <extracomment>Command. Means &quot;Enter text here:&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -629,6 +638,7 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../screenshoteditor.ui" line="14"/>
         <source>Trade editor</source>
+        <extracomment>Noun. Means &quot;The editor of the trade&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -685,7 +695,7 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../screenshoteditor.ui" line="139"/>
         <source>Stop</source>
-        <extracomment>Noun</extracomment>
+        <extracomment>Noun. Means &quot;Stop order&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -818,37 +828,38 @@ right/middle mouse button to cancel.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="930"/>
+        <location filename="../tht.cpp" line="931"/>
         <source>Unknown</source>
+        <extracomment>Means &quot;Unknown links&quot; (int the plural)</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1433"/>
+        <location filename="../tht.cpp" line="1434"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1433"/>
+        <location filename="../tht.cpp" line="1434"/>
         <source>Cannot take screenshot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1479"/>
+        <location filename="../tht.cpp" line="1480"/>
         <source>New points</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1934"/>
+        <location filename="../tht.cpp" line="1935"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1935"/>
+        <location filename="../tht.cpp" line="1936"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1988"/>
+        <location filename="../tht.cpp" line="1989"/>
         <source>Customize...</source>
         <translation type="unfinished"></translation>
     </message>

@@ -246,6 +246,7 @@ void DropBoxUploader::slotDelayedWork()
 
     stopProgress();
 
+    //: Infinitive
     ui->pushCancel->setText(tr("Close"));
     disconnect(ui->pushCancel, SIGNAL(clicked()), this, 0);
     connect(ui->pushCancel, SIGNAL(clicked()), this, SLOT(accept()));

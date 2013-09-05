@@ -147,7 +147,7 @@
          <enum>Qt::NoFocus</enum>
         </property>
         <property name="toolTip">
-         <string>List</string>
+         <string extracomment="Noun">List</string>
         </property>
         <property name="icon">
          <iconset resource="tht.qrc">

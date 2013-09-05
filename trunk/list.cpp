@@ -95,8 +95,10 @@ List::List(int group, QWidget *parent) :
     ui->pushSave->setEnabled(!m_saveTickers);
 
     QMenu *menu = new QMenu(this);
+    //: Infinitive
     menu->addAction(QIcon(":/images/clear.png"), tr("Clear") + '\t' + QKeySequence(QKeySequence::New).toString(), this, SLOT(clear()));
     menu->addSeparator();
+    //: Infinitive
     menu->addAction(tr("Sort") + "\tR", this, SLOT(slotSortList()));
     m_changeTitle = menu->addAction(tr("Change title") + "\tF2", this, SLOT(changeHeader()));
     menu->addSeparator();

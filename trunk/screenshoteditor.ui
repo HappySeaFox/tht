@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Trade editor</string>
+   <string extracomment="Noun. Means &quot;The editor of the trade&quot;">Trade editor</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="10" column="1" colspan="2">
@@ -136,7 +136,7 @@
    <item row="3" column="1" colspan="2">
     <widget class="QPushButton" name="pushStop">
      <property name="text">
-      <string extracomment="Noun">Stop</string>
+      <string extracomment="Noun. Means &quot;Stop order&quot;">Stop</string>
      </property>
      <property name="icon">
       <iconset resource="tht.qrc">

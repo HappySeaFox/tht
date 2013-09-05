@@ -33,6 +33,7 @@ FinvizUrlManager::FinvizUrlManager(QWidget *parent) :
 
     QTreeWidget *t = tree();
 
+    //: Noun
     t->headerItem()->setText(1, tr("Link"));
     t->setWhatsThis(QString("<a href=\"http://www.youtube.com/watch?v=r1Y7iNM7_9k\">%1</a>").arg(tr("Open YouTube tutorial")));
 
@@ -47,7 +48,7 @@ FinvizUrlManager::FinvizUrlManager(QWidget *parent) :
 
     connect(t, SIGNAL(itemChanged(QTreeWidgetItem*,int)), this, SLOT(slotCheckItem(QTreeWidgetItem*,int)));
 
-    //: noun
+    //: Noun
     QPushButton *b = new QPushButton(tr("Access..."), this);
     connect(b, SIGNAL(clicked()), this, SLOT(slotAccessClicked()));
     addButton(b);

@@ -36,7 +36,9 @@ Options::Options(QWidget *parent) :
     ui->list->setItemDelegate(new PersistentSelectionDelegate(ui->list));
     ui->labelRestart->hide();
 
+    //: Means "General options"
     QListWidgetItem *i1 = new QListWidgetItem(tr("General"), ui->list);
+    //: Noun
     QListWidgetItem *i2 = new QListWidgetItem(tr("List"), ui->list);
     QListWidgetItem *i3 = new QListWidgetItem(tr("Hotkeys"), ui->list);
 
