@@ -56,7 +56,7 @@ Name: "Ukrainianxisl"; MessagesFile: "compiler:Languages\Ukrainian.isl"
 [Tasks]
 
 [Files]
-Source: "qt4-tht-toolchain\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs
+Source: "qt4-tht-toolchain\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs overwritereadonly uninsremovereadonly
 Source: "qt4-tht-toolchain.ico"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
