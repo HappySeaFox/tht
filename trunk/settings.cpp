@@ -390,7 +390,7 @@ void Settings::fillTranslations()
     d->translations.insert("ru", QString::fromUtf8("Русский")    + " (Russian)");
     d->translations.insert("uk", QString::fromUtf8("Українська") + " (Ukrainian)");
     d->translations.insert("tr", QString::fromUtf8("Türkçe")     + " (Turkish)");
-    d->translations.insert("vi", QString::fromUtf8("Việt Nam")   + " (Vietnamese)");
+    d->translations.insert("vi", QString::fromUtf8("Tiếng Việt") + " (Vietnamese)");
 }
 
 QHash<QString, QVariant>& Settings::defaultValues()
