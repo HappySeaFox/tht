@@ -94,6 +94,9 @@ ChatWindow::ChatWindow(QWidget *parent) :
     m_menu->addSeparator();
     m_menu->addAction(tr("Help") + "..."  + '\t' + helpShortcut->key().toString(), this, SLOT(slotHelp()));
 
+    ui->pushAddTab->setText(m_actionAddRoom->text());
+    ui->pushAddTab->setIcon(m_actionAddRoom->icon());
+
     showSignInPage();
 
     if(SETTINGS_GET_BOOL(SETTING_CHAT_AUTO_LOGIN))
@@ -148,6 +151,11 @@ void ChatWindow::showSignInPage()
 void ChatWindow::showChatsPage()
 {
     ui->stack->setCurrentIndex(1);
+}
+
+void ChatWindow::showAddTabPage()
+{
+    ui->stack->setCurrentIndex(2);
 }
 
 void ChatWindow::showLoginStatus(const QString &s)
@@ -367,9 +375,9 @@ void ChatWindow::slotConnected()
     restoreRooms();
 
     if(!ui->tabs->count())
-        slotAddTab();
-
-    showChatsPage();
+        showAddTabPage();
+    else
+        showChatsPage();
 }
 
 void ChatWindow::slotDisconnected()
@@ -420,6 +428,7 @@ void ChatWindow::slotMessageReceived(const QXmppMessage &msg)
 
 void ChatWindow::slotAddTab()
 {
+    showChatsPage();
     ui->tabs->setCurrentIndex(ui->tabs->addTab(createPage(false), tr("Room")));
 }
 
@@ -442,6 +451,9 @@ void ChatWindow::slotTabCloseRequested(int index)
     Settings::instance()->remove(key);
 
     saveRooms();
+
+    if(!ui->tabs->count())
+        showAddTabPage();
 }
 
 void ChatWindow::slotJoined(const QString &roomName)
