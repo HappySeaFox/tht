@@ -758,108 +758,108 @@ right/middle mouse button to cancel.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="192"/>
+        <location filename="../tht.cpp" line="193"/>
         <source>Options...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="195"/>
-        <location filename="../tht.cpp" line="265"/>
+        <location filename="../tht.cpp" line="196"/>
+        <location filename="../tht.cpp" line="266"/>
         <source>Take screenshot...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="199"/>
+        <location filename="../tht.cpp" line="200"/>
         <source>Clear links</source>
         <extracomment>Infinitive</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="202"/>
+        <location filename="../tht.cpp" line="203"/>
         <source>Clear ticker lists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="203"/>
         <location filename="../tht.cpp" line="204"/>
+        <location filename="../tht.cpp" line="205"/>
         <source>Load ticker</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="207"/>
+        <location filename="../tht.cpp" line="208"/>
         <source>About THT...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="208"/>
+        <location filename="../tht.cpp" line="209"/>
         <source>About Qt...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="209"/>
+        <location filename="../tht.cpp" line="210"/>
         <source>Plugins...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="211"/>
-        <location filename="../tht.cpp" line="269"/>
+        <location filename="../tht.cpp" line="212"/>
+        <location filename="../tht.cpp" line="270"/>
         <source>Quit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="264"/>
+        <location filename="../tht.cpp" line="265"/>
         <source>Restore</source>
         <extracomment>Means &quot;Restore from tray&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="267"/>
+        <location filename="../tht.cpp" line="268"/>
         <source>About THT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="415"/>
+        <location filename="../tht.cpp" line="416"/>
         <source>Notice</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="415"/>
+        <location filename="../tht.cpp" line="416"/>
         <source>THT will continue to run in a system tray</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="931"/>
+        <location filename="../tht.cpp" line="932"/>
         <source>Unknown</source>
         <extracomment>Means &quot;Unknown links&quot; (int the plural)</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1435"/>
+        <location filename="../tht.cpp" line="1436"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1435"/>
+        <location filename="../tht.cpp" line="1436"/>
         <source>Cannot take screenshot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1481"/>
+        <location filename="../tht.cpp" line="1482"/>
         <source>New points</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1936"/>
+        <location filename="../tht.cpp" line="1937"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1937"/>
+        <location filename="../tht.cpp" line="1938"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1990"/>
+        <location filename="../tht.cpp" line="1991"/>
         <source>Customize...</source>
         <translation type="unfinished"></translation>
     </message>
