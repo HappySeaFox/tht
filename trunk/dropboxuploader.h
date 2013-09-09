@@ -58,7 +58,7 @@ private:
     Ui::DropBoxUploader *ui;
     QString m_fileName;
     QByteArray m_binary;
-    enum State { RequestingToken, RequestingAccessToken, RequestingSharedLink, Work };
+    enum State { NotInitialized, RequestingToken, RequestingAccessToken, RequestingSharedLink, Work };
     State m_state;
     QString m_token, m_tokenSecret, m_accessToken, m_accessTokenSecret;
     QDropbox *m_api;

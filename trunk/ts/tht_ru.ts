@@ -77,7 +77,7 @@
     <name>DropBoxUploader</name>
     <message>
         <location filename="../dropboxuploader.ui" line="14"/>
-        <location filename="../dropboxuploader.cpp" line="124"/>
+        <location filename="../dropboxuploader.cpp" line="125"/>
         <source>Dropbox</source>
         <translation>Dropbox</translation>
     </message>
@@ -87,108 +87,108 @@
         <translation>Отмена</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="82"/>
+        <location filename="../dropboxuploader.cpp" line="83"/>
         <source>Network error</source>
         <translation>Ошибка сети</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="83"/>
+        <location filename="../dropboxuploader.cpp" line="84"/>
         <source>Used API version is not supported</source>
         <translation>Использованная версия API не поддерживается</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="84"/>
+        <location filename="../dropboxuploader.cpp" line="85"/>
         <source>Used authentication method is not supported</source>
         <translation>Использованный метод проверки подлинности не поддерживается</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="85"/>
+        <location filename="../dropboxuploader.cpp" line="86"/>
         <source>Unexpected response</source>
         <translation>Непредвиденный ответ</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="86"/>
+        <location filename="../dropboxuploader.cpp" line="87"/>
         <source>API error</source>
         <translation>Ошибка API</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="87"/>
+        <location filename="../dropboxuploader.cpp" line="88"/>
         <source>Unknown query method</source>
         <translation>Неизвестный метод запроса</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="88"/>
+        <location filename="../dropboxuploader.cpp" line="89"/>
         <source>Bad parameter</source>
         <translation>Некорректный параметр</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="89"/>
+        <location filename="../dropboxuploader.cpp" line="90"/>
         <source>Bad oAuth request</source>
         <translation>Некорректный запрос oAuth</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="90"/>
+        <location filename="../dropboxuploader.cpp" line="91"/>
         <source>Bad HTTP method</source>
         <translation>Некорректный HTTP метод</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="91"/>
+        <location filename="../dropboxuploader.cpp" line="92"/>
         <source>Maximum amount of requests exceeded</source>
         <translation>Исчерпано максимально допустимое количество запросов</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="92"/>
+        <location filename="../dropboxuploader.cpp" line="93"/>
         <source>Quota exceeded</source>
         <translation>Превышена квота</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="93"/>
+        <location filename="../dropboxuploader.cpp" line="94"/>
         <source>Token has expired</source>
         <translation>Маркер истёк</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="96"/>
+        <location filename="../dropboxuploader.cpp" line="97"/>
         <source>Unknown error</source>
         <translation>Неизвестная ошибка</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="162"/>
+        <location filename="../dropboxuploader.cpp" line="163"/>
         <source>Cannot get the link to the file</source>
         <translation>Невозможно получить ссылку на файл</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="184"/>
+        <location filename="../dropboxuploader.cpp" line="185"/>
         <source>Requesting new token...</source>
         <translation>Запрос нового маркера...</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="204"/>
+        <location filename="../dropboxuploader.cpp" line="205"/>
         <source>Requesting new access token...</source>
         <translation>Запрос нового маркера на доступ...</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="218"/>
+        <location filename="../dropboxuploader.cpp" line="219"/>
         <source>Uploading...</source>
         <translation>Загрузка...</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="236"/>
+        <location filename="../dropboxuploader.cpp" line="237"/>
         <source>Requesting link...</source>
         <translation>Запрос ссылки...</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="230"/>
-        <location filename="../dropboxuploader.cpp" line="243"/>
+        <location filename="../dropboxuploader.cpp" line="231"/>
+        <location filename="../dropboxuploader.cpp" line="244"/>
         <source>Cannot upload file (%1)</source>
         <translation>Невозможно загрузить файл (%1)</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="125"/>
+        <location filename="../dropboxuploader.cpp" line="126"/>
         <source>You need to authorize THT in your Dropbox account. Click &apos;OK&apos; to open the link in browser. After that open this dialog again</source>
         <translation>Вам необходимо авторизовать THT в вашем профиле Dropbox. Нажмите &apos;OK&apos; чтобы открыть ссылку в браузере. После этого откройте данный диалог снова</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="250"/>
+        <location filename="../dropboxuploader.cpp" line="251"/>
         <source>Close</source>
         <extracomment>Infinitive</extracomment>
         <translation>Закрыть</translation>
@@ -286,36 +286,36 @@
         <translation>Экспортировать в буфер обмена</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1271"/>
-        <location filename="../list.cpp" line="1346"/>
+        <location filename="../list.cpp" line="1275"/>
+        <location filename="../list.cpp" line="1350"/>
         <source>Choose a file</source>
         <translation>Выберите файл</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1273"/>
-        <location filename="../list.cpp" line="1348"/>
+        <location filename="../list.cpp" line="1277"/>
+        <location filename="../list.cpp" line="1352"/>
         <source>Text files (*.txt)</source>
         <translation>Текстовые файлы (*.txt)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1275"/>
-        <location filename="../list.cpp" line="1350"/>
+        <location filename="../list.cpp" line="1279"/>
+        <location filename="../list.cpp" line="1354"/>
         <source>All files (*.*)</source>
         <translation>Все файлы (*.*)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1310"/>
-        <location filename="../list.cpp" line="1360"/>
+        <location filename="../list.cpp" line="1314"/>
+        <location filename="../list.cpp" line="1364"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1310"/>
+        <location filename="../list.cpp" line="1314"/>
         <source>Cannot open the following files: %1</source>
         <translation>Невозможно открыть следующие файлы: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1360"/>
+        <location filename="../list.cpp" line="1364"/>
         <source>Cannot save to file %1</source>
         <translation>Невозможно сохранить в файл %1</translation>
     </message>
@@ -836,32 +836,32 @@ right/middle mouse button to cancel.</source>
         <translation>Неизвестные</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1434"/>
+        <location filename="../tht.cpp" line="1435"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1434"/>
+        <location filename="../tht.cpp" line="1435"/>
         <source>Cannot take screenshot</source>
         <translation>Невозможно сделать снимок экрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1480"/>
+        <location filename="../tht.cpp" line="1481"/>
         <source>New points</source>
         <translation>Новые точки</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1935"/>
+        <location filename="../tht.cpp" line="1936"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <translation>Все крупные современные состояния нажиты&lt;br&gt;самым бесчестным путём.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1936"/>
+        <location filename="../tht.cpp" line="1937"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <translation>&quot;Золотой Телёнок&quot; И.Ильф, Е.Петров</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1989"/>
+        <location filename="../tht.cpp" line="1990"/>
         <source>Customize...</source>
         <translation>Настроить...</translation>
     </message>

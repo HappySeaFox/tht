@@ -32,7 +32,8 @@ DropBoxUploader::DropBoxUploader(const QString &fileName, const QByteArray &bina
     QDialog(parent),
     ui(new Ui::DropBoxUploader),
     m_fileName(fileName),
-    m_binary(binary)
+    m_binary(binary),
+    m_state(NotInitialized)
 {
     ui->setupUi(this);
 
