@@ -546,13 +546,17 @@ bool List::eventFilter(QObject *obj, QEvent *event)
             if(me->buttons() & Qt::LeftButton)
             {
                 ListItem *i = static_cast<ListItem *>(ui->list->itemAt(me->pos()));
-                m_startDragTicker.ticker = i ? i->text() : QString();
 
-                if(!m_startDragTicker.ticker.isEmpty())
+                if(i)
                 {
-                    m_startDragTicker.priority = i->priority();
-                    m_startDragTicker.comment = i->comment();
-                    m_startPos = me->pos();
+                    m_startDragTicker.ticker = i->text();
+
+                    if(!m_startDragTicker.ticker.isEmpty())
+                    {
+                        m_startDragTicker.priority = i->priority();
+                        m_startDragTicker.comment = i->comment();
+                        m_startPos = me->pos();
+                    }
                 }
             }
         }

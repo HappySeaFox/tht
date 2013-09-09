@@ -33,8 +33,9 @@ class NetworkAccessPrivate
 public:
     NetworkAccessPrivate()
     {
-        reply = 0;
         error = QNetworkReply::NoError;
+        manager = 0;
+        reply = 0;
     }
 
     QNetworkReply::NetworkError error;

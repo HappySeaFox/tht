@@ -77,7 +77,7 @@
     <name>DropBoxUploader</name>
     <message>
         <location filename="../dropboxuploader.ui" line="14"/>
-        <location filename="../dropboxuploader.cpp" line="124"/>
+        <location filename="../dropboxuploader.cpp" line="125"/>
         <source>Dropbox</source>
         <translation>Dropbox</translation>
     </message>
@@ -87,108 +87,108 @@
         <translation>Відміна</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="82"/>
+        <location filename="../dropboxuploader.cpp" line="83"/>
         <source>Network error</source>
         <translation>Помилка мережі</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="83"/>
+        <location filename="../dropboxuploader.cpp" line="84"/>
         <source>Used API version is not supported</source>
         <translation>Використана версія API не підтримується</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="84"/>
+        <location filename="../dropboxuploader.cpp" line="85"/>
         <source>Used authentication method is not supported</source>
         <translation>Використаний метод перевірки автентичності не підтримується</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="85"/>
+        <location filename="../dropboxuploader.cpp" line="86"/>
         <source>Unexpected response</source>
         <translation>Непередбачений відповідь</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="86"/>
+        <location filename="../dropboxuploader.cpp" line="87"/>
         <source>API error</source>
         <translation>Помилка API</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="87"/>
+        <location filename="../dropboxuploader.cpp" line="88"/>
         <source>Unknown query method</source>
         <translation>Невідомий метод запиту</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="88"/>
+        <location filename="../dropboxuploader.cpp" line="89"/>
         <source>Bad parameter</source>
         <translation>Некоректний параметр</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="89"/>
+        <location filename="../dropboxuploader.cpp" line="90"/>
         <source>Bad oAuth request</source>
         <translation>Некоректний запит oAuth</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="90"/>
+        <location filename="../dropboxuploader.cpp" line="91"/>
         <source>Bad HTTP method</source>
         <translation>Некоректний HTTP метод</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="91"/>
+        <location filename="../dropboxuploader.cpp" line="92"/>
         <source>Maximum amount of requests exceeded</source>
         <translation>Вичерпано максимально допустиму кількість запитів</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="92"/>
+        <location filename="../dropboxuploader.cpp" line="93"/>
         <source>Quota exceeded</source>
         <translation>Перевищена квота</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="93"/>
+        <location filename="../dropboxuploader.cpp" line="94"/>
         <source>Token has expired</source>
         <translation>Маркер закінчився</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="96"/>
+        <location filename="../dropboxuploader.cpp" line="97"/>
         <source>Unknown error</source>
         <translation>Невідома помилка</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="162"/>
+        <location filename="../dropboxuploader.cpp" line="163"/>
         <source>Cannot get the link to the file</source>
         <translation>Неможливо отримати посилання на файл</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="184"/>
+        <location filename="../dropboxuploader.cpp" line="185"/>
         <source>Requesting new token...</source>
         <translation>Запит нового маркера...</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="204"/>
+        <location filename="../dropboxuploader.cpp" line="205"/>
         <source>Requesting new access token...</source>
         <translation>Запит нового маркера на доступ...</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="218"/>
+        <location filename="../dropboxuploader.cpp" line="219"/>
         <source>Uploading...</source>
         <translation>Завантаження...</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="236"/>
+        <location filename="../dropboxuploader.cpp" line="237"/>
         <source>Requesting link...</source>
         <translation>Запит посилання...</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="230"/>
-        <location filename="../dropboxuploader.cpp" line="243"/>
+        <location filename="../dropboxuploader.cpp" line="231"/>
+        <location filename="../dropboxuploader.cpp" line="244"/>
         <source>Cannot upload file (%1)</source>
         <translation>Неможливо завантажити файл (%1)</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="125"/>
+        <location filename="../dropboxuploader.cpp" line="126"/>
         <source>You need to authorize THT in your Dropbox account. Click &apos;OK&apos; to open the link in browser. After that open this dialog again</source>
         <translation>Вам необхідно авторизувати THT у вашому профілі Dropbox. Натисніть &apos;OK&apos; щоб відкрити посилання в браузері. Після цього відкрийте даний діалог знову</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="250"/>
+        <location filename="../dropboxuploader.cpp" line="251"/>
         <source>Close</source>
         <extracomment>Infinitive</extracomment>
         <translation>Закрити</translation>
@@ -286,36 +286,36 @@
         <translation>Експортувати в буфер обміну</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1271"/>
-        <location filename="../list.cpp" line="1346"/>
+        <location filename="../list.cpp" line="1275"/>
+        <location filename="../list.cpp" line="1350"/>
         <source>Choose a file</source>
         <translation>Виберіть файл</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1273"/>
-        <location filename="../list.cpp" line="1348"/>
+        <location filename="../list.cpp" line="1277"/>
+        <location filename="../list.cpp" line="1352"/>
         <source>Text files (*.txt)</source>
         <translation>Текстові файли (*.txt)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1275"/>
-        <location filename="../list.cpp" line="1350"/>
+        <location filename="../list.cpp" line="1279"/>
+        <location filename="../list.cpp" line="1354"/>
         <source>All files (*.*)</source>
         <translation>Всі файли (*.*)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1310"/>
-        <location filename="../list.cpp" line="1360"/>
+        <location filename="../list.cpp" line="1314"/>
+        <location filename="../list.cpp" line="1364"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1310"/>
+        <location filename="../list.cpp" line="1314"/>
         <source>Cannot open the following files: %1</source>
         <translation>Неможливо відкрити наступні файли: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1360"/>
+        <location filename="../list.cpp" line="1364"/>
         <source>Cannot save to file %1</source>
         <translation>Неможливо зберегти в файл %1</translation>
     </message>
@@ -836,32 +836,32 @@ right/middle mouse button to cancel.</source>
         <translation>Невідомі</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1434"/>
+        <location filename="../tht.cpp" line="1435"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1434"/>
+        <location filename="../tht.cpp" line="1435"/>
         <source>Cannot take screenshot</source>
         <translation>Неможливо зробити знімок екрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1480"/>
+        <location filename="../tht.cpp" line="1481"/>
         <source>New points</source>
         <translation>Нові точки</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1935"/>
+        <location filename="../tht.cpp" line="1936"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <translation>Всі величезні сучасні багатства нажито&lt;br&gt;найбезчеснішим засобом.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1936"/>
+        <location filename="../tht.cpp" line="1937"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <translation>&quot;Золоте Теля&quot; І.Ільф, Є.Петров</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1989"/>
+        <location filename="../tht.cpp" line="1990"/>
         <source>Customize...</source>
         <translation>Налаштувати...</translation>
     </message>

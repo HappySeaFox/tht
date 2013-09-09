@@ -40,6 +40,7 @@
 
 ChatPlugin::ChatPlugin() :
     Plugin(),
+    m_button(0),
     m_window(0)
 {
     THT_PLUGIN_INTERFACE_IMPLEMENTATION

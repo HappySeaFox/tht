@@ -24,8 +24,6 @@
 #include <QList>
 #include <QMap>
 
-class SqlToolsPrivate;
-
 /*
  *  Tools to query SQLite database with tickers
  *  bundled with THT
@@ -56,9 +54,6 @@ private:
     static QMap<QString, QStringList> sectorsAndIndustriesReal();
 
     static void initializeDatabases();
-
-private:
-    SqlToolsPrivate *d;
 };
 
 #endif // SQLTOOLS_H

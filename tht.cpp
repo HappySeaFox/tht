@@ -92,7 +92,7 @@ static void CALLBACK WinEventProcCallback(HWINEVENTHOOK hWinEventHook,
 
     TCHAR title[MAX_PATH];
 
-    if(!GetWindowText(hwnd, title, sizeof(title)))
+    if(!GetWindowText(hwnd, title, sizeof(title)/sizeof(TCHAR)))
     {
         qWarning("Cannot get window text in window %p (%ld)", hwnd, GetLastError());
         return;
@@ -705,7 +705,7 @@ void THT::checkWindow(Link *link)
     TCHAR name[MAX_PATH];
 
     // get executable name
-    if(!GetProcessImageFileName(h, name, sizeof(name)))
+    if(!GetProcessImageFileName(h, name, sizeof(name)/sizeof(TCHAR)))
     {
         qWarning("Cannot get a process info %ld (%ld)", link->processId, GetLastError());
         CloseHandle(h);
@@ -838,9 +838,9 @@ THT::Link THT::checkTargetWindow(const QPoint &p, bool allowThisWindow)
 
     if(link.subControl)
     {
-        TCHAR name[256];
+        TCHAR name[MAX_PATH];
 
-        if(!GetClassName(link.subControl, name, sizeof(name)))
+        if(!GetClassName(link.subControl, name, sizeof(name)/sizeof(TCHAR)))
             qWarning("Cannot get a class name for subcontrol %p (%ld)", link.subControl, GetLastError());
         else if(!lstrcmp(name, TEXT("Edit")))
             link.subControlSupportsClearing = true;
@@ -1358,7 +1358,8 @@ void THT::slotLoadTicker()
         if(!found && m_lists.size())
             found = m_lists.at(0);
 
-        found->focusMiniTickerEntry();
+        if(found)
+            found->focusMiniTickerEntry();
     }
     else
     {
