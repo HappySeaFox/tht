@@ -156,7 +156,7 @@ THT::THT() :
 
     l = new QHBoxLayout(ui->containerRight);
     l->setContentsMargins(0, 0, 0, 0);
-    l->addStretch(1);
+    l->setDirection(QBoxLayout::RightToLeft);
     ui->containerRight->setLayout(l);
 
     qDebug("Registered master data event type: %s",
