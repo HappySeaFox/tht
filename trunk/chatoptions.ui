@@ -26,7 +26,7 @@
      <item row="1" column="0">
       <widget class="QCheckBox" name="checkSaveRooms">
        <property name="text">
-        <string>Save rooms</string>
+        <string extracomment="Infinitive">Save rooms</string>
        </property>
       </widget>
      </item>

@@ -89,6 +89,7 @@ bool ChatPlugin::init()
 
     m_button->setFixedSize(22, 22);
     m_button->setIcon(ChatTools::chatIcon().pixmap(16, 16));
+    //: Noun
     m_button->setToolTip(tr("Chat"));
 
     connect(m_button, SIGNAL(clicked()), this, SLOT(slotClicked()));

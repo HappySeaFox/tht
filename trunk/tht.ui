@@ -153,7 +153,7 @@
       </sizepolicy>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="page_5">
       <layout class="QGridLayout" name="gridLayout_4">
@@ -169,7 +169,7 @@
           </font>
          </property>
          <property name="text">
-          <string>No links</string>
+          <string extracomment="Means &quot;There are no link points&quot;">No links</string>
          </property>
         </widget>
        </item>
@@ -186,7 +186,7 @@
        <item row="0" column="0">
         <widget class="QLabel" name="labelLinks_n">
          <property name="text">
-          <string>Links:</string>
+          <string extracomment="Noun in the plural">Links:</string>
          </property>
         </widget>
        </item>
