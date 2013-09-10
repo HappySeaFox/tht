@@ -333,12 +333,6 @@
         <translation>Мова:</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="47"/>
-        <source>&lt;System&gt;</source>
-        <comment>Means &quot;System language&quot;</comment>
-        <translation>&lt;Системи&gt;</translation>
-    </message>
-    <message>
         <location filename="../options.ui" line="124"/>
         <source>Save position and size</source>
         <translation>Зберегти позицію та розмір</translation>
@@ -351,6 +345,7 @@
     <message>
         <location filename="../options.ui" line="186"/>
         <source>Show buttons</source>
+        <extracomment>Infinitive</extracomment>
         <translation>Показувати кнопки</translation>
     </message>
     <message>
@@ -396,6 +391,12 @@
         <translation>Відновлювати точки лінковки при старті</translation>
     </message>
     <message>
+        <location filename="../options.ui" line="47"/>
+        <source>&lt;System&gt;</source>
+        <extracomment>Means &quot;System language&quot;</extracomment>
+        <translation type="unfinished">&lt;Системи&gt;</translation>
+    </message>
+    <message>
         <location filename="../options.ui" line="152"/>
         <source>Fast ticker entry</source>
         <translation>Швидке введення тікера</translation>
@@ -403,6 +404,7 @@
     <message>
         <location filename="../options.ui" line="159"/>
         <source>Show title</source>
+        <extracomment>Infinitive</extracomment>
         <translation>Показувати заголовок</translation>
     </message>
     <message>
@@ -418,6 +420,7 @@
     <message>
         <location filename="../options.ui" line="88"/>
         <source>Lists:</source>
+        <extracomment>Means &quot;Number of lists:&quot;</extracomment>
         <translation>Списків:</translation>
     </message>
     <message>
@@ -731,11 +734,13 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../tht.ui" line="172"/>
         <source>No links</source>
+        <extracomment>Means &quot;There are no link points&quot;</extracomment>
         <translation>Посилання відсутні</translation>
     </message>
     <message>
         <location filename="../tht.ui" line="189"/>
         <source>Links:</source>
+        <extracomment>Noun in the plural</extracomment>
         <translation>Посилань:</translation>
     </message>
     <message>
@@ -846,22 +851,24 @@ right/middle mouse button to cancel.</source>
         <translation>Неможливо зробити знімок екрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1482"/>
+        <location filename="../tht.cpp" line="1483"/>
         <source>New points</source>
+        <extracomment>Means &quot;New link points&quot;</extracomment>
         <translation>Нові точки</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1937"/>
+        <location filename="../tht.cpp" line="1939"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
+        <extracomment>Copy the translation from &quot;The Little Golden Calf&quot; by I.Ilf, E.Petrov if you have one</extracomment>
         <translation>Всі величезні сучасні багатства нажито&lt;br&gt;найбезчеснішим засобом.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1938"/>
+        <location filename="../tht.cpp" line="1940"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <translation>&quot;Золоте Теля&quot; І.Ільф, Є.Петров</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1991"/>
+        <location filename="../tht.cpp" line="1993"/>
         <source>Customize...</source>
         <translation>Налаштувати...</translation>
     </message>
@@ -918,8 +925,8 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../tickerneighbors.ui" line="109"/>
         <source>By capitalization</source>
-        <comment>Means &quot;Sort by capitalization&quot;</comment>
-        <translation>По капіталізації</translation>
+        <extracomment>Means &quot;Sort by capitalization&quot;</extracomment>
+        <translation type="unfinished">По капіталізації</translation>
     </message>
     <message>
         <location filename="../tickerneighbors.ui" line="122"/>

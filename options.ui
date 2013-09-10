@@ -44,7 +44,7 @@
           <widget class="QComboBox" name="comboLang">
            <item>
             <property name="text">
-             <string comment="Means &quot;System language&quot;">&lt;System&gt;</string>
+             <string extracomment="Means &quot;System language&quot;">&lt;System&gt;</string>
             </property>
            </item>
           </widget>
@@ -85,7 +85,7 @@
          <item row="1" column="0">
           <widget class="QLabel" name="label">
            <property name="text">
-            <string>Lists:</string>
+            <string extracomment="Means &quot;Number of lists:&quot;">Lists:</string>
            </property>
           </widget>
          </item>
@@ -156,7 +156,7 @@
        <item row="3" column="0">
         <widget class="QCheckBox" name="checkHeader">
          <property name="text">
-          <string>Show title</string>
+          <string extracomment="Infinitive">Show title</string>
          </property>
         </widget>
        </item>
@@ -183,7 +183,7 @@
        <item row="4" column="0">
         <widget class="QCheckBox" name="checkButtons">
          <property name="text">
-          <string>Show buttons</string>
+          <string extracomment="Infinitive">Show buttons</string>
          </property>
         </widget>
        </item>

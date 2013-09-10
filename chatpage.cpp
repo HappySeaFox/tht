@@ -76,6 +76,7 @@ ChatPage::ChatPage(QXmppClient *client,
     // context menu for user list
     m_userMenu = new QMenu(this);
 
+    //: Noun
     m_userMenu->addAction(ChatTools::chatIcon(), tr("Chat"), this, SLOT(slotStartChatFromMenu()));
 
     // kick

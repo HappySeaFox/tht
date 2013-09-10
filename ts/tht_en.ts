@@ -340,7 +340,7 @@
     <message>
         <location filename="../options.ui" line="47"/>
         <source>&lt;System&gt;</source>
-        <comment>Means &quot;System language&quot;</comment>
+        <extracomment>Means &quot;System language&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -351,6 +351,7 @@
     <message>
         <location filename="../options.ui" line="88"/>
         <source>Lists:</source>
+        <extracomment>Means &quot;Number of lists:&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -386,6 +387,7 @@
     <message>
         <location filename="../options.ui" line="159"/>
         <source>Show title</source>
+        <extracomment>Infinitive</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -396,6 +398,7 @@
     <message>
         <location filename="../options.ui" line="186"/>
         <source>Show buttons</source>
+        <extracomment>Infinitive</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -745,11 +748,13 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../tht.ui" line="172"/>
         <source>No links</source>
+        <extracomment>Means &quot;There are no link points&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../tht.ui" line="189"/>
         <source>Links:</source>
+        <extracomment>Noun in the plural</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -844,22 +849,24 @@ right/middle mouse button to cancel.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1482"/>
+        <location filename="../tht.cpp" line="1483"/>
         <source>New points</source>
+        <extracomment>Means &quot;New link points&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1937"/>
+        <location filename="../tht.cpp" line="1939"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
+        <extracomment>Copy the translation from &quot;The Little Golden Calf&quot; by I.Ilf, E.Petrov if you have one</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1938"/>
+        <location filename="../tht.cpp" line="1940"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1991"/>
+        <location filename="../tht.cpp" line="1993"/>
         <source>Customize...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -916,7 +923,7 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../tickerneighbors.ui" line="109"/>
         <source>By capitalization</source>
-        <comment>Means &quot;Sort by capitalization&quot;</comment>
+        <extracomment>Means &quot;Sort by capitalization&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
