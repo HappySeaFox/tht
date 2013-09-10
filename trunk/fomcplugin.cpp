@@ -52,7 +52,9 @@ bool FomcPlugin::init()
         return false;
     }
 
+    //: FOMC - Federal Open Market Committee. It's ok not to translate "FOMC" (e.g. just copy-paste "FOMC" to your translation)
     m_label->setToolTip(tr("News from FOMC is today (click to open)"));
+    //: FOMC - Federal Open Market Committee. It's ok not to translate "FOMC" (e.g. just copy-paste "FOMC" to your translation)
     m_label->setText(tr("FOMC"));
 
     QFont f = m_label->font();
