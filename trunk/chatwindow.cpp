@@ -85,6 +85,7 @@ ChatWindow::ChatWindow(QWidget *parent) :
     connect(m_actionAddRoom, SIGNAL(triggered()), this, SLOT(slotAddTab()));
     m_menu->addAction(m_actionAddRoom);
 
+    //: Command. Means "Disconnect from the server"
     m_actionDisconnect = new QAction(tr("Disconnect"), this);
     connect(m_actionDisconnect, SIGNAL(triggered()), m_xmppClient, SLOT(disconnectFromServer()));
     m_menu->addAction(m_actionDisconnect);
@@ -553,12 +554,19 @@ void ChatWindow::slotHelp()
                                      "<tr><td align=center>//Gold=N</td><td>%6</td></tr>"
                                      "<tr><td align=center>//Gold=ND</td><td>%7</td></tr>"
                                      "</table>")
+                             //: Don't translate "ABC" - this is a fixed ticker name
                              .arg(tr("Send the ticker \"ABC\" to the chat. User can click on it and it will be loaded into all the linked windows"))
+                             //: Don't translate "ABC" - this is a fixed ticker name
                              .arg(tr("Show the ticker information about the ticker \"ABC\""))
+                             //: Don't translate "Gold" - this is a fixed industry name
                              .arg(tr("Show the tickers from the industry \"Gold\" (all exchanges, tickers are sorted by capitalization)"))
+                             //: Don't translate "Gold" - this is a fixed industry name
                              .arg(tr("Show the AMEX tickers from the industry \"Gold\""))
+                             //: Don't translate "Gold" - this is a fixed industry name
                              .arg(tr("Show the NASDAQ tickers from the industry \"Gold\""))
+                             //: Don't translate "Gold" - this is a fixed industry name
                              .arg(tr("Show the NYSE tickers from the industry \"Gold\""))
+                             //: Don't translate "Gold" - this is a fixed industry name
                              .arg(tr("Show the NYSE and NASDAQ tickers from the industry \"Gold\" (you can mix exchanges)"))
                              );
 }

@@ -42,14 +42,14 @@
      <item>
       <widget class="QPushButton" name="pushSend">
        <property name="text">
-        <string>Send</string>
+        <string extracomment="Command">Send</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="pushClose">
        <property name="text">
-        <string>Close</string>
+        <string extracomment="Command">Close</string>
        </property>
       </widget>
      </item>

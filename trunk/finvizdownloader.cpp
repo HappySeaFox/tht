@@ -32,6 +32,7 @@ static const int REQUIRED_FIELDS = 11;
 FinvizDownloader::FinvizDownloader(const QUrl &url, QWidget *parent) :
     DataDownloader(parent)
 {
+    //: Finviz - Stock Screener, http://finviz.com. It's ok not to translate "Finviz" (e.g. just copy-paste "Finviz" to your translation)
     setWindowTitle(tr("Finviz"));
     setMessage(tr("Downloading tickers..."));
     setCookieJar(new FinvizCookieJar(this));

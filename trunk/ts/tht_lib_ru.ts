@@ -6,6 +6,7 @@
     <message>
         <location filename="../datadownloader.ui" line="27"/>
         <source>Close</source>
+        <extracomment>Command</extracomment>
         <translation>Закрыть</translation>
     </message>
     <message>
@@ -24,12 +25,13 @@
     <message>
         <location filename="../datamanagerbase.ui" line="53"/>
         <source>Delete</source>
+        <extracomment>Command</extracomment>
         <translation>Удалить</translation>
     </message>
     <message>
         <location filename="../datamanagerbase.ui" line="89"/>
         <source>Clear</source>
-        <extracomment>Invinitive</extracomment>
+        <extracomment>Command</extracomment>
         <translation>Очистить</translation>
     </message>
     <message>
