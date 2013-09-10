@@ -105,7 +105,7 @@
           <bool>false</bool>
          </property>
          <property name="text">
-          <string>Add</string>
+          <string extracomment="Command">Add</string>
          </property>
         </widget>
        </item>
@@ -115,7 +115,7 @@
           <bool>false</bool>
          </property>
          <property name="text">
-          <string>Remove</string>
+          <string extracomment="Command">Remove</string>
          </property>
         </widget>
        </item>
@@ -155,8 +155,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>100</width>
-            <height>30</height>
+            <width>527</width>
+            <height>273</height>
            </rect>
           </property>
          </widget>
@@ -207,7 +207,7 @@
      <item>
       <widget class="QPushButton" name="pushClose">
        <property name="text">
-        <string>Close</string>
+        <string extracomment="Command">Close</string>
        </property>
       </widget>
      </item>

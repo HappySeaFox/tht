@@ -79,10 +79,11 @@ ChatPage::ChatPage(QXmppClient *client,
     //: Noun
     m_userMenu->addAction(ChatTools::chatIcon(), tr("Chat"), this, SLOT(slotStartChatFromMenu()));
 
-    // kick
+    //: Command. Means "Kick the selected user right now"
     m_kickNow = new QAction(tr("Kick now"), this);
     connect(m_kickNow, SIGNAL(triggered()), this, SLOT(slotKickNow()));
 
+    //: Command. Means "Kick the selected user with the following reason"
     m_kickWithReason = new QAction(tr("Kick with reason..."), this);
     connect(m_kickWithReason, SIGNAL(triggered()), this, SLOT(slotKickWithReason()));
 
@@ -90,10 +91,11 @@ ChatPage::ChatPage(QXmppClient *client,
     m_userMenu->addAction(m_kickNow);
     m_userMenu->addAction(m_kickWithReason);
 
-    // ban
+    //: Command. Means "Ban the selected user right now"
     m_banNow = new QAction(tr("Ban now"), this);
     connect(m_banNow, SIGNAL(triggered()), this, SLOT(slotBanNow()));
 
+    //: Command. Means "Ban the selected user with the following reason"
     m_banWithReason = new QAction(tr("Ban with reason..."), this);
     connect(m_banWithReason, SIGNAL(triggered()), this, SLOT(slotBanWithReason()));
 
@@ -104,11 +106,13 @@ ChatPage::ChatPage(QXmppClient *client,
     // context menu for room
     m_roomMenu = new QMenu(this);
 
-    // configure room
+    //: Command. Means "Configure this room"
     m_configureRoom = new QAction(tr("Configure room") + "...", this);
     connect(m_configureRoom, SIGNAL(triggered()), this, SLOT(slotConfigureRoom()));
 
+    //: Command
     m_roomMenu->addAction(tr("Copy room JID"), this, SLOT(slotCopyRoomJid()));
+    //: Command. Means "Send invitations to the selected users"
     m_roomMenu->addAction(tr("Send invitations") + "...", this, SLOT(slotSendInvitations()));
     m_roomMenu->addSeparator();
     m_roomMenu->addAction(m_configureRoom);
@@ -820,6 +824,7 @@ void ChatPage::showUnreadMessagesCount()
     }
     else
     {
+        //: Means "Number of messages:"
         ui->labelUnreadMessages->setText(tr("Messages: %1").arg(m_unreadMessages.count()));
         blinkUnreadMessages(true);
     }

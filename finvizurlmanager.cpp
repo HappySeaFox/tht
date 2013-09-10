@@ -27,8 +27,10 @@
 FinvizUrlManager::FinvizUrlManager(QWidget *parent) :
     DataManagerBase(parent)
 {
+    //: Finviz - Stock Screener, http://finviz.com. It's ok not to translate "Finviz" (e.g. just copy-paste "Finviz" to your translation). Means "Links to Finviz"
     setWindowTitle(tr("Finviz links"));
 
+    //: Command
     buttonAdd()->setText(tr("Add"));
 
     QTreeWidget *t = tree();
