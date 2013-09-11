@@ -35,5 +35,15 @@
         <file>images/options-hotkeys.png</file>
         <file>images/options-list.png</file>
         <file>images/drag_red.png</file>
+        <file>images/flags/de.png</file>
+        <file>images/flags/es.png</file>
+        <file>images/flags/fr.png</file>
+        <file>images/flags/it.png</file>
+        <file>images/flags/jp.png</file>
+        <file>images/flags/ru.png</file>
+        <file>images/flags/uk.png</file>
+        <file>images/flags/zh.png</file>
+        <file>images/flags/en.png</file>
+        <file>images/flags/zh_TW.png</file>
     </qresource>
 </RCC>
