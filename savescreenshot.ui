@@ -20,7 +20,7 @@
       <string>Edit...</string>
      </property>
      <property name="shortcut">
-      <string>E</string>
+      <string extracomment="Hotkey. Simply copy-paste">E</string>
      </property>
     </widget>
    </item>
@@ -37,7 +37,7 @@
       <string>Clipboard</string>
      </property>
      <property name="shortcut">
-      <string>C</string>
+      <string extracomment="Hotkey. Simply copy-paste">C</string>
      </property>
     </widget>
    </item>
@@ -47,7 +47,7 @@
       <string>File...</string>
      </property>
      <property name="shortcut">
-      <string>F</string>
+      <string extracomment="Hotkey. Simply copy-paste">F</string>
      </property>
     </widget>
    </item>
@@ -57,7 +57,7 @@
       <string>Dropbox...</string>
      </property>
      <property name="shortcut">
-      <string>D</string>
+      <string extracomment="Hotkey. Simply copy-paste">D</string>
      </property>
     </widget>
    </item>

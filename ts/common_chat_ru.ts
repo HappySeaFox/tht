@@ -327,13 +327,13 @@
     <message>
         <location filename="../chatpage.cpp" line="560"/>
         <source>Kick</source>
-        <extracomment>Infinitive</extracomment>
+        <extracomment>Command. Means &quot;Kick the selected user&quot;</extracomment>
         <translation>Кикнуть</translation>
     </message>
     <message>
         <location filename="../chatpage.cpp" line="597"/>
         <source>Ban</source>
-        <extracomment>Infinitive</extracomment>
+        <extracomment>Command. Means &quot;Ban the selected user&quot;</extracomment>
         <translation>Забанить</translation>
     </message>
     <message>
@@ -372,6 +372,7 @@
     <message>
         <location filename="../chatwindow.ui" line="14"/>
         <source>Chat</source>
+        <extracomment>Noun</extracomment>
         <translation>Чат</translation>
     </message>
     <message>
@@ -388,6 +389,7 @@
     <message>
         <location filename="../chatwindow.ui" line="75"/>
         <source>Sign In</source>
+        <extracomment>Command</extracomment>
         <translation>Войти</translation>
     </message>
     <message>

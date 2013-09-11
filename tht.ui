@@ -169,7 +169,7 @@
           </font>
          </property>
          <property name="text">
-          <string extracomment="Means &quot;There are no link points&quot;">No links</string>
+          <string extracomment="Means &quot;There are no established links&quot;">No links</string>
          </property>
         </widget>
        </item>
@@ -207,7 +207,7 @@
    <item row="2" column="6">
     <widget class="QCheckBox" name="checkNyse">
      <property name="text">
-      <string>=N</string>
+      <string extracomment="Simply copy-paste &quot;=N&quot;">=N</string>
      </property>
     </widget>
    </item>

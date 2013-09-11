@@ -559,11 +559,13 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../savescreenshot.ui" line="23"/>
         <source>E</source>
-        <translation></translation>
+        <extracomment>Hotkey. Simply copy-paste</extracomment>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../savescreenshot.ui" line="50"/>
         <source>F</source>
+        <extracomment>Hotkey. Simply copy-paste</extracomment>
         <translation></translation>
     </message>
     <message>
@@ -574,6 +576,7 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../savescreenshot.ui" line="60"/>
         <source>D</source>
+        <extracomment>Hotkey. Simply copy-paste</extracomment>
         <translation>D</translation>
     </message>
     <message>
@@ -584,6 +587,7 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../savescreenshot.ui" line="40"/>
         <source>C</source>
+        <extracomment>Hotkey. Simply copy-paste</extracomment>
         <translation></translation>
     </message>
     <message>
@@ -649,6 +653,7 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../screenshoteditor.ui" line="87"/>
         <source>Delete</source>
+        <extracomment>Command</extracomment>
         <translation>Видалити</translation>
     </message>
     <message>
@@ -660,32 +665,37 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../screenshoteditor.ui" line="132"/>
         <source>B</source>
+        <extracomment>Hotkey. Simply copy-paste</extracomment>
         <translation></translation>
     </message>
     <message>
         <location filename="../screenshoteditor.ui" line="156"/>
         <source>Alt+E</source>
+        <extracomment>Hotkey. Simply copy-paste</extracomment>
         <translation></translation>
     </message>
     <message>
         <location filename="../screenshoteditor.ui" line="111"/>
         <source>Sale</source>
+        <extracomment>Noun</extracomment>
         <translation>Продаж</translation>
     </message>
     <message>
         <location filename="../screenshoteditor.ui" line="118"/>
         <source>S</source>
+        <extracomment>Hotkey. Simply copy-paste</extracomment>
         <translation></translation>
     </message>
     <message>
         <location filename="../screenshoteditor.ui" line="139"/>
         <source>Stop</source>
-        <extracomment>Noun. Means &quot;Stop order&quot;</extracomment>
+        <extracomment>Noun. Means &quot;Stop-loss order&quot;, see http://www.investopedia.com/terms/s/stoporder.asp</extracomment>
         <translation>Стоп</translation>
     </message>
     <message>
         <location filename="../screenshoteditor.ui" line="146"/>
         <source>P</source>
+        <extracomment>Hotkey. Simply copy-paste</extracomment>
         <translation></translation>
     </message>
     <message>
@@ -696,6 +706,7 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../screenshoteditor.ui" line="97"/>
         <source>T</source>
+        <extracomment>Hotkey. Simply copy-paste</extracomment>
         <translation></translation>
     </message>
     <message>
@@ -706,6 +717,7 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../screenshoteditor.ui" line="104"/>
         <source>Select all</source>
+        <extracomment>Command</extracomment>
         <translation>Виділити все</translation>
     </message>
     <message>
@@ -716,6 +728,7 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../screenshoteditor.ui" line="56"/>
         <source>E</source>
+        <extracomment>Hotkey. Simply copy-paste</extracomment>
         <translation></translation>
     </message>
     <message>
@@ -734,7 +747,7 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../tht.ui" line="172"/>
         <source>No links</source>
-        <extracomment>Means &quot;There are no link points&quot;</extracomment>
+        <extracomment>Means &quot;There are no established links&quot;</extracomment>
         <translation>Посилання відсутні</translation>
     </message>
     <message>
@@ -762,6 +775,7 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../tht.ui" line="210"/>
         <source>=N</source>
+        <extracomment>Simply copy-paste &quot;=N&quot;</extracomment>
         <translation></translation>
     </message>
     <message>

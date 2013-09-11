@@ -556,7 +556,7 @@ void ChatPage::slotKickWithReason()
 {
     bool ok;
     QString reason = QInputDialog::getText(this,
-                                           //: Infinitive
+                                           //: Command. Means "Kick the selected user"
                                            tr("Kick"),
                                            tr("Reason:"), QLineEdit::Normal, QString(), &ok);
 
@@ -593,7 +593,7 @@ void ChatPage::slotBanWithReason()
 {
     bool ok;
     QString reason = QInputDialog::getText(this,
-                                           //: Infinitive
+                                           //: Command. Means "Ban the selected user"
                                            tr("Ban"),
                                            tr("Reason:"), QLineEdit::Normal, QString(), &ok);
 

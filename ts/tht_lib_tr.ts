@@ -25,6 +25,7 @@
     <message>
         <location filename="../datamanagerbase.ui" line="46"/>
         <source>Ins</source>
+        <extracomment>Hotkey. Simply copy-paste</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -36,11 +37,13 @@
     <message>
         <location filename="../datamanagerbase.ui" line="64"/>
         <source>Ctrl+Up</source>
+        <extracomment>Hotkey. Simply copy-paste</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../datamanagerbase.ui" line="75"/>
         <source>Ctrl+Down</source>
+        <extracomment>Hotkey. Simply copy-paste</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>

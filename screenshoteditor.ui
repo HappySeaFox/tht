@@ -53,7 +53,7 @@
        <normaloff>:/images/ellipse.png</normaloff>:/images/ellipse.png</iconset>
      </property>
      <property name="shortcut">
-      <string>E</string>
+      <string extracomment="Hotkey. Simply copy-paste">E</string>
      </property>
     </widget>
    </item>
@@ -84,7 +84,7 @@
    <item row="8" column="1" colspan="2">
     <widget class="QPushButton" name="pushDelete">
      <property name="text">
-      <string>Delete</string>
+      <string extracomment="Command">Delete</string>
      </property>
     </widget>
    </item>
@@ -94,28 +94,28 @@
       <string>Text</string>
      </property>
      <property name="shortcut">
-      <string>T</string>
+      <string extracomment="Hotkey. Simply copy-paste">T</string>
      </property>
     </widget>
    </item>
    <item row="7" column="1" colspan="2">
     <widget class="QPushButton" name="pushSelectAll">
      <property name="text">
-      <string>Select all</string>
+      <string extracomment="Command">Select all</string>
      </property>
     </widget>
    </item>
    <item row="2" column="1" colspan="2">
     <widget class="QPushButton" name="pushShort">
      <property name="text">
-      <string>Sale</string>
+      <string extracomment="Noun">Sale</string>
      </property>
      <property name="icon">
       <iconset resource="tht.qrc">
        <normaloff>:/images/cursor-sale.png</normaloff>:/images/cursor-sale.png</iconset>
      </property>
      <property name="shortcut">
-      <string>S</string>
+      <string extracomment="Hotkey. Simply copy-paste">S</string>
      </property>
     </widget>
    </item>
@@ -129,21 +129,21 @@
        <normaloff>:/images/cursor-buy.png</normaloff>:/images/cursor-buy.png</iconset>
      </property>
      <property name="shortcut">
-      <string>B</string>
+      <string extracomment="Hotkey. Simply copy-paste">B</string>
      </property>
     </widget>
    </item>
    <item row="3" column="1" colspan="2">
     <widget class="QPushButton" name="pushStop">
      <property name="text">
-      <string extracomment="Noun. Means &quot;Stop order&quot;">Stop</string>
+      <string extracomment="Noun. Means &quot;Stop-loss order&quot;, see http://www.investopedia.com/terms/s/stoporder.asp">Stop</string>
      </property>
      <property name="icon">
       <iconset resource="tht.qrc">
        <normaloff>:/images/cursor-stop.png</normaloff>:/images/cursor-stop.png</iconset>
      </property>
      <property name="shortcut">
-      <string>P</string>
+      <string extracomment="Hotkey. Simply copy-paste">P</string>
      </property>
     </widget>
    </item>
@@ -153,7 +153,7 @@
       <string>The fill color of the ellipse</string>
      </property>
      <property name="shortcut">
-      <string>Alt+E</string>
+      <string extracomment="Hotkey. Simply copy-paste">Alt+E</string>
      </property>
     </widget>
    </item>
