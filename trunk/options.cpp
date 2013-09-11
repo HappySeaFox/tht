@@ -89,7 +89,7 @@ void Options::load()
 
     for(QMap<QString, QString>::const_iterator it = tsmap.begin();it != itEnd;++it)
     {
-        ui->comboLang->addItem(it.value(), it.key());
+        ui->comboLang->addItem(QIcon(":/images/flags/" + it.key() + ".png"), it.value(), it.key());
 
         if(it.key() == ts)
         {
