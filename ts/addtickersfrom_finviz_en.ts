@@ -41,12 +41,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../finvizdownloader.cpp" line="37"/>
+        <location filename="../finvizdownloader.cpp" line="38"/>
         <source>Downloading tickers...</source>
+        <extracomment>Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../finvizdownloader.cpp" line="101"/>
+        <location filename="../finvizdownloader.cpp" line="102"/>
         <source>Broken data (fields: %1, required: %2)</source>
         <translation type="unfinished"></translation>
     </message>

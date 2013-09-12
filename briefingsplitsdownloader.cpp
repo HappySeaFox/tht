@@ -26,6 +26,7 @@ BriefingSplitsDownloader::BriefingSplitsDownloader(const QUrl &url, QWidget *par
 {
     //: It's ok not to translate "Briefing Stock Splits" (e.g. just copy-paste "Briefing Stock Splits" to your translation)
     setWindowTitle(tr("Briefing Stock Splits"));
+    //: Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp
     setMessage(tr("Downloading tickers..."));
     get(url);
 }

@@ -360,8 +360,9 @@ Command</extracomment>
         <translation>млрд</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="1101"/>
+        <location filename="../chatpage.cpp" line="1102"/>
         <source>ticker is not found</source>
+        <extracomment>Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp</extracomment>
         <translation>тикер не найден</translation>
     </message>
 </context>
