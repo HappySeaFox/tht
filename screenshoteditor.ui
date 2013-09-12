@@ -52,9 +52,6 @@
       <iconset resource="tht.qrc">
        <normaloff>:/images/ellipse.png</normaloff>:/images/ellipse.png</iconset>
      </property>
-     <property name="shortcut">
-      <string extracomment="Hotkey. Simply copy-paste">E</string>
-     </property>
     </widget>
    </item>
    <item row="0" column="0" rowspan="11">
@@ -93,9 +90,6 @@
      <property name="text">
       <string>Text</string>
      </property>
-     <property name="shortcut">
-      <string extracomment="Hotkey. Simply copy-paste">T</string>
-     </property>
     </widget>
    </item>
    <item row="7" column="1" colspan="2">
@@ -114,9 +108,6 @@
       <iconset resource="tht.qrc">
        <normaloff>:/images/cursor-sale.png</normaloff>:/images/cursor-sale.png</iconset>
      </property>
-     <property name="shortcut">
-      <string extracomment="Hotkey. Simply copy-paste">S</string>
-     </property>
     </widget>
    </item>
    <item row="1" column="1" colspan="2">
@@ -127,9 +118,6 @@
      <property name="icon">
       <iconset resource="tht.qrc">
        <normaloff>:/images/cursor-buy.png</normaloff>:/images/cursor-buy.png</iconset>
-     </property>
-     <property name="shortcut">
-      <string extracomment="Hotkey. Simply copy-paste">B</string>
      </property>
     </widget>
    </item>
@@ -142,18 +130,12 @@
       <iconset resource="tht.qrc">
        <normaloff>:/images/cursor-stop.png</normaloff>:/images/cursor-stop.png</iconset>
      </property>
-     <property name="shortcut">
-      <string extracomment="Hotkey. Simply copy-paste">P</string>
-     </property>
     </widget>
    </item>
    <item row="5" column="2">
     <widget class="QPushButton" name="pushEllipseFill">
      <property name="toolTip">
       <string>The fill color of the ellipse</string>
-     </property>
-     <property name="shortcut">
-      <string extracomment="Hotkey. Simply copy-paste">Alt+E</string>
      </property>
     </widget>
    </item>

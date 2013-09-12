@@ -59,7 +59,7 @@
    <sender>pushCancel</sender>
    <signal>clicked()</signal>
    <receiver>DropBoxUploader</receiver>
-   <slot>accept()</slot>
+   <slot>slotRejectFromUser()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>250</x>
@@ -72,4 +72,7 @@
    </hints>
   </connection>
  </connections>
+ <slots>
+  <slot>slotRejectFromUser()</slot>
+ </slots>
 </ui>

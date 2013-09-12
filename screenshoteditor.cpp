@@ -19,6 +19,7 @@
 #include <QApplication>
 #include <QKeySequence>
 #include <QScrollBar>
+#include <QShortcut>
 #include <QKeyEvent>
 #include <QPixmap>
 
@@ -47,8 +48,15 @@ ScreenshotEditor::ScreenshotEditor(const QPixmap &px, QWidget *parent) :
 
     connect(ui->scrollAreaWidgetContents, SIGNAL(selected(SelectableLabel*,bool)), this, SLOT(slotSelected(SelectableLabel*,bool)));
 
-    ui->pushDelete->setShortcut(QKeySequence::Delete);
-    ui->pushSelectAll->setShortcut(QKeySequence::SelectAll);
+    // some hotkeys
+    new QShortcut(Qt::Key_T, ui->scrollAreaWidgetContents, SLOT(startText()));
+    new QShortcut(Qt::Key_B, ui->scrollAreaWidgetContents, SLOT(startBuy()));
+    new QShortcut(Qt::Key_S, ui->scrollAreaWidgetContents, SLOT(startSale()));
+    new QShortcut(Qt::Key_P, ui->scrollAreaWidgetContents, SLOT(startStop()));
+    new QShortcut(Qt::Key_E, ui->scrollAreaWidgetContents, SLOT(startEllipse()));
+    new QShortcut(Qt::ALT + Qt::Key_E, this, SLOT(slotEllipseFillColor()));
+    new QShortcut(QKeySequence::Delete, ui->scrollAreaWidgetContents, SLOT(deleteSelected()));
+    new QShortcut(QKeySequence::SelectAll, ui->scrollAreaWidgetContents, SLOT(selectAll()));
 
     layout()->activate();
 
