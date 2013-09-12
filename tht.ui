@@ -84,7 +84,7 @@
           </size>
          </property>
          <property name="toolTip">
-          <string>THT is ready</string>
+          <string extracomment="Don't translate &quot;THT&quot;, simple copy-paste &quot;THT&quot; to your translation">THT is ready</string>
          </property>
          <property name="pixmap">
           <pixmap resource="tht.qrc">:/images/ready.png</pixmap>
@@ -116,7 +116,7 @@
           </size>
          </property>
          <property name="toolTip">
-          <string>THT is busy</string>
+          <string extracomment="Don't translate &quot;THT&quot;, simple copy-paste &quot;THT&quot; to your translation">THT is busy</string>
          </property>
          <property name="pixmap">
           <pixmap resource="tht.qrc">:/images/locked.png</pixmap>
@@ -153,7 +153,7 @@
       </sizepolicy>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="page_5">
       <layout class="QGridLayout" name="gridLayout_4">

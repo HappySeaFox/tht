@@ -81,6 +81,7 @@ ChatWindow::ChatWindow(QWidget *parent) :
     // context menu
     m_menu = new QMenu(this);
 
+    //: Command. Means "Add a new room"
     m_actionAddRoom = new QAction(QIcon(":/images/addroom.png"), tr("Add room"), this);
     connect(m_actionAddRoom, SIGNAL(triggered()), this, SLOT(slotAddTab()));
     m_menu->addAction(m_actionAddRoom);
@@ -343,6 +344,7 @@ void ChatWindow::slotError(QXmppClient::Error error)
         break;
 
         case QXmppClient::KeepAliveError:
+            //: Also can be translated as "Error maintain the connection"
             err = tr("Keep alive error");
         break;
 
@@ -411,6 +413,7 @@ void ChatWindow::slotMessageReceived(const QXmppMessage &msg)
         }
 
         if(QMessageBox::question(this,
+                                 //: Noun
                                  tr("Invitation"),
                                  tr("You have been invited to room %1%2%3%4<br><br>Open the room now?")
                                     .arg("<b>" + msg.mucInvitationJid() + "</b>")

@@ -56,7 +56,7 @@
     <message>
         <location filename="../finvizlinkselector.ui" line="14"/>
         <source>Add from Finviz</source>
-        <extracomment>Finviz - Stock Screener, http://finviz.com. It&apos;s ok not to translate &quot;Finviz&quot; (e.g. just copy-paste &quot;Finviz&quot; to your translation)</extracomment>
+        <extracomment>Command. Finviz - Stock Screener, http://finviz.com. It&apos;s ok not to translate &quot;Finviz&quot; (e.g. just copy-paste &quot;Finviz&quot; to your translation)</extracomment>
         <translation>Добавить из Finviz</translation>
     </message>
     <message>
@@ -71,7 +71,7 @@
     <message>
         <location filename="../finvizplugin.cpp" line="88"/>
         <source>Add from Finviz</source>
-        <extracomment>Finviz - Stock Screener, http://finviz.com. It&apos;s ok not to translate &quot;Finviz&quot; (e.g. just copy-paste &quot;Finviz&quot; to your translation)</extracomment>
+        <extracomment>Command. Finviz - Stock Screener, http://finviz.com. It&apos;s ok not to translate &quot;Finviz&quot; (e.g. just copy-paste &quot;Finviz&quot; to your translation)</extracomment>
         <translation>Добавить из Finviz</translation>
     </message>
     <message>

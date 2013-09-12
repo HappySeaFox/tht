@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Enter a ticker</string>
+   <string extracomment="Command. Means &quot;Enter ticker here:&quot;">Enter a ticker</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">

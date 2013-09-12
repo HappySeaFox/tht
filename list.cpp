@@ -95,13 +95,15 @@ List::List(int group, QWidget *parent) :
     ui->pushSave->setEnabled(!m_saveTickers);
 
     QMenu *menu = new QMenu(this);
-    //: Infinitive
+    //: Command
     menu->addAction(QIcon(":/images/clear.png"), tr("Clear") + '\t' + QKeySequence(QKeySequence::New).toString(), this, SLOT(clear()));
     menu->addSeparator();
-    //: Infinitive
+    //: Command
     menu->addAction(tr("Sort") + "\tR", this, SLOT(slotSortList()));
+    //: Command
     m_changeTitle = menu->addAction(tr("Change title") + "\tF2", this, SLOT(changeHeader()));
     menu->addSeparator();
+    //: Command
     menu->addAction(tr("Reset priorities") + "\tAlt+U", this, SLOT(slotResetPriorities()));
 
     ui->pushList->setMenu(menu);
@@ -109,16 +111,21 @@ List::List(int group, QWidget *parent) :
     QIcon file_icon(":/images/file.png");
 
     menu = new QMenu(this);
+    //: Command
     menu->addAction(tr("Add one ticker...") + "\tO", this, SLOT(slotAddOne()));
     menu->addSeparator();
+    //: Command
     menu->addAction(file_icon, tr("Add from file...") + "\tA", this, SLOT(slotAddFromFile()));
+    //: Command
     menu->addAction(tr("Add from clipboard") + "\tP", this, SLOT(paste()));
     ui->pushAdd->setMenu(menu);
 
     embedPlugins(Plugin::AddTickersFrom, menu);
 
     menu = new QMenu(this);
+    //: Command
     menu->addAction(file_icon, tr("Export to file...") + "\tE", this, SLOT(slotExportToFile()));
+    //: Command
     menu->addAction(tr("Export to clipboard") + "\tC", this, SLOT(slotExportToClipboard()));
     ui->pushSaveAs->setMenu(menu);
 

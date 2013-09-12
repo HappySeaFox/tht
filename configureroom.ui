@@ -66,7 +66,7 @@
          </item>
          <item>
           <property name="text">
-           <string>Members</string>
+           <string extracomment="Can be translated as &quot;Registered&quot; (in the plural, meaning &quot;Registered users&quot;)">Members</string>
           </property>
           <property name="font">
            <font>
@@ -77,7 +77,7 @@
          </item>
          <item>
           <property name="text">
-           <string extracomment="Means &quot;Banned JIDs&quot;">Banned</string>
+           <string extracomment="In the plural. Means &quot;Banned users&quot;">Banned</string>
           </property>
           <property name="font">
            <font>
@@ -88,7 +88,7 @@
          </item>
          <item>
           <property name="text">
-           <string extracomment="In plural. Means &quot;Other affiliations&quot;">Other</string>
+           <string extracomment="In the plural. Means &quot;Other affiliations&quot;">Other</string>
           </property>
           <property name="font">
            <font>
@@ -136,7 +136,7 @@
      </widget>
      <widget class="QWidget" name="tab_2">
       <attribute name="title">
-       <string extracomment="In plural. Means &quot;General options&quot;">General</string>
+       <string extracomment="In the plural. Means &quot;General options&quot;">General</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout_3">
        <property name="margin">

@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string extracomment="Finviz - Stock Screener, http://finviz.com. It's ok not to translate &quot;Finviz&quot; (e.g. just copy-paste &quot;Finviz&quot; to your translation)">Add from Finviz</string>
+   <string extracomment="Command. Finviz - Stock Screener, http://finviz.com. It's ok not to translate &quot;Finviz&quot; (e.g. just copy-paste &quot;Finviz&quot; to your translation)">Add from Finviz</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
