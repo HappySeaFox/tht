@@ -53,14 +53,14 @@
      <item row="3" column="0">
       <widget class="QCheckBox" name="checkRestoreChat">
        <property name="text">
-        <string>Restore chat at startup</string>
+        <string extracomment="Infinitive">Restore chat at startup</string>
        </property>
       </widget>
      </item>
      <item row="4" column="0">
       <widget class="QCheckBox" name="checkTime">
        <property name="text">
-        <string>Show time of message</string>
+        <string extracomment="Infinitive">Show time of message</string>
        </property>
       </widget>
      </item>

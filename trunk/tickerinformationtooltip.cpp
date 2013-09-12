@@ -179,6 +179,7 @@ void TickerInformationToolTipLabel::slotFetcherDone(const QString &name,
 {
     if(name.isEmpty())
     {
+        //: In the neuter, means "Something is not found"
         TickerInformationToolTip::showText(QPoint(), tr("Not found"), false);
         restartExpireTimer();
         return;

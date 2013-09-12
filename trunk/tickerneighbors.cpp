@@ -47,10 +47,12 @@ TickerNeighbors::TickerNeighbors(const QString &ticker, QWidget *parent) :
     // setup context menus for combos
     QAction *a;
 
+    //: Command
     a = new QAction(tr("Copy"), ui->comboSector);
     connect(a, SIGNAL(triggered()), this, SLOT(slotCopyCombo()));
     ui->comboSector->addAction(a);
 
+    //: Command
     a = new QAction(tr("Copy"), ui->comboIndustry);
     connect(a, SIGNAL(triggered()), this, SLOT(slotCopyCombo()));
     ui->comboIndustry->addAction(a);

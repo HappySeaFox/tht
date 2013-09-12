@@ -34,7 +34,7 @@
        <item row="2" column="0">
         <widget class="QCheckBox" name="checkTray">
          <property name="text">
-          <string>Hide to tray</string>
+          <string extracomment="Infinitive">Hide to tray</string>
          </property>
         </widget>
        </item>
@@ -94,7 +94,7 @@
        <item row="3" column="0">
         <widget class="QCheckBox" name="checkRestoreIndustries">
          <property name="text">
-          <string>Restore &quot;Industries&quot; window at startup</string>
+          <string extracomment="Infinitive">Restore &quot;Industries&quot; window at startup</string>
          </property>
         </widget>
        </item>
@@ -114,14 +114,14 @@
        <item row="4" column="0">
         <widget class="QCheckBox" name="checkRestoreLP">
          <property name="text">
-          <string>Restore link points at startup</string>
+          <string extracomment="Infinitive">Restore link points at startup</string>
          </property>
         </widget>
        </item>
        <item row="5" column="0">
         <widget class="QCheckBox" name="checkSave">
          <property name="text">
-          <string>Save position and size</string>
+          <string extracomment="Infinitive">Save position and size</string>
          </property>
         </widget>
        </item>
@@ -135,14 +135,14 @@
        <item row="0" column="0">
         <widget class="QCheckBox" name="checkSaveTickers">
          <property name="text">
-          <string>Automatically save tickers</string>
+          <string extracomment="Infinitive">Automatically save tickers</string>
          </property>
         </widget>
        </item>
        <item row="1" column="0">
         <widget class="QCheckBox" name="checkAllowDups">
          <property name="text">
-          <string>Allow duplicates in a ticker list</string>
+          <string extracomment="Infinitive">Allow duplicates in a ticker list</string>
          </property>
         </widget>
        </item>
@@ -163,7 +163,7 @@
        <item row="5" column="0">
         <widget class="QCheckBox" name="checkComments">
          <property name="text">
-          <string>Automatically show ticker comments</string>
+          <string extracomment="Infinitive">Automatically show ticker comments</string>
          </property>
         </widget>
        </item>

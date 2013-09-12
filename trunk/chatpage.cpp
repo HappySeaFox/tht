@@ -151,6 +151,7 @@ ChatPage::ChatPage(QXmppClient *client,
     m_companyTemplate =
             QString("<br><table>")
             + "<tr><td>" + tr("Company:")        + "</td><td>%1</td></tr>"
+            //: Noun. Means "Market exchange:"
             + "<tr><td>" + tr("Exchange:")       + "</td><td>%2</td></tr>"
             + "<tr><td>" + tr("Sector:")         + "</td><td>%3</td></tr>"
             + "<tr><td>" + tr("Industry:")       + "</td><td>%4</td></tr>"
@@ -212,6 +213,7 @@ ChatPage::ChatPage(QXmppClient *client,
 
     // context menu for subject lineedit
     QAction *a;
+    //: Command
     a = new QAction(tr("Set subject") + "...", ui->lineSubject);
     connect(a, SIGNAL(triggered()), this, SLOT(slotSetSubject()));
     ui->lineSubject->addAction(a);
@@ -614,7 +616,13 @@ void ChatPage::slotSetSubject()
     qDebug("Setting subject");
 
     bool ok;
-    QString subject = QInputDialog::getText(this, tr("Set subject"), tr("Subject") + ':', QLineEdit::Normal, ui->lineSubject->text(), &ok);
+    QString subject = QInputDialog::getText(this,
+                                            //: Command
+                                            tr("Set subject"),
+                                            tr("Subject") + ':',
+                                            QLineEdit::Normal,
+                                            ui->lineSubject->text(),
+                                            &ok);
 
     if(!ok)
         return;
@@ -789,17 +797,18 @@ QString ChatPage::errorToString(const QXmppStanza::Error &error)
     {
         case QXmppStanza::Error::BadRequest:            return tr("Bad request");
         case QXmppStanza::Error::Conflict:              return tr("User conflict");
-        case QXmppStanza::Error::FeatureNotImplemented: return tr("Feature not implemented");
+        case QXmppStanza::Error::FeatureNotImplemented: return tr("Feature is not implemented");
         case QXmppStanza::Error::Forbidden:             return tr("Forbidden");
         case QXmppStanza::Error::Gone:                  return tr("User has gone");
         case QXmppStanza::Error::InternalServerError:   return tr("Internal server error");
-        case QXmppStanza::Error::ItemNotFound:          return tr("Item not found");
+        case QXmppStanza::Error::ItemNotFound:          return tr("Item is not found");
         case QXmppStanza::Error::JidMalformed:          return tr("JID is malformed");
         case QXmppStanza::Error::NotAcceptable:         return tr("Not acceptable");
         case QXmppStanza::Error::NotAllowed:            return tr("Not allowed");
         case QXmppStanza::Error::NotAuthorized:         return tr("Not authorized");
         case QXmppStanza::Error::PaymentRequired:       return tr("Payment required");
         case QXmppStanza::Error::RecipientUnavailable:  return tr("Recipient is unavailable");
+        //: Noun
         case QXmppStanza::Error::Redirect:              return tr("Redirect");
         case QXmppStanza::Error::RegistrationRequired:  return tr("Registration required");
         case QXmppStanza::Error::RemoteServerNotFound:  return tr("Remote server is not found");

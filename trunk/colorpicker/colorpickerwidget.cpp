@@ -32,6 +32,7 @@ This file is part of colorPickerWidget.
 ColorPickerWidget::ColorPickerWidget(QWidget *parent)
     : QDialog(parent)
 {
+    //: Command addressed to the user, means "Please choose a color here:"
     setWindowTitle(tr("Choose a color"));
 
     colorTriangle = new QtColorTriangle(this);

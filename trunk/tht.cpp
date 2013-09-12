@@ -196,11 +196,13 @@ THT::THT() :
     m_menu->addAction(icon_screenshot, tr("Take screenshot...") + '\t' + m_takeScreen->shortcut().toString(),
                       this, SLOT(slotTakeScreenshot()));
 
-    //: Infinitive
+    //: Command
     m_menu->addAction(tr("Clear links"), this, SLOT(slotClearLinks()));
     m_menu->addSeparator();
 
+    //: Command
     m_menu->addAction(tr("Clear ticker lists") + '\t' + clear_shortcut->key().toString(), this, SLOT(slotClearLists()));
+    //: Command
     m_menu->addAction(tr("Load ticker") + "..." + "\tL", this, SLOT(slotLoadTicker()));
     QMenu *menu_load = m_menu->addMenu(tr("Load ticker"));
 
@@ -261,7 +263,7 @@ THT::THT() :
     m_tray = new QSystemTrayIcon(icon_chart, this);
     QMenu *trayMenu = new QMenu(this);
 
-    //: Means "Restore from tray"
+    //: Command. Means "Restore from tray"
     trayMenu->addAction(tr("Restore"), this, SLOT(activate()));
     trayMenu->addAction(icon_screenshot, tr("Take screenshot..."), this, SLOT(slotTakeScreenshot()));
     trayMenu->addSeparator();
@@ -1935,8 +1937,9 @@ void THT::slotFoolsDay()
         QMessageBox::information(this,
                                  QString(),
                                  QString("<p>%1</p><p align=right><i>%2</i></p>")
-                                        //: Copy the translation from "The Little Golden Calf" by I.Ilf, E.Petrov if you have one
+                                        //: Copy the translation from "The Little Golden Calf" by I.Ilf, E.Petrov (http://en.wikipedia.org/wiki/The_Little_Golden_Calf) if you have one
                                         .arg(tr("All large contemporary fortunes were acquired<br>in the most dishonorable way."))
+                                        //: See http://en.wikipedia.org/wiki/The_Little_Golden_Calf
                                         .arg(tr("\"The Little Golden Calf\" I.Ilf, E.Petrov")));
 
         SETTINGS_SET_BOOL(SETTING_FOOLSDAY_SEEN, true);
@@ -1990,6 +1993,7 @@ void THT::rebuildLinks()
     if(!links.isEmpty())
         menu->addSeparator();
 
+    //: Command
     menu->addAction(QIcon(":/images/links-customize.png"), tr("Customize..."), this, SLOT(slotManageLinks()));
 }
 

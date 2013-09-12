@@ -170,7 +170,7 @@
          <enum>Qt::NoFocus</enum>
         </property>
         <property name="toolTip">
-         <string>Add tickers</string>
+         <string extracomment="Command">Add tickers</string>
         </property>
         <property name="icon">
          <iconset resource="tht.qrc">
@@ -193,7 +193,7 @@
          <enum>Qt::NoFocus</enum>
         </property>
         <property name="toolTip">
-         <string>Save tickers</string>
+         <string extracomment="Command">Save tickers</string>
         </property>
         <property name="icon">
          <iconset resource="tht.qrc">
@@ -213,7 +213,7 @@
          <enum>Qt::NoFocus</enum>
         </property>
         <property name="toolTip">
-         <string>Export tickers</string>
+         <string extracomment="Command">Export tickers</string>
         </property>
         <property name="icon">
          <iconset resource="tht.qrc">
