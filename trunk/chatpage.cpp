@@ -1098,6 +1098,7 @@ QPair<QString, QString> ChatPage::formatMessage(const QXmppMessage &msg)
             }
 
             if(!ok)
+                //: Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp
                 body = ticker + ": " + tr("ticker is not found");
         }
         else

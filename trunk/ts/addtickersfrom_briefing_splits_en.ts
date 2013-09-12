@@ -10,8 +10,9 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../briefingsplitsdownloader.cpp" line="29"/>
+        <location filename="../briefingsplitsdownloader.cpp" line="30"/>
         <source>Downloading tickers...</source>
+        <extracomment>Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
