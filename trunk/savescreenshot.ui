@@ -19,9 +19,6 @@
      <property name="text">
       <string>Edit...</string>
      </property>
-     <property name="shortcut">
-      <string extracomment="Hotkey. Simply copy-paste">E</string>
-     </property>
     </widget>
    </item>
    <item row="0" column="1">
@@ -36,9 +33,6 @@
      <property name="text">
       <string>Clipboard</string>
      </property>
-     <property name="shortcut">
-      <string extracomment="Hotkey. Simply copy-paste">C</string>
-     </property>
     </widget>
    </item>
    <item row="0" column="3">
@@ -46,18 +40,12 @@
      <property name="text">
       <string>File...</string>
      </property>
-     <property name="shortcut">
-      <string extracomment="Hotkey. Simply copy-paste">F</string>
-     </property>
     </widget>
    </item>
    <item row="0" column="4">
     <widget class="QPushButton" name="pushDropbox">
      <property name="text">
       <string>Dropbox...</string>
-     </property>
-     <property name="shortcut">
-      <string extracomment="Hotkey. Simply copy-paste">D</string>
      </property>
     </widget>
    </item>

@@ -33,7 +33,8 @@ DropBoxUploader::DropBoxUploader(const QString &fileName, const QByteArray &bina
     ui(new Ui::DropBoxUploader),
     m_fileName(fileName),
     m_binary(binary),
-    m_state(NotInitialized)
+    m_state(NotInitialized),
+    m_ignoreReject(false)
 {
     ui->setupUi(this);
 
@@ -131,7 +132,7 @@ void DropBoxUploader::slotRequestTokenFinished(const QString &token, const QStri
         SETTINGS_SET_STRING(SETTING_DROPBOX_TOKEN, m_token, Settings::NoSync);
         SETTINGS_SET_STRING(SETTING_DROPBOX_TOKEN_SECRET, m_tokenSecret);
 
-        m_needRestart = true;
+        m_ignoreReject = true;
     }
 
     reject();
@@ -251,4 +252,10 @@ void DropBoxUploader::slotDelayedWork()
     ui->pushCancel->setText(tr("Close"));
     disconnect(ui->pushCancel, SIGNAL(clicked()), this, 0);
     connect(ui->pushCancel, SIGNAL(clicked()), this, SLOT(accept()));
+}
+
+void DropBoxUploader::slotRejectFromUser()
+{
+    m_ignoreReject = true;
+    reject();
 }

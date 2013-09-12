@@ -21,6 +21,7 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QHeaderView>
+#include <QShortcut>
 #include <QFrame>
 
 #include "datamanagerbase.h"
@@ -44,8 +45,23 @@ DataManagerBase::DataManagerBase(QWidget *parent) :
 
     d->ui->setupUi(this);
 
-    d->ui->pushClear->setShortcut(QKeySequence::New);
-    d->ui->pushDelete->setShortcut(QKeySequence::Delete);
+    QShortcut *s;
+
+    // some hotkeys
+    s = new QShortcut(Qt::Key_Insert, d->ui->tree, 0, 0, Qt::WidgetShortcut);
+    connect(s, SIGNAL(activated()), this, SLOT(slotAdd()));
+
+    s = new QShortcut(QKeySequence::Delete, d->ui->tree, 0, 0, Qt::WidgetShortcut);
+    connect(s, SIGNAL(activated()), this, SLOT(slotDelete()));
+
+    s = new QShortcut(Qt::CTRL + Qt::Key_Up, d->ui->tree, 0, 0, Qt::WidgetShortcut);
+    connect(s, SIGNAL(activated()), this, SLOT(slotUp()));
+
+    s = new QShortcut(Qt::CTRL + Qt::Key_Down, d->ui->tree, 0, 0, Qt::WidgetShortcut);
+    connect(s, SIGNAL(activated()), this, SLOT(slotDown()));
+
+    s = new QShortcut(QKeySequence::New, d->ui->tree, 0, 0, Qt::WidgetShortcut);
+    connect(s, SIGNAL(activated()), this, SLOT(slotClear()));
 
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
     d->ui->tree->header()->setSectionResizeMode(QHeaderView::ResizeToContents);

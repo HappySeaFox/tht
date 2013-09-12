@@ -78,7 +78,7 @@
     <name>DropBoxUploader</name>
     <message>
         <location filename="../dropboxuploader.ui" line="14"/>
-        <location filename="../dropboxuploader.cpp" line="125"/>
+        <location filename="../dropboxuploader.cpp" line="126"/>
         <source>Dropbox</source>
         <translation>Dropbox</translation>
     </message>
@@ -88,108 +88,108 @@
         <translation>Отмена</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="83"/>
+        <location filename="../dropboxuploader.cpp" line="84"/>
         <source>Network error</source>
         <translation>Ошибка сети</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="84"/>
+        <location filename="../dropboxuploader.cpp" line="85"/>
         <source>Used API version is not supported</source>
         <translation>Использованная версия API не поддерживается</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="85"/>
+        <location filename="../dropboxuploader.cpp" line="86"/>
         <source>Used authentication method is not supported</source>
         <translation>Использованный метод проверки подлинности не поддерживается</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="86"/>
+        <location filename="../dropboxuploader.cpp" line="87"/>
         <source>Unexpected response</source>
         <translation>Непредвиденный ответ</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="87"/>
+        <location filename="../dropboxuploader.cpp" line="88"/>
         <source>API error</source>
         <translation>Ошибка API</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="88"/>
+        <location filename="../dropboxuploader.cpp" line="89"/>
         <source>Unknown query method</source>
         <translation>Неизвестный метод запроса</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="89"/>
+        <location filename="../dropboxuploader.cpp" line="90"/>
         <source>Bad parameter</source>
         <translation>Некорректный параметр</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="90"/>
+        <location filename="../dropboxuploader.cpp" line="91"/>
         <source>Bad oAuth request</source>
         <translation>Некорректный запрос oAuth</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="91"/>
+        <location filename="../dropboxuploader.cpp" line="92"/>
         <source>Bad HTTP method</source>
         <translation>Некорректный HTTP метод</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="92"/>
+        <location filename="../dropboxuploader.cpp" line="93"/>
         <source>Maximum amount of requests exceeded</source>
         <translation>Исчерпано максимально допустимое количество запросов</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="93"/>
+        <location filename="../dropboxuploader.cpp" line="94"/>
         <source>Quota exceeded</source>
         <translation>Превышена квота</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="94"/>
+        <location filename="../dropboxuploader.cpp" line="95"/>
         <source>Token has expired</source>
         <translation>Маркер истёк</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="97"/>
+        <location filename="../dropboxuploader.cpp" line="98"/>
         <source>Unknown error</source>
         <translation>Неизвестная ошибка</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="163"/>
+        <location filename="../dropboxuploader.cpp" line="164"/>
         <source>Cannot get the link to the file</source>
         <translation>Невозможно получить ссылку на файл</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="185"/>
+        <location filename="../dropboxuploader.cpp" line="186"/>
         <source>Requesting new token...</source>
         <translation>Запрос нового маркера...</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="205"/>
+        <location filename="../dropboxuploader.cpp" line="206"/>
         <source>Requesting new access token...</source>
         <translation>Запрос нового маркера на доступ...</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="219"/>
+        <location filename="../dropboxuploader.cpp" line="220"/>
         <source>Uploading...</source>
         <translation>Загрузка...</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="237"/>
+        <location filename="../dropboxuploader.cpp" line="238"/>
         <source>Requesting link...</source>
         <translation>Запрос ссылки...</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="231"/>
-        <location filename="../dropboxuploader.cpp" line="244"/>
+        <location filename="../dropboxuploader.cpp" line="232"/>
+        <location filename="../dropboxuploader.cpp" line="245"/>
         <source>Cannot upload file (%1)</source>
         <translation>Невозможно загрузить файл (%1)</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="126"/>
+        <location filename="../dropboxuploader.cpp" line="127"/>
         <source>You need to authorize THT in your Dropbox account. Click &apos;OK&apos; to open the link in browser. After that open this dialog again</source>
         <translation>Вам необходимо авторизовать THT в вашем профиле Dropbox. Нажмите &apos;OK&apos; чтобы открыть ссылку в браузере. После этого откройте данный диалог снова</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="251"/>
+        <location filename="../dropboxuploader.cpp" line="252"/>
         <source>Close</source>
         <extracomment>Command</extracomment>
         <translation>Закрыть</translation>
@@ -575,63 +575,39 @@ right/middle mouse button to cancel.</source>
         <translation>Редактировать...</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.ui" line="23"/>
-        <source>E</source>
-        <extracomment>Hotkey. Simply copy-paste</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../savescreenshot.ui" line="50"/>
-        <source>F</source>
-        <extracomment>Hotkey. Simply copy-paste</extracomment>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../savescreenshot.ui" line="57"/>
+        <location filename="../savescreenshot.ui" line="48"/>
         <source>Dropbox...</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../savescreenshot.ui" line="60"/>
-        <source>D</source>
-        <extracomment>Hotkey. Simply copy-paste</extracomment>
-        <translation>D</translation>
-    </message>
-    <message>
-        <location filename="../savescreenshot.ui" line="37"/>
+        <location filename="../savescreenshot.ui" line="34"/>
         <source>Clipboard</source>
         <translation>Буфер обмена</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.ui" line="40"/>
-        <source>C</source>
-        <extracomment>Hotkey. Simply copy-paste</extracomment>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../savescreenshot.ui" line="47"/>
+        <location filename="../savescreenshot.ui" line="41"/>
         <source>File...</source>
         <translation>Файл...</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="80"/>
+        <location filename="../savescreenshot.cpp" line="88"/>
         <source>Image %1 (*.%2)</source>
         <translation>Изображение %1 (*.%2)</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="88"/>
+        <location filename="../savescreenshot.cpp" line="96"/>
         <source>Save as</source>
         <translation>Сохранить как</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="107"/>
-        <location filename="../savescreenshot.cpp" line="131"/>
+        <location filename="../savescreenshot.cpp" line="115"/>
+        <location filename="../savescreenshot.cpp" line="139"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="107"/>
-        <location filename="../savescreenshot.cpp" line="131"/>
+        <location filename="../savescreenshot.cpp" line="115"/>
+        <location filename="../savescreenshot.cpp" line="139"/>
         <source>Cannot save screenshot</source>
         <translation>Невозможно сохранить снимок экрана</translation>
     </message>
@@ -670,71 +646,41 @@ right/middle mouse button to cancel.</source>
         <translation>Редактор сделки</translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="87"/>
+        <location filename="../screenshoteditor.ui" line="84"/>
         <source>Delete</source>
         <extracomment>Command</extracomment>
         <translation>Удалить</translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="125"/>
+        <location filename="../screenshoteditor.ui" line="116"/>
         <source>Buy</source>
         <extracomment>Noun</extracomment>
         <translation>Покупка</translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="132"/>
-        <source>B</source>
-        <extracomment>Hotkey. Simply copy-paste</extracomment>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../screenshoteditor.ui" line="156"/>
-        <source>Alt+E</source>
-        <extracomment>Hotkey. Simply copy-paste</extracomment>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../screenshoteditor.ui" line="111"/>
+        <location filename="../screenshoteditor.ui" line="105"/>
         <source>Sale</source>
         <extracomment>Noun</extracomment>
         <translation>Продажа</translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="118"/>
-        <source>S</source>
-        <extracomment>Hotkey. Simply copy-paste</extracomment>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../screenshoteditor.ui" line="139"/>
+        <location filename="../screenshoteditor.ui" line="127"/>
         <source>Stop</source>
         <extracomment>Noun. Means &quot;Stop-loss order&quot;, see http://www.investopedia.com/terms/s/stoporder.asp</extracomment>
         <translation>Стоп</translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="146"/>
-        <source>P</source>
-        <extracomment>Hotkey. Simply copy-paste</extracomment>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../screenshoteditor.ui" line="94"/>
+        <location filename="../screenshoteditor.ui" line="91"/>
         <source>Text</source>
         <translation>Текст</translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="97"/>
-        <source>T</source>
-        <extracomment>Hotkey. Simply copy-paste</extracomment>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../screenshoteditor.ui" line="153"/>
+        <location filename="../screenshoteditor.ui" line="138"/>
         <source>The fill color of the ellipse</source>
         <translation>Цвет заливки эллипса</translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="104"/>
+        <location filename="../screenshoteditor.ui" line="98"/>
         <source>Select all</source>
         <extracomment>Command</extracomment>
         <translation>Выделить всё</translation>
@@ -745,13 +691,7 @@ right/middle mouse button to cancel.</source>
         <translation>Эллипс</translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="56"/>
-        <source>E</source>
-        <extracomment>Hotkey. Simply copy-paste</extracomment>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../screenshoteditor.cpp" line="38"/>
+        <location filename="../screenshoteditor.cpp" line="39"/>
         <source>Open YouTube tutorial</source>
         <translation>Открыть урок на YouTube</translation>
     </message>
@@ -792,12 +732,6 @@ right/middle mouse button to cancel.</source>
         <source>THT is busy</source>
         <extracomment>Don&apos;t translate &quot;THT&quot;, simple copy-paste &quot;THT&quot; to your translation</extracomment>
         <translation>THT занят</translation>
-    </message>
-    <message>
-        <location filename="../tht.ui" line="210"/>
-        <source>=N</source>
-        <extracomment>Simply copy-paste &quot;=N&quot;</extracomment>
-        <translation></translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="193"/>

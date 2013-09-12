@@ -17,12 +17,14 @@
 
 #include <QApplication>
 #include <QImageWriter>
+#include <QKeySequence>
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QClipboard>
 #include <QByteArray>
 #include <QDateTime>
 #include <QFileInfo>
+#include <QShortcut>
 #include <QPixmap>
 #include <QBuffer>
 #include <QList>
@@ -43,6 +45,12 @@ SaveScreenshot::SaveScreenshot(const QPixmap &px, QWidget *parent) :
     ui->setupUi(this);
 
     m_editor = new ScreenshotEditor(px, this);
+
+    // some hotkeys
+    new QShortcut(Qt::Key_E, m_editor, SLOT(exec()));
+    new QShortcut(Qt::Key_C, this, SLOT(slotClipboard()));
+    new QShortcut(Qt::Key_F, this, SLOT(slotFile()));
+    new QShortcut(Qt::Key_D, this, SLOT(slotDropbox()));
 
     connect(ui->pushEdit, SIGNAL(clicked()), m_editor, SLOT(exec()));
 }
@@ -124,7 +132,7 @@ void SaveScreenshot::slotDropbox()
             accept();
             return;
         }
-        else if(u.needRestart())
+        else if(u.ignoreReject())
             return;
     }
 

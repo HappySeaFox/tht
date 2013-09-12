@@ -41,11 +41,7 @@
     </widget>
    </item>
    <item row="0" column="1" colspan="2">
-    <widget class="QPushButton" name="pushAdd">
-     <property name="shortcut">
-      <string extracomment="Hotkey. Simply copy-paste">Ins</string>
-     </property>
-    </widget>
+    <widget class="QPushButton" name="pushAdd"/>
    </item>
    <item row="1" column="1" colspan="2">
     <widget class="QPushButton" name="pushDelete">
@@ -60,9 +56,6 @@
       <iconset resource="tht.qrc">
        <normaloff>:/images/arrow-up.png</normaloff>:/images/arrow-up.png</iconset>
      </property>
-     <property name="shortcut">
-      <string extracomment="Hotkey. Simply copy-paste">Ctrl+Up</string>
-     </property>
     </widget>
    </item>
    <item row="2" column="2">
@@ -70,9 +63,6 @@
      <property name="icon">
       <iconset resource="tht.qrc">
        <normaloff>:/images/arrow-down.png</normaloff>:/images/arrow-down.png</iconset>
-     </property>
-     <property name="shortcut">
-      <string extracomment="Hotkey. Simply copy-paste">Ctrl+Down</string>
      </property>
     </widget>
    </item>
