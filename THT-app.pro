@@ -124,7 +124,6 @@ OTHER_FILES += \
 
 TRANSLATIONS += ts/tht_en.ts \
                 ts/tht_ru.ts \
-                ts/tht_tr.ts \
                 ts/tht_uk.ts
 
 RC_FILE = tht.rc
@@ -145,7 +144,6 @@ SSLLIBS=libeay32.dll ssleay32.dll
 MINGWLIBS=libgcc_s_sjlj-1.dll libwinpthread-1.dll libstdc++-6.dll
 OTHERQMFILES=tht_lib_en.qm \
                 tht_lib_ru.qm \
-                tht_lib_tr.qm \
                 tht_lib_uk.qm
 
 QTQMFILES=qt_ru.qm qt_uk.qm
@@ -157,7 +155,6 @@ COMPONENT1_TYPE="addtickersfromfinviz"
 COMPONENT1_FILES=addtickersfrom-finviz.dll
 COMPONENT1_TRANSLATIONS=addtickersfrom_finviz_en.qm \
                            addtickersfrom_finviz_ru.qm \
-                           addtickersfrom_finviz_tr.qm \
                            addtickersfrom_finviz_uk.qm
 
 COMPONENT2="Briefing Stock Splits"
@@ -165,7 +162,6 @@ COMPONENT2_TYPE="addtickersfrombriefingsplits"
 COMPONENT2_FILES=addtickersfrom-briefing-splits.dll
 COMPONENT2_TRANSLATIONS=addtickersfrom_briefing_splits_en.qm \
                            addtickersfrom_briefing_splits_ru.qm \
-                           addtickersfrom_briefing_splits_tr.qm \
                            addtickersfrom_briefing_splits_uk.qm
 
 COMPONENT3="FOMC"
@@ -173,7 +169,6 @@ COMPONENT3_TYPE="commonfomc"
 COMPONENT3_FILES=common-fomc.dll
 COMPONENT3_TRANSLATIONS=common_fomc_en.qm \
                            common_fomc_ru.qm \
-                           common_fomc_tr.qm \
                            common_fomc_uk.qm
 
 COMPONENT4="Jabber Chat"
@@ -181,7 +176,6 @@ COMPONENT4_TYPE="commonchat"
 COMPONENT4_FILES=common-chat.dll
 COMPONENT4_TRANSLATIONS=common_chat_en.qm \
                            common_chat_ru.qm \
-                           common_chat_tr.qm \
                            common_chat_uk.qm
 
 # list of components' suffixes to install

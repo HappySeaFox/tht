@@ -16,7 +16,6 @@ HEADERS += briefingsplitsplugin.h \
 
 TRANSLATIONS += ts/addtickersfrom_briefing_splits_en.ts \
                 ts/addtickersfrom_briefing_splits_ru.ts \
-                ts/addtickersfrom_briefing_splits_tr.ts \
                 ts/addtickersfrom_briefing_splits_uk.ts
 
 RESOURCES += THT-plugin-briefing-splits.qrc

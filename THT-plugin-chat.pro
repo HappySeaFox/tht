@@ -64,7 +64,6 @@ FORMS += chatwindow.ui \
 
 TRANSLATIONS += ts/common_chat_en.ts \
                 ts/common_chat_ru.ts \
-                ts/common_chat_tr.ts \
                 ts/common_chat_uk.ts
 
 RESOURCES += THT-plugin-chat.qrc
