@@ -52,7 +52,6 @@ TickerNeighbors::TickerNeighbors(const QString &ticker, QWidget *parent) :
     connect(a, SIGNAL(triggered()), this, SLOT(slotCopyCombo()));
     ui->comboSector->addAction(a);
 
-    //: Command
     a = new QAction(tr("Copy"), ui->comboIndustry);
     connect(a, SIGNAL(triggered()), this, SLOT(slotCopyCombo()));
     ui->comboIndustry->addAction(a);
@@ -278,6 +277,7 @@ void TickerNeighbors::slotFetch()
     ui->listTickers->clear();
     m_tickers.clear();
 
+    //: Command
     ui->pushCopy->setText(tr("Copy (%1)").arg(0));
 
     QList<QVariantList> lists;
