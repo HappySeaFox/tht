@@ -208,6 +208,7 @@ THT::THT() :
 
     m_menu->addSeparator();
     m_menu->addAction(icon_chart, tr("About THT...") + '\t' + help_shortcut->key().toString(), this, SLOT(slotAbout()));
+    //: Qt is a C++ crossplatform toolkit http://qt-project.org
     m_menu->addAction(tr("About Qt..."), this, SLOT(slotAboutQt()));
     m_menu->addAction(tr("Plugins..."), this, SLOT(slotPlugins()));
     m_menu->addSeparator();

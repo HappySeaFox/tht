@@ -79,9 +79,11 @@ QString PluginManager::typeToString(int type)
         return tr("Common");
 
         case Plugin::AddTickersFrom:
+        //: Command
         return tr("Add tickers");
 
         case Plugin::ExportTickersTo:
+        //: Command
         return tr("Export tickers");
 
         default:
