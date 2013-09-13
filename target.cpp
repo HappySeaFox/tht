@@ -22,6 +22,7 @@
 #include <QPoint>
 
 #include "target.h"
+#include "tools.h"
 
 Target::Target(QWidget *parent) :
     QLabel(parent)
@@ -36,7 +37,7 @@ Target::Target(QWidget *parent) :
     setMouseTracking(true);
 
     setWhatsThis(QString("<a href=\"http://www.youtube.com/playlist?list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm\">%1</a>")
-                 .arg(tr("Open YouTube tutorial")));
+                 .arg(Tools::openYoutubeTutorialTitle()));
 
     qApp->installEventFilter(this);
 }

@@ -20,6 +20,7 @@
 #include <QApplication>
 #include <QRegExp>
 #include <QWidget>
+#include <QObject>
 #include <QRect>
 
 #include <climits>
@@ -155,6 +156,11 @@ void Tools::raiseWindow(QWidget *w)
     w->show();
     w->setWindowState(w->windowState() & ~Qt::WindowMinimized);
     w->raise();
+}
+
+QString Tools::openYoutubeTutorialTitle()
+{
+    return QObject::tr("Open YouTube tutorial");
 }
 
 Tools::Tools()

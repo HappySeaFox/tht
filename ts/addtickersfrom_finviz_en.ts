@@ -84,42 +84,37 @@
 <context>
     <name>FinvizUrlManager</name>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="31"/>
+        <location filename="../finvizurlmanager.cpp" line="32"/>
         <source>Finviz links</source>
         <extracomment>Finviz - Stock Screener, http://finviz.com. It&apos;s ok not to translate &quot;Finviz&quot; (e.g. just copy-paste &quot;Finviz&quot; to your translation). Means &quot;Links to Finviz&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="34"/>
+        <location filename="../finvizurlmanager.cpp" line="35"/>
         <source>Add</source>
         <extracomment>Command</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="39"/>
+        <location filename="../finvizurlmanager.cpp" line="40"/>
         <source>Link</source>
         <extracomment>Noun</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="40"/>
-        <source>Open YouTube tutorial</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../finvizurlmanager.cpp" line="54"/>
+        <location filename="../finvizurlmanager.cpp" line="55"/>
         <source>Access...</source>
         <extracomment>Noun</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="84"/>
+        <location filename="../finvizurlmanager.cpp" line="85"/>
         <source>Tickers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="84"/>
-        <location filename="../finvizurlmanager.cpp" line="98"/>
+        <location filename="../finvizurlmanager.cpp" line="85"/>
+        <location filename="../finvizurlmanager.cpp" line="99"/>
         <source>&lt;Paste url here&gt;</source>
         <translation type="unfinished"></translation>
     </message>

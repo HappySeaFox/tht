@@ -62,6 +62,11 @@ public:
     static void raiseWindow(QWidget *);
 
     /*
+     *  Returns translated version of "Open YouTube tutorial"
+     */
+    static QString openYoutubeTutorialTitle();
+
+    /*
      *  Invalid QPoint
      */
     static const QPoint invalidQPoint;

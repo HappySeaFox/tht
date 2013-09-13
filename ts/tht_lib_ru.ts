@@ -35,4 +35,12 @@
         <translation>Очистить</translation>
     </message>
 </context>
+<context>
+    <name>QObject</name>
+    <message>
+        <location filename="../tools.cpp" line="163"/>
+        <source>Open YouTube tutorial</source>
+        <translation>Открыть урок на YouTube</translation>
+    </message>
+</context>
 </TS>

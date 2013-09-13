@@ -21,6 +21,7 @@
 #include "finvizurlmanager.h"
 #include "finvizurl.h"
 #include "settings.h"
+#include "tools.h"
 
 #include "ui_datamanagerbase.h"
 
@@ -37,7 +38,7 @@ FinvizUrlManager::FinvizUrlManager(QWidget *parent) :
 
     //: Noun
     t->headerItem()->setText(1, tr("Link"));
-    t->setWhatsThis(QString("<a href=\"http://www.youtube.com/watch?v=r1Y7iNM7_9k\">%1</a>").arg(tr("Open YouTube tutorial")));
+    t->setWhatsThis(QString("<a href=\"http://www.youtube.com/watch?v=r1Y7iNM7_9k\">%1</a>").arg(Tools::openYoutubeTutorialTitle()));
 
     const QList<FinvizUrl> urls = SETTINGS_GET_FINVIZ_URLS(SETTING_FINVIZ_URLS);
 
