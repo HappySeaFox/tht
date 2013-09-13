@@ -36,13 +36,15 @@ public:
     explicit DropBoxUploader(const QString &fileName, const QByteArray &binary, QWidget *parent = 0);
     ~DropBoxUploader();
 
-    bool ignoreReject() const;
+    enum Status { Break, NeedRestart, Error, Done };
+    Status status() const;
 
 private:
     QString errorToString(QDropbox::Error);
     void message(const QString &text);
     void showError(const QString &text);
     void stopProgress();
+    void changeCancelToClose();
 
 private slots:
     void slotRequestTokenFinished(const QString &token, const QString &secret);
@@ -53,7 +55,6 @@ private slots:
     void slotDelayedTokenRequest();
     void slotDelayedAccessTokenRequest();
     void slotDelayedWork();
-    void slotRejectFromUser();
 
 private:
     Ui::DropBoxUploader *ui;
@@ -63,13 +64,13 @@ private:
     State m_state;
     QString m_token, m_tokenSecret, m_accessToken, m_accessTokenSecret;
     QDropbox *m_api;
-    bool m_ignoreReject;
+    Status m_status;
 };
 
 inline
-bool DropBoxUploader::ignoreReject() const
+DropBoxUploader::Status DropBoxUploader::status() const
 {
-    return m_ignoreReject;
+    return m_status;
 }
 
 #endif // DROPBOXUPLOADER_H

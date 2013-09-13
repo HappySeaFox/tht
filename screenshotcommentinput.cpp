@@ -17,7 +17,6 @@
 
 #include <QKeySequence>
 #include <QFontMetrics>
-#include <QShortcut>
 #include <QPainter>
 #include <QFont>
 
@@ -78,12 +77,16 @@ ScreenshotCommentInput::ScreenshotCommentInput(QWidget *parent) :
     }
 
     // shortcuts
-    new QShortcut(QKeySequence::ZoomIn, ui->pushFontUp, SLOT(animateClick()));
-    new QShortcut(QKeySequence::ZoomOut, ui->pushFontDown, SLOT(animateClick()));
-    new QShortcut(Qt::CTRL+Qt::Key_Return, ui->buttonBox->button(QDialogButtonBox::Ok), SLOT(animateClick()));
-    new QShortcut(Qt::CTRL+Qt::Key_L, ui->pushAlignLeft, SLOT(animateClick()));
-    new QShortcut(Qt::CTRL+Qt::Key_E, ui->pushAlignCenter, SLOT(animateClick()));
-    new QShortcut(Qt::CTRL+Qt::Key_R, ui->pushAlignRight, SLOT(animateClick()));
+    ui->pushAlignLeft->setShortcut(Qt::CTRL + Qt::Key_L);
+    ui->pushAlignCenter->setShortcut(Qt::CTRL + Qt::Key_E);
+    ui->pushAlignRight->setShortcut(Qt::CTRL + Qt::Key_R);
+
+    ui->pushFontUp->setShortcut(QKeySequence::ZoomIn);
+    ui->pushFontDown->setShortcut(QKeySequence::ZoomOut);
+
+    ui->pushColor->setShortcut(Qt::CTRL + Qt::Key_K);
+
+    ui->buttonBox->button(QDialogButtonBox::Ok)->setShortcut(Qt::CTRL + Qt::Key_Return);
 }
 
 ScreenshotCommentInput::~ScreenshotCommentInput()

@@ -34,7 +34,7 @@ DropBoxUploader::DropBoxUploader(const QString &fileName, const QByteArray &bina
     m_fileName(fileName),
     m_binary(binary),
     m_state(NotInitialized),
-    m_ignoreReject(false)
+    m_status(Break)
 {
     ui->setupUi(this);
 
@@ -107,14 +107,23 @@ void DropBoxUploader::message(const QString &text)
 void DropBoxUploader::showError(const QString &text)
 {
     qDebug("Error: %s", qPrintable(text));
+
+    m_status = Error;
     message(text);
     stopProgress();
+    changeCancelToClose();
 }
 
 void DropBoxUploader::stopProgress()
 {
     ui->progress->setRange(0, 1);
     ui->progress->setValue(1);
+}
+
+void DropBoxUploader::changeCancelToClose()
+{
+    //: Command
+    ui->pushCancel->setText(tr("Close"));
 }
 
 void DropBoxUploader::slotRequestTokenFinished(const QString &token, const QString &secret)
@@ -132,7 +141,7 @@ void DropBoxUploader::slotRequestTokenFinished(const QString &token, const QStri
         SETTINGS_SET_STRING(SETTING_DROPBOX_TOKEN, m_token, Settings::NoSync);
         SETTINGS_SET_STRING(SETTING_DROPBOX_TOKEN_SECRET, m_tokenSecret);
 
-        m_ignoreReject = true;
+        m_status = NeedRestart;
     }
 
     reject();
@@ -163,7 +172,11 @@ void DropBoxUploader::slotSharedLinkReceived(const QString &sharedLinkJson)
     if(parsedLink.isEmpty())
         showError(tr("Cannot get the link to the file"));
     else
+    {
         message(QString("<a href=\"%1\">%2</a>").arg(parsedLink).arg(parsedLink));
+        m_status = Done;
+        changeCancelToClose();
+    }
 }
 
 void DropBoxUploader::slotTokenExpired()
@@ -247,15 +260,4 @@ void DropBoxUploader::slotDelayedWork()
     }
 
     stopProgress();
-
-    //: Command
-    ui->pushCancel->setText(tr("Close"));
-    disconnect(ui->pushCancel, SIGNAL(clicked()), this, 0);
-    connect(ui->pushCancel, SIGNAL(clicked()), this, SLOT(accept()));
-}
-
-void DropBoxUploader::slotRejectFromUser()
-{
-    m_ignoreReject = true;
-    reject();
 }
