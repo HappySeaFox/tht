@@ -830,7 +830,7 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../tht.cpp" line="1941"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
-        <extracomment>Copy the translation from &quot;The Little Golden Calf&quot; by I.Ilf, E.Petrov (http://en.wikipedia.org/wiki/The_Little_Golden_Calf) if you have one</extracomment>
+        <extracomment>Preferably copy the translation from &quot;The Little Golden Calf&quot; by I.Ilf, E.Petrov, Part II, Chapter 10 (http://en.wikipedia.org/wiki/The_Little_Golden_Calf). If you don&apos;t have the book then translate as usual</extracomment>
         <translation>Всі величезні сучасні багатства нажито&lt;br&gt;найбезчеснішим засобом.</translation>
     </message>
     <message>
