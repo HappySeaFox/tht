@@ -897,11 +897,9 @@ right/middle mouse button to cancel.</source>
     </message>
     <message>
         <location filename="../tickerneighbors.cpp" line="51"/>
-        <location filename="../tickerneighbors.cpp" line="56"/>
+        <location filename="../tickerneighbors.cpp" line="55"/>
         <source>Copy</source>
-        <extracomment>Command
-----------
-Command</extracomment>
+        <extracomment>Command</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -909,6 +907,7 @@ Command</extracomment>
         <location filename="../tickerneighbors.cpp" line="397"/>
         <location filename="../tickerneighbors.cpp" line="428"/>
         <source>Copy (%1)</source>
+        <extracomment>Command</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>

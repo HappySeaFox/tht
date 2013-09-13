@@ -52,6 +52,9 @@ ChatWindow::ChatWindow(QWidget *parent) :
     // pythonr@conference.jabber.ru
     ui->setupUi(this);
 
+    //: Means "Based on <some technology>"
+    ui->labelBasedOn->setText(tr("Based on") + " <a href=\"http://xmpp.org\">XMPP</a>");
+
     // XMPP client
     m_xmppClient = new QXmppClient(this);
 
@@ -104,6 +107,7 @@ ChatWindow::ChatWindow(QWidget *parent) :
     m_menu->addSeparator();
     m_menu->addAction(QIcon(":/images/options.png"), tr("Options..."), this, SLOT(slotOptions()));
     m_menu->addSeparator();
+    //: Noun
     m_menu->addAction(tr("Help") + "..."  + '\t' + helpShortcut->key().toString(), this, SLOT(slotHelp()));
 
     ui->pushAddTab->setText(m_actionAddRoom->text());
