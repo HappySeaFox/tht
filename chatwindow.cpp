@@ -25,6 +25,7 @@
 #include <QDebug>
 #include <QMenu>
 #include <QIcon>
+#include <QList>
 
 #include "QXmppMessageReceiptManager.h"
 #include "QXmppVersionManager.h"
@@ -76,7 +77,13 @@ ChatWindow::ChatWindow(QWidget *parent) :
 
     ui->lineJid->setText(SETTINGS_GET_STRING(SETTING_CHAT_JID));
 
-    new QShortcut(Qt::CTRL + Qt::Key_W, this, SLOT(slotCloseCurrentTab()));
+    // "Close" hotkeys
+    QList<QKeySequence> kss = QKeySequence::keyBindings(QKeySequence::Close);
+
+    foreach(QKeySequence ks, kss)
+    {
+        new QShortcut(ks, this, SLOT(slotCloseCurrentTab()));
+    }
 
     QShortcut *newTabShortcut = new QShortcut(QKeySequence::New, this, SLOT(slotAddTab()));
     QShortcut *helpShortcut = new QShortcut(QKeySequence::HelpContents, this, SLOT(slotHelp()));
