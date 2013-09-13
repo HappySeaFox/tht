@@ -24,7 +24,6 @@
 #include <QByteArray>
 #include <QDateTime>
 #include <QFileInfo>
-#include <QShortcut>
 #include <QPixmap>
 #include <QBuffer>
 #include <QList>
@@ -44,13 +43,13 @@ SaveScreenshot::SaveScreenshot(const QPixmap &px, QWidget *parent) :
 {
     ui->setupUi(this);
 
-    m_editor = new ScreenshotEditor(px, this);
-
     // some hotkeys
-    new QShortcut(Qt::Key_E, m_editor, SLOT(exec()));
-    new QShortcut(Qt::Key_C, this, SLOT(slotClipboard()));
-    new QShortcut(Qt::Key_F, this, SLOT(slotFile()));
-    new QShortcut(Qt::Key_D, this, SLOT(slotDropbox()));
+    ui->pushEdit->setShortcut(Qt::Key_E);
+    ui->pushClipboard->setShortcut(Qt::Key_C);
+    ui->pushFile->setShortcut(Qt::Key_F);
+    ui->pushDropbox->setShortcut(Qt::Key_D);
+
+    m_editor = new ScreenshotEditor(px, this);
 
     connect(ui->pushEdit, SIGNAL(clicked()), m_editor, SLOT(exec()));
 }
@@ -126,16 +125,23 @@ void SaveScreenshot::slotDropbox()
     {
         DropBoxUploader u(baseFileName(false) + ".png", binary, this);
 
-        if(u.exec() == QDialog::Accepted)
-        {
-            qDebug("Screenshot has been saved to Dropbox");
-            accept();
-            return;
-        }
-        else if(u.ignoreReject())
-            return;
-    }
+        u.exec();
 
-    QMessageBox::critical(this, tr("Error"), tr("Cannot save screenshot"));
-    qDebug("Cannot save screenshot");
+        switch(u.status())
+        {
+            case DropBoxUploader::Done:
+                qDebug("Screenshot has been saved to Dropbox");
+                accept();
+            break;
+
+            case DropBoxUploader::Error:
+                QMessageBox::critical(this, tr("Error"), tr("Cannot save screenshot"));
+                qDebug("Cannot save screenshot");
+            break;
+
+            case DropBoxUploader::Break:
+            case DropBoxUploader::NeedRestart:
+            break;
+        }
+    }
 }

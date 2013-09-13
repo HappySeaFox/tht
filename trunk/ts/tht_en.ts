@@ -78,7 +78,7 @@
     <name>DropBoxUploader</name>
     <message>
         <location filename="../dropboxuploader.ui" line="14"/>
-        <location filename="../dropboxuploader.cpp" line="126"/>
+        <location filename="../dropboxuploader.cpp" line="135"/>
         <source>Dropbox</source>
         <translation type="unfinished"></translation>
     </message>
@@ -153,43 +153,43 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="127"/>
+        <location filename="../dropboxuploader.cpp" line="136"/>
         <source>You need to authorize THT in your Dropbox account. Click &apos;OK&apos; to open the link in browser. After that open this dialog again</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="164"/>
+        <location filename="../dropboxuploader.cpp" line="173"/>
         <source>Cannot get the link to the file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="186"/>
+        <location filename="../dropboxuploader.cpp" line="199"/>
         <source>Requesting new token...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="206"/>
+        <location filename="../dropboxuploader.cpp" line="219"/>
         <source>Requesting new access token...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="220"/>
+        <location filename="../dropboxuploader.cpp" line="233"/>
         <source>Uploading...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="232"/>
         <location filename="../dropboxuploader.cpp" line="245"/>
+        <location filename="../dropboxuploader.cpp" line="258"/>
         <source>Cannot upload file (%1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="238"/>
+        <location filename="../dropboxuploader.cpp" line="251"/>
         <source>Requesting link...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="252"/>
+        <location filename="../dropboxuploader.cpp" line="126"/>
         <source>Close</source>
         <extracomment>Command</extracomment>
         <translation type="unfinished"></translation>
@@ -590,24 +590,24 @@ right/middle mouse button to cancel.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="88"/>
+        <location filename="../savescreenshot.cpp" line="87"/>
         <source>Image %1 (*.%2)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="96"/>
+        <location filename="../savescreenshot.cpp" line="95"/>
         <source>Save as</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="115"/>
-        <location filename="../savescreenshot.cpp" line="139"/>
+        <location filename="../savescreenshot.cpp" line="114"/>
+        <location filename="../savescreenshot.cpp" line="138"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="115"/>
-        <location filename="../savescreenshot.cpp" line="139"/>
+        <location filename="../savescreenshot.cpp" line="114"/>
+        <location filename="../savescreenshot.cpp" line="138"/>
         <source>Cannot save screenshot</source>
         <translation type="unfinished"></translation>
     </message>
