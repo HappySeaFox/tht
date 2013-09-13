@@ -44,7 +44,7 @@
           <widget class="QComboBox" name="comboLang">
            <item>
             <property name="text">
-             <string extracomment="Means &quot;System language&quot;">&lt;System&gt;</string>
+             <string extracomment="Adjective. Means &quot;System language&quot;">&lt;System&gt;</string>
             </property>
            </item>
           </widget>
