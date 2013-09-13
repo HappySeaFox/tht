@@ -151,7 +151,7 @@ ChatPage::ChatPage(QXmppClient *client,
     m_companyTemplate =
             QString("<br><table>")
             + "<tr><td>" + tr("Company:")        + "</td><td>%1</td></tr>"
-            //: Noun. Means "Market exchange:"
+            //: Noun. Means "Market exchange:", http://www.investopedia.com/terms/e/exchange.asp
             + "<tr><td>" + tr("Exchange:")       + "</td><td>%2</td></tr>"
             + "<tr><td>" + tr("Sector:")         + "</td><td>%3</td></tr>"
             + "<tr><td>" + tr("Industry:")       + "</td><td>%4</td></tr>"
@@ -619,6 +619,7 @@ void ChatPage::slotSetSubject()
     QString subject = QInputDialog::getText(this,
                                             //: Command
                                             tr("Set subject"),
+                                            //: Noun
                                             tr("Subject") + ':',
                                             QLineEdit::Normal,
                                             ui->lineSubject->text(),
@@ -802,14 +803,14 @@ QString ChatPage::errorToString(const QXmppStanza::Error &error)
         case QXmppStanza::Error::Gone:                  return tr("User has gone");
         case QXmppStanza::Error::InternalServerError:   return tr("Internal server error");
         case QXmppStanza::Error::ItemNotFound:          return tr("Item is not found");
+        //: JID is a Jabber Identifier, http://en.wikipedia.org/wiki/XMPP#Decentralization_and_addressing . It's ok not to translate "JID", e.g. just copy-paste "JID" to your translation
         case QXmppStanza::Error::JidMalformed:          return tr("JID is malformed");
         case QXmppStanza::Error::NotAcceptable:         return tr("Not acceptable");
         case QXmppStanza::Error::NotAllowed:            return tr("Not allowed");
         case QXmppStanza::Error::NotAuthorized:         return tr("Not authorized");
         case QXmppStanza::Error::PaymentRequired:       return tr("Payment required");
         case QXmppStanza::Error::RecipientUnavailable:  return tr("Recipient is unavailable");
-        //: Noun
-        case QXmppStanza::Error::Redirect:              return tr("Redirect");
+        case QXmppStanza::Error::Redirect:              return tr("Redirection");
         case QXmppStanza::Error::RegistrationRequired:  return tr("Registration required");
         case QXmppStanza::Error::RemoteServerNotFound:  return tr("Remote server is not found");
         case QXmppStanza::Error::RemoteServerTimeout:   return tr("Remote server timeout");
