@@ -26,6 +26,7 @@
 #include "screenshoteditor.h"
 #include "selectablelabel.h"
 #include "settings.h"
+#include "tools.h"
 #include "ui_screenshoteditor.h"
 
 ScreenshotEditor::ScreenshotEditor(const QPixmap &px, QWidget *parent) :
@@ -35,7 +36,7 @@ ScreenshotEditor::ScreenshotEditor(const QPixmap &px, QWidget *parent) :
     ui->setupUi(this);
 
     ui->scrollAreaWidgetContents->setPixmap(px);
-    ui->scrollArea->setWhatsThis(QString("<a href=\"http://www.youtube.com/watch?v=iE9g_5MvHi4\">%1</a>").arg(tr("Open YouTube tutorial")));
+    ui->scrollArea->setWhatsThis(QString("<a href=\"http://www.youtube.com/watch?v=iE9g_5MvHi4\">%1</a>").arg(Tools::openYoutubeTutorialTitle()));
 
     connect(ui->pushText,      SIGNAL(clicked()), ui->scrollAreaWidgetContents, SLOT(startText()));
     connect(ui->pushLong,      SIGNAL(clicked()), ui->scrollAreaWidgetContents, SLOT(startBuy()));

@@ -198,22 +198,17 @@
 <context>
     <name>LinkPointManager</name>
     <message>
-        <location filename="../linkpointmanager.cpp" line="33"/>
-        <location filename="../linkpointmanager.cpp" line="40"/>
+        <location filename="../linkpointmanager.cpp" line="34"/>
+        <location filename="../linkpointmanager.cpp" line="41"/>
         <source>Link points</source>
         <extracomment>Noun. Means &quot;Points of linkage&quot;</extracomment>
         <translation>Точки лінковки</translation>
     </message>
     <message>
-        <location filename="../linkpointmanager.cpp" line="36"/>
+        <location filename="../linkpointmanager.cpp" line="37"/>
         <source>Add current</source>
         <extracomment>Means &quot;Add current link points&quot; (in the plural)</extracomment>
         <translation>Додати поточні</translation>
-    </message>
-    <message>
-        <location filename="../linkpointmanager.cpp" line="41"/>
-        <source>Open YouTube tutorial</source>
-        <translation>Відкрити урок на YouTube</translation>
     </message>
 </context>
 <context>
@@ -409,7 +404,7 @@
         <location filename="../options.ui" line="47"/>
         <source>&lt;System&gt;</source>
         <extracomment>Adjective. Means &quot;System language&quot;</extracomment>
-        <translation type="unfinished">&lt;Системи&gt;</translation>
+        <translation>&lt;Системи&gt;</translation>
     </message>
     <message>
         <location filename="../options.ui" line="152"/>
@@ -692,11 +687,6 @@ right/middle mouse button to cancel.</source>
         <source>Ellipse</source>
         <translation>Еліпс</translation>
     </message>
-    <message>
-        <location filename="../screenshoteditor.cpp" line="38"/>
-        <source>Open YouTube tutorial</source>
-        <translation>Відкрити урок на YouTube</translation>
-    </message>
 </context>
 <context>
     <name>THT</name>
@@ -852,14 +842,9 @@ right/middle mouse button to cancel.</source>
 <context>
     <name>Target</name>
     <message>
-        <location filename="../target.cpp" line="34"/>
+        <location filename="../target.cpp" line="35"/>
         <source>Move this pointer to the window with which to establish a link</source>
         <translation>Перетягніть цей покажчик на вікно, на яке потрібно створити посилання</translation>
-    </message>
-    <message>
-        <location filename="../target.cpp" line="39"/>
-        <source>Open YouTube tutorial</source>
-        <translation>Відкрити урок на YouTube</translation>
     </message>
 </context>
 <context>
@@ -905,7 +890,7 @@ right/middle mouse button to cancel.</source>
         <location filename="../tickerneighbors.ui" line="109"/>
         <source>By capitalization</source>
         <extracomment>Means &quot;Sort by capitalization&quot;</extracomment>
-        <translation type="unfinished">По капіталізації</translation>
+        <translation>По капіталізації</translation>
     </message>
     <message>
         <location filename="../tickerneighbors.ui" line="122"/>

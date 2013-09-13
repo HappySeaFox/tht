@@ -198,21 +198,16 @@
 <context>
     <name>LinkPointManager</name>
     <message>
-        <location filename="../linkpointmanager.cpp" line="33"/>
-        <location filename="../linkpointmanager.cpp" line="40"/>
+        <location filename="../linkpointmanager.cpp" line="34"/>
+        <location filename="../linkpointmanager.cpp" line="41"/>
         <source>Link points</source>
         <extracomment>Noun. Means &quot;Points of linkage&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linkpointmanager.cpp" line="36"/>
+        <location filename="../linkpointmanager.cpp" line="37"/>
         <source>Add current</source>
         <extracomment>Means &quot;Add current link points&quot; (in the plural)</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../linkpointmanager.cpp" line="41"/>
-        <source>Open YouTube tutorial</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -690,11 +685,6 @@ right/middle mouse button to cancel.</source>
         <source>The fill color of the ellipse</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <location filename="../screenshoteditor.cpp" line="38"/>
-        <source>Open YouTube tutorial</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>THT</name>
@@ -850,13 +840,8 @@ right/middle mouse button to cancel.</source>
 <context>
     <name>Target</name>
     <message>
-        <location filename="../target.cpp" line="34"/>
+        <location filename="../target.cpp" line="35"/>
         <source>Move this pointer to the window with which to establish a link</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../target.cpp" line="39"/>
-        <source>Open YouTube tutorial</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
