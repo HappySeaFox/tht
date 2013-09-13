@@ -693,7 +693,7 @@ right/middle mouse button to cancel.</source>
         <translation>Эллипс</translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.cpp" line="39"/>
+        <location filename="../screenshoteditor.cpp" line="38"/>
         <source>Open YouTube tutorial</source>
         <translation>Открыть урок на YouTube</translation>
     </message>
