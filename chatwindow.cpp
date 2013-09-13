@@ -76,13 +76,16 @@ ChatWindow::ChatWindow(QWidget *parent) :
 
     ui->lineJid->setText(SETTINGS_GET_STRING(SETTING_CHAT_JID));
 
+    new QShortcut(Qt::CTRL + Qt::Key_W, this, SLOT(slotCloseCurrentTab()));
+
+    QShortcut *newTabShortcut = new QShortcut(QKeySequence::New, this, SLOT(slotAddTab()));
     QShortcut *helpShortcut = new QShortcut(QKeySequence::HelpContents, this, SLOT(slotHelp()));
 
     // context menu
     m_menu = new QMenu(this);
 
     //: Command. Means "Add a new room"
-    m_actionAddRoom = new QAction(QIcon(":/images/addroom.png"), tr("Add room"), this);
+    m_actionAddRoom = new QAction(QIcon(":/images/addroom.png"), tr("Add room") + '\t' + newTabShortcut->key().toString(), this);
     connect(m_actionAddRoom, SIGNAL(triggered()), this, SLOT(slotAddTab()));
     m_menu->addAction(m_actionAddRoom);
 
@@ -572,4 +575,10 @@ void ChatWindow::slotHelp()
                              //: Don't translate "Gold" - this is a fixed industry name
                              .arg(tr("Show the NYSE and NASDAQ tickers from the industry \"Gold\" (you can mix exchanges)"))
                              );
+}
+
+void ChatWindow::slotCloseCurrentTab()
+{
+    if(chatsPage())
+        slotTabCloseRequested(ui->tabs->currentIndex());
 }
