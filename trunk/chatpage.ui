@@ -146,7 +146,7 @@
           <bool>true</bool>
          </property>
          <property name="placeholderText">
-          <string>Subject</string>
+          <string extracomment="Noun">Subject</string>
          </property>
         </widget>
        </item>
