@@ -16,6 +16,7 @@
     <message>
         <location filename="../about.ui" line="96"/>
         <source>THT helps you to do your home task in trading. It can link different trading platforms and charts together and manage a list of tickers. All suggestions and bug reports please send to our bug tracker, also visit</source>
+        <extracomment>The URL to visit will be added in runtime</extracomment>
         <translation>THT допомагає вам робити свою домашню роботу в трейдингу. Вона може лінковані різні торгові платформи та графіки, і керувати списками тікерів. Всі побажання та звіти про помилки надсилайте на наш багтрекер, також відвідаєте</translation>
     </message>
     <message>
