@@ -49,7 +49,6 @@ ChatWindow::ChatWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ChatWindow)
 {
-    // pythonr@conference.jabber.ru
     ui->setupUi(this);
 
     //: Means "Based on <some technology>"
