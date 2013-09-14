@@ -51,7 +51,7 @@ ChatWindow::ChatWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    //: Means "Based on <some technology>"
+    //: Means "Based on <some technology>". The technology will be added in runtime
     ui->labelBasedOn->setText(tr("Based on") + " <a href=\"http://xmpp.org\">XMPP</a>");
 
     // XMPP client
