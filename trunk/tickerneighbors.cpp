@@ -271,14 +271,18 @@ void TickerNeighbors::resetTabOrders()
     QWidget::setTabOrder(ui->checkUSA, ui->pushCopy);
 }
 
+void TickerNeighbors::showNumberOfFilesToCopy(int n)
+{
+    ui->pushCopy->setText(QString("%1 (%2)").arg(tr("Copy")).arg(n));
+}
+
 void TickerNeighbors::slotFetch()
 {
     // clear old data
     ui->listTickers->clear();
     m_tickers.clear();
 
-    //: Command
-    ui->pushCopy->setText(tr("Copy (%1)").arg(0));
+    showNumberOfFilesToCopy(0);
 
     QList<QVariantList> lists;
     QMap<QString, QString> binds;
@@ -394,7 +398,7 @@ void TickerNeighbors::slotFetch()
         item->setFlags(item->flags() & ~Qt::ItemIsEditable);
     }
 
-    ui->pushCopy->setText(tr("Copy (%1)").arg(m_tickers.size()));
+    showNumberOfFilesToCopy(m_tickers.size());
 
     qDebug("Found neighbors: %d", m_tickers.size());
 }
@@ -425,7 +429,7 @@ void TickerNeighbors::slotSelectionChanged()
 {
     const int count = ui->listTickers->selectionModel()->selectedRows().count();
 
-    ui->pushCopy->setText(tr("Copy (%1)").arg(!count ? ui->listTickers->count() : count));
+    showNumberOfFilesToCopy(count ? count : ui->listTickers->count());
 }
 
 void TickerNeighbors::slotActivated(const QModelIndex &index)
