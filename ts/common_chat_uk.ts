@@ -483,7 +483,7 @@ Noun</extracomment>
     <message>
         <location filename="../chatwindow.cpp" line="55"/>
         <source>Based on</source>
-        <extracomment>Means &quot;Based on &lt;some technology&gt;&quot;</extracomment>
+        <extracomment>Means &quot;Based on &lt;some technology&gt;&quot;. The technology will be added in runtime</extracomment>
         <translation>На основі</translation>
     </message>
     <message>
