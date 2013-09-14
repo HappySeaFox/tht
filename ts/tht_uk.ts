@@ -901,17 +901,10 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../tickerneighbors.cpp" line="51"/>
         <location filename="../tickerneighbors.cpp" line="55"/>
+        <location filename="../tickerneighbors.cpp" line="276"/>
         <source>Copy</source>
         <extracomment>Command</extracomment>
         <translation>Копіювати</translation>
-    </message>
-    <message>
-        <location filename="../tickerneighbors.cpp" line="281"/>
-        <location filename="../tickerneighbors.cpp" line="397"/>
-        <location filename="../tickerneighbors.cpp" line="428"/>
-        <source>Copy (%1)</source>
-        <extracomment>Command</extracomment>
-        <translation>Копіювати (%1)</translation>
     </message>
 </context>
 <context>

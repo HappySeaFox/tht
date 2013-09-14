@@ -52,6 +52,7 @@ private:
     void silentlyCheck(QCheckBox *, bool check);
     void filterAndFetch();
     void resetTabOrders();
+    void showNumberOfFilesToCopy(int n);
 
 signals:
     void loadTicker(const QString &);
