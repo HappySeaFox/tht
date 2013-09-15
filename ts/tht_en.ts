@@ -347,8 +347,8 @@
     </message>
     <message>
         <location filename="../options.ui" line="50"/>
-        <source>&lt;System&gt;</source>
-        <extracomment>Adjective. Means &quot;System language&quot;</extracomment>
+        <source>&lt;Use the system default&gt;</source>
+        <extracomment>Means &quot;Use the system default language&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>

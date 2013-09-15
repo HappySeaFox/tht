@@ -335,6 +335,12 @@
         <translation>Настройки</translation>
     </message>
     <message>
+        <location filename="../options.ui" line="50"/>
+        <source>&lt;Use the system default&gt;</source>
+        <extracomment>Means &quot;Use the system default language&quot;</extracomment>
+        <translation>&lt;Использовать системный&gt;</translation>
+    </message>
+    <message>
         <location filename="../options.ui" line="84"/>
         <source>Language:</source>
         <translation>Язык:</translation>
@@ -400,12 +406,6 @@
         <source>Restore link points at startup</source>
         <extracomment>Infinitive</extracomment>
         <translation>Восстанавливать точки линковки при старте</translation>
-    </message>
-    <message>
-        <location filename="../options.ui" line="50"/>
-        <source>&lt;System&gt;</source>
-        <extracomment>Adjective. Means &quot;System language&quot;</extracomment>
-        <translation>&lt;Системный&gt;</translation>
     </message>
     <message>
         <location filename="../options.ui" line="155"/>
