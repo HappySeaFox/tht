@@ -387,6 +387,7 @@ void Settings::fillTranslations()
 {
     d->translations.insert("en", "English (English)");
 
+    // http://www.loc.gov/standards/iso639-2/php/code_list.php
     d->translations.insert("de",    QString::fromUtf8("Deutsch")    + " (German)");
     d->translations.insert("es",    QString::fromUtf8("Español")    + " (Spanish)");
     d->translations.insert("es_MX", QString::fromUtf8("Español")    + " (Mexican Spanish)");

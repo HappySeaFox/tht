@@ -335,40 +335,40 @@
         <translation>Настройки</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="81"/>
+        <location filename="../options.ui" line="84"/>
         <source>Language:</source>
         <translation>Язык:</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="124"/>
+        <location filename="../options.ui" line="127"/>
         <source>Save position and size</source>
         <extracomment>Infinitive</extracomment>
         <translation>Сохранять расположение и размер</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="138"/>
+        <location filename="../options.ui" line="141"/>
         <source>Automatically save tickers</source>
         <extracomment>Infinitive</extracomment>
         <translation>Сохранять тикеры автоматически</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="186"/>
+        <location filename="../options.ui" line="189"/>
         <source>Show buttons</source>
         <extracomment>Infinitive</extracomment>
         <translation>Показывать кнопки</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="200"/>
+        <location filename="../options.ui" line="203"/>
         <source>Ctrl+Alt+S to take screenshots</source>
         <translation>Ctrl+Alt+S для снимков экрана</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="207"/>
+        <location filename="../options.ui" line="210"/>
         <source>Ctrl+Alt+R to restore from tray</source>
         <translation>Ctrl+Alt+R для развёртывания из трея</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="250"/>
+        <location filename="../options.ui" line="253"/>
         <source>Need restart</source>
         <translation>Требуется перезапуск</translation>
     </message>
@@ -390,36 +390,36 @@
         <translation>Горячие клавиши</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="166"/>
+        <location filename="../options.ui" line="169"/>
         <source>Automatically show ticker comments</source>
         <extracomment>Infinitive</extracomment>
         <translation>Автоматически показывать комментарии к тикеру</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="117"/>
+        <location filename="../options.ui" line="120"/>
         <source>Restore link points at startup</source>
         <extracomment>Infinitive</extracomment>
         <translation>Восстанавливать точки линковки при старте</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="47"/>
+        <location filename="../options.ui" line="50"/>
         <source>&lt;System&gt;</source>
         <extracomment>Adjective. Means &quot;System language&quot;</extracomment>
         <translation>&lt;Системный&gt;</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="152"/>
+        <location filename="../options.ui" line="155"/>
         <source>Fast ticker entry</source>
         <translation>Быстрый ввод тикера</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="159"/>
+        <location filename="../options.ui" line="162"/>
         <source>Show title</source>
         <extracomment>Infinitive</extracomment>
         <translation>Показывать заголовок</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="97"/>
+        <location filename="../options.ui" line="100"/>
         <source>Restore &quot;Industries&quot; window at startup</source>
         <extracomment>Infinitive</extracomment>
         <translation>Восстанавливать окно &quot;Индустрии&quot; при старте</translation>
@@ -430,7 +430,7 @@
         <translation>Поверх всех окон</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="88"/>
+        <location filename="../options.ui" line="91"/>
         <source>Lists:</source>
         <extracomment>Means &quot;Number of lists:&quot;</extracomment>
         <translation>Списков:</translation>
@@ -442,7 +442,7 @@
         <translation>Прятаться в трей</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="145"/>
+        <location filename="../options.ui" line="148"/>
         <source>Allow duplicates in a ticker list</source>
         <extracomment>Infinitive</extracomment>
         <translation>Разрешить дубликаты в списке тикеров</translation>
