@@ -570,6 +570,7 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../savescreenshot.ui" line="20"/>
         <source>Edit...</source>
+        <extracomment>Command</extracomment>
         <translation>Редактировать...</translation>
     </message>
     <message>
