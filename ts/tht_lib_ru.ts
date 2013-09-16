@@ -38,8 +38,9 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../tools.cpp" line="163"/>
+        <location filename="../tools.cpp" line="164"/>
         <source>Open YouTube tutorial</source>
+        <extracomment>Command</extracomment>
         <translation>Открыть урок на YouTube</translation>
     </message>
 </context>
