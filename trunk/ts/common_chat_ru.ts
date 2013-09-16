@@ -67,11 +67,9 @@
     </message>
     <message>
         <location filename="../chatpage.ui" line="149"/>
-        <location filename="../chatpage.cpp" line="622"/>
+        <location filename="../chatpage.cpp" line="621"/>
         <source>Subject</source>
-        <extracomment>Noun
-----------
-Noun</extracomment>
+        <extracomment>Noun</extracomment>
         <translation>Тема</translation>
     </message>
     <message>
@@ -107,12 +105,12 @@ Noun</extracomment>
         <translation>Капитализация:</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="958"/>
+        <location filename="../chatpage.cpp" line="957"/>
         <source>New subject:</source>
         <translation>Новая тема:</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="1082"/>
+        <location filename="../chatpage.cpp" line="1081"/>
         <source>mln</source>
         <extracomment>Means &quot;million&quot;</extracomment>
         <translation>млн</translation>
@@ -169,125 +167,125 @@ Noun</extracomment>
         <translation>JID пользователя &quot;%1&quot; не найден</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="798"/>
+        <location filename="../chatpage.cpp" line="797"/>
         <source>Bad request</source>
         <translation>Неверный запрос</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="799"/>
+        <location filename="../chatpage.cpp" line="798"/>
         <source>User conflict</source>
         <translation>Конфликт пользователей</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="800"/>
+        <location filename="../chatpage.cpp" line="799"/>
         <source>Feature is not implemented</source>
         <translation>Возможность не реализована</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="801"/>
+        <location filename="../chatpage.cpp" line="800"/>
         <source>Forbidden</source>
         <translation>Запрещено</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="803"/>
+        <location filename="../chatpage.cpp" line="802"/>
         <source>Internal server error</source>
         <translation>Внутренняя ошибка сервера</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="804"/>
+        <location filename="../chatpage.cpp" line="803"/>
         <source>Item is not found</source>
         <translation>Элемент не найден</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="806"/>
+        <location filename="../chatpage.cpp" line="805"/>
         <source>JID is malformed</source>
         <extracomment>JID is a Jabber Identifier, http://en.wikipedia.org/wiki/XMPP#Decentralization_and_addressing . It&apos;s ok not to translate &quot;JID&quot;, e.g. just copy-paste &quot;JID&quot; to your translation</extracomment>
         <translation>JID имеет неверный формат</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="807"/>
+        <location filename="../chatpage.cpp" line="806"/>
         <source>Not acceptable</source>
         <translation>Неприемлемый запрос</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="808"/>
+        <location filename="../chatpage.cpp" line="807"/>
         <source>Not allowed</source>
         <translation>Не допускается</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="809"/>
+        <location filename="../chatpage.cpp" line="808"/>
         <source>Not authorized</source>
         <translation>Не авторизован</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="810"/>
+        <location filename="../chatpage.cpp" line="809"/>
         <source>Payment required</source>
         <translation>Требуется платёж</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="811"/>
+        <location filename="../chatpage.cpp" line="810"/>
         <source>Recipient is unavailable</source>
         <translation>Получатель недоступен</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="812"/>
+        <location filename="../chatpage.cpp" line="811"/>
         <source>Redirection</source>
         <translation>Перенаправление</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="813"/>
+        <location filename="../chatpage.cpp" line="812"/>
         <source>Registration required</source>
         <translation>Требуется регистрация</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="814"/>
+        <location filename="../chatpage.cpp" line="813"/>
         <source>Remote server is not found</source>
         <translation>Удалённый сервер не найден</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="815"/>
+        <location filename="../chatpage.cpp" line="814"/>
         <source>Remote server timeout</source>
         <translation>Удалённый сервер не отвечает</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="816"/>
+        <location filename="../chatpage.cpp" line="815"/>
         <source>Resource constraint</source>
         <translation>Исчерпание ресурсов</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="817"/>
+        <location filename="../chatpage.cpp" line="816"/>
         <source>Service is unavailable</source>
         <translation>Сервис недоступен</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="818"/>
+        <location filename="../chatpage.cpp" line="817"/>
         <source>Subscription required</source>
         <translation>Требуется подписка</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="819"/>
+        <location filename="../chatpage.cpp" line="818"/>
         <source>Undefined condition</source>
         <translation>Неизвестное условие</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="820"/>
+        <location filename="../chatpage.cpp" line="819"/>
         <source>Unexpected request</source>
         <translation>Непредвиденный запрос</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="823"/>
+        <location filename="../chatpage.cpp" line="822"/>
         <source>Unknown error</source>
         <translation>Неизвестная ошибка</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="837"/>
+        <location filename="../chatpage.cpp" line="836"/>
         <source>Messages: %1</source>
         <extracomment>Means &quot;Number of messages:&quot;</extracomment>
         <translation>Сообщений: %1</translation>
     </message>
     <message>
         <location filename="../chatpage.cpp" line="385"/>
-        <location filename="../chatpage.cpp" line="888"/>
+        <location filename="../chatpage.cpp" line="887"/>
         <source>User is not available</source>
         <translation>Пользователь недоступен</translation>
     </message>
@@ -345,23 +343,23 @@ Noun</extracomment>
         <translation>Забанить</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="802"/>
+        <location filename="../chatpage.cpp" line="801"/>
         <source>User has gone</source>
         <translation>Пользователь вышел</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="1044"/>
+        <location filename="../chatpage.cpp" line="1043"/>
         <source>industry is not found</source>
         <translation>индустрия не найдена</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="1078"/>
+        <location filename="../chatpage.cpp" line="1077"/>
         <source>bln</source>
         <extracomment>Means &quot;billion&quot; (1000*million)</extracomment>
         <translation>млрд</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="1102"/>
+        <location filename="../chatpage.cpp" line="1101"/>
         <source>ticker is not found</source>
         <extracomment>Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp</extracomment>
         <translation>тикер не найден</translation>

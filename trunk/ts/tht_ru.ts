@@ -293,36 +293,37 @@
         <translation>Экспортировать в буфер обмена</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1282"/>
-        <location filename="../list.cpp" line="1357"/>
-        <source>Choose a file</source>
-        <translation>Выберите файл</translation>
-    </message>
-    <message>
         <location filename="../list.cpp" line="1284"/>
         <location filename="../list.cpp" line="1359"/>
-        <source>Text files (*.txt)</source>
-        <translation>Текстовые файлы (*.txt)</translation>
+        <source>Choose a file</source>
+        <extracomment>Appeal to the user</extracomment>
+        <translation>Выберите файл</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="1286"/>
         <location filename="../list.cpp" line="1361"/>
+        <source>Text files (*.txt)</source>
+        <translation>Текстовые файлы (*.txt)</translation>
+    </message>
+    <message>
+        <location filename="../list.cpp" line="1288"/>
+        <location filename="../list.cpp" line="1363"/>
         <source>All files (*.*)</source>
         <translation>Все файлы (*.*)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1321"/>
-        <location filename="../list.cpp" line="1371"/>
+        <location filename="../list.cpp" line="1323"/>
+        <location filename="../list.cpp" line="1373"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1321"/>
+        <location filename="../list.cpp" line="1323"/>
         <source>Cannot open the following files: %1</source>
         <translation>Невозможно открыть следующие файлы: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1371"/>
+        <location filename="../list.cpp" line="1373"/>
         <source>Cannot save to file %1</source>
         <translation>Невозможно сохранить в файл %1</translation>
     </message>
@@ -565,6 +566,7 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../savescreenshot.ui" line="14"/>
         <source>Save to</source>
+        <extracomment>Command. Means &quot;Save to &lt;file or clipboard&gt;&quot;</extracomment>
         <translation>Сохранить в</translation>
     </message>
     <message>
