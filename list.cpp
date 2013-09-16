@@ -1279,7 +1279,9 @@ void List::slotAddFromFile()
 {
     qDebug("Adding new tickers from file");
 
-    QStringList fileNames = QFileDialog::getOpenFileNames(this, tr("Choose a file"),
+    QStringList fileNames = QFileDialog::getOpenFileNames(this,
+                                                          //: Appeal to the user
+                                                          tr("Choose a file"),
                                                           SETTINGS_GET_STRING(SETTING_LAST_TICKER_DIRECTORY),
                                                           tr("Text files (*.txt)")
                                                               + ";;"

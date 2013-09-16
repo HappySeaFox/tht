@@ -618,7 +618,6 @@ void ChatPage::slotSetSubject()
     bool ok;
     QString subject = QInputDialog::getText(this,
                                             tr("Set subject"),
-                                            //: Noun
                                             tr("Subject") + ':',
                                             QLineEdit::Normal,
                                             ui->lineSubject->text(),
