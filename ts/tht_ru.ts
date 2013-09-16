@@ -803,7 +803,7 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../tht.cpp" line="935"/>
         <source>Unknown</source>
-        <extracomment>Means &quot;Unknown links&quot; (int the plural)</extracomment>
+        <extracomment>Means &quot;Unknown links&quot; (in the plural)</extracomment>
         <translation>Неизвестные</translation>
     </message>
     <message>
