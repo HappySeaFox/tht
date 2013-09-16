@@ -893,7 +893,7 @@ void THT::checkWindows()
     for(QList<Link>::iterator it = m_windows->begin();it != itEnd;++it)
     {
         if((*it).type == LinkTypeAdvancedGet)
-            mappings["Advaced Get"]++;
+            mappings["Advanced Get"]++;
         else if((*it).type == LinkTypeArchePro)
             mappings["Arche Pro"]++;
         else if((*it).type == LinkTypeDASTraderPro)
