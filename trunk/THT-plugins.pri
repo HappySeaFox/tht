@@ -94,7 +94,7 @@ defineReplace(copyFilesToZip) {
     }
 
     for(qm, QMFILES) {
-        distbin.commands += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\$$qm\" \"$$T/translations\")
+        distbin.commands += $$mle(copy /y \"$$qm\" \"$$T/translations\")
     }
 
     # compress
@@ -178,7 +178,7 @@ exists($$INNO) {
     }
 
     for(qm, QMFILES) {
-        iss.commands += $$mle(echo Source: \"$${_PRO_FILE_PWD_}\\$$qm\"; DestDir: \"{app}/translations\"; Flags: ignoreversion >> $$ISS)
+        iss.commands += $$mle(echo Source: \"$$qm\"; DestDir: \"{app}/translations\"; Flags: ignoreversion >> $$ISS)
     }
 
     iss.commands += $$mle(echo [Icons] >> $$ISS)

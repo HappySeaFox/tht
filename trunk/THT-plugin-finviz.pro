@@ -30,10 +30,6 @@ FORMS += \
     finvizlinkselector.ui \
     finvizaccesssetup.ui
 
-TRANSLATIONS += ts/addtickersfrom_finviz_en.ts \
-                ts/addtickersfrom_finviz_ru.ts \
-                ts/addtickersfrom_finviz_uk.ts
-
 RESOURCES += THT-plugin-finviz.qrc
 
 THT_PLUGIN_NAME="Finviz"
@@ -41,6 +37,8 @@ THT_PLUGIN_AUTHOR="Dmitry Baryshev"
 THT_PLUGIN_UUID="0DB2CEDA-9A88-4E31-9E76-2FD77BEF0993"
 THT_PLUGIN_COPYRIGHT="(C) 2013 $$THT_PLUGIN_AUTHOR"
 THT_PLUGIN_URL="http://sourceforge.net/projects/tht"
+
+TS_PREFIX=addtickersfrom_finviz
 
 include(THT-common.pri)
 include(THT-plugins.pri)

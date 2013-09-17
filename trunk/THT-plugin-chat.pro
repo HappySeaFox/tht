@@ -62,10 +62,6 @@ FORMS += chatwindow.ui \
     configureroom.ui \
     sendinvitations.ui
 
-TRANSLATIONS += ts/common_chat_en.ts \
-                ts/common_chat_ru.ts \
-                ts/common_chat_uk.ts
-
 RESOURCES += THT-plugin-chat.qrc
 
 THT_PLUGIN_NAME="Chat"
@@ -73,6 +69,8 @@ THT_PLUGIN_AUTHOR="Dmitry Baryshev"
 THT_PLUGIN_UUID="6064096F-223C-45E7-A971-0CCBD395F054"
 THT_PLUGIN_COPYRIGHT="(C) 2013 $$THT_PLUGIN_AUTHOR"
 THT_PLUGIN_URL="http://sourceforge.net/projects/tht"
+
+TS_PREFIX=common_chat
 
 include(THT-common.pri)
 include(THT-plugins.pri)
