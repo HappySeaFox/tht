@@ -12,6 +12,9 @@ DEPENDPATH += .
 #QMAKE_CXXFLAGS += -flto
 #QMAKE_LFLAGS += -flto
 
+# translation languages
+LANGUAGES=en ru uk
+
 CONFIG += warn_on
 QMAKE_CXXFLAGS_WARN_ON *= -Wextra -Wno-missing-field-initializers
 
@@ -34,6 +37,14 @@ contains(QMAKE_HOST.arch, x86_64) {
     HOST64="-x86_64"
 }
 
+# generate TRANSLATIONS
+defineReplace(gentranslations) {
+    for(ts, LANGUAGES) {
+        TRANSLATIONS += $${_PRO_FILE_PWD_}\\ts\\$${1}_$${ts}.ts
+    }
+    return ( $$TRANSLATIONS )
+}
+
 # search an executable in PATH
 defineReplace(findexe) {
     return ( $$system(for %i in ($$1) do @echo. %~$PATH:i) )
@@ -44,6 +55,9 @@ defineReplace(mle) {
     return ( $$1$$escape_expand(\\n\\t) )
 }
 
+# check for svn
+SVN=$$findexe("svn.exe")
+
 # check for gcc
 GCC=$$findexe("gcc.exe")
 GCCDIR=$$dirname(GCC)
@@ -52,19 +66,35 @@ isEmpty(GCC) {
     error("MinGW is not found in PATH")
 }
 
+TRANSLATIONS += $$gentranslations($$TS_PREFIX)
+
+message(Translations for $${TS_PREFIX}: $$TRANSLATIONS)
+
 # copy translations
-QMAKE_POST_LINK += $$mle(lupdate -no-obsolete $$_PRO_FILE_)
-QMAKE_POST_LINK += $$mle(lrelease $$_PRO_FILE_)
+QMAKE_POST_LINK += $$mle(lupdate -no-obsolete $$_PRO_FILE_ -ts $$TRANSLATIONS)
+
+# lrelease for each ts
+for(ts, TRANSLATIONS) {
+    QM=$$replace(ts, \\.ts$, .qm)
+    QM=$$replace(QM, /, \\)
+    QMAKE_POST_LINK += $$mle(lrelease \"$$ts\" -qm \"$$QM\")
+}
+
 QMAKE_POST_LINK += $$mle(if not exist \"$${OUT_PWD}/$(DESTDIR_TARGET)/../translations\" mkdir \"$${OUT_PWD}/$(DESTDIR_TARGET)/../translations\")
 
 QMFILES=
 
 # copy .qm files
 for(ts, TRANSLATIONS) {
+    !isEmpty(SVN) {
+        SVNQ=$$quote($$SVN)
+        system(\"$$SVNQ\" -q --force add $$quote($$ts))
+    }
+
     ts=$$replace(ts, \\.ts$, .qm)
     ts=$$replace(ts, /, \\)
     QMFILES=$$QMFILES $$ts
-    QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\$$ts\" \"$${OUT_PWD}/$(DESTDIR_TARGET)/../translations\")
+    QMAKE_POST_LINK += $$mle(copy /y \"$$ts\" \"$${OUT_PWD}/$(DESTDIR_TARGET)/../translations\")
 }
 
 # check for upx

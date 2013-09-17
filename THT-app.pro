@@ -122,11 +122,12 @@ OTHER_FILES += \
     LICENSE.txt \
     THT-version.tag
 
-TRANSLATIONS += ts/tht_en.ts \
-                ts/tht_ru.ts \
-                ts/tht_uk.ts
-
 RC_FILE = tht.rc
+
+TS_PREFIX=tht
+
+include(THT-version.pri)
+include(THT-common.pri)
 
 # network data
 SVNROOT_FOR_COMMIT="svn+ssh://dmitrykx@svn.code.sf.net/p/tht/code"
@@ -146,43 +147,39 @@ OTHERQMFILES=tht_lib_en.qm \
                 tht_lib_ru.qm \
                 tht_lib_uk.qm
 
-QTQMFILES=qt_ru.qm qt_uk.qm
 LICENSES=LICENSE.txt LICENSE-LGPL-2.1.txt LICENSE-LGPL-3.txt
 USEUPX=y
 
 COMPONENT1="Finviz"
 COMPONENT1_TYPE="addtickersfromfinviz"
 COMPONENT1_FILES=addtickersfrom-finviz.dll
-COMPONENT1_TRANSLATIONS=addtickersfrom_finviz_en.qm \
-                           addtickersfrom_finviz_ru.qm \
-                           addtickersfrom_finviz_uk.qm
+for(l, LANGUAGES) {
+    COMPONENT1_TRANSLATIONS += addtickersfrom_finviz_$${l}.qm
+}
 
 COMPONENT2="Briefing Stock Splits"
 COMPONENT2_TYPE="addtickersfrombriefingsplits"
 COMPONENT2_FILES=addtickersfrom-briefing-splits.dll
-COMPONENT2_TRANSLATIONS=addtickersfrom_briefing_splits_en.qm \
-                           addtickersfrom_briefing_splits_ru.qm \
-                           addtickersfrom_briefing_splits_uk.qm
+for(l, LANGUAGES) {
+    COMPONENT2_TRANSLATIONS += addtickersfrom_briefing_splits_$${l}.qm
+}
 
 COMPONENT3="FOMC"
 COMPONENT3_TYPE="commonfomc"
 COMPONENT3_FILES=common-fomc.dll
-COMPONENT3_TRANSLATIONS=common_fomc_en.qm \
-                           common_fomc_ru.qm \
-                           common_fomc_uk.qm
+for(l, LANGUAGES) {
+    COMPONENT3_TRANSLATIONS += common_fomc_$${l}.qm
+}
 
 COMPONENT4="Jabber Chat"
 COMPONENT4_TYPE="commonchat"
 COMPONENT4_FILES=common-chat.dll
-COMPONENT4_TRANSLATIONS=common_chat_en.qm \
-                           common_chat_ru.qm \
-                           common_chat_uk.qm
+for(l, LANGUAGES) {
+    COMPONENT4_TRANSLATIONS += common_chat_$${l}.qm
+}
 
 # list of components' suffixes to install
 COMPONENTS=1 2 3 4
-
-include(THT-version.pri)
-include(THT-common.pri)
 
 DEFINES += SVNROOT_FOR_DOWNLOAD=$$sprintf("\"\\\"%1\\\"\"", $$SVNROOT_FOR_DOWNLOAD)
 DEFINES += HTTPROOT=$$sprintf("\"\\\"%1\\\"\"", $$HTTPROOT)
@@ -255,11 +252,14 @@ QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite
     }
 
     for(qm, QMFILES) {
-        distbin.commands += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\$$qm\" \"$$T/translations\")
+        distbin.commands += $$mle(copy /y \"$$qm\" \"$$T/translations\")
     }
 
-    for(qm, QTQMFILES) {
-        distbin.commands += $$mle(copy /y \"$$[QT_INSTALL_TRANSLATIONS]\\$$qm\" \"$$T/translations\")
+    for(l, LANGUAGES) {
+        l=$$[QT_INSTALL_TRANSLATIONS]\\qt_$${l}.qm
+        exists($$l) {
+            distbin.commands += $$mle(copy /y \"$$l\" \"$$T/translations\")
+        }
     }
 
     for(qm, OTHERQMFILES) {
@@ -414,11 +414,14 @@ exists($$INNO) {
     }
 
     for(qm, QMFILES) {
-        iss.commands += $$mle(echo Source: \"$${_PRO_FILE_PWD_}\\$$qm\"; DestDir: \"{app}/translations\"; Flags: ignoreversion >> $$ISS)
+        iss.commands += $$mle(echo Source: \"$$qm\"; DestDir: \"{app}/translations\"; Flags: ignoreversion >> $$ISS)
     }
 
-    for(qm, QTQMFILES) {
-        iss.commands += $$mle(echo Source: \"$$[QT_INSTALL_TRANSLATIONS]\\$$qm\"; DestDir: \"{app}/translations\"; Flags: ignoreversion >> $$ISS)
+    for(l, LANGUAGES) {
+        l=$$[QT_INSTALL_TRANSLATIONS]\\qt_$${l}.qm
+        exists($$l) {
+            iss.commands += $$mle(echo Source: \"$$l\"; DestDir: \"{app}/translations\"; Flags: ignoreversion >> $$ISS)
+        }
     }
 
     for(qm, OTHERQMFILES) {
