@@ -5,6 +5,7 @@ This toolchain contains the following libraries and binaries:
 * 7-zip (under bin/)
 * UPX (under bin/)
 * JOM (under bin/)
+* FART (under extra/)
 * qt-path-corrector (under extra/)
 * openssl (under extra/openssl/)
 
