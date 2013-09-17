@@ -160,7 +160,7 @@ void Tools::raiseWindow(QWidget *w)
 
 QString Tools::openYoutubeTutorialTitle()
 {
-    //: Command
+    //: Command. Means "Open a video tutorial on YouTube"
     return QObject::tr("Open YouTube tutorial");
 }
 

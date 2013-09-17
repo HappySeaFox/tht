@@ -40,7 +40,7 @@
     <message>
         <location filename="../tools.cpp" line="164"/>
         <source>Open YouTube tutorial</source>
-        <extracomment>Command</extracomment>
+        <extracomment>Command. Means &quot;Open a video tutorial on YouTube&quot;</extracomment>
         <translation>Відкрити урок на YouTube</translation>
     </message>
 </context>
