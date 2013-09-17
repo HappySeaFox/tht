@@ -32,7 +32,7 @@ static const int REQUIRED_FIELDS = 11;
 FinvizDownloader::FinvizDownloader(const QUrl &url, QWidget *parent) :
     DataDownloader(parent)
 {
-    //: Finviz - Stock Screener, http://finviz.com. It's ok not to translate "Finviz" (e.g. just copy-paste "Finviz" to your translation)
+    //: Finviz - Stock Screener, http://finviz.com. It's ok not to translate "Finviz" (e.g. you can just copy-paste "Finviz" to your translation)
     setWindowTitle(tr("Finviz"));
     //: Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp
     setMessage(tr("Downloading tickers..."));

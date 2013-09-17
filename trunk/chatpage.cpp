@@ -801,7 +801,7 @@ QString ChatPage::errorToString(const QXmppStanza::Error &error)
         case QXmppStanza::Error::Gone:                  return tr("User has gone");
         case QXmppStanza::Error::InternalServerError:   return tr("Internal server error");
         case QXmppStanza::Error::ItemNotFound:          return tr("Item is not found");
-        //: JID is a Jabber Identifier, http://en.wikipedia.org/wiki/XMPP#Decentralization_and_addressing . It's ok not to translate "JID", e.g. just copy-paste "JID" to your translation
+        //: JID is a Jabber Identifier, http://en.wikipedia.org/wiki/XMPP#Decentralization_and_addressing . It's ok not to translate "JID", e.g. you can just copy-paste "JID" to your translation
         case QXmppStanza::Error::JidMalformed:          return tr("JID is malformed");
         case QXmppStanza::Error::NotAcceptable:         return tr("Not acceptable");
         case QXmppStanza::Error::NotAllowed:            return tr("Not allowed");

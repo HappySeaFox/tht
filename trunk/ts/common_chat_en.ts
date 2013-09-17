@@ -199,7 +199,7 @@
     <message>
         <location filename="../chatpage.cpp" line="805"/>
         <source>JID is malformed</source>
-        <extracomment>JID is a Jabber Identifier, http://en.wikipedia.org/wiki/XMPP#Decentralization_and_addressing . It&apos;s ok not to translate &quot;JID&quot;, e.g. just copy-paste &quot;JID&quot; to your translation</extracomment>
+        <extracomment>JID is a Jabber Identifier, http://en.wikipedia.org/wiki/XMPP#Decentralization_and_addressing . It&apos;s ok not to translate &quot;JID&quot;, e.g. you can just copy-paste &quot;JID&quot; to your translation</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>

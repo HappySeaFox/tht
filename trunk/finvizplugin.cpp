@@ -84,7 +84,7 @@ bool FinvizPlugin::embed(int list, QMenu *parentMenu)
     if(emb.contains(list))
         return true;
 
-    //: Command. Finviz - Stock Screener, http://finviz.com. It's ok not to translate "Finviz" (e.g. just copy-paste "Finviz" to your translation)
+    //: Command. Finviz - Stock Screener, http://finviz.com. It's ok not to translate "Finviz" (e.g. you can just copy-paste "Finviz" to your translation)
     QMenu *menu = new QMenu(tr("Add from Finviz") + "\tZ");
 
     if(!menu)

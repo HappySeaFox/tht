@@ -36,7 +36,7 @@ bool BriefingSplitsPlugin::embed(int list, QMenu *parentMenu)
     if(emb.contains(list))
         return true;
 
-    //: It's ok not to translate "Briefing Stock Splits" (e.g. just copy-paste "Briefing Stock Splits" to your translation)
+    //: It's ok not to translate "Briefing Stock Splits" (e.g. you can just copy-paste "Briefing Stock Splits" to your translation)
     QMenu *menu = new QMenu(tr("Add from Briefing Stock Splits"));
 
     if(!menu)
