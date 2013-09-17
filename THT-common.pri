@@ -13,7 +13,7 @@ DEPENDPATH += .
 #QMAKE_LFLAGS += -flto
 
 # translation languages
-LANGUAGES=en ru uk
+LANGUAGES=de en fr ru uk
 
 CONFIG += warn_on
 QMAKE_CXXFLAGS_WARN_ON *= -Wextra -Wno-missing-field-initializers
@@ -86,11 +86,6 @@ QMFILES=
 
 # copy .qm files
 for(ts, TRANSLATIONS) {
-    !isEmpty(SVN) {
-        SVNQ=$$quote($$SVN)
-        system(\"$$SVNQ\" -q --force add $$quote($$ts))
-    }
-
     ts=$$replace(ts, \\.ts$, .qm)
     ts=$$replace(ts, /, \\)
     QMFILES=$$QMFILES $$ts
