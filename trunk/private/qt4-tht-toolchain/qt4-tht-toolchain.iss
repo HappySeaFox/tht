@@ -1,7 +1,7 @@
 #define MyAppName "Qt4 THT toolchain"
 #define MyAppInstallDir "Qt4-THT-toolchain"
 #define MyAppPublisher "Dmitry Baryshev"
-#define MyAppURL "http://code.google.com/p/traders-home-task-ng"
+#define MyAppURL "http://sourceforge.net/projects/tht"
 #define MyAppVersion "4.8.5"
 
 [Setup]
