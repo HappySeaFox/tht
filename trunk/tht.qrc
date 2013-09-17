@@ -47,5 +47,7 @@
         <file>images/flags/es_MX.png</file>
         <file>images/flags/ko.png</file>
         <file>images/flags/zh_CN.png</file>
+        <file>images/flags/pt.png</file>
+        <file>images/flags/pt_BR.png</file>
     </qresource>
 </RCC>

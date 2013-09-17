@@ -388,16 +388,18 @@ void Settings::fillTranslations()
     d->translations.insert("en", "English (English)");
 
     // http://www.loc.gov/standards/iso639-2/php/code_list.php
-    d->translations.insert("de",    QString::fromUtf8("Deutsch")             + " (German)");
-    d->translations.insert("es",    QString::fromUtf8("Español")             + " (Spanish)");
-    d->translations.insert("es_MX", QString::fromUtf8("Español Mexicano")    + " (Mexican Spanish)");
-    d->translations.insert("fr",    QString::fromUtf8("Français")            + " (French)");
-    d->translations.insert("it",    QString::fromUtf8("Italiano")            + " (Italian)");
-    d->translations.insert("ja",    QString::fromUtf8("日本語")               + " (Japanese)");
-    d->translations.insert("ko",    QString::fromUtf8("조선말")               + " (Korean)");
-    d->translations.insert("ru",    QString::fromUtf8("Русский")             + " (Russian)");
-    d->translations.insert("uk",    QString::fromUtf8("Українська")          + " (Ukrainian)");
-    d->translations.insert("zh_CN", QString::fromUtf8("简体中文")              + " (Chinese Simplified)");
+    d->translations.insert("de",    QString::fromUtf8("Deutsch")              + " (German)");
+    d->translations.insert("es",    QString::fromUtf8("Español")              + " (Spanish)");
+    d->translations.insert("es_MX", QString::fromUtf8("Español Mexicano")     + " (Mexican Spanish)");
+    d->translations.insert("fr",    QString::fromUtf8("Français")             + " (French)");
+    d->translations.insert("it",    QString::fromUtf8("Italiano")             + " (Italian)");
+    d->translations.insert("pt",    QString::fromUtf8("Português")            + " (Portuguese)");
+    d->translations.insert("pt_BR", QString::fromUtf8("Português Brasileiro") + " (Brazilian Portuguese)");
+    d->translations.insert("ja",    QString::fromUtf8("日本語")                + " (Japanese)");
+    d->translations.insert("ko",    QString::fromUtf8("조선말")                + " (Korean)");
+    d->translations.insert("ru",    QString::fromUtf8("Русский")              + " (Russian)");
+    d->translations.insert("uk",    QString::fromUtf8("Українська")           + " (Ukrainian)");
+    d->translations.insert("zh_CN", QString::fromUtf8("简体中文")               + " (Chinese Simplified)");
     //d->translations.insert("zh_TW", QString::fromUtf8("繁體中文")  + " (Chinese Traditional)");
     //d->translations.insert("tr", QString::fromUtf8("Türkçe")     + " (Turkish)");
     //d->translations.insert("vi", QString::fromUtf8("Tiếng Việt") + " (Vietnamese)");
