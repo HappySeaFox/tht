@@ -41,11 +41,11 @@
         <file>images/flags/it.png</file>
         <file>images/flags/ru.png</file>
         <file>images/flags/uk.png</file>
-        <file>images/flags/zh.png</file>
         <file>images/flags/en.png</file>
         <file>images/flags/zh_TW.png</file>
         <file>images/flags/ja.png</file>
         <file>images/flags/es_MX.png</file>
         <file>images/flags/ko.png</file>
+        <file>images/flags/zh_CN.png</file>
     </qresource>
 </RCC>
