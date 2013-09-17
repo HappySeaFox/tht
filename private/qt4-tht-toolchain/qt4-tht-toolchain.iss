@@ -87,7 +87,7 @@ begin
     end;
   end
   else if (CurStep = ssPostInstall) then begin
-    Exec(ExpandConstant('{app}\tools\qtpathcorrector.bat'), '', ExpandConstant('{app}'), SW_SHOW, ewWaitUntilTerminated, ResultCode);
+    Exec(ExpandConstant('{app}\extra\qtpathcorrector.bat'), '', ExpandConstant('{app}'), SW_SHOW, ewWaitUntilTerminated, ResultCode);
   end;
 end;
 
