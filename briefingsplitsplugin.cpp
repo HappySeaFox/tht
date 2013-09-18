@@ -36,7 +36,7 @@ bool BriefingSplitsPlugin::embed(int list, QMenu *parentMenu)
     if(emb.contains(list))
         return true;
 
-    //: It's ok not to translate "Briefing Stock Splits" (e.g. you can just copy-paste "Briefing Stock Splits" to your translation). See http://www.briefing.com/investor/calendars/stock-splits
+    //: Command. It's ok not to translate "Briefing Stock Splits" (e.g. you can just copy-paste "Briefing Stock Splits" to your translation). See http://www.briefing.com/investor/calendars/stock-splits
     QMenu *menu = new QMenu(tr("Add from Briefing Stock Splits"));
 
     if(!menu)
@@ -51,8 +51,8 @@ bool BriefingSplitsPlugin::embed(int list, QMenu *parentMenu)
     foreach(QDate d, dates)
     {
         QAction *a = menu->addAction(QDate::longMonthName(d.month(), QDate::StandaloneFormat),
-                            this,
-                            SLOT(slotAdd()));
+                                        this,
+                                        SLOT(slotAdd()));
 
         a->setData(QString("http://www.briefing.com/investor/calendars/stock-splits/%1/%2")
                    .arg(d.year())
