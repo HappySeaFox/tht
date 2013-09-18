@@ -77,7 +77,7 @@ DropBoxUploader::~DropBoxUploader()
     delete ui;
 }
 
-QString DropBoxUploader::errorToString(QDropbox::Error code)
+QString DropBoxUploader::errorToString(QDropbox::Error code) const
 {
     switch(code)
     {

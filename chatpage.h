@@ -85,7 +85,7 @@ protected:
 private:
     void setJoinMode(bool);
     void appendError(const QString &);
-    QString errorToString(const QXmppStanza::Error &error);
+    QString errorToString(const QXmppStanza::Error &error) const;
     void showUnreadMessagesCount();
     void blinkUnreadMessages(bool);
     QString tickerToLink(const QString &) const;

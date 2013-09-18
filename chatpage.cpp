@@ -790,7 +790,7 @@ void ChatPage::appendError(const QString &s)
         m_generalMessages->append(msg);
 }
 
-QString ChatPage::errorToString(const QXmppStanza::Error &error)
+QString ChatPage::errorToString(const QXmppStanza::Error &error) const
 {
     switch(error.condition())
     {
