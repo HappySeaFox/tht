@@ -87,8 +87,10 @@ bool InlineTextInput::eventFilter(QObject *watched, QEvent *e)
         switch(e->type())
         {
             case QEvent::FocusOut:
+            {
                 if(m_active)
                     doClose = true;
+            }
             break;
 
             case QEvent::KeyPress:
@@ -100,9 +102,10 @@ bool InlineTextInput::eventFilter(QObject *watched, QEvent *e)
                     emit next();
                 else switch(ke->key())
                 {
-                    case Qt::Key_Return:
                     case Qt::Key_Enter:
                         doAccept = true;
+                        doClose = true;
+                    break;
                     case Qt::Key_Escape:
                         doClose = true;
                     break;
