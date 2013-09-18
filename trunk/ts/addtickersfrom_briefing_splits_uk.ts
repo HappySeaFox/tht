@@ -21,7 +21,7 @@
     <message>
         <location filename="../briefingsplitsplugin.cpp" line="40"/>
         <source>Add from Briefing Stock Splits</source>
-        <extracomment>It&apos;s ok not to translate &quot;Briefing Stock Splits&quot; (e.g. you can just copy-paste &quot;Briefing Stock Splits&quot; to your translation). See http://www.briefing.com/investor/calendars/stock-splits</extracomment>
+        <extracomment>Command. It&apos;s ok not to translate &quot;Briefing Stock Splits&quot; (e.g. you can just copy-paste &quot;Briefing Stock Splits&quot; to your translation). See http://www.briefing.com/investor/calendars/stock-splits</extracomment>
         <translation>Додати з Briefing Stock Splits</translation>
     </message>
 </context>
