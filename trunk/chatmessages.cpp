@@ -28,6 +28,7 @@ ChatMessages::ChatMessages(QWidget *parent) :
     ui->setupUi(this);
 
     ui->textMessages->document()->setDefaultStyleSheet(ChatTools::cssForLinks());
+    ui->textMessages->document()->setMaximumBlockCount(1024);
 }
 
 ChatMessages::~ChatMessages()
