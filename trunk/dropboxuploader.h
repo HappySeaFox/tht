@@ -40,7 +40,7 @@ public:
     Status status() const;
 
 private:
-    QString errorToString(QDropbox::Error);
+    QString errorToString(QDropbox::Error) const;
     void message(const QString &text);
     void showError(const QString &text);
     void stopProgress();
