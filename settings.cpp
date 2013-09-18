@@ -393,6 +393,7 @@ void Settings::fillTranslations()
     d->translations.insert("es_MX", QString::fromUtf8("Español Mexicano"));
     d->translations.insert("fr",    QString::fromUtf8("Français"));
     d->translations.insert("it",    QString::fromUtf8("Italiano"));
+    d->translations.insert("pl",    QString::fromUtf8("Polski"));
     d->translations.insert("pt",    QString::fromUtf8("Português"));
     d->translations.insert("pt_BR", QString::fromUtf8("Português Brasileiro"));
     d->translations.insert("ja",    QString::fromUtf8("日本語"));
