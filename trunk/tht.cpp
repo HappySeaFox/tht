@@ -92,7 +92,7 @@ static void CALLBACK WinEventProcCallback(HWINEVENTHOOK hWinEventHook,
 
     TCHAR title[MAX_PATH];
 
-    if(!GetWindowText(hwnd, title, sizeof(title)/sizeof(TCHAR)))
+    if(!GetWindowText(hwnd, title, sizeof(title)/sizeof(title[0])))
     {
         qWarning("Cannot get window text in window %p (%ld)", hwnd, GetLastError());
         return;
@@ -709,7 +709,7 @@ void THT::checkWindow(Link *link)
     TCHAR name[MAX_PATH];
 
     // get executable name
-    if(!GetProcessImageFileName(h, name, sizeof(name)/sizeof(TCHAR)))
+    if(!GetProcessImageFileName(h, name, sizeof(name)/sizeof(name[0])))
     {
         qWarning("Cannot get a process info %ld (%ld)", link->processId, GetLastError());
         CloseHandle(h);
@@ -726,7 +726,7 @@ void THT::checkWindow(Link *link)
 
     QString cname;
 
-    if(!GetClassName(link->hwnd, name, sizeof(name)))
+    if(!GetClassName(link->hwnd, name, sizeof(name)/sizeof(name[0])))
         qWarning("Cannot get a class name for window %p (%ld)", link->hwnd, GetLastError());
     else
         cname =
@@ -844,7 +844,7 @@ THT::Link THT::checkTargetWindow(const QPoint &p, bool allowThisWindow)
     {
         TCHAR name[MAX_PATH];
 
-        if(!GetClassName(link.subControl, name, sizeof(name)/sizeof(TCHAR)))
+        if(!GetClassName(link.subControl, name, sizeof(name)/sizeof(name[0])))
             qWarning("Cannot get a class name for subcontrol %p (%ld)", link.subControl, GetLastError());
         else if(!lstrcmp(name, TEXT("Edit")))
             link.subControlSupportsClearing = true;
