@@ -38,7 +38,5 @@ THT_PLUGIN_UUID="0DB2CEDA-9A88-4E31-9E76-2FD77BEF0993"
 THT_PLUGIN_COPYRIGHT="(C) 2013 $$THT_PLUGIN_AUTHOR"
 THT_PLUGIN_URL="http://sourceforge.net/projects/tht"
 
-TS_PREFIX=addtickersfrom_finviz
-
 include(THT-common.pri)
 include(THT-plugins.pri)

@@ -66,6 +66,9 @@ isEmpty(GCC) {
     error("MinGW is not found in PATH")
 }
 
+TS_PREFIX=$$lower($$TARGET)
+TS_PREFIX=$$replace(TS_PREFIX, -, _)
+
 TRANSLATIONS += $$gentranslations($$TS_PREFIX)
 
 message(Translations for $${TS_PREFIX}: $$TRANSLATIONS)
