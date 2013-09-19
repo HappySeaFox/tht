@@ -49,7 +49,5 @@ FORMS += datamanagerbase.ui \
 
 RC_FILE = tht-lib.rc
 
-TS_PREFIX=tht_lib
-
 include(THT-version.pri)
 include(THT-common.pri)

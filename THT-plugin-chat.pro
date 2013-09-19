@@ -70,8 +70,6 @@ THT_PLUGIN_UUID="6064096F-223C-45E7-A971-0CCBD395F054"
 THT_PLUGIN_COPYRIGHT="(C) 2013 $$THT_PLUGIN_AUTHOR"
 THT_PLUGIN_URL="http://sourceforge.net/projects/tht"
 
-TS_PREFIX=common_chat
-
 include(THT-common.pri)
 include(THT-plugins.pri)
 

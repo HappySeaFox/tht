@@ -124,8 +124,6 @@ OTHER_FILES += \
 
 RC_FILE = tht.rc
 
-TS_PREFIX=tht
-
 include(THT-version.pri)
 include(THT-common.pri)
 

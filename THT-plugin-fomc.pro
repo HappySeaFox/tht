@@ -17,7 +17,5 @@ THT_PLUGIN_UUID="B5FD1969-B414-472D-B5E6-8900F0C086FD"
 THT_PLUGIN_COPYRIGHT="(C) 2013 $$THT_PLUGIN_AUTHOR"
 THT_PLUGIN_URL="http://sourceforge.net/projects/tht"
 
-TS_PREFIX=common_fomc
-
 include(THT-common.pri)
 include(THT-plugins.pri)
