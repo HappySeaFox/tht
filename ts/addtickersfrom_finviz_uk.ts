@@ -21,13 +21,13 @@
     </message>
     <message>
         <location filename="../finvizaccesssetup.ui" line="80"/>
-        <source>If you have a FINVIZ*Elite account, you can fill in the credentials to access the elite features</source>
+        <source>If you have a FINVIZ*Elite account, you can enter your account information for access to the elite features</source>
         <extracomment>Finviz - Stock Screener, http://finviz.com. It&apos;s ok not to translate &quot;Finviz&quot; (or &quot;FINVIZ*Elite&quot;) (e.g. you can just copy-paste &quot;Finviz&quot; (or &quot;FINVIZ*Elite&quot;) to your translation)</extracomment>
         <translation>Якщо у вас є акаунт FINVIZ*Elite, то ви можете заповнити облікові дані для доступу до елітних можливостям</translation>
     </message>
     <message>
         <location filename="../finvizaccesssetup.ui" line="103"/>
-        <source>Please remember that the e-mail and the password will be saved in plain text. If you don&apos;t want to save them in plain text, just leave them blank. FINVIZ*Elite features won&apos;t be available in this case</source>
+        <source>Please remember that your e-mail address and password will be stored in the clear. If you don&apos;t want them stored in the clear, just leave them blank; in which case, FINVIZ*Elite options will not be accessible</source>
         <extracomment>Finviz - Stock Screener, http://finviz.com. It&apos;s ok not to translate &quot;Finviz&quot; (or &quot;FINVIZ*Elite&quot;) (e.g. you can just copy-paste &quot;Finviz&quot; (or &quot;FINVIZ*Elite&quot;) to your translation)</extracomment>
         <translation>Будь ласка, пам&apos;ятайте, що e-mail і пароль будуть збережені відкритим текстом. Якщо ви не хочете зберігати їх відкритим текстом, просто залиште їх незаповненими. У цьому випадку можливості FINVIZ*Elite будуть недоступні</translation>
     </message>

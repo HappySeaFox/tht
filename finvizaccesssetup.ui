@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>366</width>
-    <height>190</height>
+    <height>188</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -77,7 +77,7 @@
      <item row="0" column="1">
       <widget class="QLabel" name="label_4">
        <property name="text">
-        <string extracomment="Finviz - Stock Screener, http://finviz.com. It's ok not to translate &quot;Finviz&quot; (or &quot;FINVIZ*Elite&quot;) (e.g. you can just copy-paste &quot;Finviz&quot; (or &quot;FINVIZ*Elite&quot;) to your translation)">If you have a FINVIZ*Elite account, you can fill in the credentials to access the elite features</string>
+        <string extracomment="Finviz - Stock Screener, http://finviz.com. It's ok not to translate &quot;Finviz&quot; (or &quot;FINVIZ*Elite&quot;) (e.g. you can just copy-paste &quot;Finviz&quot; (or &quot;FINVIZ*Elite&quot;) to your translation)">If you have a FINVIZ*Elite account, you can enter your account information for access to the elite features</string>
        </property>
        <property name="wordWrap">
         <bool>true</bool>
@@ -100,7 +100,7 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string extracomment="Finviz - Stock Screener, http://finviz.com. It's ok not to translate &quot;Finviz&quot; (or &quot;FINVIZ*Elite&quot;) (e.g. you can just copy-paste &quot;Finviz&quot; (or &quot;FINVIZ*Elite&quot;) to your translation)">Please remember that the e-mail and the password will be saved in plain text. If you don't want to save them in plain text, just leave them blank. FINVIZ*Elite features won't be available in this case</string>
+        <string extracomment="Finviz - Stock Screener, http://finviz.com. It's ok not to translate &quot;Finviz&quot; (or &quot;FINVIZ*Elite&quot;) (e.g. you can just copy-paste &quot;Finviz&quot; (or &quot;FINVIZ*Elite&quot;) to your translation)">Please remember that your e-mail address and password will be stored in the clear. If you don't want them stored in the clear, just leave them blank; in which case, FINVIZ*Elite options will not be accessible</string>
        </property>
        <property name="wordWrap">
         <bool>true</bool>

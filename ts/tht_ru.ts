@@ -15,9 +15,9 @@
     </message>
     <message>
         <location filename="../about.ui" line="96"/>
-        <source>THT helps you to do your home task in trading. It can link different trading platforms and charts together and manage a list of tickers. All suggestions and bug reports please send to our bug tracker, also visit</source>
+        <source>THT helps you do your trading home task. It can link different trading platforms and charts, and manage lists of tickers. Send your requests and report errors to our bug tracker. Also visit</source>
         <extracomment>The URL to visit will be added in runtime</extracomment>
-        <translation>THT помогает вам делать свою домашнюю работу в трейдинге. Она может линковать различные торговые платформы и графики, и управлять списками тикеров. Все пожелания и отчёты об ошибках посылайте на наш багтрекер, также посетите</translation>
+        <translation>THT помогает вам делать вашу домашнюю работу в трейдинге. Она может линковать различные торговые платформы и графики, и управлять списками тикеров. Все пожелания и отчёты об ошибках посылайте на наш багтрекер. Также посетите</translation>
     </message>
     <message>
         <location filename="../about.ui" line="161"/>
@@ -154,6 +154,11 @@
         <translation>Неизвестная ошибка</translation>
     </message>
     <message>
+        <location filename="../dropboxuploader.cpp" line="136"/>
+        <source>You need to authorize THT in your Dropbox profile. Click &apos;OK&apos; to open the link in a browser. Then open this dialog again</source>
+        <translation>Вам необходимо авторизовать THT в вашем профиле Dropbox. Нажмите &apos;OK&apos; чтобы открыть ссылку в браузере. После этого откройте данный диалог ещё раз</translation>
+    </message>
+    <message>
         <location filename="../dropboxuploader.cpp" line="173"/>
         <source>Cannot get the link to the file</source>
         <translation>Невозможно получить ссылку на файл</translation>
@@ -183,11 +188,6 @@
         <location filename="../dropboxuploader.cpp" line="258"/>
         <source>Cannot upload file (%1)</source>
         <translation>Невозможно загрузить файл (%1)</translation>
-    </message>
-    <message>
-        <location filename="../dropboxuploader.cpp" line="136"/>
-        <source>You need to authorize THT in your Dropbox account. Click &apos;OK&apos; to open the link in browser. After that open this dialog again</source>
-        <translation>Вам необходимо авторизовать THT в вашем профиле Dropbox. Нажмите &apos;OK&apos; чтобы открыть ссылку в браузере. После этого откройте данный диалог снова</translation>
     </message>
     <message>
         <location filename="../dropboxuploader.cpp" line="126"/>
@@ -548,14 +548,14 @@
     <name>RegionSelect</name>
     <message>
         <location filename="../regionselect.cpp" line="118"/>
-        <source>Select the rectangle with the mouse or press
-any key or right/middle mouse button to cancel.</source>
+        <source>Using the mouse, select the rectangle, or click
+any button or right/middle mouse button to cancel.</source>
         <translation>Выделите прямоугольник с помощью мыши, или нажмите
 любую клавишу или правую/среднюю кнопку мыши чтобы отменить.</translation>
     </message>
     <message>
         <location filename="../regionselect.cpp" line="119"/>
-        <source>Select the rectangle with the mouse or press
+        <source>Using the mouse, select the rectangle, or click
 right/middle mouse button to cancel.</source>
         <translation>Выделите прямоугольник с помощью мыши, или нажмите
 правую/среднюю кнопку мыши чтобы отменить.</translation>
@@ -847,7 +847,7 @@ right/middle mouse button to cancel.</source>
     <name>Target</name>
     <message>
         <location filename="../target.cpp" line="35"/>
-        <source>Move this pointer to the window with which to establish a link</source>
+        <source>Drag and drop this target to the window you need to create a link to</source>
         <translation>Перетащите этот указатель на окно, на которое нужно создать ссылку</translation>
     </message>
 </context>

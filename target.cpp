@@ -32,7 +32,7 @@ Target::Target(QWidget *parent) :
     m_drag_black = QPixmap(":/images/drag.png");
     m_drag_red = QPixmap(":/images/drag_red.png");
 
-    setToolTip(tr("Move this pointer to the window with which to establish a link"));
+    setToolTip(tr("Drag and drop this target to the window you need to create a link to"));
     setPixmap(m_drag_black);
     setMouseTracking(true);
 
