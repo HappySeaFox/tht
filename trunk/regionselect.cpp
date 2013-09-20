@@ -115,8 +115,8 @@ void RegionSelect::drawBackGround()
         
     QRect txtRect = QApplication::desktop()->screenGeometry(QApplication::desktop()->primaryScreen());
     QString txtTip = ki == UseKeyboard
-            ? tr("Select the rectangle with the mouse or press\nany key or right/middle mouse button to cancel.")
-            : tr("Select the rectangle with the mouse or press\nright/middle mouse button to cancel.");
+            ? tr("Using the mouse, select the rectangle, or click\nany button or right/middle mouse button to cancel.")
+            : tr("Using the mouse, select the rectangle, or click\nright/middle mouse button to cancel.");
 
     txtRect.setHeight(qRound((double)txtRect.height() / 10)); // rounded val of text rect height
 

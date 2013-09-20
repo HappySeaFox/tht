@@ -15,9 +15,9 @@
     </message>
     <message>
         <location filename="../about.ui" line="96"/>
-        <source>THT helps you to do your home task in trading. It can link different trading platforms and charts together and manage a list of tickers. All suggestions and bug reports please send to our bug tracker, also visit</source>
+        <source>THT helps you do your trading home task. It can link different trading platforms and charts, and manage lists of tickers. Send your requests and report errors to our bug tracker. Also visit</source>
         <extracomment>The URL to visit will be added in runtime</extracomment>
-        <translation>THT допомагає вам робити свою домашню роботу в трейдингу. Вона може лінковані різні торгові платформи та графіки, і керувати списками тікерів. Всі побажання та звіти про помилки надсилайте на наш багтрекер, також відвідаєте</translation>
+        <translation>THT допомагає вам робити вашу домашню роботу в трейдингу. Вона може лінковані різні торгові платформи та графіки, і керувати списками тікерів. Всі побажання та звіти про помилки надсилайте на наш багтрекер. Також відвідаєте</translation>
     </message>
     <message>
         <location filename="../about.ui" line="161"/>
@@ -154,6 +154,11 @@
         <translation>Невідома помилка</translation>
     </message>
     <message>
+        <location filename="../dropboxuploader.cpp" line="136"/>
+        <source>You need to authorize THT in your Dropbox profile. Click &apos;OK&apos; to open the link in a browser. Then open this dialog again</source>
+        <translation>Вам необхідно авторизувати THT у вашому профілі Dropbox. Натисніть &apos;OK&apos; щоб відкрити посилання в браузері. Після цього відкрийте даний діалог ще раз</translation>
+    </message>
+    <message>
         <location filename="../dropboxuploader.cpp" line="173"/>
         <source>Cannot get the link to the file</source>
         <translation>Неможливо отримати посилання на файл</translation>
@@ -183,11 +188,6 @@
         <location filename="../dropboxuploader.cpp" line="258"/>
         <source>Cannot upload file (%1)</source>
         <translation>Неможливо завантажити файл (%1)</translation>
-    </message>
-    <message>
-        <location filename="../dropboxuploader.cpp" line="136"/>
-        <source>You need to authorize THT in your Dropbox account. Click &apos;OK&apos; to open the link in browser. After that open this dialog again</source>
-        <translation>Вам необхідно авторизувати THT у вашому профілі Dropbox. Натисніть &apos;OK&apos; щоб відкрити посилання в браузері. Після цього відкрийте даний діалог знову</translation>
     </message>
     <message>
         <location filename="../dropboxuploader.cpp" line="126"/>
@@ -548,17 +548,17 @@
     <name>RegionSelect</name>
     <message>
         <location filename="../regionselect.cpp" line="118"/>
-        <source>Select the rectangle with the mouse or press
-any key or right/middle mouse button to cancel.</source>
+        <source>Using the mouse, select the rectangle, or click
+any button or right/middle mouse button to cancel.</source>
         <translation>Виділіть прямокутник за допомогою миші, або натисніть
-будь-яку клавішу або праву/середню кнопку миші щоб скасувати.</translation>
+будь-яку кнопку або праву/середню кнопку миші для відміни.</translation>
     </message>
     <message>
         <location filename="../regionselect.cpp" line="119"/>
-        <source>Select the rectangle with the mouse or press
+        <source>Using the mouse, select the rectangle, or click
 right/middle mouse button to cancel.</source>
         <translation>Виділіть прямокутник за допомогою миші, або натисніть
-праву/середню кнопку миші щоб скасувати.</translation>
+праву/середню кнопку миші для відміни.</translation>
     </message>
 </context>
 <context>
@@ -847,7 +847,7 @@ right/middle mouse button to cancel.</source>
     <name>Target</name>
     <message>
         <location filename="../target.cpp" line="35"/>
-        <source>Move this pointer to the window with which to establish a link</source>
+        <source>Drag and drop this target to the window you need to create a link to</source>
         <translation>Перетягніть цей покажчик на вікно, на яке потрібно створити посилання</translation>
     </message>
 </context>
