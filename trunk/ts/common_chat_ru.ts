@@ -361,7 +361,7 @@
     <message>
         <location filename="../chatpage.cpp" line="1101"/>
         <source>ticker is not found</source>
-        <extracomment>Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp</extracomment>
+        <extracomment>Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to transliterate &quot;ticker&quot; to your language</extracomment>
         <translation>тикер не найден</translation>
     </message>
 </context>

@@ -1097,7 +1097,7 @@ QPair<QString, QString> ChatPage::formatMessage(const QXmppMessage &msg)
             }
 
             if(!ok)
-                //: Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp
+                //: Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to transliterate "ticker" to your language
                 body = ticker + ": " + tr("ticker is not found");
         }
         else

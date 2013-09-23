@@ -34,7 +34,7 @@ FinvizDownloader::FinvizDownloader(const QUrl &url, QWidget *parent) :
 {
     //: Finviz - Stock Screener, http://finviz.com. It's ok not to translate "Finviz" (e.g. you can just copy-paste "Finviz" to your translation)
     setWindowTitle(tr("Finviz"));
-    //: Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp
+    //: Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to transliterate "ticker" to your language
     setMessage(tr("Downloading tickers..."));
     setCookieJar(new FinvizCookieJar(this));
 
