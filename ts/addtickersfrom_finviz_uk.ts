@@ -43,7 +43,7 @@
     <message>
         <location filename="../finvizdownloader.cpp" line="38"/>
         <source>Downloading tickers...</source>
-        <extracomment>Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp</extracomment>
+        <extracomment>Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to transliterate &quot;ticker&quot; to your language</extracomment>
         <translation>Завантаження тікерів...</translation>
     </message>
     <message>

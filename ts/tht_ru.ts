@@ -223,7 +223,7 @@
     <message>
         <location filename="../list.ui" line="173"/>
         <source>Add tickers</source>
-        <extracomment>Command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp</extracomment>
+        <extracomment>Command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to transliterate &quot;ticker&quot; to your language</extracomment>
         <translation>Добавить тикеры</translation>
     </message>
     <message>

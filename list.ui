@@ -170,7 +170,7 @@
          <enum>Qt::NoFocus</enum>
         </property>
         <property name="toolTip">
-         <string extracomment="Command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp">Add tickers</string>
+         <string extracomment="Command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to transliterate &quot;ticker&quot; to your language">Add tickers</string>
         </property>
         <property name="icon">
          <iconset resource="tht.qrc">
