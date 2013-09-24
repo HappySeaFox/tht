@@ -53,7 +53,8 @@ void ColorAnimation::stop()
 void ColorAnimation::slotAnimationFinished()
 {
     m_animation->setDirection(m_animation->direction() == QAbstractAnimation::Forward
-                              ? QAbstractAnimation::Backward : QAbstractAnimation::Forward);
+                              ? QAbstractAnimation::Backward
+                              : QAbstractAnimation::Forward);
     m_animation->start();
 }
 
