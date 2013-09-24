@@ -102,6 +102,7 @@ bool InlineTextInput::eventFilter(QObject *watched, QEvent *e)
                     emit next();
                 else switch(ke->key())
                 {
+                    case Qt::Key_Return:
                     case Qt::Key_Enter:
                         doAccept = true;
                         doClose = true;
