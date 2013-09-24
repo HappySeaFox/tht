@@ -252,8 +252,8 @@ Settings::Settings()
     d->defaultValues.insert(SETTING_SCREENSHOT_TEXT_SIZE, -1);
     d->defaultValues.insert(SETTING_RESTORE_NEIGHBORS_AT_STARTUP, true);
     d->defaultValues.insert(SETTING_LIST_BUTTONS, true);
+    d->defaultValues.insert(SETTING_LIST_HEADER, true);
     d->defaultValues.insert(SETTING_MINI_TICKER_ENTRY, true);
-    d->defaultValues.insert(SETTING_ALLOW_DUPLICATES, true);
     d->defaultValues.insert(SETTING_SAVE_GEOMETRY, true);
     d->defaultValues.insert(SETTING_GLOBAL_HOTKEY_SCREENSHOT, true);
     d->defaultValues.insert(SETTING_GLOBAL_HOTKEY_RESTORE, true);
