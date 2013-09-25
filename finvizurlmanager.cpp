@@ -82,7 +82,10 @@ void FinvizUrlManager::addFinvizUrl(const FinvizUrl &fu, bool edit)
 
 void FinvizUrlManager::slotAdd()
 {
-    addFinvizUrl(FinvizUrl(tr("Tickers"), tr("<Paste url here>")), true);
+    addFinvizUrl(FinvizUrl(tr("Tickers"),
+                           //: Command addressed to the user. Means "Please paste some URL here"
+                           tr("<Paste url here>")),
+                 true);
     setChanged(true);
 }
 
