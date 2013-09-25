@@ -83,7 +83,7 @@ void FinvizUrlManager::addFinvizUrl(const FinvizUrl &fu, bool edit)
 void FinvizUrlManager::slotAdd()
 {
     addFinvizUrl(FinvizUrl(tr("Tickers"),
-                           //: Command addressed to the user. Means "Please paste some URL here"
+                           //: Command addressed to the user. Means "Please paste some URL here". "URL" can be translated as "link"
                            tr("<Paste url here>")),
                  true);
     setChanged(true);
