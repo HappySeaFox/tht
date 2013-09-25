@@ -846,7 +846,7 @@ THT::Link THT::checkTargetWindow(const QPoint &p, bool allowThisWindow)
 
         if(!GetClassName(link.subControl, name, sizeof(name)/sizeof(name[0])))
             qWarning("Cannot get a class name for subcontrol %p (%ld)", link.subControl, GetLastError());
-        else if(!lstrcmp(name, TEXT("Edit")))
+        else if(!lstrcmp(name, TEXT("Edit")) || !lstrcmp(name, TEXT("TEdit")))
             link.subControlSupportsClearing = true;
     }
 
