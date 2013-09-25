@@ -12,7 +12,7 @@
     <message>
         <location filename="../briefingsplitsdownloader.cpp" line="30"/>
         <source>Downloading tickers...</source>
-        <extracomment>Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to transliterate &quot;ticker&quot; to your language</extracomment>
+        <extracomment>Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to transcribe &quot;ticker&quot; to your language</extracomment>
         <translation>Скачивание тикеров...</translation>
     </message>
 </context>
