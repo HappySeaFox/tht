@@ -5,7 +5,7 @@ SUBDIRS = lib
 lib.file = THT-lib.pro
 
 # find plugins
-PROS = $$system(dir /ON /B "THT-plugin-*.pro" 2>nul)
+PROS = $$files(THT-plugin-*.pro)
 
 for(pro, PROS) {
     name = $$replace(pro, \\., _)
