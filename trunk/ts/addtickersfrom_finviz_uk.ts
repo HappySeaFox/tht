@@ -113,9 +113,10 @@
         <translation>Тікери</translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="85"/>
-        <location filename="../finvizurlmanager.cpp" line="99"/>
+        <location filename="../finvizurlmanager.cpp" line="87"/>
+        <location filename="../finvizurlmanager.cpp" line="102"/>
         <source>&lt;Paste url here&gt;</source>
+        <extracomment>Command addressed to the user. Means &quot;Please paste some URL here&quot;</extracomment>
         <translation>&lt;Вставте сюди посилання&gt;</translation>
     </message>
 </context>
