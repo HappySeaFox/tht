@@ -62,6 +62,7 @@ public:
                       QXmppMucManager *manager,
                       bool checkForAutoLogin,
                       const QString &jid = QString(),
+                      const QString &nick = QString(),
                       const QString &password = QString(),
                       QWidget *parent = 0);
     ~ChatPage();
@@ -69,6 +70,7 @@ public:
     QString roomName() const;
 
     QString jid() const;
+    QString nick() const;
     QString password() const;
 
     void proceedJoin();

@@ -196,11 +196,11 @@ void ChatWindow::setTabName(QWidget *tab, const QString &roomName)
     ui->tabs->setTabText(index, roomName.isEmpty() ? tr("Room") : roomName);
 }
 
-ChatPage *ChatWindow::createPage(bool checkForAutoLogin, const QString &jid, const QString &password)
+ChatPage *ChatWindow::createPage(bool checkForAutoLogin, const QString &jid, const QString &nick, const QString &password)
 {
     qDebug("Creating page for jid \"%s\"", qPrintable(jid));
 
-    ChatPage *p = new ChatPage(m_xmppClient, m_muc, checkForAutoLogin, jid, password, ui->tabs);
+    ChatPage *p = new ChatPage(m_xmppClient, m_muc, checkForAutoLogin, jid, nick, password, ui->tabs);
 
     connect(p, SIGNAL(requestJoin(QString)), this, SLOT(slotJoinRequested(QString)));
     connect(p, SIGNAL(joined(QString)),      this, SLOT(slotJoined(QString)));
@@ -223,7 +223,7 @@ void ChatWindow::saveRooms()
         ChatPage *p;
 
         while((p = qobject_cast<ChatPage *>(ui->tabs->widget(index++))))
-            rooms.append(RoomInfo(p->jid(), p->password()));
+            rooms.append(RoomInfo(p->jid(), p->nick(), p->password()));
 
         qDebug("Saving rooms: %d", rooms.size());
 
@@ -242,7 +242,7 @@ void ChatWindow::restoreRooms()
 
         foreach(RoomInfo ri, rooms)
         {
-            ui->tabs->addTab(createPage(true, ri.jid, ri.password), tr("Room"));
+            ui->tabs->addTab(createPage(true, ri.jid, ri.nick, ri.password), tr("Room"));
         }
     }
 }
@@ -438,7 +438,7 @@ void ChatWindow::slotMessageReceived(const QXmppMessage &msg)
             if(p)
                 ui->tabs->setCurrentWidget(p);
             else
-                ui->tabs->setCurrentIndex(ui->tabs->addTab(createPage(true, msg.mucInvitationJid(), msg.mucInvitationPassword()), tr("Room")));
+                ui->tabs->setCurrentIndex(ui->tabs->addTab(createPage(true, msg.mucInvitationJid(), QString(), msg.mucInvitationPassword()), tr("Room")));
         }
     }
 }
