@@ -22,12 +22,12 @@
 // serialize/deserialize RoomInfo
 QDataStream &operator<<(QDataStream &out, const RoomInfo &ri)
 {
-    out << ri.jid << ri.password;
+    out << ri.jid << ri.nick << ri.password;
     return out;
 }
 
 QDataStream &operator>>(QDataStream &in, RoomInfo &ri)
 {
-    in >> ri.jid >> ri.password;
+    in >> ri.jid >> ri.nick >> ri.password;
     return in;
 }

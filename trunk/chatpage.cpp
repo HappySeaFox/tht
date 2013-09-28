@@ -61,6 +61,7 @@ ChatPage::ChatPage(QXmppClient *client,
                    QXmppMucManager *manager,
                    bool checkForAutoLogin,
                    const QString &jid,
+                   const QString &nick,
                    const QString &password,
                    QWidget *parent) :
     QWidget(parent),
@@ -165,6 +166,7 @@ ChatPage::ChatPage(QXmppClient *client,
 
     ui->plainMessage->installEventFilter(this);
     ui->lineRoom->setText(jid);
+    ui->lineNick->setText(nick);
     ui->linePassword->setText(password);
 
     m_rxTickerInfo = QRegExp(QString("/(%1)").arg(Settings::instance()->tickerValidator().pattern()));
@@ -651,6 +653,11 @@ QString ChatPage::jid() const
     return m_room ? m_room->jid() : ui->lineRoom->text();
 }
 
+QString ChatPage::nick() const
+{
+    return m_room ? m_room->nickName() : ui->lineNick->text();
+}
+
 QString ChatPage::password() const
 {
     return m_room ? m_room->password() : ui->linePassword->text();
@@ -687,7 +694,10 @@ void ChatPage::proceedJoin()
     ui->labelStatus->clear();
     ui->plainMessage->setEnabled(false);
 
-    m_room->setNickName(QXmppUtils::jidToUser(m_xmppClient->configuration().jidBare()));
+    if(ui->lineNick->text().isEmpty())
+        ui->lineNick->setText(QXmppUtils::jidToUser(m_xmppClient->configuration().jidBare()));
+
+    m_room->setNickName(ui->lineNick->text());
     m_room->setPassword(ui->linePassword->text());
     m_room->join();
 }

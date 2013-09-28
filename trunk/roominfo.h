@@ -26,12 +26,14 @@ class QDataStream;
 
 struct RoomInfo
 {
-    RoomInfo(const QString &_jid = QString(), const QString &_password = QString()) :
+    RoomInfo(const QString &_jid = QString(), const QString &_nick = QString(), const QString &_password = QString()) :
         jid(_jid),
-        password(_password)
+        password(_password),
+        nick(_nick)
     {}
 
     QString jid;
+    QString nick;
     QString password;
 };
 

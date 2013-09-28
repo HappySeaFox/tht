@@ -29,19 +29,19 @@
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>194</height>
+           <height>0</height>
           </size>
          </property>
         </spacer>
        </item>
-       <item row="1" column="0" rowspan="2">
+       <item row="1" column="0">
         <spacer name="horizontalSpacer">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
-           <width>77</width>
+           <width>0</width>
            <height>20</height>
           </size>
          </property>
@@ -61,6 +61,32 @@
         <widget class="QLineEdit" name="lineRoom"/>
        </item>
        <item row="2" column="1">
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>Nick:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="2" colspan="2">
+        <widget class="QLineEdit" name="lineNick"/>
+       </item>
+       <item row="2" column="4">
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="3" column="1">
         <widget class="QLabel" name="label_2">
          <property name="text">
           <string>Password:</string>
@@ -70,44 +96,31 @@
          </property>
         </widget>
        </item>
-       <item row="2" column="2" colspan="2">
+       <item row="3" column="2" colspan="2">
         <widget class="QLineEdit" name="linePassword">
          <property name="echoMode">
           <enum>QLineEdit::Password</enum>
          </property>
         </widget>
        </item>
-       <item row="2" column="4">
-        <spacer name="horizontalSpacer_2">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>77</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="3" column="2">
+       <item row="4" column="2">
         <widget class="QPushButton" name="pushJoin">
          <property name="text">
           <string extracomment="Command">Join</string>
          </property>
         </widget>
        </item>
-       <item row="3" column="3">
+       <item row="4" column="3">
         <widget class="QPushButton" name="pushCancel">
          <property name="text">
           <string>Cancel</string>
          </property>
         </widget>
        </item>
-       <item row="4" column="2" colspan="2">
+       <item row="5" column="2" colspan="2">
         <widget class="QLabel" name="labelStatus"/>
        </item>
-       <item row="5" column="2" colspan="2">
+       <item row="6" column="2" colspan="2">
         <widget class="ClickableLabel" name="labelUnreadMessages">
          <property name="font">
           <font>
@@ -117,7 +130,7 @@
          </property>
         </widget>
        </item>
-       <item row="6" column="2">
+       <item row="7" column="2">
         <spacer name="verticalSpacer_2">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -125,7 +138,7 @@
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>193</height>
+           <height>0</height>
           </size>
          </property>
         </spacer>
@@ -200,6 +213,7 @@
  </customwidgets>
  <tabstops>
   <tabstop>lineRoom</tabstop>
+  <tabstop>lineNick</tabstop>
   <tabstop>linePassword</tabstop>
   <tabstop>pushJoin</tabstop>
   <tabstop>pushCancel</tabstop>
