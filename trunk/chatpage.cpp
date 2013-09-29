@@ -230,6 +230,7 @@ ChatPage::~ChatPage()
         m_room->leave();
 
     delete m_room;
+    m_room = 0;
     delete ui;
 }
 
@@ -714,6 +715,9 @@ void ChatPage::setFontSize(int size)
 
 void ChatPage::presenceChanged(const QXmppPresence &presence)
 {
+    if(!m_room)
+        return;
+
     QString nick = QXmppUtils::jidToResource(presence.from());
 
     // user status
