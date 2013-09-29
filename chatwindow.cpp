@@ -109,7 +109,7 @@ ChatWindow::ChatWindow(QWidget *parent) :
     //: Noun
     m_menu->addAction(tr("Help") + "..."  + '\t' + helpShortcut->key().toString(), this, SLOT(slotHelp()));
 
-    ui->pushAddTab->setText(m_actionAddRoom->text());
+    ui->pushAddTab->setText(tr("Add room"));
     ui->pushAddTab->setIcon(m_actionAddRoom->icon());
 
     showSignInPage();
@@ -170,6 +170,7 @@ void ChatWindow::showChatsPage()
 
 void ChatWindow::showAddTabPage()
 {
+    qDebug("Showing Add Tab page");
     ui->stack->setCurrentIndex(2);
 }
 
@@ -461,7 +462,7 @@ void ChatWindow::slotTabCloseRequested(int index)
 
     QString key = p->jid() + THT_CHAT_SPLITTER_STATE_SUFFIX;
 
-    qDebug("Removing page \"%s\"", qPrintable(p->roomName()));
+    qDebug("Removing page \"%s\"", p->roomName().toUtf8().constData());
 
     delete p;
 

@@ -28,8 +28,8 @@ struct RoomInfo
 {
     RoomInfo(const QString &_jid = QString(), const QString &_nick = QString(), const QString &_password = QString()) :
         jid(_jid),
-        password(_password),
-        nick(_nick)
+        nick(_nick),
+        password(_password)
     {}
 
     QString jid;

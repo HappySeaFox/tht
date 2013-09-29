@@ -245,8 +245,8 @@
    <slot>slotCancel()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>272</x>
-     <y>275</y>
+     <x>306</x>
+     <y>300</y>
     </hint>
     <hint type="destinationlabel">
      <x>421</x>
@@ -261,8 +261,8 @@
    <slot>slotJoin()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>227</x>
-     <y>227</y>
+     <x>306</x>
+     <y>219</y>
     </hint>
     <hint type="destinationlabel">
      <x>412</x>
@@ -277,8 +277,8 @@
    <slot>slotJoin()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>298</x>
-     <y>249</y>
+     <x>306</x>
+     <y>271</y>
     </hint>
     <hint type="destinationlabel">
      <x>440</x>
@@ -293,8 +293,8 @@
    <slot>slotUnreadMessagesClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>182</x>
-     <y>321</y>
+     <x>293</x>
+     <y>338</y>
     </hint>
     <hint type="destinationlabel">
      <x>450</x>
@@ -309,8 +309,8 @@
    <slot>slotTabCloseRequested(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>385</x>
-     <y>258</y>
+     <x>90</x>
+     <y>14</y>
     </hint>
     <hint type="destinationlabel">
      <x>440</x>
@@ -325,12 +325,28 @@
    <slot>slotCurrentTabChanged(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>374</x>
-     <y>399</y>
+     <x>90</x>
+     <y>14</y>
     </hint>
     <hint type="destinationlabel">
      <x>439</x>
      <y>399</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lineNick</sender>
+   <signal>returnPressed()</signal>
+   <receiver>ChatPage</receiver>
+   <slot>slotJoin()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>226</x>
+     <y>240</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>518</x>
+     <y>237</y>
     </hint>
    </hints>
   </connection>
