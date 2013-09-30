@@ -135,7 +135,7 @@
     <message>
         <location filename="../chatpage.cpp" line="115"/>
         <source>Copy room JID</source>
-        <extracomment>Command</extracomment>
+        <extracomment>Command. Means &quot;Copy the JID of the room to the clipboard&quot;</extracomment>
         <translation>Копировать JID комнаты</translation>
     </message>
     <message>
@@ -631,23 +631,23 @@
         <translation>Общие</translation>
     </message>
     <message>
-        <location filename="../configureroom.cpp" line="423"/>
+        <location filename="../configureroom.cpp" line="426"/>
         <source>Add affiliation</source>
         <extracomment>Command</extracomment>
         <translation>Добавить участника</translation>
     </message>
     <message>
-        <location filename="../configureroom.cpp" line="423"/>
+        <location filename="../configureroom.cpp" line="426"/>
         <source>JID:</source>
         <translation>JID:</translation>
     </message>
     <message>
-        <location filename="../configureroom.cpp" line="434"/>
+        <location filename="../configureroom.cpp" line="437"/>
         <source>Adding JID</source>
         <translation>Добавление JID</translation>
     </message>
     <message>
-        <location filename="../configureroom.cpp" line="434"/>
+        <location filename="../configureroom.cpp" line="437"/>
         <source>JID &quot;%1&quot; is already in this section</source>
         <translation>JID &quot;%1&quot; уже находится в этой секции</translation>
     </message>

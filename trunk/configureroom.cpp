@@ -299,6 +299,8 @@ void ConfigureRoom::slotConfigurationReceived(const QXmppDataForm &df)
     QWidget *generalWidget = ui->scrollArea->widget();
     QBoxLayout *vlayout = qobject_cast<QBoxLayout *>(generalWidget->layout());
 
+    generalWidget->setUpdatesEnabled(false);
+
     QList<QXmppDataForm::Field> fields = df.fields();
 
     foreach(QXmppDataForm::Field f, fields)
@@ -403,6 +405,7 @@ void ConfigureRoom::slotConfigurationReceived(const QXmppDataForm &df)
         }
     }
 
+    generalWidget->setUpdatesEnabled(true);
     loadingMovie(false);
 }
 

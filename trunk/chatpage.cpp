@@ -111,7 +111,7 @@ ChatPage::ChatPage(QXmppClient *client,
     m_configureRoom = new QAction(tr("Configure room") + "...", this);
     connect(m_configureRoom, SIGNAL(triggered()), this, SLOT(slotConfigureRoom()));
 
-    //: Command
+    //: Command. Means "Copy the JID of the room to the clipboard"
     m_roomMenu->addAction(tr("Copy room JID"), this, SLOT(slotCopyRoomJid()));
     //: Command. Means "Send invitations to the selected users"
     m_roomMenu->addAction(tr("Send invitations") + "...", this, SLOT(slotSendInvitations()));
