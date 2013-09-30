@@ -7,13 +7,13 @@
         <location filename="../datadownloader.ui" line="27"/>
         <source>Close</source>
         <extracomment>Command</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Zamknij</translation>
     </message>
     <message>
         <location filename="../datadownloader.cpp" line="103"/>
         <source>Network error #%1</source>
         <extracomment>%1 will be replaced with the error code by the application. It will look like &quot;Network error #16&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Błąd sieci: #%1</translation>
     </message>
 </context>
 <context>
@@ -21,19 +21,19 @@
     <message>
         <location filename="../datamanagerbase.ui" line="33"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nazwa</translation>
     </message>
     <message>
         <location filename="../datamanagerbase.ui" line="49"/>
         <source>Delete</source>
         <extracomment>Command</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Usuń</translation>
     </message>
     <message>
         <location filename="../datamanagerbase.ui" line="79"/>
         <source>Clear</source>
         <extracomment>Command</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Wyczyść</translation>
     </message>
 </context>
 <context>
@@ -42,7 +42,7 @@
         <location filename="../tools.cpp" line="164"/>
         <source>Open YouTube tutorial</source>
         <extracomment>Command. Means &quot;Open a video tutorial on YouTube&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Pokaż filmik instruktażowy na YouTube</translation>
     </message>
 </context>
 </TS>
