@@ -97,7 +97,8 @@ private:
             subControl(0),
             subControlSupportsClearing(false),
             hook(0),
-            isMaster(false)
+            isMaster(false),
+            ifMasterThenInvisibleForSending(false)
         {}
 
         void unhook();
@@ -111,6 +112,7 @@ private:
         bool subControlSupportsClearing;
         HWINEVENTHOOK hook;
         bool isMaster;
+        bool ifMasterThenInvisibleForSending;
         QByteArray extraData; // some extra data specific to the link
     };
 
