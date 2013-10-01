@@ -49,7 +49,8 @@ SOURCES += main.cpp\
     qtdropbox/qdropboxfile.cpp \
     qtdropbox/qdropboxaccount.cpp \
     qtdropbox/qdropbox.cpp \
-    dropboxuploader.cpp
+    dropboxuploader.cpp \
+    excellinkingdetails.cpp
 
 HEADERS += tht.h \
     list.h \
@@ -94,7 +95,8 @@ HEADERS += tht.h \
     qtdropbox/qdropboxfile.h \
     qtdropbox/qdropboxaccount.h \
     qtdropbox/qdropbox.h \
-    dropboxuploader.h
+    dropboxuploader.h \
+    excellinkingdetails.h
 
 FORMS += tht.ui \
     list.ui \
@@ -110,11 +112,14 @@ FORMS += tht.ui \
     tickercommentinput.ui \
     pluginmanager.ui \
     plugindetails.ui \
-    dropboxuploader.ui
+    dropboxuploader.ui \
+    excellinkingdetails.ui
 
 RESOURCES += tht.qrc
 
 LIBS += -lpsapi -lgdi32 -L$${OUT_PWD}/$(DESTDIR_TARGET)/.. -lTHT-lib
+
+CONFIG += qaxcontainer
 
 OTHER_FILES += \
     tht.rc \

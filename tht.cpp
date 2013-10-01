@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of THT.
  *
  * THT is free software: you can redistribute it and/or modify
@@ -16,6 +16,7 @@
  */
 
 #include <QWhatsThisClickedEvent>
+#include <QMutableListIterator>
 #include <QContextMenuEvent>
 #include <QDesktopServices>
 #include <QDragEnterEvent>
@@ -30,6 +31,9 @@
 #include <QMessageBox>
 #include <QCloseEvent>
 #include <QWheelEvent>
+#include <QMetaObject>
+#include <QMetaMethod>
+#include <QDataStream>
 #include <QDropEvent>
 #include <QFileInfo>
 #include <QShortcut>
@@ -39,10 +43,14 @@
 #include <QEvent>
 #include <QTimer>
 #include <QMutex>
+#include <QDebug>
 #include <QIcon>
 #include <QMenu>
 #include <QDate>
 #include <QUrl>
+
+#include <QAxObject>
+#include <QAxBase>
 
 #include <windows.h>
 #include <winnt.h>
@@ -51,6 +59,7 @@
 #include "qxtglobalshortcut.h"
 
 #include "tickersdatabaseupdater.h"
+#include "excellinkingdetails.h"
 #include "linkpointmanager.h"
 #include "masterdataevent.h"
 #include "savescreenshot.h"
@@ -105,8 +114,8 @@ static void CALLBACK WinEventProcCallback(HWINEVENTHOOK hWinEventHook,
         QString::fromUtf8(title);
 #endif
 
-    static QRegExp rx1("[\\(\\[]{1}(" + Settings::instance()->tickerValidator().pattern() + ")[\\)\\]]{1}");
-    static QRegExp rx2("\\s*(" + Settings::instance()->tickerValidator().pattern() + ")[\\s,:;|/\\\\]+");
+    static QRegExp rx1("[\\(\\[]{1}(" + Tools::tickerValidator().pattern() + ")[\\)\\]]{1}");
+    static QRegExp rx2("\\s*(" + Tools::tickerValidator().pattern() + ")[\\s,:;|/\\\\]+");
 
     QString ticker;
 
@@ -140,7 +149,9 @@ THT::THT() :
     m_checkForMaster(MasterPolicyAuto),
     m_wasActive(0),
     m_justTitle(false),
-    m_lastHeightBeforeSqueezing(0)
+    m_lastHeightBeforeSqueezing(0),
+    m_excel(0),
+    m_cell(0)
 {
     if(SETTINGS_GET_BOOL(SETTING_ONTOP))
         setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
@@ -373,7 +384,7 @@ THT::~THT()
 
         foreach(Link l, m_windowsLoad)
         {
-            LinkedWindow lw(l.hook, l.dropPoint);
+            LinkedWindow lw(l.isMaster, l.dropPoint);
 
             qDebug("Saving link point: master(%s), %dx%d", lw.master ? "yes" : "no", lw.point.x(), lw.point.y());
 
@@ -505,7 +516,7 @@ void THT::dropEvent(QDropEvent *e)
 
     if(!added)
     {
-        if(Settings::instance()->tickerValidator().exactMatch(tickers))
+        if(Tools::tickerValidator().exactMatch(tickers))
         {
             qDebug("Dropped onto a main window");
             loadTicker(tickers);
@@ -766,6 +777,8 @@ void THT::checkWindow(Link *link)
         link->type = LinkTypeArchePro;
     else if(cname == "REALTICK")
         link->type = LinkTypeRealTick;
+    else if(sname == "excel.exe")
+        link->type = LinkTypeExcel;
     else
         link->type = LinkTypeOther;
 
@@ -952,7 +965,7 @@ void THT::nextLoadableWindowIndex(int delta)
 
         while(index < m_windows->size())
         {
-            if(m_windows->at(index).hook)
+            if(m_windows->at(index).isMaster)
             {
                 masterIndex = index;
                 break;
@@ -969,7 +982,7 @@ void THT::nextLoadableWindowIndex(int delta)
     }
     else if(m_checkForMaster == MasterPolicySkip)
     {
-        while(m_currentWindow < m_windows->size() && m_windows->at(m_currentWindow).hook)
+        while(m_currentWindow < m_windows->size() && m_windows->at(m_currentWindow).isMaster)
             m_currentWindow++;
 
         qDebug("Found SKIP index %d", m_currentWindow);
@@ -1471,6 +1484,9 @@ void THT::slotClearLinks()
 
     unhookEverybody();
 
+    delete m_excel;
+    m_excel = 0;
+
     m_windows->clear();
 
     checkWindows();
@@ -1487,7 +1503,7 @@ void THT::slotManageLinks()
 
     foreach(Link l, m_windowsLoad)
     {
-        session.windows.append(LinkedWindow(l.hook, l.dropPoint));
+        session.windows.append(LinkedWindow(l.isMaster, l.dropPoint, l.extraData));
     }
 
     LinkPointManager mgr(session, this);
@@ -1512,7 +1528,7 @@ void THT::slotLoadLinks()
 
     foreach(LinkedWindow lw, links)
     {
-        targetDropped(lw.point, lw.master ? MasterYes : MasterNo);
+        targetDropped(lw.point, lw.master ? MasterYes : MasterNo, lw.extraData);
     }
 }
 
@@ -1631,10 +1647,16 @@ void THT::reconfigureGlobalShortcuts()
 
 void THT::unhookEverybody()
 {
-    foreach(Link l, m_windowsLoad)
+    QMutableListIterator<Link> it(m_windowsLoad);
+
+    while(it.hasNext())
     {
-        if(l.hook)
-            l.unhook();
+        it.next();
+
+        if(it.value().hook)
+            it.value().unhook();
+
+        it.value().isMaster = false;
     }
 }
 
@@ -1661,7 +1683,7 @@ void THT::masterHasBeenChanged(HWND hwnd, const QString &ticker)
     // check the window id
     foreach(Link l, m_windowsLoad)
     {
-        if(l.hook && l.hwnd != hwnd)
+        if(l.isMaster && l.hwnd != hwnd)
         {
             qDebug("Master has a different window id: existing(%p), changed(%p)", l.hwnd, hwnd);
             return;
@@ -1759,14 +1781,31 @@ void THT::slotRestoreLinks()
         foreach(LinkedWindow lw, list)
         {
             qDebug("Restoring link point: master(%s), %dx%d", lw.master ? "yes" : "no", lw.point.x(), lw.point.y());
-            targetDropped(lw.point, lw.master ? MasterYes : MasterNo, false);
+            targetDropped(lw.point, lw.master ? MasterYes : MasterNo, lw.extraData, false);
         }
 
         m_linksChanged = false;
     }
 }
 
-void THT::targetDropped(const QPoint &p, MasterSettings master, bool beep)
+void THT::slotCellChanged()
+{
+    QString ticker = m_cell->property("Value").toString();
+    HWND hwnd = 0;
+
+    foreach(Link l, m_windowsLoad)
+    {
+        if(l.type == LinkTypeExcel && l.isMaster)
+            hwnd = l.hwnd;
+    }
+
+    qDebug("Excel data: %p, %s", hwnd, qPrintable(ticker));
+
+    if(hwnd && !ticker.isEmpty())
+        masterHasBeenChanged(hwnd, ticker);
+}
+
+void THT::targetDropped(const QPoint &p, MasterSettings master, const QByteArray &extraData, bool beep)
 {
     if(isBusy())
         return;
@@ -1806,20 +1845,120 @@ void THT::targetDropped(const QPoint &p, MasterSettings master, bool beep)
 
     if(ismaster)
     {
-        unhookEverybody();
+        // Excel external linking
+        if(link.type == LinkTypeExcel)
+        {
+            m_excel = new QAxObject("{00024500-0000-0000-C000-000000000046}&", this);
 
-        qDebug("Setting hook to process %ld and thread %ld", link.processId, link.threadId);
+            if(m_excel && !m_excel->isNull())
+            {
+                QAxObject *workbooks = m_excel->querySubObject("Workbooks");
 
-        link.hook = SetWinEventHook(EVENT_OBJECT_NAMECHANGE,
-                                    EVENT_OBJECT_NAMECHANGE,
-                                    0,
-                                    WinEventProcCallback,
-                                    link.processId,
-                                    link.threadId,
-                                    WINEVENT_OUTOFCONTEXT | WINEVENT_SKIPOWNPROCESS | WINEVENT_SKIPOWNTHREAD);
+                if(workbooks && !workbooks->isNull())
+                {
+                    QString bookName, sheetName, cellName;
 
-        if(!link.hook)
-            qWarning("Can't install hook to process %ld", link.processId);
+                    if(extraData.isEmpty())
+                    {
+                        ExcelLinkingDetails eld(this);
+
+                        if(eld.exec() == QDialog::Accepted)
+                        {
+                            bookName = eld.book();
+                            sheetName = eld.sheet();
+                            cellName = eld.cell();
+                        }
+                    }
+                    else
+                    {
+                        QDataStream ds(const_cast<QByteArray *>(&extraData), QIODevice::ReadOnly);
+                        ds.setVersion(QDataStream::Qt_4_8);
+                        ds >> bookName >> sheetName >> cellName;
+                    }
+
+                    if(!bookName.isEmpty() && !sheetName.isEmpty() && !cellName.isEmpty())
+                    {
+                        QAxObject *workbook = workbooks->querySubObject("Item(const QVariant&)", bookName);
+
+                        if(workbook && !workbook->isNull())
+                        {
+                            QAxObject *sheets = workbook->querySubObject("Sheets");
+
+                            if(sheets && !sheets->isNull())
+                            {
+                                QAxObject *sheet = sheets->querySubObject("Item(const QVariant&)", sheetName);
+
+                                if(sheet && !sheet->isNull())
+                                {
+                                    QRegExp rxCell = Tools::cellValidator();
+
+                                    if(rxCell.exactMatch(cellName))
+                                    {
+                                        int row = rxCell.cap(2).toInt();
+                                        QString column = rxCell.cap(1);
+
+                                        m_cell = sheet->querySubObject("Cells(QVariant,QVariant)", row, column);
+
+                                        if(m_cell && !m_cell->isNull())
+                                        {
+                                            // save Excel data
+                                            QDataStream ds(&link.extraData, QIODevice::ReadWrite);
+                                            ds.setVersion(QDataStream::Qt_4_8);
+                                            ds << bookName << sheetName << cellName;
+
+                                            link.isMaster = true;
+                                            connect(sheet, SIGNAL(Change(IDispatch*)), this, SLOT(slotCellChanged()));
+                                        }
+                                        else
+                                            qWarning("Cannot query ActiveX object \"Cell\"");
+                                    }
+                                }
+                                else
+                                    qWarning("Cannot query ActiveX object \"Sheet\"");
+                            }
+                            else
+                                qWarning("Cannot query ActiveX object \"Sheets\"");
+                        }
+                        else
+                            qWarning("Cannot query ActiveX object \"Workbook\"");
+                    }
+                    else
+                        qWarning("Required Excel data is empty");
+                }
+                else
+                    qWarning("Cannot query ActiveX object \"Workbooks\"");
+            }
+
+            if(!link.isMaster)
+            {
+                qDebug("Cannot install connection with Excel");
+                delete m_excel;
+                m_excel = 0;
+            }
+        }
+        else
+        {
+            unhookEverybody();
+
+            qDebug("Setting hook to process %ld and thread %ld", link.processId, link.threadId);
+
+            link.hook = SetWinEventHook(EVENT_OBJECT_NAMECHANGE,
+                                        EVENT_OBJECT_NAMECHANGE,
+                                        0,
+                                        WinEventProcCallback,
+                                        link.processId,
+                                        link.threadId,
+                                        WINEVENT_OUTOFCONTEXT | WINEVENT_SKIPOWNPROCESS | WINEVENT_SKIPOWNTHREAD);
+
+            if(!link.hook)
+                qWarning("Can't install hook to process %ld", link.processId);
+            else
+                link.isMaster = true;
+        }
+
+        // installing master has failed
+        if(!link.isMaster)
+            return;
     }
 
     // beep

@@ -52,6 +52,7 @@
 #include "listdetails.h"
 #include "settings.h"
 #include "listitem.h"
+#include "tools.h"
 #include "list.h"
 
 #include "ui_list.h"
@@ -867,7 +868,7 @@ bool List::addItem(const QString &txt, FixName fix, CheckForDups check)
     if(fix == Fix)
         text[0].replace('-', '.');
 
-    if(!Settings::instance()->tickerValidator().exactMatch(text[0]))
+    if(Tools::tickerValidator().exactMatch(text[0]))
         return false;
 
     if(check == CheckDups

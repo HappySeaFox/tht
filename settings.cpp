@@ -38,13 +38,13 @@
 // serialize/deserialize LinkedWindow
 static QDataStream &operator<<(QDataStream &out, const LinkedWindow &lw)
 {
-    out << lw.master << lw.point;
+    out << lw.master << lw.point << lw.extraData;
     return out;
 }
 
 static QDataStream &operator>>(QDataStream &in, LinkedWindow &lw)
 {
-    in >> lw.master >> lw.point;
+    in >> lw.master >> lw.point >> lw.extraData;
     return in;
 }
 
@@ -101,7 +101,6 @@ class SettingsPrivate
 {
 public:
     QSettings *settings;
-    QRegExp rxTicker;
     OSVERSIONINFO windowsVersion;
     QString persistentDatabaseName;
     QString persistentDatabasePath;
@@ -116,9 +115,10 @@ public:
 
 /*******************************************************/
 
-LinkedWindow::LinkedWindow(bool _master, const QPoint &_point)
+LinkedWindow::LinkedWindow(bool _master, const QPoint &_point, const QByteArray &_extraData)
     : master(_master),
-      point(_point)
+      point(_point),
+      extraData(_extraData)
 {}
 
 LinkPointSession::LinkPointSession(const QString &_name, const QList<LinkedWindow> &_windows)
@@ -145,8 +145,6 @@ Settings::Settings()
     qRegisterMetaTypeStreamOperators<Qt::AlignmentFlag>("Qt::AlignmentFlag");
 
     d->databaseTimestampFormat = "yyyy-MM-dd hh:mm:ss.zzz";
-
-    d->rxTicker = QRegExp("[a-zA-Z0-9\\-\\.\\$]{1,8}");
 
     // migrate from old settings
     if(d->settings->childGroups().isEmpty())
@@ -488,11 +486,6 @@ QString Settings::mutableDatabasePath() const
 QString Settings::persistentDatabasePath() const
 {
     return d->persistentDatabasePath;
-}
-
-QRegExp Settings::tickerValidator() const
-{
-    return d->rxTicker;
 }
 
 int Settings::maximumNumberOfLists() const

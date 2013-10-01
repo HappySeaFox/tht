@@ -49,7 +49,7 @@ LinkPointManager::LinkPointManager(const LinkPointSession &currentLinks, QWidget
 
     foreach(LinkPointSession lp, linkpoints)
     {
-        addLinkPoint(lp);
+        addLinkPointSession(lp);
     }
 
     t->setCurrentItem(t->topLevelItem(0));
@@ -74,7 +74,7 @@ QList<LinkPointSession> LinkPointManager::links() const
     return linkpoints;
 }
 
-void LinkPointManager::addLinkPoint(const LinkPointSession &lps, bool edit)
+void LinkPointManager::addLinkPointSession(const LinkPointSession &lps, bool edit)
 {
     QString points;
 
@@ -97,6 +97,6 @@ void LinkPointManager::addLinkPoint(const LinkPointSession &lps, bool edit)
 
 void LinkPointManager::slotAdd()
 {
-    addLinkPoint(m_currentLinks, true);
+    addLinkPointSession(m_currentLinks, true);
     setChanged(true);
 }

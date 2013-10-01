@@ -19,6 +19,7 @@
 #define SETTINGS_H
 
 #include <QStringList>
+#include <QByteArray>
 #include <QDateTime>
 #include <QSettings>
 #include <QVariant>
@@ -34,10 +35,11 @@
 
 struct LinkedWindow
 {
-    LinkedWindow(bool _master = false, const QPoint &_point = QPoint());
+    LinkedWindow(bool _master = false, const QPoint &_point = QPoint(), const QByteArray &_extraData = QByteArray());
 
     bool master;
     QPoint point;
+    QByteArray extraData; // some extra data specific to the link
 };
 
 struct LinkPointSession
@@ -213,11 +215,6 @@ public:
 
     QString mutableDatabaseName() const;
     QString mutableDatabasePath() const;
-
-    /*
-     *  Regexp to validate a ticker name
-     */
-    QRegExp tickerValidator() const;
 
     void setCheckBoxState(const QString &checkbox, bool checked, SyncType sync = Sync);
     int checkBoxState(const QString &checkbox);

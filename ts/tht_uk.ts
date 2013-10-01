@@ -197,6 +197,36 @@
     </message>
 </context>
 <context>
+    <name>ExcelLinkingDetails</name>
+    <message>
+        <location filename="../excellinkingdetails.ui" line="14"/>
+        <source>Excel linking details</source>
+        <extracomment>Means &quot;Details on linking with Excel&quot;</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../excellinkingdetails.ui" line="20"/>
+        <source>Book:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../excellinkingdetails.ui" line="40"/>
+        <source>Sheet:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../excellinkingdetails.ui" line="53"/>
+        <source>Cell:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../excellinkingdetails.ui" line="63"/>
+        <source>For example, C4</source>
+        <extracomment>C4 - address of the cell in Excel</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>LinkPointManager</name>
     <message>
         <location filename="../linkpointmanager.cpp" line="34"/>
@@ -239,91 +269,91 @@
         <translation>Експортувати тікери</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="99"/>
+        <location filename="../list.cpp" line="100"/>
         <source>Clear</source>
         <extracomment>Command</extracomment>
         <translation>Очистити</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="102"/>
+        <location filename="../list.cpp" line="103"/>
         <source>Sort</source>
         <extracomment>Command</extracomment>
         <translation>Відсортувати</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="104"/>
+        <location filename="../list.cpp" line="105"/>
         <source>Change title</source>
         <extracomment>Command</extracomment>
         <translation>Змінити заголовок</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="107"/>
+        <location filename="../list.cpp" line="108"/>
         <source>Reset priorities</source>
         <extracomment>Command</extracomment>
         <translation>Скинути пріоритети</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="115"/>
+        <location filename="../list.cpp" line="116"/>
         <source>Add one ticker...</source>
         <extracomment>Command</extracomment>
         <translation>Додати один тікер...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="118"/>
+        <location filename="../list.cpp" line="119"/>
         <source>Add from file...</source>
         <extracomment>Command</extracomment>
         <translation>Додати з файлу...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="120"/>
+        <location filename="../list.cpp" line="121"/>
         <source>Add from clipboard</source>
         <extracomment>Command</extracomment>
         <translation>Додати з буфера обміну</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="127"/>
+        <location filename="../list.cpp" line="128"/>
         <source>Export to file...</source>
         <extracomment>Command</extracomment>
         <translation>Експортувати в файл...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="129"/>
+        <location filename="../list.cpp" line="130"/>
         <source>Export to clipboard</source>
         <extracomment>Command</extracomment>
         <translation>Експортувати в буфер обміну</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1284"/>
-        <location filename="../list.cpp" line="1359"/>
+        <location filename="../list.cpp" line="1285"/>
+        <location filename="../list.cpp" line="1360"/>
         <source>Choose a file</source>
         <extracomment>Appeal to the user</extracomment>
         <translation>Виберіть файл</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1286"/>
-        <location filename="../list.cpp" line="1361"/>
+        <location filename="../list.cpp" line="1287"/>
+        <location filename="../list.cpp" line="1362"/>
         <source>Text files (*.txt)</source>
         <translation>Текстові файли (*.txt)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1288"/>
-        <location filename="../list.cpp" line="1363"/>
+        <location filename="../list.cpp" line="1289"/>
+        <location filename="../list.cpp" line="1364"/>
         <source>All files (*.*)</source>
         <translation>Всі файли (*.*)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1323"/>
-        <location filename="../list.cpp" line="1373"/>
+        <location filename="../list.cpp" line="1324"/>
+        <location filename="../list.cpp" line="1374"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1323"/>
+        <location filename="../list.cpp" line="1324"/>
         <source>Cannot open the following files: %1</source>
         <translation>Неможливо відкрити наступні файли: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1373"/>
+        <location filename="../list.cpp" line="1374"/>
         <source>Cannot save to file %1</source>
         <translation>Неможливо зберегти в файл %1</translation>
     </message>
@@ -730,114 +760,114 @@ right/middle mouse button to cancel.</source>
         <translation>THT зайнятий</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="193"/>
+        <location filename="../tht.cpp" line="204"/>
         <source>Options...</source>
         <translation>Параметри...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="196"/>
-        <location filename="../tht.cpp" line="269"/>
+        <location filename="../tht.cpp" line="207"/>
+        <location filename="../tht.cpp" line="280"/>
         <source>Take screenshot...</source>
         <translation>Знімок екрану...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="204"/>
+        <location filename="../tht.cpp" line="215"/>
         <source>Clear ticker lists</source>
         <extracomment>Command</extracomment>
         <translation>Очистити списки тікерів</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="200"/>
+        <location filename="../tht.cpp" line="211"/>
         <source>Clear links</source>
         <extracomment>Command</extracomment>
         <translation>Очистити посилання</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="206"/>
-        <location filename="../tht.cpp" line="207"/>
+        <location filename="../tht.cpp" line="217"/>
+        <location filename="../tht.cpp" line="218"/>
         <source>Load ticker</source>
         <extracomment>Command</extracomment>
         <translation>Завантажити тікер</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="271"/>
+        <location filename="../tht.cpp" line="282"/>
         <source>About THT</source>
         <translation>Про THT</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="212"/>
+        <location filename="../tht.cpp" line="223"/>
         <source>About Qt...</source>
         <extracomment>Qt is a C++ crossplatform toolkit http://qt-project.org</extracomment>
         <translation>Про Qt...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="210"/>
+        <location filename="../tht.cpp" line="221"/>
         <source>About THT...</source>
         <translation>Про THT...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="213"/>
+        <location filename="../tht.cpp" line="224"/>
         <source>Plugins...</source>
         <translation>Плагіни...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="215"/>
-        <location filename="../tht.cpp" line="273"/>
+        <location filename="../tht.cpp" line="226"/>
+        <location filename="../tht.cpp" line="284"/>
         <source>Quit</source>
         <translation>Вихід</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="268"/>
+        <location filename="../tht.cpp" line="279"/>
         <source>Restore</source>
         <extracomment>Command. Means &quot;Restore from tray&quot;</extracomment>
         <translation>Відновити</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="419"/>
+        <location filename="../tht.cpp" line="430"/>
         <source>Notice</source>
         <translation>Замітка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="419"/>
+        <location filename="../tht.cpp" line="430"/>
         <source>THT will continue to run in a system tray</source>
         <translation>ТНТ продовжить роботу в системному лотку</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="935"/>
+        <location filename="../tht.cpp" line="948"/>
         <source>Unknown</source>
         <extracomment>Means &quot;Unknown links&quot; (in the plural)</extracomment>
         <translation>Невідомі</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1439"/>
+        <location filename="../tht.cpp" line="1452"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1439"/>
+        <location filename="../tht.cpp" line="1452"/>
         <source>Cannot take screenshot</source>
         <translation>Неможливо зробити знімок екрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1486"/>
+        <location filename="../tht.cpp" line="1502"/>
         <source>New points</source>
         <extracomment>Means &quot;New link points&quot;</extracomment>
         <translation>Нові точки</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1942"/>
+        <location filename="../tht.cpp" line="2081"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <extracomment>April Fool&apos;s joke. Preferably copy the translation from &quot;The Little Golden Calf&quot; by I.Ilf, E.Petrov, Chapter 10 &quot;A Telegram from the Brothers Karamazov&quot; (http://en.wikipedia.org/wiki/The_Little_Golden_Calf). If you don&apos;t have the book or its online translation then translate as usual</extracomment>
         <translation>Всі величезні сучасні багатства нажито&lt;br&gt;найбезчеснішим засобом.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1944"/>
+        <location filename="../tht.cpp" line="2083"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <extracomment>See http://en.wikipedia.org/wiki/The_Little_Golden_Calf</extracomment>
         <translation>&quot;Золоте Теля&quot; І.Ільф, Є.Петров</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1998"/>
+        <location filename="../tht.cpp" line="2137"/>
         <source>Customize...</source>
         <extracomment>Command</extracomment>
         <translation>Налаштувати...</translation>

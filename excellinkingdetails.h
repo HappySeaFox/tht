@@ -15,33 +15,30 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef LINKPOINTMANAGER_H
-#define LINKPOINTMANAGER_H
+#ifndef EXCELLINKINGDETAILS_H
+#define EXCELLINKINGDETAILS_H
 
-#include <QPoint>
-#include <QList>
+#include <QDialog>
 
-#include "datamanagerbase.h"
-#include "settings.h"
+namespace Ui
+{
+    class ExcelLinkingDetails;
+}
 
-class LinkPointManager : public DataManagerBase
+class ExcelLinkingDetails : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit LinkPointManager(const LinkPointSession &currentLinks, QWidget *parent = 0);
-    ~LinkPointManager();
+    explicit ExcelLinkingDetails(QWidget *parent = 0);
+    ~ExcelLinkingDetails();
 
-    QList<LinkPointSession> links() const;
-
-private:
-    void addLinkPointSession(const LinkPointSession &, bool edit = false);
-
-private slots:
-    virtual void slotAdd();
+    QString book() const;
+    QString sheet() const;
+    QString cell() const;
 
 private:
-    LinkPointSession m_currentLinks;
+    Ui::ExcelLinkingDetails *ui;
 };
 
-#endif // LINKPOINTMANAGER_H
+#endif // EXCELLINKINGDETAILS_H

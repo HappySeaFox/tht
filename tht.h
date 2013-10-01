@@ -19,6 +19,7 @@
 #define THT_H
 
 #include <QSystemTrayIcon>
+#include <QByteArray>
 #include <QPointer>
 #include <QWidget>
 #include <QString>
@@ -34,6 +35,7 @@
 class QxtGlobalShortcut;
 
 class QGridLayout;
+class QAxObject;
 class QPoint;
 class QTimer;
 class QMenu;
@@ -82,6 +84,7 @@ private:
                     LinkTypeFusion,
                     LinkTypeTakion,
                     LinkTypeArchePro,
+                    LinkTypeExcel,
                     LinkTypeOther };
 
     struct Link
@@ -93,7 +96,8 @@ private:
             threadId(0),
             subControl(0),
             subControlSupportsClearing(false),
-            hook(0)
+            hook(0),
+            isMaster(false)
         {}
 
         void unhook();
@@ -106,6 +110,8 @@ private:
         HWND subControl;
         bool subControlSupportsClearing;
         HWINEVENTHOOK hook;
+        bool isMaster;
+        QByteArray extraData; // some extra data specific to the link
     };
 
     typedef QHash<LinkType, QString> PredefinedTickerMappings;
@@ -186,7 +192,8 @@ private slots:
     void slotShowNeighbors(const QString &);
     void slotFoolsDay();
     void slotRestoreLinks();
-    void targetDropped(const QPoint &, MasterSettings master = MasterAuto, bool beep = true);
+    void slotCellChanged();
+    void targetDropped(const QPoint &, MasterSettings master = MasterAuto, const QByteArray &extraData = QByteArray(), bool beep = true);
 
 private:
     Ui::THT *ui;
@@ -218,6 +225,7 @@ private:
     HWND m_wasActive;
     bool m_justTitle;
     int m_lastHeightBeforeSqueezing;
+    QAxObject *m_excel, *m_cell;
 };
 
 #endif // THT_H

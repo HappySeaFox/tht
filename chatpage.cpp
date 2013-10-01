@@ -55,6 +55,7 @@
 #include "settings.h"
 #include "chatpage.h"
 #include "sqltools.h"
+#include "tools.h"
 #include "ui_chatpage.h"
 
 ChatPage::ChatPage(QXmppClient *client,
@@ -169,9 +170,9 @@ ChatPage::ChatPage(QXmppClient *client,
     ui->lineNick->setText(nick);
     ui->linePassword->setText(password);
 
-    m_rxTickerInfo = QRegExp(QString("/(%1)").arg(Settings::instance()->tickerValidator().pattern()));
+    m_rxTickerInfo = QRegExp(QString("/(%1)").arg(Tools::tickerValidator().pattern()));
     m_rxIndustryInfo = QRegExp("//([a-zA-Z\\s&,\\-\\\\/]+)((?:=[nNdDaA]+)?)");
-    m_rxOpenTicker = QRegExp(QString("=(%1)=(?=\\s|$)").arg(Settings::instance()->tickerValidator().pattern()));
+    m_rxOpenTicker = QRegExp(QString("=(%1)=(?=\\s|$)").arg(Tools::tickerValidator().pattern()));
 
     enableAdminActions(false);
     enableOwnerActions(false);
