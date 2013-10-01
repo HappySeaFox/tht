@@ -91,7 +91,7 @@ QMFILES=
 for(ts, TRANSLATIONS) {
     ts=$$replace(ts, \\.ts$, .qm)
     ts=$$replace(ts, /, \\)
-    QMFILES=$$QMFILES $$ts
+    QMFILES += $$ts
     QMAKE_POST_LINK += $$mle(copy /y \"$$ts\" \"$${OUT_PWD}/$(DESTDIR_TARGET)/../translations\")
 }
 
