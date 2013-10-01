@@ -47,7 +47,7 @@
            </property>
            <item>
             <property name="text">
-             <string extracomment="Means &quot;Use the system default language&quot;">&lt;Use the system default&gt;</string>
+             <string extracomment="Means &quot;The system language&quot;">&lt;System&gt;</string>
             </property>
            </item>
           </widget>

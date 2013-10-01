@@ -375,9 +375,9 @@
     </message>
     <message>
         <location filename="../options.ui" line="50"/>
-        <source>&lt;Use the system default&gt;</source>
-        <extracomment>Means &quot;Use the system default language&quot;</extracomment>
-        <translation>&lt;Użyj domyślnego języka systemu&gt;</translation>
+        <source>&lt;System&gt;</source>
+        <extracomment>Means &quot;The system language&quot;</extracomment>
+        <translation>&lt;Systemowy&gt;</translation>
     </message>
     <message>
         <location filename="../options.ui" line="84"/>

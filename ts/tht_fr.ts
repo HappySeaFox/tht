@@ -375,8 +375,8 @@
     </message>
     <message>
         <location filename="../options.ui" line="50"/>
-        <source>&lt;Use the system default&gt;</source>
-        <extracomment>Means &quot;Use the system default language&quot;</extracomment>
+        <source>&lt;System&gt;</source>
+        <extracomment>Means &quot;The system language&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
