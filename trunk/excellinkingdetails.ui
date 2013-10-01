@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string extracomment="Means &quot;Details on linking with Excel&quot;">Excel linking details</string>
+   <string extracomment="Means &quot;address of cell in Excel sheet&quot;">Cell address</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
@@ -58,11 +58,7 @@
     </widget>
    </item>
    <item row="2" column="2">
-    <widget class="QLineEdit" name="lineCell">
-     <property name="placeholderText">
-      <string extracomment="C4 - address of the cell in Excel">For example, C4</string>
-     </property>
-    </widget>
+    <widget class="QLineEdit" name="lineCell"/>
    </item>
    <item row="3" column="2">
     <spacer name="verticalSpacer">

@@ -200,30 +200,24 @@
     <name>ExcelLinkingDetails</name>
     <message>
         <location filename="../excellinkingdetails.ui" line="14"/>
-        <source>Excel linking details</source>
-        <extracomment>Means &quot;Details on linking with Excel&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <source>Cell address</source>
+        <extracomment>Means &quot;address of cell in Excel sheet&quot;</extracomment>
+        <translation>Адрес ячейки</translation>
     </message>
     <message>
         <location filename="../excellinkingdetails.ui" line="20"/>
         <source>Book:</source>
-        <translation type="unfinished"></translation>
+        <translation>Книга:</translation>
     </message>
     <message>
         <location filename="../excellinkingdetails.ui" line="40"/>
         <source>Sheet:</source>
-        <translation type="unfinished"></translation>
+        <translation>Лист:</translation>
     </message>
     <message>
         <location filename="../excellinkingdetails.ui" line="53"/>
         <source>Cell:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../excellinkingdetails.ui" line="63"/>
-        <source>For example, C4</source>
-        <extracomment>C4 - address of the cell in Excel</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Ячейка:</translation>
     </message>
 </context>
 <context>
