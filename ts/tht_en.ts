@@ -200,8 +200,8 @@
     <name>ExcelLinkingDetails</name>
     <message>
         <location filename="../excellinkingdetails.ui" line="14"/>
-        <source>Excel linking details</source>
-        <extracomment>Means &quot;Details on linking with Excel&quot;</extracomment>
+        <source>Cell address</source>
+        <extracomment>Means &quot;address of cell in Excel sheet&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -217,12 +217,6 @@
     <message>
         <location filename="../excellinkingdetails.ui" line="53"/>
         <source>Cell:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../excellinkingdetails.ui" line="63"/>
-        <source>For example, C4</source>
-        <extracomment>C4 - address of the cell in Excel</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
