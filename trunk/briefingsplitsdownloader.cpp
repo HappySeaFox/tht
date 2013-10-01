@@ -19,7 +19,7 @@
 #include <QUrl>
 
 #include "briefingsplitsdownloader.h"
-#include "settings.h"
+#include "tools.h"
 
 BriefingSplitsDownloader::BriefingSplitsDownloader(const QUrl &url, QWidget *parent) :
     DataDownloader(parent)
@@ -36,7 +36,7 @@ BriefingSplitsDownloader::~BriefingSplitsDownloader()
 
 bool BriefingSplitsDownloader::finished()
 {
-    QRegExp rx(QString("<a\\s+class=\"story-link-title\"\\s+[^>]+>(%1)</a>").arg(Settings::instance()->tickerValidator().pattern()));
+    QRegExp rx(QString("<a\\s+class=\"story-link-title\"\\s+[^>]+>(%1)</a>").arg(Tools::tickerValidator().pattern()));
     QString d = data();
 
     int pos = 0;

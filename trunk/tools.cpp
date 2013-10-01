@@ -164,5 +164,17 @@ QString Tools::openYoutubeTutorialTitle()
     return QObject::tr("Open YouTube tutorial");
 }
 
+QRegExp Tools::cellValidator()
+{
+    static QRegExp rx("([a-zA-Z]+)([0-9]+)");
+    return rx;
+}
+
+QRegExp Tools::tickerValidator()
+{
+    static QRegExp rx("[a-zA-Z0-9\\-\\.\\$]{1,8}");
+    return rx;
+}
+
 Tools::Tools()
 {}

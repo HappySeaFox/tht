@@ -19,6 +19,7 @@
 #define TOOLS_H
 
 #include <QString>
+#include <QRegExp>
 #include <QPoint>
 
 #include <windows.h>
@@ -65,6 +66,16 @@ public:
      *  Returns translated version of "Open YouTube tutorial"
      */
     static QString openYoutubeTutorialTitle();
+
+    /*
+     *  Cell address validator
+     */
+    static QRegExp cellValidator();
+
+    /*
+     *  Regexp to validate a ticker name
+     */
+    static QRegExp tickerValidator();
 
     /*
      *  Invalid QPoint

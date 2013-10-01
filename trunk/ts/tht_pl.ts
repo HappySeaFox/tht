@@ -197,6 +197,36 @@
     </message>
 </context>
 <context>
+    <name>ExcelLinkingDetails</name>
+    <message>
+        <location filename="../excellinkingdetails.ui" line="14"/>
+        <source>Excel linking details</source>
+        <extracomment>Means &quot;Details on linking with Excel&quot;</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../excellinkingdetails.ui" line="20"/>
+        <source>Book:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../excellinkingdetails.ui" line="40"/>
+        <source>Sheet:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../excellinkingdetails.ui" line="53"/>
+        <source>Cell:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../excellinkingdetails.ui" line="63"/>
+        <source>For example, C4</source>
+        <extracomment>C4 - address of the cell in Excel</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>LinkPointManager</name>
     <message>
         <location filename="../linkpointmanager.cpp" line="34"/>
@@ -239,91 +269,91 @@
         <translation>Eksportuj tickery</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="99"/>
+        <location filename="../list.cpp" line="100"/>
         <source>Clear</source>
         <extracomment>Command</extracomment>
         <translation>Wyczyść</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="102"/>
+        <location filename="../list.cpp" line="103"/>
         <source>Sort</source>
         <extracomment>Command</extracomment>
         <translation>Uporządkuj</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="104"/>
+        <location filename="../list.cpp" line="105"/>
         <source>Change title</source>
         <extracomment>Command</extracomment>
         <translation>Zmień tytuł</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="107"/>
+        <location filename="../list.cpp" line="108"/>
         <source>Reset priorities</source>
         <extracomment>Command</extracomment>
         <translation>Kasuj ustawienia priorytetów</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="115"/>
+        <location filename="../list.cpp" line="116"/>
         <source>Add one ticker...</source>
         <extracomment>Command</extracomment>
         <translation>Dodaj jeden ticker...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="118"/>
+        <location filename="../list.cpp" line="119"/>
         <source>Add from file...</source>
         <extracomment>Command</extracomment>
         <translation>Dodaj z pliku...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="120"/>
+        <location filename="../list.cpp" line="121"/>
         <source>Add from clipboard</source>
         <extracomment>Command</extracomment>
         <translation>Dodaj ze schowka</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="127"/>
+        <location filename="../list.cpp" line="128"/>
         <source>Export to file...</source>
         <extracomment>Command</extracomment>
         <translation>Wyślij do pliku...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="129"/>
+        <location filename="../list.cpp" line="130"/>
         <source>Export to clipboard</source>
         <extracomment>Command</extracomment>
         <translation>Wyślij do schowka</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1284"/>
-        <location filename="../list.cpp" line="1359"/>
+        <location filename="../list.cpp" line="1285"/>
+        <location filename="../list.cpp" line="1360"/>
         <source>Choose a file</source>
         <extracomment>Appeal to the user</extracomment>
         <translation>Wybierz plik</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1286"/>
-        <location filename="../list.cpp" line="1361"/>
+        <location filename="../list.cpp" line="1287"/>
+        <location filename="../list.cpp" line="1362"/>
         <source>Text files (*.txt)</source>
         <translation>Pliki tekstowe (*.txt)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1288"/>
-        <location filename="../list.cpp" line="1363"/>
+        <location filename="../list.cpp" line="1289"/>
+        <location filename="../list.cpp" line="1364"/>
         <source>All files (*.*)</source>
         <translation>Wszystkie pliki (*.*)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1323"/>
-        <location filename="../list.cpp" line="1373"/>
+        <location filename="../list.cpp" line="1324"/>
+        <location filename="../list.cpp" line="1374"/>
         <source>Error</source>
         <translation>Błąd</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1323"/>
+        <location filename="../list.cpp" line="1324"/>
         <source>Cannot open the following files: %1</source>
         <translation>Nie udało się otworzyć następujących plików: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1373"/>
+        <location filename="../list.cpp" line="1374"/>
         <source>Cannot save to file %1</source>
         <translation>Nie udało się zapisać do pliku %1</translation>
     </message>
@@ -424,7 +454,7 @@
     <message>
         <location filename="../options.ui" line="210"/>
         <source>Ctrl+Alt+R to restore from tray</source>
-        <translation>Ctrl+Alt+R przywraca z paska zadań</translation>
+        <translation>Ctrl+Alt+R przywraca z zasobnika systemowego</translation>
     </message>
     <message>
         <location filename="../options.ui" line="253"/>
@@ -730,114 +760,114 @@ prawy/środkowy przycisk myszy aby anulować.</translation>
         <translation>Połączenia:</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="229"/>
+        <location filename="../tht.cpp" line="204"/>
         <source>Options...</source>
         <translation>Opcje...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="232"/>
-        <location filename="../tht.cpp" line="305"/>
+        <location filename="../tht.cpp" line="207"/>
+        <location filename="../tht.cpp" line="280"/>
         <source>Take screenshot...</source>
         <translation>Wygeneruj zrzut ekranu...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="236"/>
+        <location filename="../tht.cpp" line="211"/>
         <source>Clear links</source>
         <extracomment>Command</extracomment>
         <translation>Wyczyść połączenia</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="240"/>
+        <location filename="../tht.cpp" line="215"/>
         <source>Clear ticker lists</source>
         <extracomment>Command</extracomment>
         <translation>Wyczyść listy tickerów</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="242"/>
-        <location filename="../tht.cpp" line="243"/>
+        <location filename="../tht.cpp" line="217"/>
+        <location filename="../tht.cpp" line="218"/>
         <source>Load ticker</source>
         <extracomment>Command</extracomment>
         <translation>Pobierz ticker</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="246"/>
+        <location filename="../tht.cpp" line="221"/>
         <source>About THT...</source>
         <translation>O THT...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="248"/>
+        <location filename="../tht.cpp" line="223"/>
         <source>About Qt...</source>
         <extracomment>Qt is a C++ crossplatform toolkit http://qt-project.org</extracomment>
         <translation>O Qt...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="249"/>
+        <location filename="../tht.cpp" line="224"/>
         <source>Plugins...</source>
         <translation>Wtyczki...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="251"/>
-        <location filename="../tht.cpp" line="309"/>
+        <location filename="../tht.cpp" line="226"/>
+        <location filename="../tht.cpp" line="284"/>
         <source>Quit</source>
         <translation>Wyjdź</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="304"/>
+        <location filename="../tht.cpp" line="279"/>
         <source>Restore</source>
         <extracomment>Command. Means &quot;Restore from tray&quot;</extracomment>
         <translation>Przywróć</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="307"/>
+        <location filename="../tht.cpp" line="282"/>
         <source>About THT</source>
         <translation>O THT</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="455"/>
+        <location filename="../tht.cpp" line="430"/>
         <source>Notice</source>
         <translation>Uwaga</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="455"/>
+        <location filename="../tht.cpp" line="430"/>
         <source>THT will continue to run in a system tray</source>
         <translation>THT będzie dalej pracować w zasobniku systemowym</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="971"/>
+        <location filename="../tht.cpp" line="948"/>
         <source>Unknown</source>
         <extracomment>Means &quot;Unknown links&quot; (in the plural)</extracomment>
         <translation>Nieznane</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1475"/>
+        <location filename="../tht.cpp" line="1452"/>
         <source>Error</source>
         <translation>Błąd</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1475"/>
+        <location filename="../tht.cpp" line="1452"/>
         <source>Cannot take screenshot</source>
         <translation>Nie udało się wygenerować zrzutu ekranu</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1522"/>
+        <location filename="../tht.cpp" line="1502"/>
         <source>New points</source>
         <extracomment>Means &quot;New link points&quot;</extracomment>
         <translation>Nowe punkty</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1984"/>
+        <location filename="../tht.cpp" line="2081"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <extracomment>April Fool&apos;s joke. Preferably copy the translation from &quot;The Little Golden Calf&quot; by I.Ilf, E.Petrov, Chapter 10 &quot;A Telegram from the Brothers Karamazov&quot; (http://en.wikipedia.org/wiki/The_Little_Golden_Calf). If you don&apos;t have the book or its online translation then translate as usual</extracomment>
         <translation>Wszystkie obecne wielkie fortuny zostały zdobyte&lt;br&gt;drogą nieuczciwą.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1986"/>
+        <location filename="../tht.cpp" line="2083"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <extracomment>See http://en.wikipedia.org/wiki/The_Little_Golden_Calf</extracomment>
         <translation>„Złote cielę” I.Ilf, J.Pietrow</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2040"/>
+        <location filename="../tht.cpp" line="2137"/>
         <source>Customize...</source>
         <extracomment>Command</extracomment>
         <translation>Personalizuj...</translation>

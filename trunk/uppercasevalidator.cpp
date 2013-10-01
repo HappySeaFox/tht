@@ -16,10 +16,10 @@
  */
 
 #include "uppercasevalidator.h"
-#include "settings.h"
+#include "tools.h"
 
 UpperCaseValidator::UpperCaseValidator(QObject *parent) :
-    QRegExpValidator(Settings::instance()->tickerValidator(), parent)
+    QRegExpValidator(Tools::tickerValidator(), parent)
 {}
 
 UpperCaseValidator::~UpperCaseValidator()

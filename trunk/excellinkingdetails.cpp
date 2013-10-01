@@ -15,33 +15,37 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef LINKPOINTMANAGER_H
-#define LINKPOINTMANAGER_H
+#include <QRegExpValidator>
 
-#include <QPoint>
-#include <QList>
+#include "excellinkingdetails.h"
+#include "tools.h"
+#include "ui_excellinkingdetails.h"
 
-#include "datamanagerbase.h"
-#include "settings.h"
-
-class LinkPointManager : public DataManagerBase
+ExcelLinkingDetails::ExcelLinkingDetails(QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::ExcelLinkingDetails)
 {
-    Q_OBJECT
+    ui->setupUi(this);
 
-public:
-    explicit LinkPointManager(const LinkPointSession &currentLinks, QWidget *parent = 0);
-    ~LinkPointManager();
+    ui->lineCell->setValidator(new QRegExpValidator(Tools::cellValidator(), ui->lineCell));
+}
 
-    QList<LinkPointSession> links() const;
+ExcelLinkingDetails::~ExcelLinkingDetails()
+{
+    delete ui;
+}
 
-private:
-    void addLinkPointSession(const LinkPointSession &, bool edit = false);
+QString ExcelLinkingDetails::book() const
+{
+    return ui->lineBook->text();
+}
 
-private slots:
-    virtual void slotAdd();
+QString ExcelLinkingDetails::sheet() const
+{
+    return ui->lineSheet->text();
+}
 
-private:
-    LinkPointSession m_currentLinks;
-};
-
-#endif // LINKPOINTMANAGER_H
+QString ExcelLinkingDetails::cell() const
+{
+    return ui->lineCell->text();
+}
