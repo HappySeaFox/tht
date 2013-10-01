@@ -207,16 +207,19 @@
     <message>
         <location filename="../excellinkingdetails.ui" line="20"/>
         <source>Book:</source>
+        <extracomment>In the terms of Microsoft Excel</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../excellinkingdetails.ui" line="40"/>
         <source>Sheet:</source>
+        <extracomment>In the terms of Microsoft Excel</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../excellinkingdetails.ui" line="53"/>
         <source>Cell:</source>
+        <extracomment>In the terms of Microsoft Excel</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
