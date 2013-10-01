@@ -1851,8 +1851,10 @@ void THT::targetDropped(const QPoint &p, MasterSettings master, const QByteArray
                 {
                     QString bookName, sheetName, cellName;
 
+                    // any binary data passed to the function?
                     if(extraData.isEmpty())
                     {
+                        // ask the user
                         ExcelLinkingDetails eld(this);
 
                         if(eld.exec() == QDialog::Accepted)
@@ -1885,12 +1887,10 @@ void THT::targetDropped(const QPoint &p, MasterSettings master, const QByteArray
                                 {
                                     QRegExp rxCell = Tools::cellValidator();
 
+                                    // cell regexp
                                     if(rxCell.exactMatch(cellName))
                                     {
-                                        int row = rxCell.cap(2).toInt();
-                                        QString column = rxCell.cap(1);
-
-                                        m_cell = sheet->querySubObject("Cells(QVariant,QVariant)", row, column);
+                                        m_cell = sheet->querySubObject("Cells(QVariant,QVariant)", rxCell.cap(2).toInt(), rxCell.cap(1));
 
                                         if(m_cell && !m_cell->isNull())
                                         {
@@ -1924,7 +1924,7 @@ void THT::targetDropped(const QPoint &p, MasterSettings master, const QByteArray
 
             if(!link.isMaster)
             {
-                qDebug("Cannot install connection with Excel");
+                qDebug("Cannot install the connection with Excel");
                 delete m_excel;
                 m_excel = 0;
             }
