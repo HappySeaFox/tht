@@ -827,41 +827,41 @@ prawy/środkowy przycisk myszy aby anulować.</translation>
         <translation>THT będzie dalej pracować w zasobniku systemowym</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="948"/>
+        <location filename="../tht.cpp" line="941"/>
         <source>Unknown</source>
         <extracomment>Means &quot;Unknown links&quot; (in the plural)</extracomment>
         <translation>Nieznane</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1452"/>
+        <location filename="../tht.cpp" line="1445"/>
         <source>Error</source>
         <translation>Błąd</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1452"/>
+        <location filename="../tht.cpp" line="1445"/>
         <source>Cannot take screenshot</source>
         <translation>Nie udało się wygenerować zrzutu ekranu</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1502"/>
+        <location filename="../tht.cpp" line="1492"/>
         <source>New points</source>
         <extracomment>Means &quot;New link points&quot;</extracomment>
         <translation>Nowe punkty</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2081"/>
+        <location filename="../tht.cpp" line="2074"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <extracomment>April Fool&apos;s joke. Preferably copy the translation from &quot;The Little Golden Calf&quot; by I.Ilf, E.Petrov, Chapter 10 &quot;A Telegram from the Brothers Karamazov&quot; (http://en.wikipedia.org/wiki/The_Little_Golden_Calf). If you don&apos;t have the book or its online translation then translate as usual</extracomment>
         <translation>Wszystkie obecne wielkie fortuny zostały zdobyte&lt;br&gt;drogą nieuczciwą.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2083"/>
+        <location filename="../tht.cpp" line="2076"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <extracomment>See http://en.wikipedia.org/wiki/The_Little_Golden_Calf</extracomment>
         <translation>„Złote cielę” I.Ilf, J.Pietrow</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2137"/>
+        <location filename="../tht.cpp" line="2130"/>
         <source>Customize...</source>
         <extracomment>Command</extracomment>
         <translation>Personalizuj...</translation>
