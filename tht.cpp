@@ -362,8 +362,6 @@ THT::THT() :
 
 THT::~THT()
 {
-    unhookEverybody();
-
     SETTINGS_SET_BOOL(SETTING_NYSE_ONLY, ui->checkNyse->isChecked(), Settings::NoSync);
 
     if(SETTINGS_GET_BOOL(SETTING_SAVE_GEOMETRY))
@@ -384,7 +382,7 @@ THT::~THT()
 
         foreach(Link l, m_windowsLoad)
         {
-            LinkedWindow lw(l.isMaster, l.dropPoint);
+            LinkedWindow lw(l.isMaster, l.dropPoint, l.extraData);
 
             qDebug("Saving link point: master(%s), %dx%d", lw.master ? "yes" : "no", lw.point.x(), lw.point.y());
 
@@ -395,6 +393,8 @@ THT::~THT()
     }
 
     SETTINGS_SET_BOOL(SETTING_SHOW_NEIGHBORS_AT_STARTUP, (bool)m_sectors);
+
+    unhookEverybody();
 
     delete ui;
 }
