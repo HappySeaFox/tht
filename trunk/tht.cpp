@@ -905,34 +905,27 @@ void THT::checkWindows()
     // construct the tooltip
     for(QList<Link>::iterator it = m_windows->begin();it != itEnd;++it)
     {
-        if((*it).type == LinkTypeAdvancedGet)
-            mappings["Advanced Get"]++;
-        else if((*it).type == LinkTypeArchePro)
-            mappings["Arche Pro"]++;
-        else if((*it).type == LinkTypeDASTraderPro)
-            mappings["DAS Trader Pro"]++;
-        else if((*it).type == LinkTypeFusion)
-            mappings["Fusion"]++;
-        else if((*it).type == LinkTypeLaser)
-            mappings["Laser Trade"]++;
-        else if((*it).type == LinkTypeLightspeed)
-            mappings["Lightspeed Trader"]++;
-        else if((*it).type == LinkTypeGraybox)
-            mappings["Graybox"]++;
-        else if((*it).type == LinkTypeMBTDesktop)
-            mappings["MBT Desktop"]++;
-        else if((*it).type == LinkTypeMBTDesktopPro)
-            mappings["MBT Desktop Pro"]++;
-        else if((*it).type == LinkTypeRealTick)
-            mappings["RealTick"]++;
-        else if((*it).type == LinkTypeROX)
-            mappings["ROX"]++;
-        else if((*it).type == LinkTypeTakion)
-            mappings["Takion"]++;
-        else if((*it).type == LinkTypeThinkorswim)
-            mappings["Thinkorswim"]++;
-        else
-            others++;
+        switch((*it).type)
+        {
+            case LinkTypeAdvancedGet:   mappings["Advanced Get"]++;      break;
+            case LinkTypeArchePro:      mappings["Arche Pro"]++;         break;
+            case LinkTypeDASTraderPro:  mappings["DAS Trader Pro"]++;    break;
+            case LinkTypeExcel:         mappings["Excel"]++;             break;
+            case LinkTypeFusion:        mappings["Fusion"]++;            break;
+            case LinkTypeLaser:         mappings["Laser Trade"]++;       break;
+            case LinkTypeLightspeed:    mappings["Lightspeed Trader"]++; break;
+            case LinkTypeGraybox:       mappings["Graybox"]++;           break;
+            case LinkTypeMBTDesktop:    mappings["MBT Desktop"]++;       break;
+            case LinkTypeMBTDesktopPro: mappings["MBT Desktop Pro"]++;   break;
+            case LinkTypeRealTick:      mappings["RealTick"]++;          break;
+            case LinkTypeROX:           mappings["ROX"]++;               break;
+            case LinkTypeTakion:        mappings["Takion"]++;            break;
+            case LinkTypeThinkorswim:   mappings["Thinkorswim"]++;       break;
+
+            default:
+                others++;
+            break;
+        }
     }
 
     QMapIterator<QString, int> i(mappings);
@@ -1484,9 +1477,6 @@ void THT::slotClearLinks()
 
     unhookEverybody();
 
-    delete m_excel;
-    m_excel = 0;
-
     m_windows->clear();
 
     checkWindows();
@@ -1647,6 +1637,9 @@ void THT::reconfigureGlobalShortcuts()
 
 void THT::unhookEverybody()
 {
+    delete m_excel;
+    m_excel = 0;
+
     QMutableListIterator<Link> it(m_windowsLoad);
 
     while(it.hasNext())
