@@ -778,7 +778,10 @@ void THT::checkWindow(Link *link)
     else if(cname == "REALTICK")
         link->type = LinkTypeRealTick;
     else if(sname == "excel.exe")
+    {
         link->type = LinkTypeExcel;
+        link->ifMasterThenInvisibleForSending = true;
+    }
     else
         link->type = LinkTypeOther;
 
@@ -953,12 +956,12 @@ void THT::nextLoadableWindowIndex(int delta)
 
     if(m_checkForMaster == MasterPolicyAuto)
     {
-        int index = m_currentWindow;
+        int index = 0;
         int masterIndex = -1;
 
         while(index < m_windows->size())
         {
-            if(m_windows->at(index).isMaster)
+            if(m_windows->at(index).isMaster && !m_windows->at(index).ifMasterThenInvisibleForSending)
             {
                 masterIndex = index;
                 break;
@@ -969,9 +972,22 @@ void THT::nextLoadableWindowIndex(int delta)
 
         if(masterIndex >= 0)
         {
-            m_currentWindow = masterIndex;
-            qDebug("Found AUTO index %d", m_currentWindow);
+            if(masterIndex >= m_currentWindow)
+               m_currentWindow = masterIndex;
+            else
+                m_currentWindow = m_windows->size();
         }
+        else
+        {
+            while(m_currentWindow < m_windows->size()
+                  && m_windows->at(m_currentWindow).isMaster
+                  && m_windows->at(m_currentWindow).ifMasterThenInvisibleForSending)
+            {
+                m_currentWindow++;
+            }
+        }
+
+        qDebug("Found AUTO index %d", m_currentWindow);
     }
     else if(m_checkForMaster == MasterPolicySkip)
     {
@@ -1507,6 +1523,9 @@ void THT::slotManageLinks()
 
 void THT::slotLoadLinks()
 {
+    if(isBusy())
+        return;
+
     QAction *a = qobject_cast<QAction *>(sender());
 
     if(!a)
@@ -1518,8 +1537,11 @@ void THT::slotLoadLinks()
 
     foreach(LinkedWindow lw, links)
     {
-        targetDropped(lw.point, lw.master ? MasterYes : MasterNo, lw.extraData);
+        targetDropped(lw.point, lw.master ? MasterYes : MasterNo, lw.extraData, false);
     }
+
+    if(!m_windows->isEmpty())
+        MessageBeep(MB_OK);
 }
 
 void THT::slotLockLinks()
@@ -1900,6 +1922,7 @@ void THT::targetDropped(const QPoint &p, MasterSettings master, const QByteArray
                                             ds << bookName << sheetName << cellName;
 
                                             link.isMaster = true;
+
                                             connect(sheet, SIGNAL(Change(IDispatch*)), this, SLOT(slotCellChanged()));
                                         }
                                         else
