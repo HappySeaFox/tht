@@ -146,9 +146,11 @@ BEARERPLUGINS=qgenericbearer4.dll qnativewifibearer4.dll
 QTLIBS=QtCore4.dll QtGui4.dll QtNetwork4.dll QtScript4.dll QtSql4.dll QtXml4.dll QtXmlPatterns4.dll
 SSLLIBS=libeay32.dll ssleay32.dll
 MINGWLIBS=libgcc_s_sjlj-1.dll libwinpthread-1.dll libstdc++-6.dll
-OTHERQMFILES=tht_lib_en.qm \
-                tht_lib_ru.qm \
-                tht_lib_uk.qm
+OTHERQMFILES=
+
+for(l, LANGUAGES) {
+    OTHERQMFILES += tht_lib_$${l}.qm
+}
 
 LICENSES=LICENSE.txt LICENSE-LGPL-2.1.txt LICENSE-LGPL-3.txt
 USEUPX=y
