@@ -663,6 +663,47 @@
     </message>
 </context>
 <context>
+    <name>QDnsLookup</name>
+    <message>
+        <location filename="../qxmpp/qdnslookup.cpp" line="450"/>
+        <source>Operation cancelled</source>
+        <translation>Операція скасована</translation>
+    </message>
+</context>
+<context>
+    <name>QDnsLookupRunnable</name>
+    <message>
+        <location filename="../qxmpp/qdnslookup.cpp" line="934"/>
+        <source>Invalid domain name</source>
+        <translation>Невірне доменне ім&apos;я</translation>
+    </message>
+    <message>
+        <location filename="../qxmpp/qdnslookup_win.cpp" line="64"/>
+        <source>Server could not process query</source>
+        <translation>Сервер не зміг обробити запит</translation>
+    </message>
+    <message>
+        <location filename="../qxmpp/qdnslookup_win.cpp" line="68"/>
+        <source>Server failure</source>
+        <translation>Відмова сервера</translation>
+    </message>
+    <message>
+        <location filename="../qxmpp/qdnslookup_win.cpp" line="72"/>
+        <source>Non existent domain</source>
+        <translation>Неіснуючий домен</translation>
+    </message>
+    <message>
+        <location filename="../qxmpp/qdnslookup_win.cpp" line="76"/>
+        <source>Server refused to answer</source>
+        <translation>Сервер відмовився відповідати</translation>
+    </message>
+    <message>
+        <location filename="../qxmpp/qdnslookup_win.cpp" line="80"/>
+        <source>Invalid reply received</source>
+        <translation>Отримано невірний відповідь</translation>
+    </message>
+</context>
+<context>
     <name>SendInvitations</name>
     <message>
         <location filename="../sendinvitations.ui" line="14"/>

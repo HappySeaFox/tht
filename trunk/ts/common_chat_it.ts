@@ -663,6 +663,47 @@
     </message>
 </context>
 <context>
+    <name>QDnsLookup</name>
+    <message>
+        <location filename="../qxmpp/qdnslookup.cpp" line="450"/>
+        <source>Operation cancelled</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QDnsLookupRunnable</name>
+    <message>
+        <location filename="../qxmpp/qdnslookup.cpp" line="934"/>
+        <source>Invalid domain name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qxmpp/qdnslookup_win.cpp" line="64"/>
+        <source>Server could not process query</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qxmpp/qdnslookup_win.cpp" line="68"/>
+        <source>Server failure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qxmpp/qdnslookup_win.cpp" line="72"/>
+        <source>Non existent domain</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qxmpp/qdnslookup_win.cpp" line="76"/>
+        <source>Server refused to answer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qxmpp/qdnslookup_win.cpp" line="80"/>
+        <source>Invalid reply received</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SendInvitations</name>
     <message>
         <location filename="../sendinvitations.ui" line="14"/>
