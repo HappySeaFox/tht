@@ -47,7 +47,7 @@ TickerNeighbors::TickerNeighbors(const QString &ticker, QWidget *parent) :
     // setup context menus for combos
     QAction *a;
 
-    //: Command
+    //: This is the label on a menu item that user clicks to issue the command
     a = new QAction(tr("Copy"), ui->comboSector);
     connect(a, SIGNAL(triggered()), this, SLOT(slotCopyCombo()));
     ui->comboSector->addAction(a);

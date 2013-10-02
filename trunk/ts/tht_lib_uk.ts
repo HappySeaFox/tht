@@ -6,7 +6,7 @@
     <message>
         <location filename="../datadownloader.ui" line="27"/>
         <source>Close</source>
-        <extracomment>Command</extracomment>
+        <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>Закрити</translation>
     </message>
     <message>
@@ -26,13 +26,13 @@
     <message>
         <location filename="../datamanagerbase.ui" line="49"/>
         <source>Delete</source>
-        <extracomment>Command</extracomment>
+        <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>Видалити</translation>
     </message>
     <message>
         <location filename="../datamanagerbase.ui" line="79"/>
         <source>Clear</source>
-        <extracomment>Command</extracomment>
+        <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>Очистити</translation>
     </message>
 </context>
@@ -41,7 +41,7 @@
     <message>
         <location filename="../tools.cpp" line="164"/>
         <source>Open YouTube tutorial</source>
-        <extracomment>Command. Means &quot;Open a video tutorial on YouTube&quot;</extracomment>
+        <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Open a video tutorial on YouTube&quot;</extracomment>
         <translation>Відкрити урок на YouTube</translation>
     </message>
 </context>

@@ -17,7 +17,7 @@
    <item row="0" column="0">
     <widget class="QPushButton" name="pushEdit">
      <property name="text">
-      <string extracomment="Command">Edit...</string>
+      <string extracomment="This is the label on a button that user pushes to issue the command">Edit...</string>
      </property>
     </widget>
    </item>

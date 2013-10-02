@@ -93,12 +93,12 @@ ChatWindow::ChatWindow(QWidget *parent) :
     // context menu
     m_menu = new QMenu(this);
 
-    //: Command. Means "Add a new room"
+    //: This is the label on a menu item that user clicks to issue the command. Means "Add a new room"
     m_actionAddRoom = new QAction(QIcon(":/images/addroom.png"), tr("Add room") + '\t' + newTabShortcut->key().toString(), this);
     connect(m_actionAddRoom, SIGNAL(triggered()), this, SLOT(slotAddTab()));
     m_menu->addAction(m_actionAddRoom);
 
-    //: Command. Means "Disconnect from the server"
+    //: This is the label on a menu item that user clicks to issue the command. Means "Disconnect from the server"
     m_actionDisconnect = new QAction(tr("Disconnect"), this);
     connect(m_actionDisconnect, SIGNAL(triggered()), m_xmppClient, SLOT(disconnectFromServer()));
     m_menu->addAction(m_actionDisconnect);

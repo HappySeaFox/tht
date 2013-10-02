@@ -81,11 +81,11 @@ ChatPage::ChatPage(QXmppClient *client,
     //: Noun
     m_userMenu->addAction(ChatTools::chatIcon(), tr("Chat"), this, SLOT(slotStartChatFromMenu()));
 
-    //: Command. Means "Kick the selected user right now"
+    //: This is the label on a menu item that user clicks to issue the command. Means "Kick the selected user right now"
     m_kickNow = new QAction(tr("Kick now"), this);
     connect(m_kickNow, SIGNAL(triggered()), this, SLOT(slotKickNow()));
 
-    //: Command. Means "Kick the selected user with the following reason"
+    //: This is the label on a menu item that user clicks to issue the command. Means "Kick the selected user with the following reason"
     m_kickWithReason = new QAction(tr("Kick with reason..."), this);
     connect(m_kickWithReason, SIGNAL(triggered()), this, SLOT(slotKickWithReason()));
 
@@ -93,11 +93,11 @@ ChatPage::ChatPage(QXmppClient *client,
     m_userMenu->addAction(m_kickNow);
     m_userMenu->addAction(m_kickWithReason);
 
-    //: Command. Means "Ban the selected user right now"
+    //: This is the label on a menu item that user clicks to issue the command. Means "Ban the selected user right now"
     m_banNow = new QAction(tr("Ban now"), this);
     connect(m_banNow, SIGNAL(triggered()), this, SLOT(slotBanNow()));
 
-    //: Command. Means "Ban the selected user with the following reason"
+    //: This is the label on a menu item that user clicks to issue the command. Means "Ban the selected user with the following reason"
     m_banWithReason = new QAction(tr("Ban with reason..."), this);
     connect(m_banWithReason, SIGNAL(triggered()), this, SLOT(slotBanWithReason()));
 
@@ -108,13 +108,13 @@ ChatPage::ChatPage(QXmppClient *client,
     // context menu for room
     m_roomMenu = new QMenu(this);
 
-    //: Command. Means "Configure this room"
+    //: This is the label on a menu item that user clicks to issue the command. Means "Configure this room"
     m_configureRoom = new QAction(tr("Configure room") + "...", this);
     connect(m_configureRoom, SIGNAL(triggered()), this, SLOT(slotConfigureRoom()));
 
-    //: Command. Means "Copy the JID of the room to the clipboard"
+    //: This is the label on a menu item that user clicks to issue the command. Means "Copy the JID of the room to the clipboard"
     m_roomMenu->addAction(tr("Copy room JID"), this, SLOT(slotCopyRoomJid()));
-    //: Command. Means "Send invitations to the selected users"
+    //: This is the label on a menu item that user clicks to issue the command. Means "Send invitations to the selected users"
     m_roomMenu->addAction(tr("Send invitations") + "...", this, SLOT(slotSendInvitations()));
     m_roomMenu->addSeparator();
     m_roomMenu->addAction(m_configureRoom);
@@ -216,7 +216,7 @@ ChatPage::ChatPage(QXmppClient *client,
 
     // context menu for subject lineedit
     QAction *a;
-    //: Command
+    //: This is the label on a menu item that user clicks to issue the command
     a = new QAction(tr("Set subject") + "...", ui->lineSubject);
     connect(a, SIGNAL(triggered()), this, SLOT(slotSetSubject()));
     ui->lineSubject->addAction(a);
@@ -562,7 +562,7 @@ void ChatPage::slotKickWithReason()
 {
     bool ok;
     QString reason = QInputDialog::getText(this,
-                                           //: Command. Means "Kick the selected user"
+                                           //: This is the label on a menu item that user clicks to issue the command. Means "Kick the selected user"
                                            tr("Kick"),
                                            tr("Reason:"), QLineEdit::Normal, QString(), &ok);
 
@@ -599,7 +599,7 @@ void ChatPage::slotBanWithReason()
 {
     bool ok;
     QString reason = QInputDialog::getText(this,
-                                           //: Command. Means "Ban the selected user"
+                                           //: This is the label on a menu item that user clicks to issue the command. Means "Ban the selected user"
                                            tr("Ban"),
                                            tr("Reason:"), QLineEdit::Normal, QString(), &ok);
 

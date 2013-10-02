@@ -24,7 +24,7 @@
    <item row="1" column="1">
     <widget class="QPushButton" name="pushClose">
      <property name="text">
-      <string extracomment="Command">Close</string>
+      <string extracomment="This is the label on a button that user pushes to issue the command">Close</string>
      </property>
     </widget>
    </item>

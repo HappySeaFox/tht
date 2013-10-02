@@ -63,7 +63,7 @@
     <message>
         <location filename="../finvizlinkselector.ui" line="23"/>
         <source>Add</source>
-        <extracomment>Command</extracomment>
+        <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>Добавить</translation>
     </message>
 </context>
@@ -72,7 +72,7 @@
     <message>
         <location filename="../finvizplugin.cpp" line="88"/>
         <source>Add from Finviz</source>
-        <extracomment>Command. Finviz - Stock Screener, http://finviz.com. It&apos;s ok not to translate &quot;Finviz&quot; (e.g. you can just copy-paste &quot;Finviz&quot; to your translation)</extracomment>
+        <extracomment>This is the label on a menu item that user clicks to issue the command. Finviz - Stock Screener, http://finviz.com. It&apos;s ok not to translate &quot;Finviz&quot; (e.g. you can just copy-paste &quot;Finviz&quot; to your translation)</extracomment>
         <translation>Добавить из Finviz</translation>
     </message>
     <message>
@@ -92,7 +92,7 @@
     <message>
         <location filename="../finvizurlmanager.cpp" line="35"/>
         <source>Add</source>
-        <extracomment>Command</extracomment>
+        <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>Добавить</translation>
     </message>
     <message>
