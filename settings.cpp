@@ -144,70 +144,10 @@ Settings::Settings()
     qRegisterMetaTypeStreamOperators<QList<LinkedWindow> >("QList<LinkedWindow>");
     qRegisterMetaTypeStreamOperators<Qt::AlignmentFlag>("Qt::AlignmentFlag");
 
-    d->databaseTimestampFormat = "yyyy-MM-dd hh:mm:ss.zzz";
-
-    // migrate from old settings
-    if(d->settings->childGroups().isEmpty())
-    {
-        qDebug("Trying settings from 0.7.0");
-
-        QStringList oldkeys;
-        QSettings *old;
-
-        // 0.7.0
-        old = new QSettings(QSettings::IniFormat, QSettings::UserScope, "Noname", "THT");
-
-        if(!old)
-            qDebug("Cannot allocate memory");
-        else
-        {
-            old->setFallbacksEnabled(false);
-            oldkeys = old->allKeys();
-        }
-
-        if(oldkeys.isEmpty())
-        {
-            delete old;
-
-            qDebug("Trying settings from 0.6.0");
-
-            // 0.6.0
-            old = new QSettings(QSettings::NativeFormat, QSettings::UserScope, "Noname", "THT");
-
-            if(!old)
-                qDebug("Cannot allocate memory");
-            else
-            {
-                old->setFallbacksEnabled(false);
-                oldkeys = old->allKeys();
-            }
-        }
-        else
-        {
-            // clear useless 0.6.0 settings
-            QSettings old060(QSettings::NativeFormat, QSettings::UserScope, "Noname", "THT");
-            old060.clear();
-        }
-
-        if(old && !oldkeys.isEmpty())
-        {
-            qDebug("Copying settings from the old configuration");
-
-            foreach(QString key, oldkeys)
-            {
-                d->settings->setValue(key, old->value(key));
-            }
-
-            // remove old settings
-            old->clear();
-        }
-
-        delete old;
-    }
-
     // save version for future changes
     d->settings->setValue("version", NVER_STRING);
-    d->settings->sync();
+
+    d->databaseTimestampFormat = "yyyy-MM-dd hh:mm:ss.zzz";
 
     memset(&d->windowsVersion, 0, sizeof(OSVERSIONINFO));
     d->windowsVersion.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
