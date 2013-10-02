@@ -16,17 +16,8 @@ NVER3=2
 LIBS += -ldnsapi -lws2_32
 
 # qxmpp files
-FILES = $$system(dir /ON /B "qxmpp\\*.h" 2>nul)
-
-for(file, FILES) {
-    HEADERS += qxmpp\\$$file
-}
-
-FILES = $$system(dir /ON /B "qxmpp\\*.cpp" 2>nul)
-
-for(file, FILES) {
-    SOURCES += qxmpp\\$$file
-}
+HEADERS += $$files(qxmpp\\*.h)
+SOURCES += $$files(qxmpp\\*.cpp)
 
 # chat files
 SOURCES += chatwindow.cpp \
