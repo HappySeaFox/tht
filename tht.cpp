@@ -207,13 +207,13 @@ THT::THT() :
     m_menu->addAction(icon_screenshot, tr("Take screenshot...") + '\t' + m_takeScreen->shortcut().toString(),
                       this, SLOT(slotTakeScreenshot()));
 
-    //: Command
+    //: This is the label on a menu item that user clicks to issue the command
     m_menu->addAction(tr("Clear links"), this, SLOT(slotClearLinks()));
     m_menu->addSeparator();
 
-    //: Command
+    //: This is the label on a menu item that user clicks to issue the command
     m_menu->addAction(tr("Clear ticker lists") + '\t' + clear_shortcut->key().toString(), this, SLOT(slotClearLists()));
-    //: Command
+    //: This is the label on a menu item that user clicks to issue the command
     m_menu->addAction(tr("Load ticker") + "..." + "\tL", this, SLOT(slotLoadTicker()));
     QMenu *menu_load = m_menu->addMenu(tr("Load ticker"));
 
@@ -275,7 +275,7 @@ THT::THT() :
     m_tray = new QSystemTrayIcon(icon_chart, this);
     QMenu *trayMenu = new QMenu(this);
 
-    //: Command. Means "Restore from tray"
+    //: This is the label on a menu item that user clicks to issue the command. Means "Restore from the system tray"
     trayMenu->addAction(tr("Restore"), this, SLOT(activate()));
     trayMenu->addAction(icon_screenshot, tr("Take screenshot..."), this, SLOT(slotTakeScreenshot()));
     trayMenu->addSeparator();
@@ -2149,7 +2149,7 @@ void THT::rebuildLinks()
     if(!links.isEmpty())
         menu->addSeparator();
 
-    //: Command
+    //: This is the label on a menu item that user clicks to issue the command
     menu->addAction(QIcon(":/images/links-customize.png"), tr("Customize..."), this, SLOT(slotManageLinks()));
 }
 

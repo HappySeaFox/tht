@@ -36,7 +36,7 @@ bool BriefingSplitsPlugin::embed(int list, QMenu *parentMenu)
     if(emb.contains(list))
         return true;
 
-    //: Command. It's ok not to translate "Briefing Stock Splits" (e.g. you can just copy-paste "Briefing Stock Splits" to your translation). See http://www.briefing.com/investor/calendars/stock-splits
+    //: This is the label on a menu item that user clicks to issue the command. It's ok not to translate "Briefing Stock Splits" (e.g. you can just copy-paste "Briefing Stock Splits" to your translation). See http://www.briefing.com/investor/calendars/stock-splits
     QMenu *menu = new QMenu(tr("Add from Briefing Stock Splits"));
 
     if(!menu)

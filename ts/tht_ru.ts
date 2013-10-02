@@ -192,7 +192,7 @@
     <message>
         <location filename="../dropboxuploader.cpp" line="126"/>
         <source>Close</source>
-        <extracomment>Command</extracomment>
+        <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>Закрыть</translation>
     </message>
 </context>
@@ -250,73 +250,73 @@
     <message>
         <location filename="../list.ui" line="173"/>
         <source>Add tickers</source>
-        <extracomment>Command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
+        <extracomment>This is the label on a button that user pushes to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Добавить тикеры</translation>
     </message>
     <message>
         <location filename="../list.ui" line="196"/>
         <source>Save tickers</source>
-        <extracomment>Command</extracomment>
+        <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>Сохранить тикеры</translation>
     </message>
     <message>
         <location filename="../list.ui" line="216"/>
         <source>Export tickers</source>
-        <extracomment>Command</extracomment>
+        <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>Экспортировать тикеры</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="100"/>
         <source>Clear</source>
-        <extracomment>Command</extracomment>
+        <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Очистить</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="103"/>
         <source>Sort</source>
-        <extracomment>Command</extracomment>
+        <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Отсортировать</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="105"/>
         <source>Change title</source>
-        <extracomment>Command</extracomment>
+        <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Изменить заголовок</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="108"/>
         <source>Reset priorities</source>
-        <extracomment>Command</extracomment>
+        <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Сбросить приоритеты</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="116"/>
         <source>Add one ticker...</source>
-        <extracomment>Command</extracomment>
+        <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Добавить один тикер...</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="119"/>
         <source>Add from file...</source>
-        <extracomment>Command</extracomment>
+        <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Добавить из файла...</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="121"/>
         <source>Add from clipboard</source>
-        <extracomment>Command</extracomment>
+        <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Добавить из буфера обмена</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="128"/>
         <source>Export to file...</source>
-        <extracomment>Command</extracomment>
+        <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Экспортировать в файл...</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="130"/>
         <source>Export to clipboard</source>
-        <extracomment>Command</extracomment>
+        <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Экспортировать в буфер обмена</translation>
     </message>
     <message>
@@ -555,13 +555,13 @@
     <message>
         <location filename="../pluginmanager.cpp" line="83"/>
         <source>Add tickers</source>
-        <extracomment>Command</extracomment>
+        <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>Добавить тикеры</translation>
     </message>
     <message>
         <location filename="../pluginmanager.cpp" line="87"/>
         <source>Export tickers</source>
-        <extracomment>Command</extracomment>
+        <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>Экспортировать тикеры</translation>
     </message>
     <message>
@@ -599,7 +599,7 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../savescreenshot.ui" line="20"/>
         <source>Edit...</source>
-        <extracomment>Command</extracomment>
+        <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>Редактировать...</translation>
     </message>
     <message>
@@ -676,7 +676,7 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../screenshoteditor.ui" line="84"/>
         <source>Delete</source>
-        <extracomment>Command</extracomment>
+        <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>Удалить</translation>
     </message>
     <message>
@@ -710,7 +710,7 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../screenshoteditor.ui" line="98"/>
         <source>Select all</source>
-        <extracomment>Command</extracomment>
+        <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>Выделить всё</translation>
     </message>
     <message>
@@ -770,20 +770,20 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../tht.cpp" line="215"/>
         <source>Clear ticker lists</source>
-        <extracomment>Command</extracomment>
+        <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Очистить списки тикеров</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="211"/>
         <source>Clear links</source>
-        <extracomment>Command</extracomment>
+        <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Очистить ссылки</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="217"/>
         <location filename="../tht.cpp" line="218"/>
         <source>Load ticker</source>
-        <extracomment>Command</extracomment>
+        <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Загрузить тикер</translation>
     </message>
     <message>
@@ -816,7 +816,7 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../tht.cpp" line="279"/>
         <source>Restore</source>
-        <extracomment>Command. Means &quot;Restore from tray&quot;</extracomment>
+        <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Restore from the system tray&quot;</extracomment>
         <translation>Восстановить</translation>
     </message>
     <message>
@@ -866,7 +866,7 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../tht.cpp" line="2153"/>
         <source>Customize...</source>
-        <extracomment>Command</extracomment>
+        <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Настроить...</translation>
     </message>
 </context>
@@ -933,7 +933,7 @@ right/middle mouse button to cancel.</source>
         <location filename="../tickerneighbors.cpp" line="55"/>
         <location filename="../tickerneighbors.cpp" line="276"/>
         <source>Copy</source>
-        <extracomment>Command</extracomment>
+        <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Копировать</translation>
     </message>
 </context>

@@ -106,7 +106,7 @@
        <item row="4" column="2">
         <widget class="QPushButton" name="pushJoin">
          <property name="text">
-          <string extracomment="Command">Join</string>
+          <string extracomment="This is the label on a button that user pushes to issue the command">Join</string>
          </property>
         </widget>
        </item>

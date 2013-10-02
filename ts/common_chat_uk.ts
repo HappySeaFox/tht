@@ -62,7 +62,7 @@
     <message>
         <location filename="../chatpage.ui" line="109"/>
         <source>Join</source>
-        <extracomment>Command</extracomment>
+        <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>Приєднатися</translation>
     </message>
     <message>
@@ -129,20 +129,20 @@
     <message>
         <location filename="../chatpage.cpp" line="112"/>
         <source>Configure room</source>
-        <extracomment>Command. Means &quot;Configure this room&quot;</extracomment>
+        <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Configure this room&quot;</extracomment>
         <translation>Налаштувати кімнату</translation>
     </message>
     <message>
         <location filename="../chatpage.cpp" line="116"/>
         <source>Copy room JID</source>
-        <extracomment>Command. Means &quot;Copy the JID of the room to the clipboard&quot;</extracomment>
+        <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Copy the JID of the room to the clipboard&quot;</extracomment>
         <translation>Копіювати JID кімнати</translation>
     </message>
     <message>
         <location filename="../chatpage.cpp" line="220"/>
         <location filename="../chatpage.cpp" line="624"/>
         <source>Set subject</source>
-        <extracomment>Command</extracomment>
+        <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Встановити тему</translation>
     </message>
     <message>
@@ -303,31 +303,31 @@
     <message>
         <location filename="../chatpage.cpp" line="85"/>
         <source>Kick now</source>
-        <extracomment>Command. Means &quot;Kick the selected user right now&quot;</extracomment>
+        <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Kick the selected user right now&quot;</extracomment>
         <translation>Кікнути зараз</translation>
     </message>
     <message>
         <location filename="../chatpage.cpp" line="89"/>
         <source>Kick with reason...</source>
-        <extracomment>Command. Means &quot;Kick the selected user with the following reason&quot;</extracomment>
+        <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Kick the selected user with the following reason&quot;</extracomment>
         <translation>Кікнути з причини...</translation>
     </message>
     <message>
         <location filename="../chatpage.cpp" line="97"/>
         <source>Ban now</source>
-        <extracomment>Command. Means &quot;Ban the selected user right now&quot;</extracomment>
+        <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Ban the selected user right now&quot;</extracomment>
         <translation>Забанити зараз</translation>
     </message>
     <message>
         <location filename="../chatpage.cpp" line="101"/>
         <source>Ban with reason...</source>
-        <extracomment>Command. Means &quot;Ban the selected user with the following reason&quot;</extracomment>
+        <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Ban the selected user with the following reason&quot;</extracomment>
         <translation>Забанити з причини...</translation>
     </message>
     <message>
         <location filename="../chatpage.cpp" line="118"/>
         <source>Send invitations</source>
-        <extracomment>Command. Means &quot;Send invitations to the selected users&quot;</extracomment>
+        <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Send invitations to the selected users&quot;</extracomment>
         <translation>Послати запрошення</translation>
     </message>
     <message>
@@ -338,13 +338,13 @@
     <message>
         <location filename="../chatpage.cpp" line="566"/>
         <source>Kick</source>
-        <extracomment>Command. Means &quot;Kick the selected user&quot;</extracomment>
+        <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Kick the selected user&quot;</extracomment>
         <translation>Кікнути</translation>
     </message>
     <message>
         <location filename="../chatpage.cpp" line="603"/>
         <source>Ban</source>
-        <extracomment>Command. Means &quot;Ban the selected user&quot;</extracomment>
+        <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Ban the selected user&quot;</extracomment>
         <translation>Забанити</translation>
     </message>
     <message>
@@ -401,7 +401,7 @@
     <message>
         <location filename="../chatwindow.ui" line="75"/>
         <source>Sign In</source>
-        <extracomment>Command</extracomment>
+        <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>Увійти</translation>
     </message>
     <message>
@@ -413,13 +413,13 @@
         <location filename="../chatwindow.cpp" line="97"/>
         <location filename="../chatwindow.cpp" line="112"/>
         <source>Add room</source>
-        <extracomment>Command. Means &quot;Add a new room&quot;</extracomment>
+        <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Add a new room&quot;</extracomment>
         <translation>Додати кімнату</translation>
     </message>
     <message>
         <location filename="../chatwindow.cpp" line="102"/>
         <source>Disconnect</source>
-        <extracomment>Command. Means &quot;Disconnect from the server&quot;</extracomment>
+        <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Disconnect from the server&quot;</extracomment>
         <translation>Відключитися</translation>
     </message>
     <message>
@@ -593,12 +593,13 @@
     <message>
         <location filename="../configureroom.ui" line="203"/>
         <source>Apply</source>
+        <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>Застосувати</translation>
     </message>
     <message>
         <location filename="../configureroom.ui" line="210"/>
         <source>Close</source>
-        <extracomment>Command</extracomment>
+        <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>Закрити</translation>
     </message>
     <message>
@@ -615,13 +616,13 @@
     <message>
         <location filename="../configureroom.ui" line="108"/>
         <source>Add</source>
-        <extracomment>Command</extracomment>
+        <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>Додати</translation>
     </message>
     <message>
         <location filename="../configureroom.ui" line="118"/>
         <source>Remove</source>
-        <extracomment>Command</extracomment>
+        <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>Видалити</translation>
     </message>
     <message>
@@ -631,23 +632,23 @@
         <translation>Загальні</translation>
     </message>
     <message>
-        <location filename="../configureroom.cpp" line="426"/>
+        <location filename="../configureroom.cpp" line="427"/>
         <source>Add affiliation</source>
         <extracomment>Command</extracomment>
         <translation>Додати учасника</translation>
     </message>
     <message>
-        <location filename="../configureroom.cpp" line="426"/>
+        <location filename="../configureroom.cpp" line="428"/>
         <source>JID:</source>
         <translation>JID:</translation>
     </message>
     <message>
-        <location filename="../configureroom.cpp" line="437"/>
+        <location filename="../configureroom.cpp" line="442"/>
         <source>Adding JID</source>
         <translation>Додавання JID</translation>
     </message>
     <message>
-        <location filename="../configureroom.cpp" line="437"/>
+        <location filename="../configureroom.cpp" line="442"/>
         <source>JID &quot;%1&quot; is already in this section</source>
         <translation>JID &quot;%1&quot; вже знаходиться в цій секції</translation>
     </message>
@@ -677,13 +678,13 @@
     <message>
         <location filename="../sendinvitations.ui" line="45"/>
         <source>Send</source>
-        <extracomment>Command</extracomment>
+        <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>Послати</translation>
     </message>
     <message>
         <location filename="../sendinvitations.ui" line="52"/>
         <source>Close</source>
-        <extracomment>Command</extracomment>
+        <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>Закрити</translation>
     </message>
     <message>

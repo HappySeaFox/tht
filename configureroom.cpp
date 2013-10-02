@@ -422,8 +422,13 @@ void ConfigureRoom::slotAddJid()
         item = item->parent();
 
     bool ok;
-    //: Command
-    QString jid = QInputDialog::getText(this, tr("Add affiliation"), tr("JID:"), QLineEdit::Normal, QString(), &ok);
+    QString jid = QInputDialog::getText(this,
+                                        //: Command
+                                        tr("Add affiliation"),
+                                        tr("JID:"),
+                                        QLineEdit::Normal,
+                                        QString(),
+                                        &ok);
 
     if(!ok)
         return;

@@ -79,11 +79,11 @@ QString PluginManager::typeToString(int type)
         return tr("Common");
 
         case Plugin::AddTickersFrom:
-        //: Command
+        //: This is the label on a button that user pushes to issue the command
         return tr("Add tickers");
 
         case Plugin::ExportTickersTo:
-        //: Command
+        //: This is the label on a button that user pushes to issue the command
         return tr("Export tickers");
 
         default:

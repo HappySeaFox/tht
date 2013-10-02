@@ -105,7 +105,7 @@
           <bool>false</bool>
          </property>
          <property name="text">
-          <string extracomment="Command">Add</string>
+          <string extracomment="This is the label on a button that user pushes to issue the command">Add</string>
          </property>
         </widget>
        </item>
@@ -115,7 +115,7 @@
           <bool>false</bool>
          </property>
          <property name="text">
-          <string extracomment="Command">Remove</string>
+          <string extracomment="This is the label on a button that user pushes to issue the command">Remove</string>
          </property>
         </widget>
        </item>
@@ -155,8 +155,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>527</width>
-            <height>273</height>
+            <width>100</width>
+            <height>30</height>
            </rect>
           </property>
          </widget>
@@ -200,14 +200,14 @@
      <item>
       <widget class="QPushButton" name="pushApply">
        <property name="text">
-        <string>Apply</string>
+        <string extracomment="This is the label on a button that user pushes to issue the command">Apply</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="pushClose">
        <property name="text">
-        <string extracomment="Command">Close</string>
+        <string extracomment="This is the label on a button that user pushes to issue the command">Close</string>
        </property>
       </widget>
      </item>

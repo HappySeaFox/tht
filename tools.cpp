@@ -160,7 +160,7 @@ void Tools::raiseWindow(QWidget *w)
 
 QString Tools::openYoutubeTutorialTitle()
 {
-    //: Command. Means "Open a video tutorial on YouTube"
+    //: This is the label on a menu item that user clicks to issue the command. Means "Open a video tutorial on YouTube"
     return QObject::tr("Open YouTube tutorial");
 }
 

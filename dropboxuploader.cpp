@@ -122,7 +122,7 @@ void DropBoxUploader::stopProgress()
 
 void DropBoxUploader::changeCancelToClose()
 {
-    //: Command
+    //: This is the label on a button that user pushes to issue the command
     ui->pushCancel->setText(tr("Close"));
 }
 

@@ -72,7 +72,7 @@
          <item row="2" column="1">
           <widget class="QPushButton" name="pushSignIn">
            <property name="text">
-            <string extracomment="Command">Sign In</string>
+            <string extracomment="This is the label on a button that user pushes to issue the command">Sign In</string>
            </property>
           </widget>
          </item>
