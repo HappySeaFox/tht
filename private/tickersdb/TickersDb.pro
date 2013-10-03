@@ -5,7 +5,11 @@ INCLUDEPATH += ../..
 DEPENDPATH += ../..
 
 QT += core gui network sql
-QTPLUGIN += qico
+
+static {
+    DEFINES += TICKERSDB_STATIC
+    QTPLUGIN += qico
+}
 
 !exists($${_PRO_FILE_PWD_}/../../THT.pro) {
     error("This is not a THT source tree, don't know what to do")

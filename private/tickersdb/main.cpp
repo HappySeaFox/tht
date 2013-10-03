@@ -22,7 +22,9 @@
 #include <QIcon>
 #include <QDir>
 
+#ifdef TICKERSDB_STATIC
 Q_IMPORT_PLUGIN(qico)
+#endif
 
 #include <cstdio>
 
