@@ -54,16 +54,16 @@ Widget::Widget(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    m_console = QApplication::arguments().indexOf("console") >= 0;
+
     {
         QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE", "old");
         db.setDatabaseName(THT_TICKERS_DB);
 
         if(!db.open())
         {
-            QMessageBox::critical(0, "Fatal error", QString("Cannot open database (%1).\nCurrent dir: %2")
-                                                        .arg(db.lastError().text())
-                                                        .arg(QDir::currentPath()));
-            ::exit(1);
+            message(QString("Cannot open database (%1).\nCurrent dir: %2").arg(db.lastError().text()).arg(QDir::currentPath()));
+            finished(true);
         }
 
         // tickers
@@ -85,8 +85,8 @@ Widget::Widget(QWidget *parent) :
 
             if(!date.isValid())
             {
-                QMessageBox::critical(0, "Fatal error", QString("Line \"%1\" is invalid").arg(line));
-                return;
+                message(QString("Line \"%1\" is invalid").arg(line));
+                finished(true);
             }
 
             qDebug("Added FOMC date %s", qPrintable(line));
@@ -101,10 +101,8 @@ Widget::Widget(QWidget *parent) :
 
     if(QFile::exists(THT_TICKERS_DB_NEW) && !QFile::remove(THT_TICKERS_DB_NEW))
     {
-        QMessageBox::critical(0, "Fatal error", QString("Cannot remove file %1.\nCurrent dir: %2")
-                                                    .arg(THT_TICKERS_DB_NEW)
-                                                    .arg(QDir::currentPath()));
-        ::exit(1);
+        message(QString("Cannot remove file %1. Cwd: %2").arg(THT_TICKERS_DB_NEW).arg(QDir::currentPath()));
+        finished(true);
     }
 
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
@@ -112,10 +110,8 @@ Widget::Widget(QWidget *parent) :
 
     if(!db.open())
     {
-        QMessageBox::critical(0, "Fatal error", QString("Cannot open database (%1).\nCurrent dir: %2")
-                                                    .arg(db.lastError().text())
-                                                    .arg(QDir::currentPath()));
-        ::exit(1);
+        message(QString("Cannot open database (%1). Cwd: %2").arg(db.lastError().text()).arg(QDir::currentPath()));
+        finished(true);
     }
 
     m_net = new NetworkAccess(this);
@@ -166,7 +162,7 @@ void Widget::slotGet()
                          ");"))
     {
         message(QString("Cannot create table (%1)").arg(qPrintable(QSqlDatabase::database().lastError().text())));
-        return;
+        finished(true);
     }
 
     // check for correct year
@@ -192,6 +188,7 @@ void Widget::slotFinishedFomc()
     if(m_net->error() != QNetworkReply::NoError)
     {
         message(QString("Network error #%1").arg(m_net->error()));
+        finished();
         return;
     }
 
@@ -211,6 +208,7 @@ void Widget::slotFinished()
     if(m_net->error() != QNetworkReply::NoError)
     {
         message(QString("Network error #%1").arg(m_net->error()));
+        finished();
         return;
     }
 
@@ -228,6 +226,7 @@ void Widget::slotFinished()
         if(str.size() != 11)
         {
             message(QString("Broken data (%1 fields)").arg(str.size()));
+            finished();
             return;
         }
 
@@ -267,6 +266,7 @@ void Widget::slotFinished()
             if(!query.exec() || !query.next())
             {
                 message(QString("Cannot query (%1)").arg(qPrintable(QSqlDatabase::database().lastError().text())));
+                finished();
                 return;
             }
 
@@ -278,6 +278,7 @@ void Widget::slotFinished()
             if(!query.exec() || !query.next())
             {
                 message(QString("Cannot query (%1)").arg(qPrintable(QSqlDatabase::database().lastError().text())));
+                finished();
                 return;
             }
 
@@ -296,6 +297,7 @@ void Widget::slotFinished()
             if(!ok)
             {
                 message("Double value is broken");
+                finished();
                 return;
             }
 
@@ -331,7 +333,7 @@ void Widget::slotFinished()
         message("Up-to-date", false);
 
         if(m_auto)
-            QTimer::singleShot(5000, this, SLOT(close()));
+            QTimer::singleShot(m_console ? 0 : 5000, this, SLOT(close()));
 
         return;
     }
@@ -382,12 +384,14 @@ void Widget::slotFinished()
         if(m_net->error() != QNetworkReply::NoError)
         {
             message(QString("Network error #%1").arg(m_net->error()));
+            finished();
             return;
         }
 
         if(m_tickersForExchange.isEmpty())
         {
             message(QString("Ticker list is empty for exchange %1").arg(ex));
+            finished();
             return;
         }
 
@@ -404,6 +408,7 @@ void Widget::slotFinished()
             if(it == map.end())
             {
                 message(QString("Ticker %1 is not found in map").arg(ticker));
+                finished();
                 return;
             }
 
@@ -414,6 +419,7 @@ void Widget::slotFinished()
     if(foundTickers != newTickers.size())
     {
         message(QString("Not all tickers filled (%1 needed, %2 filled)").arg(newTickers.size()).arg(foundTickers));
+        finished();
         return;
     }
 
@@ -458,13 +464,15 @@ void Widget::slotFinished()
 
     if(!QFile::remove(THT_TICKERS_DB))
     {
-        message("Cannot remove old database");
+        message("Cannot remove the old database");
+        finished();
         return;
     }
 
     if(!QFile::copy(THT_TICKERS_DB_NEW, THT_TICKERS_DB))
     {
-        message("Cannot copy");
+        message("Cannot copy the new database");
+        finished();
         return;
     }
 
@@ -476,12 +484,14 @@ void Widget::slotFinished()
     if(!fts.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text))
     {
         message(QString("Cannot open timestamp file (%1)").arg(fts.errorString()));
+        finished();
         return;
     }
 
     if(fts.write(m_ts.toLatin1()) != m_ts.length())
     {
         message(QString("Cannot write all the data (%1)").arg(fts.errorString()));
+        finished();
         return;
     }
 
@@ -492,8 +502,10 @@ void Widget::slotFinished()
     if(m_auto && commit())
     {
         message(QString("Done update to %1, will quit in 5 sec").arg(m_ts));
-        QTimer::singleShot(5000, this, SLOT(close()));
+        QTimer::singleShot(m_console ? 0 : 5000, this, SLOT(close()));
     }
+
+    finished();
 
     m_running = false;
 }
@@ -690,4 +702,10 @@ bool Widget::addFomcDates(const QString &data, const QString &title)
     }
 
     return true;
+}
+
+void Widget::finished(bool force)
+{
+    if(m_console || force)
+        ::exit(0);
 }
