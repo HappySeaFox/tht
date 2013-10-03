@@ -305,7 +305,7 @@ void Widget::slotFinished()
 
             if(!oldCap && !cap)
             {
-                qDebug("Both capitalizations are 0 for %s", qPrintable(ticker));
+                // Both capitalizations are 0
                 continue;
             }
 
