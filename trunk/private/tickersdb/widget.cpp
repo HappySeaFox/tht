@@ -502,8 +502,9 @@ void Widget::slotFinished()
 
     if(m_auto && commit())
     {
-        message(QString("Done update to %1, will quit in 5 sec").arg(m_ts));
-        QTimer::singleShot(m_console ? 0 : 5000, this, SLOT(close()));
+        const int secs = m_console ? 0 : 5000;
+        message(QString("Done update to %1, will quit in %2 sec(s)").arg(m_ts).arg(secs));
+        QTimer::singleShot(secs, this, SLOT(close()));
     }
 
     finished();
@@ -518,6 +519,8 @@ bool Widget::commit()
         qDebug("Timestamp is empty");
         return false;
     }
+
+    qDebug("Starting commit");
 
     QProcess p;
 
