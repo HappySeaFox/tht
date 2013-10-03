@@ -20,13 +20,7 @@
 #include <QPointer>
 #include <QUrl>
 
-#include <windows.h>
-
 #include "networkaccess.h"
-
-#ifdef NVER1
-#include "settings.h"
-#endif
 
 class NetworkAccessPrivate
 {
@@ -71,22 +65,9 @@ void NetworkAccess::get(const QUrl &url)
     qDebug("Starting a new network request for \"%s\"", qPrintable(url.toString(QUrl::RemovePassword)));
 
     QNetworkRequest request(url);
-    OSVERSIONINFO version;
-
-// THT or TickersDb
-#ifdef NVER1
-    version = Settings::instance()->windowsVersion();
-#else
-    version.dwMajorVersion = 5;
-    version.dwMinorVersion = 1;
-    version.dwPlatformId = VER_PLATFORM_WIN32_NT;
-#endif
 
     request.setRawHeader("Dnt", "1");
-    request.setRawHeader("User-Agent", QString("Mozilla/5.0 (%1 %2.%3; rv:20.0) Gecko/20100101 Firefox/20.0")
-                         .arg(version.dwPlatformId == VER_PLATFORM_WIN32_NT ? "Windows NT" : "Windows")
-                         .arg(version.dwMajorVersion)
-                         .arg(version.dwMinorVersion).toLatin1());
+    request.setRawHeader("User-Agent", "Mozilla/5.0 (Windows NT rv:20.0) Gecko/20100101 Firefox/20.0");
 
     d->reply = d->manager->get(request);
 
