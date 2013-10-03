@@ -63,6 +63,7 @@ private:
     void message(const QString &msg, bool activate = true);
     void proceedToTickers();
     bool addFomcDates(const QString &data, const QString &title);
+    void finished(bool force = false);
 
 private slots:
     bool commit();
@@ -79,6 +80,7 @@ private:
     QString m_ts;
     bool m_running;
     bool m_auto;
+    bool m_console;
     QList<QDate> m_fomcDates;
 };
 
