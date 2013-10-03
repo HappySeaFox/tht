@@ -55,6 +55,7 @@ Widget::Widget(QWidget *parent) :
     ui->setupUi(this);
 
     m_console = QApplication::arguments().indexOf("console") >= 0;
+    m_force = QApplication::arguments().indexOf("force") >= 0;
 
     {
         QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE", "old");
@@ -169,7 +170,7 @@ void Widget::slotGet()
     int fomcYear = m_fomcDates.isEmpty() ? -1 : m_fomcDates.first().year();
     int year = QDate::currentDate().year();
 
-    if(ui->checkForce->isChecked() || fomcYear != year)
+    if(ui->checkForce->isChecked() || m_force || fomcYear != year)
     {
         ui->list->addItem("Need to update FOMC");
         m_fomcDates.clear();
@@ -252,7 +253,7 @@ void Widget::slotFinished()
     bool newSymbols = newTickers != m_oldTickers;
 
     // compare capitalizations
-    if(!ui->checkForce->isChecked() && !newSymbols)
+    if(!ui->checkForce->isChecked() && !m_force && !newSymbols)
     {
         qDebug("Checking capitalizations and countries");
 

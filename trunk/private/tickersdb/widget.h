@@ -81,6 +81,7 @@ private:
     bool m_running;
     bool m_auto;
     bool m_console;
+    bool m_force;
     QList<QDate> m_fomcDates;
 };
 
