@@ -66,7 +66,11 @@ int main(int argc, char *argv[])
 
     qDebug("Starting at %s", qPrintable(QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss")));
 
-    QDir::setCurrent(TICKERS_DIR);
+    if(!QDir::setCurrent(TICKERS_DIR))
+    {
+        qWarning("Cannot change the current directory");
+        return 1;
+    }
 
     qDebug("Tickers db dir: \"%s\"", TICKERS_DIR);
 
