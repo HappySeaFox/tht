@@ -68,7 +68,10 @@ void SendInvitations::slotSend()
 
         if(!m_xmppClient->sendPacket(message))
         {
-            QMessageBox::critical(this, tr("Error"), tr("Error sending invitation to %1").arg(jid));
+            QMessageBox::critical(this,
+                                  tr("Error"),
+                                  //: Message displayed to the user
+                                  tr("Error sending invitation to %1").arg(jid));
             break;
         }
     }
@@ -79,5 +82,9 @@ void SendInvitations::slotSend()
 void SendInvitations::slotHelpMessage()
 {
     SETTINGS_SET_BOOL(SETTING_CHAT_INVITATIONS_NOTE_SEEN, true);
-    QMessageBox::information(this, tr("Information"), tr("Please remember that the server can decline your invitations depending on its configuration"));
+
+    QMessageBox::information(this,
+                             tr("Information"),
+                             //: Message displayed to the user
+                             tr("Please remember that the server can decline your invitations depending on its configuration"));
 }

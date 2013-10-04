@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string extracomment="Command">Send invitations</string>
+   <string extracomment="Window title. The user is asked to send invitation to other users in this window">Send invitations</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">

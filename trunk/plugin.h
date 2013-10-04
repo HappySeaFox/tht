@@ -111,17 +111,17 @@ private:
 #define PLUGUN_EXPORT
 #endif
 
-#define PLUGIN_CONSTRUCTOR(o)   \
-extern "C" PLUGUN_EXPORT        \
-Plugin* plugin_create()         \
-{                               \
-    return (new (o));           \
-}                               \
-                                \
-extern "C" PLUGUN_EXPORT        \
-void plugin_destroy(Plugin *pl) \
-{                               \
-    delete pl;                  \
+#define THT_PLUGIN_CONSTRUCTOR(o) \
+extern "C" PLUGUN_EXPORT          \
+Plugin* plugin_create()           \
+{                                 \
+    return (new (o));             \
+}                                 \
+                                  \
+extern "C" PLUGUN_EXPORT          \
+void plugin_destroy(Plugin *pl)   \
+{                                 \
+    delete pl;                    \
 }
 
 #define THT_PLUGIN_INTERFACE_IMPLEMENTATION                   \

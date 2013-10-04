@@ -6,7 +6,7 @@
     <message>
         <location filename="../finvizaccesssetup.ui" line="14"/>
         <source>Finviz access setup</source>
-        <extracomment>Finviz - Stock Screener, http://finviz.com. It&apos;s ok not to translate &quot;Finviz&quot; (e.g. you can just copy-paste &quot;Finviz&quot; to your translation)</extracomment>
+        <extracomment>Window title. Finviz - Stock Screener, http://finviz.com. It&apos;s ok not to translate &quot;Finviz&quot; (e.g. you can just copy-paste &quot;Finviz&quot; to your translation). Means &quot;Configuring access to your Finviz account&quot;</extracomment>
         <translation>Настройка доступа на Finviz</translation>
     </message>
     <message>
@@ -43,7 +43,7 @@
     <message>
         <location filename="../finvizdownloader.cpp" line="38"/>
         <source>Downloading tickers...</source>
-        <extracomment>Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
+        <extracomment>Window title. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Скачивание тикеров...</translation>
     </message>
     <message>
@@ -57,7 +57,7 @@
     <message>
         <location filename="../finvizlinkselector.ui" line="14"/>
         <source>Add from Finviz</source>
-        <extracomment>Command. Finviz - Stock Screener, http://finviz.com. It&apos;s ok not to translate &quot;Finviz&quot; (e.g. you can just copy-paste &quot;Finviz&quot; to your translation)</extracomment>
+        <extracomment>Window title. Finviz - Stock Screener, http://finviz.com. It&apos;s ok not to translate &quot;Finviz&quot; (e.g. you can just copy-paste &quot;Finviz&quot; to your translation)</extracomment>
         <translation>Добавить из Finviz</translation>
     </message>
     <message>

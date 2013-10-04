@@ -128,4 +128,4 @@ void ChatPlugin::slotClicked()
     m_window->activateWindow();
 }
 
-PLUGIN_CONSTRUCTOR(ChatPlugin)
+THT_PLUGIN_CONSTRUCTOR(ChatPlugin)

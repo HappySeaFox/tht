@@ -26,7 +26,7 @@ BriefingSplitsDownloader::BriefingSplitsDownloader(const QUrl &url, QWidget *par
 {
     //: It's ok not to translate "Briefing Stock Splits" (e.g. you can just copy-paste "Briefing Stock Splits" to your translation). See http://www.briefing.com/investor/calendars/stock-splits
     setWindowTitle(tr("Briefing Stock Splits"));
-    //: Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow "ticker" from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)
+    //: Window title. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow "ticker" from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)
     setMessage(tr("Downloading tickers..."));
     get(url);
 }

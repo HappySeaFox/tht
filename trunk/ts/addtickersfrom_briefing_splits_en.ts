@@ -12,7 +12,7 @@
     <message>
         <location filename="../briefingsplitsdownloader.cpp" line="30"/>
         <source>Downloading tickers...</source>
-        <extracomment>Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
+        <extracomment>Window title. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>

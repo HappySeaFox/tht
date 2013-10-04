@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string extracomment="Finviz - Stock Screener, http://finviz.com. It's ok not to translate &quot;Finviz&quot; (e.g. you can just copy-paste &quot;Finviz&quot; to your translation)">Finviz access setup</string>
+   <string extracomment="Window title. Finviz - Stock Screener, http://finviz.com. It's ok not to translate &quot;Finviz&quot; (e.g. you can just copy-paste &quot;Finviz&quot; to your translation). Means &quot;Configuring access to your Finviz account&quot;">Finviz access setup</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_3">
    <item row="0" column="0">

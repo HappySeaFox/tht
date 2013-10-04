@@ -6,6 +6,7 @@
     <message>
         <location filename="../chatoptions.ui" line="14"/>
         <source>Options</source>
+        <extracomment>Window title</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -384,7 +385,7 @@
     <message>
         <location filename="../chatwindow.ui" line="14"/>
         <source>Chat</source>
-        <extracomment>Noun</extracomment>
+        <extracomment>Noun. Window title</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -394,7 +395,7 @@
     </message>
     <message>
         <location filename="../chatwindow.ui" line="58"/>
-        <location filename="../chatwindow.cpp" line="434"/>
+        <location filename="../chatwindow.cpp" line="435"/>
         <source>Password:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -435,7 +436,7 @@
     </message>
     <message>
         <location filename="../chatwindow.cpp" line="110"/>
-        <location filename="../chatwindow.cpp" line="564"/>
+        <location filename="../chatwindow.cpp" line="565"/>
         <source>Help</source>
         <extracomment>Noun</extracomment>
         <translation type="unfinished"></translation>
@@ -443,9 +444,9 @@
     <message>
         <location filename="../chatwindow.cpp" line="197"/>
         <location filename="../chatwindow.cpp" line="246"/>
-        <location filename="../chatwindow.cpp" line="442"/>
-        <location filename="../chatwindow.cpp" line="450"/>
-        <location filename="../chatwindow.cpp" line="484"/>
+        <location filename="../chatwindow.cpp" line="443"/>
+        <location filename="../chatwindow.cpp" line="451"/>
+        <location filename="../chatwindow.cpp" line="485"/>
         <source>Room</source>
         <translation type="unfinished"></translation>
     </message>
@@ -497,58 +498,59 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="432"/>
+        <location filename="../chatwindow.cpp" line="433"/>
         <source>You have been invited to room %1%2%3%4&lt;br&gt;&lt;br&gt;Open the room now?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../chatwindow.cpp" line="435"/>
-        <source>Reason:</source>
+        <extracomment>Message displayed to the user</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../chatwindow.cpp" line="436"/>
+        <source>Reason:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../chatwindow.cpp" line="437"/>
         <source>Message:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="575"/>
+        <location filename="../chatwindow.cpp" line="576"/>
         <source>Send the ticker &quot;ABC&quot; to the chat. User can click on it and it will be loaded into all the linked windows</source>
         <extracomment>Don&apos;t translate &quot;ABC&quot; - this is a fixed ticker name</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="577"/>
+        <location filename="../chatwindow.cpp" line="578"/>
         <source>Show the ticker information about the ticker &quot;ABC&quot;</source>
         <extracomment>Don&apos;t translate &quot;ABC&quot; - this is a fixed ticker name</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="579"/>
+        <location filename="../chatwindow.cpp" line="580"/>
         <source>Show the tickers from the industry &quot;Gold&quot; (all exchanges, tickers are sorted by capitalization)</source>
         <extracomment>Don&apos;t translate &quot;Gold&quot; - this is a fixed industry name</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="581"/>
+        <location filename="../chatwindow.cpp" line="582"/>
         <source>Show the AMEX tickers from the industry &quot;Gold&quot;</source>
         <extracomment>Don&apos;t translate &quot;Gold&quot; - this is a fixed industry name</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="583"/>
+        <location filename="../chatwindow.cpp" line="584"/>
         <source>Show the NASDAQ tickers from the industry &quot;Gold&quot;</source>
         <extracomment>Don&apos;t translate &quot;Gold&quot; - this is a fixed industry name</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="585"/>
+        <location filename="../chatwindow.cpp" line="586"/>
         <source>Show the NYSE tickers from the industry &quot;Gold&quot;</source>
         <extracomment>Don&apos;t translate &quot;Gold&quot; - this is a fixed industry name</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="587"/>
+        <location filename="../chatwindow.cpp" line="588"/>
         <source>Show the NYSE and NASDAQ tickers from the industry &quot;Gold&quot; (you can mix exchanges)</source>
         <extracomment>Don&apos;t translate &quot;Gold&quot; - this is a fixed industry name</extracomment>
         <translation type="unfinished"></translation>
@@ -559,7 +561,7 @@
     <message>
         <location filename="../configureroom.ui" line="14"/>
         <source>Configure room</source>
-        <extracomment>Command</extracomment>
+        <extracomment>Window title. The user is able to configure the chat room in this window</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -643,13 +645,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../configureroom.cpp" line="442"/>
+        <location filename="../configureroom.cpp" line="443"/>
         <source>Adding JID</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../configureroom.cpp" line="442"/>
+        <location filename="../configureroom.cpp" line="445"/>
         <source>JID &quot;%1&quot; is already in this section</source>
+        <extracomment>Message displayed to the user</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -658,7 +661,7 @@
     <message>
         <location filename="../messagedialog.ui" line="14"/>
         <source>Message</source>
-        <extracomment>Noun</extracomment>
+        <extracomment>Noun. Means &quot;A message from the chat&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -708,7 +711,7 @@
     <message>
         <location filename="../sendinvitations.ui" line="14"/>
         <source>Send invitations</source>
-        <extracomment>Command</extracomment>
+        <extracomment>Window title. The user is asked to send invitation to other users in this window</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -729,23 +732,25 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sendinvitations.cpp" line="71"/>
+        <location filename="../sendinvitations.cpp" line="72"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sendinvitations.cpp" line="71"/>
+        <location filename="../sendinvitations.cpp" line="74"/>
         <source>Error sending invitation to %1</source>
+        <extracomment>Message displayed to the user</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sendinvitations.cpp" line="82"/>
+        <location filename="../sendinvitations.cpp" line="87"/>
         <source>Information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sendinvitations.cpp" line="82"/>
+        <location filename="../sendinvitations.cpp" line="89"/>
         <source>Please remember that the server can decline your invitations depending on its configuration</source>
+        <extracomment>Message displayed to the user</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>

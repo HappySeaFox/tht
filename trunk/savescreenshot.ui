@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string extracomment="Command. Means &quot;Save to &lt;file or clipboard&gt;&quot;">Save to</string>
+   <string extracomment="Window title. User is asked to save a screenshot to a file or clipboard">Save to</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">

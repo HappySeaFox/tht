@@ -439,7 +439,10 @@ void ConfigureRoom::slotAddJid()
     {
         if(i->parent() == item)
         {
-            QMessageBox::information(this, tr("Adding JID"), tr("JID \"%1\" is already in this section").arg(jid));
+            QMessageBox::information(this,
+                                     tr("Adding JID"),
+                                     //: Message displayed to the user
+                                     tr("JID \"%1\" is already in this section").arg(jid));
             return;
         }
     }

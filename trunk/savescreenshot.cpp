@@ -111,6 +111,7 @@ void SaveScreenshot::slotFile()
     }
     else
     {
+        //: Message displayed to the user
         QMessageBox::critical(this, tr("Error"), tr("Cannot save screenshot"));
         qDebug("Cannot save screenshot");
     }

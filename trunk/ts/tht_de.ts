@@ -160,38 +160,39 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="136"/>
+        <location filename="../dropboxuploader.cpp" line="137"/>
         <source>You need to authorize THT in your Dropbox profile. Click &apos;OK&apos; to open the link in a browser. Then open this dialog again</source>
+        <extracomment>Message displayed to the user</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="173"/>
+        <location filename="../dropboxuploader.cpp" line="174"/>
         <source>Cannot get the link to the file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="199"/>
+        <location filename="../dropboxuploader.cpp" line="200"/>
         <source>Requesting new token...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="219"/>
+        <location filename="../dropboxuploader.cpp" line="220"/>
         <source>Requesting new access token...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="233"/>
+        <location filename="../dropboxuploader.cpp" line="234"/>
         <source>Uploading...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="245"/>
-        <location filename="../dropboxuploader.cpp" line="258"/>
+        <location filename="../dropboxuploader.cpp" line="246"/>
+        <location filename="../dropboxuploader.cpp" line="259"/>
         <source>Cannot upload file (%1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="251"/>
+        <location filename="../dropboxuploader.cpp" line="252"/>
         <source>Requesting link...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -201,7 +202,7 @@
     <message>
         <location filename="../excellinkingdetails.ui" line="14"/>
         <source>Cell address</source>
-        <extracomment>Means &quot;address of cell in Excel sheet&quot;</extracomment>
+        <extracomment>Window title. Means &quot;address of cell in Excel sheet&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -321,37 +322,39 @@
     </message>
     <message>
         <location filename="../list.cpp" line="1285"/>
-        <location filename="../list.cpp" line="1360"/>
+        <location filename="../list.cpp" line="1361"/>
         <source>Choose a file</source>
         <extracomment>Appeal to the user</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../list.cpp" line="1287"/>
-        <location filename="../list.cpp" line="1362"/>
+        <location filename="../list.cpp" line="1363"/>
         <source>Text files (*.txt)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../list.cpp" line="1289"/>
-        <location filename="../list.cpp" line="1364"/>
+        <location filename="../list.cpp" line="1365"/>
         <source>All files (*.*)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1324"/>
-        <location filename="../list.cpp" line="1374"/>
+        <location filename="../list.cpp" line="1325"/>
+        <location filename="../list.cpp" line="1376"/>
         <source>Error</source>
+        <extracomment>Message displayed to the user</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1324"/>
+        <location filename="../list.cpp" line="1325"/>
         <source>Cannot open the following files: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1374"/>
+        <location filename="../list.cpp" line="1378"/>
         <source>Cannot save to file %1</source>
+        <extracomment>Message displayed to the user</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -360,6 +363,7 @@
     <message>
         <location filename="../options.ui" line="14"/>
         <source>Options</source>
+        <extracomment>Window title</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -481,6 +485,7 @@
     <message>
         <location filename="../plugindetails.ui" line="14"/>
         <source>Plugin details</source>
+        <extracomment>Window title</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -524,6 +529,7 @@
     <message>
         <location filename="../pluginmanager.ui" line="14"/>
         <source>Plugins</source>
+        <extracomment>Window title</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -591,7 +597,7 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../savescreenshot.ui" line="14"/>
         <source>Save to</source>
-        <extracomment>Command. Means &quot;Save to &lt;file or clipboard&gt;&quot;</extracomment>
+        <extracomment>Window title. User is asked to save a screenshot to a file or clipboard</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -626,14 +632,15 @@ right/middle mouse button to cancel.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="114"/>
-        <location filename="../savescreenshot.cpp" line="138"/>
+        <location filename="../savescreenshot.cpp" line="115"/>
+        <location filename="../savescreenshot.cpp" line="139"/>
         <source>Error</source>
+        <extracomment>Message displayed to the user</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="114"/>
-        <location filename="../savescreenshot.cpp" line="138"/>
+        <location filename="../savescreenshot.cpp" line="115"/>
+        <location filename="../savescreenshot.cpp" line="139"/>
         <source>Cannot save screenshot</source>
         <translation type="unfinished"></translation>
     </message>
@@ -643,7 +650,7 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../screenshotcommentinput.ui" line="14"/>
         <source>Enter text</source>
-        <extracomment>Command. Means &quot;Enter text here:&quot;</extracomment>
+        <extracomment>Appeal to the user. Means &quot;Please enter text here:&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -668,7 +675,7 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../screenshoteditor.ui" line="14"/>
         <source>Trade editor</source>
-        <extracomment>Noun. Means &quot;The editor of the trade&quot;</extracomment>
+        <extracomment>Noun. Means &quot;The editor of the trade on the stock market&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -834,35 +841,36 @@ right/middle mouse button to cancel.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1461"/>
+        <location filename="../tht.cpp" line="1462"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1461"/>
+        <location filename="../tht.cpp" line="1464"/>
         <source>Cannot take screenshot</source>
+        <extracomment>Message displayed to the user</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1508"/>
+        <location filename="../tht.cpp" line="1511"/>
         <source>New points</source>
         <extracomment>Means &quot;New link points&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2097"/>
+        <location filename="../tht.cpp" line="2100"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
-        <extracomment>April Fool&apos;s joke. Preferably copy the translation from &quot;The Little Golden Calf&quot; by I.Ilf, E.Petrov, Chapter 10 &quot;A Telegram from the Brothers Karamazov&quot; (http://en.wikipedia.org/wiki/The_Little_Golden_Calf). If you don&apos;t have the book or its online translation then translate as usual</extracomment>
+        <extracomment>Message displayed to the user in the April Fool&apos;s day. Preferably copy the translation from &quot;The Little Golden Calf&quot; by I.Ilf, E.Petrov, Chapter 10 &quot;A Telegram from the Brothers Karamazov&quot; (http://en.wikipedia.org/wiki/The_Little_Golden_Calf). If you don&apos;t have the book or its online translation then translate as usual</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2099"/>
+        <location filename="../tht.cpp" line="2102"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <extracomment>See http://en.wikipedia.org/wiki/The_Little_Golden_Calf</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2153"/>
+        <location filename="../tht.cpp" line="2156"/>
         <source>Customize...</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation type="unfinished"></translation>
@@ -899,7 +907,7 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../tickerinput.ui" line="14"/>
         <source>Enter a ticker</source>
-        <extracomment>Command. Means &quot;Enter ticker here:&quot;</extracomment>
+        <extracomment>Appeal to the user. Means &quot;Please enter a ticker here:&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -913,6 +921,7 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../tickerneighbors.ui" line="14"/>
         <source>Industries</source>
+        <extracomment>Noun in the plural</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
