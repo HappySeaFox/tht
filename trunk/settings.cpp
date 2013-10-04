@@ -338,7 +338,7 @@ void Settings::fillTranslations()
     //d->translations.insert("ko",    QString::fromUtf8("조선말"));
     d->translations.insert("ru",    QString::fromUtf8("Русский"));
     d->translations.insert("uk",    QString::fromUtf8("Українська"));
-    //d->translations.insert("zh_CN", QString::fromUtf8("简体中文"));
+    d->translations.insert("zh_CN", QString::fromUtf8("简体中文"));
     //d->translations.insert("zh_TW", QString::fromUtf8("繁體中文"));
     //d->translations.insert("tr", QString::fromUtf8("Türkçe"));
     //d->translations.insert("vi", QString::fromUtf8("Tiếng Việt"));

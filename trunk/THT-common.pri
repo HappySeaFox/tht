@@ -13,7 +13,7 @@ DEPENDPATH += .
 #QMAKE_LFLAGS += -flto
 
 # translation languages
-LANGUAGES=de en fr it pl ru uk
+LANGUAGES=de en fr it pl ru uk zh_CN
 
 CONFIG += warn_on
 QMAKE_CXXFLAGS_WARN_ON *= -Wextra -Wno-missing-field-initializers
