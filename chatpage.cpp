@@ -917,7 +917,12 @@ void ChatPage::startPrivateChat(const QString &nick)
 QPair<QString, QString> ChatPage::formatMessage(const QXmppMessage &msg)
 {
     // construct nick
-    QString nick = Qt::escape(jidToNick(msg.from()));
+    QString nick =
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+            jidToNick(msg.from()).toHtmlEscaped();
+#else
+            Qt::escape(jidToNick(msg.from()));
+#endif
 
     if(nick.isEmpty())
     {
@@ -939,7 +944,13 @@ QPair<QString, QString> ChatPage::formatMessage(const QXmppMessage &msg)
     // error message?
     if(msg.error().code())
     {
-        QString errorText = Qt::escape(msg.error().text());
+        QString errorText =
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+                msg.error().text().toHtmlEscaped();
+#else
+                Qt::escape(msg.error().text());
+#endif
+
         body = "<font color=red><b>"
                 + errorToString(msg.error())
                 + (errorText.isEmpty() ? QString() : (" (" + errorText + ')'))
@@ -956,7 +967,11 @@ QPair<QString, QString> ChatPage::formatMessage(const QXmppMessage &msg)
             return QPair<QString, QString>();
         }
 
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+        nick = m_room->jid().toHtmlEscaped();
+#else
         nick = Qt::escape(m_room->jid());
+#endif
     }
     else
     {

@@ -111,12 +111,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="972"/>
+        <location filename="../chatpage.cpp" line="987"/>
         <source>New subject:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="1096"/>
+        <location filename="../chatpage.cpp" line="1111"/>
         <source>mln</source>
         <extracomment>Means &quot;million&quot;</extracomment>
         <translation type="unfinished"></translation>
@@ -354,18 +354,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="1058"/>
+        <location filename="../chatpage.cpp" line="1073"/>
         <source>industry is not found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="1092"/>
+        <location filename="../chatpage.cpp" line="1107"/>
         <source>bln</source>
         <extracomment>Means &quot;billion&quot; (1000*million)</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="1116"/>
+        <location filename="../chatpage.cpp" line="1131"/>
         <source>ticker is not found</source>
         <extracomment>Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation type="unfinished"></translation>

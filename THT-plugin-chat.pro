@@ -16,8 +16,13 @@ NVER3=2
 LIBS += -ldnsapi -lws2_32
 
 # qxmpp files
-HEADERS += $$files(qxmpp\\*.h)
-SOURCES += $$files(qxmpp\\*.cpp)
+HEADERS += $$files(qxmpp\\QXmpp*.h)
+SOURCES += $$files(qxmpp\\QXmpp*.cpp)
+
+lessThan(QT_MAJOR_VERSION, 5) {
+    HEADERS += qxmpp/qdnslookup.h qxmpp/qdnslookup_p.h
+    SOURCES += qxmpp/qdnslookup.cpp qxmpp/qdnslookup_win.cpp
+}
 
 # chat files
 SOURCES += chatwindow.cpp \

@@ -119,7 +119,11 @@ RESOURCES += tht.qrc
 
 LIBS += -lpsapi -lgdi32 -L$${OUT_PWD}/$(DESTDIR_TARGET)/.. -lTHT-lib
 
-CONFIG += qaxcontainer
+greaterThan(QT_MAJOR_VERSION, 4) {
+    QT += axcontainer
+} else {
+    CONFIG += qaxcontainer
+}
 
 OTHER_FILES += \
     tht.rc \
