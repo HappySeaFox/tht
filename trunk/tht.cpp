@@ -1053,7 +1053,7 @@ void THT::loadTicker(const QString &ticker, MasterLoadingPolicy masterPolicy)
     m_checkForMaster = masterPolicy;
 
     if(!m_wasActive)
-        m_wasActive = winId();
+        m_wasActive = reinterpret_cast<HWND>(winId());
 
     nextLoadableWindowIndex();
 
@@ -1711,7 +1711,7 @@ void THT::masterHasBeenChanged(HWND hwnd, const QString &ticker)
     // attach to master and set focus to us
     HWND foregroundWindow = GetForegroundWindow();
 
-    if(foregroundWindow != winId())
+    if(foregroundWindow != reinterpret_cast<HWND>(winId()))
     {
         if(!m_wasActive)
             m_wasActive = foregroundWindow;
@@ -1726,7 +1726,7 @@ void THT::masterHasBeenChanged(HWND hwnd, const QString &ticker)
         }
 
         activate();
-        SetForegroundWindow(winId());
+        SetForegroundWindow(reinterpret_cast<HWND>(winId()));
 
         AttachThreadInput(threadId, currentThreadId, FALSE);
     }
@@ -1741,9 +1741,9 @@ void THT::masterHasBeenChanged(HWND hwnd, const QString &ticker)
 
 void THT::activateRightWindowAtEnd()
 {
-    qDebug("Activating %p (this %p)", m_wasActive, winId());
+    qDebug("Activating %p (this %p)", m_wasActive, reinterpret_cast<HWND>(winId()));
 
-    if(m_wasActive && m_wasActive != winId())
+    if(m_wasActive && m_wasActive != reinterpret_cast<HWND>(winId()))
         bringToFront(m_wasActive);
     else
         activate();
