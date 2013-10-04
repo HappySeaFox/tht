@@ -20,6 +20,9 @@
 
 #include <QStyledItemDelegate>
 
+/*
+ *  Styled delegate which will prevent the editor from opening
+ */
 class NoEditorDelegate : public QStyledItemDelegate
 {
 public:

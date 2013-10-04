@@ -21,7 +21,7 @@
 #include <QRegExpValidator>
 
 /*
- *  Validator to convert the specified string to the upper case
+ *  Validator to convert a ticker name to the upper case
  */
 class UpperCaseValidator : public QRegExpValidator
 {

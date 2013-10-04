@@ -20,6 +20,9 @@
 
 #include <QLabel>
 
+/*
+ *  QLabel supporting clicked() signal
+ */
 class ClickableLabel : public QLabel
 {
     Q_OBJECT

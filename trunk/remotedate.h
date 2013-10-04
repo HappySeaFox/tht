@@ -26,7 +26,8 @@
 class RemoteDatePrivate;
 
 /*
- *  Class to get date and time in a foreign time zone
+ *  Class to get a date and time in a foreign time zone. Zone names
+ *  can be taken from HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Time Zones\
  */
 class RemoteDate
 {
