@@ -52,7 +52,7 @@ bool FomcPlugin::init()
         return false;
     }
 
-    //: FOMC - Federal Open Market Committee. It's ok not to translate "FOMC" (e.g. you can just copy-paste "FOMC" to your translation)
+    //: Message displayed to the user. FOMC - Federal Open Market Committee. It's ok not to translate "FOMC" (e.g. you can just copy-paste "FOMC" to your translation)
     m_label->setToolTip(tr("News from FOMC is today (click to open)"));
     //: FOMC - Federal Open Market Committee. It's ok not to translate "FOMC" (e.g. you can just copy-paste "FOMC" to your translation)
     m_label->setText(tr("FOMC"));
@@ -140,4 +140,4 @@ void FomcPlugin::slotClicked()
     QDesktopServices::openUrl(QUrl("http://www.bloomberg.com/markets/economic-calendar"));
 }
 
-PLUGIN_CONSTRUCTOR(FomcPlugin)
+THT_PLUGIN_CONSTRUCTOR(FomcPlugin)

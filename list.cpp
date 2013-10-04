@@ -1321,6 +1321,7 @@ void List::slotAddFromFile()
     addTickers(tickers, Fix);
 
     if(error)
+        //: Message displayed to the user
         QMessageBox::warning(this, tr("Error"), tr("Cannot open the following files: %1").arg(errorFiles.join(",")));
 }
 
@@ -1371,7 +1372,10 @@ void List::slotExportToFile()
     if(!file.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text))
     {
         qWarning("Cannot open file for writing");
-        QMessageBox::warning(this, tr("Error"), tr("Cannot save to file %1").arg(fileName));
+        QMessageBox::warning(this,
+                             tr("Error"),
+                             //: Message displayed to the user
+                             tr("Cannot save to file %1").arg(fileName));
         return;
     }
 

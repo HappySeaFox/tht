@@ -97,4 +97,4 @@ void BriefingSplitsPlugin::slotAdd()
     addFromBriefingSplits(list, u);
 }
 
-PLUGIN_CONSTRUCTOR(BriefingSplitsPlugin)
+THT_PLUGIN_CONSTRUCTOR(BriefingSplitsPlugin)

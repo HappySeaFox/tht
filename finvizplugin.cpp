@@ -189,4 +189,4 @@ void FinvizPlugin::slotManageUrls()
     }
 }
 
-PLUGIN_CONSTRUCTOR(FinvizPlugin)
+THT_PLUGIN_CONSTRUCTOR(FinvizPlugin)

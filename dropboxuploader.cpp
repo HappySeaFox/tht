@@ -133,6 +133,7 @@ void DropBoxUploader::slotRequestTokenFinished(const QString &token, const QStri
 
     if(QMessageBox::information(this,
                                 tr("Dropbox"),
+                                //: Message displayed to the user
                                 tr("You need to authorize THT in your Dropbox profile. Click 'OK' to open the link in a browser. Then open this dialog again"),
                                 QMessageBox::Ok | QMessageBox::Cancel) == QMessageBox::Ok)
     {

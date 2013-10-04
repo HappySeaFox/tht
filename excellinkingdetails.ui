@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string extracomment="Means &quot;address of cell in Excel sheet&quot;">Cell address</string>
+   <string extracomment="Window title. Means &quot;address of cell in Excel sheet&quot;">Cell address</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">

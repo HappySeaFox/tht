@@ -1458,7 +1458,10 @@ void THT::slotTakeScreenshotReal()
 
     if(px.isNull())
     {
-        QMessageBox::critical(this, tr("Error"), tr("Cannot take screenshot"));
+        QMessageBox::critical(this,
+                              tr("Error"),
+                              //: Message displayed to the user
+                              tr("Cannot take screenshot"));
         m_takeScreen->setEnabled();
         return;
     }
@@ -2093,7 +2096,7 @@ void THT::slotFoolsDay()
         QMessageBox::information(this,
                                  QString(),
                                  QString("<p>%1</p><p align=right><i>%2</i></p>")
-                                        //: April Fool's joke. Preferably copy the translation from "The Little Golden Calf" by I.Ilf, E.Petrov, Chapter 10 "A Telegram from the Brothers Karamazov" (http://en.wikipedia.org/wiki/The_Little_Golden_Calf). If you don't have the book or its online translation then translate as usual
+                                        //: Message displayed to the user in the April Fool's day. Preferably copy the translation from "The Little Golden Calf" by I.Ilf, E.Petrov, Chapter 10 "A Telegram from the Brothers Karamazov" (http://en.wikipedia.org/wiki/The_Little_Golden_Calf). If you don't have the book or its online translation then translate as usual
                                         .arg(tr("All large contemporary fortunes were acquired<br>in the most dishonorable way."))
                                         //: See http://en.wikipedia.org/wiki/The_Little_Golden_Calf
                                         .arg(tr("\"The Little Golden Calf\" I.Ilf, E.Petrov")));
