@@ -756,7 +756,7 @@ prawy/środkowy przycisk myszy aby anulować.</translation>
     <message>
         <location filename="../tht.ui" line="172"/>
         <source>No links</source>
-        <extracomment>Means &quot;There are no established links&quot;</extracomment>
+        <extracomment>Means &quot;There are no established links to other windows&quot;</extracomment>
         <translation>Brak połączeń</translation>
     </message>
     <message>

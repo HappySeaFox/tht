@@ -738,7 +738,7 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../tht.ui" line="172"/>
         <source>No links</source>
-        <extracomment>Means &quot;There are no established links&quot;</extracomment>
+        <extracomment>Means &quot;There are no established links to other windows&quot;</extracomment>
         <translation>Нет ссылок</translation>
     </message>
     <message>

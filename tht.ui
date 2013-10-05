@@ -169,7 +169,7 @@
           </font>
          </property>
          <property name="text">
-          <string extracomment="Means &quot;There are no established links&quot;">No links</string>
+          <string extracomment="Means &quot;There are no established links to other windows&quot;">No links</string>
          </property>
         </widget>
        </item>
