@@ -48,17 +48,19 @@
         <translation>Викачувана база</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="115"/>
+        <location filename="../about.cpp" line="116"/>
         <source>THT is up to date</source>
+        <extracomment>THT will check for updates and show this message when there are no new version available</extracomment>
         <translation>Маєте найновішу версію THT</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="127"/>
+        <location filename="../about.cpp" line="129"/>
         <source>Cannot check for updates (%1)</source>
+        <extracomment>%1 will be replaced with the error code by the application. It will look like &quot;Cannot check for updates (Server is unavailable)&quot;</extracomment>
         <translation>Неможливо перевірити оновлення (%1)</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="142"/>
+        <location filename="../about.cpp" line="144"/>
         <source>Checking for updates...</source>
         <translation>Перевірка оновлень...</translation>
     </message>
@@ -162,34 +164,36 @@
         <translation>Вам необхідно авторизувати THT у вашому профілі Dropbox. Натисніть &apos;OK&apos; щоб відкрити посилання в браузері. Після цього відкрийте даний діалог ще раз</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="174"/>
+        <location filename="../dropboxuploader.cpp" line="175"/>
         <source>Cannot get the link to the file</source>
+        <extracomment>Means &quot;Cannot get the link to the file from the remote server&quot;</extracomment>
         <translation>Неможливо отримати посилання на файл</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="200"/>
+        <location filename="../dropboxuploader.cpp" line="201"/>
         <source>Requesting new token...</source>
         <translation>Запит нового маркера...</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="220"/>
+        <location filename="../dropboxuploader.cpp" line="221"/>
         <source>Requesting new access token...</source>
         <translation>Запит нового маркера на доступ...</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="234"/>
+        <location filename="../dropboxuploader.cpp" line="235"/>
         <source>Uploading...</source>
         <translation>Завантаження...</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="252"/>
+        <location filename="../dropboxuploader.cpp" line="254"/>
         <source>Requesting link...</source>
         <translation>Запит посилання...</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="246"/>
-        <location filename="../dropboxuploader.cpp" line="259"/>
+        <location filename="../dropboxuploader.cpp" line="248"/>
+        <location filename="../dropboxuploader.cpp" line="261"/>
         <source>Cannot upload file (%1)</source>
+        <extracomment>%1 will be replaced with the error code by the application. It will look like &quot;Cannot upload file (Server is not responding)</extracomment>
         <translation>Неможливо завантажити файл (%1)</translation>
     </message>
     <message>
@@ -232,7 +236,7 @@
         <location filename="../linkpointmanager.cpp" line="34"/>
         <location filename="../linkpointmanager.cpp" line="41"/>
         <source>Link points</source>
-        <extracomment>Noun. Means &quot;Points of linkage&quot;</extracomment>
+        <extracomment>Noun in the plural. Means &quot;Points of linkage&quot;, or &quot;Points of connection&quot;</extracomment>
         <translation>Точки лінковки</translation>
     </message>
     <message>
@@ -324,39 +328,39 @@
     </message>
     <message>
         <location filename="../list.cpp" line="1285"/>
-        <location filename="../list.cpp" line="1361"/>
+        <location filename="../list.cpp" line="1363"/>
         <source>Choose a file</source>
-        <extracomment>Appeal to the user</extracomment>
+        <extracomment>Appeal to the user. Means &quot;Please choose a file:&quot;</extracomment>
         <translation>Виберіть файл</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="1287"/>
-        <location filename="../list.cpp" line="1363"/>
+        <location filename="../list.cpp" line="1365"/>
         <source>Text files (*.txt)</source>
         <translation>Текстові файли (*.txt)</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="1289"/>
-        <location filename="../list.cpp" line="1365"/>
+        <location filename="../list.cpp" line="1367"/>
         <source>All files (*.*)</source>
         <translation>Всі файли (*.*)</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="1325"/>
-        <location filename="../list.cpp" line="1376"/>
+        <location filename="../list.cpp" line="1378"/>
         <source>Error</source>
-        <extracomment>Message displayed to the user</extracomment>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1325"/>
+        <location filename="../list.cpp" line="1327"/>
         <source>Cannot open the following files: %1</source>
+        <extracomment>Message displayed to the user. %1 will be replaced with the list of files by the application</extracomment>
         <translation>Неможливо відкрити наступні файли: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1378"/>
+        <location filename="../list.cpp" line="1380"/>
         <source>Cannot save to file %1</source>
-        <extracomment>Message displayed to the user</extracomment>
+        <extracomment>Message displayed to the user. %1 will be replaced with the file name by the application</extracomment>
         <translation>Неможливо зберегти в файл %1</translation>
     </message>
 </context>
@@ -432,7 +436,7 @@
     <message>
         <location filename="../options.ui" line="169"/>
         <source>Automatically show ticker comments</source>
-        <extracomment>Infinitive</extracomment>
+        <extracomment>Infinitive. Means &quot;Automatically show comments to the selected ticker&quot;</extracomment>
         <translation>Автоматично показувати коментарі до тікера</translation>
     </message>
     <message>
@@ -444,6 +448,7 @@
     <message>
         <location filename="../options.ui" line="155"/>
         <source>Fast ticker entry</source>
+        <extracomment>Noun. Means &quot;The small window where the user can quickly enter a ticker name&quot;</extracomment>
         <translation>Швидке введення тікера</translation>
     </message>
     <message>
@@ -582,16 +587,18 @@
 <context>
     <name>RegionSelect</name>
     <message>
-        <location filename="../regionselect.cpp" line="118"/>
+        <location filename="../regionselect.cpp" line="119"/>
         <source>Using the mouse, select the rectangle, or click
 any button or right/middle mouse button to cancel.</source>
+        <extracomment>Appeal to the user</extracomment>
         <translation>Виділіть прямокутник за допомогою миші, або натисніть
 будь-яку кнопку або праву/середню кнопку миші для відміни.</translation>
     </message>
     <message>
-        <location filename="../regionselect.cpp" line="119"/>
+        <location filename="../regionselect.cpp" line="121"/>
         <source>Using the mouse, select the rectangle, or click
 right/middle mouse button to cancel.</source>
+        <extracomment>Appeal to the user</extracomment>
         <translation>Виділіть прямокутник за допомогою миші, або натисніть
 праву/середню кнопку миші для відміни.</translation>
     </message>
@@ -750,7 +757,7 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../tht.ui" line="136"/>
         <source>Link points</source>
-        <extracomment>Noun. Means &quot;Points of linkage&quot;</extracomment>
+        <extracomment>Noun in the plural. Means &quot;Points of linkage&quot;, or &quot;Points of connection&quot;</extracomment>
         <translation>Точки лінковки</translation>
     </message>
     <message>
@@ -779,7 +786,7 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../tht.cpp" line="215"/>
         <source>Clear ticker lists</source>
-        <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
+        <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Clear the lists with tickers&quot;</extracomment>
         <translation>Очистити списки тікерів</translation>
     </message>
     <message>
@@ -825,7 +832,7 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../tht.cpp" line="279"/>
         <source>Restore</source>
-        <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Restore from the system tray&quot;</extracomment>
+        <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Restore the application window from the system tray&quot;</extracomment>
         <translation>Відновити</translation>
     </message>
     <message>

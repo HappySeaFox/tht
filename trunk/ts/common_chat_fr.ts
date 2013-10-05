@@ -53,6 +53,7 @@
     <message>
         <location filename="../chatpage.ui" line="66"/>
         <source>Nick:</source>
+        <extracomment>Means &quot;Nick name:&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -339,7 +340,7 @@
     <message>
         <location filename="../chatpage.cpp" line="851"/>
         <source>Messages: %1</source>
-        <extracomment>Means &quot;Number of messages:&quot;</extracomment>
+        <extracomment>Means &quot;Number of messages:&quot;. It will look like &quot;Number of messages: 2&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -413,7 +414,7 @@
     <message>
         <location filename="../chatwindow.cpp" line="55"/>
         <source>Based on</source>
-        <extracomment>Means &quot;Based on &lt;some technology&gt;&quot;. The technology will be added in runtime</extracomment>
+        <extracomment>Means &quot;Based on &lt;some technology&gt;&quot;. The technology will be added in runtime by the application</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -739,7 +740,7 @@
     <message>
         <location filename="../sendinvitations.cpp" line="74"/>
         <source>Error sending invitation to %1</source>
-        <extracomment>Message displayed to the user</extracomment>
+        <extracomment>Message displayed to the user. %1 will be replaced with the user name by the application. It will look like &quot;Error sending invitation to mic@jabber.ru&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>

@@ -171,6 +171,7 @@ void DropBoxUploader::slotSharedLinkReceived(const QString &sharedLinkJson)
     QString parsedLink = QUrl::fromPercentEncoding(parser.getString("url").toUtf8());
 
     if(parsedLink.isEmpty())
+        //: Means "Cannot get the link to the file from the remote server"
         showError(tr("Cannot get the link to the file"));
     else
     {
@@ -243,6 +244,7 @@ void DropBoxUploader::slotDelayedWork()
     {
         if(file.write(m_binary) != m_binary.size())
         {
+            //: %1 will be replaced with the error code by the application. It will look like "Cannot upload file (Server is not responding)
             showError(tr("Cannot upload file (%1)").arg(file.errorString()));
             return;
         }

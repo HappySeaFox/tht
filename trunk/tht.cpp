@@ -211,7 +211,7 @@ THT::THT() :
     m_menu->addAction(tr("Clear links"), this, SLOT(slotClearLinks()));
     m_menu->addSeparator();
 
-    //: This is the label on a menu item that user clicks to issue the command
+    //: This is the label on a menu item that user clicks to issue the command. Means "Clear the lists with tickers"
     m_menu->addAction(tr("Clear ticker lists") + '\t' + clear_shortcut->key().toString(), this, SLOT(slotClearLists()));
     //: This is the label on a menu item that user clicks to issue the command
     m_menu->addAction(tr("Load ticker") + "..." + "\tL", this, SLOT(slotLoadTicker()));
@@ -275,7 +275,7 @@ THT::THT() :
     m_tray = new QSystemTrayIcon(icon_chart, this);
     QMenu *trayMenu = new QMenu(this);
 
-    //: This is the label on a menu item that user clicks to issue the command. Means "Restore from the system tray"
+    //: This is the label on a menu item that user clicks to issue the command. Means "Restore the application window from the system tray"
     trayMenu->addAction(tr("Restore"), this, SLOT(activate()));
     trayMenu->addAction(icon_screenshot, tr("Take screenshot..."), this, SLOT(slotTakeScreenshot()));
     trayMenu->addSeparator();

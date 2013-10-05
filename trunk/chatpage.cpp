@@ -847,7 +847,7 @@ void ChatPage::showUnreadMessagesCount()
     }
     else
     {
-        //: Means "Number of messages:"
+        //: Means "Number of messages:". It will look like "Number of messages: 2"
         ui->labelUnreadMessages->setText(tr("Messages: %1").arg(m_unreadMessages.count()));
         blinkUnreadMessages(true);
     }

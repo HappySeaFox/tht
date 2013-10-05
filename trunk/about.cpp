@@ -112,6 +112,7 @@ void About::slotNewVersion(const QString &newVersion)
                 "<body>"
                 "<img src=\":/images/ok.png\"></img>"
                 "</body></html>";
+        //: THT will check for updates and show this message when there are no new version available
         tooltip = tr("THT is up to date");
     }
 
@@ -124,6 +125,7 @@ void About::slotError(const QString &err)
     m_timer->stop();
 
     ui->labelUpdate->setPixmap(QPixmap(":/images/error.png"));
+    //: %1 will be replaced with the error code by the application. It will look like "Cannot check for updates (Server is unavailable)"
     ui->labelUpdate->setToolTip(tr("Cannot check for updates (%1)").arg(err));
 }
 

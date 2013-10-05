@@ -70,7 +70,7 @@ void SendInvitations::slotSend()
         {
             QMessageBox::critical(this,
                                   tr("Error"),
-                                  //: Message displayed to the user
+                                  //: Message displayed to the user. %1 will be replaced with the user name by the application. It will look like "Error sending invitation to mic@jabber.ru"
                                   tr("Error sending invitation to %1").arg(jid));
             break;
         }
