@@ -60,8 +60,10 @@ About::About(QWidget *parent) :
                                    "<tr><td align=right><b>%3: </b></td><td>%4</td></tr>"
                                    "</table>"
                                    )
+                               //: Database on the hard drive
                                .arg(tr("Persistent database"))
                                .arg(Settings::instance()->persistentDatabaseTimestamp().toString(Settings::instance()->databaseTimestampFormat()))
+                               //: Database which is downloaded from the website
                                .arg(tr("Downloadable database"))
                                .arg(Settings::instance()->mutableDatabaseTimestamp().toString(Settings::instance()->databaseTimestampFormat()))
                                );

@@ -4,7 +4,7 @@
 <context>
     <name>About</name>
     <message>
-        <location filename="../about.cpp" line="105"/>
+        <location filename="../about.cpp" line="107"/>
         <source>Update available</source>
         <translation>Доступно оновлення</translation>
     </message>
@@ -36,27 +36,29 @@
         <translation>Дмитро Баришев</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="63"/>
+        <location filename="../about.cpp" line="64"/>
         <source>Persistent database</source>
+        <extracomment>Database on the hard drive</extracomment>
         <translation>Постійна база</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="65"/>
+        <location filename="../about.cpp" line="67"/>
         <source>Downloadable database</source>
+        <extracomment>Database which is downloaded from the website</extracomment>
         <translation>Викачувана база</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="113"/>
+        <location filename="../about.cpp" line="115"/>
         <source>THT is up to date</source>
         <translation>Маєте найновішу версію THT</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="125"/>
+        <location filename="../about.cpp" line="127"/>
         <source>Cannot check for updates (%1)</source>
         <translation>Неможливо перевірити оновлення (%1)</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="140"/>
+        <location filename="../about.cpp" line="142"/>
         <source>Checking for updates...</source>
         <translation>Перевірка оновлень...</translation>
     </message>
