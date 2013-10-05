@@ -38,13 +38,13 @@
     <message>
         <location filename="../about.cpp" line="64"/>
         <source>Persistent database</source>
-        <extracomment>Database on the hard drive</extracomment>
+        <extracomment>Means &quot;Fixed database on the hard drive&quot;</extracomment>
         <translation>Постійна база</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="67"/>
         <source>Downloadable database</source>
-        <extracomment>Database which is downloaded from the website</extracomment>
+        <extracomment>Means &quot;Database which is downloaded from the website&quot;</extracomment>
         <translation>Викачувана база</translation>
     </message>
     <message>
