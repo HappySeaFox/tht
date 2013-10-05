@@ -152,7 +152,7 @@
        <item row="2" column="0">
         <widget class="QCheckBox" name="checkMini">
          <property name="text">
-          <string>Fast ticker entry</string>
+          <string extracomment="Noun. Means &quot;The small window where the user can quickly enter a ticker name&quot;">Fast ticker entry</string>
          </property>
         </widget>
        </item>
@@ -166,7 +166,7 @@
        <item row="5" column="0">
         <widget class="QCheckBox" name="checkComments">
          <property name="text">
-          <string extracomment="Infinitive">Automatically show ticker comments</string>
+          <string extracomment="Infinitive. Means &quot;Automatically show comments to the selected ticker&quot;">Automatically show ticker comments</string>
          </property>
         </widget>
        </item>

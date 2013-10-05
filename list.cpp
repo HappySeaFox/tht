@@ -1281,7 +1281,7 @@ void List::slotAddFromFile()
     qDebug("Adding new tickers from file");
 
     QStringList fileNames = QFileDialog::getOpenFileNames(this,
-                                                          //: Appeal to the user
+                                                          //: Appeal to the user. Means "Please choose a file:"
                                                           tr("Choose a file"),
                                                           SETTINGS_GET_STRING(SETTING_LAST_TICKER_DIRECTORY),
                                                           tr("Text files (*.txt)")
@@ -1321,8 +1321,10 @@ void List::slotAddFromFile()
     addTickers(tickers, Fix);
 
     if(error)
-        //: Message displayed to the user
-        QMessageBox::warning(this, tr("Error"), tr("Cannot open the following files: %1").arg(errorFiles.join(",")));
+        QMessageBox::warning(this,
+                             tr("Error"),
+                             //: Message displayed to the user. %1 will be replaced with the list of files by the application
+                             tr("Cannot open the following files: %1").arg(errorFiles.join(",")));
 }
 
 void List::clear()
@@ -1374,7 +1376,7 @@ void List::slotExportToFile()
         qWarning("Cannot open file for writing");
         QMessageBox::warning(this,
                              tr("Error"),
-                             //: Message displayed to the user
+                             //: Message displayed to the user. %1 will be replaced with the file name by the application
                              tr("Cannot save to file %1").arg(fileName));
         return;
     }

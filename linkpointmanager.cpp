@@ -30,7 +30,7 @@ LinkPointManager::LinkPointManager(const LinkPointSession &currentLinks, QWidget
     DataManagerBase(parent),
     m_currentLinks(currentLinks)
 {
-    //: Noun. Means "Points of linkage"
+    //: Noun in the plural. Means "Points of linkage", or "Points of connection"
     setWindowTitle(tr("Link points"));
 
     //: Means "Add current link points" (in the plural)
