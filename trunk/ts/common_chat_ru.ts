@@ -257,7 +257,7 @@
     <message>
         <location filename="../chatpage.cpp" line="830"/>
         <source>Resource constraint</source>
-        <translation>Исчерпание ресурсов</translation>
+        <translation>Нехватка ресурсов</translation>
     </message>
     <message>
         <location filename="../chatpage.cpp" line="831"/>
