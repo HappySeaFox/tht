@@ -16,6 +16,7 @@
  */
 
 #include <QNetworkCookieJar>
+#include <QNetworkRequest>
 #include <QTimer>
 #include <QUrl>
 
@@ -110,5 +111,5 @@ void DataDownloader::slotFinished()
 
 void DataDownloader::slotDelayedGet()
 {
-    d->net->get(d->url);
+    d->net->get(QNetworkRequest(d->url));
 }

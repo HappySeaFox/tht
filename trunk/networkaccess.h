@@ -18,6 +18,7 @@
 #ifndef NETWORKACCESS_H
 #define NETWORKACCESS_H
 
+#include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QByteArray>
 #include <QSslError>
@@ -25,12 +26,13 @@
 #include <QString>
 #include <QList>
 
+class QHttpMultiPart;
 class QUrl;
 
 class NetworkAccessPrivate;
 
 /*
- *  Class to download data and report the status
+ *  Class to download/upload data and report the status
  */
 class NetworkAccess : public QObject
 {
@@ -41,9 +43,26 @@ public:
     virtual ~NetworkAccess();
 
     /*
-     *  Start downloading the specified URL
+     *  HEAD request
      */
-    void get(const QUrl &url);
+    void head(const QNetworkRequest &request);
+
+    /*
+     *  Start downloading the specified URL in request
+     */
+    void get(const QNetworkRequest &request);
+
+    /*
+     *  PUT request
+     */
+    void put(const QNetworkRequest &request, const QByteArray &data);
+    void put(const QNetworkRequest &request, QHttpMultiPart *multiPart);
+
+    /*
+     *  POST request
+     */
+    void post(const QNetworkRequest &request, const QByteArray &data);
+    void post(const QNetworkRequest &request, QHttpMultiPart *multiPart);
 
     /*
      *  Abort downloading. Doesn't emit any signal
@@ -72,11 +91,27 @@ public:
      */
     void setCookieJar(QNetworkCookieJar *cookieJar);
 
+private:
+    void startRequest(QNetworkAccessManager::Operation operation,
+                      const QNetworkRequest &request,
+                      const QByteArray &data = QByteArray(), // for POST and PUT operations
+                      QHttpMultiPart *multiPart = 0);
+
 signals:
     /*
      *  The network operation is done. Call error() to check for errors
      */
     void finished();
+
+    /*
+     *  Same as QNetworkReply::downloadProgress()
+     */
+    void downloadProgress(qint64 bytesReceived, qint64 bytesTotal);
+
+    /*
+     *  Same as QNetworkReply::uploadProgress()
+     */
+    void uploadProgress(qint64 bytesReceived, qint64 bytesTotal);
 
 protected slots:
     /*

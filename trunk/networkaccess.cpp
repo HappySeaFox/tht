@@ -15,7 +15,6 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <QNetworkAccessManager>
 #include <QNetworkRequest>
 #include <QPointer>
 #include <QUrl>
@@ -30,12 +29,18 @@ public:
         error = QNetworkReply::NoError;
         manager = 0;
         reply = 0;
+        requestOperation = QNetworkAccessManager::CustomOperation;
+        requestMultiPart = 0;
     }
 
     QNetworkReply::NetworkError error;
     QNetworkAccessManager *manager;
     QPointer<QNetworkReply> reply;
     QByteArray data;
+    QNetworkAccessManager::Operation requestOperation;
+    QNetworkRequest requestItself;
+    QByteArray requestData;
+    QHttpMultiPart *requestMultiPart;
 };
 
 /*******************************************/
@@ -55,26 +60,34 @@ NetworkAccess::~NetworkAccess()
     delete d;
 }
 
-void NetworkAccess::get(const QUrl &url)
+void NetworkAccess::head(const QNetworkRequest &request)
 {
-    abort();
+    startRequest(QNetworkAccessManager::HeadOperation, request);
+}
 
-    d->error = QNetworkReply::NoError;
-    d->data.clear();
+void NetworkAccess::get(const QNetworkRequest &request)
+{
+    startRequest(QNetworkAccessManager::GetOperation, request);
+}
 
-    qDebug("Starting a new network request for \"%s\"", qPrintable(url.toString(QUrl::RemovePassword)));
+void NetworkAccess::put(const QNetworkRequest &request, const QByteArray &data)
+{
+    startRequest(QNetworkAccessManager::PutOperation, request, data);
+}
 
-    QNetworkRequest request(url);
+void NetworkAccess::put(const QNetworkRequest &request, QHttpMultiPart *multiPart)
+{
+    startRequest(QNetworkAccessManager::PutOperation, request, QByteArray(), multiPart);
+}
 
-    request.setRawHeader("Dnt", "1");
-    request.setRawHeader("User-Agent", "Mozilla/5.0 (Windows NT rv:20.0) Gecko/20100101 Firefox/20.0");
+void NetworkAccess::post(const QNetworkRequest &request, const QByteArray &data)
+{
+    startRequest(QNetworkAccessManager::PostOperation, request, data);
+}
 
-    d->reply = d->manager->get(request);
-
-    connect(d->reply, SIGNAL(error(QNetworkReply::NetworkError)), this, SLOT(slotNetworkError(QNetworkReply::NetworkError)));
-    connect(d->reply, SIGNAL(sslErrors(QList<QSslError>)), this, SLOT(slotSslErrors(QList<QSslError>)));
-    connect(d->reply, SIGNAL(finished()), this, SLOT(slotNetworkDone()));
-    connect(d->reply, SIGNAL(readyRead()), this, SLOT(slotNetworkData()));
+void NetworkAccess::post(const QNetworkRequest &request, QHttpMultiPart *multiPart)
+{
+    startRequest(QNetworkAccessManager::PostOperation, request, QByteArray(), multiPart);
 }
 
 void NetworkAccess::abort()
@@ -83,7 +96,8 @@ void NetworkAccess::abort()
     {
         d->reply->blockSignals(true);
         d->reply->abort();
-        delete d->reply;
+        d->reply->deleteLater();
+        d->reply = 0;
     }
 }
 
@@ -105,6 +119,75 @@ QNetworkReply::NetworkError NetworkAccess::error() const
 void NetworkAccess::setCookieJar(QNetworkCookieJar *cookieJar)
 {
     d->manager->setCookieJar(cookieJar);
+}
+
+void NetworkAccess::startRequest(QNetworkAccessManager::Operation operation,
+                                 const QNetworkRequest &request,
+                                 const QByteArray &data,
+                                 QHttpMultiPart *multiPart)
+{
+    abort();
+
+    d->error = QNetworkReply::NoError;
+    d->data.clear();
+
+    qDebug("Starting a new network request for \"%s\"", qPrintable(request.url().toString(QUrl::RemovePassword)));
+
+    QNetworkRequest rq(request);
+
+    rq.setRawHeader("Dnt", "1");
+    rq.setRawHeader("User-Agent", "Mozilla/5.0 (Windows NT rv:20.0) Gecko/20100101 Firefox/20.0");
+
+    d->reply = 0;
+
+    switch(operation)
+    {
+        case QNetworkAccessManager::HeadOperation:
+             d->reply = d->manager->head(rq);
+        break;
+
+        case QNetworkAccessManager::GetOperation:
+             d->reply = d->manager->get(rq);
+        break;
+
+        case QNetworkAccessManager::PutOperation:
+        {
+            if(multiPart)
+                d->reply = d->manager->put(rq, multiPart);
+            else
+                d->reply = d->manager->put(rq, data);
+        }
+        break;
+
+        case QNetworkAccessManager::PostOperation:
+        {
+            if(multiPart)
+                d->reply = d->manager->post(rq, multiPart);
+            else
+                d->reply = d->manager->post(rq, data);
+        }
+        break;
+
+        default:
+        break;
+    }
+
+    if(!d->reply)
+        return;
+
+    // cache data
+    d->requestOperation = operation;
+    d->requestItself = rq;
+    d->requestData = data;
+    d->requestMultiPart = multiPart;
+
+    connect(d->reply, SIGNAL(downloadProgress(qint64,qint64)), this, SIGNAL(downloadProgress(qint64,qint64)));
+    connect(d->reply, SIGNAL(uploadProgress(qint64,qint64)), this, SIGNAL(uploadProgress(qint64,qint64)));
+
+    connect(d->reply, SIGNAL(error(QNetworkReply::NetworkError)), this, SLOT(slotNetworkError(QNetworkReply::NetworkError)));
+    connect(d->reply, SIGNAL(sslErrors(QList<QSslError>)), this, SLOT(slotSslErrors(QList<QSslError>)));
+    connect(d->reply, SIGNAL(finished()), this, SLOT(slotNetworkDone()));
+    connect(d->reply, SIGNAL(readyRead()), this, SLOT(slotNetworkData()));
 }
 
 void NetworkAccess::slotNetworkError(QNetworkReply::NetworkError err)
@@ -163,6 +246,11 @@ void NetworkAccess::slotNetworkDone()
     else
     {
         qDebug("Redirecting");
-        get(redirect);
+
+        QNetworkRequest rq = d->requestItself;
+
+        rq.setUrl(redirect.isRelative() ? rq.url().resolved(redirect) : redirect);
+
+        startRequest(d->requestOperation, rq, d->requestData, d->requestMultiPart);
     }
 }

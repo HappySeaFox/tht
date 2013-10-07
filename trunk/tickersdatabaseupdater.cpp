@@ -15,6 +15,7 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <QNetworkRequest>
 #include <QByteArray>
 #include <QTimer>
 #include <QFile>
@@ -42,7 +43,7 @@ TickersDatabaseUpdater::TickersDatabaseUpdater(QObject *parent) :
 
 void TickersDatabaseUpdater::startRequest()
 {
-    m_net->get(QUrl(m_baseurl + (m_downloadingData ? "tickers.sqlite" : "tickers.sqlite.timestamp") + "?format=raw"));
+    m_net->get(QNetworkRequest(QUrl(m_baseurl + (m_downloadingData ? "tickers.sqlite" : "tickers.sqlite.timestamp") + "?format=raw")));
 }
 
 bool TickersDatabaseUpdater::writeData(const QString &fileName, const QByteArray &data)

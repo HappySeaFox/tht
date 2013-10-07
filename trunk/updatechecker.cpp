@@ -15,6 +15,7 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <QNetworkRequest>
 #include <QStringList>
 #include <QRegExp>
 #include <QTimer>
@@ -38,7 +39,7 @@ UpdateChecker::UpdateChecker(QObject *parent) :
 
 void UpdateChecker::start()
 {
-    m_net->get(m_url);
+    m_net->get(QNetworkRequest(m_url));
 }
 
 void UpdateChecker::slotFinished()

@@ -958,13 +958,13 @@ right/middle mouse button to cancel.</source>
 <context>
     <name>UpdateChecker</name>
     <message>
-        <location filename="../updatechecker.cpp" line="49"/>
+        <location filename="../updatechecker.cpp" line="50"/>
         <source>Network error #%1</source>
         <extracomment>%1 will be replaced with the error code by the application. It will look like &quot;Network error #16&quot;</extracomment>
         <translation>Ошибка сети #%1</translation>
     </message>
     <message>
-        <location filename="../updatechecker.cpp" line="58"/>
+        <location filename="../updatechecker.cpp" line="59"/>
         <source>Server answer is broken</source>
         <translation>Некорректный ответ от сервера</translation>
     </message>
