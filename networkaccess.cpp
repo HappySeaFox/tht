@@ -107,7 +107,7 @@ void NetworkAccess::startRequest(QNetworkAccessManager::Operation operation,
     QNetworkRequest rq(request);
 
     rq.setRawHeader("Dnt", "1");
-    rq.setRawHeader("User-Agent", "Mozilla/5.0 (Windows NT rv:20.0) Gecko/20100101 Firefox/20.0");
+    rq.setRawHeader("User-Agent", "Mozilla/5.0 (Windows NT rv:24.0) Gecko/20100101 Firefox/24.0");
 
     switch(operation)
     {
