@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>DataDownloader</class>
- <widget class="QDialog" name="DataDownloader">
+ <class>NetworkAccessDialog</class>
+ <widget class="QDialog" name="NetworkAccessDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -55,7 +55,7 @@
   <connection>
    <sender>pushClose</sender>
    <signal>clicked()</signal>
-   <receiver>DataDownloader</receiver>
+   <receiver>NetworkAccessDialog</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

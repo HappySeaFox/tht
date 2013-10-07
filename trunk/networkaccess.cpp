@@ -17,6 +17,7 @@
 
 #include <QNetworkRequest>
 #include <QPointer>
+#include <QDebug>
 #include <QUrl>
 
 #include "networkaccess.h"
@@ -58,36 +59,6 @@ NetworkAccess::~NetworkAccess()
     abort();
 
     delete d;
-}
-
-void NetworkAccess::head(const QNetworkRequest &request)
-{
-    startRequest(QNetworkAccessManager::HeadOperation, request);
-}
-
-void NetworkAccess::get(const QNetworkRequest &request)
-{
-    startRequest(QNetworkAccessManager::GetOperation, request);
-}
-
-void NetworkAccess::put(const QNetworkRequest &request, const QByteArray &data)
-{
-    startRequest(QNetworkAccessManager::PutOperation, request, data);
-}
-
-void NetworkAccess::put(const QNetworkRequest &request, QHttpMultiPart *multiPart)
-{
-    startRequest(QNetworkAccessManager::PutOperation, request, QByteArray(), multiPart);
-}
-
-void NetworkAccess::post(const QNetworkRequest &request, const QByteArray &data)
-{
-    startRequest(QNetworkAccessManager::PostOperation, request, data);
-}
-
-void NetworkAccess::post(const QNetworkRequest &request, QHttpMultiPart *multiPart)
-{
-    startRequest(QNetworkAccessManager::PostOperation, request, QByteArray(), multiPart);
 }
 
 void NetworkAccess::abort()
@@ -137,8 +108,6 @@ void NetworkAccess::startRequest(QNetworkAccessManager::Operation operation,
 
     rq.setRawHeader("Dnt", "1");
     rq.setRawHeader("User-Agent", "Mozilla/5.0 (Windows NT rv:20.0) Gecko/20100101 Firefox/20.0");
-
-    d->reply = 0;
 
     switch(operation)
     {

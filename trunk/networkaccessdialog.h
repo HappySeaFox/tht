@@ -18,12 +18,17 @@
 #ifndef DATADOWNLOADER_H
 #define DATADOWNLOADER_H
 
+#include <QNetworkAccessManager>
+#include <QByteArray>
 #include <QDialog>
 
 class QNetworkCookieJar;
+class QNetworkRequest;
+class QHttpMultiPart;
 class QUrl;
 
-class DataDownloaderPrivate;
+class NetworkAccessDialogPrivate;
+class NetworkAccess;
 
 /*
  *  Dialog to download data and to show the result
@@ -38,12 +43,12 @@ class DataDownloaderPrivate;
  *  +----------------------------+
  *
  *  Steps to use:
- *      1) subclass DataDownloader
+ *      1) subclass NetworkAccessDialog
  *      2) implement finished()
  *
  *  For example:
  *
- *      class MyDownloader : public
+ *      class MyDownloader : public NetworkAccessDialog
  *      {
  *          ...
  *      public:
@@ -71,20 +76,27 @@ class DataDownloaderPrivate;
  *          return true;
  *      }
  */
-class DataDownloader : public QDialog
+class NetworkAccessDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit DataDownloader(QWidget *parent = 0);
-    virtual ~DataDownloader();
+    explicit NetworkAccessDialog(QWidget *parent = 0);
+    virtual ~NetworkAccessDialog();
 
 protected:
     /*
      *  All the downloaded data. You call this method
      *  in finished()
      */
-    QString data() const;
+    QByteArray data() const;
+
+    /*
+     *  Set your own NetworkAccess object to process network operations.
+     *  Must be called before any network operation is fired. Otherwise
+     *  newNA will be ignored
+     */
+    void setNetworkAccess(NetworkAccess *newNA);
 
     /*
      *  Network cookie JAR to use. If you need
@@ -94,9 +106,12 @@ protected:
     void setCookieJar(QNetworkCookieJar *);
 
     /*
-     *  Start downloading from the specified URL
+     *  Start a new network request
      */
-    void get(const QUrl &);
+    void startRequest(QNetworkAccessManager::Operation operation,
+                      const QNetworkRequest &request,
+                      const QByteArray &data = QByteArray(), // for POST and PUT operations
+                      QHttpMultiPart *multiPart = 0);
 
     /*
      *  Show the message. For example,
@@ -120,12 +135,18 @@ protected:
 
     virtual bool event(QEvent *e);
 
+private:
+    void ensureNetworkAccessIsCreated();
+    void connectSignals();
+    void updateProgress(qint64 bytesReceived, qint64 bytesTotal);
+
 private slots:
     void slotFinished();
-    void slotDelayedGet();
+    void slotDelayedRequest();
+    void slotUpdateProgress(qint64 bytesReceived, qint64 bytesTotal);
 
 private:
-    DataDownloaderPrivate *d;
+    NetworkAccessDialogPrivate *d;
 };
 
 #endif // DATADOWNLOADER_H

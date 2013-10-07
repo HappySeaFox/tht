@@ -43,28 +43,6 @@ public:
     virtual ~NetworkAccess();
 
     /*
-     *  HEAD request
-     */
-    void head(const QNetworkRequest &request);
-
-    /*
-     *  Start downloading the specified URL in request
-     */
-    void get(const QNetworkRequest &request);
-
-    /*
-     *  PUT request
-     */
-    void put(const QNetworkRequest &request, const QByteArray &data);
-    void put(const QNetworkRequest &request, QHttpMultiPart *multiPart);
-
-    /*
-     *  POST request
-     */
-    void post(const QNetworkRequest &request, const QByteArray &data);
-    void post(const QNetworkRequest &request, QHttpMultiPart *multiPart);
-
-    /*
      *  Abort downloading. Doesn't emit any signal
      */
     void abort();
@@ -91,7 +69,9 @@ public:
      */
     void setCookieJar(QNetworkCookieJar *cookieJar);
 
-private:
+    /*
+     *  Start a new network request. HEAD, GET, PUT and POST are supported
+     */
     void startRequest(QNetworkAccessManager::Operation operation,
                       const QNetworkRequest &request,
                       const QByteArray &data = QByteArray(), // for POST and PUT operations
