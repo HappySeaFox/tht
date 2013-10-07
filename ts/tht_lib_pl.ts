@@ -10,7 +10,7 @@
         <translation>Zamknij</translation>
     </message>
     <message>
-        <location filename="../datadownloader.cpp" line="103"/>
+        <location filename="../datadownloader.cpp" line="104"/>
         <source>Network error #%1</source>
         <extracomment>%1 will be replaced with the error code by the application. It will look like &quot;Network error #16&quot;</extracomment>
         <translation>Błąd sieci: #%1</translation>
