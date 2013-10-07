@@ -50,5 +50,12 @@
         <file>images/flags/pt.png</file>
         <file>images/flags/pt_BR.png</file>
         <file>images/flags/pl.png</file>
+        <file>images/flags/da.png</file>
+        <file>images/flags/fi.png</file>
+        <file>images/flags/he.png</file>
+        <file>images/flags/nl.png</file>
+        <file>images/flags/no.png</file>
+        <file>images/flags/sv.png</file>
+        <file>images/flags/tr.png</file>
     </qresource>
 </RCC>
