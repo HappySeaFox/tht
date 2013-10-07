@@ -43,7 +43,8 @@ TickersDatabaseUpdater::TickersDatabaseUpdater(QObject *parent) :
 
 void TickersDatabaseUpdater::startRequest()
 {
-    m_net->get(QNetworkRequest(QUrl(m_baseurl + (m_downloadingData ? "tickers.sqlite" : "tickers.sqlite.timestamp") + "?format=raw")));
+    m_net->startRequest(QNetworkAccessManager::GetOperation,
+                        QNetworkRequest(QUrl(m_baseurl + (m_downloadingData ? "tickers.sqlite" : "tickers.sqlite.timestamp") + "?format=raw")));
 }
 
 bool TickersDatabaseUpdater::writeData(const QString &fileName, const QByteArray &data)

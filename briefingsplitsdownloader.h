@@ -21,13 +21,13 @@
 #include <QStringList>
 #include <QDialog>
 
-#include "datadownloader.h"
+#include "networkaccessdialog.h"
 
 class QUrl;
 
 class NetworkAccess;
 
-class BriefingSplitsDownloader : public DataDownloader
+class BriefingSplitsDownloader : public NetworkAccessDialog
 {
     Q_OBJECT
 

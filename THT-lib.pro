@@ -22,9 +22,9 @@ SOURCES += datamanagerbase.cpp \
     remotedate.cpp \
     sqltools.cpp \
     hotkey.cpp \
-    datadownloader.cpp \
     noeditordelegate.cpp \
-    clickablelabel.cpp
+    clickablelabel.cpp \
+    networkaccessdialog.cpp
 
 HEADERS += datamanagerbase.h \
     settings.h \
@@ -40,12 +40,12 @@ HEADERS += datamanagerbase.h \
     uppercasevalidator.h \
     remotedate.h \
     sqltools.h \
-    datadownloader.h \
     noeditordelegate.h \
-    clickablelabel.h
+    clickablelabel.h \
+    networkaccessdialog.h
 
 FORMS += datamanagerbase.ui \
-    datadownloader.ui
+    networkaccessdialog.ui
 
 RC_FILE = tht-lib.rc
 

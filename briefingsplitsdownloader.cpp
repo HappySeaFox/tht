@@ -15,6 +15,7 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <QNetworkRequest>
 #include <QRegExp>
 #include <QUrl>
 
@@ -22,13 +23,13 @@
 #include "tools.h"
 
 BriefingSplitsDownloader::BriefingSplitsDownloader(const QUrl &url, QWidget *parent) :
-    DataDownloader(parent)
+    NetworkAccessDialog(parent)
 {
     //: It's ok not to translate "Briefing Stock Splits" (e.g. you can just copy-paste "Briefing Stock Splits" to your translation). See http://www.briefing.com/investor/calendars/stock-splits
     setWindowTitle(tr("Briefing Stock Splits"));
     //: Window title. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow "ticker" from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)
     setMessage(tr("Downloading tickers..."));
-    get(url);
+    startRequest(QNetworkAccessManager::GetOperation, QNetworkRequest(url));
 }
 
 BriefingSplitsDownloader::~BriefingSplitsDownloader()

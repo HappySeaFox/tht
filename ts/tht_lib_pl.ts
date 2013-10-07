@@ -2,21 +2,6 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="pl_PL">
 <context>
-    <name>DataDownloader</name>
-    <message>
-        <location filename="../datadownloader.ui" line="27"/>
-        <source>Close</source>
-        <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
-        <translation>Zamknij</translation>
-    </message>
-    <message>
-        <location filename="../datadownloader.cpp" line="104"/>
-        <source>Network error #%1</source>
-        <extracomment>%1 will be replaced with the error code by the application. It will look like &quot;Network error #16&quot;</extracomment>
-        <translation>Błąd sieci: #%1</translation>
-    </message>
-</context>
-<context>
     <name>DataManagerBase</name>
     <message>
         <location filename="../datamanagerbase.ui" line="33"/>
@@ -34,6 +19,21 @@
         <source>Clear</source>
         <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>Wyczyść</translation>
+    </message>
+</context>
+<context>
+    <name>NetworkAccessDialog</name>
+    <message>
+        <location filename="../networkaccessdialog.ui" line="27"/>
+        <source>Close</source>
+        <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
+        <translation type="unfinished">Zamknij</translation>
+    </message>
+    <message>
+        <location filename="../networkaccessdialog.cpp" line="142"/>
+        <source>Network error #%1</source>
+        <extracomment>%1 will be replaced with the error code by the application. It will look like &quot;Network error #16&quot;</extracomment>
+        <translation type="unfinished">Błąd sieci: #%1</translation>
     </message>
 </context>
 <context>

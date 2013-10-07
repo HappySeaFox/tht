@@ -39,7 +39,7 @@ UpdateChecker::UpdateChecker(QObject *parent) :
 
 void UpdateChecker::start()
 {
-    m_net->get(QNetworkRequest(m_url));
+    m_net->startRequest(QNetworkAccessManager::GetOperation, QNetworkRequest(m_url));
 }
 
 void UpdateChecker::slotFinished()

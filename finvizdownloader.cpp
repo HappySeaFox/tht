@@ -16,6 +16,7 @@
  */
 
 #include <QMutableListIterator>
+#include <QNetworkRequest>
 #include <QByteArray>
 #include <QUrl>
 
@@ -30,7 +31,7 @@
 static const int REQUIRED_FIELDS = 11;
 
 FinvizDownloader::FinvizDownloader(const QUrl &url, QWidget *parent) :
-    DataDownloader(parent)
+    NetworkAccessDialog(parent)
 {
     //: Finviz - Stock Screener, http://finviz.com. It's ok not to translate "Finviz" (e.g. you can just copy-paste "Finviz" to your translation)
     setWindowTitle(tr("Finviz"));
@@ -81,7 +82,7 @@ FinvizDownloader::FinvizDownloader(const QUrl &url, QWidget *parent) :
 #endif
 
     // download tickers as CSV
-    get(u);
+    startRequest(QNetworkAccessManager::GetOperation, QNetworkRequest(u));
 }
 
 FinvizDownloader::~FinvizDownloader()
