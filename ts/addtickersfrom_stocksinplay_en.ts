@@ -133,10 +133,5 @@
         <extracomment>Noun</extracomment>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <location filename="../stocksinplayurlmanager.cpp" line="86"/>
-        <source>Tickers</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 </TS>

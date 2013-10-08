@@ -56,5 +56,11 @@
         <extracomment>Command addressed to the user. Means &quot;Please paste some URL here&quot;. &quot;URL&quot; can be translated as &quot;link&quot;</extracomment>
         <translation>&lt;Вставьте сюда ссылку&gt;</translation>
     </message>
+    <message>
+        <location filename="../tools.cpp" line="182"/>
+        <source>Tickers</source>
+        <extracomment>Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
+        <translation>Тикеры</translation>
+    </message>
 </context>
 </TS>

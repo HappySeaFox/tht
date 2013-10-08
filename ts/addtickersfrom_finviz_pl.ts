@@ -101,10 +101,5 @@
         <extracomment>Noun</extracomment>
         <translation>Dostęp...</translation>
     </message>
-    <message>
-        <location filename="../finvizurlmanager.cpp" line="85"/>
-        <source>Tickers</source>
-        <translation>Tickery</translation>
-    </message>
 </context>
 </TS>

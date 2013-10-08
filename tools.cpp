@@ -176,6 +176,12 @@ QString Tools::pasteUrlHereTitle()
     return QObject::tr("<Paste url here>");
 }
 
+QString Tools::tickersTitle()
+{
+    //: Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow "ticker" from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)
+    return QObject::tr("Tickers");
+}
+
 QRegExp Tools::cellValidator()
 {
     static QRegExp rx("([a-zA-Z]+)([0-9]+)");

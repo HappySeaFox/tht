@@ -82,7 +82,7 @@ void FinvizUrlManager::addFinvizUrl(const FinvizUrl &fu, bool edit)
 
 void FinvizUrlManager::slotAdd()
 {
-    addFinvizUrl(FinvizUrl(tr("Tickers"), Tools::pasteUrlHereTitle()), true);
+    addFinvizUrl(FinvizUrl(Tools::tickersTitle(), Tools::pasteUrlHereTitle()), true);
     setChanged(true);
 }
 
