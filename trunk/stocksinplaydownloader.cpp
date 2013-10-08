@@ -36,7 +36,7 @@ StocksInPlayDownloader::StocksInPlayDownloader(const QUrl &url, QWidget *parent)
 
     m_step = Page;
 
-    // download tickers as CSV
+    // download tickers as simple CSV
     startRequest(QNetworkAccessManager::GetOperation, QNetworkRequest(url));
 }
 

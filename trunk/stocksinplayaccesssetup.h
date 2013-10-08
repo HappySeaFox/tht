@@ -37,6 +37,9 @@ public:
     QString id() const;
     QString hash() const;
 
+private slots:
+    void slotFillIn();
+
 private:
     Ui::StocksInPlayAccessSetup *ui;
 };

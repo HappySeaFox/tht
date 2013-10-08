@@ -15,40 +15,27 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef STOCKSINPLAYDOWNLOADER_H
-#define STOCKSINPLAYDOWNLOADER_H
+#include "stocksinplaycredentials.h"
+#include "ui_stocksinplaycredentials.h"
 
-#include <QStringList>
-#include <QRegExp>
-
-#include "networkaccessdialog.h"
-
-class QUrl;
-
-class StocksInPlayDownloader : public NetworkAccessDialog
+StocksInPlayCredentials::StocksInPlayCredentials(QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::StocksInPlayCredentials)
 {
-    Q_OBJECT
-
-public:
-    explicit StocksInPlayDownloader(const QUrl &url, QWidget *parent = 0);
-    ~StocksInPlayDownloader();
-
-    QStringList tickers() const;
-
-protected:
-    virtual bool finished();
-
-private:
-    QStringList m_tickers;
-    enum Step { Page, Tickers };
-    Step m_step;
-    QRegExp m_rxBase64Request;
-};
-
-inline
-QStringList StocksInPlayDownloader::tickers() const
-{
-    return m_tickers;
+    ui->setupUi(this);
 }
 
-#endif // STOCKSINPLAYDOWNLOADER_H
+StocksInPlayCredentials::~StocksInPlayCredentials()
+{
+    delete ui;
+}
+
+QString StocksInPlayCredentials::login() const
+{
+    return ui->lineLogin->text();
+}
+
+QString StocksInPlayCredentials::password() const
+{
+    return ui->linePassword->text();
+}

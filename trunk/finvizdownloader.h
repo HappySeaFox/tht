@@ -19,13 +19,10 @@
 #define FINVIZDOWNLOADER_H
 
 #include <QStringList>
-#include <QDialog>
 
 #include "networkaccessdialog.h"
 
 class QUrl;
-
-class NetworkAccess;
 
 class FinvizDownloader : public NetworkAccessDialog
 {

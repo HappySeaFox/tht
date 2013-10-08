@@ -15,7 +15,10 @@ SOURCES += stocksinplayurlmanager.cpp \
     stocksinplaylinkselector.cpp \
     stocksinplaycookiejar.cpp \
     stocksinplayaccesssetup.cpp \
-    stocksinplayplugin.cpp
+    stocksinplayplugin.cpp \
+    stocksinplaylogincookiejar.cpp \
+    stocksinplaycredentials.cpp \
+    stocksinplaylogin.cpp
 
 HEADERS += stocksinplayurlmanager.h \
     stocksinplaydownloader.h \
@@ -23,11 +26,15 @@ HEADERS += stocksinplayurlmanager.h \
     stocksinplaycookiejar.h \
     stocksinplayaccesssetup.h \
     stocksinplayplugin.h \
-    stocksinplayurl.h
+    stocksinplayurl.h \
+    stocksinplaylogincookiejar.h \
+    stocksinplaycredentials.h \
+    stocksinplaylogin.h
 
 FORMS += \
     stocksinplaylinkselector.ui \
-    stocksinplayaccesssetup.ui
+    stocksinplayaccesssetup.ui \
+    stocksinplaycredentials.ui
 
 RESOURCES += THT-plugin-stocksinplay.qrc
 
