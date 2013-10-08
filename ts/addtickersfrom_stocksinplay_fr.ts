@@ -22,6 +22,7 @@
     <message>
         <location filename="../stocksinplayaccesssetup.ui" line="99"/>
         <source>Fill in...</source>
+        <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
