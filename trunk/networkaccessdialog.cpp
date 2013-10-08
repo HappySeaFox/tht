@@ -110,6 +110,11 @@ void NetworkAccessDialog::setNetworkAccess(NetworkAccess *newNA)
     }
 }
 
+NetworkAccess *NetworkAccessDialog::networkAccess() const
+{
+    return d->net;
+}
+
 void NetworkAccessDialog::showError(const QString &e)
 {
     d->ui->label->setText(e);
