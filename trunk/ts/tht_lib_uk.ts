@@ -30,7 +30,7 @@
         <translation type="unfinished">Закрити</translation>
     </message>
     <message>
-        <location filename="../networkaccessdialog.cpp" line="142"/>
+        <location filename="../networkaccessdialog.cpp" line="147"/>
         <source>Network error #%1</source>
         <extracomment>%1 will be replaced with the error code by the application. It will look like &quot;Network error #16&quot;</extracomment>
         <translation type="unfinished">Помилка мережі #%1</translation>
