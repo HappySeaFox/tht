@@ -173,11 +173,11 @@ for(l, LANGUAGES) {
     COMPONENT2_TRANSLATIONS += addtickersfrom_briefing_splits_$${l}.qm
 }
 
-COMPONENT3="FOMC"
-COMPONENT3_TYPE="commonfomc"
-COMPONENT3_FILES=common-fomc.dll
+COMPONENT3="Stocks In Play"
+COMPONENT3_TYPE="stocksinplay"
+COMPONENT3_FILES=addtickersfrom-stocksinplay.dll
 for(l, LANGUAGES) {
-    COMPONENT3_TRANSLATIONS += common_fomc_$${l}.qm
+    COMPONENT3_TRANSLATIONS += addtickersfrom_stocksinplay_$${l}.qm
 }
 
 COMPONENT4="Jabber Chat"
@@ -187,8 +187,15 @@ for(l, LANGUAGES) {
     COMPONENT4_TRANSLATIONS += common_chat_$${l}.qm
 }
 
+COMPONENT5="FOMC"
+COMPONENT5_TYPE="commonfomc"
+COMPONENT5_FILES=common-fomc.dll
+for(l, LANGUAGES) {
+    COMPONENT5_TRANSLATIONS += common_fomc_$${l}.qm
+}
+
 # list of components' suffixes to install
-COMPONENTS=1 2 3 4
+COMPONENTS=1 2 3 4 5
 
 DEFINES += SVNROOT_FOR_DOWNLOAD=$$sprintf("\"\\\"%1\\\"\"", $$SVNROOT_FOR_DOWNLOAD)
 DEFINES += HTTPROOT=$$sprintf("\"\\\"%1\\\"\"", $$HTTPROOT)
