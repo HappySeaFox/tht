@@ -79,7 +79,7 @@ bool StocksInPlayPlugin::embed(int list, QMenu *parentMenu)
         return true;
 
     //: This is the label on a menu item that user clicks to issue the command. Stocks In Play - Stock Screener, http://stocksinplay.ru. It's ok not to translate "Stocks In Play" (e.g. you can just copy-paste "Stocks In Play" to your translation)
-    QMenu *menu = new QMenu(tr("Add from Stocks In Play") + "\tAlt+S ");
+    QMenu *menu = new QMenu(tr("Add from Stocks In Play") + "\tV");
 
     if(!menu)
         return false;
@@ -97,7 +97,7 @@ bool StocksInPlayPlugin::embed(int list, QMenu *parentMenu)
 
 void StocksInPlayPlugin::listHotkeyActivated(int list, const Hotkey &h)
 {
-    if(h == Hotkey(Qt::Key_S, Qt::AltModifier))
+    if(h == Hotkey(Qt::Key_V))
     {
         showStocksInPlaySelector(list);
     }
