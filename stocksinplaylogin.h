@@ -15,40 +15,44 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef STOCKSINPLAYDOWNLOADER_H
-#define STOCKSINPLAYDOWNLOADER_H
+#ifndef STOCKSINPLAYLOGIN_H
+#define STOCKSINPLAYLOGIN_H
 
 #include <QStringList>
-#include <QRegExp>
 
 #include "networkaccessdialog.h"
 
-class QUrl;
+class StocksInPlayLoginCookieJar;
 
-class StocksInPlayDownloader : public NetworkAccessDialog
+class StocksInPlayLogin : public NetworkAccessDialog
 {
     Q_OBJECT
 
 public:
-    explicit StocksInPlayDownloader(const QUrl &url, QWidget *parent = 0);
-    ~StocksInPlayDownloader();
+    explicit StocksInPlayLogin(const QString &login, const QString &password, QWidget *parent = 0);
+    ~StocksInPlayLogin();
 
-    QStringList tickers() const;
+    QString id() const;
+    QString hash() const;
 
 protected:
     virtual bool finished();
 
 private:
-    QStringList m_tickers;
-    enum Step { Page, Tickers };
-    Step m_step;
-    QRegExp m_rxBase64Request;
+    QString m_id, m_hash;
+    StocksInPlayLoginCookieJar *m_cookieJar;
 };
 
 inline
-QStringList StocksInPlayDownloader::tickers() const
+QString StocksInPlayLogin::id() const
 {
-    return m_tickers;
+    return m_id;
 }
 
-#endif // STOCKSINPLAYDOWNLOADER_H
+inline
+QString StocksInPlayLogin::hash() const
+{
+    return m_hash;
+}
+
+#endif // STOCKSINPLAYLOGIN_H

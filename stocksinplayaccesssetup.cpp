@@ -18,7 +18,9 @@
 #include <QStyle>
 #include <QIcon>
 
+#include "stocksinplaycredentials.h"
 #include "stocksinplayaccesssetup.h"
+#include "stocksinplaylogin.h"
 #include "stocksinplayurl.h"
 #include "settings.h"
 #include "ui_stocksinplayaccesssetup.h"
@@ -48,4 +50,20 @@ QString StocksInPlayAccessSetup::id() const
 QString StocksInPlayAccessSetup::hash() const
 {
     return ui->lineHash->text();
+}
+
+void StocksInPlayAccessSetup::slotFillIn()
+{
+    StocksInPlayCredentials sipc(this);
+
+    if(sipc.exec() == QDialog::Accepted)
+    {
+        StocksInPlayLogin sipl(sipc.login(), sipc.password(), this);
+
+        if(sipl.exec() == QDialog::Accepted)
+        {
+            ui->lineId->setText(sipl.id());
+            ui->lineHash->setText(sipl.hash());
+        }
+    }
 }

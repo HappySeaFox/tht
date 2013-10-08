@@ -20,10 +20,34 @@
         <translation>Хеш:</translation>
     </message>
     <message>
-        <location filename="../stocksinplayaccesssetup.ui" line="92"/>
+        <location filename="../stocksinplayaccesssetup.ui" line="103"/>
+        <source>Fill in...</source>
+        <translation>Заповнити...</translation>
+    </message>
+    <message>
+        <location filename="../stocksinplayaccesssetup.ui" line="76"/>
         <source>If you have a premium Stocks In Play account, you can enter your account information for access to the premium features</source>
         <extracomment>Stocks In Play - Stock Screener, http://stocksinplay.ru. It&apos;s ok not to translate &quot;Stocks In Play&quot; (e.g. you can just copy-paste &quot;Stocks In Play&quot; to your translation)</extracomment>
         <translation>Якщо у вас є преміум акаунт Stocks In Play, то ви можете заповнити облікові дані для доступу до розширених можливостей</translation>
+    </message>
+</context>
+<context>
+    <name>StocksInPlayCredentials</name>
+    <message>
+        <location filename="../stocksinplaycredentials.ui" line="14"/>
+        <source>Credentials</source>
+        <translation>Дані для входу</translation>
+    </message>
+    <message>
+        <location filename="../stocksinplaycredentials.ui" line="20"/>
+        <source>Login:</source>
+        <extracomment>Noun. Means &quot;Login name&quot;</extracomment>
+        <translation>Логін:</translation>
+    </message>
+    <message>
+        <location filename="../stocksinplaycredentials.ui" line="33"/>
+        <source>Password:</source>
+        <translation>Пароль:</translation>
     </message>
 </context>
 <context>
@@ -59,6 +83,20 @@
         <source>Add</source>
         <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>Додати</translation>
+    </message>
+</context>
+<context>
+    <name>StocksInPlayLogin</name>
+    <message>
+        <location filename="../stocksinplaylogin.cpp" line="29"/>
+        <source>Stocks In Play</source>
+        <extracomment>Stocks In Play - Stock Screener, http://stocksinplay.ru. It&apos;s ok not to translate &quot;Stocks In Play&quot; (e.g. you can just copy-paste &quot;Stocks In Play&quot; to your translation)</extracomment>
+        <translation>Stocks In Play</translation>
+    </message>
+    <message>
+        <location filename="../stocksinplaylogin.cpp" line="30"/>
+        <source>Accessing...</source>
+        <translation>Отримання доступу...</translation>
     </message>
 </context>
 <context>

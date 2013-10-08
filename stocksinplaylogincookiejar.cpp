@@ -15,40 +15,23 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef STOCKSINPLAYDOWNLOADER_H
-#define STOCKSINPLAYDOWNLOADER_H
+#include <QUrl>
 
-#include <QStringList>
-#include <QRegExp>
+#include "stocksinplaylogincookiejar.h"
 
-#include "networkaccessdialog.h"
+StocksInPlayLoginCookieJar::StocksInPlayLoginCookieJar(QObject *parent) :
+    QNetworkCookieJar(parent)
+{}
 
-class QUrl;
-
-class StocksInPlayDownloader : public NetworkAccessDialog
+QByteArray StocksInPlayLoginCookieJar::stringValue(const QString &name) const
 {
-    Q_OBJECT
+    QList<QNetworkCookie> cookies = allCookies();
 
-public:
-    explicit StocksInPlayDownloader(const QUrl &url, QWidget *parent = 0);
-    ~StocksInPlayDownloader();
+    foreach(QNetworkCookie cookie, cookies)
+    {
+        if(cookie.name() == name)
+            return cookie.value();
+    }
 
-    QStringList tickers() const;
-
-protected:
-    virtual bool finished();
-
-private:
-    QStringList m_tickers;
-    enum Step { Page, Tickers };
-    Step m_step;
-    QRegExp m_rxBase64Request;
-};
-
-inline
-QStringList StocksInPlayDownloader::tickers() const
-{
-    return m_tickers;
+    return QByteArray();
 }
-
-#endif // STOCKSINPLAYDOWNLOADER_H
