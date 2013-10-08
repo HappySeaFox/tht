@@ -70,9 +70,14 @@ public:
     void setCookieJar(QNetworkCookieJar *cookieJar);
 
     /*
+     *  Network cookie JAR in use
+     */
+    QNetworkCookieJar *cookieJar() const;
+
+    /*
      *  Start a new network request. HEAD, GET, PUT and POST are supported
      */
-    void startRequest(QNetworkAccessManager::Operation operation,
+    bool startRequest(QNetworkAccessManager::Operation operation,
                       const QNetworkRequest &request,
                       const QByteArray &data = QByteArray(), // for POST and PUT operations
                       QHttpMultiPart *multiPart = 0);
