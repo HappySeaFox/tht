@@ -29,19 +29,19 @@
 <context>
     <name>StocksInPlayDownloader</name>
     <message>
-        <location filename="../stocksinplaydownloader.cpp" line="29"/>
+        <location filename="../stocksinplaydownloader.cpp" line="30"/>
         <source>Stocks In Play</source>
         <extracomment>Stocks In Play - Stock Screener, http://stocksinplay.ru. It&apos;s ok not to translate &quot;Stocks In Play&quot; (e.g. you can just copy-paste &quot;Stocks In Play&quot; to your translation)</extracomment>
         <translation>Stocks In Play</translation>
     </message>
     <message>
-        <location filename="../stocksinplaydownloader.cpp" line="31"/>
+        <location filename="../stocksinplaydownloader.cpp" line="32"/>
         <source>Downloading tickers...</source>
         <extracomment>Window title. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Pobieranie tickerów...</translation>
     </message>
     <message>
-        <location filename="../stocksinplaydownloader.cpp" line="54"/>
+        <location filename="../stocksinplaydownloader.cpp" line="55"/>
         <source>Broken data</source>
         <translation>Nieprawidłowe dane</translation>
     </message>

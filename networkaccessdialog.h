@@ -25,6 +25,7 @@
 class QNetworkCookieJar;
 class QNetworkRequest;
 class QHttpMultiPart;
+class QProgressBar;
 class QUrl;
 
 class NetworkAccessDialogPrivate;
@@ -90,6 +91,11 @@ protected:
      *  in finished()
      */
     QByteArray data() const;
+
+    /*
+     *  Access to progress bar
+     */
+    QProgressBar *progressBar() const;
 
     /*
      *  Set your own NetworkAccess object to process network operations.

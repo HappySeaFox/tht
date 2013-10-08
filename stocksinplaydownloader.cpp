@@ -16,6 +16,7 @@
  */
 
 #include <QNetworkRequest>
+#include <QProgressBar>
 #include <QByteArray>
 #include <QUrl>
 
@@ -59,6 +60,9 @@ bool StocksInPlayDownloader::finished()
         request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
 
         m_step = Tickers;
+
+        progressBar()->setRange(0, 0);
+        progressBar()->setValue(-1);
 
         startRequest(QNetworkAccessManager::PostOperation,
                      request,

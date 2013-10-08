@@ -96,6 +96,11 @@ QByteArray NetworkAccessDialog::data() const
     return d->net ? d->net->data() : QByteArray();
 }
 
+QProgressBar *NetworkAccessDialog::progressBar() const
+{
+    return d->ui->progressBar;
+}
+
 void NetworkAccessDialog::setNetworkAccess(NetworkAccess *newNA)
 {
     if(!d->net)
