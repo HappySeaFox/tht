@@ -138,12 +138,5 @@
         <source>Tickers</source>
         <translation>Tickery</translation>
     </message>
-    <message>
-        <location filename="../stocksinplayurlmanager.cpp" line="88"/>
-        <location filename="../stocksinplayurlmanager.cpp" line="103"/>
-        <source>&lt;Paste url here&gt;</source>
-        <extracomment>Command addressed to the user. Means &quot;Please paste some URL here&quot;. &quot;URL&quot; can be translated as &quot;link&quot;</extracomment>
-        <translation>&lt;Wklej tutaj adres&gt;</translation>
-    </message>
 </context>
 </TS>

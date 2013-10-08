@@ -170,6 +170,12 @@ QString Tools::downloadingTickersTitle()
     return QObject::tr("Downloading tickers...");
 }
 
+QString Tools::pasteUrlHereTitle()
+{
+    //: Command addressed to the user. Means "Please paste some URL here". "URL" can be translated as "link"
+    return QObject::tr("<Paste url here>");
+}
+
 QRegExp Tools::cellValidator()
 {
     static QRegExp rx("([a-zA-Z]+)([0-9]+)");

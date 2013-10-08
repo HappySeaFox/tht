@@ -50,5 +50,11 @@
         <extracomment>Window title. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Pobieranie tickerów...</translation>
     </message>
+    <message>
+        <location filename="../tools.cpp" line="176"/>
+        <source>&lt;Paste url here&gt;</source>
+        <extracomment>Command addressed to the user. Means &quot;Please paste some URL here&quot;. &quot;URL&quot; can be translated as &quot;link&quot;</extracomment>
+        <translation>&lt;Wklej tutaj adres&gt;</translation>
+    </message>
 </context>
 </TS>
