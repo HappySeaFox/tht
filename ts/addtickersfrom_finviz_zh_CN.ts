@@ -21,7 +21,7 @@
     </message>
     <message>
         <location filename="../finvizaccesssetup.ui" line="80"/>
-        <source>If you have a FINVIZ*Elite account, you can enter your account information for access to the elite features</source>
+        <source>If you have a FINVIZ*Elite account, you can enter your account information for access to the premium features</source>
         <extracomment>Finviz - Stock Screener, http://finviz.com. It&apos;s ok not to translate &quot;Finviz&quot; (or &quot;FINVIZ*Elite&quot;) (e.g. you can just copy-paste &quot;Finviz&quot; (or &quot;FINVIZ*Elite&quot;) to your translation)</extracomment>
         <translation type="unfinished"></translation>
     </message>

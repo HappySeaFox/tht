@@ -15,18 +15,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../finvizaccesssetup.ui" line="32"/>
+        <location filename="../finvizaccesssetup.ui" line="35"/>
         <source>Password:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../finvizaccesssetup.ui" line="80"/>
-        <source>If you have a FINVIZ*Elite account, you can enter your account information for access to the elite features</source>
+        <location filename="../finvizaccesssetup.ui" line="86"/>
+        <source>If you have a FINVIZ*Elite account, you can enter your account information for access to the premium features</source>
         <extracomment>Finviz - Stock Screener, http://finviz.com. It&apos;s ok not to translate &quot;Finviz&quot; (or &quot;FINVIZ*Elite&quot;) (e.g. you can just copy-paste &quot;Finviz&quot; (or &quot;FINVIZ*Elite&quot;) to your translation)</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../finvizaccesssetup.ui" line="103"/>
+        <location filename="../finvizaccesssetup.ui" line="109"/>
         <source>Please remember that your e-mail address and password will be stored in the clear. If you don&apos;t want them stored in the clear, just leave them blank; in which case, FINVIZ*Elite options will not be accessible</source>
         <extracomment>Finviz - Stock Screener, http://finviz.com. It&apos;s ok not to translate &quot;Finviz&quot; (or &quot;FINVIZ*Elite&quot;) (e.g. you can just copy-paste &quot;Finviz&quot; (or &quot;FINVIZ*Elite&quot;) to your translation)</extracomment>
         <translation type="unfinished"></translation>

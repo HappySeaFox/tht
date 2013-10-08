@@ -103,6 +103,13 @@ Author: Dan
 * Interface layout is based on the original idea by Krupachev
   Konstantin and his project "Clicker"
 
+* "StockInPlay" icon is taken from Silk theme
+
+http://findicons.com/icon/159904/money_dollar?id=372987
+
+Author: Mark James
+License: Creative Commons Attribution (by)
+
 * GDI drawing functions are based on Spy
 
 http://www.codeproject.com/Articles/1698/MS-Spy-style-Window-Finder
