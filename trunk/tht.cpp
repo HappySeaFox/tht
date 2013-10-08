@@ -312,11 +312,6 @@ THT::THT() :
     // NYSE Volume
     m_predefined.insert("$TVOL", PredefinedTicker(Qt::Key_T));
 
-    // Volatility S&P 500
-    mappings.clear();
-    mappings.insert(LinkTypeThinkorswim, "VIX");
-    m_predefined.insert("$VIX", PredefinedTicker(Qt::Key_V, mappings));
-
     // S&P 500 Fund
     m_predefined.insert("SPY", PredefinedTicker(Qt::Key_D));
 

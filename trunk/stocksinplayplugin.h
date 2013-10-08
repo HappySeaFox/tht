@@ -41,7 +41,7 @@ public:
 
     virtual QList<Hotkey> supportedHotkeysInList() const
     {
-        return QList<Hotkey>() << Hotkey(Qt::Key_S, Qt::AltModifier);
+        return QList<Hotkey>() << Hotkey(Qt::Key_V);
     }
 
     virtual void listHotkeyActivated(int list, const Hotkey &ke);
