@@ -96,7 +96,7 @@
      <item>
       <widget class="QPushButton" name="pushFillIn">
        <property name="text">
-        <string>Fill in...</string>
+        <string extracomment="This is the label on a button that user pushes to issue the command">Fill in...</string>
        </property>
       </widget>
      </item>
