@@ -105,6 +105,11 @@ protected:
     void setNetworkAccess(NetworkAccess *newNA);
 
     /*
+     *  Network access object in use
+     */
+    NetworkAccess *networkAccess() const;
+
+    /*
      *  Network cookie JAR to use. If you need
      *  to send cookies, you need to call this method
      *  before get()
