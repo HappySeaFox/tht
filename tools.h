@@ -71,6 +71,12 @@ public:
      *  Returns translated version of "Downloading tickers..."
      */
     static QString downloadingTickersTitle();
+
+    /*
+     *  Returns translated version of "<Paste url here>"
+     */
+    static QString pasteUrlHereTitle();
+
     /*
      *  Cell address validator
      */

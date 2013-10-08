@@ -83,10 +83,7 @@ void StocksInPlayUrlManager::addStocksInPlayUrl(const StocksInPlayUrl &su, bool 
 
 void StocksInPlayUrlManager::slotAdd()
 {
-    addStocksInPlayUrl(StocksInPlayUrl(tr("Tickers"),
-                           //: Command addressed to the user. Means "Please paste some URL here". "URL" can be translated as "link"
-                           tr("<Paste url here>")),
-                 true);
+    addStocksInPlayUrl(StocksInPlayUrl(tr("Tickers"), Tools::pasteUrlHereTitle()), true);
     setChanged(true);
 }
 
@@ -100,7 +97,7 @@ void StocksInPlayUrlManager::slotCheckItem(QTreeWidgetItem *i, int column)
     QString h = u.host().toLower();
 
     if(h != STOCKSINPLAY)
-        i->setText(1, tr("<Paste url here>"));
+        i->setText(1, Tools::pasteUrlHereTitle());
     else
         i->setText(1, u.toString());
 }

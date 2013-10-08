@@ -106,12 +106,5 @@
         <source>Tickers</source>
         <translation>Тикеры</translation>
     </message>
-    <message>
-        <location filename="../finvizurlmanager.cpp" line="87"/>
-        <location filename="../finvizurlmanager.cpp" line="102"/>
-        <source>&lt;Paste url here&gt;</source>
-        <extracomment>Command addressed to the user. Means &quot;Please paste some URL here&quot;. &quot;URL&quot; can be translated as &quot;link&quot;</extracomment>
-        <translation>&lt;Вставьте сюда ссылку&gt;</translation>
-    </message>
 </context>
 </TS>
