@@ -78,6 +78,11 @@ public:
     static QString pasteUrlHereTitle();
 
     /*
+     *  Returns translated version of "Tickers"
+     */
+    static QString tickersTitle();
+
+    /*
      *  Cell address validator
      */
     static QRegExp cellValidator();

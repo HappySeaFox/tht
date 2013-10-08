@@ -133,10 +133,5 @@
         <extracomment>Noun</extracomment>
         <translation>Доступ...</translation>
     </message>
-    <message>
-        <location filename="../stocksinplayurlmanager.cpp" line="86"/>
-        <source>Tickers</source>
-        <translation>Тикеры</translation>
-    </message>
 </context>
 </TS>
