@@ -27,13 +27,13 @@
         <location filename="../networkaccessdialog.ui" line="27"/>
         <source>Close</source>
         <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
-        <translation type="unfinished">Закрыть</translation>
+        <translation>Закрыть</translation>
     </message>
     <message>
         <location filename="../networkaccessdialog.cpp" line="152"/>
         <source>Network error #%1</source>
         <extracomment>%1 will be replaced with the error code by the application. It will look like &quot;Network error #16&quot;</extracomment>
-        <translation type="unfinished">Ошибка сети #%1</translation>
+        <translation>Ошибка сети #%1</translation>
     </message>
 </context>
 <context>
@@ -43,6 +43,12 @@
         <source>Open YouTube tutorial</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Open a video tutorial on YouTube&quot;</extracomment>
         <translation>Открыть урок на YouTube</translation>
+    </message>
+    <message>
+        <location filename="../tools.cpp" line="170"/>
+        <source>Downloading tickers...</source>
+        <extracomment>Window title. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
+        <translation>Скачивание тикеров...</translation>
     </message>
 </context>
 </TS>

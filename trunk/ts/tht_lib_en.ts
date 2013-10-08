@@ -44,5 +44,11 @@
         <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Open a video tutorial on YouTube&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../tools.cpp" line="170"/>
+        <source>Downloading tickers...</source>
+        <extracomment>Window title. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>
