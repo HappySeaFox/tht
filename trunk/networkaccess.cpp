@@ -92,7 +92,12 @@ void NetworkAccess::setCookieJar(QNetworkCookieJar *cookieJar)
     d->manager->setCookieJar(cookieJar);
 }
 
-void NetworkAccess::startRequest(QNetworkAccessManager::Operation operation,
+QNetworkCookieJar *NetworkAccess::cookieJar() const
+{
+    return d->manager->cookieJar();
+}
+
+bool NetworkAccess::startRequest(QNetworkAccessManager::Operation operation,
                                  const QNetworkRequest &request,
                                  const QByteArray &data,
                                  QHttpMultiPart *multiPart)
@@ -142,7 +147,7 @@ void NetworkAccess::startRequest(QNetworkAccessManager::Operation operation,
     }
 
     if(!d->reply)
-        return;
+        return false;
 
     // cache data
     d->requestOperation = operation;
@@ -157,6 +162,8 @@ void NetworkAccess::startRequest(QNetworkAccessManager::Operation operation,
     connect(d->reply, SIGNAL(sslErrors(QList<QSslError>)), this, SLOT(slotSslErrors(QList<QSslError>)));
     connect(d->reply, SIGNAL(finished()), this, SLOT(slotNetworkDone()));
     connect(d->reply, SIGNAL(readyRead()), this, SLOT(slotNetworkData()));
+
+    return true;
 }
 
 void NetworkAccess::slotNetworkError(QNetworkReply::NetworkError err)
