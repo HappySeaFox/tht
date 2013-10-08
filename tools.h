@@ -68,6 +68,10 @@ public:
     static QString openYoutubeTutorialTitle();
 
     /*
+     *  Returns translated version of "Downloading tickers..."
+     */
+    static QString downloadingTickersTitle();
+    /*
      *  Cell address validator
      */
     static QRegExp cellValidator();

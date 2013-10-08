@@ -22,14 +22,14 @@
 
 #include "stocksinplaydownloader.h"
 #include "stocksinplaycookiejar.h"
+#include "tools.h"
 
 StocksInPlayDownloader::StocksInPlayDownloader(const QUrl &url, QWidget *parent) :
     NetworkAccessDialog(parent)
 {
     //: Stocks In Play - Stock Screener, http://stocksinplay.ru. It's ok not to translate "Stocks In Play" (e.g. you can just copy-paste "Stocks In Play" to your translation)
     setWindowTitle(tr("Stocks In Play"));
-    //: Window title. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow "ticker" from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)
-    setMessage(tr("Downloading tickers..."));
+    setMessage(Tools::downloadingTickersTitle());
     setCookieJar(new StocksInPlayCookieJar(this));
 
     m_rxBase64Request = QRegExp("input\\s+type=\"hidden\"\\s+name=\"export\"\\s+value=\\s*\"([a-zA-Z0-9\\-+/=]+)\"");

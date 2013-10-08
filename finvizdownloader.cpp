@@ -27,6 +27,7 @@
 #include "finvizdownloader.h"
 #include "finvizcookiejar.h"
 #include "csvreader.h"
+#include "tools.h"
 
 static const int REQUIRED_FIELDS = 11;
 
@@ -35,8 +36,7 @@ FinvizDownloader::FinvizDownloader(const QUrl &url, QWidget *parent) :
 {
     //: Finviz - Stock Screener, http://finviz.com. It's ok not to translate "Finviz" (e.g. you can just copy-paste "Finviz" to your translation)
     setWindowTitle(tr("Finviz"));
-    //: Window title. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow "ticker" from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)
-    setMessage(tr("Downloading tickers..."));
+    setMessage(Tools::downloadingTickersTitle());
     setCookieJar(new FinvizCookieJar(this));
 
     QUrl u = url;
