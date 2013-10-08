@@ -467,6 +467,7 @@
     <message>
         <location filename="../options.ui" line="253"/>
         <source>Need restart</source>
+        <extracomment>Means &quot;It is neccessary to restart the application&quot;</extracomment>
         <translation>Restart wymagane</translation>
     </message>
     <message>

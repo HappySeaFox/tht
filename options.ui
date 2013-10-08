@@ -250,7 +250,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Need restart</string>
+      <string extracomment="Means &quot;It is neccessary to restart the application&quot;">Need restart</string>
      </property>
     </widget>
    </item>
