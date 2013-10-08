@@ -62,7 +62,7 @@ bool StocksInPlayPlugin::init()
                       << StocksInPlayUrl("NYSE >1$ >300k New High",               QUrl(STOCKSINPLAY_URL "min_price=1&min_avgvol=300&Exchange=1&signal=1&order=chpo&row=all&"))
                       << StocksInPlayUrl("NYSE >1$ >300k New Low",                QUrl(STOCKSINPLAY_URL "min_price=1&min_avgvol=300&Exchange=1&signal=2&order=chpo&asc=1&row=all&"))
                       << StocksInPlayUrl("NYSE >1$ >300k Volume>1.5",             QUrl(STOCKSINPLAY_URL "min_price=1&min_avgvol=300&min_revol=1.5&Exchange=1&order=ticker&asc=1&row=all&"))
-                      << StocksInPlayUrl("NYSE >1$ >300k Average True Range>1",   QUrl(STOCKSINPLAY_URL "min_price=1&min_avgvol=300&min_atr=>1&Exchange=1&order=ticker&row=all&"))
+                      << StocksInPlayUrl("NYSE >1$ >300k Average True Range>1",   QUrl(STOCKSINPLAY_URL "min_price=1&min_avgvol=300&min_atr=>1&Exchange=1&order=ticker&asc=1&row=all&"))
                       );
     }
 
