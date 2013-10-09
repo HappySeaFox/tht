@@ -57,5 +57,6 @@
         <file>images/flags/no.png</file>
         <file>images/flags/sv.png</file>
         <file>images/flags/tr.png</file>
+        <file>images/flags/vi.png</file>
     </qresource>
 </RCC>
