@@ -48,7 +48,7 @@
     </message>
     <message>
         <location filename="../finvizdownloader.cpp" line="102"/>
-        <source>Broken data (fields: %1, required: %2)</source>
+        <source>Broken answer (fields: %1, required: %2)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

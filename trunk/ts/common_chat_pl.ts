@@ -637,7 +637,7 @@
     <message>
         <location filename="../configureroom.cpp" line="427"/>
         <source>Add affiliation</source>
-        <extracomment>Command</extracomment>
+        <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>Dodaj użytkownika</translation>
     </message>
     <message>
