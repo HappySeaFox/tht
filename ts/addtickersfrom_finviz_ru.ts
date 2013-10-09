@@ -42,7 +42,7 @@
     </message>
     <message>
         <location filename="../finvizdownloader.cpp" line="103"/>
-        <source>Broken data (fields: %1, required: %2)</source>
+        <source>Broken answer (fields: %1, required: %2)</source>
         <translation>Неверный ответ (полей: %1, необходимо: %2)</translation>
     </message>
 </context>

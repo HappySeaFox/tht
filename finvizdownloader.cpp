@@ -100,7 +100,7 @@ bool FinvizDownloader::finished()
     {
         if(str.size() != REQUIRED_FIELDS)
         {
-            showError(tr("Broken data (fields: %1, required: %2)").arg(str.size()).arg(REQUIRED_FIELDS));
+            showError(tr("Broken answer (fields: %1, required: %2)").arg(str.size()).arg(REQUIRED_FIELDS));
             return false;
         }
 

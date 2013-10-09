@@ -37,6 +37,7 @@
     <message>
         <location filename="../stocksinplaycredentials.ui" line="14"/>
         <source>Credentials</source>
+        <extracomment>Means &quot;Login and password to access the website&quot;</extracomment>
         <translation>Данные для входа</translation>
     </message>
     <message>
@@ -61,7 +62,7 @@
     </message>
     <message>
         <location filename="../stocksinplaydownloader.cpp" line="55"/>
-        <source>Broken data</source>
+        <source>Broken answer</source>
         <translation>Неверный ответ</translation>
     </message>
 </context>

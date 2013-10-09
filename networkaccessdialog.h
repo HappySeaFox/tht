@@ -68,7 +68,7 @@ class NetworkAccess;
  *
  *          if(!d.startsWith("XXX"))
  *          {
- *              showError(tr("Broken data, it doesn't start with 'XXX'"));
+ *              showError(tr("Broken answer, it doesn't start with 'XXX'"));
  *              return false;
  *          }
  *

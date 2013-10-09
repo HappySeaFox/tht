@@ -423,7 +423,7 @@ void ConfigureRoom::slotAddJid()
 
     bool ok;
     QString jid = QInputDialog::getText(this,
-                                        //: Command
+                                        //: This is the label on a button that user pushes to issue the command
                                         tr("Add affiliation"),
                                         tr("JID:"),
                                         QLineEdit::Normal,

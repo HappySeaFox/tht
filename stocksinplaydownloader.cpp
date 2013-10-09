@@ -52,7 +52,7 @@ bool StocksInPlayDownloader::finished()
 
         if(pos < 0 || base64.isEmpty())
         {
-            showError(tr("Broken data"));
+            showError(tr("Broken answer"));
             return false;
         }
 
