@@ -7,7 +7,6 @@ DEPENDPATH += qxmpp
 DEFINES += QXMPP_STATIC
 
 QT += core gui network xml
-greaterThan(QT_MAJOR_VERSION, 4): QT *= widgets
 
 NVER1=0
 NVER2=9

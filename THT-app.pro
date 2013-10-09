@@ -2,7 +2,6 @@ TARGET = THT
 TEMPLATE = app
 
 QT += core gui network xml
-greaterThan(QT_MAJOR_VERSION, 4): QT *= widgets
 
 INCLUDEPATH += qtsingleapplication qxt colorpicker qtdropbox
 DEPENDPATH += qtsingleapplication qxt colorpicker qtdropbox
