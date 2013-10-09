@@ -6,6 +6,8 @@ isEmpty(TARGET) {
     error("$$TARGET requires Windows platform")
 }
 
+greaterThan(QT_MAJOR_VERSION, 4): QT *= widgets
+
 INCLUDEPATH += .
 DEPENDPATH += .
 
