@@ -2124,6 +2124,8 @@ bool THT::setForeignFocus(const Link &link)
         qWarning("Cannot set focus to the window %p (%ld)", link.subControl, GetLastError());
         return false;
     }
+    else
+        qDebug("Set focus to the window %p", link.subControl);
 
     return true;
 }
