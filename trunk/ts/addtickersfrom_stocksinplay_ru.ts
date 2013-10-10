@@ -94,6 +94,11 @@
         <source>Accessing...</source>
         <translation>Получение доступа...</translation>
     </message>
+    <message>
+        <location filename="../stocksinplaylogin.cpp" line="54"/>
+        <source>Failed to get account details</source>
+        <translation>Не удалось получить данные учетной записи</translation>
+    </message>
 </context>
 <context>
     <name>StocksInPlayPlugin</name>
