@@ -882,7 +882,7 @@ right/middle mouse button to cancel.</source>
         <translation>&quot;Золотой Телёнок&quot; И.Ильф, Е.Петров</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2151"/>
+        <location filename="../tht.cpp" line="2153"/>
         <source>Customize...</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Настроить...</translation>

@@ -882,7 +882,7 @@ prawy/środkowy przycisk myszy aby anulować.</translation>
         <translation>„Złote cielę” I.Ilf, J.Pietrow</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2151"/>
+        <location filename="../tht.cpp" line="2153"/>
         <source>Customize...</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Personalizuj...</translation>
