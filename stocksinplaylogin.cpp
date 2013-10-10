@@ -51,7 +51,7 @@ bool StocksInPlayLogin::finished()
 
     if(m_id.isEmpty() || m_hash.isEmpty())
     {
-        showError(tr(""));
+        showError(tr("Failed to get account details"));
         return false;
     }
 

@@ -94,6 +94,11 @@
         <source>Accessing...</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../stocksinplaylogin.cpp" line="54"/>
+        <source>Failed to get account details</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StocksInPlayPlugin</name>
