@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>382</width>
-    <height>218</height>
+    <height>222</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -93,7 +93,7 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string extracomment="The URL to visit will be added in runtime">THT helps you do your trading home task. It can link different trading platforms and charts, and manage lists of tickers. Send your requests and report errors to our bug tracker. Also visit</string>
+          <string extracomment="The URL to visit will be added in runtime">THT helps you do your trading home task. It can link different trading platforms and charts, and manage lists of tickers. Send your requests and report errors to our bug tracker. Also visit:</string>
          </property>
          <property name="wordWrap">
           <bool>true</bool>
@@ -102,6 +102,22 @@
           <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
          </property>
         </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_5">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>8</height>
+          </size>
+         </property>
+        </spacer>
        </item>
        <item>
         <widget class="QLabel" name="labelUrl">
