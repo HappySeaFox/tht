@@ -42,8 +42,16 @@ About::About(QWidget *parent) :
                                         "linuxsquirrel.dev@gmail.com</span>"
                                         "</a>&gt;</p></body></html>").arg(tr("Dmitry Baryshev")));
 
-    const char * const http = HTTPROOT "/wiki/howto";
-    ui->labelUrl->setText(QString("<a href=\"%1\">%2</a>").arg(http).arg(http));
+    ui->labelUrl->setText(QString("<a href=\"%1\">%2</a> <a href=\"%3\">%4</a> <a href=\"%5\">%6</a> <a href=\"%7\">%8</a>")
+                            .arg(HTTPROOT)
+                            .arg(tr("Official page"))
+                            .arg(HTTPROOT "/wiki/howto")
+                            .arg(tr("Documentation"))
+                            .arg(HTTPROOT "/youtube")
+                            .arg(tr("Youtube"))
+                            .arg(HTTPROOT "/donations")
+                            .arg(tr("Donations"))
+                            );
 
     // set "wait" icon
     m_timer = new QTimer(this);
