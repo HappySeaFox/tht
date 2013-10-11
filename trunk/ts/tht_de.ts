@@ -234,7 +234,7 @@
     <message>
         <location filename="../excellinkingdetails.ui" line="20"/>
         <source>Book:</source>
-        <extracomment>In the terms of Microsoft Excel</extracomment>
+        <extracomment>Noun. In the terms of Microsoft Excel</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
