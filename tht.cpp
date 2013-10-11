@@ -211,9 +211,9 @@ THT::THT() :
     m_menu->addAction(tr("Clear links"), this, SLOT(slotClearLinks()));
     m_menu->addSeparator();
 
-    //: This is the label on a menu item that user clicks to issue the command. Means "Clear the lists with tickers"
+    //: This is the label on a menu item that user clicks to issue the command. Means "Clear the lists with tickers". Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow "ticker" from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)
     m_menu->addAction(tr("Clear ticker lists") + '\t' + clear_shortcut->key().toString(), this, SLOT(slotClearLists()));
-    //: This is the label on a menu item that user clicks to issue the command
+    //: This is the label on a menu item that user clicks to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow "ticker" from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)
     m_menu->addAction(tr("Load ticker") + "..." + "\tL", this, SLOT(slotLoadTicker()));
     QMenu *menu_load = m_menu->addMenu(tr("Load ticker"));
 

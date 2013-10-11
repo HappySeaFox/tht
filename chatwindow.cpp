@@ -572,19 +572,19 @@ void ChatWindow::slotHelp()
                                      "<tr><td align=center>//Gold=N</td><td>%6</td></tr>"
                                      "<tr><td align=center>//Gold=ND</td><td>%7</td></tr>"
                                      "</table>")
-                             //: Don't translate "ABC" - this is a fixed ticker name
+                             //: Don't translate "ABC" - this is a fixed ticker name. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow "ticker" from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)
                              .arg(tr("Send the ticker \"ABC\" to the chat. User can click on it and it will be loaded into all the linked windows"))
-                             //: Don't translate "ABC" - this is a fixed ticker name
+                             //: Don't translate "ABC" - this is a fixed ticker name. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow "ticker" from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)
                              .arg(tr("Show the ticker information about the ticker \"ABC\""))
-                             //: Don't translate "Gold" - this is a fixed industry name. "Exchange" is a market exchange
+                             //: Don't translate "Gold" - this is a fixed industry name. "Exchange" is a market exchange. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow "ticker" from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)
                              .arg(tr("Show the tickers from the industry \"Gold\" (all exchanges, tickers are sorted by capitalization)"))
-                             //: Don't translate "Gold" - this is a fixed industry name
+                             //: Don't translate "Gold" - this is a fixed industry name. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow "ticker" from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)
                              .arg(tr("Show the AMEX tickers from the industry \"Gold\""))
-                             //: Don't translate "Gold" - this is a fixed industry name
+                             //: Don't translate "Gold" - this is a fixed industry name. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow "ticker" from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)
                              .arg(tr("Show the NASDAQ tickers from the industry \"Gold\""))
-                             //: Don't translate "Gold" - this is a fixed industry name
+                             //: Don't translate "Gold" - this is a fixed industry name. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow "ticker" from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)
                              .arg(tr("Show the NYSE tickers from the industry \"Gold\""))
-                             //: Don't translate "Gold" - this is a fixed industry name
+                             //: Don't translate "Gold" - this is a fixed industry name. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow "ticker" from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)
                              .arg(tr("Show the NYSE and NASDAQ tickers from the industry \"Gold\" (you can mix exchanges)"))
                              );
 }

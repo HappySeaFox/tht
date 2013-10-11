@@ -79,11 +79,11 @@ QString PluginManager::typeToString(int type)
         return tr("Common");
 
         case Plugin::AddTickersFrom:
-        //: This is the label on a button that user pushes to issue the command
+        //: This is the label on a button that user pushes to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow "ticker" from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)
         return tr("Add tickers");
 
         case Plugin::ExportTickersTo:
-        //: This is the label on a button that user pushes to issue the command
+        //: This is the label on a button that user pushes to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow "ticker" from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)
         return tr("Export tickers");
 
         default:

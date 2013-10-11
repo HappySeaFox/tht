@@ -138,21 +138,21 @@
        <item row="0" column="0">
         <widget class="QCheckBox" name="checkSaveTickers">
          <property name="text">
-          <string extracomment="Infinitive">Automatically save tickers</string>
+          <string extracomment="Infinitive. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)">Automatically save tickers</string>
          </property>
         </widget>
        </item>
        <item row="1" column="0">
         <widget class="QCheckBox" name="checkAllowDups">
          <property name="text">
-          <string extracomment="Infinitive">Allow duplicates in a ticker list</string>
+          <string extracomment="Infinitive. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)">Allow duplicates in a ticker list</string>
          </property>
         </widget>
        </item>
        <item row="2" column="0">
         <widget class="QCheckBox" name="checkMini">
          <property name="text">
-          <string extracomment="Noun. Means &quot;The small window where the user can quickly enter a ticker name&quot;">Fast ticker entry</string>
+          <string extracomment="Noun. Means &quot;The small window where the user can quickly enter a ticker name&quot;. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)">Fast ticker entry</string>
          </property>
         </widget>
        </item>
@@ -166,7 +166,7 @@
        <item row="5" column="0">
         <widget class="QCheckBox" name="checkComments">
          <property name="text">
-          <string extracomment="Infinitive. Means &quot;Automatically show comments to the selected ticker&quot;">Automatically show ticker comments</string>
+          <string extracomment="Infinitive. Means &quot;Automatically show comments to the selected ticker&quot;. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)">Automatically show ticker comments</string>
          </property>
         </widget>
        </item>

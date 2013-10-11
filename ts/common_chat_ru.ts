@@ -517,43 +517,43 @@
     <message>
         <location filename="../chatwindow.cpp" line="576"/>
         <source>Send the ticker &quot;ABC&quot; to the chat. User can click on it and it will be loaded into all the linked windows</source>
-        <extracomment>Don&apos;t translate &quot;ABC&quot; - this is a fixed ticker name</extracomment>
+        <extracomment>Don&apos;t translate &quot;ABC&quot; - this is a fixed ticker name. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Послать тикер &quot;ABC&quot; в чат. Пользователь может кликнуть по нему и он будет загружен во все слинкованные окна</translation>
     </message>
     <message>
         <location filename="../chatwindow.cpp" line="578"/>
         <source>Show the ticker information about the ticker &quot;ABC&quot;</source>
-        <extracomment>Don&apos;t translate &quot;ABC&quot; - this is a fixed ticker name</extracomment>
+        <extracomment>Don&apos;t translate &quot;ABC&quot; - this is a fixed ticker name. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Показать информацию о тикере &quot;ABC&quot;</translation>
     </message>
     <message>
         <location filename="../chatwindow.cpp" line="580"/>
         <source>Show the tickers from the industry &quot;Gold&quot; (all exchanges, tickers are sorted by capitalization)</source>
-        <extracomment>Don&apos;t translate &quot;Gold&quot; - this is a fixed industry name. &quot;Exchange&quot; is a market exchange</extracomment>
+        <extracomment>Don&apos;t translate &quot;Gold&quot; - this is a fixed industry name. &quot;Exchange&quot; is a market exchange. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Показать тикеры из индустрии &quot;Gold&quot; (все биржи, тикеры сортируются по капитализации)</translation>
     </message>
     <message>
         <location filename="../chatwindow.cpp" line="582"/>
         <source>Show the AMEX tickers from the industry &quot;Gold&quot;</source>
-        <extracomment>Don&apos;t translate &quot;Gold&quot; - this is a fixed industry name</extracomment>
+        <extracomment>Don&apos;t translate &quot;Gold&quot; - this is a fixed industry name. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Показать AMEX тикеры из индустрии &quot;Gold&quot;</translation>
     </message>
     <message>
         <location filename="../chatwindow.cpp" line="584"/>
         <source>Show the NASDAQ tickers from the industry &quot;Gold&quot;</source>
-        <extracomment>Don&apos;t translate &quot;Gold&quot; - this is a fixed industry name</extracomment>
+        <extracomment>Don&apos;t translate &quot;Gold&quot; - this is a fixed industry name. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Показать NASDAQ тикеры из индустрии &quot;Gold&quot;</translation>
     </message>
     <message>
         <location filename="../chatwindow.cpp" line="586"/>
         <source>Show the NYSE tickers from the industry &quot;Gold&quot;</source>
-        <extracomment>Don&apos;t translate &quot;Gold&quot; - this is a fixed industry name</extracomment>
+        <extracomment>Don&apos;t translate &quot;Gold&quot; - this is a fixed industry name. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Показать NYSE тикеры из индустрии &quot;Gold&quot;</translation>
     </message>
     <message>
         <location filename="../chatwindow.cpp" line="588"/>
         <source>Show the NYSE and NASDAQ tickers from the industry &quot;Gold&quot; (you can mix exchanges)</source>
-        <extracomment>Don&apos;t translate &quot;Gold&quot; - this is a fixed industry name</extracomment>
+        <extracomment>Don&apos;t translate &quot;Gold&quot; - this is a fixed industry name. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Показать NYSE и NASDAQ тикеры из индустрии &quot;Gold&quot; (вы можете перемешивать биржи)</translation>
     </message>
 </context>

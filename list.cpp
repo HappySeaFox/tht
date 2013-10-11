@@ -112,7 +112,7 @@ List::List(int group, QWidget *parent) :
     QIcon file_icon(":/images/file.png");
 
     menu = new QMenu(this);
-    //: This is the label on a menu item that user clicks to issue the command
+    //: This is the label on a menu item that user clicks to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow "ticker" from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)
     menu->addAction(tr("Add one ticker...") + "\tO", this, SLOT(slotAddOne()));
     menu->addSeparator();
     //: This is the label on a menu item that user clicks to issue the command

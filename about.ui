@@ -93,7 +93,7 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string extracomment="The URL to visit will be added in runtime">THT helps you do your trading home task. It can link different trading platforms and charts, and manage lists of tickers. Send your requests and report errors to our bug tracker. Also visit:</string>
+          <string extracomment="The URL to visit will be added in runtime. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)">THT helps you do your trading home task. It can link different trading platforms and charts, and manage lists of tickers. Send your requests and report errors to our bug tracker. Also visit:</string>
          </property>
          <property name="wordWrap">
           <bool>true</bool>
