@@ -15,18 +15,18 @@
         <translation>ID:</translation>
     </message>
     <message>
-        <location filename="../stocksinplayaccesssetup.ui" line="39"/>
+        <location filename="../stocksinplayaccesssetup.ui" line="35"/>
         <source>Hash:</source>
         <translation>Хеш:</translation>
     </message>
     <message>
-        <location filename="../stocksinplayaccesssetup.ui" line="107"/>
+        <location filename="../stocksinplayaccesssetup.ui" line="99"/>
         <source>Fill in...</source>
         <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>Заповнити...</translation>
     </message>
     <message>
-        <location filename="../stocksinplayaccesssetup.ui" line="80"/>
+        <location filename="../stocksinplayaccesssetup.ui" line="72"/>
         <source>If you have a premium Stocks In Play account, you can enter your account information for access to the premium features</source>
         <extracomment>Stocks In Play - Stock Screener, http://stocksinplay.ru. It&apos;s ok not to translate &quot;Stocks In Play&quot; (e.g. you can just copy-paste &quot;Stocks In Play&quot; to your translation)</extracomment>
         <translation>Якщо у вас є преміум акаунт Stocks In Play, то ви можете заповнити облікові дані для доступу до розширених можливостей</translation>
