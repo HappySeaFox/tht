@@ -17,6 +17,7 @@
     <message>
         <location filename="../stocksinplayaccesssetup.ui" line="35"/>
         <source>Hash:</source>
+        <extracomment>Means &quot;Hash key&quot; as in computing</extracomment>
         <translation>Hash:</translation>
     </message>
     <message>
