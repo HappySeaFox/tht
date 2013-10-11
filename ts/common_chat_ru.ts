@@ -529,7 +529,7 @@
     <message>
         <location filename="../chatwindow.cpp" line="580"/>
         <source>Show the tickers from the industry &quot;Gold&quot; (all exchanges, tickers are sorted by capitalization)</source>
-        <extracomment>Don&apos;t translate &quot;Gold&quot; - this is a fixed industry name</extracomment>
+        <extracomment>Don&apos;t translate &quot;Gold&quot; - this is a fixed industry name. &quot;Exchange&quot; is a market exchange</extracomment>
         <translation>Показать тикеры из индустрии &quot;Gold&quot; (все биржи, тикеры сортируются по капитализации)</translation>
     </message>
     <message>

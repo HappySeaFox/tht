@@ -576,7 +576,7 @@ void ChatWindow::slotHelp()
                              .arg(tr("Send the ticker \"ABC\" to the chat. User can click on it and it will be loaded into all the linked windows"))
                              //: Don't translate "ABC" - this is a fixed ticker name
                              .arg(tr("Show the ticker information about the ticker \"ABC\""))
-                             //: Don't translate "Gold" - this is a fixed industry name
+                             //: Don't translate "Gold" - this is a fixed industry name. "Exchange" is a market exchange
                              .arg(tr("Show the tickers from the industry \"Gold\" (all exchanges, tickers are sorted by capitalization)"))
                              //: Don't translate "Gold" - this is a fixed industry name
                              .arg(tr("Show the AMEX tickers from the industry \"Gold\""))

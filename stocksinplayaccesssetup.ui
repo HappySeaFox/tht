@@ -32,7 +32,7 @@
      <item row="1" column="0">
       <widget class="QLabel" name="label_2">
        <property name="text">
-        <string>Hash:</string>
+        <string extracomment="Means &quot;Hash key&quot; as in computing">Hash:</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
