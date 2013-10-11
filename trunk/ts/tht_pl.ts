@@ -11,7 +11,7 @@
     <message>
         <location filename="../about.ui" line="96"/>
         <source>THT helps you do your trading home task. It can link different trading platforms and charts, and manage lists of tickers. Send your requests and report errors to our bug tracker. Also visit:</source>
-        <extracomment>The URL to visit will be added in runtime</extracomment>
+        <extracomment>The URL to visit will be added in runtime. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -283,13 +283,13 @@
     <message>
         <location filename="../list.ui" line="196"/>
         <source>Save tickers</source>
-        <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
+        <extracomment>This is the label on a button that user pushes to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Zapisz tickery</translation>
     </message>
     <message>
         <location filename="../list.ui" line="216"/>
         <source>Export tickers</source>
-        <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
+        <extracomment>This is the label on a button that user pushes to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Eksportuj tickery</translation>
     </message>
     <message>
@@ -319,7 +319,7 @@
     <message>
         <location filename="../list.cpp" line="116"/>
         <source>Add one ticker...</source>
-        <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
+        <extracomment>This is the label on a menu item that user clicks to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Dodaj jeden ticker...</translation>
     </message>
     <message>
@@ -441,19 +441,19 @@
     <message>
         <location filename="../options.ui" line="141"/>
         <source>Automatically save tickers</source>
-        <extracomment>Infinitive</extracomment>
+        <extracomment>Infinitive. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Automatycznie zapisywać tickery</translation>
     </message>
     <message>
         <location filename="../options.ui" line="148"/>
         <source>Allow duplicates in a ticker list</source>
-        <extracomment>Infinitive</extracomment>
+        <extracomment>Infinitive. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Dopuszczać powtórzenia na liście tickerów</translation>
     </message>
     <message>
         <location filename="../options.ui" line="155"/>
         <source>Fast ticker entry</source>
-        <extracomment>Noun. Means &quot;The small window where the user can quickly enter a ticker name&quot;</extracomment>
+        <extracomment>Noun. Means &quot;The small window where the user can quickly enter a ticker name&quot;. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Szybkie wprowadzanie tickera</translation>
     </message>
     <message>
@@ -465,7 +465,7 @@
     <message>
         <location filename="../options.ui" line="169"/>
         <source>Automatically show ticker comments</source>
-        <extracomment>Infinitive. Means &quot;Automatically show comments to the selected ticker&quot;</extracomment>
+        <extracomment>Infinitive. Means &quot;Automatically show comments to the selected ticker&quot;. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Automatycznie pokazywać komentarze do tickera</translation>
     </message>
     <message>
@@ -589,13 +589,13 @@
     <message>
         <location filename="../pluginmanager.cpp" line="83"/>
         <source>Add tickers</source>
-        <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
+        <extracomment>This is the label on a button that user pushes to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Dodaj tickery</translation>
     </message>
     <message>
         <location filename="../pluginmanager.cpp" line="87"/>
         <source>Export tickers</source>
-        <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
+        <extracomment>This is the label on a button that user pushes to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Eksportuj tickery</translation>
     </message>
     <message>
@@ -813,14 +813,14 @@ prawy/środkowy przycisk myszy aby anulować.</translation>
     <message>
         <location filename="../tht.cpp" line="215"/>
         <source>Clear ticker lists</source>
-        <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Clear the lists with tickers&quot;</extracomment>
+        <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Clear the lists with tickers&quot;. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Wyczyść listy tickerów</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="217"/>
         <location filename="../tht.cpp" line="218"/>
         <source>Load ticker</source>
-        <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
+        <extracomment>This is the label on a menu item that user clicks to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Pobierz ticker</translation>
     </message>
     <message>
@@ -939,12 +939,13 @@ prawy/środkowy przycisk myszy aby anulować.</translation>
     <message>
         <location filename="../tickerinput.ui" line="14"/>
         <source>Enter a ticker</source>
-        <extracomment>Appeal to the user. Means &quot;Please enter a ticker here:&quot;</extracomment>
+        <extracomment>Appeal to the user. Means &quot;Please enter a ticker here:&quot;. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Wprowadź ticker</translation>
     </message>
     <message>
         <location filename="../tickerinput.ui" line="20"/>
         <source>Ticker:</source>
+        <extracomment>Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Ticker:</translation>
     </message>
 </context>

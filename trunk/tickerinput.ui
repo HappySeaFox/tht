@@ -11,13 +11,13 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string extracomment="Appeal to the user. Means &quot;Please enter a ticker here:&quot;">Enter a ticker</string>
+   <string extracomment="Appeal to the user. Means &quot;Please enter a ticker here:&quot;. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)">Enter a ticker</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
     <widget class="QLabel" name="label">
      <property name="text">
-      <string>Ticker:</string>
+      <string extracomment="Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)">Ticker:</string>
      </property>
     </widget>
    </item>
