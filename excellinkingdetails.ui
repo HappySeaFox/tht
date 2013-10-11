@@ -17,7 +17,7 @@
    <item row="0" column="0">
     <widget class="QLabel" name="label">
      <property name="text">
-      <string extracomment="In the terms of Microsoft Excel">Book:</string>
+      <string extracomment="Noun. In the terms of Microsoft Excel">Book:</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
