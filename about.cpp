@@ -49,7 +49,7 @@ About::About(QWidget *parent) :
                             .arg(tr("Documentation"))
                             .arg(HTTPROOT "/youtube")
                             .arg(tr("Youtube"))
-                            .arg(HTTPROOT "/donations")
+                            .arg(HTTPROOT "/donate")
                             .arg(tr("Donations"))
                             );
 
