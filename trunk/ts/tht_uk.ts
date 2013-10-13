@@ -43,7 +43,7 @@
     <message>
         <location filename="../about.cpp" line="49"/>
         <source>Translations</source>
-        <translation type="unfinished"></translation>
+        <translation>Переклади</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="51"/>
