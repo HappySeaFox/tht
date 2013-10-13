@@ -19,14 +19,14 @@
      <item row="0" column="0">
       <widget class="QCheckBox" name="checkAutoLogin">
        <property name="text">
-        <string>Autologin</string>
+        <string extracomment="Configuration option">Autologin</string>
        </property>
       </widget>
      </item>
      <item row="1" column="0">
       <widget class="QCheckBox" name="checkSaveRooms">
        <property name="text">
-        <string extracomment="Infinitive">Save rooms</string>
+        <string extracomment="Configuration option. Infinitive">Save rooms</string>
        </property>
       </widget>
      </item>
@@ -46,21 +46,21 @@
      <item row="2" column="0">
       <widget class="QCheckBox" name="checkAutoLoginToRooms">
        <property name="text">
-        <string>Autologin to rooms</string>
+        <string extracomment="Configuration option">Autologin to rooms</string>
        </property>
       </widget>
      </item>
      <item row="3" column="0">
       <widget class="QCheckBox" name="checkRestoreChat">
        <property name="text">
-        <string extracomment="Infinitive">Restore chat at startup</string>
+        <string extracomment="Configuration option. Infinitive">Restore chat at startup</string>
        </property>
       </widget>
      </item>
      <item row="4" column="0">
       <widget class="QCheckBox" name="checkTime">
        <property name="text">
-        <string extracomment="Infinitive">Show time of message</string>
+        <string extracomment="Configuration option. Infinitive">Show time of message</string>
        </property>
       </widget>
      </item>
@@ -124,7 +124,7 @@
      <property name="sizeHint" stdset="0">
       <size>
        <width>20</width>
-       <height>88</height>
+       <height>0</height>
       </size>
      </property>
     </spacer>
