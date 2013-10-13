@@ -638,11 +638,6 @@ right/middle mouse button to cancel.</source>
         <translation>Редактировать...</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.ui" line="48"/>
-        <source>Dropbox...</source>
-        <translation></translation>
-    </message>
-    <message>
         <location filename="../savescreenshot.ui" line="34"/>
         <source>Clipboard</source>
         <translation>Буфер обмена</translation>

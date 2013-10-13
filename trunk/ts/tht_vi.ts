@@ -648,11 +648,6 @@ chuột phải/chuột giữa để hủy bỏ.</translation>
         <translation>Tập tin...</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.ui" line="48"/>
-        <source>Dropbox...</source>
-        <translation>Dropbox...</translation>
-    </message>
-    <message>
         <location filename="../savescreenshot.cpp" line="87"/>
         <source>Image %1 (*.%2)</source>
         <translation>Hình ảnh %1 (*.%2)</translation>
