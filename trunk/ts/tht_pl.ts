@@ -6,18 +6,19 @@
     <message>
         <location filename="../about.ui" line="14"/>
         <source>About THT</source>
+        <extracomment>&quot;THT&quot; is the name of the application</extracomment>
         <translation>Informacje o THT</translation>
     </message>
     <message>
         <location filename="../about.ui" line="96"/>
         <source>THT helps you do your trading home task. It can link different trading platforms and charts, and manage lists of tickers. Send your requests and report errors to our bug tracker. Also visit:</source>
-        <extracomment>The URL to visit will be added in runtime. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
+        <extracomment>&quot;THT&quot; is the name of the application. The URL to visit will be added in runtime. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>THT ułatwia wykonywanie transakcji tradingowych w domu. Umożliwia połączenie różnych platform tradingowych i wykresów, a także zarządzanie listami tickerów. Wysyłaj żądania i zgłaszaj błędy za pomocą naszego narzędzia do śledzenia defektów. Odwiedź również:</translation>
     </message>
     <message>
         <location filename="../about.ui" line="177"/>
         <source>THT is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</source>
-        <extracomment>See https://www.gnu.org/licenses/gpl-2.0.txt</extracomment>
+        <extracomment>See https://www.gnu.org/licenses/gpl-2.0.txt . &quot;THT&quot; is the name of the application</extracomment>
         <translation>Dystrybucja THT jest prowadzona w nadziei, że będzie to rozwiązanie użyteczne i pomocne, ale BEZ ŻADNYCH GWARANCJI; nawet dorozumianych gwarancji WARTOŚCI HANDLOWEJ ani PRZYDATNOŚCI DO OKREŚLONEGO CELU.</translation>
     </message>
     <message>
@@ -71,7 +72,7 @@
     <message>
         <location filename="../about.cpp" line="122"/>
         <source>THT is up to date</source>
-        <extracomment>THT will check for updates and show this message when there are no new version available</extracomment>
+        <extracomment>&quot;THT&quot; is the name of the application. THT will check for updates and show this message when there are no new version available</extracomment>
         <translation>Obecna wersja THT jest aktualna</translation>
     </message>
     <message>
@@ -175,7 +176,7 @@
     <message>
         <location filename="../dropboxuploader.cpp" line="137"/>
         <source>You need to authorize THT in your Dropbox profile. Click &apos;OK&apos; to open the link in a browser. Then open this dialog again</source>
-        <extracomment>Message displayed to the user. &quot;Dropbox&quot; is an online storage service, see http://www.dropbox.com</extracomment>
+        <extracomment>Message displayed to the user. &quot;THT&quot; is the name of the application. &quot;Dropbox&quot; is an online storage service, see http://www.dropbox.com</extracomment>
         <translation>Musisz autoryzować system THT w Twoim profilu na Dropboxie. Kliknij przycisk &apos;OK&apos;, aby otworzyć łącze w przeglądarce. Następnie ponownie otwórz to okno dialogowe</translation>
     </message>
     <message>
@@ -762,13 +763,13 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../tht.ui" line="87"/>
         <source>THT is ready</source>
-        <extracomment>Don&apos;t translate &quot;THT&quot;, simple copy-paste &quot;THT&quot; to your translation</extracomment>
+        <extracomment>&quot;THT&quot; is the name of the application</extracomment>
         <translation>THT jest gotowa</translation>
     </message>
     <message>
         <location filename="../tht.ui" line="119"/>
         <source>THT is busy</source>
-        <extracomment>Don&apos;t translate &quot;THT&quot;, simple copy-paste &quot;THT&quot; to your translation</extracomment>
+        <extracomment>&quot;THT&quot; is the name of the application</extracomment>
         <translation>THT jest zajęta</translation>
     </message>
     <message>
@@ -796,7 +797,7 @@ right/middle mouse button to cancel.</source>
     </message>
     <message>
         <location filename="../tht.cpp" line="207"/>
-        <location filename="../tht.cpp" line="280"/>
+        <location filename="../tht.cpp" line="286"/>
         <source>Take screenshot...</source>
         <translation>Zarejestruj zrzut ekranu...</translation>
     </message>
@@ -820,85 +821,83 @@ right/middle mouse button to cancel.</source>
         <translation>Wczytaj ticker</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="221"/>
-        <source>About THT...</source>
-        <translation>Informacje o THT...</translation>
-    </message>
-    <message>
-        <location filename="../tht.cpp" line="223"/>
+        <location filename="../tht.cpp" line="229"/>
         <source>About Qt...</source>
         <extracomment>Qt is a C++ crossplatform toolkit http://qt-project.org</extracomment>
         <translation>Informacje o Qt...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="224"/>
+        <location filename="../tht.cpp" line="230"/>
         <source>Plugins...</source>
         <translation>Wtyczki...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="226"/>
-        <location filename="../tht.cpp" line="284"/>
+        <location filename="../tht.cpp" line="232"/>
+        <location filename="../tht.cpp" line="290"/>
         <source>Quit</source>
         <translation>Wyjście</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="279"/>
+        <location filename="../tht.cpp" line="285"/>
         <source>Restore</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Restore the application window from the system tray&quot;</extracomment>
         <translation>Przywróć</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="282"/>
+        <location filename="../tht.cpp" line="223"/>
+        <location filename="../tht.cpp" line="288"/>
         <source>About THT</source>
+        <extracomment>&quot;THT&quot; is the name of the application</extracomment>
         <translation>Informacje o THT</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="425"/>
+        <location filename="../tht.cpp" line="431"/>
         <source>Notice</source>
         <translation>Powiadomienie</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="425"/>
+        <location filename="../tht.cpp" line="433"/>
         <source>THT will continue to run in a system tray</source>
+        <extracomment>&quot;THT&quot; is the name of the application</extracomment>
         <translation>THT będzie dalej pracować w zasobniku systemowym</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="939"/>
+        <location filename="../tht.cpp" line="949"/>
         <source>Unknown</source>
         <extracomment>Means &quot;Unknown links&quot; (in the plural)</extracomment>
         <translation>Nieznane</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1457"/>
+        <location filename="../tht.cpp" line="1467"/>
         <source>Error</source>
         <translation>Błąd</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1459"/>
+        <location filename="../tht.cpp" line="1469"/>
         <source>Cannot take screenshot</source>
         <extracomment>Message displayed to the user</extracomment>
         <translation>Nie można zarejestrować zrzutu ekranu</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1506"/>
+        <location filename="../tht.cpp" line="1516"/>
         <source>New points</source>
         <extracomment>Means &quot;New link points&quot;</extracomment>
         <translation>Nowe punkty</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2095"/>
+        <location filename="../tht.cpp" line="2105"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <extracomment>Message displayed to the user in the April Fool&apos;s day. Preferably copy the translation from &quot;The Little Golden Calf&quot; by I.Ilf, E.Petrov, Chapter 10 &quot;A Telegram from the Brothers Karamazov&quot; (http://en.wikipedia.org/wiki/The_Little_Golden_Calf). If you don&apos;t have the book or its online translation then translate as usual</extracomment>
         <translation>Wszystkie współczesne wielkie fortuny zdobyto&lt;br&gt;w najbardziej hańbiący sposób.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2097"/>
+        <location filename="../tht.cpp" line="2107"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <extracomment>See http://en.wikipedia.org/wiki/The_Little_Golden_Calf</extracomment>
         <translation>&quot;Złote cielę&quot; I.Ilf, E.Petrov</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2153"/>
+        <location filename="../tht.cpp" line="2163"/>
         <source>Customize...</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Dostosuj...</translation>

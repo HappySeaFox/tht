@@ -118,7 +118,7 @@ void About::slotNewVersion(const QString &newVersion)
                 "<body>"
                 "<img src=\":/images/ok.png\"></img>"
                 "</body></html>";
-        //: THT will check for updates and show this message when there are no new version available
+        //: "THT" is the name of the application. THT will check for updates and show this message when there are no new version available
         tooltip = tr("THT is up to date");
     }
 

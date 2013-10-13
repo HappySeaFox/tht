@@ -84,7 +84,7 @@
           </size>
          </property>
          <property name="toolTip">
-          <string extracomment="Don't translate &quot;THT&quot;, simple copy-paste &quot;THT&quot; to your translation">THT is ready</string>
+          <string extracomment="&quot;THT&quot; is the name of the application">THT is ready</string>
          </property>
          <property name="pixmap">
           <pixmap resource="tht.qrc">:/images/ready.png</pixmap>
@@ -116,7 +116,7 @@
           </size>
          </property>
          <property name="toolTip">
-          <string extracomment="Don't translate &quot;THT&quot;, simple copy-paste &quot;THT&quot; to your translation">THT is busy</string>
+          <string extracomment="&quot;THT&quot; is the name of the application">THT is busy</string>
          </property>
          <property name="pixmap">
           <pixmap resource="tht.qrc">:/images/locked.png</pixmap>

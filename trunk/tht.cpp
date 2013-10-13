@@ -218,7 +218,13 @@ THT::THT() :
     QMenu *menu_load = m_menu->addMenu(tr("Load ticker"));
 
     m_menu->addSeparator();
-    m_menu->addAction(icon_chart, tr("About THT...") + '\t' + help_shortcut->key().toString(), this, SLOT(slotAbout()));
+    m_menu->addAction(icon_chart,
+                      //: "THT" is the name of the application
+                      tr("About THT")
+                      + "...\t"
+                      + help_shortcut->key().toString(),
+                      this,
+                      SLOT(slotAbout()));
     //: Qt is a C++ crossplatform toolkit http://qt-project.org
     m_menu->addAction(tr("About Qt..."), this, SLOT(slotAboutQt()));
     m_menu->addAction(tr("Plugins..."), this, SLOT(slotPlugins()));
@@ -422,7 +428,11 @@ void THT::closeEvent(QCloseEvent *e)
         if(!SETTINGS_GET_BOOL(SETTING_TRAY_NOTICE_SEEN))
         {
             SETTINGS_SET_BOOL(SETTING_TRAY_NOTICE_SEEN, true);
-            m_tray->showMessage(tr("Notice"), tr("THT will continue to run in a system tray"), QSystemTrayIcon::Information, 7000);
+            m_tray->showMessage(tr("Notice"),
+                                //: "THT" is the name of the application
+                                tr("THT will continue to run in a system tray"),
+                                QSystemTrayIcon::Information,
+                                7000);
         }
 
         e->ignore();
