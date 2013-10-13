@@ -520,7 +520,7 @@
         <location filename="../chatwindow.cpp" line="576"/>
         <source>Send the ticker &quot;ABC&quot; to the chat. User can click on it and it will be loaded into all the linked windows</source>
         <extracomment>Don&apos;t translate &quot;ABC&quot; - this is a fixed ticker name. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
-        <translation>Wyślij znacznik &quot;ABC&quot; do chatu. Użytkownik może go kliknąć i zostanie on wczytany do wszystkich powiązanych okien</translation>
+        <translation>Wyślij ticker &quot;ABC&quot; do chatu. Użytkownik może go kliknąć i zostanie on wczytany do wszystkich powiązanych okien</translation>
     </message>
     <message>
         <location filename="../chatwindow.cpp" line="578"/>
