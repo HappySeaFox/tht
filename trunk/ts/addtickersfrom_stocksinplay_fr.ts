@@ -136,7 +136,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../stocksinplayurlmanager.cpp" line="56"/>
+        <location filename="../stocksinplayurlmanager.cpp" line="55"/>
         <source>Access...</source>
         <extracomment>Noun</extracomment>
         <translation type="unfinished"></translation>
