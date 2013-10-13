@@ -532,7 +532,7 @@
         <location filename="../chatwindow.cpp" line="580"/>
         <source>Show the tickers from the industry &quot;Gold&quot; (all exchanges, tickers are sorted by capitalization)</source>
         <extracomment>Don&apos;t translate &quot;Gold&quot; - this is a fixed industry name. &quot;Exchange&quot; is a market exchange. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
-        <translation>Pokaż tickery z branży &quot;Gold&quot; (wszystkie giełdy, znaczniki są posortowane wg kapitalizacji)</translation>
+        <translation>Pokaż tickery z branży &quot;Gold&quot; (wszystkie giełdy, tickery są posortowane wg kapitalizacji)</translation>
     </message>
     <message>
         <location filename="../chatwindow.cpp" line="582"/>
