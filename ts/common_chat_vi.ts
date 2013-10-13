@@ -12,29 +12,31 @@
     <message>
         <location filename="../chatoptions.ui" line="22"/>
         <source>Autologin</source>
+        <extracomment>Configuration option</extracomment>
         <translation>Tự động đăng nhập</translation>
     </message>
     <message>
         <location filename="../chatoptions.ui" line="29"/>
         <source>Save rooms</source>
-        <extracomment>Infinitive</extracomment>
+        <extracomment>Configuration option. Infinitive</extracomment>
         <translation>Lưu lại room</translation>
     </message>
     <message>
         <location filename="../chatoptions.ui" line="49"/>
         <source>Autologin to rooms</source>
+        <extracomment>Configuration option</extracomment>
         <translation>Tự động đăng nhập vào room</translation>
     </message>
     <message>
         <location filename="../chatoptions.ui" line="56"/>
         <source>Restore chat at startup</source>
-        <extracomment>Infinitive</extracomment>
+        <extracomment>Configuration option. Infinitive</extracomment>
         <translation>Khôi phục lại phần trò chuyện khi khởi chạy</translation>
     </message>
     <message>
         <location filename="../chatoptions.ui" line="63"/>
         <source>Show time of message</source>
-        <extracomment>Infinitive</extracomment>
+        <extracomment>Configuration option. Infinitive</extracomment>
         <translation>Hiển thị thời gian tin nhắn</translation>
     </message>
     <message>

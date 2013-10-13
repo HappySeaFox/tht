@@ -12,12 +12,13 @@
     <message>
         <location filename="../chatoptions.ui" line="22"/>
         <source>Autologin</source>
+        <extracomment>Configuration option</extracomment>
         <translation>Автологин</translation>
     </message>
     <message>
         <location filename="../chatoptions.ui" line="63"/>
         <source>Show time of message</source>
-        <extracomment>Infinitive</extracomment>
+        <extracomment>Configuration option. Infinitive</extracomment>
         <translation>Показувати час повідомлення</translation>
     </message>
     <message>
@@ -28,18 +29,19 @@
     <message>
         <location filename="../chatoptions.ui" line="29"/>
         <source>Save rooms</source>
-        <extracomment>Infinitive</extracomment>
+        <extracomment>Configuration option. Infinitive</extracomment>
         <translation>Зберігати кімнати</translation>
     </message>
     <message>
         <location filename="../chatoptions.ui" line="49"/>
         <source>Autologin to rooms</source>
+        <extracomment>Configuration option</extracomment>
         <translation>Автологин в кімнати</translation>
     </message>
     <message>
         <location filename="../chatoptions.ui" line="56"/>
         <source>Restore chat at startup</source>
-        <extracomment>Infinitive</extracomment>
+        <extracomment>Configuration option. Infinitive</extracomment>
         <translation>Відновлювати чат при запуску</translation>
     </message>
 </context>
