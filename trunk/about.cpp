@@ -36,11 +36,8 @@ About::About(QWidget *parent) :
     ui->label->setPixmap(QIcon(":/images/chart.ico").pixmap(48, 48));
     ui->labelVersion->setText(QString("THT %1").arg(NVER_STRING));
 
-    ui->labelCopyright->setText(QString("<html><head/><body><p>(C) 2012 %1 &lt;"
-                                        "<a href=\"mailto:linuxsquirrel.dev@gmail.com\">"
-                                        "<span style=\" text-decoration: underline; color:#0000ff;\">"
-                                        "linuxsquirrel.dev@gmail.com</span>"
-                                        "</a>&gt;</p></body></html>").arg(tr("Dmitry Baryshev")));
+    ui->labelCopyright->setText(QString("(C) 2012 %1 &lt;<a href=\"mailto:linuxsquirrel.dev@gmail.com\">"
+                                        "linuxsquirrel.dev@gmail.com</a>&gt;").arg(tr("Dmitry Baryshev")));
 
     ui->labelUrl->setText(QString("<a href=\"%1\">%2</a> <a href=\"%3\">%4</a> <a href=\"%5\">%6</a> <a href=\"%7\">%8</a>")
                             .arg(HTTPROOT "/wiki/howto")
