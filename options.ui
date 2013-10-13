@@ -27,14 +27,14 @@
        <item row="1" column="0">
         <widget class="QCheckBox" name="checkOnTop">
          <property name="text">
-          <string>Always on top</string>
+          <string extracomment="Configuration option. The application window will stay on top of the other system windows">Always on top</string>
          </property>
         </widget>
        </item>
        <item row="2" column="0">
         <widget class="QCheckBox" name="checkTray">
          <property name="text">
-          <string extracomment="Infinitive">Hide to tray</string>
+          <string extracomment="Configuration option. Infinitive">Hide to tray</string>
          </property>
         </widget>
        </item>
@@ -88,7 +88,7 @@
          <item row="1" column="0">
           <widget class="QLabel" name="label">
            <property name="text">
-            <string extracomment="Means &quot;Number of lists:&quot;">Lists:</string>
+            <string extracomment="Means &quot;Number of lists:&quot;. It will look like &quot;Lists: 4&quot;">Lists:</string>
            </property>
           </widget>
          </item>
@@ -97,7 +97,7 @@
        <item row="3" column="0">
         <widget class="QCheckBox" name="checkRestoreIndustries">
          <property name="text">
-          <string extracomment="Infinitive">Restore &quot;Industries&quot; window at startup</string>
+          <string extracomment="Configuration option. Infinitive">Restore &quot;Industries&quot; window at startup</string>
          </property>
         </widget>
        </item>
@@ -117,14 +117,14 @@
        <item row="4" column="0">
         <widget class="QCheckBox" name="checkRestoreLP">
          <property name="text">
-          <string extracomment="Infinitive">Restore link points at startup</string>
+          <string extracomment="Configuration option. Infinitive">Restore link points at startup</string>
          </property>
         </widget>
        </item>
        <item row="5" column="0">
         <widget class="QCheckBox" name="checkSave">
          <property name="text">
-          <string extracomment="Infinitive">Save position and size</string>
+          <string extracomment="Configuration option. Infinitive">Save position and size</string>
          </property>
         </widget>
        </item>
@@ -138,35 +138,35 @@
        <item row="0" column="0">
         <widget class="QCheckBox" name="checkSaveTickers">
          <property name="text">
-          <string extracomment="Infinitive. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)">Automatically save tickers</string>
+          <string extracomment="Configuration option. Infinitive. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)">Automatically save tickers</string>
          </property>
         </widget>
        </item>
        <item row="1" column="0">
         <widget class="QCheckBox" name="checkAllowDups">
          <property name="text">
-          <string extracomment="Infinitive. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)">Allow duplicates in a ticker list</string>
+          <string extracomment="Configuration option. Infinitive. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)">Allow duplicates in a ticker list</string>
          </property>
         </widget>
        </item>
        <item row="2" column="0">
         <widget class="QCheckBox" name="checkMini">
          <property name="text">
-          <string extracomment="Noun. Means &quot;The small window where the user can quickly enter a ticker name&quot;. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)">Fast ticker entry</string>
+          <string extracomment="Configuration option. Noun. Means &quot;The small window where the user can quickly enter a ticker name&quot;. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)">Fast ticker entry</string>
          </property>
         </widget>
        </item>
        <item row="3" column="0">
         <widget class="QCheckBox" name="checkHeader">
          <property name="text">
-          <string extracomment="Infinitive">Show title</string>
+          <string extracomment="Configuration option. Infinitive">Show title</string>
          </property>
         </widget>
        </item>
        <item row="5" column="0">
         <widget class="QCheckBox" name="checkComments">
          <property name="text">
-          <string extracomment="Infinitive. Means &quot;Automatically show comments to the selected ticker&quot;. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)">Automatically show ticker comments</string>
+          <string extracomment="Configuration option. Infinitive. Means &quot;Automatically show comments to the selected ticker&quot;. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)">Automatically show ticker comments</string>
          </property>
         </widget>
        </item>
@@ -186,7 +186,7 @@
        <item row="4" column="0">
         <widget class="QCheckBox" name="checkButtons">
          <property name="text">
-          <string extracomment="Infinitive">Show buttons</string>
+          <string extracomment="Configuration option. Infinitive">Show buttons</string>
          </property>
         </widget>
        </item>
@@ -200,14 +200,14 @@
        <item row="0" column="0">
         <widget class="QCheckBox" name="checkCtrlAltS">
          <property name="text">
-          <string>Ctrl+Alt+S to take screenshots</string>
+          <string extracomment="Configuration option">Ctrl+Alt+S to take screenshots</string>
          </property>
         </widget>
        </item>
        <item row="1" column="0">
         <widget class="QCheckBox" name="checkCtrlAltR">
          <property name="text">
-          <string>Ctrl+Alt+R to restore from tray</string>
+          <string extracomment="Configuration option">Ctrl+Alt+R to restore from tray</string>
          </property>
         </widget>
        </item>

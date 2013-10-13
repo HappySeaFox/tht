@@ -63,24 +63,25 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="112"/>
+        <location filename="../about.cpp" line="113"/>
         <source>Update available</source>
+        <extracomment>Means &quot;A new version of THT is availabe at the website&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="121"/>
+        <location filename="../about.cpp" line="122"/>
         <source>THT is up to date</source>
         <extracomment>THT will check for updates and show this message when there are no new version available</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="134"/>
+        <location filename="../about.cpp" line="135"/>
         <source>Cannot check for updates (%1)</source>
         <extracomment>%1 will be replaced with the error code by the application. It will look like &quot;Cannot check for updates (Server is unavailable)&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="149"/>
+        <location filename="../about.cpp" line="150"/>
         <source>Checking for updates...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -101,12 +102,6 @@
 </context>
 <context>
     <name>DropBoxUploader</name>
-    <message>
-        <location filename="../dropboxuploader.ui" line="14"/>
-        <location filename="../dropboxuploader.cpp" line="135"/>
-        <source>Dropbox</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../dropboxuploader.ui" line="37"/>
         <source>Cancel</source>
@@ -180,7 +175,7 @@
     <message>
         <location filename="../dropboxuploader.cpp" line="137"/>
         <source>You need to authorize THT in your Dropbox profile. Click &apos;OK&apos; to open the link in a browser. Then open this dialog again</source>
-        <extracomment>Message displayed to the user</extracomment>
+        <extracomment>Message displayed to the user. &quot;Dropbox&quot; is an online storage service, see http://www.dropbox.com</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -395,12 +390,13 @@
     <message>
         <location filename="../options.ui" line="30"/>
         <source>Always on top</source>
+        <extracomment>Configuration option. The application window will stay on top of the other system windows</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../options.ui" line="37"/>
         <source>Hide to tray</source>
-        <extracomment>Infinitive</extracomment>
+        <extracomment>Configuration option. Infinitive</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -417,71 +413,73 @@
     <message>
         <location filename="../options.ui" line="91"/>
         <source>Lists:</source>
-        <extracomment>Means &quot;Number of lists:&quot;</extracomment>
+        <extracomment>Means &quot;Number of lists:&quot;. It will look like &quot;Lists: 4&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../options.ui" line="100"/>
         <source>Restore &quot;Industries&quot; window at startup</source>
-        <extracomment>Infinitive</extracomment>
+        <extracomment>Configuration option. Infinitive</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../options.ui" line="120"/>
         <source>Restore link points at startup</source>
-        <extracomment>Infinitive</extracomment>
+        <extracomment>Configuration option. Infinitive</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../options.ui" line="127"/>
         <source>Save position and size</source>
-        <extracomment>Infinitive</extracomment>
+        <extracomment>Configuration option. Infinitive</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../options.ui" line="141"/>
         <source>Automatically save tickers</source>
-        <extracomment>Infinitive. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
+        <extracomment>Configuration option. Infinitive. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../options.ui" line="148"/>
         <source>Allow duplicates in a ticker list</source>
-        <extracomment>Infinitive. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
+        <extracomment>Configuration option. Infinitive. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../options.ui" line="155"/>
         <source>Fast ticker entry</source>
-        <extracomment>Noun. Means &quot;The small window where the user can quickly enter a ticker name&quot;. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
+        <extracomment>Configuration option. Noun. Means &quot;The small window where the user can quickly enter a ticker name&quot;. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../options.ui" line="162"/>
         <source>Show title</source>
-        <extracomment>Infinitive</extracomment>
+        <extracomment>Configuration option. Infinitive</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../options.ui" line="169"/>
         <source>Automatically show ticker comments</source>
-        <extracomment>Infinitive. Means &quot;Automatically show comments to the selected ticker&quot;. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
+        <extracomment>Configuration option. Infinitive. Means &quot;Automatically show comments to the selected ticker&quot;. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../options.ui" line="189"/>
         <source>Show buttons</source>
-        <extracomment>Infinitive</extracomment>
+        <extracomment>Configuration option. Infinitive</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../options.ui" line="203"/>
         <source>Ctrl+Alt+S to take screenshots</source>
+        <extracomment>Configuration option</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../options.ui" line="210"/>
         <source>Ctrl+Alt+R to restore from tray</source>
+        <extracomment>Configuration option</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>

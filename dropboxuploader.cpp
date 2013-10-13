@@ -132,8 +132,8 @@ void DropBoxUploader::slotRequestTokenFinished(const QString &token, const QStri
     m_tokenSecret = secret;
 
     if(QMessageBox::information(this,
-                                tr("Dropbox"),
-                                //: Message displayed to the user
+                                "Dropbox",
+                                //: Message displayed to the user. "Dropbox" is an online storage service, see http://www.dropbox.com
                                 tr("You need to authorize THT in your Dropbox profile. Click 'OK' to open the link in a browser. Then open this dialog again"),
                                 QMessageBox::Ok | QMessageBox::Cancel) == QMessageBox::Ok)
     {
