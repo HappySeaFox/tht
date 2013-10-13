@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="pl_PL">
+<TS version="2.0" language="pl">
 <context>
     <name>About</name>
     <message>
         <location filename="../about.ui" line="14"/>
         <source>About THT</source>
-        <translation>O THT</translation>
+        <translation>Informacje o THT</translation>
     </message>
     <message>
         <location filename="../about.ui" line="96"/>
         <source>THT helps you do your trading home task. It can link different trading platforms and charts, and manage lists of tickers. Send your requests and report errors to our bug tracker. Also visit:</source>
         <extracomment>The URL to visit will be added in runtime. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>THT ułatwia wykonywanie transakcji tradingowych w domu. Umożliwia połączenie różnych platform tradingowych i wykresów, a także zarządzanie listami tickerów. Wysyłaj żądania i zgłaszaj błędy za pomocą naszego narzędzia do śledzenia defektów. Odwiedź również:</translation>
     </message>
     <message>
         <location filename="../about.ui" line="177"/>
         <source>THT is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</source>
         <extracomment>See https://www.gnu.org/licenses/gpl-2.0.txt</extracomment>
-        <translation>Rozprowadzamy THT z nadzieją na powodzenie, ale BEZ GWARANCJI; nie mamy nawet pewności, że da się SPRZEDAĆ albo że będzie się DO CZEGOŚ KONKRETNEGO NADAWAĆ.</translation>
+        <translation>Dystrybucja THT jest prowadzona w nadziei, że będzie to rozwiązanie użyteczne i pomocne, ale BEZ ŻADNYCH GWARANCJI; nawet dorozumianych gwarancji WARTOŚCI HANDLOWEJ ani PRZYDATNOŚCI DO OKREŚLONEGO CELU.</translation>
     </message>
     <message>
         <location filename="../about.ui" line="220"/>
@@ -28,27 +28,27 @@
     <message>
         <location filename="../about.cpp" line="40"/>
         <source>Dmitry Baryshev</source>
-        <translation>Dmitrij Baryszew</translation>
+        <translation>Dmitry Baryshev</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="44"/>
         <source>Documentation</source>
-        <translation type="unfinished"></translation>
+        <translation>Dokumentacja</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="46"/>
         <source>Translations</source>
-        <translation type="unfinished"></translation>
+        <translation>Tłumaczenia</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="48"/>
         <source>Youtube</source>
-        <translation type="unfinished"></translation>
+        <translation>Youtube</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="50"/>
         <source>Donations</source>
-        <translation type="unfinished"></translation>
+        <translation>Darowizny</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="69"/>
@@ -60,12 +60,12 @@
         <location filename="../about.cpp" line="72"/>
         <source>Downloadable database</source>
         <extracomment>Means &quot;Database which is downloaded from the website&quot;</extracomment>
-        <translation>Baza danych do pobrania</translation>
+        <translation>Baza danych dostępna do pobrania</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="112"/>
         <source>Update available</source>
-        <translation>Dostępna jest aktualizacja</translation>
+        <translation>Aktualizacja jest dostępna</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="121"/>
@@ -82,7 +82,7 @@
     <message>
         <location filename="../about.cpp" line="149"/>
         <source>Checking for updates...</source>
-        <translation>Sprawdzanie, czy są aktualizacje...</translation>
+        <translation>Sprawdzanie, czy dostępne są aktualizacje...</translation>
     </message>
 </context>
 <context>
@@ -115,17 +115,17 @@
     <message>
         <location filename="../dropboxuploader.cpp" line="84"/>
         <source>Network error</source>
-        <translation>Błąd sieci</translation>
+        <translation>Błąd sieciowy</translation>
     </message>
     <message>
         <location filename="../dropboxuploader.cpp" line="85"/>
         <source>Used API version is not supported</source>
-        <translation>Nieobsługiwana wersja API</translation>
+        <translation>Używana wersja API nie jest obsługiwana</translation>
     </message>
     <message>
         <location filename="../dropboxuploader.cpp" line="86"/>
         <source>Used authentication method is not supported</source>
-        <translation>Nieobsługiwana  metoda uwierzytelnienia</translation>
+        <translation>Używana metoda uwierzytelniania nie jest obsługiwana</translation>
     </message>
     <message>
         <location filename="../dropboxuploader.cpp" line="87"/>
@@ -140,27 +140,27 @@
     <message>
         <location filename="../dropboxuploader.cpp" line="89"/>
         <source>Unknown query method</source>
-        <translation>Nieznany rodzaj zapytania</translation>
+        <translation>Nieznana metoda zapytania</translation>
     </message>
     <message>
         <location filename="../dropboxuploader.cpp" line="90"/>
         <source>Bad parameter</source>
-        <translation>Nieprawidłowy parametr</translation>
+        <translation>Niepoprawny parametr</translation>
     </message>
     <message>
         <location filename="../dropboxuploader.cpp" line="91"/>
         <source>Bad oAuth request</source>
-        <translation> Nieprawidłowa metoda oAuth</translation>
+        <translation>Niepoprawne żądanie oAuth</translation>
     </message>
     <message>
         <location filename="../dropboxuploader.cpp" line="92"/>
         <source>Bad HTTP method</source>
-        <translation>Nieprawidłowa metoda HTTP</translation>
+        <translation>Niepoprawna metoda HTTP</translation>
     </message>
     <message>
         <location filename="../dropboxuploader.cpp" line="93"/>
         <source>Maximum amount of requests exceeded</source>
-        <translation>Przekroczono dopuszczalną ilość żądań</translation>
+        <translation>Przekroczono maksymalną liczbę żądań</translation>
     </message>
     <message>
         <location filename="../dropboxuploader.cpp" line="94"/>
@@ -170,7 +170,7 @@
     <message>
         <location filename="../dropboxuploader.cpp" line="95"/>
         <source>Token has expired</source>
-        <translation>Token stracił ważność</translation>
+        <translation>Token utracił ważność</translation>
     </message>
     <message>
         <location filename="../dropboxuploader.cpp" line="98"/>
@@ -178,32 +178,26 @@
         <translation>Nieznany błąd</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="126"/>
-        <source>Close</source>
-        <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
-        <translation>Zamknij</translation>
-    </message>
-    <message>
         <location filename="../dropboxuploader.cpp" line="137"/>
         <source>You need to authorize THT in your Dropbox profile. Click &apos;OK&apos; to open the link in a browser. Then open this dialog again</source>
         <extracomment>Message displayed to the user</extracomment>
-        <translation>Musisz nadać THT uprawnienie w swoim profilu na Dropboxie. Aby otworzyć odnośnik w przeglądarce, kliknij &apos;OK&apos;. Potem ponownie otwórz okienko</translation>
+        <translation>Musisz autoryzować system THT w Twoim profilu na Dropboxie. Kliknij przycisk &apos;OK&apos;, aby otworzyć łącze w przeglądarce. Następnie ponownie otwórz to okno dialogowe</translation>
     </message>
     <message>
         <location filename="../dropboxuploader.cpp" line="175"/>
         <source>Cannot get the link to the file</source>
         <extracomment>Means &quot;Cannot get the link to the file from the remote server&quot;</extracomment>
-        <translation>Brak odnośnika do pliku</translation>
+        <translation>Nie można uzyskać łącza do pliku</translation>
     </message>
     <message>
         <location filename="../dropboxuploader.cpp" line="201"/>
         <source>Requesting new token...</source>
-        <translation>Wysyłanie żądania nowego tokena...</translation>
+        <translation>Żądanie nowego tokena...</translation>
     </message>
     <message>
         <location filename="../dropboxuploader.cpp" line="221"/>
         <source>Requesting new access token...</source>
-        <translation> Wysyłanie żądania nowego tokena dostępu...</translation>
+        <translation>Żądanie nowego tokena dostępu...</translation>
     </message>
     <message>
         <location filename="../dropboxuploader.cpp" line="235"/>
@@ -220,7 +214,13 @@
     <message>
         <location filename="../dropboxuploader.cpp" line="254"/>
         <source>Requesting link...</source>
-        <translation>Wysyłanie żądania odnośnika...</translation>
+        <translation>Żądanie łącza...</translation>
+    </message>
+    <message>
+        <location filename="../dropboxuploader.cpp" line="126"/>
+        <source>Close</source>
+        <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
+        <translation>Zamknij</translation>
     </message>
 </context>
 <context>
@@ -263,7 +263,7 @@
         <location filename="../linkpointmanager.cpp" line="37"/>
         <source>Add current</source>
         <extracomment>Means &quot;Add current link points&quot; (in the plural)</extracomment>
-        <translation>Dodaj obecne</translation>
+        <translation>Dodaj bieżące</translation>
     </message>
 </context>
 <context>
@@ -302,7 +302,7 @@
         <location filename="../list.cpp" line="103"/>
         <source>Sort</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
-        <translation>Uporządkuj</translation>
+        <translation>Sortuj</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="105"/>
@@ -314,7 +314,7 @@
         <location filename="../list.cpp" line="108"/>
         <source>Reset priorities</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
-        <translation>Kasuj ustawienia priorytetów</translation>
+        <translation>Resetuj priorytety</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="116"/>
@@ -338,13 +338,13 @@
         <location filename="../list.cpp" line="128"/>
         <source>Export to file...</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
-        <translation>Wyślij do pliku...</translation>
+        <translation>Eksportuj do pliku...</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="130"/>
         <source>Export to clipboard</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
-        <translation>Wyślij do schowka</translation>
+        <translation>Eksportuj do schowka</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="1285"/>
@@ -357,7 +357,7 @@
         <location filename="../list.cpp" line="1287"/>
         <location filename="../list.cpp" line="1365"/>
         <source>Text files (*.txt)</source>
-        <translation>Pliki tekstowe (*.txt)</translation>
+        <translation>Pliki tekstowe (*.*)</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="1289"/>
@@ -375,13 +375,13 @@
         <location filename="../list.cpp" line="1327"/>
         <source>Cannot open the following files: %1</source>
         <extracomment>Message displayed to the user. %1 will be replaced with the list of files by the application</extracomment>
-        <translation>Nie udało się otworzyć następujących plików: %1</translation>
+        <translation>Nie można otworzyć następujących plików: %1</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="1380"/>
         <source>Cannot save to file %1</source>
         <extracomment>Message displayed to the user. %1 will be replaced with the file name by the application</extracomment>
-        <translation>Nie udało się zapisać do pliku %1</translation>
+        <translation>Nie można zapisać do pliku %1</translation>
     </message>
 </context>
 <context>
@@ -401,7 +401,7 @@
         <location filename="../options.ui" line="37"/>
         <source>Hide to tray</source>
         <extracomment>Infinitive</extracomment>
-        <translation>Ukryj do zasobnika systemowego</translation>
+        <translation>Ukryj do zasobnika</translation>
     </message>
     <message>
         <location filename="../options.ui" line="50"/>
@@ -418,37 +418,37 @@
         <location filename="../options.ui" line="91"/>
         <source>Lists:</source>
         <extracomment>Means &quot;Number of lists:&quot;</extracomment>
-        <translation>Ilość list:</translation>
+        <translation>Listy:</translation>
     </message>
     <message>
         <location filename="../options.ui" line="100"/>
         <source>Restore &quot;Industries&quot; window at startup</source>
         <extracomment>Infinitive</extracomment>
-        <translation>Po uruchomieniu przywrócić okienko „Industries”</translation>
+        <translation>Przywróć okno &quot;Branże&quot; po uruchomieniu</translation>
     </message>
     <message>
         <location filename="../options.ui" line="120"/>
         <source>Restore link points at startup</source>
         <extracomment>Infinitive</extracomment>
-        <translation>Po uruchomieniu przywrócić punkty połączeń</translation>
+        <translation>Przywróć punkty połączeń przy uruchamianiu</translation>
     </message>
     <message>
         <location filename="../options.ui" line="127"/>
         <source>Save position and size</source>
         <extracomment>Infinitive</extracomment>
-        <translation>Zapisać pozycję i rozmiar</translation>
+        <translation>Zapisz pozycję i rozmiar</translation>
     </message>
     <message>
         <location filename="../options.ui" line="141"/>
         <source>Automatically save tickers</source>
         <extracomment>Infinitive. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
-        <translation>Automatycznie zapisywać tickery</translation>
+        <translation>Automatycznie zapisuj tickery</translation>
     </message>
     <message>
         <location filename="../options.ui" line="148"/>
         <source>Allow duplicates in a ticker list</source>
         <extracomment>Infinitive. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
-        <translation>Dopuszczać powtórzenia na liście tickerów</translation>
+        <translation>Zezwalaj na duplikaty na liście tickerów</translation>
     </message>
     <message>
         <location filename="../options.ui" line="155"/>
@@ -460,35 +460,35 @@
         <location filename="../options.ui" line="162"/>
         <source>Show title</source>
         <extracomment>Infinitive</extracomment>
-        <translation>Pokazywać tytuł</translation>
+        <translation>Pokaż tytuł</translation>
     </message>
     <message>
         <location filename="../options.ui" line="169"/>
         <source>Automatically show ticker comments</source>
         <extracomment>Infinitive. Means &quot;Automatically show comments to the selected ticker&quot;. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
-        <translation>Automatycznie pokazywać komentarze do tickera</translation>
+        <translation>Automatycznie pokazuj komentarze do tickera</translation>
     </message>
     <message>
         <location filename="../options.ui" line="189"/>
         <source>Show buttons</source>
         <extracomment>Infinitive</extracomment>
-        <translation>Pokazywać przyciski</translation>
+        <translation>Pokaż przyciski</translation>
     </message>
     <message>
         <location filename="../options.ui" line="203"/>
         <source>Ctrl+Alt+S to take screenshots</source>
-        <translation>Ctrl+Alt+S generuje zrzut ekranu</translation>
+        <translation>Ctrl+Alt+S, aby zapisywać zrzuty ekranu</translation>
     </message>
     <message>
         <location filename="../options.ui" line="210"/>
         <source>Ctrl+Alt+R to restore from tray</source>
-        <translation>Ctrl+Alt+R przywraca z zasobnika systemowego</translation>
+        <translation>Ctrl+Alt+R, aby przywrócić z zasobnika</translation>
     </message>
     <message>
         <location filename="../options.ui" line="253"/>
         <source>Need restart</source>
         <extracomment>Means &quot;It is neccessary to restart the application&quot;</extracomment>
-        <translation>Restart wymagane</translation>
+        <translation>Wymagany restart</translation>
     </message>
     <message>
         <location filename="../options.cpp" line="40"/>
@@ -505,7 +505,7 @@
     <message>
         <location filename="../options.cpp" line="43"/>
         <source>Hotkeys</source>
-        <translation>Klawisze skrótów</translation>
+        <translation>Klawisze dostępu</translation>
     </message>
 </context>
 <context>
@@ -584,7 +584,7 @@
         <location filename="../pluginmanager.cpp" line="79"/>
         <source>Common</source>
         <extracomment>Means &quot;Common plugins&quot; (in the plural)</extracomment>
-        <translation>Zwykłe</translation>
+        <translation>Wspólne</translation>
     </message>
     <message>
         <location filename="../pluginmanager.cpp" line="83"/>
@@ -612,16 +612,14 @@
         <source>Using the mouse, select the rectangle, or click
 any button or right/middle mouse button to cancel.</source>
         <extracomment>Appeal to the user</extracomment>
-        <translation>Zaznacz prostokąt myszką, albo kliknij dowolny przycisk lub kliknij
-prawy/środkowy przycisk myszy aby anulować.</translation>
+        <translation>Za pomocą myszy zaznacz prostokąt albo kliknij dowolny lub prawy/środkowy przycisk myszy, aby anulować.</translation>
     </message>
     <message>
         <location filename="../regionselect.cpp" line="121"/>
         <source>Using the mouse, select the rectangle, or click
 right/middle mouse button to cancel.</source>
         <extracomment>Appeal to the user</extracomment>
-        <translation>Zaznacz prostokąt myszką, albo kliknij
-prawy/środkowy przycisk myszy aby anulować.</translation>
+        <translation>Za pomocą myszy zaznacz prostokąt lub kliknij prawy/środkowy przycisk myszy, aby anulować.</translation>
     </message>
 </context>
 <context>
@@ -630,7 +628,7 @@ prawy/środkowy przycisk myszy aby anulować.</translation>
         <location filename="../savescreenshot.ui" line="14"/>
         <source>Save to</source>
         <extracomment>Window title. User is asked to save a screenshot to a file or clipboard</extracomment>
-        <translation>Zapisz w</translation>
+        <translation>Zapisz do</translation>
     </message>
     <message>
         <location filename="../savescreenshot.ui" line="20"/>
@@ -674,7 +672,7 @@ prawy/środkowy przycisk myszy aby anulować.</translation>
         <location filename="../savescreenshot.cpp" line="115"/>
         <location filename="../savescreenshot.cpp" line="139"/>
         <source>Cannot save screenshot</source>
-        <translation>Nie udało się zapiszać zrzutu ekranu</translation>
+        <translation>Nie można zapisać zrzutu ekranu</translation>
     </message>
 </context>
 <context>
@@ -683,7 +681,7 @@ prawy/środkowy przycisk myszy aby anulować.</translation>
         <location filename="../screenshotcommentinput.ui" line="14"/>
         <source>Enter text</source>
         <extracomment>Appeal to the user. Means &quot;Please enter text here:&quot;</extracomment>
-        <translation>Wpisz tekst</translation>
+        <translation>Wprowadź tekst</translation>
     </message>
     <message>
         <location filename="../screenshotcommentinput.ui" line="22"/>
@@ -730,7 +728,7 @@ prawy/środkowy przycisk myszy aby anulować.</translation>
         <location filename="../screenshoteditor.ui" line="98"/>
         <source>Select all</source>
         <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
-        <translation>Zaznacz wszystko</translation>
+        <translation>Wybierz wszystko</translation>
     </message>
     <message>
         <location filename="../screenshoteditor.ui" line="105"/>
@@ -748,7 +746,7 @@ prawy/środkowy przycisk myszy aby anulować.</translation>
         <location filename="../screenshoteditor.ui" line="127"/>
         <source>Stop</source>
         <extracomment>Noun. Means &quot;Stop-loss order&quot;, see http://www.investopedia.com/terms/s/stoporder.asp</extracomment>
-        <translation>Stop</translation>
+        <translation>Zatrzymaj</translation>
     </message>
     <message>
         <location filename="../screenshoteditor.ui" line="138"/>
@@ -761,7 +759,7 @@ prawy/środkowy przycisk myszy aby anulować.</translation>
     <message>
         <location filename="../tht.ui" line="14"/>
         <source>Trader&apos;s Home Task</source>
-        <translation>Trader&apos;s Home Task</translation>
+        <translation>Zadanie domowe tradera</translation>
     </message>
     <message>
         <location filename="../tht.ui" line="87"/>
@@ -802,13 +800,13 @@ prawy/środkowy przycisk myszy aby anulować.</translation>
         <location filename="../tht.cpp" line="207"/>
         <location filename="../tht.cpp" line="280"/>
         <source>Take screenshot...</source>
-        <translation>Wygeneruj zrzut ekranu...</translation>
+        <translation>Zarejestruj zrzut ekranu...</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="211"/>
         <source>Clear links</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
-        <translation>Wyczyść połączenia</translation>
+        <translation>Wyczyść łącza</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="215"/>
@@ -821,18 +819,18 @@ prawy/środkowy przycisk myszy aby anulować.</translation>
         <location filename="../tht.cpp" line="218"/>
         <source>Load ticker</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
-        <translation>Pobierz ticker</translation>
+        <translation>Wczytaj ticker</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="221"/>
         <source>About THT...</source>
-        <translation>O THT...</translation>
+        <translation>Informacje o THT...</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="223"/>
         <source>About Qt...</source>
         <extracomment>Qt is a C++ crossplatform toolkit http://qt-project.org</extracomment>
-        <translation>O Qt...</translation>
+        <translation>Informacje o Qt...</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="224"/>
@@ -843,7 +841,7 @@ prawy/środkowy przycisk myszy aby anulować.</translation>
         <location filename="../tht.cpp" line="226"/>
         <location filename="../tht.cpp" line="284"/>
         <source>Quit</source>
-        <translation>Wyjdź</translation>
+        <translation>Wyjście</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="279"/>
@@ -854,12 +852,12 @@ prawy/środkowy przycisk myszy aby anulować.</translation>
     <message>
         <location filename="../tht.cpp" line="282"/>
         <source>About THT</source>
-        <translation>O THT</translation>
+        <translation>Informacje o THT</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="425"/>
         <source>Notice</source>
-        <translation>Uwaga</translation>
+        <translation>Powiadomienie</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="425"/>
@@ -881,7 +879,7 @@ prawy/środkowy przycisk myszy aby anulować.</translation>
         <location filename="../tht.cpp" line="1459"/>
         <source>Cannot take screenshot</source>
         <extracomment>Message displayed to the user</extracomment>
-        <translation>Nie udało się wygenerować zrzutu ekranu</translation>
+        <translation>Nie można zarejestrować zrzutu ekranu</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="1506"/>
@@ -893,19 +891,19 @@ prawy/środkowy przycisk myszy aby anulować.</translation>
         <location filename="../tht.cpp" line="2095"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <extracomment>Message displayed to the user in the April Fool&apos;s day. Preferably copy the translation from &quot;The Little Golden Calf&quot; by I.Ilf, E.Petrov, Chapter 10 &quot;A Telegram from the Brothers Karamazov&quot; (http://en.wikipedia.org/wiki/The_Little_Golden_Calf). If you don&apos;t have the book or its online translation then translate as usual</extracomment>
-        <translation>Wszystkie obecne wielkie fortuny zostały zdobyte&lt;br&gt;drogą nieuczciwą.</translation>
+        <translation>Wszystkie współczesne wielkie fortuny zdobyto&lt;br&gt;w najbardziej hańbiący sposób.</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="2097"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <extracomment>See http://en.wikipedia.org/wiki/The_Little_Golden_Calf</extracomment>
-        <translation>„Złote cielę” I.Ilf, J.Pietrow</translation>
+        <translation>&quot;Złote cielę&quot; I.Ilf, E.Petrov</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="2153"/>
         <source>Customize...</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
-        <translation>Personalizuj...</translation>
+        <translation>Dostosuj...</translation>
     </message>
 </context>
 <context>
@@ -913,7 +911,7 @@ prawy/środkowy przycisk myszy aby anulować.</translation>
     <message>
         <location filename="../target.cpp" line="35"/>
         <source>Drag and drop this target to the window you need to create a link to</source>
-        <translation>Aby utworzyć połączenie z oknem, przeciągnij i upuść do niego ten target</translation>
+        <translation>Przeciągnij i upuść ten cel do okna, do którego zamierzasz utworzyć połączenie</translation>
     </message>
 </context>
 <context>
@@ -931,7 +929,7 @@ prawy/środkowy przycisk myszy aby anulować.</translation>
         <location filename="../tickerinformationtooltip.cpp" line="183"/>
         <source>Not found</source>
         <extracomment>In the neuter, means &quot;Something is not found&quot;</extracomment>
-        <translation>Nie odnaleziono</translation>
+        <translation>Nie znaleziono</translation>
     </message>
 </context>
 <context>
@@ -961,7 +959,7 @@ prawy/środkowy przycisk myszy aby anulować.</translation>
         <location filename="../tickerneighbors.ui" line="109"/>
         <source>By capitalization</source>
         <extracomment>Means &quot;Sort by capitalization&quot;</extracomment>
-        <translation>Według kapitalizacji</translation>
+        <translation>Wg kapitalizacji</translation>
     </message>
     <message>
         <location filename="../tickerneighbors.ui" line="122"/>
@@ -983,12 +981,12 @@ prawy/środkowy przycisk myszy aby anulować.</translation>
         <location filename="../updatechecker.cpp" line="50"/>
         <source>Network error #%1</source>
         <extracomment>%1 will be replaced with the error code by the application. It will look like &quot;Network error #16&quot;</extracomment>
-        <translation>Błąd sieci #%1</translation>
+        <translation>Błąd sieciowy #%1</translation>
     </message>
     <message>
         <location filename="../updatechecker.cpp" line="59"/>
         <source>Server answer is broken</source>
-        <translation>Odpowiedź serwera nie działa</translation>
+        <translation>Odpowiedź z serwera jest podzielona</translation>
     </message>
 </context>
 </TS>

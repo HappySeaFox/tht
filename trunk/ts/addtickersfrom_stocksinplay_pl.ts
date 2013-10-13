@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="pl_PL">
+<TS version="2.0" language="pl">
 <context>
     <name>StocksInPlayAccessSetup</name>
     <message>
@@ -12,7 +12,7 @@
     <message>
         <location filename="../stocksinplayaccesssetup.ui" line="22"/>
         <source>ID:</source>
-        <translation>ID:</translation>
+        <translation>Identyfikator:</translation>
     </message>
     <message>
         <location filename="../stocksinplayaccesssetup.ui" line="35"/>
@@ -30,7 +30,7 @@
         <location filename="../stocksinplayaccesssetup.ui" line="72"/>
         <source>If you have a premium Stocks In Play account, you can enter your account information for access to the premium features</source>
         <extracomment>Stocks In Play - Stock Screener, http://stocksinplay.ru. It&apos;s ok not to translate &quot;Stocks In Play&quot; (e.g. you can just copy-paste &quot;Stocks In Play&quot; to your translation)</extracomment>
-        <translation>Jeśli masz konto premium Stocks In Play, możesz podać dane swojego konta, aby uzyskać dostęp do zaawansowanych funkcji</translation>
+        <translation>Posiadacze konta premium Stocks In Play mogą wpisać dane konta w celu uzyskania dostępu do usług premium</translation>
     </message>
 </context>
 <context>
@@ -39,7 +39,7 @@
         <location filename="../stocksinplaycredentials.ui" line="14"/>
         <source>Credentials</source>
         <extracomment>Means &quot;Login and password to access the website&quot;</extracomment>
-        <translation>Zaloguj Informacje</translation>
+        <translation>Dane konta</translation>
     </message>
     <message>
         <location filename="../stocksinplaycredentials.ui" line="20"/>
@@ -64,7 +64,7 @@
     <message>
         <location filename="../stocksinplaydownloader.cpp" line="55"/>
         <source>Broken answer</source>
-        <translation>Nieprawidłowe dane</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -112,7 +112,7 @@
     <message>
         <location filename="../stocksinplayplugin.cpp" line="144"/>
         <source>Customize...</source>
-        <translation>Personalizuj...</translation>
+        <translation>Dostosuj...</translation>
     </message>
 </context>
 <context>
@@ -121,7 +121,7 @@
         <location filename="../stocksinplayurlmanager.cpp" line="32"/>
         <source>Stocks In Play links</source>
         <extracomment>Stocks In Play - Stock Screener, http://stocksinplay.ru. It&apos;s ok not to translate &quot;Stocks In Play&quot; (e.g. you can just copy-paste &quot;Stocks In Play&quot; to your translation). Means &quot;Links to Stocks In Play&quot;</extracomment>
-        <translation>Odnośniki do Stocks In Play</translation>
+        <translation>Łącza Stocks In Play</translation>
     </message>
     <message>
         <location filename="../stocksinplayurlmanager.cpp" line="35"/>
@@ -133,7 +133,7 @@
         <location filename="../stocksinplayurlmanager.cpp" line="40"/>
         <source>Link</source>
         <extracomment>Noun</extracomment>
-        <translation>Odnośnik</translation>
+        <translation>Link</translation>
     </message>
     <message>
         <location filename="../stocksinplayurlmanager.cpp" line="55"/>
