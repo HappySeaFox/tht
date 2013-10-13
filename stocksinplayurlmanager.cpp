@@ -38,8 +38,7 @@ StocksInPlayUrlManager::StocksInPlayUrlManager(QWidget *parent) :
 
     //: Noun
     t->headerItem()->setText(1, tr("Link"));
-#warning TODO link
-    t->setWhatsThis(QString("<a href=\"http://www.youtube.com/watch?v=\">%1</a>").arg(Tools::openYoutubeTutorialTitle()));
+    t->setWhatsThis(QString("<a href=\"http://www.youtube.com/watch?v=Daoa0Xftp7M\">%1</a>").arg(Tools::openYoutubeTutorialTitle()));
 
     const QList<StocksInPlayUrl> urls = SETTINGS_GET_STOCKSINPLAY_URLS(SETTING_STOCKSINPLAY_URLS);
 
