@@ -37,13 +37,13 @@
     </message>
     <message>
         <location filename="../about.cpp" line="47"/>
-        <source>Official page</source>
-        <translation>Офіційна сторінка</translation>
+        <source>Documentation</source>
+        <translation>Документація</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="49"/>
-        <source>Documentation</source>
-        <translation>Документація</translation>
+        <source>Translations</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../about.cpp" line="51"/>

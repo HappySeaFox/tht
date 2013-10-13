@@ -43,10 +43,10 @@ About::About(QWidget *parent) :
                                         "</a>&gt;</p></body></html>").arg(tr("Dmitry Baryshev")));
 
     ui->labelUrl->setText(QString("<a href=\"%1\">%2</a> <a href=\"%3\">%4</a> <a href=\"%5\">%6</a> <a href=\"%7\">%8</a>")
-                            .arg(HTTPROOT)
-                            .arg(tr("Official page"))
                             .arg(HTTPROOT "/wiki/howto")
                             .arg(tr("Documentation"))
+                            .arg("http://www.transifex.com/projects/p/traders-home-task")
+                            .arg(tr("Translations"))
                             .arg(HTTPROOT "/youtube")
                             .arg(tr("Youtube"))
                             .arg(HTTPROOT "/donate")
