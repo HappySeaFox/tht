@@ -109,6 +109,7 @@ void About::slotNewVersion(const QString &newVersion)
                     "<img src=\":/images/update.png\"></img>"
                 "</a>"
                 "</body></html>";
+        //: Means "A new version of THT is availabe at the website"
         tooltip = tr("Update available");
     }
     else
