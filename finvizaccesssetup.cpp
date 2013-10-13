@@ -15,6 +15,7 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <QPixmap>
 #include <QStyle>
 #include <QIcon>
 
