@@ -64,7 +64,7 @@
     <message>
         <location filename="../stocksinplaydownloader.cpp" line="55"/>
         <source>Broken answer</source>
-        <translation type="unfinished"></translation>
+        <translation>Nieprawidłowy odpowiedź</translation>
     </message>
 </context>
 <context>
@@ -98,7 +98,7 @@
     <message>
         <location filename="../stocksinplaylogin.cpp" line="54"/>
         <source>Failed to get account details</source>
-        <translation type="unfinished"></translation>
+        <translation>Uzyskanie dostępu do szczegółów dotyczących konta nie powiodło się</translation>
     </message>
 </context>
 <context>
