@@ -646,11 +646,6 @@ right/middle mouse button to cancel.</source>
         <translation>Plik...</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.ui" line="48"/>
-        <source>Dropbox...</source>
-        <translation>Dropbox...</translation>
-    </message>
-    <message>
         <location filename="../savescreenshot.cpp" line="87"/>
         <source>Image %1 (*.%2)</source>
         <translation>Obraz %1 (*.%2)</translation>

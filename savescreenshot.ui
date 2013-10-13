@@ -45,7 +45,7 @@
    <item row="0" column="4">
     <widget class="QPushButton" name="pushDropbox">
      <property name="text">
-      <string>Dropbox...</string>
+      <string notr="true">Dropbox...</string>
      </property>
     </widget>
    </item>

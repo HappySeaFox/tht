@@ -646,11 +646,6 @@ right/middle mouse button to cancel.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../savescreenshot.ui" line="48"/>
-        <source>Dropbox...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../savescreenshot.cpp" line="87"/>
         <source>Image %1 (*.%2)</source>
         <translation type="unfinished"></translation>
