@@ -32,12 +32,12 @@
     </message>
     <message>
         <location filename="../about.cpp" line="47"/>
-        <source>Official page</source>
+        <source>Documentation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../about.cpp" line="49"/>
-        <source>Documentation</source>
+        <source>Translations</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
