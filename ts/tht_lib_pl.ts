@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="pl_PL">
+<TS version="2.0" language="pl">
 <context>
     <name>DataManagerBase</name>
     <message>
@@ -33,7 +33,7 @@
         <location filename="../networkaccessdialog.cpp" line="152"/>
         <source>Network error #%1</source>
         <extracomment>%1 will be replaced with the error code by the application. It will look like &quot;Network error #16&quot;</extracomment>
-        <translation>Błąd sieci #%1</translation>
+        <translation>Błąd sieciowy #%1</translation>
     </message>
 </context>
 <context>
@@ -42,7 +42,7 @@
         <location filename="../tools.cpp" line="164"/>
         <source>Open YouTube tutorial</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Open a video tutorial on YouTube&quot;</extracomment>
-        <translation>Pokaż filmik instruktażowy na YouTube</translation>
+        <translation>Otwórz kurs na YouTube</translation>
     </message>
     <message>
         <location filename="../tools.cpp" line="170"/>
@@ -54,7 +54,7 @@
         <location filename="../tools.cpp" line="176"/>
         <source>&lt;Paste url here&gt;</source>
         <extracomment>Command addressed to the user. Means &quot;Please paste some URL here&quot;. &quot;URL&quot; can be translated as &quot;link&quot;</extracomment>
-        <translation>&lt;Wklej tutaj adres&gt;</translation>
+        <translation>&lt;Adres URL wklej tutaj&gt;</translation>
     </message>
     <message>
         <location filename="../tools.cpp" line="182"/>

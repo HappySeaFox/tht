@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="pl_PL">
+<TS version="2.0" language="pl">
 <context>
     <name>FinvizAccessSetup</name>
     <message>
         <location filename="../finvizaccesssetup.ui" line="14"/>
         <source>Finviz access setup</source>
         <extracomment>Window title. Finviz - Stock Screener, http://finviz.com. It&apos;s ok not to translate &quot;Finviz&quot; (e.g. you can just copy-paste &quot;Finviz&quot; to your translation). Means &quot;Configuring access to your Finviz account&quot;</extracomment>
-        <translation>Ustawienia dostępu do Finviz</translation>
+        <translation>Konfiguracja dostępu do Finviz</translation>
     </message>
     <message>
         <location filename="../finvizaccesssetup.ui" line="22"/>
@@ -23,13 +23,13 @@
         <location filename="../finvizaccesssetup.ui" line="86"/>
         <source>If you have a FINVIZ*Elite account, you can enter your account information for access to the premium features</source>
         <extracomment>Finviz - Stock Screener, http://finviz.com. It&apos;s ok not to translate &quot;Finviz&quot; (or &quot;FINVIZ*Elite&quot;) (e.g. you can just copy-paste &quot;Finviz&quot; (or &quot;FINVIZ*Elite&quot;) to your translation)</extracomment>
-        <translation>Jeśli masz konto FINVIZ*Elite, możesz podać dane swojego konta, aby uzyskać dostęp do funkcji „elite”</translation>
+        <translation>Jeśli posiadasz konto FINVIZ*Elite, możesz wprowadzić informacje o koncie w celu uzyskania dostępu do funkcji premium</translation>
     </message>
     <message>
         <location filename="../finvizaccesssetup.ui" line="109"/>
         <source>Please remember that your e-mail address and password will be stored in the clear. If you don&apos;t want them stored in the clear, just leave them blank; in which case, FINVIZ*Elite options will not be accessible</source>
         <extracomment>Finviz - Stock Screener, http://finviz.com. It&apos;s ok not to translate &quot;Finviz&quot; (or &quot;FINVIZ*Elite&quot;) (e.g. you can just copy-paste &quot;Finviz&quot; (or &quot;FINVIZ*Elite&quot;) to your translation)</extracomment>
-        <translation>Pamiętaj, że twój adres e-mail i hasło będą przechowywane jako zwykły tekst. Jeżeli nie chcesz, żeby były zachowane, nic nie wpisuj; opcje FINVIZ*Elite nie będą dostępne</translation>
+        <translation>Twój adres e-mail i hasło będą przechowywane w postaci niezaszyfrowanej. Jeśli nie zgadzasz się na to, aby były przechowywane w postaci niezaszyfrowanej, zostaw te pola puste; w takim przypadku opcje FINVIZ*Elite będą niedostępne</translation>
     </message>
 </context>
 <context>
@@ -43,7 +43,7 @@
     <message>
         <location filename="../finvizdownloader.cpp" line="103"/>
         <source>Broken answer (fields: %1, required: %2)</source>
-        <translation>Nieprawidłowe dane (pól: %1, wymagane: %2)</translation>
+        <translation>Przerwana odpowiedź (pola: %1, wymagane: %2)</translation>
     </message>
 </context>
 <context>
@@ -72,7 +72,7 @@
     <message>
         <location filename="../finvizplugin.cpp" line="150"/>
         <source>Customize...</source>
-        <translation>Personalizuj...</translation>
+        <translation>Dostosuj...</translation>
     </message>
 </context>
 <context>
@@ -81,7 +81,7 @@
         <location filename="../finvizurlmanager.cpp" line="32"/>
         <source>Finviz links</source>
         <extracomment>Finviz - Stock Screener, http://finviz.com. It&apos;s ok not to translate &quot;Finviz&quot; (e.g. you can just copy-paste &quot;Finviz&quot; to your translation). Means &quot;Links to Finviz&quot;</extracomment>
-        <translation>Odnośniki do Finviz</translation>
+        <translation>Łącza Finviz</translation>
     </message>
     <message>
         <location filename="../finvizurlmanager.cpp" line="35"/>
@@ -93,7 +93,7 @@
         <location filename="../finvizurlmanager.cpp" line="40"/>
         <source>Link</source>
         <extracomment>Noun</extracomment>
-        <translation>Odnośnik</translation>
+        <translation>Łącze</translation>
     </message>
     <message>
         <location filename="../finvizurlmanager.cpp" line="55"/>
