@@ -47,42 +47,37 @@
         <translation>Youtube</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="50"/>
-        <source>Donations</source>
-        <translation>Đóng góp</translation>
-    </message>
-    <message>
-        <location filename="../about.cpp" line="69"/>
+        <location filename="../about.cpp" line="67"/>
         <source>Persistent database</source>
         <extracomment>Means &quot;Fixed database on the hard drive&quot;</extracomment>
         <translation>Cơ sở dữ liệu liên tục</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="72"/>
+        <location filename="../about.cpp" line="70"/>
         <source>Downloadable database</source>
         <extracomment>Means &quot;Database which is downloaded from the website&quot;</extracomment>
         <translation>Cơ sở dữ liệu có thể được tải về</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="113"/>
+        <location filename="../about.cpp" line="111"/>
         <source>Update available</source>
         <extracomment>Means &quot;A new version of THT is availabe at the website&quot;</extracomment>
         <translation>Hiện đã có phiên bản mới</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="122"/>
+        <location filename="../about.cpp" line="120"/>
         <source>THT is up to date</source>
         <extracomment>&quot;THT&quot; is the name of the application. THT will check for updates and show this message when there are no new version available</extracomment>
         <translation>Đây là phiên bản mới nhất</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="135"/>
+        <location filename="../about.cpp" line="133"/>
         <source>Cannot check for updates (%1)</source>
         <extracomment>%1 will be replaced with the error code by the application. It will look like &quot;Cannot check for updates (Server is unavailable)&quot;</extracomment>
         <translation>Không thể kiểm tra cập nhật (%1)</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="150"/>
+        <location filename="../about.cpp" line="148"/>
         <source>Checking for updates...</source>
         <translation>Đang kiểm tra cập nhật...</translation>
     </message>

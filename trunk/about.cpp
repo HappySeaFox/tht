@@ -39,15 +39,13 @@ About::About(QWidget *parent) :
     ui->labelCopyright->setText(QString("(C) 2012 %1 &lt;<a href=\"mailto:linuxsquirrel.dev@gmail.com\">"
                                         "linuxsquirrel.dev@gmail.com</a>&gt;").arg(tr("Dmitry Baryshev")));
 
-    ui->labelUrl->setText(QString("<a href=\"%1\">%2</a> <a href=\"%3\">%4</a> <a href=\"%5\">%6</a> <a href=\"%7\">%8</a>")
+    ui->labelUrl->setText(QString("<a href=\"%1\">%2</a> <a href=\"%3\">%4</a> <a href=\"%5\">%6</a>")
                             .arg(HTTPROOT "/wiki/howto")
                             .arg(tr("Documentation"))
                             .arg("http://www.transifex.com/projects/p/traders-home-task")
                             .arg(tr("Translations"))
                             .arg(HTTPROOT "/youtube")
                             .arg(tr("Youtube"))
-                            .arg(HTTPROOT "/donate")
-                            .arg(tr("Donations"))
                             );
 
     // set "wait" icon
