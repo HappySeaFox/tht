@@ -76,7 +76,7 @@
     </message>
     <message>
         <location filename="../chatpage.ui" line="162"/>
-        <location filename="../chatpage.cpp" line="625"/>
+        <location filename="../chatpage.cpp" line="628"/>
         <source>Subject</source>
         <extracomment>Noun</extracomment>
         <translation>Temat</translation>
@@ -114,12 +114,12 @@
         <translation>Kapitalizacja:</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="987"/>
+        <location filename="../chatpage.cpp" line="990"/>
         <source>New subject:</source>
         <translation>Nowy temat:</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="1111"/>
+        <location filename="../chatpage.cpp" line="1114"/>
         <source>mln</source>
         <extracomment>Means &quot;million&quot;</extracomment>
         <translation>mln</translation>
@@ -139,12 +139,12 @@
     <message>
         <location filename="../chatpage.cpp" line="116"/>
         <source>Copy room JID</source>
-        <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Copy the JID of the room to the clipboard&quot;</extracomment>
+        <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Copy the JID of the room to the clipboard&quot;. JID is a Jabber Identifier, http://en.wikipedia.org/wiki/XMPP#Decentralization_and_addressing . It&apos;s ok not to translate &quot;JID&quot;, e.g. you can just copy-paste &quot;JID&quot; to your translation</extracomment>
         <translation>Kopiuj JID pokoju</translation>
     </message>
     <message>
         <location filename="../chatpage.cpp" line="220"/>
-        <location filename="../chatpage.cpp" line="624"/>
+        <location filename="../chatpage.cpp" line="627"/>
         <source>Set subject</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Ustaw temat</translation>
@@ -161,140 +161,141 @@
     </message>
     <message>
         <location filename="../chatpage.cpp" line="567"/>
-        <location filename="../chatpage.cpp" line="604"/>
+        <location filename="../chatpage.cpp" line="607"/>
         <source>Reason:</source>
         <translation>Powód:</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="589"/>
+        <location filename="../chatpage.cpp" line="590"/>
         <source>Error</source>
         <translation>Błąd</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="589"/>
+        <location filename="../chatpage.cpp" line="592"/>
         <source>Failed to find the JID of the user &quot;%1&quot;</source>
+        <extracomment>JID is a Jabber Identifier, http://en.wikipedia.org/wiki/XMPP#Decentralization_and_addressing . It&apos;s ok not to translate &quot;JID&quot;, e.g. you can just copy-paste &quot;JID&quot; to your translation</extracomment>
         <translation>Nie powiodło się znalezienie JID użytkownika &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="812"/>
+        <location filename="../chatpage.cpp" line="815"/>
         <source>Bad request</source>
         <translation>Błędne żądanie</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="813"/>
+        <location filename="../chatpage.cpp" line="816"/>
         <source>User conflict</source>
         <translation>Konflikt użytkownika</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="814"/>
+        <location filename="../chatpage.cpp" line="817"/>
         <source>Feature is not implemented</source>
         <translation>Funkcja nie jest zaimplementowana</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="815"/>
+        <location filename="../chatpage.cpp" line="818"/>
         <source>Forbidden</source>
         <translation>Zabronione</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="817"/>
+        <location filename="../chatpage.cpp" line="820"/>
         <source>Internal server error</source>
         <translation>Błąd serwera wewnętrznego</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="818"/>
+        <location filename="../chatpage.cpp" line="821"/>
         <source>Item is not found</source>
         <translation>Nie znaleziono</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="820"/>
+        <location filename="../chatpage.cpp" line="823"/>
         <source>JID is malformed</source>
         <extracomment>JID is a Jabber Identifier, http://en.wikipedia.org/wiki/XMPP#Decentralization_and_addressing . It&apos;s ok not to translate &quot;JID&quot;, e.g. you can just copy-paste &quot;JID&quot; to your translation</extracomment>
         <translation>JID jest uszkodzony</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="821"/>
+        <location filename="../chatpage.cpp" line="824"/>
         <source>Not acceptable</source>
         <translation>Nie można zaakceptować</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="822"/>
+        <location filename="../chatpage.cpp" line="825"/>
         <source>Not allowed</source>
         <translation>Niedozwolone</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="823"/>
+        <location filename="../chatpage.cpp" line="826"/>
         <source>Not authorized</source>
         <translation>Nieuprawnione</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="824"/>
+        <location filename="../chatpage.cpp" line="827"/>
         <source>Payment required</source>
         <translation>Wymagana zapłata</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="825"/>
+        <location filename="../chatpage.cpp" line="828"/>
         <source>Recipient is unavailable</source>
         <translation>Odbiorca jest niedostępny</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="826"/>
+        <location filename="../chatpage.cpp" line="829"/>
         <source>Redirection</source>
         <translation>Przekierowanie</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="827"/>
+        <location filename="../chatpage.cpp" line="830"/>
         <source>Registration required</source>
         <translation>Wymagana rejestracja</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="828"/>
+        <location filename="../chatpage.cpp" line="831"/>
         <source>Remote server is not found</source>
         <translation>Serwer zdalny nie został znaleziony</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="829"/>
+        <location filename="../chatpage.cpp" line="832"/>
         <source>Remote server timeout</source>
         <translation>Limit czasu serwera zdalnego</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="830"/>
+        <location filename="../chatpage.cpp" line="833"/>
         <source>Resource constraint</source>
         <translation>Ograniczenie zasobów</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="831"/>
+        <location filename="../chatpage.cpp" line="834"/>
         <source>Service is unavailable</source>
         <translation>Usługa jest niedostępna</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="832"/>
+        <location filename="../chatpage.cpp" line="835"/>
         <source>Subscription required</source>
         <translation>Wymagana subskrypcja</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="833"/>
+        <location filename="../chatpage.cpp" line="836"/>
         <source>Undefined condition</source>
         <translation>Niezdefiniowany warunek</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="834"/>
+        <location filename="../chatpage.cpp" line="837"/>
         <source>Unexpected request</source>
         <translation>Nieoczekiwane żądanie</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="837"/>
+        <location filename="../chatpage.cpp" line="840"/>
         <source>Unknown error</source>
         <translation>Nieznany błąd</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="851"/>
+        <location filename="../chatpage.cpp" line="854"/>
         <source>Messages: %1</source>
         <extracomment>Means &quot;Number of messages:&quot;. It will look like &quot;Number of messages: 2&quot;</extracomment>
         <translation>Wiadomości: %1</translation>
     </message>
     <message>
         <location filename="../chatpage.cpp" line="389"/>
-        <location filename="../chatpage.cpp" line="902"/>
+        <location filename="../chatpage.cpp" line="905"/>
         <source>User is not available</source>
         <translation>Użytkownik jest niedostępny</translation>
     </message>
@@ -346,29 +347,29 @@
         <translation>Usuń z grupy</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="603"/>
+        <location filename="../chatpage.cpp" line="606"/>
         <source>Ban</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Ban the selected user&quot;</extracomment>
         <translation>Blokuj</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="816"/>
+        <location filename="../chatpage.cpp" line="819"/>
         <source>User has gone</source>
         <translation>Użytkownik odszedł</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="1073"/>
+        <location filename="../chatpage.cpp" line="1076"/>
         <source>industry is not found</source>
         <translation>nie znaleziono takiej branży</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="1107"/>
+        <location filename="../chatpage.cpp" line="1110"/>
         <source>bln</source>
         <extracomment>Means &quot;billion&quot; (1000*million)</extracomment>
         <translation>bln</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="1131"/>
+        <location filename="../chatpage.cpp" line="1134"/>
         <source>ticker is not found</source>
         <extracomment>Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>nie znaleziono takiego tickera</translation>
@@ -394,11 +395,12 @@
     <message>
         <location filename="../chatwindow.ui" line="45"/>
         <source>JID:</source>
+        <extracomment>JID is a Jabber Identifier, http://en.wikipedia.org/wiki/XMPP#Decentralization_and_addressing . It&apos;s ok not to translate &quot;JID&quot;, e.g. you can just copy-paste &quot;JID&quot; to your translation</extracomment>
         <translation>JID:</translation>
     </message>
     <message>
         <location filename="../chatwindow.ui" line="58"/>
-        <location filename="../chatwindow.cpp" line="435"/>
+        <location filename="../chatwindow.cpp" line="436"/>
         <source>Password:</source>
         <translation>Hasło:</translation>
     </message>
@@ -434,56 +436,57 @@
     <message>
         <location filename="../chatwindow.cpp" line="197"/>
         <location filename="../chatwindow.cpp" line="246"/>
-        <location filename="../chatwindow.cpp" line="443"/>
-        <location filename="../chatwindow.cpp" line="451"/>
-        <location filename="../chatwindow.cpp" line="485"/>
+        <location filename="../chatwindow.cpp" line="444"/>
+        <location filename="../chatwindow.cpp" line="452"/>
+        <location filename="../chatwindow.cpp" line="486"/>
         <source>Room</source>
         <translation>Pokój</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="284"/>
+        <location filename="../chatwindow.cpp" line="285"/>
         <source>JID is empty</source>
+        <extracomment>JID is a Jabber Identifier, http://en.wikipedia.org/wiki/XMPP#Decentralization_and_addressing . It&apos;s ok not to translate &quot;JID&quot;, e.g. you can just copy-paste &quot;JID&quot; to your translation</extracomment>
         <translation>JID jest pusty</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="298"/>
+        <location filename="../chatwindow.cpp" line="299"/>
         <source>Connecting...</source>
         <translation>Łączenie...</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="307"/>
+        <location filename="../chatwindow.cpp" line="308"/>
         <source>Sign in cancelled</source>
         <translation>Logowanie anulowane</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="357"/>
+        <location filename="../chatwindow.cpp" line="358"/>
         <source>Network error</source>
         <translation>Błąd sieciowy</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="362"/>
+        <location filename="../chatwindow.cpp" line="363"/>
         <source>Keep alive error</source>
         <extracomment>Also can be translated as &quot;Error maintain the connection&quot;</extracomment>
         <translation>Błąd podczas sprawdzania połączenia</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="369"/>
+        <location filename="../chatwindow.cpp" line="370"/>
         <source>Invalid password</source>
         <translation>Niepoprawne hasło</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="373"/>
+        <location filename="../chatwindow.cpp" line="374"/>
         <source>Stream error</source>
         <translation>Błąd strumienia</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="379"/>
+        <location filename="../chatwindow.cpp" line="380"/>
         <source>Unknown error</source>
         <translation>Nieznany błąd</translation>
     </message>
     <message>
         <location filename="../chatwindow.cpp" line="110"/>
-        <location filename="../chatwindow.cpp" line="565"/>
+        <location filename="../chatwindow.cpp" line="566"/>
         <source>Help</source>
         <extracomment>Noun</extracomment>
         <translation>Pomoc</translation>
@@ -495,65 +498,65 @@
         <translation>Oparte na</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="431"/>
+        <location filename="../chatwindow.cpp" line="432"/>
         <source>Invitation</source>
         <extracomment>Noun</extracomment>
         <translation>Zaproszenie</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="433"/>
+        <location filename="../chatwindow.cpp" line="434"/>
         <source>You have been invited to room %1%2%3%4&lt;br&gt;&lt;br&gt;Open the room now?</source>
         <extracomment>Message displayed to the user</extracomment>
         <translation>Zostałeś zaproszony do pokoju %1%2%3%4&lt;br&gt;&lt;br&gt;Czy chcesz wejść teraz?</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="436"/>
+        <location filename="../chatwindow.cpp" line="437"/>
         <source>Reason:</source>
         <translation>Powód:</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="437"/>
+        <location filename="../chatwindow.cpp" line="438"/>
         <source>Message:</source>
         <translation>Wiadomość:</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="576"/>
+        <location filename="../chatwindow.cpp" line="577"/>
         <source>Send the ticker &quot;ABC&quot; to the chat. User can click on it and it will be loaded into all the linked windows</source>
         <extracomment>Don&apos;t translate &quot;ABC&quot; - this is a fixed ticker name. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Wyślij ticker &quot;ABC&quot; do chatu. Użytkownik może go kliknąć i zostanie on wczytany do wszystkich powiązanych okien</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="578"/>
+        <location filename="../chatwindow.cpp" line="579"/>
         <source>Show the ticker information about the ticker &quot;ABC&quot;</source>
         <extracomment>Don&apos;t translate &quot;ABC&quot; - this is a fixed ticker name. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Pokaż informacje dla znacznika &quot;ABC&quot;</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="580"/>
+        <location filename="../chatwindow.cpp" line="581"/>
         <source>Show the tickers from the industry &quot;Gold&quot; (all exchanges, tickers are sorted by capitalization)</source>
         <extracomment>Don&apos;t translate &quot;Gold&quot; - this is a fixed industry name. &quot;Exchange&quot; is a market exchange. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Pokaż tickery z branży &quot;Gold&quot; (wszystkie giełdy, tickery są posortowane wg kapitalizacji)</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="582"/>
+        <location filename="../chatwindow.cpp" line="583"/>
         <source>Show the AMEX tickers from the industry &quot;Gold&quot;</source>
         <extracomment>Don&apos;t translate &quot;Gold&quot; - this is a fixed industry name. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Pokaż tickery AMEX z branży &quot;Gold&quot;</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="584"/>
+        <location filename="../chatwindow.cpp" line="585"/>
         <source>Show the NASDAQ tickers from the industry &quot;Gold&quot;</source>
         <extracomment>Don&apos;t translate &quot;Gold&quot; - this is a fixed industry name. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Pokaż tickery NASDAQ z branży &quot;Gold&quot;</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="586"/>
+        <location filename="../chatwindow.cpp" line="587"/>
         <source>Show the NYSE tickers from the industry &quot;Gold&quot;</source>
         <extracomment>Don&apos;t translate &quot;Gold&quot; - this is a fixed industry name. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Pokaż tickery NYSE z branży &quot;Gold&quot;</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="588"/>
+        <location filename="../chatwindow.cpp" line="589"/>
         <source>Show the NYSE and NASDAQ tickers from the industry &quot;Gold&quot; (you can mix exchanges)</source>
         <extracomment>Don&apos;t translate &quot;Gold&quot; - this is a fixed industry name. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Pokaż tickery NYSE i NASDAQ z branży &quot;Gold&quot; (możesz mieszać giełdy)</translation>
@@ -596,13 +599,13 @@
         <translation>Zablokowane</translation>
     </message>
     <message>
-        <location filename="../configureroom.ui" line="203"/>
+        <location filename="../configureroom.ui" line="200"/>
         <source>Apply</source>
         <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>Zastosuj</translation>
     </message>
     <message>
-        <location filename="../configureroom.ui" line="210"/>
+        <location filename="../configureroom.ui" line="207"/>
         <source>Close</source>
         <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>Zamknij</translation>
@@ -619,43 +622,39 @@
         <translation>Inne</translation>
     </message>
     <message>
-        <location filename="../configureroom.ui" line="108"/>
-        <source>Add</source>
-        <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
-        <translation>Dodaj</translation>
-    </message>
-    <message>
-        <location filename="../configureroom.ui" line="118"/>
+        <location filename="../configureroom.ui" line="115"/>
         <source>Remove</source>
         <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>Usuń</translation>
     </message>
     <message>
-        <location filename="../configureroom.ui" line="139"/>
+        <location filename="../configureroom.ui" line="136"/>
         <source>General</source>
         <extracomment>In the plural. Means &quot;General options&quot;</extracomment>
         <translation>Ogólne</translation>
     </message>
     <message>
-        <location filename="../configureroom.cpp" line="427"/>
+        <location filename="../configureroom.cpp" line="430"/>
         <source>Add affiliation</source>
         <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>Dodaj użytkownika</translation>
     </message>
     <message>
-        <location filename="../configureroom.cpp" line="428"/>
+        <location filename="../configureroom.cpp" line="432"/>
         <source>JID:</source>
+        <extracomment>JID is a Jabber Identifier, http://en.wikipedia.org/wiki/XMPP#Decentralization_and_addressing . It&apos;s ok not to translate &quot;JID&quot;, e.g. you can just copy-paste &quot;JID&quot; to your translation</extracomment>
         <translation>JID:</translation>
     </message>
     <message>
-        <location filename="../configureroom.cpp" line="443"/>
+        <location filename="../configureroom.cpp" line="448"/>
         <source>Adding JID</source>
+        <extracomment>JID is a Jabber Identifier, http://en.wikipedia.org/wiki/XMPP#Decentralization_and_addressing . It&apos;s ok not to translate &quot;JID&quot;, e.g. you can just copy-paste &quot;JID&quot; to your translation</extracomment>
         <translation>Dodawanie JID</translation>
     </message>
     <message>
-        <location filename="../configureroom.cpp" line="445"/>
+        <location filename="../configureroom.cpp" line="450"/>
         <source>JID &quot;%1&quot; is already in this section</source>
-        <extracomment>Message displayed to the user</extracomment>
+        <extracomment>Message displayed to the user. JID is a Jabber Identifier, http://en.wikipedia.org/wiki/XMPP#Decentralization_and_addressing . It&apos;s ok not to translate &quot;JID&quot;, e.g. you can just copy-paste &quot;JID&quot; to your translation</extracomment>
         <translation>JID &quot;%1 już jest w tej sekcji</translation>
     </message>
 </context>
@@ -720,6 +719,7 @@
     <message>
         <location filename="../sendinvitations.ui" line="20"/>
         <source>List of JIDs, one per line:</source>
+        <extracomment>JID is a Jabber Identifier, http://en.wikipedia.org/wiki/XMPP#Decentralization_and_addressing . It&apos;s ok not to translate &quot;JID&quot;, e.g. you can just copy-paste &quot;JID&quot; to your translation</extracomment>
         <translation>Lista JID, jeden na linię:</translation>
     </message>
     <message>

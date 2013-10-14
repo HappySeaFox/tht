@@ -6,7 +6,7 @@
     <message>
         <location filename="../datamanagerbase.ui" line="33"/>
         <source>Name</source>
-        <translation>Tên:</translation>
+        <translation>Tên</translation>
     </message>
     <message>
         <location filename="../datamanagerbase.ui" line="49"/>
@@ -61,6 +61,12 @@
         <source>Tickers</source>
         <extracomment>Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Tickers</translation>
+    </message>
+    <message>
+        <location filename="../tools.cpp" line="188"/>
+        <source>Add</source>
+        <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
+        <translation>Thêm vào</translation>
     </message>
 </context>
 </TS>

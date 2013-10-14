@@ -83,6 +83,11 @@ public:
     static QString tickersTitle();
 
     /*
+     *  Returns translated version of "Add"
+     */
+    static QString addTitle();
+
+    /*
      *  Cell address validator
      */
     static QRegExp cellValidator();

@@ -36,6 +36,7 @@
 #include "noeditordelegate.h"
 
 #include "configureroom.h"
+#include "tools.h"
 #include "ui_configureroom.h"
 
 typedef QPair<QString, QString> QStringPair;
@@ -47,6 +48,8 @@ ConfigureRoom::ConfigureRoom(QXmppMucRoom *room, QWidget *parent) :
     m_affiliationsChanged(false)
 {
     ui->setupUi(this);
+
+    ui->pushAddJid->setText(Tools::addTitle());
 
     m_loadingMovie = new QMovie(":/images/wait.gif", "GIF", this);
     ui->labelLoading->setMovie(m_loadingMovie);
@@ -425,6 +428,7 @@ void ConfigureRoom::slotAddJid()
     QString jid = QInputDialog::getText(this,
                                         //: This is the label on a button that user pushes to issue the command
                                         tr("Add affiliation"),
+                                        //: JID is a Jabber Identifier, http://en.wikipedia.org/wiki/XMPP#Decentralization_and_addressing . It's ok not to translate "JID", e.g. you can just copy-paste "JID" to your translation
                                         tr("JID:"),
                                         QLineEdit::Normal,
                                         QString(),
@@ -440,8 +444,9 @@ void ConfigureRoom::slotAddJid()
         if(i->parent() == item)
         {
             QMessageBox::information(this,
+                                     //: JID is a Jabber Identifier, http://en.wikipedia.org/wiki/XMPP#Decentralization_and_addressing . It's ok not to translate "JID", e.g. you can just copy-paste "JID" to your translation
                                      tr("Adding JID"),
-                                     //: Message displayed to the user
+                                     //: Message displayed to the user. JID is a Jabber Identifier, http://en.wikipedia.org/wiki/XMPP#Decentralization_and_addressing . It's ok not to translate "JID", e.g. you can just copy-paste "JID" to your translation
                                      tr("JID \"%1\" is already in this section").arg(jid));
             return;
         }

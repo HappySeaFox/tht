@@ -75,12 +75,6 @@
         <extracomment>Window title. Stocks In Play - Stock Screener, http://stocksinplay.ru. It&apos;s ok not to translate &quot;Stocks In Play&quot; (e.g. you can just copy-paste &quot;Stocks In Play&quot; to your translation)</extracomment>
         <translation>Добавить из Stocks In Play</translation>
     </message>
-    <message>
-        <location filename="../stocksinplaylinkselector.ui" line="23"/>
-        <source>Add</source>
-        <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
-        <translation>Добавить</translation>
-    </message>
 </context>
 <context>
     <name>StocksInPlayLogin</name>
@@ -124,19 +118,13 @@
         <translation>Ссылки Stocks In Play</translation>
     </message>
     <message>
-        <location filename="../stocksinplayurlmanager.cpp" line="35"/>
-        <source>Add</source>
-        <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
-        <translation>Добавить</translation>
-    </message>
-    <message>
-        <location filename="../stocksinplayurlmanager.cpp" line="40"/>
+        <location filename="../stocksinplayurlmanager.cpp" line="39"/>
         <source>Link</source>
         <extracomment>Noun</extracomment>
         <translation>Ссылка</translation>
     </message>
     <message>
-        <location filename="../stocksinplayurlmanager.cpp" line="55"/>
+        <location filename="../stocksinplayurlmanager.cpp" line="54"/>
         <source>Access...</source>
         <extracomment>Noun</extracomment>
         <translation>Доступ...</translation>

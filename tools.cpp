@@ -182,6 +182,12 @@ QString Tools::tickersTitle()
     return QObject::tr("Tickers");
 }
 
+QString Tools::addTitle()
+{
+    //: This is the label on a button that user pushes to issue the command
+    return QObject::tr("Add");
+}
+
 QRegExp Tools::cellValidator()
 {
     static QRegExp rx("([a-zA-Z]+)([0-9]+)");

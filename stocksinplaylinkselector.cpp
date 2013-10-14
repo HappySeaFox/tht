@@ -20,6 +20,7 @@
 #include "stocksinplaylinkselector.h"
 #include "stocksinplayurl.h"
 #include "settings.h"
+#include "tools.h"
 #include "ui_stocksinplaylinkselector.h"
 
 StocksInPlayLinkSelector::StocksInPlayLinkSelector(QWidget *parent) :
@@ -27,6 +28,8 @@ StocksInPlayLinkSelector::StocksInPlayLinkSelector(QWidget *parent) :
     ui(new Ui::StocksInPlayLinkSelector)
 {
     ui->setupUi(this);
+
+    ui->pushAdd->setText(Tools::addTitle());
 
     const QList<StocksInPlayUrl> urls = SETTINGS_GET_STOCKSINPLAY_URLS(SETTING_STOCKSINPLAY_URLS);
 

@@ -112,7 +112,7 @@ ChatPage::ChatPage(QXmppClient *client,
     m_configureRoom = new QAction(tr("Configure room") + "...", this);
     connect(m_configureRoom, SIGNAL(triggered()), this, SLOT(slotConfigureRoom()));
 
-    //: This is the label on a menu item that user clicks to issue the command. Means "Copy the JID of the room to the clipboard"
+    //: This is the label on a menu item that user clicks to issue the command. Means "Copy the JID of the room to the clipboard". JID is a Jabber Identifier, http://en.wikipedia.org/wiki/XMPP#Decentralization_and_addressing . It's ok not to translate "JID", e.g. you can just copy-paste "JID" to your translation
     m_roomMenu->addAction(tr("Copy room JID"), this, SLOT(slotCopyRoomJid()));
     //: This is the label on a menu item that user clicks to issue the command. Means "Send invitations to the selected users"
     m_roomMenu->addAction(tr("Send invitations") + "...", this, SLOT(slotSendInvitations()));
@@ -586,7 +586,10 @@ void ChatPage::slotBanNow(const QString &reason)
 
     if(jid.isEmpty())
     {
-        QMessageBox::critical(this, tr("Error"), tr("Failed to find the JID of the user \"%1\"").arg(item->text()));
+        QMessageBox::critical(this,
+                              tr("Error"),
+                              //: JID is a Jabber Identifier, http://en.wikipedia.org/wiki/XMPP#Decentralization_and_addressing . It's ok not to translate "JID", e.g. you can just copy-paste "JID" to your translation
+                              tr("Failed to find the JID of the user \"%1\"").arg(item->text()));
         return;
     }
 

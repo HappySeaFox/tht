@@ -20,6 +20,7 @@
 #include "finvizlinkselector.h"
 #include "finvizurl.h"
 #include "settings.h"
+#include "tools.h"
 #include "ui_finvizlinkselector.h"
 
 FinvizLinkSelector::FinvizLinkSelector(QWidget *parent) :
@@ -27,6 +28,8 @@ FinvizLinkSelector::FinvizLinkSelector(QWidget *parent) :
     ui(new Ui::FinvizLinkSelector)
 {
     ui->setupUi(this);
+
+    ui->pushAdd->setText(Tools::addTitle());
 
     const QList<FinvizUrl> urls = SETTINGS_GET_FINVIZ_URLS(SETTING_FINVIZ_URLS);
 
