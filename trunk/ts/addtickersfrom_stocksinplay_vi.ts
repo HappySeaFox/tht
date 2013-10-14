@@ -64,7 +64,7 @@
     <message>
         <location filename="../stocksinplaydownloader.cpp" line="55"/>
         <source>Broken answer</source>
-        <translation type="unfinished"></translation>
+        <translation>Câu trả lời sai</translation>
     </message>
 </context>
 <context>
