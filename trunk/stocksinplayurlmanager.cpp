@@ -31,8 +31,7 @@ StocksInPlayUrlManager::StocksInPlayUrlManager(QWidget *parent) :
     //: Stocks In Play - Stock Screener, http://stocksinplay.ru. It's ok not to translate "Stocks In Play" (e.g. you can just copy-paste "Stocks In Play" to your translation). Means "Links to Stocks In Play"
     setWindowTitle(tr("Stocks In Play links"));
 
-    //: This is the label on a button that user pushes to issue the command
-    buttonAdd()->setText(tr("Add"));
+    buttonAdd()->setText(Tools::addTitle());
 
     QTreeWidget *t = tree();
 

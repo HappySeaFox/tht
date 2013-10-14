@@ -281,6 +281,7 @@ void ChatWindow::slotSignIn()
     if(jid.isEmpty())
     {
         qWarning("Jid is empty");
+        //: JID is a Jabber Identifier, http://en.wikipedia.org/wiki/XMPP#Decentralization_and_addressing . It's ok not to translate "JID", e.g. you can just copy-paste "JID" to your translation
         showError(tr("JID is empty"));
         return;
     }

@@ -18,22 +18,18 @@
     <widget class="QListWidget" name="listWidget"/>
    </item>
    <item row="1" column="0">
-    <widget class="QPushButton" name="pushButton">
-     <property name="text">
-      <string extracomment="This is the label on a button that user pushes to issue the command">Add</string>
-     </property>
-    </widget>
+    <widget class="QPushButton" name="pushAdd"/>
    </item>
   </layout>
  </widget>
  <tabstops>
   <tabstop>listWidget</tabstop>
-  <tabstop>pushButton</tabstop>
+  <tabstop>pushAdd</tabstop>
  </tabstops>
  <resources/>
  <connections>
   <connection>
-   <sender>pushButton</sender>
+   <sender>pushAdd</sender>
    <signal>clicked()</signal>
    <receiver>StocksInPlayLinkSelector</receiver>
    <slot>slotAdd()</slot>

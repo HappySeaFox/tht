@@ -62,5 +62,11 @@
         <extracomment>Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../tools.cpp" line="188"/>
+        <source>Add</source>
+        <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>
