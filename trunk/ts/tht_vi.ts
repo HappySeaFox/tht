@@ -822,7 +822,7 @@ chuột phải/chuột giữa để hủy bỏ.</translation>
         <location filename="../tht.cpp" line="229"/>
         <source>About Qt...</source>
         <extracomment>Qt is a C++ crossplatform toolkit http://qt-project.org</extracomment>
-        <translation>Dịch &amp;Bởi Vietnamesel10n...</translation>
+        <translation>Về Qt...</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="230"/>
@@ -846,7 +846,7 @@ chuột phải/chuột giữa để hủy bỏ.</translation>
         <location filename="../tht.cpp" line="288"/>
         <source>About THT</source>
         <extracomment>&quot;THT&quot; is the name of the application</extracomment>
-        <translation>Dịch bởi Vietnamesel10n</translation>
+        <translation>Về THT</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="431"/>
