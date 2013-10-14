@@ -42,7 +42,7 @@ About::About(QWidget *parent) :
     ui->labelUrl->setText(QString("<a href=\"%1\">%2</a> <a href=\"%3\">%4</a> <a href=\"%5\">%6</a> <a href=\"%7\">%8</a>")
                             .arg(HTTPROOT "/wiki/howto")
                             .arg(tr("Documentation"))
-                            .arg(HTTPROOT "/files/THT")
+                            .arg(DOWNLOADROOT "/files/THT")
                             //: Noun in the plural
                             .arg(tr("Downloads"))
                             .arg("http://www.transifex.com/projects/p/traders-home-task")
