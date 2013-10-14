@@ -98,7 +98,7 @@
     <message>
         <location filename="../stocksinplaylogin.cpp" line="54"/>
         <source>Failed to get account details</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể lấy được chi tiết tài khoản</translation>
     </message>
 </context>
 <context>
