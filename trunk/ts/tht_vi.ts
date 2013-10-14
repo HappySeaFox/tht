@@ -37,47 +37,53 @@
         <translation>Tài liệu hướng dẫn</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="46"/>
+        <location filename="../about.cpp" line="47"/>
+        <source>Downloads</source>
+        <extracomment>Noun in the plural</extracomment>
+        <translation>Tải</translation>
+    </message>
+    <message>
+        <location filename="../about.cpp" line="49"/>
         <source>Translations</source>
         <translation>Dịch</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="48"/>
+        <location filename="../about.cpp" line="51"/>
         <source>Youtube</source>
         <translation>Youtube</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="67"/>
+        <location filename="../about.cpp" line="70"/>
         <source>Persistent database</source>
         <extracomment>Means &quot;Fixed database on the hard drive&quot;</extracomment>
         <translation>Cơ sở dữ liệu liên tục</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="70"/>
+        <location filename="../about.cpp" line="73"/>
         <source>Downloadable database</source>
         <extracomment>Means &quot;Database which is downloaded from the website&quot;</extracomment>
         <translation>Cơ sở dữ liệu có thể được tải về</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="111"/>
+        <location filename="../about.cpp" line="114"/>
         <source>Update available</source>
         <extracomment>Means &quot;A new version of THT is availabe at the website&quot;</extracomment>
         <translation>Hiện đã có phiên bản mới</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="120"/>
+        <location filename="../about.cpp" line="123"/>
         <source>THT is up to date</source>
         <extracomment>&quot;THT&quot; is the name of the application. THT will check for updates and show this message when there are no new version available</extracomment>
         <translation>Đây là phiên bản mới nhất</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="133"/>
+        <location filename="../about.cpp" line="136"/>
         <source>Cannot check for updates (%1)</source>
         <extracomment>%1 will be replaced with the error code by the application. It will look like &quot;Cannot check for updates (Server is unavailable)&quot;</extracomment>
         <translation>Không thể kiểm tra cập nhật (%1)</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="148"/>
+        <location filename="../about.cpp" line="151"/>
         <source>Checking for updates...</source>
         <translation>Đang kiểm tra cập nhật...</translation>
     </message>
@@ -172,7 +178,7 @@
         <location filename="../dropboxuploader.cpp" line="137"/>
         <source>You need to authorize THT in your Dropbox profile. Click &apos;OK&apos; to open the link in a browser. Then open this dialog again</source>
         <extracomment>Message displayed to the user. &quot;THT&quot; is the name of the application. &quot;Dropbox&quot; is an online storage service, see http://www.dropbox.com</extracomment>
-        <translation>Bạn cần xác nhận THT trong hồ sơ tại dịch vụ Dropbox của mình. Click &apos;Đồng Ý&apos; để mở liên kết trong trình duyệt. Sau đó, mở lại hộp điều khiển này một lần nữa.</translation>
+        <translation>Bạn cần xác nhận THT trong hồ sơ tại dịch vụ Dropbox của mình. Click &apos;Đồng Ý&apos; để mở liên kết trong trình duyệt. Sau đó, mở lại hộp điều khiển này một lần nữa</translation>
     </message>
     <message>
         <location filename="../dropboxuploader.cpp" line="175"/>
@@ -557,17 +563,17 @@
     <message>
         <location filename="../pluginmanager.ui" line="27"/>
         <source>Name</source>
-        <translation>Tên:</translation>
+        <translation>Tên</translation>
     </message>
     <message>
         <location filename="../pluginmanager.ui" line="32"/>
         <source>Version</source>
-        <translation>Phiên bản:</translation>
+        <translation>Phiên bản</translation>
     </message>
     <message>
         <location filename="../pluginmanager.ui" line="37"/>
         <source>Author</source>
-        <translation>Tác giả:</translation>
+        <translation>Tác giả</translation>
     </message>
     <message>
         <location filename="../pluginmanager.ui" line="48"/>
