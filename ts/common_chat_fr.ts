@@ -158,7 +158,7 @@
     <message>
         <location filename="../chatpage.cpp" line="328"/>
         <source>You have been kicked from &quot;%1&quot;. Reason: %2</source>
-        <translation>Vous avez été banni de « %1 ». Raison : %2</translation>
+        <translation>Vous avez été exclu de « %1 ». Raison : %2</translation>
     </message>
     <message>
         <location filename="../chatpage.cpp" line="568"/>
@@ -310,13 +310,13 @@
         <location filename="../chatpage.cpp" line="85"/>
         <source>Kick now</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Kick the selected user right now&quot;</extracomment>
-        <translation>Bannir maintenant</translation>
+        <translation>Exclurer maintenant</translation>
     </message>
     <message>
         <location filename="../chatpage.cpp" line="89"/>
         <source>Kick with reason...</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Kick the selected user with the following reason&quot;</extracomment>
-        <translation>Bannir avec une raison...</translation>
+        <translation>Exclure avec une raison...</translation>
     </message>
     <message>
         <location filename="../chatpage.cpp" line="97"/>
@@ -345,7 +345,7 @@
         <location filename="../chatpage.cpp" line="567"/>
         <source>Kick</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Kick the selected user&quot;</extracomment>
-        <translation>Bannir</translation>
+        <translation>Exclure</translation>
     </message>
     <message>
         <location filename="../chatpage.cpp" line="607"/>
@@ -597,7 +597,7 @@
         <location filename="../configureroom.ui" line="80"/>
         <source>Banned</source>
         <extracomment>In the plural. Means &quot;Banned users&quot;</extracomment>
-        <translation>Exclu</translation>
+        <translation>Bloqué</translation>
     </message>
     <message>
         <location filename="../configureroom.ui" line="200"/>
