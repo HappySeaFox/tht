@@ -252,8 +252,8 @@
     <message>
         <location filename="../linkpointmanager.cpp" line="34"/>
         <location filename="../linkpointmanager.cpp" line="41"/>
-        <source>Link points</source>
-        <extracomment>Noun in the plural. Means &quot;Points of linkage&quot;, or &quot;Points of connection&quot;</extracomment>
+        <source>Points of connection</source>
+        <extracomment>Noun in the plural</extracomment>
         <translation>Punkty połączeń</translation>
     </message>
     <message>
@@ -770,8 +770,8 @@ right/middle mouse button to cancel.</source>
     </message>
     <message>
         <location filename="../tht.ui" line="136"/>
-        <source>Link points</source>
-        <extracomment>Noun in the plural. Means &quot;Points of linkage&quot;, or &quot;Points of connection&quot;</extracomment>
+        <source>Points of connection</source>
+        <extracomment>Noun in the plural</extracomment>
         <translation>Punkty połączeń</translation>
     </message>
     <message>
