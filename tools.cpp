@@ -188,6 +188,11 @@ QString Tools::addTitle()
     return QObject::tr("Add");
 }
 
+QString Tools::errorTitle()
+{
+    return QObject::tr("Error");
+}
+
 QRegExp Tools::cellValidator()
 {
     static QRegExp rx("([a-zA-Z]+)([0-9]+)");

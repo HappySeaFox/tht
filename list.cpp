@@ -1322,7 +1322,7 @@ void List::slotAddFromFile()
 
     if(error)
         QMessageBox::warning(this,
-                             tr("Error"),
+                             Tools::errorTitle(),
                              //: Message displayed to the user. %1 will be replaced with the list of files by the application
                              tr("Cannot open the following files: %1").arg(errorFiles.join(",")));
 }
@@ -1375,7 +1375,7 @@ void List::slotExportToFile()
     {
         qWarning("Cannot open file for writing");
         QMessageBox::warning(this,
-                             tr("Error"),
+                             Tools::errorTitle(),
                              //: Message displayed to the user. %1 will be replaced with the file name by the application
                              tr("Cannot save to file %1").arg(fileName));
         return;

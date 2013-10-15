@@ -88,6 +88,11 @@ public:
     static QString addTitle();
 
     /*
+     *  Returns translated version of "Error"
+     */
+    static QString errorTitle();
+
+    /*
      *  Cell address validator
      */
     static QRegExp cellValidator();

@@ -68,5 +68,10 @@
         <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>Hinzufügen</translation>
     </message>
+    <message>
+        <location filename="../tools.cpp" line="193"/>
+        <source>Error</source>
+        <translation>Fehler</translation>
+    </message>
 </context>
 </TS>

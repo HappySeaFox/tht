@@ -588,7 +588,7 @@ void ChatPage::slotBanNow(const QString &reason)
     if(jid.isEmpty())
     {
         QMessageBox::critical(this,
-                              tr("Error"),
+                              Tools::errorTitle(),
                               //: JID is a Jabber Identifier, http://en.wikipedia.org/wiki/XMPP#Decentralization_and_addressing . It's ok not to translate "JID", e.g. you can just copy-paste "JID" to your translation
                               tr("Failed to find the JID of the user \"%1\"").arg(item->text()));
         return;

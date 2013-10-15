@@ -34,6 +34,7 @@
 #include "savescreenshot.h"
 #include "remotedate.h"
 #include "settings.h"
+#include "tools.h"
 
 #include "ui_savescreenshot.h"
 
@@ -111,8 +112,10 @@ void SaveScreenshot::slotFile()
     }
     else
     {
-        //: Message displayed to the user
-        QMessageBox::critical(this, tr("Error"), tr("Cannot save screenshot"));
+        QMessageBox::critical(this,
+                              Tools::errorTitle(),
+                              //: Message displayed to the user
+                              tr("Cannot save screenshot"));
         qDebug("Cannot save screenshot");
     }
 }
@@ -136,7 +139,7 @@ void SaveScreenshot::slotDropbox()
             break;
 
             case DropBoxUploader::Error:
-                QMessageBox::critical(this, tr("Error"), tr("Cannot save screenshot"));
+                QMessageBox::critical(this, Tools::errorTitle(), tr("Cannot save screenshot"));
                 qDebug("Cannot save screenshot");
             break;
 
