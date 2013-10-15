@@ -630,7 +630,7 @@ sur le bouton central/droit de la souris pour annuler.</translation>
         <location filename="../savescreenshot.ui" line="14"/>
         <source>Save to</source>
         <extracomment>Window title. User is asked to save a screenshot to a file or clipboard</extracomment>
-        <translation>Enregistrer sous</translation>
+        <translation>Enregistrer</translation>
     </message>
     <message>
         <location filename="../savescreenshot.ui" line="20"/>
