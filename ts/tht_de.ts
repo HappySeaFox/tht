@@ -260,7 +260,7 @@
         <location filename="../linkpointmanager.cpp" line="37"/>
         <source>Add current</source>
         <extracomment>Means &quot;Add current link points&quot; (in the plural)</extracomment>
-        <translation>Aktuelle zusammenzählen</translation>
+        <translation>Hinzufügen aktuellen</translation>
     </message>
 </context>
 <context>
@@ -293,7 +293,7 @@
         <location filename="../list.cpp" line="100"/>
         <source>Clear</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
-        <translation>Zurücksetzen</translation>
+        <translation>Löschen</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="103"/>
@@ -612,14 +612,16 @@
         <source>Using the mouse, select the rectangle, or click
 any button or right/middle mouse button to cancel.</source>
         <extracomment>Appeal to the user</extracomment>
-        <translation>Wählen Sie das Rechteck mit der Maus, oder klicken Sie irgendeine Schaltfläche oder die rechte/mittlere Maustaste, um abzubrechen.</translation>
+        <translation>Wählen Sie das Rechteck mit der Maus, oder klicken
+Sie irgendeine Schaltfläche oder die rechte/mittlere Maustaste, um abzubrechen.</translation>
     </message>
     <message>
         <location filename="../regionselect.cpp" line="121"/>
         <source>Using the mouse, select the rectangle, or click
 right/middle mouse button to cancel.</source>
         <extracomment>Appeal to the user</extracomment>
-        <translation>Wählen Sie das Rechteck mit der Maus, oder klicken Sie die rechte/mittlere Maustaste, um abzubrechen.</translation>
+        <translation>Wählen Sie das Rechteck mit der Maus,
+oder klicken Sie die rechte/mittlere Maustaste, um abzubrechen.</translation>
     </message>
 </context>
 <context>
@@ -807,7 +809,7 @@ right/middle mouse button to cancel.</source>
         <location filename="../tht.cpp" line="215"/>
         <source>Clear ticker lists</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Clear the lists with tickers&quot;. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
-        <translation>Liste der Tickersymbole zurücksetzen</translation>
+        <translation>Liste der Tickersymbole löschen</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="217"/>
@@ -884,7 +886,7 @@ right/middle mouse button to cancel.</source>
         <location filename="../tht.cpp" line="2105"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <extracomment>Message displayed to the user in the April Fool&apos;s day. Preferably copy the translation from &quot;The Little Golden Calf&quot; by I.Ilf, E.Petrov, Chapter 10 &quot;A Telegram from the Brothers Karamazov&quot; (http://en.wikipedia.org/wiki/The_Little_Golden_Calf). If you don&apos;t have the book or its online translation then translate as usual</extracomment>
-        <translation>Alle großen Vermögen heutzutage wurden&amp;lt;br&amp;gt;auf die unehrenhafteste Weise erworben.</translation>
+        <translation>Alle großen Vermögen heutzutage wurden&lt;br&gt;auf die unehrenhafteste Weise erworben.</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="2107"/>
