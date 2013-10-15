@@ -1464,7 +1464,7 @@ void THT::slotTakeScreenshotReal()
     if(px.isNull())
     {
         QMessageBox::critical(this,
-                              tr("Error"),
+                              Tools::errorTitle(),
                               //: Message displayed to the user
                               tr("Cannot take screenshot"));
         m_takeScreen->setEnabled();

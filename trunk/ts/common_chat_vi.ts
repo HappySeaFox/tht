@@ -167,11 +167,6 @@
         <translation>Lý do:</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="591"/>
-        <source>Error</source>
-        <translation>Lỗi</translation>
-    </message>
-    <message>
         <location filename="../chatpage.cpp" line="593"/>
         <source>Failed to find the JID of the user &quot;%1&quot;</source>
         <extracomment>JID is a Jabber Identifier, http://en.wikipedia.org/wiki/XMPP#Decentralization_and_addressing . It&apos;s ok not to translate &quot;JID&quot;, e.g. you can just copy-paste &quot;JID&quot; to your translation</extracomment>
@@ -580,7 +575,7 @@
     <message>
         <location filename="../configureroom.ui" line="42"/>
         <source>Reason</source>
-        <translation>Lý do:</translation>
+        <translation>Lý do</translation>
     </message>
     <message>
         <location filename="../configureroom.ui" line="47"/>
@@ -736,23 +731,18 @@
         <translation>Đóng lại</translation>
     </message>
     <message>
-        <location filename="../sendinvitations.cpp" line="72"/>
-        <source>Error</source>
-        <translation>Lỗi</translation>
-    </message>
-    <message>
-        <location filename="../sendinvitations.cpp" line="74"/>
+        <location filename="../sendinvitations.cpp" line="75"/>
         <source>Error sending invitation to %1</source>
         <extracomment>Message displayed to the user. %1 will be replaced with the user name by the application. It will look like &quot;Error sending invitation to mic@jabber.ru&quot;</extracomment>
         <translation>Lỗi khi gửi lời mời đến %1</translation>
     </message>
     <message>
-        <location filename="../sendinvitations.cpp" line="87"/>
+        <location filename="../sendinvitations.cpp" line="88"/>
         <source>Information</source>
         <translation>Thông tin</translation>
     </message>
     <message>
-        <location filename="../sendinvitations.cpp" line="89"/>
+        <location filename="../sendinvitations.cpp" line="90"/>
         <source>Please remember that the server can decline your invitations depending on its configuration</source>
         <extracomment>Message displayed to the user</extracomment>
         <translation>Hãy nhớ rằng các máy chủ có thể từ chối lời mời của bạn tùy thuộc vào cấu hình của máy chủ đó</translation>

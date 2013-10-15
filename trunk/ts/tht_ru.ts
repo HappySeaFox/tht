@@ -363,12 +363,6 @@
         <translation>Все файлы (*.*)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1325"/>
-        <location filename="../list.cpp" line="1378"/>
-        <source>Error</source>
-        <translation>Ошибка</translation>
-    </message>
-    <message>
         <location filename="../list.cpp" line="1327"/>
         <source>Cannot open the following files: %1</source>
         <extracomment>Message displayed to the user. %1 will be replaced with the list of files by the application</extracomment>
@@ -649,26 +643,20 @@ right/middle mouse button to cancel.</source>
         <translation>Файл...</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="87"/>
+        <location filename="../savescreenshot.cpp" line="88"/>
         <source>Image %1 (*.%2)</source>
         <translation>Изображение %1 (*.%2)</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="95"/>
+        <location filename="../savescreenshot.cpp" line="96"/>
         <source>Save as</source>
         <translation>Сохранить как</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="115"/>
-        <location filename="../savescreenshot.cpp" line="139"/>
-        <source>Error</source>
-        <extracomment>Message displayed to the user</extracomment>
-        <translation>Ошибка</translation>
-    </message>
-    <message>
-        <location filename="../savescreenshot.cpp" line="115"/>
-        <location filename="../savescreenshot.cpp" line="139"/>
+        <location filename="../savescreenshot.cpp" line="118"/>
+        <location filename="../savescreenshot.cpp" line="142"/>
         <source>Cannot save screenshot</source>
+        <extracomment>Message displayed to the user</extracomment>
         <translation>Невозможно сохранить снимок экрана</translation>
     </message>
 </context>
@@ -864,11 +852,6 @@ right/middle mouse button to cancel.</source>
         <source>Unknown</source>
         <extracomment>Means &quot;Unknown links&quot; (in the plural)</extracomment>
         <translation>Неизвестные</translation>
-    </message>
-    <message>
-        <location filename="../tht.cpp" line="1467"/>
-        <source>Error</source>
-        <translation>Ошибка</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="1469"/>

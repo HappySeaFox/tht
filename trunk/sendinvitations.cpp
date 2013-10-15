@@ -28,6 +28,7 @@
 #include "QXmppClient.h"
 
 #include "settings.h"
+#include "tools.h"
 
 SendInvitations::SendInvitations(QXmppMucRoom *room, QXmppClient *client, QWidget *parent) :
     QDialog(parent),
@@ -69,7 +70,7 @@ void SendInvitations::slotSend()
         if(!m_xmppClient->sendPacket(message))
         {
             QMessageBox::critical(this,
-                                  tr("Error"),
+                                  Tools::errorTitle(),
                                   //: Message displayed to the user. %1 will be replaced with the user name by the application. It will look like "Error sending invitation to mic@jabber.ru"
                                   tr("Error sending invitation to %1").arg(jid));
             break;
