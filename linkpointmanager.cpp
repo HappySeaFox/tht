@@ -30,15 +30,15 @@ LinkPointManager::LinkPointManager(const LinkPointSession &currentLinks, QWidget
     DataManagerBase(parent),
     m_currentLinks(currentLinks)
 {
-    //: Noun in the plural. Means "Points of linkage", or "Points of connection"
-    setWindowTitle(tr("Link points"));
+    //: Noun in the plural
+    setWindowTitle(tr("Points of connection"));
 
     //: Means "Add current link points" (in the plural)
     buttonAdd()->setText(tr("Add current"));
 
     QTreeWidget *t = tree();
 
-    t->headerItem()->setText(1, tr("Link points"));
+    t->headerItem()->setText(1, tr("Points of connection"));
     t->setWhatsThis(QString("<a href=\"http://www.youtube.com/watch?v=1PlpDwhgLEs\">%1</a>").arg(Tools::openYoutubeTutorialTitle()));
     t->setItemDelegateForColumn(1, new NoEditorDelegate(t));
 

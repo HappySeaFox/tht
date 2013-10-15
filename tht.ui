@@ -133,7 +133,7 @@
    <item row="2" column="2">
     <widget class="ToolButtonNoMenuIndicator" name="pushLinks">
      <property name="toolTip">
-      <string extracomment="Noun in the plural. Means &quot;Points of linkage&quot;, or &quot;Points of connection&quot;">Link points</string>
+      <string extracomment="Noun in the plural">Points of connection</string>
      </property>
      <property name="icon">
       <iconset resource="tht.qrc">
