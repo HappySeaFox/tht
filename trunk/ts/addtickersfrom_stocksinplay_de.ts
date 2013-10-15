@@ -106,7 +106,7 @@
     <message>
         <location filename="../stocksinplayplugin.cpp" line="144"/>
         <source>Customize...</source>
-        <translation>Personalisieren...</translation>
+        <translation>Anpassen...</translation>
     </message>
 </context>
 <context>

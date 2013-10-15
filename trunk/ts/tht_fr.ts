@@ -621,7 +621,7 @@ sur n&apos;importe quel bouton ou sur le bouton central/droit de la souris pour 
 right/middle mouse button to cancel.</source>
         <extracomment>Appeal to the user</extracomment>
         <translation>En utilisant la souris, sélectionnez le rectangle, ou cliquez
-sur n&apos;importe quel bouton ou sur le bouton central/droit de la souris pour annuler.</translation>
+sur le bouton central/droit de la souris pour annuler.</translation>
     </message>
 </context>
 <context>

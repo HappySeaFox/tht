@@ -18,7 +18,7 @@
         <location filename="../datamanagerbase.ui" line="79"/>
         <source>Clear</source>
         <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
-        <translation>Zurücksetzen</translation>
+        <translation>Alle löschen</translation>
     </message>
 </context>
 <context>

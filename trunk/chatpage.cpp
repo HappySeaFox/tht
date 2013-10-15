@@ -157,6 +157,7 @@ ChatPage::ChatPage(QXmppClient *client,
             + "<tr><td>" + tr("Exchange:")       + "</td><td>%2</td></tr>"
             + "<tr><td>" + tr("Sector:")         + "</td><td>%3</td></tr>"
             + "<tr><td>" + tr("Industry:")       + "</td><td>%4</td></tr>"
+            //: Means "Company capitalization" as in finance industry
             + "<tr><td>" + tr("Capitalization:") + "</td><td>%L5 %6</td></tr>"
             + "</table><br>";
 
