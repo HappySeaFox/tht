@@ -34,6 +34,9 @@ ListItem::ListItem(const QString &text, QListWidget *parent) :
     setPriority(m_priority, true);
 }
 
+ListItem::~ListItem()
+{}
+
 void ListItem::setPriority(Ticker::Priority p, bool force)
 {
     if(p == m_priority && !force)
