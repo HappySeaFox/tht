@@ -29,6 +29,7 @@ class ListItem : public QListWidgetItem
 public:
     explicit ListItem(QListWidget *parent = 0);
     explicit ListItem(const QString &text, QListWidget *parent = 0);
+    ~ListItem();
 
     Ticker::Priority priority() const;
     void setPriority(Ticker::Priority, bool force = false);
