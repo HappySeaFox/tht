@@ -407,6 +407,12 @@
         <translation>Сохранять тикеры автоматически</translation>
     </message>
     <message>
+        <location filename="../options.ui" line="148"/>
+        <source>Allow duplicates</source>
+        <extracomment>Configuration option. Infinitive</extracomment>
+        <translation>Разрешить дубликаты</translation>
+    </message>
+    <message>
         <location filename="../options.ui" line="189"/>
         <source>Show buttons</source>
         <extracomment>Configuration option. Infinitive</extracomment>
@@ -494,12 +500,6 @@
         <source>Hide to tray</source>
         <extracomment>Configuration option. Infinitive</extracomment>
         <translation>Прятаться в трей</translation>
-    </message>
-    <message>
-        <location filename="../options.ui" line="148"/>
-        <source>Allow duplicates in a ticker list</source>
-        <extracomment>Configuration option. Infinitive. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
-        <translation>Разрешить дубликаты в списке тикеров</translation>
     </message>
 </context>
 <context>
