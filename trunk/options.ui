@@ -145,7 +145,7 @@
        <item row="1" column="0">
         <widget class="QCheckBox" name="checkAllowDups">
          <property name="text">
-          <string extracomment="Configuration option. Infinitive. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)">Allow duplicates in a ticker list</string>
+          <string extracomment="Configuration option. Infinitive">Allow duplicates</string>
          </property>
         </widget>
        </item>

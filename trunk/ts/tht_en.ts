@@ -438,8 +438,8 @@
     </message>
     <message>
         <location filename="../options.ui" line="148"/>
-        <source>Allow duplicates in a ticker list</source>
-        <extracomment>Configuration option. Infinitive. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
+        <source>Allow duplicates</source>
+        <extracomment>Configuration option. Infinitive</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
