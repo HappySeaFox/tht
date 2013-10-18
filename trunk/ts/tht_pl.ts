@@ -875,12 +875,6 @@ right/middle mouse button to cancel.</source>
         <extracomment>See http://en.wikipedia.org/wiki/The_Little_Golden_Calf</extracomment>
         <translation>&quot;Złote cielę&quot; I.Ilf, E.Petrov</translation>
     </message>
-    <message>
-        <location filename="../tht.cpp" line="2163"/>
-        <source>Customize...</source>
-        <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
-        <translation>Dostosuj...</translation>
-    </message>
 </context>
 <context>
     <name>Target</name>

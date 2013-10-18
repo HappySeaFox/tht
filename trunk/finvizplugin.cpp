@@ -26,6 +26,7 @@
 #include "finvizplugin.h"
 #include "finvizurl.h"
 #include "settings.h"
+#include "tools.h"
 
 // serialize/deserialize FinvizUrl
 static QDataStream &operator<<(QDataStream &out, const FinvizUrl &fu)
@@ -147,7 +148,7 @@ void FinvizPlugin::rebuildMenu(QMenu *menu)
     if(!urls.isEmpty())
         menu->addSeparator();
 
-    menu->addAction(QIcon(":/images/finviz-customize.png"), tr("Customize..."), this, SLOT(slotManageUrls()));
+    menu->addAction(QIcon(":/images/finviz-customize.png"), Tools::customizeTitle() + "...", this, SLOT(slotManageUrls()));
 }
 
 void FinvizPlugin::slotAdd()

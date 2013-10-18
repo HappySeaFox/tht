@@ -193,6 +193,12 @@ QString Tools::errorTitle()
     return QObject::tr("Error");
 }
 
+QString Tools::customizeTitle()
+{
+    //: This is the label on a button that user pushes to issue the command
+    return QObject::tr("Customize");
+}
+
 QRegExp Tools::cellValidator()
 {
     static QRegExp rx("([a-zA-Z]+)([0-9]+)");

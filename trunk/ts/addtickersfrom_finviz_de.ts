@@ -58,15 +58,10 @@
 <context>
     <name>FinvizPlugin</name>
     <message>
-        <location filename="../finvizplugin.cpp" line="88"/>
+        <location filename="../finvizplugin.cpp" line="89"/>
         <source>Add from Finviz</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Finviz - Stock Screener, http://finviz.com. It&apos;s ok not to translate &quot;Finviz&quot; (e.g. you can just copy-paste &quot;Finviz&quot; to your translation)</extracomment>
         <translation>Aus Finviz hinzufügen</translation>
-    </message>
-    <message>
-        <location filename="../finvizplugin.cpp" line="150"/>
-        <source>Customize...</source>
-        <translation>Anpassen...</translation>
     </message>
 </context>
 <context>

@@ -2159,8 +2159,7 @@ void THT::rebuildLinks()
     if(!links.isEmpty())
         menu->addSeparator();
 
-    //: This is the label on a menu item that user clicks to issue the command
-    menu->addAction(QIcon(":/images/links-customize.png"), tr("Customize..."), this, SLOT(slotManageLinks()));
+    menu->addAction(QIcon(":/images/links-customize.png"), Tools::customizeTitle() + "...", this, SLOT(slotManageLinks()));
 }
 
 void THT::Link::unhook()

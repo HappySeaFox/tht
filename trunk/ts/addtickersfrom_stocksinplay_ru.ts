@@ -98,15 +98,10 @@
 <context>
     <name>StocksInPlayPlugin</name>
     <message>
-        <location filename="../stocksinplayplugin.cpp" line="82"/>
+        <location filename="../stocksinplayplugin.cpp" line="83"/>
         <source>Add from Stocks In Play</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Stocks In Play - Stock Screener, http://stocksinplay.ru. It&apos;s ok not to translate &quot;Stocks In Play&quot; (e.g. you can just copy-paste &quot;Stocks In Play&quot; to your translation)</extracomment>
         <translation>Добавить из Stocks In Play</translation>
-    </message>
-    <message>
-        <location filename="../stocksinplayplugin.cpp" line="144"/>
-        <source>Customize...</source>
-        <translation>Настроить...</translation>
     </message>
 </context>
 <context>

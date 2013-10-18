@@ -26,6 +26,7 @@
 #include "stocksinplayplugin.h"
 #include "stocksinplayurl.h"
 #include "settings.h"
+#include "tools.h"
 
 // serialize/deserialize StocksInPlayUrl
 static QDataStream &operator<<(QDataStream &out, const StocksInPlayUrl &fu)
@@ -141,7 +142,7 @@ void StocksInPlayPlugin::rebuildMenu(QMenu *menu)
     if(!urls.isEmpty())
         menu->addSeparator();
 
-    menu->addAction(QIcon(":/images/stocksinplay-customize.png"), tr("Customize..."), this, SLOT(slotManageUrls()));
+    menu->addAction(QIcon(":/images/stocksinplay-customize.png"), Tools::customizeTitle() + "...", this, SLOT(slotManageUrls()));
 }
 
 void StocksInPlayPlugin::slotAdd()
