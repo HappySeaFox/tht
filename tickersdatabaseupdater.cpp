@@ -106,7 +106,7 @@ void TickersDatabaseUpdater::slotFinished()
                 || (Settings::instance()->mutableDatabaseTimestamp().isValid()
                     && ts <= Settings::instance()->mutableDatabaseTimestamp()))
         {
-            qDebug("No database updates available");
+            qDebug("No database update available");
             QTimer::singleShot(1*3600*1000, this, SLOT(startRequest()));
             return;
         }
