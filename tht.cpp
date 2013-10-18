@@ -900,12 +900,11 @@ void THT::checkWindows()
 
     if(m_windows->isEmpty())
     {
-        ui->stackLinks->setCurrentIndex(0); // "No links" warning
+        ui->target->setNumberOfLinks(0);
         return;
     }
 
-    ui->labelLinks->setNum(m_windows->size());
-    ui->stackLinks->setCurrentIndex(1);
+    ui->target->setNumberOfLinks(m_windows->size());
 
     QMap<QString, int> mappings;
     int others = 0;
@@ -951,8 +950,7 @@ void THT::checkWindows()
     tooltip += "</table>";
     tooltip = Tools::nonBreakable(tooltip);
 
-    ui->labelLinks->setToolTip(tooltip);
-    ui->labelLinks_n->setToolTip(tooltip);
+    ui->target->setNumberToolTip(tooltip);
 }
 
 void THT::nextLoadableWindowIndex(int delta)
@@ -1487,8 +1485,6 @@ void THT::slotClearLists()
 
 void THT::slotClearLinks()
 {
-    qDebug("Clear links");
-
     if(isBusy())
         return;
 
@@ -1496,6 +1492,8 @@ void THT::slotClearLinks()
 
     if(m_windows->isEmpty())
         return;
+
+    qDebug("Clear links");
 
     MessageBeep(MB_OK);
 
@@ -1557,20 +1555,7 @@ void THT::slotLockLinks()
     m_locked = !m_locked;
 
     ui->stackBusy->setCurrentIndex(m_locked);
-
-    static QWidgetList labels = QWidgetList()
-                                << ui->labelLinks
-                                << ui->labelLinks_n;
-
-    QColor color = m_locked ? Qt::red : palette().color(QPalette::WindowText);
-    QPalette pal;
-
-    foreach(QWidget *l, labels)
-    {
-        pal = l->palette();
-        pal.setColor(QPalette::WindowText, color);
-        l->setPalette(pal);
-    }
+    ui->target->locked(m_locked);
 }
 
 void THT::slotTickerDropped(const Ticker &ticker, const QPoint &p)

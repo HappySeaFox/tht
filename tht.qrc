@@ -58,5 +58,27 @@
         <file>images/flags/sv.png</file>
         <file>images/flags/tr.png</file>
         <file>images/flags/vi.png</file>
+        <file>images/counters/0.png</file>
+        <file>images/counters/1.png</file>
+        <file>images/counters/2.png</file>
+        <file>images/counters/3.png</file>
+        <file>images/counters/4.png</file>
+        <file>images/counters/5.png</file>
+        <file>images/counters/6.png</file>
+        <file>images/counters/7.png</file>
+        <file>images/counters/8.png</file>
+        <file>images/counters/9.png</file>
+        <file>images/counters/10.png</file>
+        <file>images/counters/11.png</file>
+        <file>images/counters/12.png</file>
+        <file>images/counters/13.png</file>
+        <file>images/counters/14.png</file>
+        <file>images/counters/15.png</file>
+        <file>images/counters/16.png</file>
+        <file>images/counters/17.png</file>
+        <file>images/counters/18.png</file>
+        <file>images/counters/19.png</file>
+        <file>images/counters/20.png</file>
+        <file>images/counters/20+.png</file>
     </qresource>
 </RCC>

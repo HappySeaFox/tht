@@ -747,34 +747,22 @@ oder klicken Sie die rechte/mittlere Maustaste, um abzubrechen.</translation>
         <translation>Trader&apos;s Home Task</translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="87"/>
+        <location filename="../tht.ui" line="64"/>
         <source>THT is ready</source>
         <extracomment>&quot;THT&quot; is the name of the application</extracomment>
         <translation>THT ist bereit</translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="119"/>
+        <location filename="../tht.ui" line="96"/>
         <source>THT is busy</source>
         <extracomment>&quot;THT&quot; is the name of the application</extracomment>
         <translation>THT ist beschäftigt</translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="136"/>
+        <location filename="../tht.ui" line="113"/>
         <source>Points of connection</source>
         <extracomment>Noun in the plural</extracomment>
         <translation>Link-Punkte</translation>
-    </message>
-    <message>
-        <location filename="../tht.ui" line="172"/>
-        <source>No links</source>
-        <extracomment>Means &quot;There are no established links to other windows&quot;</extracomment>
-        <translation>Keine Links</translation>
-    </message>
-    <message>
-        <location filename="../tht.ui" line="189"/>
-        <source>Links:</source>
-        <extracomment>Noun in the plural</extracomment>
-        <translation>Links:</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="204"/>
@@ -848,31 +836,31 @@ oder klicken Sie die rechte/mittlere Maustaste, um abzubrechen.</translation>
         <translation>THT wird im Benachrichtigungsfeld weiter ausgeführt</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="949"/>
+        <location filename="../tht.cpp" line="948"/>
         <source>Unknown</source>
         <extracomment>Means &quot;Unknown links&quot; (in the plural)</extracomment>
         <translation>Unbekannt</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1469"/>
+        <location filename="../tht.cpp" line="1467"/>
         <source>Cannot take screenshot</source>
         <extracomment>Message displayed to the user</extracomment>
         <translation>Konnte keinen Screenshot machen</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1516"/>
+        <location filename="../tht.cpp" line="1514"/>
         <source>New points</source>
         <extracomment>Means &quot;New link points&quot;</extracomment>
         <translation>Neue Punkte</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2105"/>
+        <location filename="../tht.cpp" line="2090"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <extracomment>Message displayed to the user in the April Fool&apos;s day. Preferably copy the translation from &quot;The Little Golden Calf&quot; by I.Ilf, E.Petrov, Chapter 10 &quot;A Telegram from the Brothers Karamazov&quot; (http://en.wikipedia.org/wiki/The_Little_Golden_Calf). If you don&apos;t have the book or its online translation then translate as usual</extracomment>
         <translation>Alle großen Vermögen heutzutage wurden&lt;br&gt;auf die unehrenhafteste Weise erworben.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2107"/>
+        <location filename="../tht.cpp" line="2092"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <extracomment>See http://en.wikipedia.org/wiki/The_Little_Golden_Calf</extracomment>
         <translation>&quot;Das goldene Kalb&quot; I.Ilf, E.Petrov</translation>
@@ -881,7 +869,7 @@ oder klicken Sie die rechte/mittlere Maustaste, um abzubrechen.</translation>
 <context>
     <name>Target</name>
     <message>
-        <location filename="../target.cpp" line="35"/>
+        <location filename="../target.cpp" line="46"/>
         <source>Drag and drop this target to the window you need to create a link to</source>
         <translation>Ziehen Sie dieses Zielobjekt in das Fenster, zu dem Sie einen Link erstellen wollen</translation>
     </message>

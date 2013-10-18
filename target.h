@@ -19,9 +19,13 @@
 #define TARGET_H
 
 #include <QPixmap>
-#include <QLabel>
+#include <QWidget>
 
-class Target : public QLabel
+class QLabel;
+
+class NumericLabel;
+
+class Target : public QWidget
 {
     Q_OBJECT
 
@@ -29,6 +33,12 @@ public:
     explicit Target(QWidget *parent = 0);
 
     bool mayBeMaster() const;
+
+    void setNumberOfLinks(uint n);
+
+    void setNumberToolTip(const QString &);
+
+    void locked(bool);
 
 protected:
     virtual void mousePressEvent(QMouseEvent *event);
@@ -45,6 +55,8 @@ signals:
     void middleClick();
     
 private:
+    QLabel *m_label;
+    NumericLabel *m_number;
     bool m_dragging;
     QPixmap m_drag_black, m_drag_red;
 };

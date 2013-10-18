@@ -17,23 +17,44 @@
 
 #include <QApplication>
 #include <QMouseEvent>
+#include <QHBoxLayout>
 #include <QCursor>
 #include <QPixmap>
 #include <QPoint>
+#include <QLabel>
 
+#include "numericlabel.h"
 #include "target.h"
 #include "tools.h"
 
 Target::Target(QWidget *parent) :
-    QLabel(parent)
+    QWidget(parent)
 {
     m_dragging = false;
 
     m_drag_black = QPixmap(":/images/drag.png");
     m_drag_red = QPixmap(":/images/drag_red.png");
 
-    setToolTip(tr("Drag and drop this target to the window you need to create a link to"));
-    setPixmap(m_drag_black);
+    QHBoxLayout *l = new QHBoxLayout;
+    l->setContentsMargins(0, 0, 0, 0);
+    l->setSpacing(0);
+    setLayout(l);
+
+    m_label = new QLabel(this);
+    m_label->setFixedSize(32, 32);
+    m_label->setPixmap(m_drag_black);
+    m_label->setToolTip(tr("Drag and drop this target to the window you need to create a link to"));
+
+    m_number = new NumericLabel(this);
+
+    l->addWidget(m_label);
+    l->addStretch(1);
+
+    setFixedWidth(m_label->width() + 12);
+
+    // move the number to the bottom
+    m_number->move(width() - m_number->width(), height() - m_number->height());
+
     setMouseTracking(true);
 
     setWhatsThis(QString("<a href=\"http://www.youtube.com/playlist?list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm\">%1</a>")
@@ -47,12 +68,33 @@ bool Target::mayBeMaster() const
     return (QApplication::keyboardModifiers() & Qt::AltModifier);
 }
 
+void Target::setNumberOfLinks(uint n)
+{
+    m_number->setValue(n);
+
+    if(!n)
+        setNumberToolTip(QString());
+}
+
+void Target::setNumberToolTip(const QString &tip)
+{
+    m_number->setToolTip(tip);
+}
+
+void Target::locked(bool l)
+{
+    m_number->setEnabled(!l);
+}
+
 void Target::mousePressEvent(QMouseEvent *event)
 {
+    if(!m_label->rect().contains(event->pos()))
+        return;
+
     if(event->button() == Qt::LeftButton)
     {
         qDebug("Start dragging");
-        QApplication::setOverrideCursor(QCursor(*pixmap()));
+        QApplication::setOverrideCursor(QCursor(*m_label->pixmap()));
         m_dragging = true;
     }
     else if(event->button() == Qt::MiddleButton)
@@ -76,7 +118,7 @@ void Target::mouseMoveEvent(QMouseEvent *event)
 
 void Target::mouseReleaseEvent(QMouseEvent *event)
 {
-    if(event->button() != Qt::LeftButton)
+    if(event->button() != Qt::LeftButton || !m_dragging)
         return;
 
     m_dragging = false;
@@ -94,13 +136,13 @@ void Target::enterEvent(QEvent *e)
     Q_UNUSED(e)
 
     if(mayBeMaster())
-        setPixmap(m_drag_red);
+        m_label->setPixmap(m_drag_red);
 }
 
 void Target::leaveEvent(QEvent *e)
 {
     Q_UNUSED(e)
-    setPixmap(m_drag_black);
+    m_label->setPixmap(m_drag_black);
 }
 
 bool Target::eventFilter(QObject *o, QEvent *e)
@@ -114,7 +156,7 @@ bool Target::eventFilter(QObject *o, QEvent *e)
 
         if(ke && rect().contains(cursorPos) && ke->key() == Qt::Key_Alt)
         {
-            setPixmap((type == QEvent::KeyPress) ? m_drag_red : m_drag_black);
+            m_label->setPixmap((type == QEvent::KeyPress) ? m_drag_red : m_drag_black);
             return true;
         }
     }

@@ -49,7 +49,8 @@ SOURCES += main.cpp\
     qtdropbox/qdropboxaccount.cpp \
     qtdropbox/qdropbox.cpp \
     dropboxuploader.cpp \
-    excellinkingdetails.cpp
+    excellinkingdetails.cpp \
+    numericlabel.cpp
 
 HEADERS += tht.h \
     list.h \
@@ -95,7 +96,8 @@ HEADERS += tht.h \
     qtdropbox/qdropboxaccount.h \
     qtdropbox/qdropbox.h \
     dropboxuploader.h \
-    excellinkingdetails.h
+    excellinkingdetails.h \
+    numericlabel.h
 
 FORMS += tht.ui \
     list.ui \
