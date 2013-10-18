@@ -73,5 +73,11 @@
         <source>Error</source>
         <translation>Erreur</translation>
     </message>
+    <message>
+        <location filename="../tools.cpp" line="199"/>
+        <source>Customize</source>
+        <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
+        <translation>Personnaliser</translation>
+    </message>
 </context>
 </TS>

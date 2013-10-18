@@ -93,6 +93,11 @@ public:
     static QString errorTitle();
 
     /*
+     *  Returns translated version of "Customize"
+     */
+    static QString customizeTitle();
+
+    /*
      *  Cell address validator
      */
     static QRegExp cellValidator();
