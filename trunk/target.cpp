@@ -61,6 +61,7 @@ Target::Target(QWidget *parent) :
                  .arg(Tools::openYoutubeTutorialTitle()));
 
     qApp->installEventFilter(this);
+    m_label->installEventFilter(this);
 }
 
 bool Target::mayBeMaster() const
@@ -123,27 +124,13 @@ void Target::mouseReleaseEvent(QMouseEvent *event)
 
     m_dragging = false;
 
+    QApplication::restoreOverrideCursor();
+
     QPoint p = QCursor::pos();
 
     qDebug("Dropped at %d,%d", p.x(), p.y());
-    QApplication::restoreOverrideCursor();
 
     emit dropped(p);
-}
-
-void Target::enterEvent(QEvent *e)
-{
-    Q_UNUSED(e)
-
-    if(mayBeMaster())
-        m_label->setPixmap(m_drag_red);
-}
-
-void Target::leaveEvent(QEvent *e)
-{
-    Q_UNUSED(e)
-
-    m_label->setPixmap(m_drag_black);
 }
 
 void Target::resizeEvent(QResizeEvent *e)
@@ -157,12 +144,27 @@ bool Target::eventFilter(QObject *o, QEvent *e)
 {
     QEvent::Type type = e->type();
 
-    if(type == QEvent::KeyPress || type == QEvent::KeyRelease)
+    if(o == m_label)
+    {
+        if(type == QEvent::Enter)
+        {
+            if(mayBeMaster())
+                m_label->setPixmap(m_drag_red);
+
+            return true;
+        }
+        else if(type == QEvent::Leave)
+        {
+            m_label->setPixmap(m_drag_black);
+            return true;
+        }
+    }
+    else if(type == QEvent::KeyPress || type == QEvent::KeyRelease)
     {
         QKeyEvent *ke = static_cast<QKeyEvent *>(e);
         QPoint cursorPos = mapFromGlobal(QCursor::pos());
 
-        if(ke && rect().contains(cursorPos) && ke->key() == Qt::Key_Alt)
+        if(ke && m_label->rect().contains(cursorPos) && ke->key() == Qt::Key_Alt)
         {
             m_label->setPixmap((type == QEvent::KeyPress) ? m_drag_red : m_drag_black);
             return true;
