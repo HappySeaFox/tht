@@ -6,7 +6,8 @@ License: GPLv3+ (see LICENSE.txt),
          Qxt parts are under LGPL 2.1 (see LICENSE-LGPL-2.1.txt) or CPL 1.0,
          ColorPicker is under GPLv3,
          THT-lib is under LGPL v3+ (see LICENSE-LGPL-3.txt),
-         QtDropbox is under LGPL v3 (see LICENSE-LGPL-3.txt)
+         QtDropbox is under LGPL v3 (see LICENSE-LGPL-3.txt),
+         QXMPP is under LGPL v2.1+ (see LICENSE-LGPL-2.1.txt)
 
 Other
 -----
@@ -80,13 +81,6 @@ http://www.iconfinder.com/icondetails/21556/16/
 Author: GNOME Project
 License: GPL
 
-* Other icons are taken from Fugue Icons theme
-
-http://p.yusukekamiyamane.com/
-
-Author: Yusuke Kamiyamane
-License: Creative Commons Attribution 3.0 License
-
 * "Chat" icon is taken from
 
 http://findicons.com/icon/73394/chat_bubble?id=332798
@@ -109,6 +103,13 @@ http://findicons.com/icon/159904/money_dollar?id=372987
 
 Author: Mark James
 License: Creative Commons Attribution (by)
+
+* Other icons are taken from Fugue Icons theme
+
+http://p.yusukekamiyamane.com/
+
+Author: Yusuke Kamiyamane
+License: Creative Commons Attribution 3.0 License
 
 * GDI drawing functions are based on Spy
 
