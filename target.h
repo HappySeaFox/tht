@@ -44,8 +44,6 @@ protected:
     virtual void mousePressEvent(QMouseEvent *event);
     virtual void mouseMoveEvent(QMouseEvent *event);
     virtual void mouseReleaseEvent(QMouseEvent *event);
-    virtual void enterEvent(QEvent *);
-    virtual void leaveEvent(QEvent *);
     virtual void resizeEvent(QResizeEvent *);
     virtual bool eventFilter(QObject *o, QEvent *e);
 
