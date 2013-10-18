@@ -747,31 +747,19 @@ right/middle mouse button to cancel.</source>
         <translation>Домашка трейдера</translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="172"/>
-        <source>No links</source>
-        <extracomment>Means &quot;There are no established links to other windows&quot;</extracomment>
-        <translation>Нет ссылок</translation>
-    </message>
-    <message>
-        <location filename="../tht.ui" line="189"/>
-        <source>Links:</source>
-        <extracomment>Noun in the plural</extracomment>
-        <translation>Ссылок:</translation>
-    </message>
-    <message>
-        <location filename="../tht.ui" line="136"/>
+        <location filename="../tht.ui" line="113"/>
         <source>Points of connection</source>
         <extracomment>Noun in the plural</extracomment>
         <translation>Точки линковки</translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="87"/>
+        <location filename="../tht.ui" line="64"/>
         <source>THT is ready</source>
         <extracomment>&quot;THT&quot; is the name of the application</extracomment>
         <translation>THT готов к работе</translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="119"/>
+        <location filename="../tht.ui" line="96"/>
         <source>THT is busy</source>
         <extracomment>&quot;THT&quot; is the name of the application</extracomment>
         <translation>THT занят</translation>
@@ -848,31 +836,31 @@ right/middle mouse button to cancel.</source>
         <translation>THT продолжит работу в системном лотке</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="949"/>
+        <location filename="../tht.cpp" line="948"/>
         <source>Unknown</source>
         <extracomment>Means &quot;Unknown links&quot; (in the plural)</extracomment>
         <translation>Неизвестные</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1469"/>
+        <location filename="../tht.cpp" line="1467"/>
         <source>Cannot take screenshot</source>
         <extracomment>Message displayed to the user</extracomment>
         <translation>Невозможно сделать снимок экрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1516"/>
+        <location filename="../tht.cpp" line="1514"/>
         <source>New points</source>
         <extracomment>Means &quot;New link points&quot;</extracomment>
         <translation>Новые точки</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2105"/>
+        <location filename="../tht.cpp" line="2090"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <extracomment>Message displayed to the user in the April Fool&apos;s day. Preferably copy the translation from &quot;The Little Golden Calf&quot; by I.Ilf, E.Petrov, Chapter 10 &quot;A Telegram from the Brothers Karamazov&quot; (http://en.wikipedia.org/wiki/The_Little_Golden_Calf). If you don&apos;t have the book or its online translation then translate as usual</extracomment>
         <translation>Все крупные современные состояния нажиты&lt;br&gt;самым бесчестным путём.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2107"/>
+        <location filename="../tht.cpp" line="2092"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <extracomment>See http://en.wikipedia.org/wiki/The_Little_Golden_Calf</extracomment>
         <translation>&quot;Золотой Телёнок&quot; И.Ильф, Е.Петров</translation>
@@ -881,7 +869,7 @@ right/middle mouse button to cancel.</source>
 <context>
     <name>Target</name>
     <message>
-        <location filename="../target.cpp" line="35"/>
+        <location filename="../target.cpp" line="46"/>
         <source>Drag and drop this target to the window you need to create a link to</source>
         <translation>Перетащите этот указатель на окно, на которое нужно создать ссылку</translation>
     </message>
