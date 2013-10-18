@@ -50,7 +50,7 @@ Target::Target(QWidget *parent) :
     l->addWidget(m_label);
     l->addStretch(1);
 
-    setFixedWidth(m_label->width() + 12);
+    setFixedWidth(m_label->width() + 14);
 
     // move the number to the bottom
     m_number->move(width() - m_number->width(), height() - m_number->height());
@@ -142,7 +142,15 @@ void Target::enterEvent(QEvent *e)
 void Target::leaveEvent(QEvent *e)
 {
     Q_UNUSED(e)
+
     m_label->setPixmap(m_drag_black);
+}
+
+void Target::resizeEvent(QResizeEvent *e)
+{
+    Q_UNUSED(e)
+
+    m_number->move(width() - m_number->width(), height() - m_number->height());
 }
 
 bool Target::eventFilter(QObject *o, QEvent *e)

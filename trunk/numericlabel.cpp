@@ -57,6 +57,7 @@ void NumericLabel::setValue(uint val)
 
 void NumericLabel::init(uint value)
 {
+    setContentsMargins(0, 0, 0, 0);
     setValue(value);
 
     QImage im(":/images/counters/20+.png");
