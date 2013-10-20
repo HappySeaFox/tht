@@ -22,6 +22,7 @@
 #include "linkpointmanager.h"
 #include "noeditordelegate.h"
 #include "settings.h"
+#include "thttools.h"
 #include "tools.h"
 
 #include "ui_datamanagerbase.h"
@@ -30,15 +31,14 @@ LinkPointManager::LinkPointManager(const LinkPointSession &currentLinks, QWidget
     DataManagerBase(parent),
     m_currentLinks(currentLinks)
 {
-    //: Noun in the plural
-    setWindowTitle(tr("Points of connection"));
+    setWindowTitle(THTTools::pointsOfConnectionTitle());
 
     //: Means "Add current link points" (in the plural)
     buttonAdd()->setText(tr("Add current"));
 
     QTreeWidget *t = tree();
 
-    t->headerItem()->setText(1, tr("Points of connection"));
+    t->headerItem()->setText(1, THTTools::pointsOfConnectionTitle());
     t->setWhatsThis(QString("<a href=\"http://www.youtube.com/watch?v=1PlpDwhgLEs\">%1</a>").arg(Tools::openYoutubeTutorialTitle()));
     t->setItemDelegateForColumn(1, new NoEditorDelegate(t));
 

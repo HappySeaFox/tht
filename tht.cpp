@@ -69,6 +69,7 @@
 #include "tickerinput.h"
 #include "settings.h"
 #include "sqltools.h"
+#include "thttools.h"
 #include "options.h"
 #include "ticker.h"
 #include "about.h"
@@ -157,6 +158,8 @@ THT::THT() :
         setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
 
     ui->setupUi(this);
+
+    ui->pushLinks->setToolTip(THTTools::pointsOfConnectionTitle());
 
     // containers for plugins' widgets
     QHBoxLayout *l;
