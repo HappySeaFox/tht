@@ -17,13 +17,13 @@
 
 #include <QObject>
 
-#include "finviztools.h"
+#include "stocksinplaytools.h"
 
-QString FinvizTools::addFromFinvizTitle()
+QString StocksInPlayTools::addFromStocksInPlayTitle()
 {
-    //: This is the label on a menu item that user clicks to issue the command. Finviz - Stock Screener, http://finviz.com. It's ok not to translate "Finviz" (e.g. you can just copy-paste "Finviz" to your translation)
-    return QObject::tr("Add from Finviz");
+    //: This is the label on a menu item that user clicks to issue the command. Stocks In Play - Stock Screener, http://stocksinplay.ru. It's ok not to translate "Stocks In Play" (e.g. you can just copy-paste "Stocks In Play" to your translation)
+    return QObject::tr("Add from Stocks In Play");
 }
 
-FinvizTools::FinvizTools()
+StocksInPlayTools::StocksInPlayTools()
 {}
