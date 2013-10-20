@@ -250,13 +250,6 @@
 <context>
     <name>LinkPointManager</name>
     <message>
-        <location filename="../linkpointmanager.cpp" line="34"/>
-        <location filename="../linkpointmanager.cpp" line="41"/>
-        <source>Points of connection</source>
-        <extracomment>Noun in the plural</extracomment>
-        <translation>Точки линковки</translation>
-    </message>
-    <message>
         <location filename="../linkpointmanager.cpp" line="37"/>
         <source>Add current</source>
         <extracomment>Means &quot;Add current link points&quot; (in the plural)</extracomment>
@@ -600,6 +593,15 @@
     </message>
 </context>
 <context>
+    <name>QObject</name>
+    <message>
+        <location filename="../thttools.cpp" line="25"/>
+        <source>Points of connection</source>
+        <extracomment>Noun in the plural</extracomment>
+        <translation>Точки линковки</translation>
+    </message>
+</context>
+<context>
     <name>RegionSelect</name>
     <message>
         <location filename="../regionselect.cpp" line="119"/>
@@ -742,17 +744,6 @@ right/middle mouse button to cancel.</source>
 <context>
     <name>THT</name>
     <message>
-        <location filename="../tht.ui" line="14"/>
-        <source>Trader&apos;s Home Task</source>
-        <translation>Домашка трейдера</translation>
-    </message>
-    <message>
-        <location filename="../tht.ui" line="113"/>
-        <source>Points of connection</source>
-        <extracomment>Noun in the plural</extracomment>
-        <translation>Точки линковки</translation>
-    </message>
-    <message>
         <location filename="../tht.ui" line="64"/>
         <source>THT is ready</source>
         <extracomment>&quot;THT&quot; is the name of the application</extracomment>
@@ -765,102 +756,102 @@ right/middle mouse button to cancel.</source>
         <translation>THT занят</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="204"/>
+        <location filename="../tht.cpp" line="207"/>
         <source>Options...</source>
         <translation>Настройки...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="207"/>
-        <location filename="../tht.cpp" line="286"/>
+        <location filename="../tht.cpp" line="210"/>
+        <location filename="../tht.cpp" line="289"/>
         <source>Take screenshot...</source>
         <translation>Снимок экрана...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="215"/>
+        <location filename="../tht.cpp" line="218"/>
         <source>Clear ticker lists</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Clear the lists with tickers&quot;. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Очистить списки тикеров</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="211"/>
+        <location filename="../tht.cpp" line="214"/>
         <source>Clear links</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Очистить ссылки</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="217"/>
-        <location filename="../tht.cpp" line="218"/>
+        <location filename="../tht.cpp" line="220"/>
+        <location filename="../tht.cpp" line="221"/>
         <source>Load ticker</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Загрузить тикер</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="223"/>
-        <location filename="../tht.cpp" line="288"/>
+        <location filename="../tht.cpp" line="226"/>
+        <location filename="../tht.cpp" line="291"/>
         <source>About THT</source>
         <extracomment>&quot;THT&quot; is the name of the application</extracomment>
         <translation>О THT</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="229"/>
+        <location filename="../tht.cpp" line="232"/>
         <source>About Qt...</source>
         <extracomment>Qt is a C++ crossplatform toolkit http://qt-project.org</extracomment>
         <translation>О Qt...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="230"/>
+        <location filename="../tht.cpp" line="233"/>
         <source>Plugins...</source>
         <translation>Плагины...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="232"/>
-        <location filename="../tht.cpp" line="290"/>
+        <location filename="../tht.cpp" line="235"/>
+        <location filename="../tht.cpp" line="293"/>
         <source>Quit</source>
         <translation>Выход</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="285"/>
+        <location filename="../tht.cpp" line="288"/>
         <source>Restore</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Restore the application window from the system tray&quot;</extracomment>
         <translation>Восстановить</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="431"/>
+        <location filename="../tht.cpp" line="434"/>
         <source>Notice</source>
         <translation>Заметка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="433"/>
+        <location filename="../tht.cpp" line="436"/>
         <source>THT will continue to run in a system tray</source>
         <extracomment>&quot;THT&quot; is the name of the application</extracomment>
         <translation>THT продолжит работу в системном лотке</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="948"/>
+        <location filename="../tht.cpp" line="951"/>
         <source>Unknown</source>
         <extracomment>Means &quot;Unknown links&quot; (in the plural)</extracomment>
         <translation>Неизвестные</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1467"/>
+        <location filename="../tht.cpp" line="1470"/>
         <source>Cannot take screenshot</source>
         <extracomment>Message displayed to the user</extracomment>
         <translation>Невозможно сделать снимок экрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1514"/>
+        <location filename="../tht.cpp" line="1517"/>
         <source>New points</source>
         <extracomment>Means &quot;New link points&quot;</extracomment>
         <translation>Новые точки</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2090"/>
+        <location filename="../tht.cpp" line="2093"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <extracomment>Message displayed to the user in the April Fool&apos;s day. Preferably copy the translation from &quot;The Little Golden Calf&quot; by I.Ilf, E.Petrov, Chapter 10 &quot;A Telegram from the Brothers Karamazov&quot; (http://en.wikipedia.org/wiki/The_Little_Golden_Calf). If you don&apos;t have the book or its online translation then translate as usual</extracomment>
         <translation>Все крупные современные состояния нажиты&lt;br&gt;самым бесчестным путём.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2092"/>
+        <location filename="../tht.cpp" line="2095"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <extracomment>See http://en.wikipedia.org/wiki/The_Little_Golden_Calf</extracomment>
         <translation>&quot;Золотой Телёнок&quot; И.Ильф, Е.Петров</translation>
