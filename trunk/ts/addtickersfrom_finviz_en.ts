@@ -47,24 +47,6 @@
     </message>
 </context>
 <context>
-    <name>FinvizLinkSelector</name>
-    <message>
-        <location filename="../finvizlinkselector.ui" line="14"/>
-        <source>Add from Finviz</source>
-        <extracomment>Window title. Finviz - Stock Screener, http://finviz.com. It&apos;s ok not to translate &quot;Finviz&quot; (e.g. you can just copy-paste &quot;Finviz&quot; to your translation)</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>FinvizPlugin</name>
-    <message>
-        <location filename="../finvizplugin.cpp" line="89"/>
-        <source>Add from Finviz</source>
-        <extracomment>This is the label on a menu item that user clicks to issue the command. Finviz - Stock Screener, http://finviz.com. It&apos;s ok not to translate &quot;Finviz&quot; (e.g. you can just copy-paste &quot;Finviz&quot; to your translation)</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>FinvizUrlManager</name>
     <message>
         <location filename="../finvizurlmanager.cpp" line="32"/>
@@ -82,6 +64,15 @@
         <location filename="../finvizurlmanager.cpp" line="54"/>
         <source>Access...</source>
         <extracomment>Noun</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <location filename="../finviztools.cpp" line="25"/>
+        <source>Add from Finviz</source>
+        <extracomment>This is the label on a menu item that user clicks to issue the command. Finviz - Stock Screener, http://finviz.com. It&apos;s ok not to translate &quot;Finviz&quot; (e.g. you can just copy-paste &quot;Finviz&quot; to your translation)</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>

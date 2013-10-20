@@ -10,9 +10,6 @@
     <height>265</height>
    </rect>
   </property>
-  <property name="windowTitle">
-   <string extracomment="Window title. Finviz - Stock Screener, http://finviz.com. It's ok not to translate &quot;Finviz&quot; (e.g. you can just copy-paste &quot;Finviz&quot; to your translation)">Add from Finviz</string>
-  </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
     <widget class="QListWidget" name="listWidget"/>

@@ -24,6 +24,7 @@
 #include "finvizurlmanager.h"
 #include "finvizdownloader.h"
 #include "finvizplugin.h"
+#include "finviztools.h"
 #include "finvizurl.h"
 #include "settings.h"
 #include "tools.h"
@@ -85,8 +86,7 @@ bool FinvizPlugin::embed(int list, QMenu *parentMenu)
     if(emb.contains(list))
         return true;
 
-    //: This is the label on a menu item that user clicks to issue the command. Finviz - Stock Screener, http://finviz.com. It's ok not to translate "Finviz" (e.g. you can just copy-paste "Finviz" to your translation)
-    QMenu *menu = new QMenu(tr("Add from Finviz") + "\tZ");
+    QMenu *menu = new QMenu(FinvizTools::addFromFinvizTitle() + "\tZ");
 
     if(!menu)
         return false;
