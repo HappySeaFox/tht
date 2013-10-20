@@ -374,7 +374,7 @@
 <context>
     <name>ChatPlugin</name>
     <message>
-        <location filename="../chatplugin.cpp" line="93"/>
+        <location filename="../chatplugin.cpp" line="98"/>
         <source>Chat</source>
         <extracomment>Noun</extracomment>
         <translation>Chat</translation>

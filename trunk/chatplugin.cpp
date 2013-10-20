@@ -17,6 +17,7 @@
 
 #include <QToolButton>
 #include <QMetaType>
+#include <QtGlobal>
 #include <QLayout>
 #include <QHash>
 #include <QIcon>
@@ -60,16 +61,20 @@ ChatPlugin::ChatPlugin() :
 
     ChatTools::init();
 
-    // NOTE log to file?
-    QXmppLogger::getLogger()->setLoggingType(QXmppLogger::NoLogging);
-    QXmppLogger::getLogger()->setLogFilePath(
+    if(qgetenv("THT_CHAT_QXMPP_LOG") == "1")
+    {
+        QXmppLogger::getLogger()->setLoggingType(QXmppLogger::StdoutLogging);
+        QXmppLogger::getLogger()->setLogFilePath(
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
-                                             QStandardPaths::writableLocation(QStandardPaths::TempLocation)
+                                                 QStandardPaths::writableLocation(QStandardPaths::TempLocation)
 #else
-                                             QDesktopServices::storageLocation(QDesktopServices::TempLocation)
+                                                 QDesktopServices::storageLocation(QDesktopServices::TempLocation)
 #endif
-                                             + QDir::separator()
-                                             + "tht-chat-qxmpp.log");
+                                                 + QDir::separator()
+                                                 + "tht-chat-qxmpp.log");
+    }
+    else
+        QXmppLogger::getLogger()->setLoggingType(QXmppLogger::NoLogging);
 }
 
 ChatPlugin::~ChatPlugin()
