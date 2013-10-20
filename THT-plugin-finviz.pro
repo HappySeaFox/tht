@@ -15,7 +15,8 @@ SOURCES += finvizurlmanager.cpp \
     finvizlinkselector.cpp \
     finvizcookiejar.cpp \
     finvizaccesssetup.cpp \
-    finvizplugin.cpp
+    finvizplugin.cpp \
+    finviztools.cpp
 
 HEADERS += finvizurlmanager.h \
     finvizdownloader.h \
@@ -23,7 +24,8 @@ HEADERS += finvizurlmanager.h \
     finvizcookiejar.h \
     finvizaccesssetup.h \
     finvizplugin.h \
-    finvizurl.h
+    finvizurl.h \
+    finviztools.h
 
 FORMS += \
     finvizlinkselector.ui \

@@ -18,6 +18,7 @@
 #include <QListWidgetItem>
 
 #include "finvizlinkselector.h"
+#include "finviztools.h"
 #include "finvizurl.h"
 #include "settings.h"
 #include "tools.h"
@@ -28,6 +29,8 @@ FinvizLinkSelector::FinvizLinkSelector(QWidget *parent) :
     ui(new Ui::FinvizLinkSelector)
 {
     ui->setupUi(this);
+
+    setWindowTitle(FinvizTools::addFromFinvizTitle());
 
     ui->pushAdd->setText(Tools::addTitle());
 
