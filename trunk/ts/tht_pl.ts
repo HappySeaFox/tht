@@ -595,7 +595,7 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../thttools.cpp" line="25"/>
+        <location filename="../thttools.h" line="37"/>
         <source>Points of connection</source>
         <extracomment>Noun in the plural</extracomment>
         <translation>Punkty połączeń</translation>

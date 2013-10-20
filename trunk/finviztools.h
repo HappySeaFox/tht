@@ -18,6 +18,7 @@
 #ifndef FINVIZTOOLS_H
 #define FINVIZTOOLS_H
 
+#include <QObject>
 #include <QString>
 
 class FinvizTools
@@ -28,5 +29,12 @@ public:
 private:
     FinvizTools();
 };
+
+inline
+QString FinvizTools::addFromFinvizTitle()
+{
+    //: This is the label on a menu item that user clicks to issue the command. Finviz - Stock Screener, http://finviz.com. It's ok not to translate "Finviz" (e.g. you can just copy-paste "Finviz" to your translation)
+    return QObject::tr("Add from Finviz");
+}
 
 #endif // FINVIZTOOLS_H

@@ -15,15 +15,7 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <QObject>
-
 #include "finviztools.h"
-
-QString FinvizTools::addFromFinvizTitle()
-{
-    //: This is the label on a menu item that user clicks to issue the command. Finviz - Stock Screener, http://finviz.com. It's ok not to translate "Finviz" (e.g. you can just copy-paste "Finviz" to your translation)
-    return QObject::tr("Add from Finviz");
-}
 
 FinvizTools::FinvizTools()
 {}

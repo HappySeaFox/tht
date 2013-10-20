@@ -18,6 +18,7 @@
 #ifndef THTTOOLS_H
 #define THTTOOLS_H
 
+#include <QObject>
 #include <QString>
 
 class THTTools
@@ -28,5 +29,12 @@ public:
 private:
     THTTools();
 };
+
+inline
+QString THTTools::pointsOfConnectionTitle()
+{
+    //: Noun in the plural
+    return QObject::tr("Points of connection");
+}
 
 #endif // THTTOOLS_H
