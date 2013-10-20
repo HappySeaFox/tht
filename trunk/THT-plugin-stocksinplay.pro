@@ -17,7 +17,8 @@ SOURCES += stocksinplayurlmanager.cpp \
     stocksinplayplugin.cpp \
     stocksinplaylogincookiejar.cpp \
     stocksinplaycredentials.cpp \
-    stocksinplaylogin.cpp
+    stocksinplaylogin.cpp \
+    stocksinplaytools.cpp
 
 HEADERS += stocksinplayurlmanager.h \
     stocksinplaydownloader.h \
@@ -28,7 +29,8 @@ HEADERS += stocksinplayurlmanager.h \
     stocksinplayurl.h \
     stocksinplaylogincookiejar.h \
     stocksinplaycredentials.h \
-    stocksinplaylogin.h
+    stocksinplaylogin.h \
+    stocksinplaytools.h
 
 FORMS += \
     stocksinplaylinkselector.ui \

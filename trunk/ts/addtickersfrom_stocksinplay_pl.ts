@@ -2,6 +2,15 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="pl">
 <context>
+    <name>QObject</name>
+    <message>
+        <location filename="../stocksinplaytools.cpp" line="25"/>
+        <source>Add from Stocks In Play</source>
+        <extracomment>This is the label on a menu item that user clicks to issue the command. Stocks In Play - Stock Screener, http://stocksinplay.ru. It&apos;s ok not to translate &quot;Stocks In Play&quot; (e.g. you can just copy-paste &quot;Stocks In Play&quot; to your translation)</extracomment>
+        <translation>Dodaj z Stocks In Play</translation>
+    </message>
+</context>
+<context>
     <name>StocksInPlayAccessSetup</name>
     <message>
         <location filename="../stocksinplayaccesssetup.ui" line="14"/>
@@ -68,15 +77,6 @@
     </message>
 </context>
 <context>
-    <name>StocksInPlayLinkSelector</name>
-    <message>
-        <location filename="../stocksinplaylinkselector.ui" line="14"/>
-        <source>Add from Stocks In Play</source>
-        <extracomment>Window title. Stocks In Play - Stock Screener, http://stocksinplay.ru. It&apos;s ok not to translate &quot;Stocks In Play&quot; (e.g. you can just copy-paste &quot;Stocks In Play&quot; to your translation)</extracomment>
-        <translation>Dodaj z Stocks In Play</translation>
-    </message>
-</context>
-<context>
     <name>StocksInPlayLogin</name>
     <message>
         <location filename="../stocksinplaylogin.cpp" line="29"/>
@@ -93,15 +93,6 @@
         <location filename="../stocksinplaylogin.cpp" line="54"/>
         <source>Failed to get account details</source>
         <translation>Uzyskanie dostępu do szczegółów dotyczących konta nie powiodło się</translation>
-    </message>
-</context>
-<context>
-    <name>StocksInPlayPlugin</name>
-    <message>
-        <location filename="../stocksinplayplugin.cpp" line="83"/>
-        <source>Add from Stocks In Play</source>
-        <extracomment>This is the label on a menu item that user clicks to issue the command. Stocks In Play - Stock Screener, http://stocksinplay.ru. It&apos;s ok not to translate &quot;Stocks In Play&quot; (e.g. you can just copy-paste &quot;Stocks In Play&quot; to your translation)</extracomment>
-        <translation>Dodaj z Stocks In Play</translation>
     </message>
 </context>
 <context>

@@ -10,9 +10,6 @@
     <height>265</height>
    </rect>
   </property>
-  <property name="windowTitle">
-   <string extracomment="Window title. Stocks In Play - Stock Screener, http://stocksinplay.ru. It's ok not to translate &quot;Stocks In Play&quot; (e.g. you can just copy-paste &quot;Stocks In Play&quot; to your translation)">Add from Stocks In Play</string>
-  </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
     <widget class="QListWidget" name="listWidget"/>

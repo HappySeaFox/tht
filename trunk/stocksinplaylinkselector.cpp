@@ -18,6 +18,7 @@
 #include <QListWidgetItem>
 
 #include "stocksinplaylinkselector.h"
+#include "stocksinplaytools.h"
 #include "stocksinplayurl.h"
 #include "settings.h"
 #include "tools.h"
@@ -28,6 +29,8 @@ StocksInPlayLinkSelector::StocksInPlayLinkSelector(QWidget *parent) :
     ui(new Ui::StocksInPlayLinkSelector)
 {
     ui->setupUi(this);
+
+    setWindowTitle(StocksInPlayTools::addFromStocksInPlayTitle());
 
     ui->pushAdd->setText(Tools::addTitle());
 

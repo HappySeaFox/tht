@@ -24,6 +24,7 @@
 #include "stocksinplayurlmanager.h"
 #include "stocksinplaydownloader.h"
 #include "stocksinplayplugin.h"
+#include "stocksinplaytools.h"
 #include "stocksinplayurl.h"
 #include "settings.h"
 #include "tools.h"
@@ -79,8 +80,7 @@ bool StocksInPlayPlugin::embed(int list, QMenu *parentMenu)
     if(emb.contains(list))
         return true;
 
-    //: This is the label on a menu item that user clicks to issue the command. Stocks In Play - Stock Screener, http://stocksinplay.ru. It's ok not to translate "Stocks In Play" (e.g. you can just copy-paste "Stocks In Play" to your translation)
-    QMenu *menu = new QMenu(tr("Add from Stocks In Play") + "\tV");
+    QMenu *menu = new QMenu(StocksInPlayTools::addFromStocksInPlayTitle() + "\tV");
 
     if(!menu)
         return false;
