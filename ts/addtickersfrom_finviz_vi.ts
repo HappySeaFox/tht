@@ -70,7 +70,7 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../finviztools.cpp" line="25"/>
+        <location filename="../finviztools.h" line="37"/>
         <source>Add from Finviz</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Finviz - Stock Screener, http://finviz.com. It&apos;s ok not to translate &quot;Finviz&quot; (e.g. you can just copy-paste &quot;Finviz&quot; to your translation)</extracomment>
         <translation>Thêm vào từ Finviz</translation>

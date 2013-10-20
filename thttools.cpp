@@ -15,15 +15,7 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <QObject>
-
 #include "thttools.h"
-
-QString THTTools::pointsOfConnectionTitle()
-{
-    //: Noun in the plural
-    return QObject::tr("Points of connection");
-}
 
 THTTools::THTTools()
 {
