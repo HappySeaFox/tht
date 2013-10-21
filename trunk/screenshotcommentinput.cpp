@@ -32,7 +32,7 @@ ScreenshotCommentInput::ScreenshotCommentInput(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    ui->text->setFocus();
+    m_originalBackgroundColor = ui->text->palette().color(QPalette::Base);
 
     QWidgetList buttons = QWidgetList()
                              << ui->pushAlignLeft
@@ -49,6 +49,7 @@ ScreenshotCommentInput::ScreenshotCommentInput(QWidget *parent) :
     }
 
     // text itself
+    ui->text->setFocus();
     ui->text->setText(SETTINGS_GET_STRING(SETTING_SCREENSHOT_TEXT));
     ui->text->selectAll();
 
@@ -226,10 +227,7 @@ void ScreenshotCommentInput::slotChangeBackgroundColor()
 void ScreenshotCommentInput::slotUseBackgroundColor(bool use)
 {
     QPalette pal = ui->text->palette();
-    pal.setColor(QPalette::Base,
-                 use
-                 ? m_backgroundColor
-                 : Settings::instance()->defaultValue(SETTING_SCREENSHOT_BACKGROUND_COLOR).value<QColor>());
+    pal.setColor(QPalette::Base, use ? m_backgroundColor : m_originalBackgroundColor);
     ui->text->setPalette(pal);
 }
 
