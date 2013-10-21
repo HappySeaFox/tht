@@ -99,7 +99,8 @@ HEADERS += tht.h \
     dropboxuploader.h \
     excellinkingdetails.h \
     numericlabel.h \
-    thttools.h
+    thttools.h \
+    screenshotkeys.h
 
 FORMS += tht.ui \
     list.ui \

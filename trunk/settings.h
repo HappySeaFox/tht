@@ -103,10 +103,6 @@ Q_DECLARE_METATYPE(Qt::AlignmentFlag)
 #define SETTING_LIST_BUTTONS                 "list-buttons"
 #define SETTING_FOOLSDAY_SEEN                "foolsday-seen"
 #define SETTING_ELLIPSE_FILL_COLOR           "ellipse-fill-color"
-#define SETTING_SCREENSHOT_TEXT_COLOR        "screenshot-text-color"
-#define SETTING_SCREENSHOT_TEXT_ALIGNMENT    "screenshot-text-alignment"
-#define SETTING_SCREENSHOT_TEXT_SIZE         "screenshot-text-size"
-#define SETTING_SCREENSHOT_TEXT              "screenshot-text"
 #define SETTING_TRANSLATION                  "translation"
 #define SETTING_LAST_TICKER_INPUT            "last-ticker-input"
 #define SETTING_LAST_TICKER_DIRECTORY        "last-ticker-directory"
@@ -177,6 +173,13 @@ public:
      *  Add your default values for your settings
      */
     void addDefaultValues(const QHash<QString, QVariant> &defaultValues);
+
+    /*
+     *  Returns the default value of the setting 'key'. Returns
+     *  an invalid QVariant if the settings is not found in the
+     *  default values
+     */
+    QVariant defaultValue(const QString &key) const;
 
     /*
      *  Returns 'true' if there exists a setting 'key'
