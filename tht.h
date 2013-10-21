@@ -71,6 +71,7 @@ protected:
 private:
     enum LinkType { LinkTypeNotInitialized,
                     LinkTypeAdvancedGet,
+                    LinkTypeEsignal,
                     LinkTypeDASTraderPro,
                     LinkTypeGraybox,
                     LinkTypeThinkorswim,

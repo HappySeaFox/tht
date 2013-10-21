@@ -771,8 +771,10 @@ void THT::checkWindow(Link *link)
                                                                     qPrintable(sname),
                                                                     qPrintable(cname));
 
-    if(sname == "advancedget.exe" || sname == "winsig.exe" || sname == "esignal.exe")
+    if(sname == "advancedget.exe")
         link->type = LinkTypeAdvancedGet;
+    else if(sname == "winsig.exe" || sname == "esignal.exe")
+        link->type = LinkTypeEsignal;
     else if(sname == "dastrader.exe")
         link->type = LinkTypeDASTraderPro;
     else if(sname == "graybox.exe")
@@ -930,6 +932,7 @@ void THT::checkWindows()
         switch((*it).type)
         {
             case LinkTypeAdvancedGet:   mappings["Advanced Get"]++;      break;
+            case LinkTypeEsignal:       mappings["eSignal"]++;           break;
             case LinkTypeArchePro:      mappings["Arche Pro"]++;         break;
             case LinkTypeDASTraderPro:  mappings["DAS Trader Pro"]++;    break;
             case LinkTypeExcel:         mappings["Excel"]++;             break;
@@ -1195,7 +1198,7 @@ void THT::slotCheckActive()
         // load ticker
         if(okToLoad)
         {
-            if(link.type == LinkTypeAdvancedGet
+            if((link.type == LinkTypeAdvancedGet || link.type == LinkTypeEsignal)
                 && ui->checkNyse->isChecked()
                 && !m_ticker.startsWith(QChar('$')))
             add = "=N";
