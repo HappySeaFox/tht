@@ -1528,7 +1528,6 @@ void THT::slotManageLinks()
 {
     LinkPointSession session;
 
-    //: Means "New link points"
     session.name = tr("New points");
 
     foreach(Link l, m_windowsLoad)
