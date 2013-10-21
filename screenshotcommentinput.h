@@ -57,7 +57,7 @@ private slots:
 private:
     Ui::ScreenshotCommentInput *ui;
     QColor m_color;
-    QColor m_backgroundColor;
+    QColor m_backgroundColor, m_originalBackgroundColor;
     Qt::AlignmentFlag m_align;
 };
 
