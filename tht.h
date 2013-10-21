@@ -71,21 +71,20 @@ protected:
 private:
     enum LinkType { LinkTypeNotInitialized,
                     LinkTypeAdvancedGet,
-                    LinkTypeEsignal,
+                    LinkTypeArchePro,
                     LinkTypeDASTraderPro,
+                    LinkTypeEsignal,
+                    LinkTypeExcel,
+                    LinkTypeFusion,
                     LinkTypeGraybox,
-                    LinkTypeThinkorswim,
                     LinkTypeLaser,
-                    LinkTypeRealTick,
-                    LinkTypeROX,
-                    LinkTypeSterlingTraderPro,
                     LinkTypeLightspeed,
                     LinkTypeMBTDesktop,
                     LinkTypeMBTDesktopPro,
-                    LinkTypeFusion,
+                    LinkTypeRealTick,
+                    LinkTypeROX,
                     LinkTypeTakion,
-                    LinkTypeArchePro,
-                    LinkTypeExcel,
+                    LinkTypeThinkorswim,
                     LinkTypeOther };
 
     struct Link
