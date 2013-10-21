@@ -832,19 +832,18 @@ oder klicken Sie die rechte/mittlere Maustaste, um abzubrechen.</translation>
         <translation>Konnte keinen Screenshot machen</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1532"/>
+        <location filename="../tht.cpp" line="1531"/>
         <source>New points</source>
-        <extracomment>Means &quot;New link points&quot;</extracomment>
         <translation>Neue Punkte</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2108"/>
+        <location filename="../tht.cpp" line="2107"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <extracomment>Message displayed to the user in the April Fool&apos;s day. Preferably copy the translation from &quot;The Little Golden Calf&quot; by I.Ilf, E.Petrov, Chapter 10 &quot;A Telegram from the Brothers Karamazov&quot; (http://en.wikipedia.org/wiki/The_Little_Golden_Calf). If you don&apos;t have the book or its online translation then translate as usual</extracomment>
         <translation>Alle großen Vermögen heutzutage wurden&lt;br&gt;auf die unehrenhafteste Weise erworben.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2110"/>
+        <location filename="../tht.cpp" line="2109"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <extracomment>See http://en.wikipedia.org/wiki/The_Little_Golden_Calf</extracomment>
         <translation>&quot;Das goldene Kalb&quot; I.Ilf, E.Petrov</translation>
