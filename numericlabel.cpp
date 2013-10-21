@@ -46,7 +46,7 @@ void NumericLabel::setValue(uint val)
 
     if(it == m_cache.end())
     {
-        pixmap = QPixmap((m_value > 20) ? ":/images/counters/20+.png" : QString(":/images/counters/%1.png").arg(m_value));
+        pixmap = QPixmap(m_value > 20 ? ":/images/counters/20+.png" : QString(":/images/counters/%1.png").arg(m_value));
         m_cache.insert(m_value > 20 ? 21 : m_value, pixmap);
     }
     else
