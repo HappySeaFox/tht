@@ -52,6 +52,7 @@
 #include "listdetails.h"
 #include "settings.h"
 #include "listitem.h"
+#include "thttools.h"
 #include "tools.h"
 #include "list.h"
 
@@ -68,6 +69,9 @@ List::List(int group, QWidget *parent) :
     m_scrollPos(-1)
 {
     ui->setupUi(this);
+
+    ui->pushAdd->setToolTip(THTTools::addTickersTitle());
+    ui->pushSaveAs->setToolTip(THTTools::exportTickersTitle());
 
     // header widgets
     ui->widgetEnterHeader->setMaximumLength(16);
