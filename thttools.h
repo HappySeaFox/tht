@@ -26,6 +26,10 @@ class THTTools
 public:
     static QString pointsOfConnectionTitle();
 
+    static QString addTickersTitle();
+
+    static QString exportTickersTitle();
+
 private:
     THTTools();
 };
@@ -35,6 +39,20 @@ QString THTTools::pointsOfConnectionTitle()
 {
     //: Noun in the plural
     return QObject::tr("Points of connection");
+}
+
+inline
+QString THTTools::addTickersTitle()
+{
+    //: This is the label on a button that user pushes to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow "ticker" from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)
+    return QObject::tr("Add tickers");
+}
+
+inline
+QString THTTools::exportTickersTitle()
+{
+    //: This is the label on a button that user pushes to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow "ticker" from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)
+    return QObject::tr("Export tickers");
 }
 
 #endif // THTTOOLS_H

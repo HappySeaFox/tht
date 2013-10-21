@@ -169,9 +169,6 @@
         <property name="focusPolicy">
          <enum>Qt::NoFocus</enum>
         </property>
-        <property name="toolTip">
-         <string extracomment="This is the label on a button that user pushes to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)">Add tickers</string>
-        </property>
         <property name="icon">
          <iconset resource="tht.qrc">
           <normaloff>:/images/add.png</normaloff>:/images/add.png</iconset>
@@ -211,9 +208,6 @@
         </property>
         <property name="focusPolicy">
          <enum>Qt::NoFocus</enum>
-        </property>
-        <property name="toolTip">
-         <string extracomment="This is the label on a button that user pushes to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)">Export tickers</string>
         </property>
         <property name="icon">
          <iconset resource="tht.qrc">

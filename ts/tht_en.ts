@@ -265,104 +265,92 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../list.ui" line="173"/>
-        <source>Add tickers</source>
-        <extracomment>This is the label on a button that user pushes to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../list.ui" line="196"/>
+        <location filename="../list.ui" line="193"/>
         <source>Save tickers</source>
         <extracomment>This is the label on a button that user pushes to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../list.ui" line="216"/>
-        <source>Export tickers</source>
-        <extracomment>This is the label on a button that user pushes to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../list.cpp" line="100"/>
+        <location filename="../list.cpp" line="104"/>
         <source>Clear</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="103"/>
+        <location filename="../list.cpp" line="107"/>
         <source>Sort</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="105"/>
+        <location filename="../list.cpp" line="109"/>
         <source>Change title</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="108"/>
+        <location filename="../list.cpp" line="112"/>
         <source>Reset priorities</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="116"/>
+        <location filename="../list.cpp" line="120"/>
         <source>Add one ticker...</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="119"/>
+        <location filename="../list.cpp" line="123"/>
         <source>Add from file...</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="121"/>
+        <location filename="../list.cpp" line="125"/>
         <source>Add from clipboard</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="128"/>
+        <location filename="../list.cpp" line="132"/>
         <source>Export to file...</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="130"/>
+        <location filename="../list.cpp" line="134"/>
         <source>Export to clipboard</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1285"/>
-        <location filename="../list.cpp" line="1363"/>
+        <location filename="../list.cpp" line="1289"/>
+        <location filename="../list.cpp" line="1367"/>
         <source>Choose a file</source>
         <extracomment>Appeal to the user. Means &quot;Please choose a file:&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1287"/>
-        <location filename="../list.cpp" line="1365"/>
+        <location filename="../list.cpp" line="1291"/>
+        <location filename="../list.cpp" line="1369"/>
         <source>Text files (*.txt)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1289"/>
-        <location filename="../list.cpp" line="1367"/>
+        <location filename="../list.cpp" line="1293"/>
+        <location filename="../list.cpp" line="1371"/>
         <source>All files (*.*)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1327"/>
+        <location filename="../list.cpp" line="1331"/>
         <source>Cannot open the following files: %1</source>
         <extracomment>Message displayed to the user. %1 will be replaced with the list of files by the application</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1380"/>
+        <location filename="../list.cpp" line="1384"/>
         <source>Cannot save to file %1</source>
         <extracomment>Message displayed to the user. %1 will be replaced with the file name by the application</extracomment>
         <translation type="unfinished"></translation>
@@ -568,25 +556,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pluginmanager.cpp" line="79"/>
+        <location filename="../pluginmanager.cpp" line="80"/>
         <source>Common</source>
         <extracomment>Means &quot;Common plugins&quot; (in the plural)</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pluginmanager.cpp" line="83"/>
-        <source>Add tickers</source>
-        <extracomment>This is the label on a button that user pushes to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../pluginmanager.cpp" line="87"/>
-        <source>Export tickers</source>
-        <extracomment>This is the label on a button that user pushes to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../pluginmanager.cpp" line="91"/>
+        <location filename="../pluginmanager.cpp" line="90"/>
         <source>Unknown</source>
         <extracomment>Means &quot;Unknown plugins&quot; (in the plural)</extracomment>
         <translation type="unfinished"></translation>
@@ -595,9 +571,21 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../thttools.h" line="37"/>
+        <location filename="../thttools.h" line="41"/>
         <source>Points of connection</source>
         <extracomment>Noun in the plural</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../thttools.h" line="48"/>
+        <source>Add tickers</source>
+        <extracomment>This is the label on a button that user pushes to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../thttools.h" line="55"/>
+        <source>Export tickers</source>
+        <extracomment>This is the label on a button that user pushes to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
