@@ -932,14 +932,14 @@ void THT::checkWindows()
         switch((*it).type)
         {
             case LinkTypeAdvancedGet:   mappings["Advanced Get"]++;      break;
-            case LinkTypeEsignal:       mappings["eSignal"]++;           break;
             case LinkTypeArchePro:      mappings["Arche Pro"]++;         break;
             case LinkTypeDASTraderPro:  mappings["DAS Trader Pro"]++;    break;
+            case LinkTypeEsignal:       mappings["eSignal"]++;           break;
             case LinkTypeExcel:         mappings["Excel"]++;             break;
             case LinkTypeFusion:        mappings["Fusion"]++;            break;
+            case LinkTypeGraybox:       mappings["Graybox"]++;           break;
             case LinkTypeLaser:         mappings["Laser Trade"]++;       break;
             case LinkTypeLightspeed:    mappings["Lightspeed Trader"]++; break;
-            case LinkTypeGraybox:       mappings["Graybox"]++;           break;
             case LinkTypeMBTDesktop:    mappings["MBT Desktop"]++;       break;
             case LinkTypeMBTDesktopPro: mappings["MBT Desktop Pro"]++;   break;
             case LinkTypeRealTick:      mappings["RealTick"]++;          break;
