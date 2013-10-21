@@ -22,6 +22,7 @@
 
 #include "screenshotcommentinput.h"
 #include "colorpickerwidget.h"
+#include "screenshotkeys.h"
 #include "settings.h"
 #include "ui_screenshotcommentinput.h"
 
@@ -39,7 +40,8 @@ ScreenshotCommentInput::ScreenshotCommentInput(QWidget *parent) :
                              << ui->pushAlignRight
                              << ui->pushFontDown
                              << ui->pushFontUp
-                             << ui->pushColor;
+                             << ui->pushColor
+                             << ui->pushBackgroundColor;
 
     foreach(QWidget *w, buttons)
     {
@@ -50,8 +52,10 @@ ScreenshotCommentInput::ScreenshotCommentInput(QWidget *parent) :
     ui->text->setText(SETTINGS_GET_STRING(SETTING_SCREENSHOT_TEXT));
     ui->text->selectAll();
 
-    // color
+    // colors
+    ui->checkBackgroundColor->setChecked(SETTINGS_GET_BOOL(SETTING_SCREENSHOT_USE_BACKGROUND_COLOR));
     setColor(SETTINGS_GET_COLOR(SETTING_SCREENSHOT_TEXT_COLOR));
+    setBackgroundColor(SETTINGS_GET_COLOR(SETTING_SCREENSHOT_BACKGROUND_COLOR));
 
     // text alignment
     m_align = SETTINGS_GET_ALIGNMENT(SETTING_SCREENSHOT_TEXT_ALIGNMENT);
@@ -85,6 +89,7 @@ ScreenshotCommentInput::ScreenshotCommentInput(QWidget *parent) :
     ui->pushFontDown->setShortcut(QKeySequence::ZoomOut);
 
     ui->pushColor->setShortcut(Qt::CTRL + Qt::Key_K);
+    ui->pushBackgroundColor->setShortcut(Qt::CTRL + Qt::Key_B);
 
     ui->buttonBox->button(QDialogButtonBox::Ok)->setShortcut(Qt::CTRL + Qt::Key_Return);
 }
@@ -103,6 +108,16 @@ QPixmap ScreenshotCommentInput::pixmap() const
 
     QFontMetrics fm(ui->text->font());
     QSize size = fm.boundingRect(QRect(), ui->text->alignment(), text).size();
+    bool withBackground = false;
+
+    const int enlargeWidth = 3;
+    const int enlargeHeight = 2;
+
+    if(ui->checkBackgroundColor->isChecked())
+    {
+        withBackground = true;
+        size += QSize(enlargeWidth*2, enlargeHeight*2);
+    }
 
     QPixmap px(size);
     px.fill(Qt::transparent);
@@ -112,8 +127,15 @@ QPixmap ScreenshotCommentInput::pixmap() const
 
     // draw text
     p.setFont(ui->text->font());
+
+    if(withBackground)
+        p.fillRect(px.rect(), m_backgroundColor);
+
     p.setPen(m_color);
-    p.drawText(px.rect(), ui->text->alignment(), text);
+    p.drawText(withBackground
+               ? px.rect().adjusted(enlargeWidth, enlargeHeight, -enlargeWidth, -enlargeHeight)
+               : px.rect(),
+               ui->text->alignment(), text);
     p.end();
 
     return px;
@@ -121,9 +143,11 @@ QPixmap ScreenshotCommentInput::pixmap() const
 
 void ScreenshotCommentInput::saveSettings() const
 {
-    SETTINGS_SET_COLOR(SETTING_SCREENSHOT_TEXT_COLOR, m_color, Settings::NoSync);
-    SETTINGS_SET_INT(SETTING_SCREENSHOT_TEXT_SIZE, ui->text->font().pointSize(), Settings::NoSync);
     SETTINGS_SET_ALIGNMENT(SETTING_SCREENSHOT_TEXT_ALIGNMENT, m_align, Settings::NoSync);
+    SETTINGS_SET_INT(SETTING_SCREENSHOT_TEXT_SIZE, ui->text->font().pointSize(), Settings::NoSync);
+    SETTINGS_SET_COLOR(SETTING_SCREENSHOT_TEXT_COLOR, m_color, Settings::NoSync);
+    SETTINGS_SET_BOOL(SETTING_SCREENSHOT_USE_BACKGROUND_COLOR, ui->checkBackgroundColor->isChecked(), Settings::NoSync);
+    SETTINGS_SET_COLOR(SETTING_SCREENSHOT_BACKGROUND_COLOR, m_backgroundColor, Settings::NoSync);
     SETTINGS_SET_STRING(SETTING_SCREENSHOT_TEXT, ui->text->toPlainText()); // also sync
 }
 
@@ -142,6 +166,19 @@ void ScreenshotCommentInput::setColor(const QColor &c)
     pal.setColor(QPalette::Text, c);
 
     ui->text->setPalette(pal);
+}
+
+void ScreenshotCommentInput::setBackgroundColor(const QColor &c)
+{
+    m_backgroundColor = c;
+
+    QPixmap px(16, 16);
+    px.fill(c);
+
+    ui->pushBackgroundColor->setIcon(px);
+
+    if(ui->checkBackgroundColor->isChecked())
+        slotUseBackgroundColor(true);
 }
 
 void ScreenshotCommentInput::slotFontDown()
@@ -172,6 +209,28 @@ void ScreenshotCommentInput::slotChangeColor()
     {
         setColor(cpw.color());
     }
+}
+
+void ScreenshotCommentInput::slotChangeBackgroundColor()
+{
+    ColorPickerWidget cpw(this);
+
+    cpw.setColor(m_backgroundColor);
+
+    if(cpw.exec() == QDialog::Accepted)
+    {
+        setBackgroundColor(cpw.color());
+    }
+}
+
+void ScreenshotCommentInput::slotUseBackgroundColor(bool use)
+{
+    QPalette pal = ui->text->palette();
+    pal.setColor(QPalette::Base,
+                 use
+                 ? m_backgroundColor
+                 : Settings::instance()->defaultValue(SETTING_SCREENSHOT_BACKGROUND_COLOR).value<QColor>());
+    ui->text->setPalette(pal);
 }
 
 void ScreenshotCommentInput::slotAlignChanged(bool checked)

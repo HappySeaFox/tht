@@ -40,6 +40,7 @@
 #include <QDateTime>
 #include <QMimeData>
 #include <QPalette>
+#include <QColor>
 #include <QEvent>
 #include <QTimer>
 #include <QMutex>
@@ -62,6 +63,7 @@
 #include "excellinkingdetails.h"
 #include "linkpointmanager.h"
 #include "masterdataevent.h"
+#include "screenshotkeys.h"
 #include "savescreenshot.h"
 #include "pluginmanager.h"
 #include "regionselect.h"
@@ -156,6 +158,16 @@ THT::THT() :
 {
     if(SETTINGS_GET_BOOL(SETTING_ONTOP))
         setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
+
+    // some default values for screenshot tool
+    QHash<QString, QVariant> defaultValues;
+
+    defaultValues.insert(SETTING_SCREENSHOT_BACKGROUND_COLOR, QColor(Qt::white));
+    defaultValues.insert(SETTING_SCREENSHOT_TEXT_COLOR, QColor(Qt::black));
+    defaultValues.insert(SETTING_SCREENSHOT_TEXT_ALIGNMENT, Qt::AlignLeft);
+    defaultValues.insert(SETTING_SCREENSHOT_TEXT_SIZE, -1);
+
+    Settings::instance()->addDefaultValues(defaultValues);
 
     ui->setupUi(this);
 

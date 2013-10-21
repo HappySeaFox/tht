@@ -7,13 +7,20 @@
     <x>0</x>
     <y>0</y>
     <width>343</width>
-    <height>259</height>
+    <height>302</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string extracomment="Appeal to the user. Means &quot;Please enter text here:&quot;">Enter text</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QTextEdit" name="text">
+     <property name="acceptRichText">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
    <item row="1" column="0">
     <layout class="QHBoxLayout" name="horizontalLayout_3">
      <item>
@@ -131,26 +138,50 @@
     </layout>
    </item>
    <item row="2" column="0">
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <item>
+      <widget class="QCheckBox" name="checkBackgroundColor">
+       <property name="text">
+        <string>Background color:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="pushBackgroundColor">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>0</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item row="3" column="0">
     <widget class="Line" name="line">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
     </widget>
    </item>
-   <item row="3" column="0">
+   <item row="4" column="0">
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
      <property name="standardButtons">
       <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="0">
-    <widget class="QTextEdit" name="text">
-     <property name="acceptRichText">
-      <bool>false</bool>
      </property>
     </widget>
    </item>
@@ -164,6 +195,8 @@
   <tabstop>pushFontDown</tabstop>
   <tabstop>pushFontUp</tabstop>
   <tabstop>pushColor</tabstop>
+  <tabstop>checkBackgroundColor</tabstop>
+  <tabstop>pushBackgroundColor</tabstop>
   <tabstop>buttonBox</tabstop>
  </tabstops>
  <resources>
@@ -177,8 +210,8 @@
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>258</x>
-     <y>312</y>
+     <x>252</x>
+     <y>292</y>
     </hint>
     <hint type="destinationlabel">
      <x>157</x>
@@ -193,8 +226,8 @@
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>305</x>
-     <y>312</y>
+     <x>299</x>
+     <y>292</y>
     </hint>
     <hint type="destinationlabel">
      <x>286</x>
@@ -209,12 +242,12 @@
    <slot>slotFontDown()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>204</x>
-     <y>193</y>
+     <x>198</x>
+     <y>209</y>
     </hint>
     <hint type="destinationlabel">
      <x>110</x>
-     <y>323</y>
+     <y>301</y>
     </hint>
    </hints>
   </connection>
@@ -225,12 +258,12 @@
    <slot>slotFontUp()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>233</x>
-     <y>193</y>
+     <x>222</x>
+     <y>209</y>
     </hint>
     <hint type="destinationlabel">
      <x>162</x>
-     <y>323</y>
+     <y>301</y>
     </hint>
    </hints>
   </connection>
@@ -241,8 +274,8 @@
    <slot>slotAlignChanged(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>64</x>
-     <y>193</y>
+     <x>90</x>
+     <y>209</y>
     </hint>
     <hint type="destinationlabel">
      <x>309</x>
@@ -258,7 +291,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>93</x>
-     <y>193</y>
+     <y>206</y>
     </hint>
     <hint type="destinationlabel">
      <x>309</x>
@@ -274,7 +307,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>122</x>
-     <y>193</y>
+     <y>206</y>
     </hint>
     <hint type="destinationlabel">
      <x>309</x>
@@ -289,12 +322,60 @@
    <slot>slotChangeColor()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>91</x>
-     <y>247</y>
+     <x>287</x>
+     <y>209</y>
     </hint>
     <hint type="destinationlabel">
      <x>338</x>
      <y>242</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushBackgroundColor</sender>
+   <signal>clicked()</signal>
+   <receiver>ScreenshotCommentInput</receiver>
+   <slot>slotChangeBackgroundColor()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>143</x>
+     <y>248</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>153</x>
+     <y>301</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBackgroundColor</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>pushBackgroundColor</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>61</x>
+     <y>245</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>136</x>
+     <y>243</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBackgroundColor</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>ScreenshotCommentInput</receiver>
+   <slot>slotUseBackgroundColor(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>40</x>
+     <y>245</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>41</x>
+     <y>322</y>
     </hint>
    </hints>
   </connection>
@@ -304,5 +385,7 @@
   <slot>slotFontUp()</slot>
   <slot>slotAlignChanged(bool)</slot>
   <slot>slotChangeColor()</slot>
+  <slot>slotChangeBackgroundColor()</slot>
+  <slot>slotUseBackgroundColor(bool)</slot>
  </slots>
 </ui>

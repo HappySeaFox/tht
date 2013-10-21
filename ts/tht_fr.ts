@@ -659,20 +659,25 @@ sur le bouton central/droit de la souris pour annuler.</translation>
         <translation>Entrer un texte</translation>
     </message>
     <message>
-        <location filename="../screenshotcommentinput.ui" line="22"/>
+        <location filename="../screenshotcommentinput.ui" line="29"/>
         <source>Alignment:</source>
         <extracomment>Means &quot;Text alignment:&quot;</extracomment>
         <translation>Alignement :</translation>
     </message>
     <message>
-        <location filename="../screenshotcommentinput.ui" line="81"/>
+        <location filename="../screenshotcommentinput.ui" line="88"/>
         <source>Size:</source>
         <translation>Taille :</translation>
     </message>
     <message>
-        <location filename="../screenshotcommentinput.ui" line="111"/>
+        <location filename="../screenshotcommentinput.ui" line="118"/>
         <source>Color:</source>
         <translation>Couleur :</translation>
+    </message>
+    <message>
+        <location filename="../screenshotcommentinput.ui" line="145"/>
+        <source>Background color:</source>
+        <translation>Couleur de fond :</translation>
     </message>
 </context>
 <context>
@@ -744,102 +749,102 @@ sur le bouton central/droit de la souris pour annuler.</translation>
         <translation>THT est occupé</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="207"/>
+        <location filename="../tht.cpp" line="219"/>
         <source>Options...</source>
         <translation>Options...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="210"/>
-        <location filename="../tht.cpp" line="289"/>
+        <location filename="../tht.cpp" line="222"/>
+        <location filename="../tht.cpp" line="301"/>
         <source>Take screenshot...</source>
         <translation>Faire une capture d&apos;écran...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="214"/>
+        <location filename="../tht.cpp" line="226"/>
         <source>Clear links</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Effacer les liens</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="218"/>
+        <location filename="../tht.cpp" line="230"/>
         <source>Clear ticker lists</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Clear the lists with tickers&quot;. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Effacer les listes de ticker</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="220"/>
-        <location filename="../tht.cpp" line="221"/>
+        <location filename="../tht.cpp" line="232"/>
+        <location filename="../tht.cpp" line="233"/>
         <source>Load ticker</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Charger le ticker</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="232"/>
+        <location filename="../tht.cpp" line="244"/>
         <source>About Qt...</source>
         <extracomment>Qt is a C++ crossplatform toolkit http://qt-project.org</extracomment>
         <translation>À propos de Qt...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="233"/>
+        <location filename="../tht.cpp" line="245"/>
         <source>Plugins...</source>
         <translation>Plugins...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="235"/>
-        <location filename="../tht.cpp" line="293"/>
+        <location filename="../tht.cpp" line="247"/>
+        <location filename="../tht.cpp" line="305"/>
         <source>Quit</source>
         <translation>Quitter</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="288"/>
+        <location filename="../tht.cpp" line="300"/>
         <source>Restore</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Restore the application window from the system tray&quot;</extracomment>
         <translation>Restaurer</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="226"/>
-        <location filename="../tht.cpp" line="291"/>
+        <location filename="../tht.cpp" line="238"/>
+        <location filename="../tht.cpp" line="303"/>
         <source>About THT</source>
         <extracomment>&quot;THT&quot; is the name of the application</extracomment>
         <translation>À propos de THT</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="434"/>
+        <location filename="../tht.cpp" line="446"/>
         <source>Notice</source>
         <translation>Notification</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="436"/>
+        <location filename="../tht.cpp" line="448"/>
         <source>THT will continue to run in a system tray</source>
         <extracomment>&quot;THT&quot; is the name of the application</extracomment>
         <translation>THT continuera de s&apos;exécuter dans le plateau de système</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="951"/>
+        <location filename="../tht.cpp" line="963"/>
         <source>Unknown</source>
         <extracomment>Means &quot;Unknown links&quot; (in the plural)</extracomment>
         <translation>Inconnu</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1470"/>
+        <location filename="../tht.cpp" line="1482"/>
         <source>Cannot take screenshot</source>
         <extracomment>Message displayed to the user</extracomment>
         <translation>Impossible de prendre une capture d&apos;écran</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1517"/>
+        <location filename="../tht.cpp" line="1529"/>
         <source>New points</source>
         <extracomment>Means &quot;New link points&quot;</extracomment>
         <translation>Nouveaux points</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2093"/>
+        <location filename="../tht.cpp" line="2105"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <extracomment>Message displayed to the user in the April Fool&apos;s day. Preferably copy the translation from &quot;The Little Golden Calf&quot; by I.Ilf, E.Petrov, Chapter 10 &quot;A Telegram from the Brothers Karamazov&quot; (http://en.wikipedia.org/wiki/The_Little_Golden_Calf). If you don&apos;t have the book or its online translation then translate as usual</extracomment>
         <translation>Toutes les fortunes contemporaines ont été acquises&lt;br&gt;de la manière la plus répréhensible.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2095"/>
+        <location filename="../tht.cpp" line="2107"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <extracomment>See http://en.wikipedia.org/wiki/The_Little_Golden_Calf</extracomment>
         <translation>« Le Veau d&apos;Or » I.Ilf, E.Petrov</translation>

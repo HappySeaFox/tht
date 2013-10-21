@@ -44,16 +44,20 @@ public:
 
 private:
     void setColor(const QColor &);
+    void setBackgroundColor(const QColor &);
 
 private slots:
     void slotFontDown();
     void slotFontUp();
     void slotChangeColor();
+    void slotChangeBackgroundColor();
+    void slotUseBackgroundColor(bool);
     void slotAlignChanged(bool);
 
 private:
     Ui::ScreenshotCommentInput *ui;
     QColor m_color;
+    QColor m_backgroundColor;
     Qt::AlignmentFlag m_align;
 };
 
