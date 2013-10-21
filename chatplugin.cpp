@@ -63,7 +63,7 @@ ChatPlugin::ChatPlugin() :
 
     if(qgetenv("THT_CHAT_QXMPP_LOG") == "1")
     {
-        QXmppLogger::getLogger()->setLoggingType(QXmppLogger::StdoutLogging);
+        QXmppLogger::getLogger()->setLoggingType(QXmppLogger::FileLogging);
         QXmppLogger::getLogger()->setLogFilePath(
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
                                                  QStandardPaths::writableLocation(QStandardPaths::TempLocation)
