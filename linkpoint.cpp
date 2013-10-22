@@ -15,16 +15,16 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "linkedwindow.h"
+#include "linkpoint.h"
 
-QDataStream &operator<<(QDataStream &out, const LinkedWindow &lw)
+QDataStream &operator<<(QDataStream &out, const LinkPoint &lp)
 {
-    out << lw.master << lw.point << lw.extraData;
+    out << lp.name << lp.points;
     return out;
 }
 
-QDataStream &operator>>(QDataStream &in, LinkedWindow &lw)
+QDataStream &operator>>(QDataStream &in, LinkPoint &lp)
 {
-    in >> lw.master >> lw.point >> lw.extraData;
+    in >> lp.name >> lp.points;
     return in;
 }

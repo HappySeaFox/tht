@@ -749,101 +749,101 @@ oder klicken Sie die rechte/mittlere Maustaste, um abzubrechen.</translation>
         <translation>THT ist beschäftigt</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="219"/>
+        <location filename="../tht.cpp" line="249"/>
         <source>Options...</source>
         <translation>Optionen...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="222"/>
-        <location filename="../tht.cpp" line="301"/>
+        <location filename="../tht.cpp" line="252"/>
+        <location filename="../tht.cpp" line="331"/>
         <source>Take screenshot...</source>
         <translation>Screenshot machen...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="226"/>
+        <location filename="../tht.cpp" line="256"/>
         <source>Clear links</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Links löschen</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="230"/>
+        <location filename="../tht.cpp" line="260"/>
         <source>Clear ticker lists</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Clear the lists with tickers&quot;. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Liste der Tickersymbole löschen</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="232"/>
-        <location filename="../tht.cpp" line="233"/>
+        <location filename="../tht.cpp" line="262"/>
+        <location filename="../tht.cpp" line="263"/>
         <source>Load ticker</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Tickersymbole laden</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="244"/>
+        <location filename="../tht.cpp" line="274"/>
         <source>About Qt...</source>
         <extracomment>Qt is a C++ crossplatform toolkit http://qt-project.org</extracomment>
         <translation>Über Qt...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="245"/>
+        <location filename="../tht.cpp" line="275"/>
         <source>Plugins...</source>
         <translation>Plugins...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="247"/>
-        <location filename="../tht.cpp" line="305"/>
+        <location filename="../tht.cpp" line="277"/>
+        <location filename="../tht.cpp" line="335"/>
         <source>Quit</source>
         <translation>Beenden</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="300"/>
+        <location filename="../tht.cpp" line="330"/>
         <source>Restore</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Restore the application window from the system tray&quot;</extracomment>
         <translation>Wiederherstellen</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="238"/>
-        <location filename="../tht.cpp" line="303"/>
+        <location filename="../tht.cpp" line="268"/>
+        <location filename="../tht.cpp" line="333"/>
         <source>About THT</source>
         <extracomment>&quot;THT&quot; is the name of the application</extracomment>
         <translation>Über THT</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="446"/>
+        <location filename="../tht.cpp" line="476"/>
         <source>Notice</source>
         <translation>Nachricht</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="448"/>
+        <location filename="../tht.cpp" line="478"/>
         <source>THT will continue to run in a system tray</source>
         <extracomment>&quot;THT&quot; is the name of the application</extracomment>
         <translation>THT wird im Benachrichtigungsfeld weiter ausgeführt</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="966"/>
+        <location filename="../tht.cpp" line="996"/>
         <source>Unknown</source>
         <extracomment>Means &quot;Unknown links&quot; (in the plural)</extracomment>
         <translation>Unbekannt</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1485"/>
+        <location filename="../tht.cpp" line="1515"/>
         <source>Cannot take screenshot</source>
         <extracomment>Message displayed to the user</extracomment>
         <translation>Konnte keinen Screenshot machen</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1531"/>
+        <location filename="../tht.cpp" line="1561"/>
         <source>New points</source>
         <translation>Neue Punkte</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2107"/>
+        <location filename="../tht.cpp" line="2137"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <extracomment>Message displayed to the user in the April Fool&apos;s day. Preferably copy the translation from &quot;The Little Golden Calf&quot; by I.Ilf, E.Petrov, Chapter 10 &quot;A Telegram from the Brothers Karamazov&quot; (http://en.wikipedia.org/wiki/The_Little_Golden_Calf). If you don&apos;t have the book or its online translation then translate as usual</extracomment>
         <translation>Alle großen Vermögen heutzutage wurden&lt;br&gt;auf die unehrenhafteste Weise erworben.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2109"/>
+        <location filename="../tht.cpp" line="2139"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <extracomment>See http://en.wikipedia.org/wiki/The_Little_Golden_Calf</extracomment>
         <translation>&quot;Das goldene Kalb&quot; I.Ilf, E.Petrov</translation>

@@ -18,11 +18,6 @@
 #include "linkpointsession.h"
 #include "linkedwindow.h"
 
-LinkPointSession::LinkPointSession(const QString &_name, const QList<LinkedWindow> &_windows)
-    : name(_name),
-      windows(_windows)
-{}
-
 QDataStream &operator<<(QDataStream &out, const LinkPointSession &lp)
 {
     out << lp.name << lp.windows;

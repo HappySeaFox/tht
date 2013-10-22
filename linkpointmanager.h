@@ -31,7 +31,8 @@
 #define SETTINGS_SET_LINKS Settings::instance()->setValue<QList<LinkPointSession> >
 
 #define SETTING_LAST_LINKS "last-links"
-#define SETTING_LINKS      "links"
+#define SETTING_LINKS      "links2"
+#define SETTING_LINKS_152  "links"
 
 class LinkPointManager : public DataManagerBase
 {

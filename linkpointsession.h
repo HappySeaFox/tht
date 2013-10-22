@@ -27,7 +27,10 @@ class LinkedWindow;
 
 struct LinkPointSession
 {
-    LinkPointSession(const QString &_name = QString(), const QList<LinkedWindow> &_windows = QList<LinkedWindow>());
+    LinkPointSession(const QString &_name = QString(), const QList<LinkedWindow> &_windows = QList<LinkedWindow>())
+        : name(_name),
+          windows(_windows)
+    {}
 
     QString name;
     QList<LinkedWindow> windows;

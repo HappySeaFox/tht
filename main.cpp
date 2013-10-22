@@ -43,6 +43,7 @@
 #include "linkpointsession.h"
 #include "pluginloader.h"
 #include "linkedwindow.h"
+#include "linkpoint.h"
 #include "settings.h"
 #include "tools.h"
 #include "tht.h"
@@ -197,8 +198,12 @@ int main(int argc, char *argv[])
 
     qRegisterMetaTypeStreamOperators<LinkPointSession>("LinkPointSession");
     qRegisterMetaTypeStreamOperators<QList<LinkPointSession> >("QList<LinkPointSession>");
+
     qRegisterMetaTypeStreamOperators<LinkedWindow>("LinkedWindow");
     qRegisterMetaTypeStreamOperators<QList<LinkedWindow> >("QList<LinkedWindow>");
+
+    qRegisterMetaTypeStreamOperators<LinkPoint>("LinkPoint");
+    qRegisterMetaTypeStreamOperators<QList<LinkPoint> >("QList<LinkPoint>");
 
     // plugins can register their own datastream operators,
     // so we need to be sure that all of them are loaded

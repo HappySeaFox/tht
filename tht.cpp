@@ -69,6 +69,7 @@
 #include "regionselect.h"
 #include "pluginloader.h"
 #include "tickerinput.h"
+#include "linkpoint.h"
 #include "settings.h"
 #include "sqltools.h"
 #include "thttools.h"
@@ -158,6 +159,35 @@ THT::THT() :
 {
     if(SETTINGS_GET_BOOL(SETTING_ONTOP))
         setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
+
+    // migrate link points from 1.5.2 to 2.0.0
+    QList<LinkPoint> oldLinks = Settings::instance()->value<QList<LinkPoint> >(SETTING_LINKS_152);
+
+    if(!oldLinks.isEmpty())
+    {
+        qDebug("Migrating link points from 1.5.2 to 2.0.0");
+        QList<LinkPointSession> linkPointSessions;
+        LinkPointSession linkPointSession;
+
+        foreach(LinkPoint lp, oldLinks)
+        {
+            linkPointSession.name = lp.name;
+            linkPointSession.windows.clear();
+
+            foreach(QPoint p, lp.points)
+            {
+                linkPointSession.windows.append(LinkedWindow(false, p));
+            }
+
+            linkPointSessions.append(linkPointSession);
+        }
+
+        qDebug("Migrated link points: %d", linkPointSessions.size());
+
+        SETTINGS_SET_LINKS(SETTING_LINKS, linkPointSessions);
+
+        Settings::instance()->remove(SETTING_LINKS_152);
+    }
 
     // some default values for screenshot tool
     QHash<QString, QVariant> defaultValues;
