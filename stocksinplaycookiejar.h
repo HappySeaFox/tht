@@ -19,8 +19,9 @@
 #define STOCKSINPLAYCOOKIEJAR_H
 
 #include <QNetworkCookieJar>
-#include <QNetworkCookie>
 #include <QList>
+
+class QNetworkCookie;
 
 class StocksInPlayCookieJar : public QNetworkCookieJar
 {
