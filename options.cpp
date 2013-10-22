@@ -33,6 +33,9 @@ Options::Options(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    //: Means "The system language"
+    ui->comboLang->addItem('<' + tr("System") + '>');
+
     ui->list->setItemDelegate(new PersistentSelectionDelegate(ui->list));
     ui->labelRestart->hide();
 
