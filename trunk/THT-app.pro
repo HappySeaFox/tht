@@ -53,7 +53,8 @@ SOURCES += main.cpp\
     numericlabel.cpp \
     thttools.cpp \
     linkedwindow.cpp \
-    linkpointsession.cpp
+    linkpointsession.cpp \
+    linkpoint.cpp
 
 HEADERS += tht.h \
     list.h \
@@ -104,7 +105,8 @@ HEADERS += tht.h \
     thttools.h \
     screenshotkeys.h \
     linkedwindow.h \
-    linkpointsession.h
+    linkpointsession.h \
+    linkpoint.h
 
 FORMS += tht.ui \
     list.ui \

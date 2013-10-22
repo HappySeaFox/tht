@@ -15,32 +15,34 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef LINKEDWINDOW_H
-#define LINKEDWINDOW_H
+#ifndef LINKPOINT_H
+#define LINKPOINT_H
 
 #include <QDataStream>
-#include <QByteArray>
 #include <QMetaType>
+#include <QString>
 #include <QPoint>
+#include <QList>
 
-struct LinkedWindow
+/*
+ *  Compability class to support link points before 2.0.0
+ */
+struct LinkPoint
 {
-    LinkedWindow(bool _master = false, const QPoint &_point = QPoint(), const QByteArray &_extraData = QByteArray())
-        : master(_master),
-          point(_point),
-          extraData(_extraData)
+    LinkPoint(const QString &_name = QString(), const QList<QPoint> &_points = QList<QPoint>())
+        : name(_name),
+          points(_points)
     {}
 
-    bool master;
-    QPoint point;
-    QByteArray extraData; // some extra data specific to the link
+    QString name;
+    QList<QPoint> points;
 };
 
-Q_DECLARE_METATYPE(LinkedWindow)
-Q_DECLARE_METATYPE(QList<LinkedWindow>)
+Q_DECLARE_METATYPE(LinkPoint)
+Q_DECLARE_METATYPE(QList<LinkPoint>)
 
-// serialize/deserialize LinkedWindow
-QDataStream &operator<<(QDataStream &out, const LinkedWindow &lw);
-QDataStream &operator>>(QDataStream &in, LinkedWindow &lw);
+// serialize/deserialize LinkPoint
+QDataStream &operator<<(QDataStream &out, const LinkPoint &lp);
+QDataStream &operator>>(QDataStream &in, LinkPoint &lp);
 
-#endif // LINKEDWINDOW_H
+#endif // LINKPOINT_H
