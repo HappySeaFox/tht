@@ -365,101 +365,101 @@
         <translation>Настройки</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="50"/>
-        <source>&lt;System&gt;</source>
-        <extracomment>Means &quot;The system language&quot;</extracomment>
-        <translation>&lt;Системный&gt;</translation>
-    </message>
-    <message>
-        <location filename="../options.ui" line="84"/>
+        <location filename="../options.ui" line="79"/>
         <source>Language:</source>
         <translation>Язык:</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="127"/>
+        <location filename="../options.ui" line="122"/>
         <source>Save position and size</source>
         <extracomment>Configuration option. Infinitive</extracomment>
         <translation>Сохранять расположение и размер</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="141"/>
+        <location filename="../options.ui" line="136"/>
         <source>Automatically save tickers</source>
         <extracomment>Configuration option. Infinitive. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Сохранять тикеры автоматически</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="148"/>
+        <location filename="../options.ui" line="143"/>
         <source>Allow duplicates</source>
         <extracomment>Configuration option. Infinitive</extracomment>
         <translation>Разрешить дубликаты</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="189"/>
+        <location filename="../options.ui" line="184"/>
         <source>Show buttons</source>
         <extracomment>Configuration option. Infinitive</extracomment>
         <translation>Показывать кнопки</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="203"/>
+        <location filename="../options.ui" line="198"/>
         <source>Ctrl+Alt+S to take screenshots</source>
         <extracomment>Configuration option</extracomment>
         <translation>Ctrl+Alt+S для снимков экрана</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="210"/>
+        <location filename="../options.ui" line="205"/>
         <source>Ctrl+Alt+R to restore from tray</source>
         <extracomment>Configuration option</extracomment>
         <translation>Ctrl+Alt+R для развёртывания из трея</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="253"/>
+        <location filename="../options.ui" line="248"/>
         <source>Need restart</source>
         <extracomment>Means &quot;It is neccessary to restart the application&quot;</extracomment>
         <translation>Требуется перезапуск</translation>
     </message>
     <message>
-        <location filename="../options.cpp" line="40"/>
+        <location filename="../options.cpp" line="37"/>
+        <source>System</source>
+        <extracomment>Means &quot;The system language&quot;</extracomment>
+        <translation>Системный</translation>
+    </message>
+    <message>
+        <location filename="../options.cpp" line="43"/>
         <source>General</source>
         <extracomment>Means &quot;General options&quot;, in the plural</extracomment>
         <translation>Общие</translation>
     </message>
     <message>
-        <location filename="../options.cpp" line="42"/>
+        <location filename="../options.cpp" line="45"/>
         <source>List</source>
         <extracomment>Noun</extracomment>
         <translation>Список</translation>
     </message>
     <message>
-        <location filename="../options.cpp" line="43"/>
+        <location filename="../options.cpp" line="46"/>
         <source>Hotkeys</source>
         <translation>Горячие клавиши</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="169"/>
+        <location filename="../options.ui" line="164"/>
         <source>Automatically show ticker comments</source>
         <extracomment>Configuration option. Infinitive. Means &quot;Automatically show comments to the selected ticker&quot;. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Автоматически показывать комментарии к тикеру</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="120"/>
+        <location filename="../options.ui" line="115"/>
         <source>Restore link points at startup</source>
         <extracomment>Configuration option. Infinitive</extracomment>
         <translation>Восстанавливать точки линковки при старте</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="155"/>
+        <location filename="../options.ui" line="150"/>
         <source>Fast ticker entry</source>
         <extracomment>Configuration option. Noun. Means &quot;The small window where the user can quickly enter a ticker name&quot;. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Быстрый ввод тикера</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="162"/>
+        <location filename="../options.ui" line="157"/>
         <source>Show title</source>
         <extracomment>Configuration option. Infinitive</extracomment>
         <translation>Показывать заголовок</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="100"/>
+        <location filename="../options.ui" line="95"/>
         <source>Restore &quot;Industries&quot; window at startup</source>
         <extracomment>Configuration option. Infinitive</extracomment>
         <translation>Восстанавливать окно &quot;Индустрии&quot; при старте</translation>
@@ -471,7 +471,7 @@
         <translation>Поверх всех окон</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="91"/>
+        <location filename="../options.ui" line="86"/>
         <source>Lists:</source>
         <extracomment>Means &quot;Number of lists:&quot;. It will look like &quot;Lists: 4&quot;</extracomment>
         <translation>Списков:</translation>

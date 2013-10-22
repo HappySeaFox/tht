@@ -45,11 +45,6 @@
            <property name="maxVisibleItems">
             <number>15</number>
            </property>
-           <item>
-            <property name="text">
-             <string extracomment="Means &quot;The system language&quot;">&lt;System&gt;</string>
-            </property>
-           </item>
           </widget>
          </item>
          <item row="0" column="2" rowspan="2">
