@@ -18,11 +18,20 @@
 #ifndef LINKPOINTMANAGER_H
 #define LINKPOINTMANAGER_H
 
-#include <QPoint>
 #include <QList>
 
+#include "linkpointsession.h"
 #include "datamanagerbase.h"
-#include "settings.h"
+#include "linkedwindow.h"
+
+#define SETTINGS_GET_LINKED_WINDOWS Settings::instance()->value<QList<LinkedWindow> >
+#define SETTINGS_SET_LINKED_WINDOWS Settings::instance()->setValue<QList<LinkedWindow> >
+
+#define SETTINGS_GET_LINKS Settings::instance()->value<QList<LinkPointSession> >
+#define SETTINGS_SET_LINKS Settings::instance()->setValue<QList<LinkPointSession> >
+
+#define SETTING_LAST_LINKS "last-links"
+#define SETTING_LINKS      "links"
 
 class LinkPointManager : public DataManagerBase
 {

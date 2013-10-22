@@ -18,7 +18,6 @@
 #include <QMutableListIterator>
 #include <QApplication>
 #include <QMouseEvent>
-
 #include <QTransform>
 #include <QPainter>
 #include <QCursor>
