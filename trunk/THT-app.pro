@@ -51,7 +51,9 @@ SOURCES += main.cpp\
     dropboxuploader.cpp \
     excellinkingdetails.cpp \
     numericlabel.cpp \
-    thttools.cpp
+    thttools.cpp \
+    linkedwindow.cpp \
+    linkpointsession.cpp
 
 HEADERS += tht.h \
     list.h \
@@ -100,7 +102,9 @@ HEADERS += tht.h \
     excellinkingdetails.h \
     numericlabel.h \
     thttools.h \
-    screenshotkeys.h
+    screenshotkeys.h \
+    linkedwindow.h \
+    linkpointsession.h
 
 FORMS += tht.ui \
     list.ui \

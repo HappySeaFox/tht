@@ -18,6 +18,7 @@
 #include <QDesktopServices>
 #include <QTranslator>
 #include <QSslSocket>
+#include <QMetaType>
 #include <QDateTime>
 #include <QLocale>
 #include <QFile>
@@ -39,7 +40,9 @@
 #include "qtlockedfile.h"
 #endif
 
+#include "linkpointsession.h"
 #include "pluginloader.h"
+#include "linkedwindow.h"
 #include "settings.h"
 #include "tools.h"
 #include "tht.h"
@@ -191,6 +194,11 @@ int main(int argc, char *argv[])
 
     if(app.sendMessage("wake up"))
         return 0;
+
+    qRegisterMetaTypeStreamOperators<LinkPointSession>("LinkPointSession");
+    qRegisterMetaTypeStreamOperators<QList<LinkPointSession> >("QList<LinkPointSession>");
+    qRegisterMetaTypeStreamOperators<LinkedWindow>("LinkedWindow");
+    qRegisterMetaTypeStreamOperators<QList<LinkedWindow> >("QList<LinkedWindow>");
 
     // plugins can register their own datastream operators,
     // so we need to be sure that all of them are loaded

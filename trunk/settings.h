@@ -19,42 +19,18 @@
 #define SETTINGS_H
 
 #include <QStringList>
-#include <QByteArray>
 #include <QDateTime>
 #include <QSettings>
 #include <QVariant>
 #include <QString>
 #include <QPoint>
-#include <QColor>
-#include <QSize>
 #include <QList>
 #include <QHash>
 #include <QMap>
 
 #include <windows.h>
 
-struct LinkedWindow
-{
-    LinkedWindow(bool _master = false, const QPoint &_point = QPoint(), const QByteArray &_extraData = QByteArray());
-
-    bool master;
-    QPoint point;
-    QByteArray extraData; // some extra data specific to the link
-};
-
-struct LinkPointSession
-{
-    LinkPointSession(const QString &_name = QString(), const QList<LinkedWindow> &_windows = QList<LinkedWindow>());
-
-    QString name;
-    QList<LinkedWindow> windows;
-};
-
 Q_DECLARE_METATYPE(QList<QPoint>)
-Q_DECLARE_METATYPE(LinkedWindow)
-Q_DECLARE_METATYPE(QList<LinkedWindow>)
-Q_DECLARE_METATYPE(LinkPointSession)
-Q_DECLARE_METATYPE(QList<LinkPointSession>)
 Q_DECLARE_METATYPE(Qt::AlignmentFlag)
 
 #define SETTINGS_GET_BYTE_ARRAY Settings::instance()->value<QByteArray>
@@ -84,12 +60,6 @@ Q_DECLARE_METATYPE(Qt::AlignmentFlag)
 #define SETTINGS_GET_POINTS Settings::instance()->value<QList<QPoint> >
 #define SETTINGS_SET_POINTS Settings::instance()->setValue<QList<QPoint> >
 
-#define SETTINGS_GET_LINKED_WINDOWS Settings::instance()->value<QList<LinkedWindow> >
-#define SETTINGS_SET_LINKED_WINDOWS Settings::instance()->setValue<QList<LinkedWindow> >
-
-#define SETTINGS_GET_LINKS Settings::instance()->value<QList<LinkPointSession> >
-#define SETTINGS_SET_LINKS Settings::instance()->setValue<QList<LinkPointSession> >
-
 #define SETTINGS_GET_SIZE Settings::instance()->value<QSize>
 #define SETTINGS_SET_SIZE Settings::instance()->setValue<QSize>
 
@@ -97,7 +67,6 @@ Q_DECLARE_METATYPE(Qt::AlignmentFlag)
 #define SETTINGS_SET_POINT Settings::instance()->setValue<QPoint>
 
 #define SETTING_RESTORE_LINKS_AT_STARTUP     "restore-links-at-startup"
-#define SETTING_LAST_LINKS                   "last-links"
 #define SETTING_SHOW_COMMENTS                "show-comments"
 #define SETTING_LIST_HEADER                  "list-header"
 #define SETTING_LIST_BUTTONS                 "list-buttons"
@@ -109,7 +78,6 @@ Q_DECLARE_METATYPE(Qt::AlignmentFlag)
 #define SETTING_LAST_SCREENSHOT_DIRECTORY    "last-screenshot-directory"
 #define SETTING_RESTORE_NEIGHBORS_AT_STARTUP "restore-neighbors-at-startup"
 #define SETTING_SHOW_NEIGHBORS_AT_STARTUP    "neighbors-at-startup"
-#define SETTING_LINKS                        "links"
 #define SETTING_MINI_TICKER_ENTRY            "mini-ticker-entry"
 #define SETTING_ALLOW_DUPLICATES             "allow-duplicates"
 #define SETTING_NYSE_ONLY                    "nyse-only"

@@ -20,6 +20,7 @@
 #include <QFileInfo>
 #include <QObject>
 #include <QRegExp>
+#include <QColor>
 #include <QFile>
 #include <QDir>
 #include <QUrl>
@@ -34,32 +35,6 @@
 
 #include "settings.h"
 #include "tools.h"
-
-// serialize/deserialize LinkedWindow
-static QDataStream &operator<<(QDataStream &out, const LinkedWindow &lw)
-{
-    out << lw.master << lw.point << lw.extraData;
-    return out;
-}
-
-static QDataStream &operator>>(QDataStream &in, LinkedWindow &lw)
-{
-    in >> lw.master >> lw.point >> lw.extraData;
-    return in;
-}
-
-// serialize/deserialize LinkPointSession
-static QDataStream &operator<<(QDataStream &out, const LinkPointSession &lp)
-{
-    out << lp.name << lp.windows;
-    return out;
-}
-
-static QDataStream &operator>>(QDataStream &in, LinkPointSession &lp)
-{
-    in >> lp.name >> lp.windows;
-    return in;
-}
 
 // serialize/deserialize Qt::AlignmentFlag
 static QDataStream &operator<<(QDataStream &out, const Qt::AlignmentFlag &f)
@@ -115,17 +90,6 @@ public:
 
 /*******************************************************/
 
-LinkedWindow::LinkedWindow(bool _master, const QPoint &_point, const QByteArray &_extraData)
-    : master(_master),
-      point(_point),
-      extraData(_extraData)
-{}
-
-LinkPointSession::LinkPointSession(const QString &_name, const QList<LinkedWindow> &_windows)
-    : name(_name),
-      windows(_windows)
-{}
-
 Settings::Settings()
 {
     d = new SettingsPrivate;
@@ -138,10 +102,6 @@ Settings::Settings()
     d->settings->setFallbacksEnabled(false);
 
     qRegisterMetaTypeStreamOperators<QList<QPoint> >("QList<QPoint>");
-    qRegisterMetaTypeStreamOperators<LinkPointSession>("LinkPointSession");
-    qRegisterMetaTypeStreamOperators<QList<LinkPointSession> >("QList<LinkPointSession>");
-    qRegisterMetaTypeStreamOperators<LinkedWindow>("LinkedWindow");
-    qRegisterMetaTypeStreamOperators<QList<LinkedWindow> >("QList<LinkedWindow>");
     qRegisterMetaTypeStreamOperators<Qt::AlignmentFlag>("Qt::AlignmentFlag");
 
     // save version for future changes
