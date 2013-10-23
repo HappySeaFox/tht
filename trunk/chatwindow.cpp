@@ -51,6 +51,8 @@ ChatWindow::ChatWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    setWindowTitle(ChatTools::chatTitle());
+
     //: Means "Based on <some technology>". The technology will be added in runtime by the application
     ui->labelBasedOn->setText(tr("Based on") + " <a href=\"http://xmpp.org\">XMPP</a>");
 
@@ -562,6 +564,9 @@ void ChatWindow::slotOptions()
 
 void ChatWindow::slotHelp()
 {
+    //: Don't translate "Gold" - this is a fixed industry name. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow "ticker" from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)
+    QString showTickersString = tr("Show the AMEX tickers from the industry \"Gold\"");
+
     QMessageBox::information(this,
                              tr("Help"),
                              QString("<table cellspacing=6>"
@@ -579,14 +584,10 @@ void ChatWindow::slotHelp()
                              .arg(tr("Show the ticker information about the ticker \"ABC\""))
                              //: Don't translate "Gold" - this is a fixed industry name. "Exchange" is a market exchange. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow "ticker" from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)
                              .arg(tr("Show the tickers from the industry \"Gold\" (all exchanges, tickers are sorted by capitalization)"))
-                             //: Don't translate "Gold" - this is a fixed industry name. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow "ticker" from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)
-                             .arg(tr("Show the AMEX tickers from the industry \"Gold\""))
-                             //: Don't translate "Gold" - this is a fixed industry name. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow "ticker" from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)
-                             .arg(tr("Show the NASDAQ tickers from the industry \"Gold\""))
-                             //: Don't translate "Gold" - this is a fixed industry name. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow "ticker" from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)
-                             .arg(tr("Show the NYSE tickers from the industry \"Gold\""))
-                             //: Don't translate "Gold" - this is a fixed industry name. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow "ticker" from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)
-                             .arg(tr("Show the NYSE and NASDAQ tickers from the industry \"Gold\" (you can mix exchanges)"))
+                             .arg(showTickersString)
+                             .arg(QString(showTickersString).replace("AMEX", "NASDAQ"))
+                             .arg(QString(showTickersString).replace("AMEX", "NYSE"))
+                             .arg(QString(showTickersString).replace("AMEX", "NYSE+NASDAQ"))
                              );
 }
 
