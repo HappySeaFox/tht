@@ -20,6 +20,7 @@
 
 #include <QString>
 #include <QRegExp>
+#include <QObject>
 #include <QColor>
 #include <QList>
 #include <QIcon>
@@ -47,6 +48,8 @@ public:
     static QIcon statusIcon(QXmppPresence::AvailableStatusType);
 
     static QString escapeBrackets(const QString &plain);
+
+    static QString chatTitle();
 
 private:
     ChatTools();
@@ -89,6 +92,13 @@ inline
 QIcon ChatTools::statusIcon(QXmppPresence::AvailableStatusType type)
 {
     return ChatTools::m_statusIcons.value(type);
+}
+
+inline
+QString ChatTools::chatTitle()
+{
+    //: Noun. Window title
+    return QObject::tr("Chat");
 }
 
 #endif // CHATTOOLS_H

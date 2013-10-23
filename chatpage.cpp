@@ -78,8 +78,7 @@ ChatPage::ChatPage(QXmppClient *client,
     // context menu for user list
     m_userMenu = new QMenu(this);
 
-    //: Noun
-    m_userMenu->addAction(ChatTools::chatIcon(), tr("Chat"), this, SLOT(slotStartChatFromMenu()));
+    m_userMenu->addAction(ChatTools::chatIcon(), ChatTools::chatTitle(), this, SLOT(slotStartChatFromMenu()));
 
     //: This is the label on a menu item that user clicks to issue the command. Means "Kick the selected user right now"
     m_kickNow = new QAction(tr("Kick now"), this);
