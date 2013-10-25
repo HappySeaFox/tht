@@ -207,13 +207,14 @@ int Settings::numberOfLists()
 {
     bool ok;
 
+    const int defaultNumber = 3;
+
     int nlists = d->settings->value("settings/number-of-lists", 3).toUInt(&ok);
 
     if(!ok)
-        nlists = 3;
-
-    if(nlists < 1 || nlists > maximumNumberOfLists())
-        nlists = 3;
+        nlists = defaultNumber;
+    else if(nlists < 1 || nlists > maximumNumberOfLists())
+        nlists = defaultNumber;
 
     return nlists;
 }
