@@ -159,7 +159,13 @@ CODECPLUGINS=qcncodecs4.dll qjpcodecs4.dll qtwcodecs4.dll qkrcodecs4.dll
 BEARERPLUGINS=qgenericbearer4.dll qnativewifibearer4.dll
 QTLIBS=QtCore4.dll QtGui4.dll QtNetwork4.dll QtScript4.dll QtSql4.dll QtXml4.dll QtXmlPatterns4.dll
 SSLLIBS=libeay32.dll ssleay32.dll
-MINGW_BUILD_TYPE=sjlj
+
+isEmpty(HOST64) {
+    MINGW_BUILD_TYPE=dw2
+} else {
+    MINGW_BUILD_TYPE=sjlj
+}
+
 MINGWLIBS=libgcc_s_$${MINGW_BUILD_TYPE}-1.dll libwinpthread-1.dll libstdc++-6.dll
 OTHERQMFILES=
 
