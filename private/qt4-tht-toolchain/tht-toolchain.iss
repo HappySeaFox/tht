@@ -1,8 +1,12 @@
-#define MyAppName "Qt4 THT toolchain"
-#define MyAppInstallDir "Qt4-THT-toolchain"
+#define MyAppName "THT toolchain"
+#define MyAppInstallDir "THT-toolchain"
 #define MyAppPublisher "Dmitry Baryshev"
 #define MyAppURL "http://sourceforge.net/projects/tht"
-#define MyAppVersion "4.8.5"
+
+; versions
+#define MyAppVersion "1.0.0"
+#define QtVersion    "4.8.5"
+#define MinGWVersion "4.8.2"
 
 [Setup]
 AppId={{6742AEC5-AAA7-45F6-B430-CB004151C983}
@@ -13,14 +17,14 @@ AppPublisherURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}/files/THT-development
 DefaultDirName={sd}\{#MyAppInstallDir}
 DefaultGroupName={#MyAppName}
-LicenseFile=qt4-tht-toolchain-LICENSE.txt
+LicenseFile=tht-toolchain-LICENSE.txt
 OutputDir=.
-OutputBaseFilename=qt4-tht-toolchain-{#MyAppVersion}
-SetupIconFile=qt4-tht-toolchain.ico
+OutputBaseFilename=THT-toolchain-{#MyAppVersion}
+SetupIconFile=tht-toolchain.ico
 Compression=lzma
 SolidCompression=yes
 UninstallDisplayName={#MyAppName}
-UninstallDisplayIcon={app}\qt4-tht-toolchain.ico
+UninstallDisplayIcon={app}\tht-toolchain.ico
 MinVersion=0,5.1
 ChangesEnvironment=yes
 ; uncomment this on x86_64
@@ -56,8 +60,8 @@ Name: "Ukrainianxisl"; MessagesFile: "compiler:Languages\Ukrainian.isl"
 [Tasks]
 
 [Files]
-Source: "qt4-tht-toolchain\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs overwritereadonly uninsremovereadonly
-Source: "qt4-tht-toolchain.ico"; DestDir: "{app}"; Flags: ignoreversion
+Source: "tht-toolchain\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs overwritereadonly uninsremovereadonly
+Source: "tht-toolchain.ico"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
 Name: "{group}\{cm:UninstallProgram,{#MyAppName}}"; Filename: "{uninstallexe}"
