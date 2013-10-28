@@ -792,10 +792,10 @@ void ChatPage::setJoinMode(bool jm)
         ui->pushCancel->setEnabled(false);
         ui->labelStatus->clear();
         showUnreadMessagesCount();
-        QTimer::singleShot(0, ui->lineRoom, SLOT(setFocus()));
     }
-    else
-        QTimer::singleShot(0, ui->plainMessage, SLOT(setFocus()));
+
+    if(m_xmppClient->isConnected())
+        QTimer::singleShot(0, m_joinMode ? qobject_cast<QWidget *>(ui->lineRoom) : ui->plainMessage, SLOT(setFocus()));
 }
 
 void ChatPage::appendError(const QString &s)

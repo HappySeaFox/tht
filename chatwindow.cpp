@@ -163,6 +163,8 @@ void ChatWindow::showSignInPage()
 
     ui->labelStatus->clear();
     ui->stack->setCurrentIndex(0);
+
+    ui->lineJid->setFocus();
 }
 
 void ChatWindow::showChatsPage()
@@ -393,6 +395,8 @@ void ChatWindow::slotConnected()
 
     savePassword();
     restoreRooms();
+
+    ui->linePassword->clear();
 
     if(!ui->tabs->count())
         showAddTabPage();

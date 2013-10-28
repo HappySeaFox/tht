@@ -375,7 +375,7 @@
     </message>
     <message>
         <location filename="../chatwindow.ui" line="55"/>
-        <location filename="../chatwindow.cpp" line="438"/>
+        <location filename="../chatwindow.cpp" line="442"/>
         <source>Password:</source>
         <translation>Mật khẩu :</translation>
     </message>
@@ -409,59 +409,59 @@
         <translation>Tuỳ chọn...</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="199"/>
-        <location filename="../chatwindow.cpp" line="248"/>
-        <location filename="../chatwindow.cpp" line="446"/>
-        <location filename="../chatwindow.cpp" line="454"/>
-        <location filename="../chatwindow.cpp" line="488"/>
+        <location filename="../chatwindow.cpp" line="201"/>
+        <location filename="../chatwindow.cpp" line="250"/>
+        <location filename="../chatwindow.cpp" line="450"/>
+        <location filename="../chatwindow.cpp" line="458"/>
+        <location filename="../chatwindow.cpp" line="492"/>
         <source>Room</source>
         <translation>Room</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="287"/>
+        <location filename="../chatwindow.cpp" line="289"/>
         <source>JID is empty</source>
         <extracomment>JID is a Jabber Identifier, http://en.wikipedia.org/wiki/XMPP#Decentralization_and_addressing . It&apos;s ok not to translate &quot;JID&quot;, e.g. you can just copy-paste &quot;JID&quot; to your translation</extracomment>
         <translation>JID hiện đang rỗng</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="301"/>
+        <location filename="../chatwindow.cpp" line="303"/>
         <source>Connecting...</source>
         <translation>Đang kết nối...</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="310"/>
+        <location filename="../chatwindow.cpp" line="312"/>
         <source>Sign in cancelled</source>
         <translation>Đã hủy bỏ đăng nhập</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="360"/>
+        <location filename="../chatwindow.cpp" line="362"/>
         <source>Network error</source>
         <translation>Lỗi mạng</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="365"/>
+        <location filename="../chatwindow.cpp" line="367"/>
         <source>Keep alive error</source>
         <extracomment>Also can be translated as &quot;Error maintain the connection&quot;</extracomment>
         <translation>Vẫn giữ lỗi</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="372"/>
+        <location filename="../chatwindow.cpp" line="374"/>
         <source>Invalid password</source>
         <translation>Mật Khẩu Không Hợp Lệ</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="376"/>
+        <location filename="../chatwindow.cpp" line="378"/>
         <source>Stream error</source>
         <translation>Lỗi luồng dữ liệu</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="382"/>
+        <location filename="../chatwindow.cpp" line="384"/>
         <source>Unknown error</source>
         <translation>Lỗi chưa xác định</translation>
     </message>
     <message>
         <location filename="../chatwindow.cpp" line="112"/>
-        <location filename="../chatwindow.cpp" line="571"/>
+        <location filename="../chatwindow.cpp" line="575"/>
         <source>Help</source>
         <extracomment>Noun</extracomment>
         <translation>Trợ giúp</translation>
@@ -473,47 +473,47 @@
         <translation>Được dựa trên</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="434"/>
+        <location filename="../chatwindow.cpp" line="438"/>
         <source>Invitation</source>
         <extracomment>Noun</extracomment>
         <translation>Lời mời kết nối</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="436"/>
+        <location filename="../chatwindow.cpp" line="440"/>
         <source>You have been invited to room %1%2%3%4&lt;br&gt;&lt;br&gt;Open the room now?</source>
         <extracomment>Message displayed to the user</extracomment>
         <translation>Bạn đã được mời tham gia vào room %1%2%3%4&lt;br&gt;&lt;br&gt;Mở room này ngay bây giờ?</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="439"/>
+        <location filename="../chatwindow.cpp" line="443"/>
         <source>Reason:</source>
         <translation>Lý do :</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="440"/>
+        <location filename="../chatwindow.cpp" line="444"/>
         <source>Message:</source>
         <translation>Tin nhẳn:</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="582"/>
+        <location filename="../chatwindow.cpp" line="586"/>
         <source>Send the ticker &quot;ABC&quot; to the chat. User can click on it and it will be loaded into all the linked windows</source>
         <extracomment>Don&apos;t translate &quot;ABC&quot; - this is a fixed ticker name. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Gửi ticker &quot;ABC&quot; trong phần trò chuyện. Người dùng có thể click vào đó và sẻ tải ra toàn bộ các cửa sổ được liên kết kèm theo</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="584"/>
+        <location filename="../chatwindow.cpp" line="588"/>
         <source>Show the ticker information about the ticker &quot;ABC&quot;</source>
         <extracomment>Don&apos;t translate &quot;ABC&quot; - this is a fixed ticker name. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Hiển thị thông tin về ticker của ticker &quot;ABC&quot;</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="586"/>
+        <location filename="../chatwindow.cpp" line="590"/>
         <source>Show the tickers from the industry &quot;Gold&quot; (all exchanges, tickers are sorted by capitalization)</source>
         <extracomment>Don&apos;t translate &quot;Gold&quot; - this is a fixed industry name. &quot;Exchange&quot; is a market exchange. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Hiển thị ticker từ ngành công nghiệp &quot;Vàng&quot; (tất cả mọi trao đổi, ticker được sắp xếp theo tỉ lệ vốn hóa)</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="568"/>
+        <location filename="../chatwindow.cpp" line="572"/>
         <source>Show the AMEX tickers from the industry &quot;Gold&quot;</source>
         <extracomment>Don&apos;t translate &quot;Gold&quot; - this is a fixed industry name. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Hiển thị ticker AMEX từ ngành công nghiệp &quot;Vàng&quot;</translation>
