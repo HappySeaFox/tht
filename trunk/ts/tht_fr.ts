@@ -19,7 +19,7 @@
         <location filename="../about.ui" line="177"/>
         <source>THT is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</source>
         <extracomment>See https://www.gnu.org/licenses/gpl-2.0.txt . &quot;THT&quot; is the name of the application</extracomment>
-        <translation>THT est distribué dans l&apos;espoir qu&apos;il sera utile, SANS GARANTIE ; sans même la garantie de VENDABILITÉ ou D&apos;ADÉQUATION À UN BUT PARTICULIER.</translation>
+        <translation>THT est distribué dans l&apos;espoir qu&apos;il sera utile, SANS GARANTIE&lt;nobr&gt; &lt;/nobr&gt;; sans même la garantie de VENDABILITÉ ou D&apos;ADÉQUATION À UN BUT PARTICULIER.</translation>
     </message>
     <message>
         <location filename="../about.ui" line="220"/>
