@@ -375,7 +375,7 @@
     </message>
     <message>
         <location filename="../chatwindow.ui" line="55"/>
-        <location filename="../chatwindow.cpp" line="438"/>
+        <location filename="../chatwindow.cpp" line="442"/>
         <source>Password:</source>
         <translation>Пароль:</translation>
     </message>
@@ -409,59 +409,59 @@
         <translation>Настройки...</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="199"/>
-        <location filename="../chatwindow.cpp" line="248"/>
-        <location filename="../chatwindow.cpp" line="446"/>
-        <location filename="../chatwindow.cpp" line="454"/>
-        <location filename="../chatwindow.cpp" line="488"/>
+        <location filename="../chatwindow.cpp" line="201"/>
+        <location filename="../chatwindow.cpp" line="250"/>
+        <location filename="../chatwindow.cpp" line="450"/>
+        <location filename="../chatwindow.cpp" line="458"/>
+        <location filename="../chatwindow.cpp" line="492"/>
         <source>Room</source>
         <translation>Комната</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="287"/>
+        <location filename="../chatwindow.cpp" line="289"/>
         <source>JID is empty</source>
         <extracomment>JID is a Jabber Identifier, http://en.wikipedia.org/wiki/XMPP#Decentralization_and_addressing . It&apos;s ok not to translate &quot;JID&quot;, e.g. you can just copy-paste &quot;JID&quot; to your translation</extracomment>
         <translation>JID пуст</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="301"/>
+        <location filename="../chatwindow.cpp" line="303"/>
         <source>Connecting...</source>
         <translation>Соединение...</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="310"/>
+        <location filename="../chatwindow.cpp" line="312"/>
         <source>Sign in cancelled</source>
         <translation>Вход отменён</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="360"/>
+        <location filename="../chatwindow.cpp" line="362"/>
         <source>Network error</source>
         <translation>Ошибка сети</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="365"/>
+        <location filename="../chatwindow.cpp" line="367"/>
         <source>Keep alive error</source>
         <extracomment>Also can be translated as &quot;Error maintain the connection&quot;</extracomment>
         <translation>Ошибка поддержания соединения</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="372"/>
+        <location filename="../chatwindow.cpp" line="374"/>
         <source>Invalid password</source>
         <translation>Неверный пароль</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="376"/>
+        <location filename="../chatwindow.cpp" line="378"/>
         <source>Stream error</source>
         <translation>Ошибка потока</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="382"/>
+        <location filename="../chatwindow.cpp" line="384"/>
         <source>Unknown error</source>
         <translation>Неизвестная ошибка</translation>
     </message>
     <message>
         <location filename="../chatwindow.cpp" line="112"/>
-        <location filename="../chatwindow.cpp" line="571"/>
+        <location filename="../chatwindow.cpp" line="575"/>
         <source>Help</source>
         <extracomment>Noun</extracomment>
         <translation>Помощь</translation>
@@ -473,47 +473,47 @@
         <translation>На основе</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="434"/>
+        <location filename="../chatwindow.cpp" line="438"/>
         <source>Invitation</source>
         <extracomment>Noun</extracomment>
         <translation>Приглашение</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="436"/>
+        <location filename="../chatwindow.cpp" line="440"/>
         <source>You have been invited to room %1%2%3%4&lt;br&gt;&lt;br&gt;Open the room now?</source>
         <extracomment>Message displayed to the user</extracomment>
         <translation>Вас пригласили в комнату %1%2%3%4&lt;br&gt;&lt;br&gt;Открыть комнату прямо сейчас?</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="439"/>
+        <location filename="../chatwindow.cpp" line="443"/>
         <source>Reason:</source>
         <translation>Причина:</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="440"/>
+        <location filename="../chatwindow.cpp" line="444"/>
         <source>Message:</source>
         <translation>Сообщение:</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="582"/>
+        <location filename="../chatwindow.cpp" line="586"/>
         <source>Send the ticker &quot;ABC&quot; to the chat. User can click on it and it will be loaded into all the linked windows</source>
         <extracomment>Don&apos;t translate &quot;ABC&quot; - this is a fixed ticker name. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Послать тикер &quot;ABC&quot; в чат. Пользователь может кликнуть по нему и он будет загружен во все слинкованные окна</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="584"/>
+        <location filename="../chatwindow.cpp" line="588"/>
         <source>Show the ticker information about the ticker &quot;ABC&quot;</source>
         <extracomment>Don&apos;t translate &quot;ABC&quot; - this is a fixed ticker name. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Показать информацию о тикере &quot;ABC&quot;</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="586"/>
+        <location filename="../chatwindow.cpp" line="590"/>
         <source>Show the tickers from the industry &quot;Gold&quot; (all exchanges, tickers are sorted by capitalization)</source>
         <extracomment>Don&apos;t translate &quot;Gold&quot; - this is a fixed industry name. &quot;Exchange&quot; is a market exchange. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Показать тикеры из индустрии &quot;Gold&quot; (все биржи, тикеры сортируются по капитализации)</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="568"/>
+        <location filename="../chatwindow.cpp" line="572"/>
         <source>Show the AMEX tickers from the industry &quot;Gold&quot;</source>
         <extracomment>Don&apos;t translate &quot;Gold&quot; - this is a fixed industry name. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Показать AMEX тикеры из индустрии &quot;Gold&quot;</translation>
