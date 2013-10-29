@@ -8,6 +8,8 @@
 #define QtVersion    "4.8.5"
 #define MinGWVersion "4.8.2"
 
+#define MyBaseSetupName 'THT-toolchain-' + MyAppVersion
+
 [Setup]
 AppId={{6742AEC5-AAA7-45F6-B430-CB004151C983}
 AppName={#MyAppName}
@@ -19,7 +21,6 @@ DefaultDirName={sd}\{#MyAppInstallDir}
 DefaultGroupName={#MyAppName}
 LicenseFile=tht-toolchain-LICENSE.txt
 OutputDir=.
-OutputBaseFilename=THT-toolchain-{#MyAppVersion}
 SetupIconFile=tht-toolchain.ico
 Compression=lzma
 SolidCompression=yes
@@ -27,9 +28,6 @@ UninstallDisplayName={#MyAppName}
 UninstallDisplayIcon={app}\tht-toolchain.ico
 MinVersion=0,5.1
 ChangesEnvironment=yes
-; uncomment this on x86_64
-;ArchitecturesAllowed=x64
-;ArchitecturesInstallIn64BitMode=x64
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
