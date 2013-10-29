@@ -661,8 +661,14 @@ void THT::sendString(const QString &ticker, LinkType type)
         return;
     }
 
-    for(int i = 0;i < ticker.length();i++)
-        sendKey(ticker.at(i).toLatin1());
+    QString fixedTicker = ticker;
+
+    // TOS uses "/" instead of ".", for example "BRK/A"
+    if(type == LinkTypeThinkorswim)
+        fixedTicker.replace('.', '/');
+
+    for(int i = 0;i < fixedTicker.length();i++)
+        sendKey(fixedTicker.at(i).toLatin1());
 
     // Fix for TOS
     if(type == LinkTypeThinkorswim)
@@ -1738,10 +1744,15 @@ void THT::masterHasBeenChanged(HWND hwnd, const QString &ticker)
     // check the window id
     foreach(Link l, m_windowsLoad)
     {
-        if(l.isMaster && l.hwnd != hwnd)
+        if(l.isMaster)
         {
-            qDebug("Master has a different window id: existing(%p), changed(%p)", l.hwnd, hwnd);
-            return;
+            if(l.hwnd != hwnd)
+            {
+                qDebug("Master has a different window id: existing(%p), changed(%p)", l.hwnd, hwnd);
+                return;
+            }
+            else
+                break;
         }
     }
 
