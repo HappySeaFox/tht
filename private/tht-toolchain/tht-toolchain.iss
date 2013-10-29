@@ -92,7 +92,7 @@ begin
     end;
   end
   else if (CurStep = ssPostInstall) then begin
-    if not Exec(ExpandConstant('{app}\extra\qtbinpatcher.exe'), '--nobackup', ExpandConstant('{app}'), SW_SHOW, ewWaitUntilTerminated, ResultCode) then begin
+    if not Exec(ExpandConstant('{app}\extra\qtbinpatcher.bat'), '--nobackup', ExpandConstant('{app}'), SW_SHOW, ewWaitUntilTerminated, ResultCode) then begin
       MsgBox(SysErrorMessage(ResultCode), mbCriticalError, MB_OK);
       Abort();
     end;
