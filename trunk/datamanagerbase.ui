@@ -46,7 +46,7 @@
    <item row="1" column="1" colspan="2">
     <widget class="QPushButton" name="pushDelete">
      <property name="text">
-      <string extracomment="This is the label on a button that user pushes to issue the command">Delete</string>
+      <string extracomment="This is the label on a button that user pushes to issue the command. Means &quot;Delete the current item&quot;">Delete</string>
      </property>
     </widget>
    </item>
@@ -76,7 +76,7 @@
    <item row="4" column="1" colspan="2">
     <widget class="QPushButton" name="pushClear">
      <property name="text">
-      <string extracomment="This is the label on a button that user pushes to issue the command">Clear</string>
+      <string extracomment="This is the label on a button that user pushes to issue the command. Means &quot;Delete all items&quot;">Clear</string>
      </property>
     </widget>
    </item>

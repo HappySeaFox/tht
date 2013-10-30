@@ -11,13 +11,13 @@
     <message>
         <location filename="../datamanagerbase.ui" line="49"/>
         <source>Delete</source>
-        <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
+        <extracomment>This is the label on a button that user pushes to issue the command. Means &quot;Delete the current item&quot;</extracomment>
         <translation>Supprimer</translation>
     </message>
     <message>
         <location filename="../datamanagerbase.ui" line="79"/>
         <source>Clear</source>
-        <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
+        <extracomment>This is the label on a button that user pushes to issue the command. Means &quot;Delete all items&quot;</extracomment>
         <translation>Effacer</translation>
     </message>
 </context>
