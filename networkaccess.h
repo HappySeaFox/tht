@@ -117,4 +117,4 @@ private:
     NetworkAccessPrivate *d;
 };
 
-#endif // TICKERINFORMATIONFETCHER_H
+#endif // NETWORKACCESS_H
