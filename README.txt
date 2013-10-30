@@ -104,6 +104,12 @@ http://findicons.com/icon/159904/money_dollar?id=372987
 Author: Mark James
 License: Creative Commons Attribution (by)
 
+* Country flags are taken from
+
+http://icondrawer.com/free.php
+
+License: Free
+
 * Other icons are taken from Fugue Icons theme
 
 http://p.yusukekamiyamane.com/
