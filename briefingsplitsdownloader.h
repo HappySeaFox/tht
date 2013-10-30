@@ -50,4 +50,4 @@ QStringList BriefingSplitsDownloader::tickers() const
     return m_tickers;
 }
 
-#endif // FINVIZDOWNLOADER_H
+#endif // BRIEFINGSPLITSDOWNLOADER_H

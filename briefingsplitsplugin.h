@@ -45,4 +45,4 @@ private slots:
     void slotAdd();
 };
 
-#endif // FINVIZPLUGIN_H
+#endif // BRIEFINGSPLITSPLUGIN_H

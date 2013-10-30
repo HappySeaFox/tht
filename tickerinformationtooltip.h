@@ -62,4 +62,4 @@ private:
     static void showTextPrivate(const QPoint &pos, const QString &text, bool ticker, bool persist);
 };
 
-#endif
+#endif // TICKERINFORMATIONTOOLTIP_H
