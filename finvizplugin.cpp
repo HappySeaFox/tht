@@ -124,7 +124,7 @@ void FinvizPlugin::showFinvizSelector(int list)
 {
     FinvizLinkSelector ls(topLevelWidget());
 
-    if(ls.exec() != QDialog::Accepted)
+    if(ls.exec() != QDialog::Accepted || !ls.url().isValid())
         return;
 
     addFromFinviz(list, ls.url());
