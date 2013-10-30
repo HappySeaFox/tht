@@ -75,4 +75,4 @@ private:
     PluginLoader(QObject *parent = 0);
 };
 
-#endif
+#endif // PLUGINLOADER_H

@@ -66,4 +66,4 @@ private:
     CsvReaderPrivate *d;
 };
 
-#endif // CSV_H
+#endif // CSVREADER_H

@@ -15,8 +15,8 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef DATADOWNLOADER_H
-#define DATADOWNLOADER_H
+#ifndef NETWORKACCESSDIALOG_H
+#define NETWORKACCESSDIALOG_H
 
 #include <QNetworkAccessManager>
 #include <QByteArray>
@@ -160,4 +160,4 @@ private:
     NetworkAccessDialogPrivate *d;
 };
 
-#endif // DATADOWNLOADER_H
+#endif // NETWORKACCESSDIALOG_H
