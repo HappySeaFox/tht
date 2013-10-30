@@ -163,7 +163,7 @@ SSLLIBS=libeay32.dll ssleay32.dll
 isEmpty(HOST64) {
     MINGW_BUILD_TYPE=dw2
 } else {
-    MINGW_BUILD_TYPE=sjlj
+    MINGW_BUILD_TYPE=seh
 }
 
 MINGWLIBS=libgcc_s_$${MINGW_BUILD_TYPE}-1.dll libwinpthread-1.dll libstdc++-6.dll
