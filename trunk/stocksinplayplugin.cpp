@@ -118,7 +118,7 @@ void StocksInPlayPlugin::showStocksInPlaySelector(int list)
 {
     StocksInPlayLinkSelector ls(topLevelWidget());
 
-    if(ls.exec() != QDialog::Accepted)
+    if(ls.exec() != QDialog::Accepted || !ls.url().isValid())
         return;
 
     addFromStocksInPlay(list, ls.url());
