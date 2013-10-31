@@ -18,11 +18,12 @@
 #ifndef FINVIZURL_H
 #define FINVIZURL_H
 
-#include <QDataStream>
 #include <QMetaType>
 #include <QString>
 #include <QList>
 #include <QUrl>
+
+class QDataStream;
 
 struct FinvizUrl
 {
@@ -38,8 +39,13 @@ struct FinvizUrl
 Q_DECLARE_METATYPE(FinvizUrl)
 Q_DECLARE_METATYPE(QList<FinvizUrl>)
 
-#define SETTINGS_GET_FINVIZ_URLS Settings::instance()->value<QList<FinvizUrl> >
-#define SETTINGS_SET_FINVIZ_URLS Settings::instance()->setValue<QList<FinvizUrl> >
+// serialize/deserialize FinvizUrl
+QDataStream &operator<<(QDataStream &out, const FinvizUrl &fu);
+QDataStream &operator>>(QDataStream &in, FinvizUrl &fu);
+
+#define SETTINGS_GET_FINVIZ_URLS_OLD Settings::instance()->value<QList<FinvizUrl> >
+#define SETTINGS_GET_FINVIZ_URLS Settings::instance()->binaryValue<QList<FinvizUrl> >
+#define SETTINGS_SET_FINVIZ_URLS Settings::instance()->setBinaryValue<QList<FinvizUrl> >
 
 #define SETTING_FINVIZ_EMAIL    "finviz-email"
 #define SETTING_FINVIZ_PASSWORD "finviz-password"

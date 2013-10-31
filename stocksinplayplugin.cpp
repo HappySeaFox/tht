@@ -29,19 +29,6 @@
 #include "settings.h"
 #include "tools.h"
 
-// serialize/deserialize StocksInPlayUrl
-static QDataStream &operator<<(QDataStream &out, const StocksInPlayUrl &fu)
-{
-    out << fu.name << fu.url;
-    return out;
-}
-
-static QDataStream &operator>>(QDataStream &in, StocksInPlayUrl &fu)
-{
-    in >> fu.name >> fu.url;
-    return in;
-}
-
 StocksInPlayPlugin::StocksInPlayPlugin() :
     PluginImportExport()
 {

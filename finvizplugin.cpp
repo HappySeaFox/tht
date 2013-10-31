@@ -29,19 +29,6 @@
 #include "settings.h"
 #include "tools.h"
 
-// serialize/deserialize FinvizUrl
-static QDataStream &operator<<(QDataStream &out, const FinvizUrl &fu)
-{
-    out << fu.name << fu.url;
-    return out;
-}
-
-static QDataStream &operator>>(QDataStream &in, FinvizUrl &fu)
-{
-    in >> fu.name >> fu.url;
-    return in;
-}
-
 FinvizPlugin::FinvizPlugin() :
     PluginImportExport()
 {
@@ -72,6 +59,19 @@ bool FinvizPlugin::init()
                       << FinvizUrl("NYSE >1$ >300k Earn Yest After Close",  QUrl(FINVIZ_URL "f=earningsdate_yesterdayafter,exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-change"))
                       << FinvizUrl("NYSE >1$ >300k Earn Today Before Open", QUrl(FINVIZ_URL "f=earningsdate_todaybefore,exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-change"))
                       );
+    }
+    else
+    {
+        // convert from old non-binary values
+        QList<FinvizUrl> urls = SETTINGS_GET_FINVIZ_URLS(SETTING_FINVIZ_URLS);
+
+        if(urls.isEmpty())
+        {
+            urls = SETTINGS_GET_FINVIZ_URLS_OLD(SETTING_FINVIZ_URLS);
+
+            if(!urls.isEmpty())
+                SETTINGS_SET_FINVIZ_URLS(SETTING_FINVIZ_URLS, urls);
+        }
     }
 
 #undef FINVIZ_URL

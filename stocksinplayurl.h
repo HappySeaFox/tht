@@ -18,11 +18,12 @@
 #ifndef STOCKSINPLAYURL_H
 #define STOCKSINPLAYURL_H
 
-#include <QDataStream>
 #include <QMetaType>
 #include <QString>
 #include <QList>
 #include <QUrl>
+
+class QDataStream;
 
 struct StocksInPlayUrl
 {
@@ -38,8 +39,12 @@ struct StocksInPlayUrl
 Q_DECLARE_METATYPE(StocksInPlayUrl)
 Q_DECLARE_METATYPE(QList<StocksInPlayUrl>)
 
-#define SETTINGS_GET_STOCKSINPLAY_URLS Settings::instance()->value<QList<StocksInPlayUrl> >
-#define SETTINGS_SET_STOCKSINPLAY_URLS Settings::instance()->setValue<QList<StocksInPlayUrl> >
+// serialize/deserialize StocksInPlayUrl
+QDataStream &operator<<(QDataStream &out, const StocksInPlayUrl &su);
+QDataStream &operator>>(QDataStream &in, StocksInPlayUrl &su);
+
+#define SETTINGS_GET_STOCKSINPLAY_URLS Settings::instance()->binaryValue<QList<StocksInPlayUrl> >
+#define SETTINGS_SET_STOCKSINPLAY_URLS Settings::instance()->setBinaryValue<QList<StocksInPlayUrl> >
 
 #define SETTING_STOCKSINPLAY_ID   "stocksinplay-id"
 #define SETTING_STOCKSINPLAY_HASH "stocksinplay-hash"

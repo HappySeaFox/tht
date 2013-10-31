@@ -1940,7 +1940,7 @@ void THT::targetDropped(const QPoint &p, MasterSettings master, const QByteArray
                     else
                     {
                         QDataStream ds(const_cast<QByteArray *>(&extraData), QIODevice::ReadOnly);
-                        ds.setVersion(QDataStream::Qt_4_8);
+                        ds.setVersion(QDataStream::Qt_4_0);
                         ds >> bookName >> sheetName >> cellName;
                     }
 
@@ -1969,7 +1969,7 @@ void THT::targetDropped(const QPoint &p, MasterSettings master, const QByteArray
                                         {
                                             // save Excel data
                                             QDataStream ds(&link.extraData, QIODevice::ReadWrite);
-                                            ds.setVersion(QDataStream::Qt_4_8);
+                                            ds.setVersion(QDataStream::Qt_4_0);
                                             ds << bookName << sheetName << cellName;
 
                                             link.isMaster = true;
