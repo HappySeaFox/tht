@@ -25,11 +25,11 @@ This file is part of colorPickerWidget.
 
 #include <QGridLayout>
 
-#include "colorpickerwidget.h"
+#include "colorpickerdialog.h"
 #include "qtcolortriangle.h"
 #include "colorviewer.h"
 
-ColorPickerWidget::ColorPickerWidget(QWidget *parent)
+ColorPickerDialog::ColorPickerDialog(QWidget *parent)
     : QDialog(parent)
 {
     //: Command addressed to the user, means "Please choose a color here:"
@@ -54,23 +54,23 @@ ColorPickerWidget::ColorPickerWidget(QWidget *parent)
     setLayout(layout);
 }
 
-ColorPickerWidget::~ColorPickerWidget()
+ColorPickerDialog::~ColorPickerDialog()
 {
 }
 
-QColor ColorPickerWidget::color() const
+QColor ColorPickerDialog::color() const
 {
     return colorView->color();
 }
 
-void ColorPickerWidget::setColor(const QColor &col)
+void ColorPickerDialog::setColor(const QColor &col)
 {
     colorView->setColor(col);
     colorTriangle->setColor(col);
 }
 
 
-void ColorPickerWidget::colorChgd()
+void ColorPickerDialog::colorChgd()
 {
     emit colorChanged(colorView->color());
 }

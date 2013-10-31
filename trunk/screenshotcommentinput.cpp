@@ -21,7 +21,7 @@
 #include <QFont>
 
 #include "screenshotcommentinput.h"
-#include "colorpickerwidget.h"
+#include "colorpickerdialog.h"
 #include "screenshotkeys.h"
 #include "settings.h"
 #include "ui_screenshotcommentinput.h"
@@ -202,7 +202,7 @@ void ScreenshotCommentInput::slotFontUp()
 
 void ScreenshotCommentInput::slotChangeColor()
 {
-    ColorPickerWidget cpw(this);
+    ColorPickerDialog cpw(this);
 
     cpw.setColor(m_color);
 
@@ -214,7 +214,7 @@ void ScreenshotCommentInput::slotChangeColor()
 
 void ScreenshotCommentInput::slotChangeBackgroundColor()
 {
-    ColorPickerWidget cpw(this);
+    ColorPickerDialog cpw(this);
 
     cpw.setColor(m_backgroundColor);
 

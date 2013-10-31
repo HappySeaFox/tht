@@ -2,6 +2,20 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="uk_UA">
 <context>
+    <name>ColorPickerDialog</name>
+    <message>
+        <location filename="../colorpicker/colorpickerdialog.cpp" line="36"/>
+        <source>Choose a color</source>
+        <extracomment>Command addressed to the user, means &quot;Please choose a color here:&quot;</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../colorpicker/colorpickerdialog.cpp" line="46"/>
+        <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>DataManagerBase</name>
     <message>
         <location filename="../datamanagerbase.ui" line="33"/>

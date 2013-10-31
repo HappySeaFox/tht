@@ -22,7 +22,7 @@
 #include <QKeyEvent>
 #include <QPixmap>
 
-#include "colorpickerwidget.h"
+#include "colorpickerdialog.h"
 #include "screenshoteditor.h"
 #include "selectablelabel.h"
 #include "settings.h"
@@ -163,7 +163,7 @@ void ScreenshotEditor::slotSelected(SelectableLabel *sl, bool selected)
 
 void ScreenshotEditor::slotEllipseFillColor()
 {
-    ColorPickerWidget cpw(this);
+    ColorPickerDialog cpw(this);
 
     QColor c = m_ellipseFillColor;
     c.setAlpha(255);

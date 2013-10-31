@@ -89,20 +89,6 @@
     </message>
 </context>
 <context>
-    <name>ColorPickerWidget</name>
-    <message>
-        <location filename="../colorpicker/colorpickerwidget.cpp" line="36"/>
-        <source>Choose a color</source>
-        <extracomment>Command addressed to the user, means &quot;Please choose a color here:&quot;</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../colorpicker/colorpickerwidget.cpp" line="46"/>
-        <source>OK</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>DropBoxUploader</name>
     <message>
         <location filename="../dropboxuploader.ui" line="37"/>
