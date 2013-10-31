@@ -28,6 +28,7 @@ This file is part of colorPickerWidget.
 #include "colorpickerdialog.h"
 #include "qtcolortriangle.h"
 #include "colorviewer.h"
+#include "tools.h"
 
 ColorPickerDialog::ColorPickerDialog(QWidget *parent)
     : QDialog(parent)
@@ -43,7 +44,7 @@ ColorPickerDialog::ColorPickerDialog(QWidget *parent)
     colorView->setColor(colorTriangle->color());
         connect(colorTriangle, SIGNAL(colorChanged(QColor)), colorView, SLOT(changeColor(QColor)));
 
-    QPushButton *ok = new QPushButton(tr("OK"), this);
+    QPushButton *ok = new QPushButton(Tools::oKTitle(), this);
     connect(ok, SIGNAL(clicked()), this, SLOT(accept()));
 
     QGridLayout *layout = new QGridLayout;

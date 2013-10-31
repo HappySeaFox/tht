@@ -215,11 +215,7 @@
     </spacer>
    </item>
    <item row="2" column="1">
-    <widget class="QPushButton" name="pushButton">
-     <property name="text">
-      <string>OK</string>
-     </property>
-    </widget>
+    <widget class="QPushButton" name="pushOk"/>
    </item>
    <item row="2" column="2">
     <spacer name="horizontalSpacer_2">
@@ -241,7 +237,7 @@
  </resources>
  <connections>
   <connection>
-   <sender>pushButton</sender>
+   <sender>pushOk</sender>
    <signal>clicked()</signal>
    <receiver>About</receiver>
    <slot>accept()</slot>

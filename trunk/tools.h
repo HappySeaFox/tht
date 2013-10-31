@@ -98,6 +98,11 @@ public:
     static QString customizeTitle();
 
     /*
+     *  Returns translated version of "OK"
+     */
+    static QString oKTitle();
+
+    /*
      *  Cell address validator
      */
     static QRegExp cellValidator();
