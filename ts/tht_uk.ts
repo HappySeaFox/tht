@@ -4,7 +4,7 @@
 <context>
     <name>About</name>
     <message>
-        <location filename="../about.cpp" line="114"/>
+        <location filename="../about.cpp" line="117"/>
         <source>Update available</source>
         <extracomment>Means &quot;A new version of THT is availabe at the website&quot;</extracomment>
         <translation>Доступно оновлення</translation>
@@ -28,62 +28,57 @@
         <translation>THT поширюється в надії, що вона буде корисною, але БЕЗ БУДЬ-ЯКИХ ГАРАНТІЙ, навіть без гарантій КОМЕРЦІЙНОЇ ЦІННОСТІ чи ПРИДАТНОСТІ ДЛЯ КОНКРЕТНИХ ЦІЛЕЙ.</translation>
     </message>
     <message>
-        <location filename="../about.ui" line="220"/>
-        <source>OK</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../about.cpp" line="40"/>
+        <location filename="../about.cpp" line="43"/>
         <source>Dmitry Baryshev</source>
         <translation>Дмитро Баришев</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="44"/>
+        <location filename="../about.cpp" line="47"/>
         <source>Documentation</source>
         <translation>Документація</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="47"/>
+        <location filename="../about.cpp" line="50"/>
         <source>Downloads</source>
         <extracomment>Noun in the plural</extracomment>
         <translation>Завантаження</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="49"/>
+        <location filename="../about.cpp" line="52"/>
         <source>Translations</source>
         <translation>Переклади</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="51"/>
+        <location filename="../about.cpp" line="54"/>
         <source>Youtube</source>
         <translation>Youtube</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="70"/>
+        <location filename="../about.cpp" line="73"/>
         <source>Persistent database</source>
         <extracomment>Means &quot;Fixed database on the hard drive&quot;</extracomment>
         <translation>Постійна база</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="73"/>
+        <location filename="../about.cpp" line="76"/>
         <source>Downloadable database</source>
         <extracomment>Means &quot;Database which is downloaded from the website&quot;</extracomment>
         <translation>Викачувана база</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="123"/>
+        <location filename="../about.cpp" line="126"/>
         <source>THT is up to date</source>
         <extracomment>&quot;THT&quot; is the name of the application. THT will check for updates and show this message when there are no new version available</extracomment>
         <translation>Маєте найновішу версію THT</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="136"/>
+        <location filename="../about.cpp" line="139"/>
         <source>Cannot check for updates (%1)</source>
         <extracomment>%1 will be replaced with the error code by the application. It will look like &quot;Cannot check for updates (Server is unavailable)&quot;</extracomment>
         <translation>Неможливо перевірити оновлення (%1)</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="151"/>
+        <location filename="../about.cpp" line="154"/>
         <source>Checking for updates...</source>
         <translation>Перевірка оновлень...</translation>
     </message>

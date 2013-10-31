@@ -199,6 +199,12 @@ QString Tools::customizeTitle()
     return QObject::tr("Customize");
 }
 
+QString Tools::oKTitle()
+{
+    //: This is the label on a button
+    return QObject::tr("OK");
+}
+
 QRegExp Tools::cellValidator()
 {
     static QRegExp rx("([a-zA-Z]+)([0-9]+)");

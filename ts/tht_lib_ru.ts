@@ -4,15 +4,10 @@
 <context>
     <name>ColorPickerDialog</name>
     <message>
-        <location filename="../colorpicker/colorpickerdialog.cpp" line="36"/>
+        <location filename="../colorpicker/colorpickerdialog.cpp" line="37"/>
         <source>Choose a color</source>
         <extracomment>Command addressed to the user, means &quot;Please choose a color here:&quot;</extracomment>
         <translation>Выберите цвет</translation>
-    </message>
-    <message>
-        <location filename="../colorpicker/colorpickerdialog.cpp" line="46"/>
-        <source>OK</source>
-        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -92,6 +87,12 @@
         <source>Customize</source>
         <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>Настроить</translation>
+    </message>
+    <message>
+        <location filename="../tools.cpp" line="205"/>
+        <source>OK</source>
+        <extracomment>This is the label on a button</extracomment>
+        <translation>OK</translation>
     </message>
 </context>
 </TS>
