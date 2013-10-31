@@ -7,12 +7,12 @@
         <location filename="../colorpicker/colorpickerdialog.cpp" line="36"/>
         <source>Choose a color</source>
         <extracomment>Command addressed to the user, means &quot;Please choose a color here:&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Выберите цвет</translation>
     </message>
     <message>
         <location filename="../colorpicker/colorpickerdialog.cpp" line="46"/>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
