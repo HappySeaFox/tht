@@ -19,6 +19,8 @@
 #define SETTINGS_H
 
 #include <QStringList>
+#include <QDataStream>
+#include <QByteArray>
 #include <QDateTime>
 #include <QSettings>
 #include <QVariant>
@@ -132,10 +134,54 @@ public:
     T value(const QString &key, const T &def);
 
     /*
+     *  Same as value(key), but will save the key as a serialized
+     *  QByteArray. Sometimes this is needed for plugins due to QSettings limitation.
+     *  Consider the following example:
+     *
+     *  1) you wrote a plugin with just one complex setting, say MyCustomStruct
+     *  2) you registered MyCustomStruct with Q_DECLARE_METATYPE and wrote the data stream operators,
+     *     so your type is working fine with QSettings
+     *  3) somewhere in the plugin code you set the key with the type MyCustomStruct, for example
+     *     MyCustomStruct m = ...;
+     *     Settings::instance()->setValue<MyCustomStruct>("my", m);
+     *  4) run THT and test, everything works fine
+     *  5) now remove your plugin from plugins/ subdirectory in the THT distribution
+     *  6) run THT, then close it
+     *  7) bring the plugin back to plugins/ subdirectory in the THT distribution
+     *  8) run THT again and try to read the key "my"
+     *
+     *  Result: your setting is lost. Why? When you removed the plugin you also
+     *          removed the data stream operators for the type MyCustomStruct,
+     *          and QSettings doesn't know what to do with the unknown key "my",
+     *          and thus writes an invalid QVariant instead of it.
+     *
+     *  Solution: serialize the key "my" into QByteArray and write QByteArray instead of
+     *            actual value.
+     *
+     *  API: binaryValue() to read such keys, setBinaryValue() to write such keys
+     */
+    template <typename T>
+    T binaryValue(const QString &key);
+
+    /*
+     *  Same as value(key, def), but will save the key as a serialized
+     *  QByteArray
+     */
+    template <typename T>
+    T binaryValue(const QString &key, const T &def);
+
+    /*
      *  Set the value of the key. If 'sync' is 'Sync', then call sync()
      */
     template <typename T>
     void setValue(const QString &key, const T &value, SyncType sync = Sync);
+
+    /*
+     *  Same as setValue(key, def), but will save the key as a serialized
+     *  QByteArray
+     */
+    template <typename T>
+    void setBinaryValue(const QString &key, const T &value, SyncType sync = Sync);
 
     /*
      *  Add your default values for your settings
@@ -243,6 +289,34 @@ T Settings::value(const QString &key, const T &def)
 }
 
 template <typename T>
+T Settings::binaryValue(const QString &key)
+{
+    T def = T();
+    QHash<QString, QVariant>::iterator it = defaultValues().find(key);
+
+    if(it != defaultValues().end())
+        def = it.value().value<T>();
+
+    return binaryValue<T>(key, def);
+}
+
+template <typename T>
+T Settings::binaryValue(const QString &key, const T &def)
+{
+    T result = def;
+    QByteArray bin = value<QByteArray>(key);
+
+    if(bin.isEmpty())
+        return result;
+
+    QDataStream ds(&bin, QIODevice::ReadOnly);
+    ds.setVersion(QDataStream::Qt_4_0);
+    ds >> result;
+
+    return result;
+}
+
+template <typename T>
 void Settings::setValue(const QString &key, const T &value, Settings::SyncType sync)
 {
     QSettings *s = settings();
@@ -253,6 +327,17 @@ void Settings::setValue(const QString &key, const T &value, Settings::SyncType s
 
     if(sync == Sync)
         s->sync();
+}
+
+template <typename T>
+void Settings::setBinaryValue(const QString &key, const T &value, Settings::SyncType sync)
+{
+    QByteArray bin;
+    QDataStream ds(&bin, QIODevice::WriteOnly);
+    ds.setVersion(QDataStream::Qt_4_0);
+    ds << value;
+
+    setValue(key, bin, sync);
 }
 
 #endif // SETTINGS_H

@@ -18,7 +18,8 @@ SOURCES += stocksinplayurlmanager.cpp \
     stocksinplaylogincookiejar.cpp \
     stocksinplaycredentials.cpp \
     stocksinplaylogin.cpp \
-    stocksinplaytools.cpp
+    stocksinplaytools.cpp \
+    stocksinplayurl.cpp
 
 HEADERS += stocksinplayurlmanager.h \
     stocksinplaydownloader.h \

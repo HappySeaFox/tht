@@ -16,7 +16,8 @@ SOURCES += finvizurlmanager.cpp \
     finvizcookiejar.cpp \
     finvizaccesssetup.cpp \
     finvizplugin.cpp \
-    finviztools.cpp
+    finviztools.cpp \
+    finvizurl.cpp
 
 HEADERS += finvizurlmanager.h \
     finvizdownloader.h \
