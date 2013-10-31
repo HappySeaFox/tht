@@ -2,8 +2,8 @@ TARGET = THT-lib
 TARGET_EXT = .dll
 TEMPLATE = lib
 
-INCLUDEPATH += qxt
-DEPENDPATH += qxt
+INCLUDEPATH += qxt colorpicker
+DEPENDPATH += qxt colorpicker
 
 QT += core gui network sql
 
@@ -23,7 +23,10 @@ SOURCES += datamanagerbase.cpp \
     hotkey.cpp \
     noeditordelegate.cpp \
     clickablelabel.cpp \
-    networkaccessdialog.cpp
+    networkaccessdialog.cpp \
+    colorpicker/qtcolortriangle.cpp \
+    colorpicker/colorviewer.cpp \
+    colorpicker/colorpickerdialog.cpp
 
 HEADERS += datamanagerbase.h \
     settings.h \
@@ -41,7 +44,10 @@ HEADERS += datamanagerbase.h \
     sqltools.h \
     noeditordelegate.h \
     clickablelabel.h \
-    networkaccessdialog.h
+    networkaccessdialog.h \
+    colorpicker/qtcolortriangle.h \
+    colorpicker/colorviewer.h \
+    colorpicker/colorpickerdialog.h
 
 FORMS += datamanagerbase.ui \
     networkaccessdialog.ui

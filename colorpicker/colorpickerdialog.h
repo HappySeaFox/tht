@@ -33,13 +33,13 @@ class ColorViewer;
 #include <QPushbutton>
 #include <QColor>
 
-class ColorPickerWidget : public QDialog
+class ColorPickerDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    ColorPickerWidget(QWidget *parent = 0);
-    ~ColorPickerWidget();
+    ColorPickerDialog(QWidget *parent = 0);
+    ~ColorPickerDialog();
 
     QColor color() const;
 

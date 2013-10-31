@@ -27,9 +27,6 @@ SOURCES += main.cpp\
     tickersdatabaseupdater.cpp \
     tickerneighbors.cpp \
     linkpointmanager.cpp \
-    colorpicker/qtcolortriangle.cpp \
-    colorpicker/colorviewer.cpp \
-    colorpicker/colorpickerwidget.cpp \
     selectablelabel.cpp \
     screenshoteditorwidget.cpp \
     screenshoteditor.cpp \
@@ -75,9 +72,6 @@ HEADERS += tht.h \
     tickersdatabaseupdater.h \
     tickerneighbors.h \
     linkpointmanager.h \
-    colorpicker/qtcolortriangle.h \
-    colorpicker/colorviewer.h \
-    colorpicker/colorpickerwidget.h \
     selectablelabel.h \
     screenshoteditorwidget.h \
     screenshoteditor.h \
