@@ -25,6 +25,7 @@
 
 #include <climits>
 
+#include "simplecrypt.h"
 #include "tools.h"
 
 const QPoint Tools::invalidQPoint(INT_MIN, INT_MIN);
@@ -215,6 +216,29 @@ QRegExp Tools::tickerValidator()
 {
     static QRegExp rx("[a-zA-Z0-9\\-\\.\\$]{1,8}");
     return rx;
+}
+
+QByteArray Tools::encrypt(const QByteArray &data)
+{
+    if(data.isEmpty())
+        return QByteArray();
+
+    SimpleCrypt crypto(Q_UINT64_C(0xa71eded58d9db24c));
+    crypto.setCompressionMode(SimpleCrypt::CompressionNever);
+    crypto.setIntegrityProtectionMode(SimpleCrypt::ProtectionHash);
+
+    QByteArray encoded = crypto.encryptToByteArray(data);
+
+    return (crypto.lastError() == SimpleCrypt::ErrorNoError ? encoded : QByteArray());
+}
+
+QByteArray Tools::decrypt(const QByteArray &data)
+{
+    SimpleCrypt crypto(Q_UINT64_C(0xa71eded58d9db24c));
+
+    QByteArray decoded = crypto.decryptToByteArray(data);
+
+    return (crypto.lastError() == SimpleCrypt::ErrorNoError ? decoded : QByteArray());
 }
 
 Tools::Tools()
