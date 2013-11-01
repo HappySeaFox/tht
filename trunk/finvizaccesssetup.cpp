@@ -20,6 +20,7 @@
 #include <QIcon>
 
 #include "finvizaccesssetup.h"
+#include "finviztools.h"
 #include "finvizurl.h"
 #include "settings.h"
 #include "ui_finvizaccesssetup.h"
@@ -30,11 +31,10 @@ FinvizAccessSetup::FinvizAccessSetup(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    ui->labelSecurityPixmap->setPixmap(style()->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(16, 16));
     ui->labelNotePixmap->setPixmap(style()->standardIcon(QStyle::SP_MessageBoxInformation).pixmap(16, 16));
 
     ui->lineEmail->setText(SETTINGS_GET_STRING(SETTING_FINVIZ_EMAIL));
-    ui->linePassword->setText(SETTINGS_GET_STRING(SETTING_FINVIZ_PASSWORD));
+    ui->linePassword->setText(FinvizTools::cachedPassword());
 }
 
 FinvizAccessSetup::~FinvizAccessSetup()

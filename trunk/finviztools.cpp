@@ -17,5 +17,7 @@
 
 #include "finviztools.h"
 
+QString FinvizTools::m_cachedPassword;
+
 FinvizTools::FinvizTools()
 {}

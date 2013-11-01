@@ -19,6 +19,7 @@
 
 #include "stocksinplayaccesssetup.h"
 #include "stocksinplayurlmanager.h"
+#include "stocksinplaytools.h"
 #include "stocksinplayurl.h"
 #include "settings.h"
 #include "tools.h"
@@ -107,6 +108,7 @@ void StocksInPlayUrlManager::slotAccessClicked()
     if(sip.exec() == QDialog::Accepted)
     {
         SETTINGS_SET_STRING(SETTING_STOCKSINPLAY_ID, sip.id(), Settings::NoSync);
-        SETTINGS_SET_STRING(SETTING_STOCKSINPLAY_HASH, sip.hash());
+        SETTINGS_SET_BYTE_ARRAY(SETTING_STOCKSINPLAY_HASH, Tools::encrypt(sip.hash().toUtf8()));
+        StocksInPlayTools::setCachedHash(sip.hash());
     }
 }

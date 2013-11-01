@@ -57,6 +57,8 @@ bool StocksInPlayPlugin::init()
 
 #undef STOCKSINPLAY_URL
 
+    StocksInPlayTools::setCachedHash(Tools::decrypt(SETTINGS_GET_BYTE_ARRAY(SETTING_STOCKSINPLAY_HASH)));
+
     return true;
 }
 

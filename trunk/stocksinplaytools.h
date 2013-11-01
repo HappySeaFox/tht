@@ -26,8 +26,13 @@ class StocksInPlayTools
 public:
     static QString addFromStocksInPlayTitle();
 
+    static QString cachedHash();
+    static void setCachedHash(const QString &h);
+
 private:
     StocksInPlayTools();
+
+    static QString m_cachedHash;
 };
 
 inline
@@ -35,6 +40,18 @@ QString StocksInPlayTools::addFromStocksInPlayTitle()
 {
     //: This is the label on a menu item that user clicks to issue the command. Stocks In Play - Stock Screener, http://stocksinplay.ru. It's ok not to translate "Stocks In Play" (e.g. you can just copy-paste "Stocks In Play" to your translation)
     return QObject::tr("Add from Stocks In Play");
+}
+
+inline
+QString StocksInPlayTools::cachedHash()
+{
+    return StocksInPlayTools::m_cachedHash;
+}
+
+inline
+void StocksInPlayTools::setCachedHash(const QString &h)
+{
+    StocksInPlayTools::m_cachedHash = h;
 }
 
 #endif // STOCKSINPLAYTOOLS_H

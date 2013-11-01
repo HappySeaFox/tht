@@ -19,6 +19,7 @@
 #include <QUrl>
 
 #include "stocksinplaycookiejar.h"
+#include "stocksinplaytools.h"
 #include "stocksinplayurl.h"
 #include "settings.h"
 
@@ -34,7 +35,7 @@ QList<QNetworkCookie> StocksInPlayCookieJar::cookiesForUrl(const QUrl &url) cons
     if(h == STOCKSINPLAY)
     {
         QString id = SETTINGS_GET_STRING(SETTING_STOCKSINPLAY_ID);
-        QString hash = SETTINGS_GET_STRING(SETTING_STOCKSINPLAY_HASH);
+        QString hash = StocksInPlayTools::cachedHash();
 
         if(!id.isEmpty() && !hash.isEmpty())
         {

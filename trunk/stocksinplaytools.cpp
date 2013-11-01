@@ -17,5 +17,7 @@
 
 #include "stocksinplaytools.h"
 
+QString StocksInPlayTools::m_cachedHash;
+
 StocksInPlayTools::StocksInPlayTools()
 {}

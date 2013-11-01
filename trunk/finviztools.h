@@ -26,8 +26,13 @@ class FinvizTools
 public:
     static QString addFromFinvizTitle();
 
+    static QString cachedPassword();
+    static void setCachedPassword(const QString &p);
+
 private:
     FinvizTools();
+
+    static QString m_cachedPassword;
 };
 
 inline
@@ -35,6 +40,18 @@ QString FinvizTools::addFromFinvizTitle()
 {
     //: This is the label on a menu item that user clicks to issue the command. Finviz - Stock Screener, http://finviz.com. It's ok not to translate "Finviz" (e.g. you can just copy-paste "Finviz" to your translation)
     return QObject::tr("Add from Finviz");
+}
+
+inline
+QString FinvizTools::cachedPassword()
+{
+    return FinvizTools::m_cachedPassword;
+}
+
+inline
+void FinvizTools::setCachedPassword(const QString &p)
+{
+    FinvizTools::m_cachedPassword = p;
 }
 
 #endif // FINVIZTOOLS_H
