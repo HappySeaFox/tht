@@ -26,7 +26,8 @@ SOURCES += datamanagerbase.cpp \
     networkaccessdialog.cpp \
     colorpicker/qtcolortriangle.cpp \
     colorpicker/colorviewer.cpp \
-    colorpicker/colorpickerdialog.cpp
+    colorpicker/colorpickerdialog.cpp \
+    simplecrypt.cpp
 
 HEADERS += datamanagerbase.h \
     settings.h \
@@ -47,7 +48,8 @@ HEADERS += datamanagerbase.h \
     networkaccessdialog.h \
     colorpicker/qtcolortriangle.h \
     colorpicker/colorviewer.h \
-    colorpicker/colorpickerdialog.h
+    colorpicker/colorpickerdialog.h \
+    simplecrypt.h
 
 FORMS += datamanagerbase.ui \
     networkaccessdialog.ui

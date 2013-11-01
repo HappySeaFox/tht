@@ -18,6 +18,7 @@
 #ifndef TOOLS_H
 #define TOOLS_H
 
+#include <QByteArray>
 #include <QString>
 #include <QRegExp>
 #include <QPoint>
@@ -111,6 +112,12 @@ public:
      *  Regexp to validate a ticker name
      */
     static QRegExp tickerValidator();
+
+    /*
+     *  Encryption/decryption methods
+     */
+    static QByteArray encrypt(const QByteArray &data);
+    static QByteArray decrypt(const QByteArray &data);
 
     /*
      *  Invalid QPoint
