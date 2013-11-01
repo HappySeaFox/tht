@@ -43,7 +43,7 @@ bool FinvizPlugin::init()
 #define FINVIZ_URL "http://" FINVIZ "/screener.ashx?v=411&"
 
     // default Finviz urls
-    if(!Settings::instance()->contains("settings/" SETTING_FINVIZ_URLS))
+    if(!Settings::instance()->contains("/" SETTING_FINVIZ_URLS))
     {
         SETTINGS_SET_FINVIZ_URLS(SETTING_FINVIZ_URLS,
                       QList<FinvizUrl>()
@@ -77,7 +77,7 @@ bool FinvizPlugin::init()
 #undef FINVIZ_URL
 
     // migrate to encrypted password
-    if(Settings::instance()->contains("settings/" SETTING_FINVIZ_PASSWORD_152))
+    if(Settings::instance()->contains("/" SETTING_FINVIZ_PASSWORD_152))
     {
         SETTINGS_SET_BYTE_ARRAY(SETTING_FINVIZ_PASSWORD, Tools::encrypt(SETTINGS_GET_STRING(SETTING_FINVIZ_PASSWORD_152).toUtf8()));
         Settings::instance()->remove(SETTING_FINVIZ_PASSWORD_152);

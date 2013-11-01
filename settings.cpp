@@ -325,7 +325,7 @@ QSettings *Settings::settings()
 
 bool Settings::contains(const QString &key) const
 {
-    return d->settings->contains(key);
+    return d->settings->contains(key.startsWith('/') ? ("settings" + key) : key);
 }
 
 void Settings::remove(const QString &key, Settings::SyncType sync)
