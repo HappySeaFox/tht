@@ -76,6 +76,15 @@ bool FinvizPlugin::init()
 
 #undef FINVIZ_URL
 
+    // migrate to encrypted password
+    if(Settings::instance()->contains("settings/" SETTING_FINVIZ_PASSWORD_152))
+    {
+        SETTINGS_SET_BYTE_ARRAY(SETTING_FINVIZ_PASSWORD, Tools::encrypt(SETTINGS_GET_STRING(SETTING_FINVIZ_PASSWORD_152).toUtf8()));
+        Settings::instance()->remove(SETTING_FINVIZ_PASSWORD_152);
+    }
+
+    FinvizTools::setCachedPassword(Tools::decrypt(SETTINGS_GET_BYTE_ARRAY(SETTING_FINVIZ_PASSWORD)));
+
     return true;
 }
 

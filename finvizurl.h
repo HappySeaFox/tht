@@ -47,8 +47,9 @@ QDataStream &operator>>(QDataStream &in, FinvizUrl &fu);
 #define SETTINGS_GET_FINVIZ_URLS Settings::instance()->binaryValue<QList<FinvizUrl> >
 #define SETTINGS_SET_FINVIZ_URLS Settings::instance()->setBinaryValue<QList<FinvizUrl> >
 
-#define SETTING_FINVIZ_EMAIL    "finviz-email"
-#define SETTING_FINVIZ_PASSWORD "finviz-password"
-#define SETTING_FINVIZ_URLS     "finviz-urls"
+#define SETTING_FINVIZ_EMAIL        "finviz-email"
+#define SETTING_FINVIZ_PASSWORD_152 "finviz-password"
+#define SETTING_FINVIZ_PASSWORD     "finviz-password2"
+#define SETTING_FINVIZ_URLS         "finviz-urls"
 
 #endif // FINVIZURL_H

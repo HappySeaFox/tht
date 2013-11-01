@@ -20,16 +20,10 @@
         <translation>Пароль:</translation>
     </message>
     <message>
-        <location filename="../finvizaccesssetup.ui" line="86"/>
+        <location filename="../finvizaccesssetup.ui" line="92"/>
         <source>If you have a FINVIZ*Elite account, you can enter your account information for access to the premium features</source>
         <extracomment>Finviz - Stock Screener, http://finviz.com. It&apos;s ok not to translate &quot;Finviz&quot; (or &quot;FINVIZ*Elite&quot;) (e.g. you can just copy-paste &quot;Finviz&quot; (or &quot;FINVIZ*Elite&quot;) to your translation)</extracomment>
         <translation>Якщо у вас є акаунт FINVIZ*Elite, то ви можете заповнити облікові дані для доступу до елітних можливостей</translation>
-    </message>
-    <message>
-        <location filename="../finvizaccesssetup.ui" line="109"/>
-        <source>Please remember that your e-mail address and password will be stored in the clear. If you don&apos;t want them stored in the clear, just leave them blank; in which case, FINVIZ*Elite options will not be accessible</source>
-        <extracomment>Finviz - Stock Screener, http://finviz.com. It&apos;s ok not to translate &quot;Finviz&quot; (or &quot;FINVIZ*Elite&quot;) (e.g. you can just copy-paste &quot;Finviz&quot; (or &quot;FINVIZ*Elite&quot;) to your translation)</extracomment>
-        <translation>Будь ласка, пам&apos;ятайте, що e-mail і пароль будуть збережені відкритим текстом. Якщо ви не хочете зберігати їх відкритим текстом, просто залиште їх незаповненими. У цьому випадку можливості FINVIZ*Elite будуть недоступні</translation>
     </message>
 </context>
 <context>
@@ -49,19 +43,19 @@
 <context>
     <name>FinvizUrlManager</name>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="32"/>
+        <location filename="../finvizurlmanager.cpp" line="33"/>
         <source>Finviz links</source>
         <extracomment>Finviz - Stock Screener, http://finviz.com. It&apos;s ok not to translate &quot;Finviz&quot; (e.g. you can just copy-paste &quot;Finviz&quot; to your translation). Means &quot;Links to Finviz&quot;</extracomment>
         <translation>Посилання Finviz</translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="39"/>
+        <location filename="../finvizurlmanager.cpp" line="40"/>
         <source>Link</source>
         <extracomment>Noun</extracomment>
         <translation>Посилання</translation>
     </message>
     <message>
-        <location filename="../finvizurlmanager.cpp" line="54"/>
+        <location filename="../finvizurlmanager.cpp" line="55"/>
         <source>Access...</source>
         <extracomment>Noun</extracomment>
         <translation>Доступ...</translation>
@@ -70,7 +64,7 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../finviztools.h" line="37"/>
+        <location filename="../finviztools.h" line="42"/>
         <source>Add from Finviz</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Finviz - Stock Screener, http://finviz.com. It&apos;s ok not to translate &quot;Finviz&quot; (e.g. you can just copy-paste &quot;Finviz&quot; to your translation)</extracomment>
         <translation>Додати з Finviz</translation>

@@ -4,7 +4,7 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../stocksinplaytools.h" line="37"/>
+        <location filename="../stocksinplaytools.h" line="42"/>
         <source>Add from Stocks In Play</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Stocks In Play - Stock Screener, http://stocksinplay.ru. It&apos;s ok not to translate &quot;Stocks In Play&quot; (e.g. you can just copy-paste &quot;Stocks In Play&quot; to your translation)</extracomment>
         <translation>Dodaj z Stocks In Play</translation>
@@ -98,19 +98,19 @@
 <context>
     <name>StocksInPlayUrlManager</name>
     <message>
-        <location filename="../stocksinplayurlmanager.cpp" line="32"/>
+        <location filename="../stocksinplayurlmanager.cpp" line="33"/>
         <source>Stocks In Play links</source>
         <extracomment>Stocks In Play - Stock Screener, http://stocksinplay.ru. It&apos;s ok not to translate &quot;Stocks In Play&quot; (e.g. you can just copy-paste &quot;Stocks In Play&quot; to your translation). Means &quot;Links to Stocks In Play&quot;</extracomment>
         <translation>Łącza Stocks In Play</translation>
     </message>
     <message>
-        <location filename="../stocksinplayurlmanager.cpp" line="39"/>
+        <location filename="../stocksinplayurlmanager.cpp" line="40"/>
         <source>Link</source>
         <extracomment>Noun</extracomment>
         <translation>Link</translation>
     </message>
     <message>
-        <location filename="../stocksinplayurlmanager.cpp" line="54"/>
+        <location filename="../stocksinplayurlmanager.cpp" line="55"/>
         <source>Access...</source>
         <extracomment>Noun</extracomment>
         <translation>Dostęp...</translation>

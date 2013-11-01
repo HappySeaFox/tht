@@ -22,6 +22,7 @@
 #include "stocksinplaycredentials.h"
 #include "stocksinplayaccesssetup.h"
 #include "stocksinplaylogin.h"
+#include "stocksinplaytools.h"
 #include "stocksinplayurl.h"
 #include "settings.h"
 #include "ui_stocksinplayaccesssetup.h"
@@ -35,7 +36,7 @@ StocksInPlayAccessSetup::StocksInPlayAccessSetup(QWidget *parent) :
     ui->labelNotePixmap->setPixmap(style()->standardIcon(QStyle::SP_MessageBoxInformation).pixmap(16, 16));
 
     ui->lineId->setText(SETTINGS_GET_STRING(SETTING_STOCKSINPLAY_ID));
-    ui->lineHash->setText(SETTINGS_GET_STRING(SETTING_STOCKSINPLAY_HASH));
+    ui->lineHash->setText(StocksInPlayTools::cachedHash());
 }
 
 StocksInPlayAccessSetup::~StocksInPlayAccessSetup()

@@ -15,9 +15,11 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <QNetworkCookie>
 #include <QUrl>
 
 #include "finvizcookiejar.h"
+#include "finviztools.h"
 #include "finvizurl.h"
 #include "settings.h"
 
@@ -33,7 +35,7 @@ QList<QNetworkCookie> FinvizCookieJar::cookiesForUrl(const QUrl &url) const
     if(h == FINVIZ || h == FINVIZ_ELITE)
     {
         QString email = SETTINGS_GET_STRING(SETTING_FINVIZ_EMAIL);
-        QString password = SETTINGS_GET_STRING(SETTING_FINVIZ_PASSWORD);
+        QString password = FinvizTools::cachedPassword();
 
         if(!email.isEmpty() && !password.isEmpty())
         {

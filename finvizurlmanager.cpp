@@ -19,6 +19,7 @@
 
 #include "finvizaccesssetup.h"
 #include "finvizurlmanager.h"
+#include "finviztools.h"
 #include "finvizurl.h"
 #include "settings.h"
 #include "tools.h"
@@ -107,6 +108,7 @@ void FinvizUrlManager::slotAccessClicked()
     if(fas.exec() == QDialog::Accepted)
     {
         SETTINGS_SET_STRING(SETTING_FINVIZ_EMAIL, fas.email(), Settings::NoSync);
-        SETTINGS_SET_STRING(SETTING_FINVIZ_PASSWORD, fas.password());
+        SETTINGS_SET_BYTE_ARRAY(SETTING_FINVIZ_PASSWORD, Tools::encrypt(fas.password().toUtf8()));
+        FinvizTools::setCachedPassword(fas.password());
     }
 }

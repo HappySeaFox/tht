@@ -19,8 +19,9 @@
 #define FINVIZCOOKIEJAR_H
 
 #include <QNetworkCookieJar>
-#include <QNetworkCookie>
 #include <QList>
+
+class QNetworkCookie;
 
 class FinvizCookieJar : public QNetworkCookieJar
 {
