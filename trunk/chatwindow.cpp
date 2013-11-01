@@ -116,9 +116,6 @@ ChatWindow::ChatWindow(QWidget *parent) :
 
     showSignInPage();
 
-    if(SETTINGS_GET_BOOL(SETTING_CHAT_AUTO_LOGIN))
-        ui->pushSignIn->click();
-
     // restore geometry
     if(SETTINGS_GET_BOOL(SETTING_SAVE_GEOMETRY))
     {
@@ -129,6 +126,9 @@ ChatWindow::ChatWindow(QWidget *parent) :
 
         Tools::moveWindow(this, SETTINGS_GET_POINT(SETTING_CHAT_POSITION));
     }
+
+    if(SETTINGS_GET_BOOL(SETTING_CHAT_AUTO_LOGIN) && !ui->lineJid->text().isEmpty())
+        ui->pushSignIn->click();
 }
 
 ChatWindow::~ChatWindow()
