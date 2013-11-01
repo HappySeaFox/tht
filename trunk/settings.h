@@ -196,7 +196,13 @@ public:
     QVariant defaultValue(const QString &key) const;
 
     /*
-     *  Returns 'true' if there exists a setting 'key'
+     *  Returns 'true' if the setting 'key' exists. If 'key' starts with '/'
+     *  the setting is returned from "settings" group (almost all settings are stored there).
+     *
+     *  For example:
+     *
+     *  contains("list")  - will look for the "list" key in the global section
+     *  contains("/list") - will look for the "list" key in the "settings" section
      */
     bool contains(const QString &key) const;
 

@@ -43,7 +43,7 @@ bool StocksInPlayPlugin::init()
 #define STOCKSINPLAY_URL "http://" STOCKSINPLAY "/basic.php?"
 
     // default StocksInPlay urls
-    if(!Settings::instance()->contains("settings/" SETTING_STOCKSINPLAY_URLS))
+    if(!Settings::instance()->contains("/" SETTING_STOCKSINPLAY_URLS))
     {
         SETTINGS_SET_STOCKSINPLAY_URLS(SETTING_STOCKSINPLAY_URLS,
                       QList<StocksInPlayUrl>()
