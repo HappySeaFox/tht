@@ -77,7 +77,7 @@ ChatWindow::ChatWindow(QWidget *parent) :
     connect(m_xmppClient, SIGNAL(messageReceived(QXmppMessage)), this, SLOT(slotMessageReceived(QXmppMessage)));
 
     if(SETTINGS_GET_BOOL(SETTING_CHAT_AUTO_LOGIN))
-        ui->linePassword->setText(SETTINGS_GET_STRING(SETTING_CHAT_PASSWORD));
+        ui->linePassword->setText(Tools::decrypt(SETTINGS_GET_BYTE_ARRAY(SETTING_CHAT_PASSWORD)));
 
     ui->lineJid->setText(SETTINGS_GET_STRING(SETTING_CHAT_JID));
 
@@ -271,9 +271,9 @@ bool ChatWindow::chatsPage()
 void ChatWindow::savePassword()
 {
     if(SETTINGS_GET_BOOL(SETTING_CHAT_AUTO_LOGIN))
-        SETTINGS_SET_STRING(SETTING_CHAT_PASSWORD, ui->linePassword->text());
+        SETTINGS_SET_BYTE_ARRAY(SETTING_CHAT_PASSWORD, Tools::encrypt(ui->linePassword->text().toUtf8()));
     else
-        SETTINGS_SET_STRING(SETTING_CHAT_PASSWORD, QString());
+        SETTINGS_SET_BYTE_ARRAY(SETTING_CHAT_PASSWORD, QByteArray());
 }
 
 void ChatWindow::slotSignIn()
