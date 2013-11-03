@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="it_IT">
+<TS version="2.0" language="ja_JP">
 <context>
     <name>QObject</name>
     <message>
@@ -30,15 +30,15 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../stocksinplayaccesssetup.ui" line="99"/>
-        <source>Fill in...</source>
-        <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../stocksinplayaccesssetup.ui" line="72"/>
         <source>If you have a premium Stocks In Play account, you can enter your account information for access to the premium features</source>
         <extracomment>Stocks In Play - Stock Screener, http://stocksinplay.ru. It&apos;s ok not to translate &quot;Stocks In Play&quot; (e.g. you can just copy-paste &quot;Stocks In Play&quot; to your translation)</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../stocksinplayaccesssetup.ui" line="99"/>
+        <source>Fill in...</source>
+        <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>

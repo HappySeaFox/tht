@@ -480,7 +480,7 @@
     </message>
     <message>
         <location filename="../chatwindow.cpp" line="440"/>
-        <source>You have been invited to room %1%2%3%4&lt;br&gt;&lt;br&gt;Open the room now?</source>
+        <source>You have been invited to the room %1%2%3%4&lt;br&gt;&lt;br&gt;Open the room now?</source>
         <extracomment>Message displayed to the user</extracomment>
         <translation>Sie wurden in den Raum %1%2%3%4&lt;br&gt;&lt;br&gt; eingeladen. Raum jetzt öffnen?</translation>
     </message>

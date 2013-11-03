@@ -437,7 +437,7 @@ void ChatWindow::slotMessageReceived(const QXmppMessage &msg)
                                  //: Noun
                                  tr("Invitation"),
                                  //: Message displayed to the user
-                                 tr("You have been invited to room %1%2%3%4<br><br>Open the room now?")
+                                 tr("You have been invited to the room %1%2%3%4<br><br>Open the room now?")
                                     .arg("<b>" + msg.mucInvitationJid() + "</b>")
                                     .arg(msg.mucInvitationPassword().isEmpty() ? QString() : ("<br>" + tr("Password:") + ' ' +  msg.mucInvitationPassword()))
                                     .arg(msg.mucInvitationReason().isEmpty() ? QString() : ("<br>" + tr("Reason:") + ' ' +  msg.mucInvitationReason()))
