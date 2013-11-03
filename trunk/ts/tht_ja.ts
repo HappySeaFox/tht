@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="it_IT">
+<TS version="2.0" language="ja_JP">
 <context>
     <name>About</name>
     <message>
@@ -758,6 +758,13 @@ right/middle mouse button to cancel.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../tht.cpp" line="268"/>
+        <location filename="../tht.cpp" line="333"/>
+        <source>About THT</source>
+        <extracomment>&quot;THT&quot; is the name of the application</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../tht.cpp" line="274"/>
         <source>About Qt...</source>
         <extracomment>Qt is a C++ crossplatform toolkit http://qt-project.org</extracomment>
@@ -778,13 +785,6 @@ right/middle mouse button to cancel.</source>
         <location filename="../tht.cpp" line="330"/>
         <source>Restore</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Restore the application window from the system tray&quot;</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../tht.cpp" line="268"/>
-        <location filename="../tht.cpp" line="333"/>
-        <source>About THT</source>
-        <extracomment>&quot;THT&quot; is the name of the application</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>

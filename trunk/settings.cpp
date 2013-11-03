@@ -291,13 +291,13 @@ void Settings::fillTranslations()
     // http://www.loc.gov/standards/iso639-2/php/code_list.php
     //d->translations.insert("da", QString::fromUtf8("Dansk"));
     d->translations.insert("de",    QString::fromUtf8("Deutsch"));
-    //d->translations.insert("es",    QString::fromUtf8("Español"));
-    //d->translations.insert("es_MX", QString::fromUtf8("Español Mexicano"));
+    d->translations.insert("es",    QString::fromUtf8("Español"));
+    d->translations.insert("es_MX", QString::fromUtf8("Español Mexicano"));
     //d->translations.insert("fi", QString::fromUtf8("Suomi"));
     d->translations.insert("fr",    QString::fromUtf8("Français"));
     //d->translations.insert("he", QString::fromUtf8("עברית"));
-    //d->translations.insert("it",    QString::fromUtf8("Italiano"));
-    //d->translations.insert("ja",    QString::fromUtf8("日本語"));
+    d->translations.insert("it",    QString::fromUtf8("Italiano"));
+    d->translations.insert("ja",    QString::fromUtf8("日本語"));
     //d->translations.insert("ko",    QString::fromUtf8("조선말"));
     //d->translations.insert("nl", QString::fromUtf8("Nederlands"));
     //d->translations.insert("no", QString::fromUtf8("Norsk"));
@@ -309,7 +309,7 @@ void Settings::fillTranslations()
     //d->translations.insert("tr", QString::fromUtf8("Türkçe"));
     d->translations.insert("uk",    QString::fromUtf8("Українська"));
     d->translations.insert("vi", QString::fromUtf8("Tiếng Việt"));
-    //d->translations.insert("zh_CN", QString::fromUtf8("简体中文"));
+    d->translations.insert("zh_CN", QString::fromUtf8("简体中文"));
     //d->translations.insert("zh_TW", QString::fromUtf8("繁體中文"));
 }
 
