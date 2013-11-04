@@ -292,7 +292,7 @@ void Settings::fillTranslations()
     //d->translations.insert("da", QString::fromUtf8("Dansk"));
     d->translations.insert("de",    QString::fromUtf8("Deutsch"));
     d->translations.insert("es",    QString::fromUtf8("Español"));
-    d->translations.insert("es_MX", QString::fromUtf8("Español Mexicano"));
+    //d->translations.insert("es_MX", QString::fromUtf8("Español Mexicano"));
     //d->translations.insert("fi", QString::fromUtf8("Suomi"));
     d->translations.insert("fr",    QString::fromUtf8("Français"));
     //d->translations.insert("he", QString::fromUtf8("עברית"));
