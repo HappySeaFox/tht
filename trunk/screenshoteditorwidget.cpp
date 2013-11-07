@@ -344,31 +344,31 @@ SelectableLabel *ScreenshotEditorWidget::addLabel(const QPoint &startPoint, cons
     return l;
 }
 
-void ScreenshotEditorWidget::drawVector(QPainter *p, const QColor &color, const QPoint &pt1, const QPoint &pt2)
+void ScreenshotEditorWidget::drawVector(QPainter *painter, const QColor &color, const QPoint &pt1, const QPoint &pt2)
 {
-    if(!p)
+    if(!painter)
         return;
 
-    p->setPen(QPen(color, 2));
-    p->drawLine(pt1, pt2);
+    painter->setPen(QPen(color, 2));
+    painter->drawLine(pt1, pt2);
 
-    p->setBrush(color);
-    drawArrow(p, pt1, pt2);
+    painter->setBrush(color);
+    drawArrow(painter, pt1, pt2);
 }
 
-void ScreenshotEditorWidget::drawEllipse(QPainter *p, const QRect &rc)
+void ScreenshotEditorWidget::drawEllipse(QPainter *painter, const QRect &rc)
 {
-    if(!p)
+    if(!painter)
         return;
 
-    p->setBrush(m_ellipseFillColor);
-    p->setPen(Qt::NoPen);
-    p->drawEllipse(rc.normalized().adjusted(1, 1, -1, -1));
+    painter->setBrush(m_ellipseFillColor);
+    painter->setPen(Qt::NoPen);
+    painter->drawEllipse(rc.normalized().adjusted(1, 1, -1, -1));
 }
 
-void ScreenshotEditorWidget::drawArrow(QPainter *p, const QPoint &pt1, const QPoint &pt2)
+void ScreenshotEditorWidget::drawArrow(QPainter *painter, const QPoint &pt1, const QPoint &pt2)
 {
-    if(!p)
+    if(!painter)
         return;
 
     // arrow parameters
@@ -379,7 +379,7 @@ void ScreenshotEditorWidget::drawArrow(QPainter *p, const QPoint &pt1, const QPo
     if((pt2 - pt1).manhattanLength() <= length+8)
         return;
 
-    p->save();
+    painter->save();
 
     // arrow coordinates
     const QPoint pts[3] = { QPoint(0, 0), QPoint(-width/2, length), QPoint(width/2, length) };
@@ -388,10 +388,10 @@ void ScreenshotEditorWidget::drawArrow(QPainter *p, const QPoint &pt1, const QPo
     tr.translate(pt1.x(), pt1.y());
     tr.rotate(270.0 - QLineF(pt1, pt1+QPoint(10,0)).angleTo(QLineF(pt1, pt2)));
 
-    p->setWorldTransform(tr);
-    p->drawPolygon(pts, sizeof(pts) / sizeof(pts[0]));
+    painter->setWorldTransform(tr);
+    painter->drawPolygon(pts, sizeof(pts) / sizeof(pts[0]));
 
-    p->restore();
+    painter->restore();
 }
 
 void ScreenshotEditorWidget::resetCursor()

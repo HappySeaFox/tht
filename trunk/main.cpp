@@ -168,6 +168,8 @@ int main(int argc, char *argv[])
 {
     setbuf(stderr, 0);
 
+    qint64 v = QDateTime::currentMSecsSinceEpoch();
+
     // workaround to speed up the SSL initialization
     const bool haveSsl = QSslSocket::supportsSsl();
 
@@ -178,8 +180,6 @@ int main(int argc, char *argv[])
 #endif
 
     qDebug("Starting at %s", qPrintable(QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss")));
-
-    qint64 v = QDateTime::currentMSecsSinceEpoch();
 
     qDebug("SSL %s supported", haveSsl ? "is" : "is not");
 
