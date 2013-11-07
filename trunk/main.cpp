@@ -168,6 +168,9 @@ int main(int argc, char *argv[])
 {
     setbuf(stderr, 0);
 
+    // workaround to speed up the SSL initialization
+    const bool haveSsl = QSslSocket::supportsSsl();
+
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
     qInstallMessageHandler(thtOutput);
 #else
@@ -178,7 +181,7 @@ int main(int argc, char *argv[])
 
     qint64 v = QDateTime::currentMSecsSinceEpoch();
 
-    qDebug(QSslSocket::supportsSsl() ? "SSL is supported" : "SSL is not supported");
+    qDebug("SSL %s supported", haveSsl ? "is" : "is not");
 
     QCoreApplication::setApplicationName("THT");
     QCoreApplication::setOrganizationName("THT");
