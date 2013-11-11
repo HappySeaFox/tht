@@ -30,7 +30,9 @@ class NetworkAccessDialogPrivate
 public:
     NetworkAccessDialogPrivate()
     {
+        ui = 0;
         net = 0;
+        delayedRequestTimer = 0;
         requestMultiPart = 0;
     }
 
