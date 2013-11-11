@@ -39,7 +39,7 @@
         <translation>Zamknij</translation>
     </message>
     <message>
-        <location filename="../networkaccessdialog.cpp" line="152"/>
+        <location filename="../networkaccessdialog.cpp" line="154"/>
         <source>Network error #%1</source>
         <extracomment>%1 will be replaced with the error code by the application. It will look like &quot;Network error #16&quot;</extracomment>
         <translation>Błąd sieciowy #%1</translation>
