@@ -29,12 +29,12 @@ class NetworkAccessDialogPrivate
 {
 public:
     NetworkAccessDialogPrivate()
-    {
-        ui = 0;
-        net = 0;
-        delayedRequestTimer = 0;
-        requestMultiPart = 0;
-    }
+        : ui(0),
+          net(0),
+          delayedRequestTimer(0),
+          requestOperation(QNetworkAccessManager::CustomOperation),
+          requestMultiPart(0)
+    {}
 
     Ui::NetworkAccessDialog *ui;
     NetworkAccess *net;
