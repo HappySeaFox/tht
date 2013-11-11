@@ -18,10 +18,11 @@
 #ifndef LINKPOINTSESSION_H
 #define LINKPOINTSESSION_H
 
-#include <QDataStream>
 #include <QMetaType>
 #include <QString>
 #include <QList>
+
+class QDataStream;
 
 class LinkedWindow;
 

@@ -15,6 +15,8 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <QDataStream>
+
 #include "linkedwindow.h"
 
 QDataStream &operator<<(QDataStream &out, const LinkedWindow &lw)
