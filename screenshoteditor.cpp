@@ -18,11 +18,11 @@
 #include <QDesktopWidget>
 #include <QApplication>
 #include <QKeySequence>
+#include <QColorDialog>
 #include <QScrollBar>
 #include <QKeyEvent>
 #include <QPixmap>
 
-#include "colorpickerdialog.h"
 #include "screenshoteditor.h"
 #include "selectablelabel.h"
 #include "settings.h"
@@ -163,16 +163,16 @@ void ScreenshotEditor::slotSelected(SelectableLabel *sl, bool selected)
 
 void ScreenshotEditor::slotEllipseFillColor()
 {
-    ColorPickerDialog cpw(this);
+    QColorDialog cpw(this);
 
     QColor c = m_ellipseFillColor;
     c.setAlpha(255);
 
-    cpw.setColor(c);
+    cpw.setCurrentColor(c);
 
     if(cpw.exec() == QDialog::Accepted)
     {
-        setEllipseFillColor(cpw.color());
+        setEllipseFillColor(cpw.selectedColor());
         SETTINGS_SET_COLOR(SETTING_ELLIPSE_FILL_COLOR, m_ellipseFillColor);
     }
 }
