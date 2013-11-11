@@ -18,11 +18,12 @@
 #ifndef LINKPOINT_H
 #define LINKPOINT_H
 
-#include <QDataStream>
 #include <QMetaType>
 #include <QString>
 #include <QPoint>
 #include <QList>
+
+class QDataStream;
 
 /*
  *  Compability class to support link points before 2.0.0

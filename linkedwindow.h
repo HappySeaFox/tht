@@ -18,10 +18,11 @@
 #ifndef LINKEDWINDOW_H
 #define LINKEDWINDOW_H
 
-#include <QDataStream>
 #include <QByteArray>
 #include <QMetaType>
 #include <QPoint>
+
+class QDataStream;
 
 struct LinkedWindow
 {
