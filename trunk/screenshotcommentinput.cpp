@@ -17,11 +17,12 @@
 
 #include <QKeySequence>
 #include <QFontMetrics>
+#include <QColorDialog>
+#include <QPushButton>
 #include <QPainter>
 #include <QFont>
 
 #include "screenshotcommentinput.h"
-#include "colorpickerdialog.h"
 #include "screenshotkeys.h"
 #include "settings.h"
 #include "ui_screenshotcommentinput.h"
@@ -202,25 +203,25 @@ void ScreenshotCommentInput::slotFontUp()
 
 void ScreenshotCommentInput::slotChangeColor()
 {
-    ColorPickerDialog cpw(this);
+    QColorDialog cpw(this);
 
-    cpw.setColor(m_color);
+    cpw.setCurrentColor(m_color);
 
     if(cpw.exec() == QDialog::Accepted)
     {
-        setColor(cpw.color());
+        setColor(cpw.selectedColor());
     }
 }
 
 void ScreenshotCommentInput::slotChangeBackgroundColor()
 {
-    ColorPickerDialog cpw(this);
+    QColorDialog cpw(this);
 
-    cpw.setColor(m_backgroundColor);
+    cpw.setCurrentColor(m_backgroundColor);
 
     if(cpw.exec() == QDialog::Accepted)
     {
-        setBackgroundColor(cpw.color());
+        setBackgroundColor(cpw.selectedColor());
     }
 }
 
