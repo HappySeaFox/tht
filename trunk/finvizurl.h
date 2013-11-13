@@ -43,13 +43,14 @@ Q_DECLARE_METATYPE(QList<FinvizUrl>)
 QDataStream &operator<<(QDataStream &out, const FinvizUrl &fu);
 QDataStream &operator>>(QDataStream &in, FinvizUrl &fu);
 
-#define SETTINGS_GET_FINVIZ_URLS_OLD Settings::instance()->value<QList<FinvizUrl> >
-#define SETTINGS_GET_FINVIZ_URLS Settings::instance()->binaryValue<QList<FinvizUrl> >
-#define SETTINGS_SET_FINVIZ_URLS Settings::instance()->setBinaryValue<QList<FinvizUrl> >
+#define SETTINGS_GET_FINVIZ_URLS_152 Settings::instance()->value<QList<FinvizUrl> >
+#define SETTINGS_GET_FINVIZ_URLS     Settings::instance()->binaryValue<QList<FinvizUrl> >
+#define SETTINGS_SET_FINVIZ_URLS     Settings::instance()->setBinaryValue<QList<FinvizUrl> >
 
 #define SETTING_FINVIZ_EMAIL        "finviz-email"
 #define SETTING_FINVIZ_PASSWORD_152 "finviz-password"
 #define SETTING_FINVIZ_PASSWORD     "finviz-password2"
-#define SETTING_FINVIZ_URLS         "finviz-urls"
+#define SETTING_FINVIZ_URLS_152     "finviz-urls"
+#define SETTING_FINVIZ_URLS         "finviz-urls2"
 
 #endif // FINVIZURL_H

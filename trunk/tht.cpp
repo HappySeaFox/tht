@@ -184,7 +184,7 @@ THT::THT() :
 
         qDebug("Migrated link points: %d", linkPointSessions.size());
 
-        SETTINGS_SET_LINKS(SETTING_LINKS, linkPointSessions);
+        SETTINGS_SET_LINKS(SETTING_LINKS, linkPointSessions, Settings::NoSync);
 
         Settings::instance()->remove(SETTING_LINKS_152);
     }

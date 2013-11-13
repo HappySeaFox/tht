@@ -45,32 +45,29 @@ bool FinvizPlugin::init()
     // default Finviz urls
     if(!Settings::instance()->contains("/" SETTING_FINVIZ_URLS))
     {
-        SETTINGS_SET_FINVIZ_URLS(SETTING_FINVIZ_URLS,
-                      QList<FinvizUrl>()
-                      << FinvizUrl("NYSE >1$ >300k By Ticker",              QUrl(FINVIZ_URL "f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=ticker"))
-                      << FinvizUrl("NYSE >1$ >300k By Change From Open",    QUrl(FINVIZ_URL "f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-changeopen"))
-                      << FinvizUrl("NYSE >1$ >300k Most Active From Open",  QUrl(FINVIZ_URL "s=ta_mostactive&f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-changeopen"))
-                      << FinvizUrl("NYSE >1$ >300k Top Gainers",            QUrl(FINVIZ_URL "s=ta_topgainers&f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1"))
-                      << FinvizUrl("NYSE >1$ >300k Top Losers",             QUrl(FINVIZ_URL "s=ta_toplosers&f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1"))
-                      << FinvizUrl("NYSE >1$ >300k New High",               QUrl(FINVIZ_URL "s=ta_newhigh&f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-change"))
-                      << FinvizUrl("NYSE >1$ >300k New Low",                QUrl(FINVIZ_URL "s=ta_newlow&f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-change"))
-                      << FinvizUrl("NYSE >1$ >300k Volume>1.5",             QUrl(FINVIZ_URL "f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1,sh_relvol_o1.5&o=-change"))
-                      << FinvizUrl("NYSE >1$ >300k Average True Range>1",   QUrl(FINVIZ_URL "f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1,ta_averagetruerange_o1&ft=3&o=-change"))
-                      << FinvizUrl("NYSE >1$ >300k Earn Yest After Close",  QUrl(FINVIZ_URL "f=earningsdate_yesterdayafter,exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-change"))
-                      << FinvizUrl("NYSE >1$ >300k Earn Today Before Open", QUrl(FINVIZ_URL "f=earningsdate_todaybefore,exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-change"))
-                      );
-    }
-    else
-    {
         // convert from old non-binary values
-        QList<FinvizUrl> urls = SETTINGS_GET_FINVIZ_URLS(SETTING_FINVIZ_URLS);
-
-        if(urls.isEmpty())
+        if(Settings::instance()->contains("/" SETTING_FINVIZ_URLS_152))
         {
-            urls = SETTINGS_GET_FINVIZ_URLS_OLD(SETTING_FINVIZ_URLS);
-
-            if(!urls.isEmpty())
-                SETTINGS_SET_FINVIZ_URLS(SETTING_FINVIZ_URLS, urls);
+            qDebug("Migrating Finviz links from 1.5.2 to 2.0.0");
+            SETTINGS_SET_FINVIZ_URLS(SETTING_FINVIZ_URLS, SETTINGS_GET_FINVIZ_URLS_152(SETTING_FINVIZ_URLS_152), Settings::NoSync);
+            Settings::instance()->remove(SETTING_FINVIZ_URLS_152);
+        }
+        else
+        {
+            SETTINGS_SET_FINVIZ_URLS(SETTING_FINVIZ_URLS,
+                          QList<FinvizUrl>()
+                          << FinvizUrl("NYSE >1$ >300k By Ticker",              QUrl(FINVIZ_URL "f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=ticker"))
+                          << FinvizUrl("NYSE >1$ >300k By Change From Open",    QUrl(FINVIZ_URL "f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-changeopen"))
+                          << FinvizUrl("NYSE >1$ >300k Most Active From Open",  QUrl(FINVIZ_URL "s=ta_mostactive&f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-changeopen"))
+                          << FinvizUrl("NYSE >1$ >300k Top Gainers",            QUrl(FINVIZ_URL "s=ta_topgainers&f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1"))
+                          << FinvizUrl("NYSE >1$ >300k Top Losers",             QUrl(FINVIZ_URL "s=ta_toplosers&f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1"))
+                          << FinvizUrl("NYSE >1$ >300k New High",               QUrl(FINVIZ_URL "s=ta_newhigh&f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-change"))
+                          << FinvizUrl("NYSE >1$ >300k New Low",                QUrl(FINVIZ_URL "s=ta_newlow&f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-change"))
+                          << FinvizUrl("NYSE >1$ >300k Volume>1.5",             QUrl(FINVIZ_URL "f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1,sh_relvol_o1.5&o=-change"))
+                          << FinvizUrl("NYSE >1$ >300k Average True Range>1",   QUrl(FINVIZ_URL "f=exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1,ta_averagetruerange_o1&ft=3&o=-change"))
+                          << FinvizUrl("NYSE >1$ >300k Earn Yest After Close",  QUrl(FINVIZ_URL "f=earningsdate_yesterdayafter,exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-change"))
+                          << FinvizUrl("NYSE >1$ >300k Earn Today Before Open", QUrl(FINVIZ_URL "f=earningsdate_todaybefore,exch_nyse,geo_usa,ind_stocksonly,sh_avgvol_o300,sh_price_o1&o=-change"))
+                          );
         }
     }
 
