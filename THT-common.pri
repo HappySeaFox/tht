@@ -15,7 +15,7 @@ DEPENDPATH += .
 #QMAKE_LFLAGS += -flto
 
 # translation languages. This list should match the translations set in Settings::fillTranslations()
-LANGUAGES=de en es fr it ja pl ru uk vi zh_CN
+LANGUAGES=de en es fr it pl ru uk vi zh_CN
 
 CONFIG += warn_on
 QMAKE_CXXFLAGS_WARN_ON *= -Wextra -Wno-missing-field-initializers
