@@ -19,18 +19,15 @@
 #define STOCKSINPLAYDOWNLOADER_H
 
 #include <QStringList>
-#include <QRegExp>
 
 #include "networkaccessdialog.h"
-
-class QUrl;
 
 class StocksInPlayDownloader : public NetworkAccessDialog
 {
     Q_OBJECT
 
 public:
-    explicit StocksInPlayDownloader(const QUrl &url, QWidget *parent = 0);
+    explicit StocksInPlayDownloader(const QString &hash, QWidget *parent = 0);
     ~StocksInPlayDownloader();
 
     QStringList tickers() const;
@@ -40,9 +37,6 @@ protected:
 
 private:
     QStringList m_tickers;
-    enum Step { Page, Tickers };
-    Step m_step;
-    QRegExp m_rxBase64Request;
 };
 
 inline

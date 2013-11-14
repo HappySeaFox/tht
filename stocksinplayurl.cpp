@@ -22,12 +22,12 @@
 // serialize/deserialize StocksInPlayUrl
 QDataStream &operator<<(QDataStream &out, const StocksInPlayUrl &su)
 {
-    out << su.name << su.url;
+    out << su.name << su.hash;
     return out;
 }
 
 QDataStream &operator>>(QDataStream &in, StocksInPlayUrl &su)
 {
-    in >> su.name >> su.url;
+    in >> su.name >> su.hash;
     return in;
 }

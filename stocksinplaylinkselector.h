@@ -19,7 +19,7 @@
 #define STOCKSINPLAYLINKSELECTOR_H
 
 #include <QDialog>
-#include <QUrl>
+#include <QString>
 
 namespace Ui
 {
@@ -34,20 +34,20 @@ public:
     explicit StocksInPlayLinkSelector(QWidget *parent = 0);
     ~StocksInPlayLinkSelector();
 
-    QUrl url() const;
+    QString hash() const;
 
 private slots:
     void slotAdd();
 
 private:
     Ui::StocksInPlayLinkSelector *ui;
-    QUrl m_url;
+    QString m_hash;
 };
 
 inline
-QUrl StocksInPlayLinkSelector::url() const
+QString StocksInPlayLinkSelector::hash() const
 {
-    return m_url;
+    return m_hash;
 }
 
 #endif // STOCKSINPLAYLINKSELECTOR_H

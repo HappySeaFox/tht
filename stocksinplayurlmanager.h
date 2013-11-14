@@ -22,7 +22,6 @@
 
 #include "datamanagerbase.h"
 
-class QTreeWidgetItem;
 class StocksInPlayUrl;
 
 class StocksInPlayUrlManager : public DataManagerBase
@@ -42,7 +41,6 @@ protected slots:
     virtual void slotAdd();
 
 private slots:
-    void slotCheckItem(QTreeWidgetItem *, int);
     void slotAccessClicked();
 };
 

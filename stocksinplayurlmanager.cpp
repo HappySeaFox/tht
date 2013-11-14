@@ -15,8 +15,6 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <QUrl>
-
 #include "stocksinplayaccesssetup.h"
 #include "stocksinplayurlmanager.h"
 #include "stocksinplaytools.h"
@@ -36,8 +34,8 @@ StocksInPlayUrlManager::StocksInPlayUrlManager(QWidget *parent) :
 
     QTreeWidget *t = tree();
 
-    //: Noun
-    t->headerItem()->setText(1, tr("Link"));
+    //: Means "Hash key" as in computing
+    t->headerItem()->setText(1, tr("Hash"));
     t->setWhatsThis(QString("<a href=\"http://www.youtube.com/watch?v=Daoa0Xftp7M\">%1</a>").arg(Tools::openYoutubeTutorialTitle()));
 
     const QList<StocksInPlayUrl> urls = SETTINGS_GET_STOCKSINPLAY_URLS(SETTING_STOCKSINPLAY_URLS);
@@ -48,8 +46,6 @@ StocksInPlayUrlManager::StocksInPlayUrlManager(QWidget *parent) :
     }
 
     t->setCurrentItem(t->topLevelItem(0));
-
-    connect(t, SIGNAL(itemChanged(QTreeWidgetItem*,int)), this, SLOT(slotCheckItem(QTreeWidgetItem*,int)));
 
     //: Noun
     QPushButton *b = new QPushButton(tr("Access..."), this);
@@ -68,7 +64,7 @@ QList<StocksInPlayUrl> StocksInPlayUrlManager::urls() const
 
     while(i)
     {
-        urls.append(StocksInPlayUrl(i->text(0), QUrl::fromUserInput(i->text(1))));
+        urls.append(StocksInPlayUrl(i->text(0), i->text(1)));
         i = t->itemBelow(i);
     }
 
@@ -77,28 +73,13 @@ QList<StocksInPlayUrl> StocksInPlayUrlManager::urls() const
 
 void StocksInPlayUrlManager::addStocksInPlayUrl(const StocksInPlayUrl &su, bool edit)
 {
-    addItem(QStringList() << su.name << su.url.toString(), QVariant(), edit);
+    addItem(QStringList() << su.name << su.hash, QVariant(), edit);
 }
 
 void StocksInPlayUrlManager::slotAdd()
 {
     addStocksInPlayUrl(StocksInPlayUrl(Tools::tickersTitle(), Tools::pasteUrlHereTitle()), true);
     setChanged(true);
-}
-
-void StocksInPlayUrlManager::slotCheckItem(QTreeWidgetItem *i, int column)
-{
-    if(!i || column != 1)
-        return;
-
-    // check host
-    QUrl u = QUrl::fromUserInput(i->text(1));
-    QString h = u.host().toLower();
-
-    if(h != STOCKSINPLAY)
-        i->setText(1, Tools::pasteUrlHereTitle());
-    else
-        i->setText(1, u.toString());
 }
 
 void StocksInPlayUrlManager::slotAccessClicked()

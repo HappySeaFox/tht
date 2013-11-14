@@ -39,7 +39,7 @@ StocksInPlayLinkSelector::StocksInPlayLinkSelector(QWidget *parent) :
     foreach(StocksInPlayUrl su, urls)
     {
         QListWidgetItem *i = new QListWidgetItem(su.name, ui->listWidget);
-        i->setData(Qt::UserRole, su.url);
+        i->setData(Qt::UserRole, su.hash);
         ui->listWidget->addItem(i);
     }
 
@@ -55,7 +55,7 @@ void StocksInPlayLinkSelector::slotAdd()
 {
     QListWidgetItem *i = ui->listWidget->currentItem();
 
-    m_url = i ? i->data(Qt::UserRole).toUrl() : QUrl();
+    m_hash = i ? i->data(Qt::UserRole).toString() : QString();
 
     accept();
 }
