@@ -78,7 +78,7 @@ void StocksInPlayUrlManager::addStocksInPlayUrl(const StocksInPlayUrl &su, bool 
 
 void StocksInPlayUrlManager::slotAdd()
 {
-    addStocksInPlayUrl(StocksInPlayUrl(Tools::tickersTitle(), Tools::pasteUrlHereTitle()), true);
+    addStocksInPlayUrl(StocksInPlayUrl(Tools::tickersTitle(), QString()), true);
     setChanged(true);
 }
 
