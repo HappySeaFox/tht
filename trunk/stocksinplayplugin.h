@@ -21,7 +21,6 @@
 #include "pluginimportexport.h"
 
 class QMenu;
-class QUrl;
 
 class StocksInPlayPlugin : public PluginImportExport
 {
@@ -47,7 +46,7 @@ public:
     virtual void listHotkeyActivated(int list, const Hotkey &ke);
 
 private:
-    void addFromStocksInPlay(int list, const QUrl &);
+    void addFromStocksInPlay(int list, const QString &hash);
     void showStocksInPlaySelector(int list);
     void rebuildMenu(QMenu *menu);
 

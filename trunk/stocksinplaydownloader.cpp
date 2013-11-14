@@ -24,7 +24,7 @@
 #include "stocksinplaycookiejar.h"
 #include "tools.h"
 
-StocksInPlayDownloader::StocksInPlayDownloader(const QUrl &url, QWidget *parent) :
+StocksInPlayDownloader::StocksInPlayDownloader(const QString &hash, QWidget *parent) :
     NetworkAccessDialog(parent)
 {
     //: Stocks In Play - Stock Screener, http://stocksinplay.ru. It's ok not to translate "Stocks In Play" (e.g. you can just copy-paste "Stocks In Play" to your translation)
@@ -32,12 +32,13 @@ StocksInPlayDownloader::StocksInPlayDownloader(const QUrl &url, QWidget *parent)
     setMessage(Tools::downloadingTickersTitle());
     setCookieJar(new StocksInPlayCookieJar(this));
 
-    m_rxBase64Request = QRegExp("input\\s+type=\"hidden\"\\s+name=\"export\"\\s+value=\\s*\"([a-zA-Z0-9\\-+/=]+)\"");
-
-    m_step = Page;
-
     // download tickers as simple CSV
-    startRequest(QNetworkAccessManager::GetOperation, QNetworkRequest(url));
+    QNetworkRequest request(QUrl("http://" STOCKSINPLAY "/export.php"));
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
+
+    startRequest(QNetworkAccessManager::PostOperation,
+                 request,
+                 QByteArray("export=" + QUrl::toPercentEncoding(hash) + "&"));
 }
 
 StocksInPlayDownloader::~StocksInPlayDownloader()
@@ -45,44 +46,16 @@ StocksInPlayDownloader::~StocksInPlayDownloader()
 
 bool StocksInPlayDownloader::finished()
 {
-    if(m_step == Page)
+    QStringList tickers = QString(data()).split(QRegExp("\\r?\\n"), QString::SkipEmptyParts);
+
+    if(!tickers.isEmpty())
     {
-        int pos = m_rxBase64Request.indexIn(data());
-        QString base64 = m_rxBase64Request.cap(1);
+        if(tickers.first() == "\"Ticker\"")
+            tickers.takeFirst();
 
-        if(pos < 0 || base64.isEmpty())
+        foreach(QString t, tickers)
         {
-            showError(tr("Broken answer"));
-            return false;
-        }
-
-        QNetworkRequest request(QUrl("http://" STOCKSINPLAY "/export.php"));
-        request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
-
-        m_step = Tickers;
-
-        progressBar()->setRange(0, 0);
-        progressBar()->setValue(-1);
-
-        startRequest(QNetworkAccessManager::PostOperation,
-                     request,
-                     QByteArray("export=" + QUrl::toPercentEncoding(base64) + "&"));
-
-        return false;
-    }
-    else
-    {
-        QStringList tickers = QString(data()).split(QRegExp("\\r?\\n"), QString::SkipEmptyParts);
-
-        if(!tickers.isEmpty())
-        {
-            if(tickers.first() == "\"Ticker\"")
-                tickers.takeFirst();
-
-            foreach(QString t, tickers)
-            {
-                m_tickers.append(t.mid(1, t.length()-2));
-            }
+            m_tickers.append(t.mid(1, t.length()-2));
         }
     }
 

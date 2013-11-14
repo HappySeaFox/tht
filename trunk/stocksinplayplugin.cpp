@@ -18,7 +18,6 @@
 #include <QDataStream>
 #include <QAction>
 #include <QMenu>
-#include <QUrl>
 
 #include "stocksinplaylinkselector.h"
 #include "stocksinplayurlmanager.h"
@@ -40,22 +39,18 @@ StocksInPlayPlugin::StocksInPlayPlugin() :
 
 bool StocksInPlayPlugin::init()
 {
-#define STOCKSINPLAY_URL "http://" STOCKSINPLAY "/basic.php?"
-
     // default StocksInPlay urls
     if(!Settings::instance()->contains("/" SETTING_STOCKSINPLAY_URLS))
     {
         SETTINGS_SET_STOCKSINPLAY_URLS(SETTING_STOCKSINPLAY_URLS,
                       QList<StocksInPlayUrl>()
-                      << StocksInPlayUrl("NYSE >1$ >300k By Ticker",              QUrl(STOCKSINPLAY_URL "min_price=1&min_avgvol=300&Exchange=1&order=ticker&asc=1&row=all&"))
-                      << StocksInPlayUrl("NYSE >1$ >300k New High",               QUrl(STOCKSINPLAY_URL "min_price=1&min_avgvol=300&Exchange=1&signal=1&order=chpo&row=all&"))
-                      << StocksInPlayUrl("NYSE >1$ >300k New Low",                QUrl(STOCKSINPLAY_URL "min_price=1&min_avgvol=300&Exchange=1&signal=2&order=chpo&asc=1&row=all&"))
-                      << StocksInPlayUrl("NYSE >1$ >300k Volume>1.5",             QUrl(STOCKSINPLAY_URL "min_price=1&min_avgvol=300&min_revol=1.5&Exchange=1&order=ticker&asc=1&row=all&"))
-                      << StocksInPlayUrl("NYSE >1$ >300k Average True Range>1",   QUrl(STOCKSINPLAY_URL "min_price=1&min_avgvol=300&min_atr=>1&Exchange=1&order=ticker&asc=1&row=all&"))
+                        << StocksInPlayUrl("NYSE >1$ >300k By Ticker",            "U0VMRUNUICogRlJPTSBxX2JhemEgTEVGVCBKT0lOIHFfbGV2ZWwxIFVTSU5HICh0aWNrZXIpIFdIRVJFIHByaWNlPj0nMScgQU5EIGU9JzEnIEFORCBgYXZ2b2A+PTMwMCBPUkRFUiBCWSB0aWNrZXIgQVND")
+                        << StocksInPlayUrl("NYSE >1$ >300k New High",             "U0VMRUNUICosIElGKG9wPTAsMCxUUlVOQ0FURSgocHJpY2Uvb3AqMTAwLTEwMCksMikpIGFzIGBjaHBvYCBGUk9NIHFfYmF6YSBMRUZUIEpPSU4gcV9sZXZlbDEgVVNJTkcgKHRpY2tlcikgV0hFUkUgcHJpY2U+PScxJyBBTkQgZT0nMScgQU5EIGBhdnZvYD49MzAwIEFORCAoaGktcHJpY2UpIDw9IDAuMDEgT1JERVIgQlkgY2hwbyBERVND")
+                        << StocksInPlayUrl("NYSE >1$ >300k New Low",              "U0VMRUNUICosIElGKG9wPTAsMCxUUlVOQ0FURSgocHJpY2Uvb3AqMTAwLTEwMCksMikpIGFzIGBjaHBvYCBGUk9NIHFfYmF6YSBMRUZUIEpPSU4gcV9sZXZlbDEgVVNJTkcgKHRpY2tlcikgV0hFUkUgcHJpY2U+PScxJyBBTkQgZT0nMScgQU5EIGBhdnZvYD49MzAwIEFORCAocHJpY2UtbG8pIDw9IDAuMDEgT1JERVIgQlkgY2hwbyBBU0M=")
+                        << StocksInPlayUrl("NYSE >1$ >300k Volume>1.5",           "U0VMRUNUICosIChJRihhdnZvPTAsMCxUUlVOQ0FURSgodm9sLzEwMDApL2F2dm8sMikpKSBhcyBgcmV2b2xgIEZST00gcV9iYXphIExFRlQgSk9JTiBxX2xldmVsMSBVU0lORyAodGlja2VyKSBXSEVSRSBwcmljZT49JzEnIEFORCBlPScxJyBBTkQgYGF2dm9gPj0zMDAgQU5EICh2b2wvMTAwMCkvYXZ2bz49MS41IE9SREVSIEJZIHRpY2tlciBBU0M=")
+                        << StocksInPlayUrl("NYSE >1$ >300k Average True Range>1", "U0VMRUNUICogRlJPTSBxX2JhemEgTEVGVCBKT0lOIHFfbGV2ZWwxIFVTSU5HICh0aWNrZXIpIFdIRVJFIHByaWNlPj0nMScgQU5EIGU9JzEnIEFORCBgYXRyYD49MSBBTkQgYGF2dm9gPj0zMDAgT1JERVIgQlkgdGlja2VyIEFTQw==")
                       );
     }
-
-#undef STOCKSINPLAY_URL
 
     StocksInPlayTools::setCachedHash(Tools::decrypt(SETTINGS_GET_BYTE_ARRAY(SETTING_STOCKSINPLAY_HASH)));
 
@@ -93,9 +88,9 @@ void StocksInPlayPlugin::listHotkeyActivated(int list, const Hotkey &h)
     }
 }
 
-void StocksInPlayPlugin::addFromStocksInPlay(int list, const QUrl &u)
+void StocksInPlayPlugin::addFromStocksInPlay(int list, const QString &hash)
 {
-    StocksInPlayDownloader dn(u, topLevelWidget());
+    StocksInPlayDownloader dn(hash, topLevelWidget());
 
     if(dn.exec() != QDialog::Accepted)
         return;
@@ -107,10 +102,10 @@ void StocksInPlayPlugin::showStocksInPlaySelector(int list)
 {
     StocksInPlayLinkSelector ls(topLevelWidget());
 
-    if(ls.exec() != QDialog::Accepted || !ls.url().isValid())
+    if(ls.exec() != QDialog::Accepted || ls.hash().isEmpty())
         return;
 
-    addFromStocksInPlay(list, ls.url());
+    addFromStocksInPlay(list, ls.hash());
 }
 
 void StocksInPlayPlugin::rebuildMenu(QMenu *menu)
@@ -122,10 +117,10 @@ void StocksInPlayPlugin::rebuildMenu(QMenu *menu)
 
     QList<StocksInPlayUrl> urls = SETTINGS_GET_STOCKSINPLAY_URLS(SETTING_STOCKSINPLAY_URLS);
 
-    foreach(StocksInPlayUrl fu, urls)
+    foreach(StocksInPlayUrl su, urls)
     {
-        QAction *a = menu->addAction(fu.name, this, SLOT(slotAdd()));
-        a->setData(fu.url);
+        QAction *a = menu->addAction(su.name, this, SLOT(slotAdd()));
+        a->setData(su.hash);
     }
 
     if(!urls.isEmpty())
@@ -144,15 +139,15 @@ void StocksInPlayPlugin::slotAdd()
     if(!a || list < 0)
         return;
 
-    QUrl u = a->data().toUrl();
+    QString hash = a->data().toString();
 
-    if(!u.isValid())
+    if(hash.isEmpty())
     {
-        qDebug("Url \"%s\" is not valid", qPrintable(u.toString(QUrl::RemovePassword)));
+        qDebug("Hash \"%s\" is empty", qPrintable(hash));
         return;
     }
 
-    addFromStocksInPlay(list, u);
+    addFromStocksInPlay(list, hash);
 }
 
 void StocksInPlayPlugin::slotManageUrls()

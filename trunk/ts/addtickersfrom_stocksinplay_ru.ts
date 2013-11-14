@@ -70,11 +70,6 @@
         <extracomment>Stocks In Play - Stock Screener, http://stocksinplay.ru. It&apos;s ok not to translate &quot;Stocks In Play&quot; (e.g. you can just copy-paste &quot;Stocks In Play&quot; to your translation)</extracomment>
         <translation>Stocks In Play</translation>
     </message>
-    <message>
-        <location filename="../stocksinplaydownloader.cpp" line="55"/>
-        <source>Broken answer</source>
-        <translation>Неверный ответ</translation>
-    </message>
 </context>
 <context>
     <name>StocksInPlayLogin</name>
@@ -98,19 +93,19 @@
 <context>
     <name>StocksInPlayUrlManager</name>
     <message>
-        <location filename="../stocksinplayurlmanager.cpp" line="33"/>
+        <location filename="../stocksinplayurlmanager.cpp" line="31"/>
         <source>Stocks In Play links</source>
         <extracomment>Stocks In Play - Stock Screener, http://stocksinplay.ru. It&apos;s ok not to translate &quot;Stocks In Play&quot; (e.g. you can just copy-paste &quot;Stocks In Play&quot; to your translation). Means &quot;Links to Stocks In Play&quot;</extracomment>
         <translation>Ссылки Stocks In Play</translation>
     </message>
     <message>
-        <location filename="../stocksinplayurlmanager.cpp" line="40"/>
-        <source>Link</source>
-        <extracomment>Noun</extracomment>
-        <translation>Ссылка</translation>
+        <location filename="../stocksinplayurlmanager.cpp" line="38"/>
+        <source>Hash</source>
+        <extracomment>Means &quot;Hash key&quot; as in computing</extracomment>
+        <translation>Хэш</translation>
     </message>
     <message>
-        <location filename="../stocksinplayurlmanager.cpp" line="55"/>
+        <location filename="../stocksinplayurlmanager.cpp" line="51"/>
         <source>Access...</source>
         <extracomment>Noun</extracomment>
         <translation>Доступ...</translation>

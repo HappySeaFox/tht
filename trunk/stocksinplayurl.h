@@ -21,19 +21,18 @@
 #include <QMetaType>
 #include <QString>
 #include <QList>
-#include <QUrl>
 
 class QDataStream;
 
 struct StocksInPlayUrl
 {
-    StocksInPlayUrl(const QString &_name = QString(), const QUrl &_url = QUrl())
+    StocksInPlayUrl(const QString &_name = QString(), const QString &_hash = QString())
         : name(_name),
-          url(_url)
+          hash(_hash)
     {}
 
     QString name;
-    QUrl url;
+    QString hash;
 };
 
 Q_DECLARE_METATYPE(StocksInPlayUrl)
