@@ -91,111 +91,111 @@
         <translation>Abbrechen</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="84"/>
+        <location filename="../dropboxuploader.cpp" line="85"/>
         <source>Network error</source>
         <translation>Netzwerkfehler</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="85"/>
+        <location filename="../dropboxuploader.cpp" line="86"/>
         <source>Used API version is not supported</source>
         <translation>Die benutzte API-Version wird nicht unterstützt</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="86"/>
+        <location filename="../dropboxuploader.cpp" line="87"/>
         <source>Used authentication method is not supported</source>
         <translation>Die benutzte Authentifizierungsmethode wird nicht unterstützt</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="87"/>
+        <location filename="../dropboxuploader.cpp" line="88"/>
         <source>Unexpected response</source>
         <translation>Unerwartete Antwort</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="88"/>
+        <location filename="../dropboxuploader.cpp" line="89"/>
         <source>API error</source>
         <translation>API-Fehler</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="89"/>
+        <location filename="../dropboxuploader.cpp" line="90"/>
         <source>Unknown query method</source>
         <translation>Unbekannte Abfragemethode</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="90"/>
+        <location filename="../dropboxuploader.cpp" line="91"/>
         <source>Bad parameter</source>
         <translation>Falscher Parameter</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="91"/>
+        <location filename="../dropboxuploader.cpp" line="92"/>
         <source>Bad oAuth request</source>
         <translation>Falsche oAuth-Anfrage</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="92"/>
+        <location filename="../dropboxuploader.cpp" line="93"/>
         <source>Bad HTTP method</source>
         <translation>Falsche HTTP-Methode</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="93"/>
+        <location filename="../dropboxuploader.cpp" line="94"/>
         <source>Maximum amount of requests exceeded</source>
         <translation>Maximalanzahl an Anfragen überschritten</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="94"/>
+        <location filename="../dropboxuploader.cpp" line="95"/>
         <source>Quota exceeded</source>
         <translation>Kontingent überschritten</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="95"/>
+        <location filename="../dropboxuploader.cpp" line="96"/>
         <source>Token has expired</source>
         <translation>Das Token ist abgelaufen</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="98"/>
+        <location filename="../dropboxuploader.cpp" line="99"/>
         <source>Unknown error</source>
         <translation>Unbekannter Fehler</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="137"/>
+        <location filename="../dropboxuploader.cpp" line="138"/>
         <source>You need to authorize THT in your Dropbox profile. Click &apos;OK&apos; to open the link in a browser. Then open this dialog again</source>
         <extracomment>Message displayed to the user. &quot;THT&quot; is the name of the application. &quot;Dropbox&quot; is an online storage service, see http://www.dropbox.com</extracomment>
         <translation>Sie müssen THT in Ihrem Dropbox-Profil authorisieren. Klicken Sie auf &quot;OK&quot;, um den Link in einem Browser zu öffnen. Öffnen Sie dann diesen Dialog erneut</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="175"/>
+        <location filename="../dropboxuploader.cpp" line="176"/>
         <source>Cannot get the link to the file</source>
         <extracomment>Means &quot;Cannot get the link to the file from the remote server&quot;</extracomment>
         <translation>Link zu der Datei konnte nicht beschafft werden</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="201"/>
+        <location filename="../dropboxuploader.cpp" line="202"/>
         <source>Requesting new token...</source>
         <translation>Neues Token wird angefragt...</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="221"/>
+        <location filename="../dropboxuploader.cpp" line="222"/>
         <source>Requesting new access token...</source>
         <translation>Neues Zugangstoken wird angefragt...</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="235"/>
+        <location filename="../dropboxuploader.cpp" line="236"/>
         <source>Uploading...</source>
         <translation>Wird hochgeladen...</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="248"/>
-        <location filename="../dropboxuploader.cpp" line="261"/>
+        <location filename="../dropboxuploader.cpp" line="249"/>
+        <location filename="../dropboxuploader.cpp" line="262"/>
         <source>Cannot upload file (%1)</source>
         <extracomment>%1 will be replaced with the error code by the application. It will look like &quot;Cannot upload file (Server is not responding)</extracomment>
         <translation>Datei kann nicht hochgeladen werden (%1)</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="254"/>
+        <location filename="../dropboxuploader.cpp" line="255"/>
         <source>Requesting link...</source>
         <translation>Link wird angefragt...</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="126"/>
+        <location filename="../dropboxuploader.cpp" line="127"/>
         <source>Close</source>
         <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>Schließen</translation>
@@ -730,101 +730,101 @@ oder klicken Sie die rechte/mittlere Maustaste, um abzubrechen.</translation>
         <translation>THT ist beschäftigt</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="249"/>
+        <location filename="../tht.cpp" line="252"/>
         <source>Options...</source>
         <translation>Optionen...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="252"/>
-        <location filename="../tht.cpp" line="331"/>
+        <location filename="../tht.cpp" line="255"/>
+        <location filename="../tht.cpp" line="334"/>
         <source>Take screenshot...</source>
         <translation>Screenshot machen...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="256"/>
+        <location filename="../tht.cpp" line="259"/>
         <source>Clear links</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Links löschen</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="260"/>
+        <location filename="../tht.cpp" line="263"/>
         <source>Clear ticker lists</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Clear the lists with tickers&quot;. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Liste der Tickersymbole löschen</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="262"/>
-        <location filename="../tht.cpp" line="263"/>
+        <location filename="../tht.cpp" line="265"/>
+        <location filename="../tht.cpp" line="266"/>
         <source>Load ticker</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Tickersymbole laden</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="274"/>
+        <location filename="../tht.cpp" line="277"/>
         <source>About Qt...</source>
         <extracomment>Qt is a C++ crossplatform toolkit http://qt-project.org</extracomment>
         <translation>Über Qt...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="275"/>
+        <location filename="../tht.cpp" line="278"/>
         <source>Plugins...</source>
         <translation>Plugins...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="277"/>
-        <location filename="../tht.cpp" line="335"/>
+        <location filename="../tht.cpp" line="280"/>
+        <location filename="../tht.cpp" line="338"/>
         <source>Quit</source>
         <translation>Beenden</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="330"/>
+        <location filename="../tht.cpp" line="333"/>
         <source>Restore</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Restore the application window from the system tray&quot;</extracomment>
         <translation>Wiederherstellen</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="268"/>
-        <location filename="../tht.cpp" line="333"/>
+        <location filename="../tht.cpp" line="271"/>
+        <location filename="../tht.cpp" line="336"/>
         <source>About THT</source>
         <extracomment>&quot;THT&quot; is the name of the application</extracomment>
         <translation>Über THT</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="476"/>
+        <location filename="../tht.cpp" line="479"/>
         <source>Notice</source>
         <translation>Nachricht</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="478"/>
+        <location filename="../tht.cpp" line="481"/>
         <source>THT will continue to run in a system tray</source>
         <extracomment>&quot;THT&quot; is the name of the application</extracomment>
         <translation>THT wird im Benachrichtigungsfeld weiter ausgeführt</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1002"/>
+        <location filename="../tht.cpp" line="1005"/>
         <source>Unknown</source>
         <extracomment>Means &quot;Unknown links&quot; (in the plural)</extracomment>
         <translation>Unbekannt</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1521"/>
+        <location filename="../tht.cpp" line="1524"/>
         <source>Cannot take screenshot</source>
         <extracomment>Message displayed to the user</extracomment>
         <translation>Konnte keinen Screenshot machen</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1567"/>
+        <location filename="../tht.cpp" line="1570"/>
         <source>New points</source>
         <translation>Neue Punkte</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2148"/>
+        <location filename="../tht.cpp" line="2151"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <extracomment>Message displayed to the user in the April Fool&apos;s day. Preferably copy the translation from &quot;The Little Golden Calf&quot; by I.Ilf, E.Petrov, Chapter 10 &quot;A Telegram from the Brothers Karamazov&quot; (http://en.wikipedia.org/wiki/The_Little_Golden_Calf). If you don&apos;t have the book or its online translation then translate as usual</extracomment>
         <translation>Alle großen Vermögen heutzutage wurden&lt;br&gt;auf die unehrenhafteste Weise erworben.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2150"/>
+        <location filename="../tht.cpp" line="2153"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <extracomment>See http://en.wikipedia.org/wiki/The_Little_Golden_Calf</extracomment>
         <translation>&quot;Das goldene Kalb&quot; I.Ilf, E.Petrov</translation>
@@ -891,9 +891,9 @@ oder klicken Sie die rechte/mittlere Maustaste, um abzubrechen.</translation>
         <translation>Nur in den USA</translation>
     </message>
     <message>
-        <location filename="../tickerneighbors.cpp" line="51"/>
-        <location filename="../tickerneighbors.cpp" line="55"/>
-        <location filename="../tickerneighbors.cpp" line="276"/>
+        <location filename="../tickerneighbors.cpp" line="52"/>
+        <location filename="../tickerneighbors.cpp" line="56"/>
+        <location filename="../tickerneighbors.cpp" line="277"/>
         <source>Copy</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Kopieren</translation>

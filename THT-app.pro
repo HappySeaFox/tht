@@ -97,10 +97,10 @@ HEADERS += tht.h \
     excellinkingdetails.h \
     numericlabel.h \
     thttools.h \
-    screenshotkeys.h \
     linkedwindow.h \
     linkpointsession.h \
-    linkpoint.h
+    linkpoint.h \
+    thtsettings.h
 
 FORMS += tht.ui \
     list.ui \

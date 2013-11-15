@@ -68,12 +68,12 @@ Q_DECLARE_METATYPE(Qt::AlignmentFlag)
 #define SETTINGS_GET_POINT Settings::instance()->value<QPoint>
 #define SETTINGS_SET_POINT Settings::instance()->setValue<QPoint>
 
+#define SETTINGS_REMOVE Settings::instance()->remove
+
 #define SETTING_RESTORE_LINKS_AT_STARTUP     "restore-links-at-startup"
 #define SETTING_SHOW_COMMENTS                "show-comments"
 #define SETTING_LIST_HEADER                  "list-header"
 #define SETTING_LIST_BUTTONS                 "list-buttons"
-#define SETTING_FOOLSDAY_SEEN                "foolsday-seen"
-#define SETTING_ELLIPSE_FILL_COLOR           "ellipse-fill-color"
 #define SETTING_TRANSLATION                  "translation"
 #define SETTING_LAST_TICKER_INPUT            "last-ticker-input"
 #define SETTING_LAST_TICKER_DIRECTORY        "last-ticker-directory"
@@ -82,23 +82,15 @@ Q_DECLARE_METATYPE(Qt::AlignmentFlag)
 #define SETTING_SHOW_NEIGHBORS_AT_STARTUP    "neighbors-at-startup"
 #define SETTING_MINI_TICKER_ENTRY            "mini-ticker-entry"
 #define SETTING_ALLOW_DUPLICATES             "allow-duplicates"
-#define SETTING_NYSE_ONLY                    "nyse-only"
 #define SETTING_ONTOP                        "ontop"
 #define SETTING_HIDE_TO_TRAY                 "tray"
-#define SETTING_TRAY_NOTICE_SEEN             "tray-notice-seen"
 #define SETTING_SAVE_GEOMETRY                "save-geometry"
 #define SETTING_SIZE                         "size"
 #define SETTING_POSITION                     "position"
-#define SETTING_NEIGHBORS_SIZE               "neighbors-size"
-#define SETTING_NEIGHBORS_POSITION           "neighbors-position"
 #define SETTING_SAVE_TICKERS                 "save-tickers"
 #define SETTING_GLOBAL_HOTKEY_SCREENSHOT     "global-hotkey-screenshot"
 #define SETTING_GLOBAL_HOTKEY_RESTORE        "global-hotkey-restore"
 #define SETTING_IS_WINDOW_SQUEEZED           "is-window-squeezed"
-#define SETTING_DROPBOX_TOKEN                "dropbox-token"
-#define SETTING_DROPBOX_TOKEN_SECRET         "dropbox-token-secret"
-#define SETTING_DROPBOX_ACCESS_TOKEN         "dropbox-access-token"
-#define SETTING_DROPBOX_ACCESS_TOKEN_SECRET  "dropbox-access-token-secret"
 
 class SettingsPrivate;
 
@@ -107,7 +99,7 @@ class SettingsPrivate;
  *  the macroses above to query the appropriate types
  *  of values like that:
  *
- *      qDebug() << SETTINGS_GET_BOOL(SETTING_RESTORE_NEIGHBORS_AT_STARTUP);
+ *      qDebug() << SETTINGS_GET_STRING(SETTING_TRANSLATION);
  */
 class Settings
 {

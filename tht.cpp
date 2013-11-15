@@ -63,11 +63,11 @@
 #include "excellinkingdetails.h"
 #include "linkpointmanager.h"
 #include "masterdataevent.h"
-#include "screenshotkeys.h"
 #include "savescreenshot.h"
 #include "pluginmanager.h"
 #include "regionselect.h"
 #include "pluginloader.h"
+#include "thtsettings.h"
 #include "tickerinput.h"
 #include "linkpoint.h"
 #include "settings.h"
@@ -157,6 +157,19 @@ THT::THT() :
     m_excel(0),
     m_cell(0)
 {
+    // add some default values
+    QHash<QString, QVariant> defaultValues;
+
+    defaultValues.insert(SETTING_ELLIPSE_FILL_COLOR, QColor(0, 255, 0, 50));
+    defaultValues.insert(SETTING_NEIGHBORS_POSITION, Tools::invalidQPoint);
+    defaultValues.insert(SETTING_SCREENSHOT_BACKGROUND_COLOR, QColor(Qt::white));
+    defaultValues.insert(SETTING_SCREENSHOT_TEXT_COLOR, QColor(Qt::black));
+    defaultValues.insert(SETTING_SCREENSHOT_TEXT_ALIGNMENT, Qt::AlignLeft);
+    defaultValues.insert(SETTING_SCREENSHOT_TEXT_SIZE, -1);
+
+    Settings::instance()->addDefaultValues(defaultValues);
+
+    // stay on top?
     if(SETTINGS_GET_BOOL(SETTING_ONTOP))
         setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
 
@@ -186,18 +199,8 @@ THT::THT() :
 
         SETTINGS_SET_LINKS(SETTING_LINKS, linkPointSessions, Settings::NoSync);
 
-        Settings::instance()->remove(SETTING_LINKS_152);
+        SETTINGS_REMOVE(SETTING_LINKS_152);
     }
-
-    // some default values for screenshot tool
-    QHash<QString, QVariant> defaultValues;
-
-    defaultValues.insert(SETTING_SCREENSHOT_BACKGROUND_COLOR, QColor(Qt::white));
-    defaultValues.insert(SETTING_SCREENSHOT_TEXT_COLOR, QColor(Qt::black));
-    defaultValues.insert(SETTING_SCREENSHOT_TEXT_ALIGNMENT, Qt::AlignLeft);
-    defaultValues.insert(SETTING_SCREENSHOT_TEXT_SIZE, -1);
-
-    Settings::instance()->addDefaultValues(defaultValues);
 
     ui->setupUi(this);
 

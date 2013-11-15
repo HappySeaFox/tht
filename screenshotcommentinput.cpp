@@ -23,7 +23,7 @@
 #include <QFont>
 
 #include "screenshotcommentinput.h"
-#include "screenshotkeys.h"
+#include "thtsettings.h"
 #include "settings.h"
 #include "ui_screenshotcommentinput.h"
 

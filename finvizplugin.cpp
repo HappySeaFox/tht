@@ -50,7 +50,7 @@ bool FinvizPlugin::init()
         {
             qDebug("Migrating Finviz links from 1.5.2 to 2.0.0");
             SETTINGS_SET_FINVIZ_URLS(SETTING_FINVIZ_URLS, SETTINGS_GET_FINVIZ_URLS_152(SETTING_FINVIZ_URLS_152), Settings::NoSync);
-            Settings::instance()->remove(SETTING_FINVIZ_URLS_152);
+            SETTINGS_REMOVE(SETTING_FINVIZ_URLS_152);
         }
         else
         {
@@ -77,7 +77,7 @@ bool FinvizPlugin::init()
     if(Settings::instance()->contains("/" SETTING_FINVIZ_PASSWORD_152))
     {
         SETTINGS_SET_BYTE_ARRAY(SETTING_FINVIZ_PASSWORD, Tools::encrypt(SETTINGS_GET_STRING(SETTING_FINVIZ_PASSWORD_152).toUtf8()));
-        Settings::instance()->remove(SETTING_FINVIZ_PASSWORD_152);
+        SETTINGS_REMOVE(SETTING_FINVIZ_PASSWORD_152);
     }
 
     FinvizTools::setCachedPassword(Tools::decrypt(SETTINGS_GET_BYTE_ARRAY(SETTING_FINVIZ_PASSWORD)));

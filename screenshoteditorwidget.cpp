@@ -27,7 +27,7 @@
 #include "screenshoteditorwidget.h"
 #include "screenshotcommentinput.h"
 #include "selectablelabel.h"
-#include "screenshotkeys.h"
+#include "thtsettings.h"
 #include "settings.h"
 
 ScreenshotEditorWidget::ScreenshotEditorWidget(QWidget *parent) :

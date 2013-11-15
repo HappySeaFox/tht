@@ -15,8 +15,19 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef SCREENSHOTKEYS_H
-#define SCREENSHOTKEYS_H
+#ifndef THTSETTINGS_H
+#define THTSETTINGS_H
+
+#define SETTING_DROPBOX_TOKEN                   "dropbox-token"
+#define SETTING_DROPBOX_TOKEN_SECRET            "dropbox-token-secret"
+#define SETTING_DROPBOX_ACCESS_TOKEN            "dropbox-access-token"
+#define SETTING_DROPBOX_ACCESS_TOKEN_SECRET     "dropbox-access-token-secret"
+
+#define SETTING_FOOLSDAY_SEEN                   "foolsday-seen"
+#define SETTING_TRAY_NOTICE_SEEN                "tray-notice-seen"
+#define SETTING_NEIGHBORS_SIZE                  "neighbors-size"
+#define SETTING_NEIGHBORS_POSITION              "neighbors-position"
+#define SETTING_NYSE_ONLY                       "nyse-only"
 
 #define SETTING_SCREENSHOT_USE_BACKGROUND_COLOR "screenshot-use-background-color"
 #define SETTING_SCREENSHOT_BACKGROUND_COLOR     "screenshot-background-color"
@@ -24,5 +35,6 @@
 #define SETTING_SCREENSHOT_TEXT_ALIGNMENT       "screenshot-text-alignment"
 #define SETTING_SCREENSHOT_TEXT_SIZE            "screenshot-text-size"
 #define SETTING_SCREENSHOT_TEXT                 "screenshot-text"
+#define SETTING_ELLIPSE_FILL_COLOR              "ellipse-fill-color"
 
-#endif // SCREENSHOTKEYS_H
+#endif // THTSETTINGS_H

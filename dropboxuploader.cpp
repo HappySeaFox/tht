@@ -25,6 +25,7 @@
 #include "dropboxuploader.h"
 #include "qdropboxfile.h"
 #include "qdropboxjson.h"
+#include "thtsettings.h"
 #include "settings.h"
 #include "ui_dropboxuploader.h"
 

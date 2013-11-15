@@ -474,7 +474,7 @@ void ChatWindow::slotTabCloseRequested(int index)
 
     delete p;
 
-    Settings::instance()->remove(key);
+    SETTINGS_REMOVE(key);
 
     saveRooms();
 

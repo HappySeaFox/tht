@@ -25,6 +25,7 @@
 
 #include "screenshoteditor.h"
 #include "selectablelabel.h"
+#include "thtsettings.h"
 #include "settings.h"
 #include "tools.h"
 #include "ui_screenshoteditor.h"
