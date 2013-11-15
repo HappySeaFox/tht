@@ -355,7 +355,7 @@
         <location filename="../options.ui" line="37"/>
         <source>Hide to tray</source>
         <extracomment>Configuration option. Infinitive</extracomment>
-        <translation>Minimizzare nella barra delle applicazioni</translation>
+        <translation>Minimizzare per vassoio</translation>
     </message>
     <message>
         <location filename="../options.ui" line="79"/>
@@ -432,7 +432,7 @@
         <location filename="../options.ui" line="205"/>
         <source>Ctrl+Alt+R to restore from tray</source>
         <extracomment>Configuration option</extracomment>
-        <translation>Ctrl+Alt+R per ripristinare dalla barra delle applicazioni</translation>
+        <translation>Ctrl+Alt+R per ripristinare dal vassoio</translation>
     </message>
     <message>
         <location filename="../options.ui" line="248"/>
@@ -798,7 +798,7 @@ il pulsante destro/di centro del mouse per cancellare.</translation>
         <location filename="../tht.cpp" line="481"/>
         <source>THT will continue to run in a system tray</source>
         <extracomment>&quot;THT&quot; is the name of the application</extracomment>
-        <translation>THT continua a funzionare in background nella barra delle applicazioni</translation>
+        <translation>THT continua a funzionare in un vassoio di sistema</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="1005"/>
