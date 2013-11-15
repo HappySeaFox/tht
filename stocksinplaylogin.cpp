@@ -20,14 +20,15 @@
 #include <QUrl>
 
 #include "stocksinplaylogincookiejar.h"
+#include "stocksinplaytools.h"
 #include "stocksinplaylogin.h"
 
 StocksInPlayLogin::StocksInPlayLogin(const QString &login, const QString &password, QWidget *parent) :
     NetworkAccessDialog(parent)
 {
-    //: Stocks In Play - Stock Screener, http://stocksinplay.ru. It's ok not to translate "Stocks In Play" (e.g. you can just copy-paste "Stocks In Play" to your translation)
-    setWindowTitle(tr("Stocks In Play"));
+    setWindowTitle(StocksInPlayTools::stocksInPlayTitle());
     setMessage(tr("Accessing..."));
+
     m_cookieJar = new StocksInPlayLoginCookieJar(this);
     setCookieJar(m_cookieJar);
 

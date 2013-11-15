@@ -4,9 +4,15 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../stocksinplaytools.h" line="42"/>
+        <location filename="../stocksinplaytools.h" line="43"/>
         <source>Add from Stocks In Play</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Stocks In Play - Stock Screener, http://stocksinplay.ru. It&apos;s ok not to translate &quot;Stocks In Play&quot; (e.g. you can just copy-paste &quot;Stocks In Play&quot; to your translation)</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../stocksinplaytools.h" line="50"/>
+        <source>Stocks In Play</source>
+        <extracomment>Stocks In Play - Stock Screener, http://stocksinplay.ru. It&apos;s ok not to translate &quot;Stocks In Play&quot; (e.g. you can just copy-paste &quot;Stocks In Play&quot; to your translation)</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -63,29 +69,14 @@
     </message>
 </context>
 <context>
-    <name>StocksInPlayDownloader</name>
-    <message>
-        <location filename="../stocksinplaydownloader.cpp" line="31"/>
-        <source>Stocks In Play</source>
-        <extracomment>Stocks In Play - Stock Screener, http://stocksinplay.ru. It&apos;s ok not to translate &quot;Stocks In Play&quot; (e.g. you can just copy-paste &quot;Stocks In Play&quot; to your translation)</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>StocksInPlayLogin</name>
-    <message>
-        <location filename="../stocksinplaylogin.cpp" line="29"/>
-        <source>Stocks In Play</source>
-        <extracomment>Stocks In Play - Stock Screener, http://stocksinplay.ru. It&apos;s ok not to translate &quot;Stocks In Play&quot; (e.g. you can just copy-paste &quot;Stocks In Play&quot; to your translation)</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../stocksinplaylogin.cpp" line="30"/>
         <source>Accessing...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../stocksinplaylogin.cpp" line="54"/>
+        <location filename="../stocksinplaylogin.cpp" line="55"/>
         <source>Failed to get account details</source>
         <translation type="unfinished"></translation>
     </message>
