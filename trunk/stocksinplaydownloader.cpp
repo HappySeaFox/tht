@@ -22,13 +22,13 @@
 
 #include "stocksinplaydownloader.h"
 #include "stocksinplaycookiejar.h"
+#include "stocksinplaytools.h"
 #include "tools.h"
 
 StocksInPlayDownloader::StocksInPlayDownloader(const QString &hash, QWidget *parent) :
     NetworkAccessDialog(parent)
 {
-    //: Stocks In Play - Stock Screener, http://stocksinplay.ru. It's ok not to translate "Stocks In Play" (e.g. you can just copy-paste "Stocks In Play" to your translation)
-    setWindowTitle(tr("Stocks In Play"));
+    setWindowTitle(StocksInPlayTools::stocksInPlayTitle());
     setMessage(Tools::downloadingTickersTitle());
     setCookieJar(new StocksInPlayCookieJar(this));
 
