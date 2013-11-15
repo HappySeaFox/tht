@@ -29,7 +29,7 @@
 #include "csvreader.h"
 #include "tools.h"
 
-static const int REQUIRED_FIELDS = 11;
+static const int FINVIZ_CSV_REQUIRED_FIELDS = 11;
 
 FinvizDownloader::FinvizDownloader(const QUrl &url, QWidget *parent) :
     NetworkAccessDialog(parent)
@@ -98,9 +98,9 @@ bool FinvizDownloader::finished()
 
     while(!(str = csv.parseLine()).isEmpty())
     {
-        if(str.size() != REQUIRED_FIELDS)
+        if(str.size() != FINVIZ_CSV_REQUIRED_FIELDS)
         {
-            showError(tr("Broken answer (fields: %1, required: %2)").arg(str.size()).arg(REQUIRED_FIELDS));
+            showError(tr("Incorrect answer (fields: %1, required: %2)").arg(str.size()).arg(FINVIZ_CSV_REQUIRED_FIELDS));
             return false;
         }
 
