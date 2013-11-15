@@ -66,7 +66,7 @@
     <message>
         <location filename="../chatpage.ui" line="109"/>
         <source>Join</source>
-        <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
+        <extracomment>This is the label on a button that user pushes to issue the command. Means &quot;Join the selected chat room&quot;</extracomment>
         <translation>Beitreten</translation>
     </message>
     <message>
