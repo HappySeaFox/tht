@@ -477,7 +477,7 @@ void THT::closeEvent(QCloseEvent *e)
         {
             SETTINGS_SET_BOOL(SETTING_TRAY_NOTICE_SEEN, true);
             m_tray->showMessage(tr("Notice"),
-                                //: "THT" is the name of the application
+                                //: "THT" is the name of the application. Tray is a panel with small icons, usually in a right bottom corner, NOT taskbar
                                 tr("THT will continue to run in a system tray"),
                                 QSystemTrayIcon::Information,
                                 7000);

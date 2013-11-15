@@ -34,7 +34,7 @@
        <item row="2" column="0">
         <widget class="QCheckBox" name="checkTray">
          <property name="text">
-          <string extracomment="Configuration option. Infinitive">Hide to tray</string>
+          <string extracomment="Configuration option. Infinitive. Tray is a panel with small icons, usually in a right bottom corner, NOT taskbar">Hide to tray</string>
          </property>
         </widget>
        </item>
@@ -202,7 +202,7 @@
        <item row="1" column="0">
         <widget class="QCheckBox" name="checkCtrlAltR">
          <property name="text">
-          <string extracomment="Configuration option">Ctrl+Alt+R to restore from tray</string>
+          <string extracomment="Configuration option. Tray is a panel with small icons, usually in a right bottom corner, NOT taskbar">Ctrl+Alt+R to restore from tray</string>
          </property>
         </widget>
        </item>

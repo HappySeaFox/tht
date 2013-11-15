@@ -354,7 +354,7 @@
     <message>
         <location filename="../options.ui" line="37"/>
         <source>Hide to tray</source>
-        <extracomment>Configuration option. Infinitive</extracomment>
+        <extracomment>Configuration option. Infinitive. Tray is a panel with small icons, usually in a right bottom corner, NOT taskbar</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -431,7 +431,7 @@
     <message>
         <location filename="../options.ui" line="205"/>
         <source>Ctrl+Alt+R to restore from tray</source>
-        <extracomment>Configuration option</extracomment>
+        <extracomment>Configuration option. Tray is a panel with small icons, usually in a right bottom corner, NOT taskbar</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -795,7 +795,7 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../tht.cpp" line="481"/>
         <source>THT will continue to run in a system tray</source>
-        <extracomment>&quot;THT&quot; is the name of the application</extracomment>
+        <extracomment>&quot;THT&quot; is the name of the application. Tray is a panel with small icons, usually in a right bottom corner, NOT taskbar</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
