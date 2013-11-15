@@ -49,15 +49,15 @@ ChatPlugin::ChatPlugin() :
     qRegisterMetaTypeStreamOperators<RoomInfo>("RoomInfo");
     qRegisterMetaTypeStreamOperators<QList<RoomInfo> >("QList<RoomInfo>");
 
-    QHash<QString, QVariant> defaltValues;
+    QHash<QString, QVariant> defaultValues;
 
-    defaltValues.insert(SETTING_CHAT_POSITION, Tools::invalidQPoint);
-    defaltValues.insert(SETTING_CHAT_FONT_SIZE, 8);
-    defaltValues.insert(SETTING_CHAT_AUTO_LOGIN, true);
-    defaltValues.insert(SETTING_CHAT_SAVE_ROOMS, true);
-    defaltValues.insert(SETTING_CHAT_AUTO_LOGIN_TO_ROOMS, true);
+    defaultValues.insert(SETTING_CHAT_POSITION, Tools::invalidQPoint);
+    defaultValues.insert(SETTING_CHAT_FONT_SIZE, 8);
+    defaultValues.insert(SETTING_CHAT_AUTO_LOGIN, true);
+    defaultValues.insert(SETTING_CHAT_SAVE_ROOMS, true);
+    defaultValues.insert(SETTING_CHAT_AUTO_LOGIN_TO_ROOMS, true);
 
-    Settings::instance()->addDefaultValues(defaltValues);
+    Settings::instance()->addDefaultValues(defaultValues);
 
     ChatTools::init();
 
