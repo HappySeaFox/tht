@@ -30,6 +30,7 @@
 #include "tickerinformationtooltip.h"
 #include "uppercasevalidator.h"
 #include "tickerneighbors.h"
+#include "thtsettings.h"
 #include "settings.h"
 #include "sqltools.h"
 #include "tools.h"

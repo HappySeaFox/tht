@@ -91,111 +91,111 @@
         <translation>Hủy Bỏ</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="84"/>
+        <location filename="../dropboxuploader.cpp" line="85"/>
         <source>Network error</source>
         <translation>Lỗi mạng</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="85"/>
+        <location filename="../dropboxuploader.cpp" line="86"/>
         <source>Used API version is not supported</source>
         <translation>Phiên bản API được sử dụng không được hỗ trợ</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="86"/>
+        <location filename="../dropboxuploader.cpp" line="87"/>
         <source>Used authentication method is not supported</source>
         <translation>Phương pháp xác thực đã dùng không được hỗ trợ</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="87"/>
+        <location filename="../dropboxuploader.cpp" line="88"/>
         <source>Unexpected response</source>
         <translation>Phản hồi không mong đợi</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="88"/>
+        <location filename="../dropboxuploader.cpp" line="89"/>
         <source>API error</source>
         <translation>Lỗi API</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="89"/>
+        <location filename="../dropboxuploader.cpp" line="90"/>
         <source>Unknown query method</source>
         <translation>Phương pháp truy vấn chưa rõ định dạng</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="90"/>
+        <location filename="../dropboxuploader.cpp" line="91"/>
         <source>Bad parameter</source>
         <translation>Thông số sai</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="91"/>
+        <location filename="../dropboxuploader.cpp" line="92"/>
         <source>Bad oAuth request</source>
         <translation>Yêu cầu oAuth chưa đúng</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="92"/>
+        <location filename="../dropboxuploader.cpp" line="93"/>
         <source>Bad HTTP method</source>
         <translation>Phương pháp HTTP chưa đúng</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="93"/>
+        <location filename="../dropboxuploader.cpp" line="94"/>
         <source>Maximum amount of requests exceeded</source>
         <translation>Số lượng tối đa các yêu cầu đã vượt ngưỡng</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="94"/>
+        <location filename="../dropboxuploader.cpp" line="95"/>
         <source>Quota exceeded</source>
         <translation>Dung lượng đã vượt mức</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="95"/>
+        <location filename="../dropboxuploader.cpp" line="96"/>
         <source>Token has expired</source>
         <translation>Token đã hết hạn</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="98"/>
+        <location filename="../dropboxuploader.cpp" line="99"/>
         <source>Unknown error</source>
         <translation>Lỗi không rõ nguyên nhân</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="137"/>
+        <location filename="../dropboxuploader.cpp" line="138"/>
         <source>You need to authorize THT in your Dropbox profile. Click &apos;OK&apos; to open the link in a browser. Then open this dialog again</source>
         <extracomment>Message displayed to the user. &quot;THT&quot; is the name of the application. &quot;Dropbox&quot; is an online storage service, see http://www.dropbox.com</extracomment>
         <translation>Bạn cần xác nhận THT trong hồ sơ tại dịch vụ Dropbox của mình. Click &apos;Đồng Ý&apos; để mở liên kết trong trình duyệt. Sau đó, mở lại hộp điều khiển này một lần nữa</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="175"/>
+        <location filename="../dropboxuploader.cpp" line="176"/>
         <source>Cannot get the link to the file</source>
         <extracomment>Means &quot;Cannot get the link to the file from the remote server&quot;</extracomment>
         <translation>Không thể nhận được liên kết đến tập tin</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="201"/>
+        <location filename="../dropboxuploader.cpp" line="202"/>
         <source>Requesting new token...</source>
         <translation>Đang gửi yêu cầu nhận token mới...</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="221"/>
+        <location filename="../dropboxuploader.cpp" line="222"/>
         <source>Requesting new access token...</source>
         <translation>Đang gửi yêu cầu truy cập token mới...</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="235"/>
+        <location filename="../dropboxuploader.cpp" line="236"/>
         <source>Uploading...</source>
         <translation>Đang tải lên...</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="248"/>
-        <location filename="../dropboxuploader.cpp" line="261"/>
+        <location filename="../dropboxuploader.cpp" line="249"/>
+        <location filename="../dropboxuploader.cpp" line="262"/>
         <source>Cannot upload file (%1)</source>
         <extracomment>%1 will be replaced with the error code by the application. It will look like &quot;Cannot upload file (Server is not responding)</extracomment>
         <translation>Không thể tải lên tập tin (%1)</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="254"/>
+        <location filename="../dropboxuploader.cpp" line="255"/>
         <source>Requesting link...</source>
         <translation>Đang gửi yêu cầu đường liên kết...</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="126"/>
+        <location filename="../dropboxuploader.cpp" line="127"/>
         <source>Close</source>
         <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>Đóng Lại</translation>
@@ -730,101 +730,101 @@ chuột phải/chuột giữa để hủy bỏ.</translation>
         <translation>Chương trình hiện đang bận</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="249"/>
+        <location filename="../tht.cpp" line="252"/>
         <source>Options...</source>
         <translation>Tùy chọn...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="252"/>
-        <location filename="../tht.cpp" line="331"/>
+        <location filename="../tht.cpp" line="255"/>
+        <location filename="../tht.cpp" line="334"/>
         <source>Take screenshot...</source>
         <translation>Chụp màn hình...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="256"/>
+        <location filename="../tht.cpp" line="259"/>
         <source>Clear links</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Dọn dẹp liên kết</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="260"/>
+        <location filename="../tht.cpp" line="263"/>
         <source>Clear ticker lists</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Clear the lists with tickers&quot;. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Dọn dẹp danh sách ticker</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="262"/>
-        <location filename="../tht.cpp" line="263"/>
+        <location filename="../tht.cpp" line="265"/>
+        <location filename="../tht.cpp" line="266"/>
         <source>Load ticker</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Tải ticker</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="274"/>
+        <location filename="../tht.cpp" line="277"/>
         <source>About Qt...</source>
         <extracomment>Qt is a C++ crossplatform toolkit http://qt-project.org</extracomment>
         <translation>Về Qt...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="275"/>
+        <location filename="../tht.cpp" line="278"/>
         <source>Plugins...</source>
         <translation>Tiện ích...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="277"/>
-        <location filename="../tht.cpp" line="335"/>
+        <location filename="../tht.cpp" line="280"/>
+        <location filename="../tht.cpp" line="338"/>
         <source>Quit</source>
         <translation>Thoát</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="330"/>
+        <location filename="../tht.cpp" line="333"/>
         <source>Restore</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Restore the application window from the system tray&quot;</extracomment>
         <translation>Khôi phục</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="268"/>
-        <location filename="../tht.cpp" line="333"/>
+        <location filename="../tht.cpp" line="271"/>
+        <location filename="../tht.cpp" line="336"/>
         <source>About THT</source>
         <extracomment>&quot;THT&quot; is the name of the application</extracomment>
         <translation>Về THT</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="476"/>
+        <location filename="../tht.cpp" line="479"/>
         <source>Notice</source>
         <translation>Chú ý</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="478"/>
+        <location filename="../tht.cpp" line="481"/>
         <source>THT will continue to run in a system tray</source>
         <extracomment>&quot;THT&quot; is the name of the application</extracomment>
         <translation>Chương trình sẽ tiếp tục chạy ở khay hệ thống</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1002"/>
+        <location filename="../tht.cpp" line="1005"/>
         <source>Unknown</source>
         <extracomment>Means &quot;Unknown links&quot; (in the plural)</extracomment>
         <translation>Chưa rõ</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1521"/>
+        <location filename="../tht.cpp" line="1524"/>
         <source>Cannot take screenshot</source>
         <extracomment>Message displayed to the user</extracomment>
         <translation>Không thể chụp ảnh màn hình</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1567"/>
+        <location filename="../tht.cpp" line="1570"/>
         <source>New points</source>
         <translation>Điểm mới</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2148"/>
+        <location filename="../tht.cpp" line="2151"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <extracomment>Message displayed to the user in the April Fool&apos;s day. Preferably copy the translation from &quot;The Little Golden Calf&quot; by I.Ilf, E.Petrov, Chapter 10 &quot;A Telegram from the Brothers Karamazov&quot; (http://en.wikipedia.org/wiki/The_Little_Golden_Calf). If you don&apos;t have the book or its online translation then translate as usual</extracomment>
         <translation>Tất cả các vận may hiện tại cần phải có&lt;br&gt;theo cách nhục nhất có thể.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2150"/>
+        <location filename="../tht.cpp" line="2153"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <extracomment>See http://en.wikipedia.org/wiki/The_Little_Golden_Calf</extracomment>
         <translation>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</translation>
@@ -891,9 +891,9 @@ chuột phải/chuột giữa để hủy bỏ.</translation>
         <translation>Chỉ áp dụng tại Hoa Kỳ</translation>
     </message>
     <message>
-        <location filename="../tickerneighbors.cpp" line="51"/>
-        <location filename="../tickerneighbors.cpp" line="55"/>
-        <location filename="../tickerneighbors.cpp" line="276"/>
+        <location filename="../tickerneighbors.cpp" line="52"/>
+        <location filename="../tickerneighbors.cpp" line="56"/>
+        <location filename="../tickerneighbors.cpp" line="277"/>
         <source>Copy</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Sao chép</translation>

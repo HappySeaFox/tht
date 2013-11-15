@@ -91,111 +91,111 @@
         <translation>Відміна</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="84"/>
+        <location filename="../dropboxuploader.cpp" line="85"/>
         <source>Network error</source>
         <translation>Помилка мережі</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="85"/>
+        <location filename="../dropboxuploader.cpp" line="86"/>
         <source>Used API version is not supported</source>
         <translation>Використана версія API не підтримується</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="86"/>
+        <location filename="../dropboxuploader.cpp" line="87"/>
         <source>Used authentication method is not supported</source>
         <translation>Використаний метод перевірки автентичності не підтримується</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="87"/>
+        <location filename="../dropboxuploader.cpp" line="88"/>
         <source>Unexpected response</source>
         <translation>Непередбачений відповідь</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="88"/>
+        <location filename="../dropboxuploader.cpp" line="89"/>
         <source>API error</source>
         <translation>Помилка API</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="89"/>
+        <location filename="../dropboxuploader.cpp" line="90"/>
         <source>Unknown query method</source>
         <translation>Невідомий метод запиту</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="90"/>
+        <location filename="../dropboxuploader.cpp" line="91"/>
         <source>Bad parameter</source>
         <translation>Некоректний параметр</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="91"/>
+        <location filename="../dropboxuploader.cpp" line="92"/>
         <source>Bad oAuth request</source>
         <translation>Некоректний запит oAuth</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="92"/>
+        <location filename="../dropboxuploader.cpp" line="93"/>
         <source>Bad HTTP method</source>
         <translation>Некоректний HTTP метод</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="93"/>
+        <location filename="../dropboxuploader.cpp" line="94"/>
         <source>Maximum amount of requests exceeded</source>
         <translation>Вичерпано максимально допустиму кількість запитів</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="94"/>
+        <location filename="../dropboxuploader.cpp" line="95"/>
         <source>Quota exceeded</source>
         <translation>Перевищена квота</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="95"/>
+        <location filename="../dropboxuploader.cpp" line="96"/>
         <source>Token has expired</source>
         <translation>Маркер закінчився</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="98"/>
+        <location filename="../dropboxuploader.cpp" line="99"/>
         <source>Unknown error</source>
         <translation>Невідома помилка</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="137"/>
+        <location filename="../dropboxuploader.cpp" line="138"/>
         <source>You need to authorize THT in your Dropbox profile. Click &apos;OK&apos; to open the link in a browser. Then open this dialog again</source>
         <extracomment>Message displayed to the user. &quot;THT&quot; is the name of the application. &quot;Dropbox&quot; is an online storage service, see http://www.dropbox.com</extracomment>
         <translation>Вам необхідно авторизувати THT у вашому профілі Dropbox. Натисніть &apos;OK&apos; щоб відкрити посилання в браузері. Після цього відкрийте даний діалог ще раз</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="175"/>
+        <location filename="../dropboxuploader.cpp" line="176"/>
         <source>Cannot get the link to the file</source>
         <extracomment>Means &quot;Cannot get the link to the file from the remote server&quot;</extracomment>
         <translation>Неможливо отримати посилання на файл</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="201"/>
+        <location filename="../dropboxuploader.cpp" line="202"/>
         <source>Requesting new token...</source>
         <translation>Запит нового маркера...</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="221"/>
+        <location filename="../dropboxuploader.cpp" line="222"/>
         <source>Requesting new access token...</source>
         <translation>Запит нового маркера на доступ...</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="235"/>
+        <location filename="../dropboxuploader.cpp" line="236"/>
         <source>Uploading...</source>
         <translation>Завантаження...</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="254"/>
+        <location filename="../dropboxuploader.cpp" line="255"/>
         <source>Requesting link...</source>
         <translation>Запит посилання...</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="248"/>
-        <location filename="../dropboxuploader.cpp" line="261"/>
+        <location filename="../dropboxuploader.cpp" line="249"/>
+        <location filename="../dropboxuploader.cpp" line="262"/>
         <source>Cannot upload file (%1)</source>
         <extracomment>%1 will be replaced with the error code by the application. It will look like &quot;Cannot upload file (Server is not responding)</extracomment>
         <translation>Неможливо завантажити файл (%1)</translation>
     </message>
     <message>
-        <location filename="../dropboxuploader.cpp" line="126"/>
+        <location filename="../dropboxuploader.cpp" line="127"/>
         <source>Close</source>
         <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>Закрити</translation>
@@ -730,101 +730,101 @@ right/middle mouse button to cancel.</source>
         <translation>THT зайнятий</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="249"/>
+        <location filename="../tht.cpp" line="252"/>
         <source>Options...</source>
         <translation>Параметри...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="252"/>
-        <location filename="../tht.cpp" line="331"/>
+        <location filename="../tht.cpp" line="255"/>
+        <location filename="../tht.cpp" line="334"/>
         <source>Take screenshot...</source>
         <translation>Знімок екрану...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="260"/>
+        <location filename="../tht.cpp" line="263"/>
         <source>Clear ticker lists</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Clear the lists with tickers&quot;. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Очистити списки тікерів</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="256"/>
+        <location filename="../tht.cpp" line="259"/>
         <source>Clear links</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Очистити посилання</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="262"/>
-        <location filename="../tht.cpp" line="263"/>
+        <location filename="../tht.cpp" line="265"/>
+        <location filename="../tht.cpp" line="266"/>
         <source>Load ticker</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Завантажити тікер</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="268"/>
-        <location filename="../tht.cpp" line="333"/>
+        <location filename="../tht.cpp" line="271"/>
+        <location filename="../tht.cpp" line="336"/>
         <source>About THT</source>
         <extracomment>&quot;THT&quot; is the name of the application</extracomment>
         <translation>Про THT</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="274"/>
+        <location filename="../tht.cpp" line="277"/>
         <source>About Qt...</source>
         <extracomment>Qt is a C++ crossplatform toolkit http://qt-project.org</extracomment>
         <translation>Про Qt...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="275"/>
+        <location filename="../tht.cpp" line="278"/>
         <source>Plugins...</source>
         <translation>Плагіни...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="277"/>
-        <location filename="../tht.cpp" line="335"/>
+        <location filename="../tht.cpp" line="280"/>
+        <location filename="../tht.cpp" line="338"/>
         <source>Quit</source>
         <translation>Вихід</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="330"/>
+        <location filename="../tht.cpp" line="333"/>
         <source>Restore</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Restore the application window from the system tray&quot;</extracomment>
         <translation>Відновити</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="476"/>
+        <location filename="../tht.cpp" line="479"/>
         <source>Notice</source>
         <translation>Замітка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="478"/>
+        <location filename="../tht.cpp" line="481"/>
         <source>THT will continue to run in a system tray</source>
         <extracomment>&quot;THT&quot; is the name of the application</extracomment>
         <translation>ТНТ продовжить роботу в системному лотку</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1002"/>
+        <location filename="../tht.cpp" line="1005"/>
         <source>Unknown</source>
         <extracomment>Means &quot;Unknown links&quot; (in the plural)</extracomment>
         <translation>Невідомі</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1521"/>
+        <location filename="../tht.cpp" line="1524"/>
         <source>Cannot take screenshot</source>
         <extracomment>Message displayed to the user</extracomment>
         <translation>Неможливо зробити знімок екрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1567"/>
+        <location filename="../tht.cpp" line="1570"/>
         <source>New points</source>
         <translation>Нові точки</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2148"/>
+        <location filename="../tht.cpp" line="2151"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <extracomment>Message displayed to the user in the April Fool&apos;s day. Preferably copy the translation from &quot;The Little Golden Calf&quot; by I.Ilf, E.Petrov, Chapter 10 &quot;A Telegram from the Brothers Karamazov&quot; (http://en.wikipedia.org/wiki/The_Little_Golden_Calf). If you don&apos;t have the book or its online translation then translate as usual</extracomment>
         <translation>Всі величезні сучасні багатства нажито&lt;br&gt;найбезчеснішим засобом.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2150"/>
+        <location filename="../tht.cpp" line="2153"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <extracomment>See http://en.wikipedia.org/wiki/The_Little_Golden_Calf</extracomment>
         <translation>&quot;Золоте Теля&quot; І.Ільф, Є.Петров</translation>
@@ -891,9 +891,9 @@ right/middle mouse button to cancel.</source>
         <translation>Тільки США</translation>
     </message>
     <message>
-        <location filename="../tickerneighbors.cpp" line="51"/>
-        <location filename="../tickerneighbors.cpp" line="55"/>
-        <location filename="../tickerneighbors.cpp" line="276"/>
+        <location filename="../tickerneighbors.cpp" line="52"/>
+        <location filename="../tickerneighbors.cpp" line="56"/>
+        <location filename="../tickerneighbors.cpp" line="277"/>
         <source>Copy</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Копіювати</translation>

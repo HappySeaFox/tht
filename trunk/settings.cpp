@@ -144,7 +144,6 @@ Settings::Settings()
         qDebug("Cannot create a directory for mutable database");
 
     // default values
-    d->defaultValues.insert(SETTING_ELLIPSE_FILL_COLOR, QColor(0, 255, 0, 50));
     d->defaultValues.insert(SETTING_RESTORE_NEIGHBORS_AT_STARTUP, true);
     d->defaultValues.insert(SETTING_LIST_BUTTONS, true);
     d->defaultValues.insert(SETTING_LIST_HEADER, true);
@@ -153,7 +152,6 @@ Settings::Settings()
     d->defaultValues.insert(SETTING_GLOBAL_HOTKEY_SCREENSHOT, true);
     d->defaultValues.insert(SETTING_GLOBAL_HOTKEY_RESTORE, true);
     d->defaultValues.insert(SETTING_POSITION, Tools::invalidQPoint);
-    d->defaultValues.insert(SETTING_NEIGHBORS_POSITION, Tools::invalidQPoint);
 }
 
 Settings::~Settings()
