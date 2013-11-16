@@ -19,6 +19,7 @@
 #include <QMetaType>
 #include <QtGlobal>
 #include <QLayout>
+#include <QTimer>
 #include <QHash>
 #include <QIcon>
 #include <QDir>
@@ -75,6 +76,8 @@ ChatPlugin::ChatPlugin() :
     }
     else
         QXmppLogger::getLogger()->setLoggingType(QXmppLogger::NoLogging);
+
+    QTimer::singleShot(0, this, SLOT(slotDelayedInit()));
 }
 
 ChatPlugin::~ChatPlugin()
@@ -101,7 +104,7 @@ bool ChatPlugin::init()
     return true;
 }
 
-void ChatPlugin::delayedInit()
+void ChatPlugin::slotDelayedInit()
 {
     QWidget *c = containerLeft();
 

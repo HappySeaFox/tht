@@ -94,13 +94,6 @@ protected:
 signals:
     void openTicker(const QString &);
 
-protected slots:
-    /*
-     *  Delayed initialization. This slot is optional, you can
-     *  not implement it
-     */
-    virtual void delayedInit();
-
 private:
     PluginPrivate *d;
 };
