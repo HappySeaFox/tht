@@ -117,7 +117,7 @@ void RegionSelect::drawBackGround()
     QString txtTip = ki == UseKeyboard
             //: Appeal to the user
             ? tr("Using the mouse, select the rectangle, or click\nany button or right/middle mouse button to cancel.")
-              //: Appeal to the user
+            //: Appeal to the user
             : tr("Using the mouse, select the rectangle, or click\nright/middle mouse button to cancel.");
 
     txtRect.setHeight(qRound((double)txtRect.height() / 10)); // rounded val of text rect height
