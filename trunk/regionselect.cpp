@@ -116,7 +116,7 @@ void RegionSelect::drawBackGround()
     QRect txtRect = QApplication::desktop()->screenGeometry(QApplication::desktop()->primaryScreen());
     QString txtTip = ki == UseKeyboard
             //: Appeal to the user
-            ? tr("Using the mouse, select the rectangle, or click\nany button or right/middle mouse button to cancel.")
+            ? tr("Using the mouse, select the rectangle, or click\nany keyboard button or right/middle mouse button to cancel.")
             //: Appeal to the user
             : tr("Using the mouse, select the rectangle, or click\nright/middle mouse button to cancel.");
 

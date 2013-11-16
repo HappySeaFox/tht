@@ -575,7 +575,7 @@
     <message>
         <location filename="../regionselect.cpp" line="119"/>
         <source>Using the mouse, select the rectangle, or click
-any button or right/middle mouse button to cancel.</source>
+any keyboard button or right/middle mouse button to cancel.</source>
         <extracomment>Appeal to the user</extracomment>
         <translation>Выделите прямоугольник с помощью мыши, или нажмите
 любую клавишу или правую/среднюю кнопку мыши чтобы отменить.</translation>

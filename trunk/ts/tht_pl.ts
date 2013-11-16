@@ -575,16 +575,18 @@
     <message>
         <location filename="../regionselect.cpp" line="119"/>
         <source>Using the mouse, select the rectangle, or click
-any button or right/middle mouse button to cancel.</source>
+any keyboard button or right/middle mouse button to cancel.</source>
         <extracomment>Appeal to the user</extracomment>
-        <translation>Za pomocą myszy zaznacz prostokąt albo kliknij dowolny lub prawy/środkowy przycisk myszy, aby anulować.</translation>
+        <translation>Za pomocą myszy zaznacz prostokąt albo kliknij
+dowolny lub prawy/środkowy przycisk myszy, aby anulować.</translation>
     </message>
     <message>
         <location filename="../regionselect.cpp" line="121"/>
         <source>Using the mouse, select the rectangle, or click
 right/middle mouse button to cancel.</source>
         <extracomment>Appeal to the user</extracomment>
-        <translation>Za pomocą myszy zaznacz prostokąt lub kliknij prawy/środkowy przycisk myszy, aby anulować.</translation>
+        <translation>Za pomocą myszy zaznacz prostokąt lub kliknij
+prawy/środkowy przycisk myszy, aby anulować.</translation>
     </message>
 </context>
 <context>
