@@ -34,6 +34,8 @@ FomcPlugin::FomcPlugin() :
     m_label(0)
 {
     THT_PLUGIN_INTERFACE_IMPLEMENTATION
+
+    QTimer::singleShot(0, this, SLOT(slotDelayedInit()));
 }
 
 FomcPlugin::~FomcPlugin()
@@ -90,7 +92,7 @@ bool FomcPlugin::init()
     return true;
 }
 
-void FomcPlugin::delayedInit()
+void FomcPlugin::slotDelayedInit()
 {
     QWidget *c = containerRight();
 

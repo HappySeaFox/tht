@@ -4,13 +4,13 @@
 <context>
     <name>FomcPlugin</name>
     <message>
-        <location filename="../fomcplugin.cpp" line="56"/>
+        <location filename="../fomcplugin.cpp" line="58"/>
         <source>News from FOMC is today (click to open)</source>
         <extracomment>Message displayed to the user. FOMC - Federal Open Market Committee. It&apos;s ok not to translate &quot;FOMC&quot; (e.g. you can just copy-paste &quot;FOMC&quot; to your translation)</extracomment>
         <translation>Nachrichten von FOMC sind heute (mit Klick öffnen)</translation>
     </message>
     <message>
-        <location filename="../fomcplugin.cpp" line="58"/>
+        <location filename="../fomcplugin.cpp" line="60"/>
         <source>FOMC</source>
         <extracomment>FOMC - Federal Open Market Committee. It&apos;s ok not to translate &quot;FOMC&quot; (e.g. you can just copy-paste &quot;FOMC&quot; to your translation)</extracomment>
         <translation>FOMC</translation>

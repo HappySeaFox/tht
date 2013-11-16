@@ -17,7 +17,6 @@
 
 #include <QApplication>
 #include <QWidget>
-#include <QTimer>
 
 #include "plugin.h"
 
@@ -33,8 +32,6 @@ public:
 Plugin::Plugin() : QObject()
 {
     d = new PluginPrivate;
-
-    QTimer::singleShot(0, this, SLOT(delayedInit()));
 }
 
 Plugin::~Plugin()
@@ -97,6 +94,3 @@ QWidget *Plugin::containerRight() const
 
     return c;
 }
-
-void Plugin::delayedInit()
-{}

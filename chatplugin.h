@@ -39,10 +39,8 @@ public:
         return Common;
     }
 
-protected slots:
-    virtual void delayedInit();
-
 private slots:
+    void slotDelayedInit();
     void slotClicked();
 
 private:
