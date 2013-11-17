@@ -568,7 +568,7 @@ void ChatWindow::slotOptions()
 
 void ChatWindow::slotHelp()
 {
-    //: Don't translate "Gold" - this is a fixed industry name (e.g. copy-paste "Gold" to your translation). Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow "ticker" from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)
+    //: Don't translate "Gold" - this is a fixed industry name (e.g. copy-paste "Gold" to your translation). "AMEX" is the name of the New York stock exchange. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow "ticker" from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)
     QString showTickersString = tr("Show the AMEX tickers from the industry \"Gold\"");
 
     QMessageBox::information(this,
