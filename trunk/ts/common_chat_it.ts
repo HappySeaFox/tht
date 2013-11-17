@@ -515,7 +515,7 @@
     <message>
         <location filename="../chatwindow.cpp" line="572"/>
         <source>Show the AMEX tickers from the industry &quot;Gold&quot;</source>
-        <extracomment>Don&apos;t translate &quot;Gold&quot; - this is a fixed industry name (e.g. copy-paste &quot;Gold&quot; to your translation). Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
+        <extracomment>Don&apos;t translate &quot;Gold&quot; - this is a fixed industry name (e.g. copy-paste &quot;Gold&quot; to your translation). &quot;AMEX&quot; is the name of the New York stock exchange. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Mostra i ticker AMEX delle industrie &quot;Gold&quot;</translation>
     </message>
 </context>
