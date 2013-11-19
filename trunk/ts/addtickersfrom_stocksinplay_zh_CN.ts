@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="zh_CN">
+<TS version="2.0" language="zh">
 <context>
     <name>QObject</name>
     <message>
         <location filename="../stocksinplaytools.h" line="43"/>
         <source>Add from Stocks In Play</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Stocks In Play - Stock Screener, http://stocksinplay.ru. It&apos;s ok not to translate &quot;Stocks In Play&quot; (e.g. you can just copy-paste &quot;Stocks In Play&quot; to your translation)</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>从 Stocks In Play 添加</translation>
     </message>
     <message>
         <location filename="../stocksinplaytools.h" line="50"/>
         <source>Stocks In Play</source>
         <extracomment>Stocks In Play - Stock Screener, http://stocksinplay.ru. It&apos;s ok not to translate &quot;Stocks In Play&quot; (e.g. you can just copy-paste &quot;Stocks In Play&quot; to your translation)</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Stocks In Play</translation>
     </message>
 </context>
 <context>
@@ -22,30 +22,30 @@
         <location filename="../stocksinplayaccesssetup.ui" line="14"/>
         <source>Stocks In Play access setup</source>
         <extracomment>Window title. Stocks In Play - Stock Screener, http://stocksinplay.ru. It&apos;s ok not to translate &quot;Stocks In Play&quot; (e.g. you can just copy-paste &quot;Stocks In Play&quot; to your translation). Means &quot;Configuring access to your Stocks In Play account&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Stocks In Play 访问设置</translation>
     </message>
     <message>
         <location filename="../stocksinplayaccesssetup.ui" line="22"/>
         <source>ID:</source>
-        <translation type="unfinished"></translation>
+        <translation>账号：</translation>
     </message>
     <message>
         <location filename="../stocksinplayaccesssetup.ui" line="35"/>
         <source>Hash:</source>
         <extracomment>Means &quot;Hash key&quot; as in computing</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../stocksinplayaccesssetup.ui" line="72"/>
-        <source>If you have a premium Stocks In Play account, you can enter your account information for access to the premium features</source>
-        <extracomment>Stocks In Play - Stock Screener, http://stocksinplay.ru. It&apos;s ok not to translate &quot;Stocks In Play&quot; (e.g. you can just copy-paste &quot;Stocks In Play&quot; to your translation)</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>井号键：</translation>
     </message>
     <message>
         <location filename="../stocksinplayaccesssetup.ui" line="99"/>
         <source>Fill in...</source>
         <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>填写...</translation>
+    </message>
+    <message>
+        <location filename="../stocksinplayaccesssetup.ui" line="72"/>
+        <source>If you have a premium Stocks In Play account, you can enter your account information for access to the premium features</source>
+        <extracomment>Stocks In Play - Stock Screener, http://stocksinplay.ru. It&apos;s ok not to translate &quot;Stocks In Play&quot; (e.g. you can just copy-paste &quot;Stocks In Play&quot; to your translation)</extracomment>
+        <translation>如果您拥有 Stocks In Play 高级账号，您可输入您的账号信息以使用高级特性</translation>
     </message>
 </context>
 <context>
@@ -54,18 +54,18 @@
         <location filename="../stocksinplaycredentials.ui" line="14"/>
         <source>Credentials</source>
         <extracomment>Means &quot;Login and password to access the website&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>凭证</translation>
     </message>
     <message>
         <location filename="../stocksinplaycredentials.ui" line="20"/>
         <source>Login:</source>
         <extracomment>Noun. Means &quot;Login name&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>登录：</translation>
     </message>
     <message>
         <location filename="../stocksinplaycredentials.ui" line="33"/>
         <source>Password:</source>
-        <translation type="unfinished"></translation>
+        <translation>密码：</translation>
     </message>
 </context>
 <context>
@@ -73,12 +73,12 @@
     <message>
         <location filename="../stocksinplaylogin.cpp" line="30"/>
         <source>Accessing...</source>
-        <translation type="unfinished"></translation>
+        <translation>正在访问...</translation>
     </message>
     <message>
         <location filename="../stocksinplaylogin.cpp" line="55"/>
         <source>Failed to get account details</source>
-        <translation type="unfinished"></translation>
+        <translation>无法获得账号详情</translation>
     </message>
 </context>
 <context>
@@ -87,19 +87,19 @@
         <location filename="../stocksinplayurlmanager.cpp" line="31"/>
         <source>Stocks In Play links</source>
         <extracomment>Stocks In Play - Stock Screener, http://stocksinplay.ru. It&apos;s ok not to translate &quot;Stocks In Play&quot; (e.g. you can just copy-paste &quot;Stocks In Play&quot; to your translation). Means &quot;Links to Stocks In Play&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Stocks In Play 链接</translation>
     </message>
     <message>
         <location filename="../stocksinplayurlmanager.cpp" line="38"/>
         <source>Hash</source>
         <extracomment>Means &quot;Hash key&quot; as in computing</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>井号键</translation>
     </message>
     <message>
         <location filename="../stocksinplayurlmanager.cpp" line="51"/>
         <source>Access...</source>
         <extracomment>Noun</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>访问……</translation>
     </message>
 </context>
 </TS>
