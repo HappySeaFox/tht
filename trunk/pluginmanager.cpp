@@ -93,7 +93,7 @@ QString PluginManager::typeToString(int type)
 
 void PluginManager::slotCurrentItemChanged(QTreeWidgetItem *current)
 {
-    ui->pushDetails->setDisabled(current->childCount());
+    ui->pushDetails->setDisabled(!current || !current->data(0, Qt::UserRole).isValid());
 }
 
 void PluginManager::slotDetails()
