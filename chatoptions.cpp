@@ -45,7 +45,7 @@ void ChatOptions::saveSettings()
     SETTINGS_SET_BOOL(SETTING_CHAT_SAVE_ROOMS, ui->checkSaveRooms->isChecked(), Settings::NoSync);
     SETTINGS_SET_BOOL(SETTING_CHAT_AUTO_LOGIN_TO_ROOMS, ui->checkAutoLoginToRooms->isChecked(), Settings::NoSync);
     SETTINGS_SET_BOOL(SETTING_CHAT_RESTORE_AT_STARTUP, ui->checkRestoreChat->isChecked(), Settings::NoSync);
-    SETTINGS_SET_BOOL(SETTING_CHAT_SHOW_TIME, ui->checkTime->isChecked());
+    SETTINGS_SET_BOOL(SETTING_CHAT_SHOW_TIME, ui->checkTime->isChecked(), Settings::NoSync);
     SETTINGS_SET_INT(SETTING_CHAT_FONT_SIZE, ui->spinFontSize->value());
 }
 
