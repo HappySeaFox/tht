@@ -801,30 +801,30 @@ il pulsante destro/di centro del mouse per cancellare.</translation>
         <translation>THT continua a funzionare in un vassoio di sistema</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1005"/>
+        <location filename="../tht.cpp" line="1007"/>
         <source>Unknown</source>
         <extracomment>Means &quot;Unknown links&quot; (in the plural)</extracomment>
         <translation>Non validi</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1524"/>
+        <location filename="../tht.cpp" line="1526"/>
         <source>Cannot take screenshot</source>
         <extracomment>Message displayed to the user</extracomment>
         <translation>Impossibile fare lo screenshot</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1570"/>
+        <location filename="../tht.cpp" line="1572"/>
         <source>New points</source>
         <translation>Nuovi punti</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2151"/>
+        <location filename="../tht.cpp" line="2153"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <extracomment>Message displayed to the user in the April Fool&apos;s day. Preferably copy the translation from &quot;The Little Golden Calf&quot; by I.Ilf, E.Petrov, Chapter 10 &quot;A Telegram from the Brothers Karamazov&quot; (http://en.wikipedia.org/wiki/The_Little_Golden_Calf). If you don&apos;t have the book or its online translation then translate as usual</extracomment>
         <translation>Tutte le grandi ricchezze moderne sono state raggiunte&lt;br&gt;nel modo più disonorevole.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2153"/>
+        <location filename="../tht.cpp" line="2155"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <extracomment>See http://en.wikipedia.org/wiki/The_Little_Golden_Calf</extracomment>
         <translation>&quot;Il vitello d&apos;oro&quot; I.Ilf, E.Petrov</translation>

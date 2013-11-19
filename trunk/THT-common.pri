@@ -18,7 +18,7 @@ DEPENDPATH += .
 LANGUAGES=de en fr it pl ru uk vi zh_CN
 
 CONFIG += warn_on
-QMAKE_CXXFLAGS_WARN_ON *= -Wextra -Wno-missing-field-initializers
+QMAKE_CXXFLAGS_WARN_ON *= -Wextra
 
 VERSION=$$sprintf("%1.%2.%3", $$NVER1, $$NVER2, $$NVER3)
 
