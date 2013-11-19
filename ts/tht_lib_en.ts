@@ -29,12 +29,6 @@
         <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <location filename="../networkaccessdialog.cpp" line="154"/>
-        <source>Network error #%1</source>
-        <extracomment>%1 will be replaced with the error code by the application. It will look like &quot;Network error #16&quot;</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -83,6 +77,12 @@
         <location filename="../tools.cpp" line="206"/>
         <source>OK</source>
         <extracomment>This is the label on a button</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../tools.cpp" line="212"/>
+        <source>Network error #%1</source>
+        <extracomment>%1 will be replaced with the error code by the application. It will look like &quot;Network error #16&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>

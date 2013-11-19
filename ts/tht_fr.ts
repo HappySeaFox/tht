@@ -902,12 +902,6 @@ sur le bouton central/droit de la souris pour annuler.</translation>
 <context>
     <name>UpdateChecker</name>
     <message>
-        <location filename="../updatechecker.cpp" line="50"/>
-        <source>Network error #%1</source>
-        <extracomment>%1 will be replaced with the error code by the application. It will look like &quot;Network error #16&quot;</extracomment>
-        <translation>Erreur de réseau #%1</translation>
-    </message>
-    <message>
         <location filename="../updatechecker.cpp" line="59"/>
         <source>Server answer is broken</source>
         <translation>La réponse du serveur est rompue</translation>

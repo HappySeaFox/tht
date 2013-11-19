@@ -104,6 +104,11 @@ public:
     static QString oKTitle();
 
     /*
+     *  Returns translated version of "Network error #%1"
+     */
+    static QString networkErrorTitle();
+
+    /*
      *  Cell address validator
      */
     static QRegExp cellValidator();
