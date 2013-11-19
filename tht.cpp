@@ -594,8 +594,10 @@ void THT::wheelEvent(QWheelEvent *e)
 
 void THT::sendKey(int key, bool extended)
 {
-    KEYBDINPUT kbInput = {0};
-    INPUT input[4] = {{0}, {0}, {0}, {0}};
+    KEYBDINPUT kbInput = {0, 0, 0, 0, 0};
+    INPUT input[4];
+
+    memset(input, 0, sizeof(input));
 
     int nelem = 2;
     int index = 0;
@@ -854,7 +856,7 @@ void THT::checkWindow(Link *link)
 
 THT::Link THT::checkTargetWindow(const QPoint &p, bool allowThisWindow)
 {
-    POINT pnt = {0};
+    POINT pnt = {0, 0};
 
     pnt.x = p.x();
     pnt.y = p.y();
@@ -2044,7 +2046,7 @@ void THT::targetDropped(const QPoint &p, MasterSettings master, const QByteArray
 
 void THT::slotTargetMoving(const QPoint &pt)
 {
-    POINT pnt = {0};
+    POINT pnt = {0, 0};
 
     pnt.x = pt.x();
     pnt.y = pt.y();
