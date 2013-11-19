@@ -4,7 +4,6 @@ Trader's Home Task
 Author: Dmitry Baryshev <linuxsquirrel.dev@gmail.com>
 License: GPLv3+ (see LICENSE.txt),
          Qxt parts are under LGPL 2.1 (see LICENSE-LGPL-2.1.txt) or CPL 1.0,
-         ColorPicker is under GPLv3,
          THT-lib is under LGPL v3+ (see LICENSE-LGPL-3.txt),
          QtDropbox is under LGPL v3 (see LICENSE-LGPL-3.txt),
          QXMPP is under LGPL v2.1+ (see LICENSE-LGPL-2.1.txt)
