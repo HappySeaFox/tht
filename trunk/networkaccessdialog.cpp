@@ -23,6 +23,7 @@
 
 #include "networkaccessdialog.h"
 #include "networkaccess.h"
+#include "tools.h"
 #include "ui_networkaccessdialog.h"
 
 class NetworkAccessDialogPrivate
@@ -150,8 +151,7 @@ void NetworkAccessDialog::slotFinished()
 {
     if(d->net->error() != QNetworkReply::NoError)
     {
-        //: %1 will be replaced with the error code by the application. It will look like "Network error #16"
-        showError(tr("Network error #%1").arg(d->net->error()));
+        showError(Tools::networkErrorTitle().arg(d->net->error()));
         return;
     }
 

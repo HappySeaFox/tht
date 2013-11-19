@@ -902,12 +902,6 @@ chuột phải/chuột giữa để hủy bỏ.</translation>
 <context>
     <name>UpdateChecker</name>
     <message>
-        <location filename="../updatechecker.cpp" line="50"/>
-        <source>Network error #%1</source>
-        <extracomment>%1 will be replaced with the error code by the application. It will look like &quot;Network error #16&quot;</extracomment>
-        <translation>Lỗi mạng #%1</translation>
-    </message>
-    <message>
         <location filename="../updatechecker.cpp" line="59"/>
         <source>Server answer is broken</source>
         <translation>Phản hồi từ máy chủ hiện đã bị hỏng</translation>

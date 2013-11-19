@@ -22,6 +22,7 @@
 
 #include "networkaccess.h"
 #include "updatechecker.h"
+#include "tools.h"
 
 UpdateChecker::UpdateChecker(QObject *parent) :
     QObject(parent)
@@ -46,8 +47,7 @@ void UpdateChecker::slotFinished()
 {
     if(m_net->error() != QNetworkReply::NoError)
     {
-        //: %1 will be replaced with the error code by the application. It will look like "Network error #16"
-        emit error(tr("Network error #%1").arg(m_net->error()));
+        emit error(Tools::networkErrorTitle().arg(m_net->error()));
         return;
     }
 

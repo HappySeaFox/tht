@@ -206,6 +206,12 @@ QString Tools::oKTitle()
     return QObject::tr("OK");
 }
 
+QString Tools::networkErrorTitle()
+{
+    //: %1 will be replaced with the error code by the application. It will look like "Network error #16"
+    return QObject::tr("Network error #%1");
+}
+
 QRegExp Tools::cellValidator()
 {
     static QRegExp rx("([a-zA-Z]+)([0-9]+)");
