@@ -27,6 +27,7 @@
 #include "QXmppMessage.h"
 #include "QXmppClient.h"
 
+#include "chattools.h"
 #include "settings.h"
 #include "tools.h"
 
@@ -36,6 +37,8 @@ SendInvitations::SendInvitations(QXmppMucRoom *room, QXmppClient *client, QWidge
     m_room(room),
     m_xmppClient(client)
 {
+    setWindowTitle(ChatTools::sendInvitationsTitle());
+
     ui->setupUi(this);
 
     if(!SETTINGS_GET_BOOL(SETTING_CHAT_INVITATIONS_NOTE_SEEN))

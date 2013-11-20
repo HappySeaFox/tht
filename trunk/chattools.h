@@ -51,6 +51,8 @@ public:
 
     static QString chatTitle();
 
+    static QString sendInvitationsTitle();
+
 private:
     ChatTools();
 
@@ -99,6 +101,13 @@ QString ChatTools::chatTitle()
 {
     //: Noun. Window title
     return QObject::tr("Chat");
+}
+
+inline
+QString ChatTools::sendInvitationsTitle()
+{
+    //: This is the label on a menu item that user clicks to issue the command. Means "Send invitations to the selected users"
+    return QObject::tr("Send invitations");
 }
 
 #endif // CHATTOOLS_H
