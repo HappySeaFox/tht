@@ -30,6 +30,8 @@ public:
 
     static QString exportTickersTitle();
 
+    static QString aboutThtTitle();
+
 private:
     THTTools();
 };
@@ -53,6 +55,13 @@ QString THTTools::exportTickersTitle()
 {
     //: This is the label on a button that user pushes to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow "ticker" from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)
     return QObject::tr("Export tickers");
+}
+
+inline
+QString THTTools::aboutThtTitle()
+{
+    //: "THT" is the name of the application
+    return QObject::tr("About THT");
 }
 
 #endif // THTTOOLS_H

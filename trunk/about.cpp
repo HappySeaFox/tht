@@ -22,6 +22,7 @@
 
 #include "updatechecker.h"
 #include "settings.h"
+#include "thttools.h"
 #include "tools.h"
 #include "about.h"
 
@@ -32,6 +33,8 @@ About::About(QWidget *parent) :
     ui(new Ui::About),
     m_showExt(true)
 {
+    setWindowTitle(THTTools::aboutThtTitle());
+
     ui->setupUi(this);
 
     ui->pushOk->setText(Tools::oKTitle());
