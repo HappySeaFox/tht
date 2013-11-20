@@ -113,8 +113,7 @@ ChatPage::ChatPage(QXmppClient *client,
 
     //: This is the label on a menu item that user clicks to issue the command. Means "Copy the JID of the room to the clipboard". JID is a Jabber Identifier, http://en.wikipedia.org/wiki/XMPP#Decentralization_and_addressing . It's ok not to translate "JID", e.g. you can just copy-paste "JID" to your translation
     m_roomMenu->addAction(tr("Copy room JID"), this, SLOT(slotCopyRoomJid()));
-    //: This is the label on a menu item that user clicks to issue the command. Means "Send invitations to the selected users"
-    m_roomMenu->addAction(tr("Send invitations") + "...", this, SLOT(slotSendInvitations()));
+    m_roomMenu->addAction(ChatTools::sendInvitationsTitle() + "...", this, SLOT(slotSendInvitations()));
     m_roomMenu->addSeparator();
     m_roomMenu->addAction(m_configureRoom);
 
