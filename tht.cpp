@@ -267,8 +267,7 @@ THT::THT() :
 
     m_menu->addSeparator();
     m_menu->addAction(icon_chart,
-                      //: "THT" is the name of the application
-                      tr("About THT")
+                      THTTools::aboutThtTitle()
                       + "...\t"
                       + help_shortcut->key().toString(),
                       this,
@@ -333,7 +332,7 @@ THT::THT() :
     trayMenu->addAction(tr("Restore"), this, SLOT(activate()));
     trayMenu->addAction(icon_screenshot, tr("Take screenshot..."), this, SLOT(slotTakeScreenshot()));
     trayMenu->addSeparator();
-    trayMenu->addAction(tr("About THT"), this, SLOT(slotAbout()));
+    trayMenu->addAction(THTTools::aboutThtTitle(), this, SLOT(slotAbout()));
     trayMenu->addSeparator();
     trayMenu->addAction(icon_quit, tr("Quit"), qApp, SLOT(quit()));
 

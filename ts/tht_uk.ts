@@ -4,81 +4,75 @@
 <context>
     <name>About</name>
     <message>
-        <location filename="../about.cpp" line="117"/>
+        <location filename="../about.cpp" line="120"/>
         <source>Update available</source>
         <extracomment>Means &quot;A new version of THT is availabe at the website&quot;</extracomment>
         <translation>Доступно оновлення</translation>
     </message>
     <message>
-        <location filename="../about.ui" line="14"/>
-        <source>About THT</source>
-        <extracomment>&quot;THT&quot; is the name of the application</extracomment>
-        <translation>Про THT</translation>
-    </message>
-    <message>
-        <location filename="../about.ui" line="96"/>
+        <location filename="../about.ui" line="93"/>
         <source>THT helps you do your trading home task. It can link different trading platforms and charts, and manage lists of tickers. Send your requests and report errors to our bug tracker. Also visit:</source>
         <extracomment>&quot;THT&quot; is the name of the application. The URL to visit will be added in runtime. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>THT допомагає вам робити вашу домашню роботу в трейдингу. Вона може лінковані різні торгові платформи та графіки, і керувати списками тікерів. Всі побажання та звіти про помилки надсилайте на наш багтрекер. Також відвідаєте:</translation>
     </message>
     <message>
-        <location filename="../about.ui" line="177"/>
+        <location filename="../about.ui" line="174"/>
         <source>THT is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</source>
         <extracomment>See https://www.gnu.org/licenses/gpl-2.0.txt . &quot;THT&quot; is the name of the application</extracomment>
         <translation>THT поширюється в надії, що вона буде корисною, але БЕЗ БУДЬ-ЯКИХ ГАРАНТІЙ, навіть без гарантій КОМЕРЦІЙНОЇ ЦІННОСТІ чи ПРИДАТНОСТІ ДЛЯ КОНКРЕТНИХ ЦІЛЕЙ.</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="43"/>
+        <location filename="../about.cpp" line="46"/>
         <source>Dmitry Baryshev</source>
         <translation>Дмитро Баришев</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="47"/>
+        <location filename="../about.cpp" line="50"/>
         <source>Documentation</source>
         <translation>Документація</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="50"/>
+        <location filename="../about.cpp" line="53"/>
         <source>Downloads</source>
         <extracomment>Noun in the plural</extracomment>
         <translation>Завантаження</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="52"/>
+        <location filename="../about.cpp" line="55"/>
         <source>Translations</source>
         <translation>Переклади</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="54"/>
+        <location filename="../about.cpp" line="57"/>
         <source>Youtube</source>
         <translation>Youtube</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="73"/>
+        <location filename="../about.cpp" line="76"/>
         <source>Persistent database</source>
         <extracomment>Means &quot;Fixed database on the hard drive&quot;</extracomment>
         <translation>Постійна база</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="76"/>
+        <location filename="../about.cpp" line="79"/>
         <source>Downloadable database</source>
         <extracomment>Means &quot;Database which is downloaded from the website&quot;</extracomment>
         <translation>Викачувана база</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="126"/>
+        <location filename="../about.cpp" line="129"/>
         <source>THT is up to date</source>
         <extracomment>&quot;THT&quot; is the name of the application. THT will check for updates and show this message when there are no new version available</extracomment>
         <translation>Маєте найновішу версію THT</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="139"/>
+        <location filename="../about.cpp" line="142"/>
         <source>Cannot check for updates (%1)</source>
         <extracomment>%1 will be replaced with the error code by the application. It will look like &quot;Cannot check for updates (Server is unavailable)&quot;</extracomment>
         <translation>Неможливо перевірити оновлення (%1)</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="154"/>
+        <location filename="../about.cpp" line="157"/>
         <source>Checking for updates...</source>
         <translation>Перевірка оновлень...</translation>
     </message>
@@ -552,22 +546,28 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../thttools.h" line="41"/>
+        <location filename="../thttools.h" line="43"/>
         <source>Points of connection</source>
         <extracomment>Noun in the plural</extracomment>
         <translation>Точки лінковки</translation>
     </message>
     <message>
-        <location filename="../thttools.h" line="48"/>
+        <location filename="../thttools.h" line="50"/>
         <source>Add tickers</source>
         <extracomment>This is the label on a button that user pushes to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Додати тікери</translation>
     </message>
     <message>
-        <location filename="../thttools.h" line="55"/>
+        <location filename="../thttools.h" line="57"/>
         <source>Export tickers</source>
         <extracomment>This is the label on a button that user pushes to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Експортувати тікери</translation>
+    </message>
+    <message>
+        <location filename="../thttools.h" line="64"/>
+        <source>About THT</source>
+        <extracomment>&quot;THT&quot; is the name of the application</extracomment>
+        <translation>Про THT</translation>
     </message>
 </context>
 <context>
@@ -736,7 +736,7 @@ right/middle mouse button to cancel.</source>
     </message>
     <message>
         <location filename="../tht.cpp" line="255"/>
-        <location filename="../tht.cpp" line="334"/>
+        <location filename="../tht.cpp" line="333"/>
         <source>Take screenshot...</source>
         <translation>Знімок екрану...</translation>
     </message>
@@ -760,71 +760,64 @@ right/middle mouse button to cancel.</source>
         <translation>Завантажити тікер</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="271"/>
-        <location filename="../tht.cpp" line="336"/>
-        <source>About THT</source>
-        <extracomment>&quot;THT&quot; is the name of the application</extracomment>
-        <translation>Про THT</translation>
-    </message>
-    <message>
-        <location filename="../tht.cpp" line="277"/>
+        <location filename="../tht.cpp" line="276"/>
         <source>About Qt...</source>
         <extracomment>Qt is a C++ crossplatform toolkit http://qt-project.org</extracomment>
         <translation>Про Qt...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="278"/>
+        <location filename="../tht.cpp" line="277"/>
         <source>Plugins...</source>
         <translation>Плагіни...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="280"/>
-        <location filename="../tht.cpp" line="338"/>
+        <location filename="../tht.cpp" line="279"/>
+        <location filename="../tht.cpp" line="337"/>
         <source>Quit</source>
         <translation>Вихід</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="333"/>
+        <location filename="../tht.cpp" line="332"/>
         <source>Restore</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Restore the application window from the system tray&quot;</extracomment>
         <translation>Відновити</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="479"/>
+        <location filename="../tht.cpp" line="478"/>
         <source>Notice</source>
         <translation>Замітка</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="481"/>
+        <location filename="../tht.cpp" line="480"/>
         <source>THT will continue to run in a system tray</source>
         <extracomment>&quot;THT&quot; is the name of the application. Tray is a panel with small icons, usually in a right bottom corner, NOT taskbar</extracomment>
         <translation>ТНТ продовжить роботу в системному лотку</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1007"/>
+        <location filename="../tht.cpp" line="1006"/>
         <source>Unknown</source>
         <extracomment>Means &quot;Unknown links&quot; (in the plural)</extracomment>
         <translation>Невідомі</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1526"/>
+        <location filename="../tht.cpp" line="1525"/>
         <source>Cannot take screenshot</source>
         <extracomment>Message displayed to the user</extracomment>
         <translation>Неможливо зробити знімок екрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1572"/>
+        <location filename="../tht.cpp" line="1571"/>
         <source>New points</source>
         <translation>Нові точки</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2153"/>
+        <location filename="../tht.cpp" line="2152"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <extracomment>Message displayed to the user in the April Fool&apos;s day. Preferably copy the translation from &quot;The Little Golden Calf&quot; by I.Ilf, E.Petrov, Chapter 10 &quot;A Telegram from the Brothers Karamazov&quot; (http://en.wikipedia.org/wiki/The_Little_Golden_Calf). If you don&apos;t have the book or its online translation then translate as usual</extracomment>
         <translation>Всі величезні сучасні багатства нажито&lt;br&gt;найбезчеснішим засобом.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2155"/>
+        <location filename="../tht.cpp" line="2154"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <extracomment>See http://en.wikipedia.org/wiki/The_Little_Golden_Calf</extracomment>
         <translation>&quot;Золоте Теля&quot; І.Ільф, Є.Петров</translation>
