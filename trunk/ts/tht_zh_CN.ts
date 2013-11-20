@@ -285,7 +285,7 @@
         <location filename="../list.cpp" line="123"/>
         <source>Add from file...</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
-        <translation>从...文件添加</translation>
+        <translation>从文件添加...</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="125"/>
