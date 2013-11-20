@@ -32,7 +32,7 @@
     <message>
         <location filename="../stocksinplayaccesssetup.ui" line="35"/>
         <source>Hash:</source>
-        <extracomment>Means &quot;Hash key&quot; as in computing</extracomment>
+        <extracomment>Means &quot;Hash key&quot; as in computer science</extracomment>
         <translation>Mã hash:</translation>
     </message>
     <message>
@@ -92,7 +92,7 @@
     <message>
         <location filename="../stocksinplayurlmanager.cpp" line="38"/>
         <source>Hash</source>
-        <extracomment>Means &quot;Hash key&quot; as in computing</extracomment>
+        <extracomment>Means &quot;Hash key&quot; as in computer science</extracomment>
         <translation>Mã hash</translation>
     </message>
     <message>

@@ -34,7 +34,7 @@ StocksInPlayUrlManager::StocksInPlayUrlManager(QWidget *parent) :
 
     QTreeWidget *t = tree();
 
-    //: Means "Hash key" as in computing
+    //: Means "Hash key" as in computer science
     t->headerItem()->setText(1, tr("Hash"));
     t->setWhatsThis(QString("<a href=\"http://www.youtube.com/watch?v=Daoa0Xftp7M\">%1</a>").arg(Tools::openYoutubeTutorialTitle()));
 
