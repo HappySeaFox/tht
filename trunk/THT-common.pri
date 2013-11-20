@@ -8,8 +8,8 @@ isEmpty(TARGET) {
 
 greaterThan(QT_MAJOR_VERSION, 4): QT *= widgets
 
-INCLUDEPATH += .
-DEPENDPATH += .
+INCLUDEPATH += . qxt
+DEPENDPATH += . qxt
 
 #QMAKE_CXXFLAGS += -flto
 #QMAKE_LFLAGS += -flto
