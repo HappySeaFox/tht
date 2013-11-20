@@ -2,9 +2,6 @@ TARGET = THT-lib
 TARGET_EXT = .dll
 TEMPLATE = lib
 
-INCLUDEPATH += qxt
-DEPENDPATH += qxt
-
 QT += core gui network sql
 
 SOURCES += datamanagerbase.cpp \

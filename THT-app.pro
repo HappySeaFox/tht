@@ -3,8 +3,8 @@ TEMPLATE = app
 
 QT += core gui network xml
 
-INCLUDEPATH += qtsingleapplication qxt qtdropbox
-DEPENDPATH += qtsingleapplication qxt qtdropbox
+INCLUDEPATH += qtsingleapplication qtdropbox
+DEPENDPATH += qtsingleapplication qtdropbox
 
 SOURCES += main.cpp\
     tht.cpp \
