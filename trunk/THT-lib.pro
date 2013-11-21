@@ -21,6 +21,8 @@ SOURCES += datamanagerbase.cpp \
     noeditordelegate.cpp \
     clickablelabel.cpp \
     networkaccessdialog.cpp \
+    tickerinformationtooltip.cpp \
+    tickerinformationfetcher.cpp \
     simplecrypt.cpp
 
 HEADERS += datamanagerbase.h \
@@ -40,6 +42,8 @@ HEADERS += datamanagerbase.h \
     noeditordelegate.h \
     clickablelabel.h \
     networkaccessdialog.h \
+    tickerinformationtooltip.h \
+    tickerinformationfetcher.h \
     simplecrypt.h
 
 FORMS += datamanagerbase.ui \

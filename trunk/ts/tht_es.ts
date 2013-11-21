@@ -841,15 +841,6 @@ en el botón derecho/central del ratón para cancelar.</translation>
     </message>
 </context>
 <context>
-    <name>TickerInformationToolTipLabel</name>
-    <message>
-        <location filename="../tickerinformationtooltip.cpp" line="183"/>
-        <source>Not found</source>
-        <extracomment>In the neuter, means &quot;Something is not found&quot;</extracomment>
-        <translation>No encontrado</translation>
-    </message>
-</context>
-<context>
     <name>TickerInput</name>
     <message>
         <location filename="../tickerinput.ui" line="14"/>
