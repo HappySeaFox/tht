@@ -38,11 +38,10 @@ PluginLoader* PluginLoader::instance()
 
 PluginLoader::PluginLoader(QObject *parent) : QObject(parent)
 {
-    QDir pluginsDir(QCoreApplication::applicationDirPath() + QDir::separator() + "plugins");
-
-    QFileInfoList plugins = pluginsDir.entryInfoList(QStringList() << "*.dll",
-                                                     QDir::Files | QDir::NoDotAndDotDot | QDir::Readable,
-                                                     QDir::Name);
+    const QFileInfoList plugins = QDir(QCoreApplication::applicationDirPath() + QDir::separator() + "plugins")
+                                    .entryInfoList(QStringList() << "*.dll",
+                                                   QDir::Files | QDir::NoDotAndDotDot | QDir::Readable,
+                                                   QDir::Name);
 
     QHash<QString, QStringList> deprecatedUuids;
 
@@ -130,8 +129,8 @@ PluginLoader::~PluginLoader()
 
 void PluginLoader::init()
 {
-    QString ts = qApp->property("tht-translation").toString();
-    QString tsDir = QCoreApplication::applicationDirPath() + QDir::separator() + "translations";
+    const QString ts = qApp->property("tht-translation").toString();
+    const QString tsDir = QCoreApplication::applicationDirPath() + QDir::separator() + "translations";
 
     iterator itEnd = end();
 
