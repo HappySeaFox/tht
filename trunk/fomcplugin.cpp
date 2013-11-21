@@ -56,8 +56,7 @@ bool FomcPlugin::init()
 
     //: Message displayed to the user. FOMC - Federal Open Market Committee. It's ok not to translate "FOMC" (e.g. you can just copy-paste "FOMC" to your translation)
     m_label->setToolTip(tr("News from FOMC is today (click to open)"));
-    //: FOMC - Federal Open Market Committee. It's ok not to translate "FOMC" (e.g. you can just copy-paste "FOMC" to your translation)
-    m_label->setText(tr("FOMC"));
+    m_label->setText("FOMC");
 
     QFont f = m_label->font();
     f.setBold(true);
