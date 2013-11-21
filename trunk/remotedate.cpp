@@ -15,6 +15,8 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <QThreadStorage>
+
 #include <cstring>
 
 #include "remotedate.h"
@@ -115,19 +117,22 @@ QDateTime RemoteDate::dateTime()
     return dt;
 }
 
+// TLS code
+typedef QThreadStorage<TCHAR *> TCharStorage;
+Q_GLOBAL_STATIC(TCharStorage, tCharStorageTls)
+
 TCHAR *RemoteDate::stringToTChar(const QString &s) const
 {
 #ifdef UNICODE
-    static WCHAR *tkey = 0;
-
-    delete tkey;
-    tkey = new WCHAR[s.length()+1];
+    WCHAR *tkey = new WCHAR[s.length()+1];
 
     if(!tkey)
         return 0;
 
     int l = s.toWCharArray(tkey);
     tkey[l] = '\0';
+
+    tCharStorageTls()->setLocalData(tkey);
 
     return tkey;
 #else
