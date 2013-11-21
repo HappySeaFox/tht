@@ -91,7 +91,7 @@ bool ChatPlugin::init()
 
     if(!m_button)
     {
-        qWarning("Cannot create QPushButton object");
+        qWarning("Cannot create QToolButton object");
         return false;
     }
 
