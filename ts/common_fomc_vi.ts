@@ -9,11 +9,5 @@
         <extracomment>Message displayed to the user. FOMC - Federal Open Market Committee. It&apos;s ok not to translate &quot;FOMC&quot; (e.g. you can just copy-paste &quot;FOMC&quot; to your translation)</extracomment>
         <translation>Tin tức từ FOMC là ngày hôm nay (click để mở)</translation>
     </message>
-    <message>
-        <location filename="../fomcplugin.cpp" line="60"/>
-        <source>FOMC</source>
-        <extracomment>FOMC - Federal Open Market Committee. It&apos;s ok not to translate &quot;FOMC&quot; (e.g. you can just copy-paste &quot;FOMC&quot; to your translation)</extracomment>
-        <translation>FOMC</translation>
-    </message>
 </context>
 </TS>
