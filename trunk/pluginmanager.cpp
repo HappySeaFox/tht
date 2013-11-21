@@ -36,10 +36,10 @@ PluginManager::PluginManager(QWidget *parent) :
     ui->treePlugins->header()->setResizeMode(QHeaderView::ResizeToContents);
 #endif
 
-    QList<Plugin::Type> types = QList<Plugin::Type>()
-                                    << Plugin::Common
-                                    << Plugin::AddTickersFrom
-                                    << Plugin::ExportTickersTo;
+    const QList<Plugin::Type> types = QList<Plugin::Type>()
+                                        << Plugin::Common
+                                        << Plugin::AddTickersFrom
+                                        << Plugin::ExportTickersTo;
 
     foreach(Plugin::Type type, types)
     {
@@ -55,9 +55,9 @@ PluginManager::PluginManager(QWidget *parent) :
         foreach(Plugin *p, plugins)
         {
             QTreeWidgetItem *j = new QTreeWidgetItem(QStringList()
-                                                            << p->property(THT_PLUGIN_PROPERTY_NAME).toString()
-                                                            << p->property(THT_PLUGIN_PROPERTY_VERSION).toString()
-                                                            << p->property(THT_PLUGIN_PROPERTY_AUTHOR).toString()
+                                                        << p->property(THT_PLUGIN_PROPERTY_NAME).toString()
+                                                        << p->property(THT_PLUGIN_PROPERTY_VERSION).toString()
+                                                        << p->property(THT_PLUGIN_PROPERTY_AUTHOR).toString()
                                                         );
 
             j->setData(0, Qt::UserRole, p->property(THT_PLUGIN_PROPERTY_UUID).toString());
