@@ -86,4 +86,13 @@
         <translation type="unfinished"></translation>
     </message>
 </context>
+<context>
+    <name>TickerInformationToolTipLabel</name>
+    <message>
+        <location filename="../tickerinformationtooltip.cpp" line="183"/>
+        <source>Not found</source>
+        <extracomment>In the neuter, means &quot;Something is not found&quot;</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
 </TS>

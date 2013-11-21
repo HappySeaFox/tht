@@ -841,15 +841,6 @@ oder klicken Sie die rechte/mittlere Maustaste, um abzubrechen.</translation>
     </message>
 </context>
 <context>
-    <name>TickerInformationToolTipLabel</name>
-    <message>
-        <location filename="../tickerinformationtooltip.cpp" line="183"/>
-        <source>Not found</source>
-        <extracomment>In the neuter, means &quot;Something is not found&quot;</extracomment>
-        <translation>Nicht gefunden</translation>
-    </message>
-</context>
-<context>
     <name>TickerInput</name>
     <message>
         <location filename="../tickerinput.ui" line="14"/>

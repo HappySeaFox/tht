@@ -19,11 +19,9 @@ SOURCES += main.cpp\
     savescreenshot.cpp \
     target.cpp \
     tickerinput.cpp \
-    tickerinformationtooltip.cpp \
     updatechecker.cpp \
     listitem.cpp \
     tickerminiinput.cpp \
-    tickerinformationfetcher.cpp \
     tickersdatabaseupdater.cpp \
     tickerneighbors.cpp \
     linkpointmanager.cpp \
@@ -64,11 +62,9 @@ HEADERS += tht.h \
     savescreenshot.h \
     target.h \
     tickerinput.h \
-    tickerinformationtooltip.h \
     updatechecker.h \
     listitem.h \
     tickerminiinput.h \
-    tickerinformationfetcher.h \
     tickersdatabaseupdater.h \
     tickerneighbors.h \
     linkpointmanager.h \
