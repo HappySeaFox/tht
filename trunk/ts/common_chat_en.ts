@@ -550,6 +550,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../configureroom.ui" line="91"/>
+        <source>Others</source>
+        <extracomment>In the plural. Means &quot;Other affiliations&quot;</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../configureroom.ui" line="200"/>
         <source>Apply</source>
         <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
@@ -564,12 +570,6 @@
     <message>
         <location filename="../configureroom.ui" line="58"/>
         <source>Administrators</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../configureroom.ui" line="91"/>
-        <source>Other</source>
-        <extracomment>In the plural. Means &quot;Other affiliations&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>

@@ -568,7 +568,7 @@
     </message>
     <message>
         <location filename="../configureroom.ui" line="91"/>
-        <source>Other</source>
+        <source>Others</source>
         <extracomment>In the plural. Means &quot;Other affiliations&quot;</extracomment>
         <translation>Altri</translation>
     </message>
