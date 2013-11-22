@@ -19,6 +19,7 @@
 
 #include "tickerinformationtooltip.h"
 #include "uppercasevalidator.h"
+#include "thtsettings.h"
 #include "tickerinput.h"
 #include "settings.h"
 

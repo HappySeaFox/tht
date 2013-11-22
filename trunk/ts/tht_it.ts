@@ -246,86 +246,86 @@
         <translation>Salva ticker</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="104"/>
+        <location filename="../list.cpp" line="105"/>
         <source>Clear</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Cancella</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="107"/>
+        <location filename="../list.cpp" line="108"/>
         <source>Sort</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Ordina</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="109"/>
+        <location filename="../list.cpp" line="110"/>
         <source>Change title</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Cambia titolo</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="112"/>
+        <location filename="../list.cpp" line="113"/>
         <source>Reset priorities</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Reimposta priorità</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="120"/>
+        <location filename="../list.cpp" line="121"/>
         <source>Add one ticker...</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Aggiungi un ticker...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="123"/>
+        <location filename="../list.cpp" line="124"/>
         <source>Add from file...</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Aggiungi da file...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="125"/>
+        <location filename="../list.cpp" line="126"/>
         <source>Add from clipboard</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Aggiungi dagli appunti</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="132"/>
+        <location filename="../list.cpp" line="133"/>
         <source>Export to file...</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Esporta sul file...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="134"/>
+        <location filename="../list.cpp" line="135"/>
         <source>Export to clipboard</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Esporta negli appunti</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1289"/>
-        <location filename="../list.cpp" line="1367"/>
+        <location filename="../list.cpp" line="1290"/>
+        <location filename="../list.cpp" line="1368"/>
         <source>Choose a file</source>
         <extracomment>Appeal to the user. Means &quot;Please choose a file:&quot;</extracomment>
         <translation>Scegli un file</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1291"/>
-        <location filename="../list.cpp" line="1369"/>
+        <location filename="../list.cpp" line="1292"/>
+        <location filename="../list.cpp" line="1370"/>
         <source>Text files (*.txt)</source>
         <translation>File di testo (*.txt)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1293"/>
-        <location filename="../list.cpp" line="1371"/>
+        <location filename="../list.cpp" line="1294"/>
+        <location filename="../list.cpp" line="1372"/>
         <source>All files (*.*)</source>
         <translation>Tutti i file (*.*)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1331"/>
+        <location filename="../list.cpp" line="1332"/>
         <source>Cannot open the following files: %1</source>
         <extracomment>Message displayed to the user. %1 will be replaced with the list of files by the application</extracomment>
         <translation>Impossibile aprire i seguenti file: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1384"/>
+        <location filename="../list.cpp" line="1385"/>
         <source>Cannot save to file %1</source>
         <extracomment>Message displayed to the user. %1 will be replaced with the file name by the application</extracomment>
         <translation>Impossibile salvare il file %1</translation>
@@ -614,18 +614,18 @@ il pulsante destro/di centro del mouse per cancellare.</translation>
         <translation>File...</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="88"/>
+        <location filename="../savescreenshot.cpp" line="89"/>
         <source>Image %1 (*.%2)</source>
         <translation>Immagine %1 (*.%2)</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="96"/>
+        <location filename="../savescreenshot.cpp" line="97"/>
         <source>Save as</source>
         <translation>Salva con nome</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="118"/>
-        <location filename="../savescreenshot.cpp" line="142"/>
+        <location filename="../savescreenshot.cpp" line="119"/>
+        <location filename="../savescreenshot.cpp" line="143"/>
         <source>Cannot save screenshot</source>
         <extracomment>Message displayed to the user</extracomment>
         <translation>Impossibile salvare screenshot</translation>

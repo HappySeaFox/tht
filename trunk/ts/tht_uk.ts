@@ -246,86 +246,86 @@
         <translation>Зберегти тікери</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="104"/>
+        <location filename="../list.cpp" line="105"/>
         <source>Clear</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Очистити</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="107"/>
+        <location filename="../list.cpp" line="108"/>
         <source>Sort</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Відсортувати</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="109"/>
+        <location filename="../list.cpp" line="110"/>
         <source>Change title</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Змінити заголовок</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="112"/>
+        <location filename="../list.cpp" line="113"/>
         <source>Reset priorities</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Скинути пріоритети</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="120"/>
+        <location filename="../list.cpp" line="121"/>
         <source>Add one ticker...</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Додати один тікер...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="123"/>
+        <location filename="../list.cpp" line="124"/>
         <source>Add from file...</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Додати з файлу...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="125"/>
+        <location filename="../list.cpp" line="126"/>
         <source>Add from clipboard</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Додати з буфера обміну</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="132"/>
+        <location filename="../list.cpp" line="133"/>
         <source>Export to file...</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Експортувати в файл...</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="134"/>
+        <location filename="../list.cpp" line="135"/>
         <source>Export to clipboard</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Експортувати в буфер обміну</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1289"/>
-        <location filename="../list.cpp" line="1367"/>
+        <location filename="../list.cpp" line="1290"/>
+        <location filename="../list.cpp" line="1368"/>
         <source>Choose a file</source>
         <extracomment>Appeal to the user. Means &quot;Please choose a file:&quot;</extracomment>
         <translation>Виберіть файл</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1291"/>
-        <location filename="../list.cpp" line="1369"/>
+        <location filename="../list.cpp" line="1292"/>
+        <location filename="../list.cpp" line="1370"/>
         <source>Text files (*.txt)</source>
         <translation>Текстові файли (*.txt)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1293"/>
-        <location filename="../list.cpp" line="1371"/>
+        <location filename="../list.cpp" line="1294"/>
+        <location filename="../list.cpp" line="1372"/>
         <source>All files (*.*)</source>
         <translation>Всі файли (*.*)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1331"/>
+        <location filename="../list.cpp" line="1332"/>
         <source>Cannot open the following files: %1</source>
         <extracomment>Message displayed to the user. %1 will be replaced with the list of files by the application</extracomment>
         <translation>Неможливо відкрити наступні файли: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1384"/>
+        <location filename="../list.cpp" line="1385"/>
         <source>Cannot save to file %1</source>
         <extracomment>Message displayed to the user. %1 will be replaced with the file name by the application</extracomment>
         <translation>Неможливо зберегти в файл %1</translation>
@@ -614,18 +614,18 @@ right/middle mouse button to cancel.</source>
         <translation>Файл...</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="88"/>
+        <location filename="../savescreenshot.cpp" line="89"/>
         <source>Image %1 (*.%2)</source>
         <translation>Зображення %1 (*.%2)</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="96"/>
+        <location filename="../savescreenshot.cpp" line="97"/>
         <source>Save as</source>
         <translation>Зберегти як</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="118"/>
-        <location filename="../savescreenshot.cpp" line="142"/>
+        <location filename="../savescreenshot.cpp" line="119"/>
+        <location filename="../savescreenshot.cpp" line="143"/>
         <source>Cannot save screenshot</source>
         <extracomment>Message displayed to the user</extracomment>
         <translation>Неможливо зберегти знімок екрана</translation>

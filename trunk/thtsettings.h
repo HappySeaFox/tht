@@ -28,7 +28,10 @@
 #define SETTING_NEIGHBORS_SIZE                  "neighbors-size"
 #define SETTING_NEIGHBORS_POSITION              "neighbors-position"
 #define SETTING_NYSE_ONLY                       "nyse-only"
+#define SETTING_LAST_TICKER_INPUT               "last-ticker-input"
+#define SETTING_LAST_TICKER_DIRECTORY           "last-ticker-directory"
 
+#define SETTING_LAST_SCREENSHOT_DIRECTORY       "last-screenshot-directory"
 #define SETTING_SCREENSHOT_USE_BACKGROUND_COLOR "screenshot-use-background-color"
 #define SETTING_SCREENSHOT_BACKGROUND_COLOR     "screenshot-background-color"
 #define SETTING_SCREENSHOT_TEXT_COLOR           "screenshot-text-color"
@@ -36,5 +39,6 @@
 #define SETTING_SCREENSHOT_TEXT_SIZE            "screenshot-text-size"
 #define SETTING_SCREENSHOT_TEXT                 "screenshot-text"
 #define SETTING_ELLIPSE_FILL_COLOR              "ellipse-fill-color"
+
 
 #endif // THTSETTINGS_H
