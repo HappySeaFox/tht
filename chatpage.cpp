@@ -236,7 +236,7 @@ ChatPage::~ChatPage()
 
 void ChatPage::slotMessageReceived(const QXmppMessage &msg)
 {
-    QPair<QString, QString> parsed = formatMessage(msg);
+    const QPair<QString, QString> parsed = formatMessage(msg);
 
     if(parsed.first.isEmpty() || parsed.second.isEmpty())
         return;
@@ -334,11 +334,11 @@ void ChatPage::slotSubjectChanged(const QString &subject)
 
 void ChatPage::slotError(const QXmppStanza::Error &error)
 {
-    QString s = errorToString(error);
+    const QString err = errorToString(error);
 
-    qDebug("Error \"%s\", join mode: %s", qPrintable(s), m_joinMode ? "yes" : "no");
+    qDebug("Error \"%s\", join mode: %s", qPrintable(err), m_joinMode ? "yes" : "no");
 
-    appendError(s);
+    appendError(err);
 
     if(m_joinMode)
     {
@@ -363,7 +363,7 @@ void ChatPage::slotParticipantAdded(const QString &jid)
 {
     qDebug("Added user %s", qPrintable(jid));
 
-    QString nick = jidToNick(jid);
+    const QString nick = jidToNick(jid);
 
     m_listUsers->addItem(nick);
 
@@ -376,7 +376,7 @@ void ChatPage::slotParticipantRemoved(const QString &jid)
 {
     qDebug("Removed user %s", qPrintable(jid));
 
-    QString nick = jidToNick(jid);
+    const QString nick = jidToNick(jid);
 
     QList<QListWidgetItem *> items = m_listUsers->findItems(nick, Qt::MatchFixedString | Qt::MatchCaseSensitive);
 
@@ -390,7 +390,7 @@ void ChatPage::slotParticipantRemoved(const QString &jid)
 
 void ChatPage::slotPermissionsReceived(const QList<QXmppMucItem> &list)
 {
-    QString myJid = m_xmppClient->configuration().jidBare();
+    const QString myJid = m_xmppClient->configuration().jidBare();
 
     foreach(QXmppMucItem i, list)
     {
@@ -407,6 +407,7 @@ void ChatPage::slotAnchorClicked(const QUrl &url)
     if(url.scheme() == "chat-user")
     {
         qDebug("Clicked: user");
+
         Qt::KeyboardModifiers mods = QApplication::keyboardModifiers();
 
         if(mods == Qt::NoModifier)
@@ -522,12 +523,10 @@ void ChatPage::slotUserDoubleClicked(QListWidgetItem *item)
 
 void ChatPage::slotCustomContextMenuRequested(const QPoint &point)
 {
-    QListWidgetItem *item = m_listUsers->itemAt(point);
-
-    if(!item)
-        m_roomMenu->exec(m_listUsers->mapToGlobal(point));
-    else
+    if(m_listUsers->itemAt(point))
         m_userMenu->exec(m_listUsers->mapToGlobal(point));
+    else
+        m_roomMenu->exec(m_listUsers->mapToGlobal(point));
 }
 
 void ChatPage::slotStartChatFromMenu()
@@ -563,7 +562,10 @@ void ChatPage::slotKickWithReason()
     QString reason = QInputDialog::getText(this,
                                            //: This is the label on a menu item that user clicks to issue the command. Means "Kick the selected user"
                                            tr("Kick"),
-                                           tr("Reason:"), QLineEdit::Normal, QString(), &ok);
+                                           tr("Reason:"),
+                                           QLineEdit::Normal,
+                                           QString(),
+                                           &ok);
 
     if(!ok)
         return;
@@ -603,7 +605,10 @@ void ChatPage::slotBanWithReason()
     QString reason = QInputDialog::getText(this,
                                            //: This is the label on a menu item that user clicks to issue the command. Means "Ban the selected user"
                                            tr("Ban"),
-                                           tr("Reason:"), QLineEdit::Normal, QString(), &ok);
+                                           tr("Reason:"),
+                                           QLineEdit::Normal,
+                                           QString(),
+                                           &ok);
 
     if(!ok)
         return;
@@ -624,7 +629,7 @@ void ChatPage::slotSetSubject()
     bool ok;
     QString subject = QInputDialog::getText(this,
                                             tr("Set subject"),
-                                            tr("Subject") + ':',
+                                            tr("Subject:"),
                                             QLineEdit::Normal,
                                             ui->lineSubject->text(),
                                             &ok);

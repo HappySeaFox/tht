@@ -76,10 +76,14 @@
     </message>
     <message>
         <location filename="../chatpage.ui" line="162"/>
-        <location filename="../chatpage.cpp" line="627"/>
         <source>Subject</source>
         <extracomment>Noun</extracomment>
         <translation>主题</translation>
+    </message>
+    <message>
+        <location filename="../chatpage.cpp" line="632"/>
+        <source>Subject:</source>
+        <translation>主题：</translation>
     </message>
     <message>
         <location filename="../chatpage.cpp" line="138"/>
@@ -115,12 +119,12 @@
         <translation>资本总额：</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="989"/>
+        <location filename="../chatpage.cpp" line="994"/>
         <source>New subject:</source>
         <translation>新主题：</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="1113"/>
+        <location filename="../chatpage.cpp" line="1118"/>
         <source>mln</source>
         <extracomment>Means &quot;million&quot;</extracomment>
         <translation>百万</translation>
@@ -145,7 +149,7 @@
     </message>
     <message>
         <location filename="../chatpage.cpp" line="219"/>
-        <location filename="../chatpage.cpp" line="626"/>
+        <location filename="../chatpage.cpp" line="631"/>
         <source>Set subject</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>设置主题</translation>
@@ -161,137 +165,137 @@
         <translation>您被从 &quot;%1&quot; 中踢出了。原因：%2</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="566"/>
-        <location filename="../chatpage.cpp" line="606"/>
+        <location filename="../chatpage.cpp" line="565"/>
+        <location filename="../chatpage.cpp" line="608"/>
         <source>Reason:</source>
         <translation>原因：</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="591"/>
+        <location filename="../chatpage.cpp" line="593"/>
         <source>Failed to find the JID of the user &quot;%1&quot;</source>
         <extracomment>JID is a Jabber Identifier, http://en.wikipedia.org/wiki/XMPP#Decentralization_and_addressing . It&apos;s ok not to translate &quot;JID&quot;, e.g. you can just copy-paste &quot;JID&quot; to your translation</extracomment>
         <translation>未找到用户 &quot;%1&quot;的 JID</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="814"/>
+        <location filename="../chatpage.cpp" line="819"/>
         <source>Bad request</source>
         <translation>错误请求</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="815"/>
+        <location filename="../chatpage.cpp" line="820"/>
         <source>User conflict</source>
         <translation>用户冲突</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="816"/>
+        <location filename="../chatpage.cpp" line="821"/>
         <source>Feature is not implemented</source>
         <translation>功能未实现</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="817"/>
+        <location filename="../chatpage.cpp" line="822"/>
         <source>Forbidden</source>
         <translation>禁止</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="819"/>
+        <location filename="../chatpage.cpp" line="824"/>
         <source>Internal server error</source>
         <translation>内部服务器错误</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="820"/>
+        <location filename="../chatpage.cpp" line="825"/>
         <source>Item is not found</source>
         <translation>未找到该项</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="822"/>
+        <location filename="../chatpage.cpp" line="827"/>
         <source>JID is malformed</source>
         <extracomment>JID is a Jabber Identifier, http://en.wikipedia.org/wiki/XMPP#Decentralization_and_addressing . It&apos;s ok not to translate &quot;JID&quot;, e.g. you can just copy-paste &quot;JID&quot; to your translation</extracomment>
         <translation>JID 不完整</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="823"/>
+        <location filename="../chatpage.cpp" line="828"/>
         <source>Not acceptable</source>
         <translation>无法接收</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="824"/>
+        <location filename="../chatpage.cpp" line="829"/>
         <source>Not allowed</source>
         <translation>不允许</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="825"/>
+        <location filename="../chatpage.cpp" line="830"/>
         <source>Not authorized</source>
         <translation>未经授权</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="826"/>
+        <location filename="../chatpage.cpp" line="831"/>
         <source>Payment required</source>
         <translation>须付费</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="827"/>
+        <location filename="../chatpage.cpp" line="832"/>
         <source>Recipient is unavailable</source>
         <translation>接收者不可用</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="828"/>
+        <location filename="../chatpage.cpp" line="833"/>
         <source>Redirection</source>
         <translation>重定向</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="829"/>
+        <location filename="../chatpage.cpp" line="834"/>
         <source>Registration required</source>
         <translation>需注册</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="830"/>
+        <location filename="../chatpage.cpp" line="835"/>
         <source>Remote server is not found</source>
         <translation>远程服务器未找到</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="831"/>
+        <location filename="../chatpage.cpp" line="836"/>
         <source>Remote server timeout</source>
         <translation>远程服务器超时</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="832"/>
+        <location filename="../chatpage.cpp" line="837"/>
         <source>Resource constraint</source>
         <translation>资源限制</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="833"/>
+        <location filename="../chatpage.cpp" line="838"/>
         <source>Service is unavailable</source>
         <translation>服务不可用</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="834"/>
+        <location filename="../chatpage.cpp" line="839"/>
         <source>Subscription required</source>
         <translation>需订阅</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="835"/>
+        <location filename="../chatpage.cpp" line="840"/>
         <source>Undefined condition</source>
         <translation>未定义的情况</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="836"/>
+        <location filename="../chatpage.cpp" line="841"/>
         <source>Unexpected request</source>
         <translation>意外请求</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="839"/>
+        <location filename="../chatpage.cpp" line="844"/>
         <source>Unknown error</source>
         <translation>未知错误</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="853"/>
+        <location filename="../chatpage.cpp" line="858"/>
         <source>Messages: %1</source>
         <extracomment>Means &quot;Number of messages:&quot;. It will look like &quot;Number of messages: 2&quot;</extracomment>
         <translation>消息：%1</translation>
     </message>
     <message>
         <location filename="../chatpage.cpp" line="388"/>
-        <location filename="../chatpage.cpp" line="904"/>
+        <location filename="../chatpage.cpp" line="909"/>
         <source>User is not available</source>
         <translation>用户忙</translation>
     </message>
@@ -325,35 +329,35 @@
         <translation>用户空闲</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="565"/>
+        <location filename="../chatpage.cpp" line="564"/>
         <source>Kick</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Kick the selected user&quot;</extracomment>
         <translation>踢出</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="605"/>
+        <location filename="../chatpage.cpp" line="607"/>
         <source>Ban</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Ban the selected user&quot;</extracomment>
         <translation>禁止</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="818"/>
+        <location filename="../chatpage.cpp" line="823"/>
         <source>User has gone</source>
         <translation>用户离开</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="1075"/>
+        <location filename="../chatpage.cpp" line="1080"/>
         <source>industry is not found</source>
         <translation>未找到行业</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="1109"/>
+        <location filename="../chatpage.cpp" line="1114"/>
         <source>bln</source>
         <extracomment>Means &quot;billion&quot; (1000*million)</extracomment>
         <translation>十亿</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="1133"/>
+        <location filename="../chatpage.cpp" line="1138"/>
         <source>ticker is not found</source>
         <extracomment>Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>未找到股票</translation>

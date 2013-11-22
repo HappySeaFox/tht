@@ -32,7 +32,6 @@
 PluginLoader* PluginLoader::instance()
 {
     static PluginLoader *m_inst = new PluginLoader;
-
     return m_inst;
 }
 
