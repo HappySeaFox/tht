@@ -32,6 +32,7 @@
 #include "screenshoteditor.h"
 #include "dropboxuploader.h"
 #include "savescreenshot.h"
+#include "thtsettings.h"
 #include "remotedate.h"
 #include "settings.h"
 #include "tools.h"

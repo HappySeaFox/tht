@@ -50,6 +50,7 @@
 #include "pluginloader.h"
 #include "tickerinput.h"
 #include "listdetails.h"
+#include "thtsettings.h"
 #include "settings.h"
 #include "listitem.h"
 #include "thttools.h"
