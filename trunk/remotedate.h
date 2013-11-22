@@ -18,9 +18,10 @@
 #define REMOTEDATE_H
 
 #include <QDateTime>
-#include <QString>
 
 #include <windows.h>
+
+class QString;
 
 class RemoteDatePrivate;
 

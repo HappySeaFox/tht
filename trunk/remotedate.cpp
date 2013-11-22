@@ -15,6 +15,7 @@
  */
 
 #include <QThreadStorage>
+#include <QString>
 
 #include <cstring>
 

@@ -31,8 +31,8 @@ class NetworkAccessDialogPrivate;
 class NetworkAccess;
 
 /*
- *  Dialog to download data and to show the result
- *  of the download operation
+ *  Dialog to download or upload data and to show the result
+ *  of the network operation
  *
  *  Look'n'feel:
  *
@@ -136,8 +136,8 @@ protected:
 
     /*
      *  Subclasses must implement this. This method
-     *  will be called when the download operation is finished.
-     *  You can call data() and parse the downloaded data. If you encountered
+     *  will be called when the network operation is finished.
+     *  You can call data() and get the downloaded data. If you encountered
      *  an error or would like to start another network operation, return 'false'.
      *  If you return 'true' the dialog will be closed with 'Accepted' result
      */

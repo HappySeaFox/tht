@@ -76,10 +76,14 @@
     </message>
     <message>
         <location filename="../chatpage.ui" line="162"/>
-        <location filename="../chatpage.cpp" line="627"/>
         <source>Subject</source>
         <extracomment>Noun</extracomment>
         <translation>Chủ đề</translation>
+    </message>
+    <message>
+        <location filename="../chatpage.cpp" line="632"/>
+        <source>Subject:</source>
+        <translation>Chủ đề:</translation>
     </message>
     <message>
         <location filename="../chatpage.cpp" line="138"/>
@@ -115,12 +119,12 @@
         <translation>Tỉ lệ vốn hóa:</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="989"/>
+        <location filename="../chatpage.cpp" line="994"/>
         <source>New subject:</source>
         <translation>Chủ đề mới:</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="1113"/>
+        <location filename="../chatpage.cpp" line="1118"/>
         <source>mln</source>
         <extracomment>Means &quot;million&quot;</extracomment>
         <translation>mln</translation>
@@ -145,7 +149,7 @@
     </message>
     <message>
         <location filename="../chatpage.cpp" line="219"/>
-        <location filename="../chatpage.cpp" line="626"/>
+        <location filename="../chatpage.cpp" line="631"/>
         <source>Set subject</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Đặt chủ đề</translation>
@@ -161,137 +165,137 @@
         <translation>Bạn đã bị loại khỏi &quot;%1&quot;. Lý do: %2</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="566"/>
-        <location filename="../chatpage.cpp" line="606"/>
+        <location filename="../chatpage.cpp" line="565"/>
+        <location filename="../chatpage.cpp" line="608"/>
         <source>Reason:</source>
         <translation>Lý do:</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="591"/>
+        <location filename="../chatpage.cpp" line="593"/>
         <source>Failed to find the JID of the user &quot;%1&quot;</source>
         <extracomment>JID is a Jabber Identifier, http://en.wikipedia.org/wiki/XMPP#Decentralization_and_addressing . It&apos;s ok not to translate &quot;JID&quot;, e.g. you can just copy-paste &quot;JID&quot; to your translation</extracomment>
         <translation>Không thể tìm thấy JID của người dùng &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="814"/>
+        <location filename="../chatpage.cpp" line="819"/>
         <source>Bad request</source>
         <translation>Yêu cầu lỗi</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="815"/>
+        <location filename="../chatpage.cpp" line="820"/>
         <source>User conflict</source>
         <translation>Xung đột về nguời dùng</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="816"/>
+        <location filename="../chatpage.cpp" line="821"/>
         <source>Feature is not implemented</source>
         <translation>Tính năng chưa được hoàn thiện</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="817"/>
+        <location filename="../chatpage.cpp" line="822"/>
         <source>Forbidden</source>
         <translation>Bị cấm</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="819"/>
+        <location filename="../chatpage.cpp" line="824"/>
         <source>Internal server error</source>
         <translation>Lỗi máy phục vụ nội bộ</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="820"/>
+        <location filename="../chatpage.cpp" line="825"/>
         <source>Item is not found</source>
         <translation>Không tìm thấy đối tượng</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="822"/>
+        <location filename="../chatpage.cpp" line="827"/>
         <source>JID is malformed</source>
         <extracomment>JID is a Jabber Identifier, http://en.wikipedia.org/wiki/XMPP#Decentralization_and_addressing . It&apos;s ok not to translate &quot;JID&quot;, e.g. you can just copy-paste &quot;JID&quot; to your translation</extracomment>
         <translation>JID đã bị thay đổi</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="823"/>
+        <location filename="../chatpage.cpp" line="828"/>
         <source>Not acceptable</source>
         <translation>Không chấp nhận</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="824"/>
+        <location filename="../chatpage.cpp" line="829"/>
         <source>Not allowed</source>
         <translation>Không cho phép</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="825"/>
+        <location filename="../chatpage.cpp" line="830"/>
         <source>Not authorized</source>
         <translation>Không xác nhận</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="826"/>
+        <location filename="../chatpage.cpp" line="831"/>
         <source>Payment required</source>
         <translation>Yêu cầu thanh toán</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="827"/>
+        <location filename="../chatpage.cpp" line="832"/>
         <source>Recipient is unavailable</source>
         <translation>Người nhận chưa sẵn có</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="828"/>
+        <location filename="../chatpage.cpp" line="833"/>
         <source>Redirection</source>
         <translation>Chuyển hướng</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="829"/>
+        <location filename="../chatpage.cpp" line="834"/>
         <source>Registration required</source>
         <translation>Yêu cầu cần có đăng ký</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="830"/>
+        <location filename="../chatpage.cpp" line="835"/>
         <source>Remote server is not found</source>
         <translation>Không tìm thấy máy chủ từ xa</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="831"/>
+        <location filename="../chatpage.cpp" line="836"/>
         <source>Remote server timeout</source>
         <translation>Hết hạn kết nối đến máy chủ từ xa</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="832"/>
+        <location filename="../chatpage.cpp" line="837"/>
         <source>Resource constraint</source>
         <translation>Ràng buộc tài nguyên</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="833"/>
+        <location filename="../chatpage.cpp" line="838"/>
         <source>Service is unavailable</source>
         <translation>Dịch vụ hiện chưa có</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="834"/>
+        <location filename="../chatpage.cpp" line="839"/>
         <source>Subscription required</source>
         <translation>Yêu cầu đăng ký theo dõi</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="835"/>
+        <location filename="../chatpage.cpp" line="840"/>
         <source>Undefined condition</source>
         <translation>Chưa xác định điều kiện</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="836"/>
+        <location filename="../chatpage.cpp" line="841"/>
         <source>Unexpected request</source>
         <translation>Yêu cầu không mong muốn</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="839"/>
+        <location filename="../chatpage.cpp" line="844"/>
         <source>Unknown error</source>
         <translation>Lỗi chưa xác định nguyên nhân</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="853"/>
+        <location filename="../chatpage.cpp" line="858"/>
         <source>Messages: %1</source>
         <extracomment>Means &quot;Number of messages:&quot;. It will look like &quot;Number of messages: 2&quot;</extracomment>
         <translation>Tin nhắn: %1</translation>
     </message>
     <message>
         <location filename="../chatpage.cpp" line="388"/>
-        <location filename="../chatpage.cpp" line="904"/>
+        <location filename="../chatpage.cpp" line="909"/>
         <source>User is not available</source>
         <translation>Người dùng hiện đã sẵn sàng</translation>
     </message>
@@ -325,35 +329,35 @@
         <translation>Người dùng hiện đã sẵn sàng</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="565"/>
+        <location filename="../chatpage.cpp" line="564"/>
         <source>Kick</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Kick the selected user&quot;</extracomment>
         <translation>Loại</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="605"/>
+        <location filename="../chatpage.cpp" line="607"/>
         <source>Ban</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Ban the selected user&quot;</extracomment>
         <translation>Cấm</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="818"/>
+        <location filename="../chatpage.cpp" line="823"/>
         <source>User has gone</source>
         <translation>Nguời dùng đã rời khỏi</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="1075"/>
+        <location filename="../chatpage.cpp" line="1080"/>
         <source>industry is not found</source>
         <translation>không tìm thấy ngành công nghiệp</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="1109"/>
+        <location filename="../chatpage.cpp" line="1114"/>
         <source>bln</source>
         <extracomment>Means &quot;billion&quot; (1000*million)</extracomment>
         <translation>bln</translation>
     </message>
     <message>
-        <location filename="../chatpage.cpp" line="1133"/>
+        <location filename="../chatpage.cpp" line="1138"/>
         <source>ticker is not found</source>
         <extracomment>Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>không tìm thấy ticker</translation>
