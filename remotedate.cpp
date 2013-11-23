@@ -130,7 +130,7 @@ TCHAR *RemoteDate::stringToTChar(const QString &s) const
         return 0;
 
     int l = s.toWCharArray(tkey);
-    tkey[l] = '\0';
+    tkey[l] = L'\0';
 
     tCharStorageTls()->setLocalData(tkey);
 
