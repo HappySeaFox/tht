@@ -38,33 +38,17 @@
 // serialize/deserialize Qt::AlignmentFlag
 static QDataStream &operator<<(QDataStream &out, const Qt::AlignmentFlag &f)
 {
-    QString s;
-
-    switch(f)
-    {
-        case Qt::AlignRight: s = "right"; break;
-        case Qt::AlignCenter: s = "center"; break;
-
-        default:
-            s = "left";
-        break;
-    }
-
-    out << s;
+    out << static_cast<int>(f);
     return out;
 }
 
 static QDataStream &operator>>(QDataStream &in, Qt::AlignmentFlag &f)
 {
-    QString s;
-    in >> s;
+    int fi = 0;
 
-    if(s == "right")
-        f = Qt::AlignRight;
-    else if(s == "center")
-        f = Qt::AlignCenter;
-    else
-        f = Qt::AlignLeft;
+    in >> fi;
+
+    f = fi ? static_cast<Qt::AlignmentFlag>(fi) : Qt::AlignLeft;
 
     return in;
 }
