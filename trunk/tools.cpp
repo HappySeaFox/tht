@@ -229,6 +229,7 @@ QByteArray Tools::encrypt(const QByteArray &data)
         return QByteArray();
 
     SimpleCrypt crypto(Q_UINT64_C(0xa71eded58d9db24c));
+
     crypto.setCompressionMode(SimpleCrypt::CompressionNever);
     crypto.setIntegrityProtectionMode(SimpleCrypt::ProtectionHash);
 
