@@ -19,17 +19,16 @@
 #include <QMessageBox>
 #include <QTimer>
 
-#include "sendinvitations.h"
-#include "chatsettings.h"
-#include "ui_sendinvitations.h"
-
 #include "QXmppMucManager.h"
 #include "QXmppMessage.h"
 #include "QXmppClient.h"
 
+#include "sendinvitations.h"
+#include "chatsettings.h"
 #include "chattools.h"
 #include "settings.h"
 #include "tools.h"
+#include "ui_sendinvitations.h"
 
 SendInvitations::SendInvitations(QXmppMucRoom *room, QXmppClient *client, QWidget *parent) :
     QDialog(parent),

@@ -4,13 +4,13 @@
 <context>
     <name>About</name>
     <message>
-        <location filename="../about.ui" line="93"/>
+        <location filename="../about.ui" line="94"/>
         <source>THT helps you do your trading home task. It can link different trading platforms and charts, and manage lists of tickers. Send your requests and report errors to our bug tracker. Also visit:</source>
         <extracomment>&quot;THT&quot; is the name of the application. The URL to visit will be added in runtime. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../about.ui" line="174"/>
+        <location filename="../about.ui" line="175"/>
         <source>THT is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</source>
         <extracomment>See https://www.gnu.org/licenses/gpl-2.0.txt . &quot;THT&quot; is the name of the application</extracomment>
         <translation type="unfinished"></translation>
@@ -80,7 +80,7 @@
 <context>
     <name>DropBoxUploader</name>
     <message>
-        <location filename="../dropboxuploader.ui" line="37"/>
+        <location filename="../dropboxuploader.ui" line="38"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -198,25 +198,25 @@
 <context>
     <name>ExcelLinkingDetails</name>
     <message>
-        <location filename="../excellinkingdetails.ui" line="14"/>
+        <location filename="../excellinkingdetails.ui" line="15"/>
         <source>Cell address</source>
         <extracomment>Window title. Means &quot;address of cell in Excel sheet&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../excellinkingdetails.ui" line="20"/>
+        <location filename="../excellinkingdetails.ui" line="21"/>
         <source>Book:</source>
         <extracomment>Noun. In the terms of Microsoft Excel</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../excellinkingdetails.ui" line="40"/>
+        <location filename="../excellinkingdetails.ui" line="41"/>
         <source>Sheet:</source>
         <extracomment>In the terms of Microsoft Excel</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../excellinkingdetails.ui" line="53"/>
+        <location filename="../excellinkingdetails.ui" line="54"/>
         <source>Cell:</source>
         <extracomment>In the terms of Microsoft Excel</extracomment>
         <translation type="unfinished"></translation>
@@ -234,13 +234,13 @@
 <context>
     <name>List</name>
     <message>
-        <location filename="../list.ui" line="150"/>
+        <location filename="../list.ui" line="151"/>
         <source>List</source>
         <extracomment>Noun</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../list.ui" line="193"/>
+        <location filename="../list.ui" line="194"/>
         <source>Save tickers</source>
         <extracomment>This is the label on a button that user pushes to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation type="unfinished"></translation>
@@ -334,102 +334,102 @@
 <context>
     <name>Options</name>
     <message>
-        <location filename="../options.ui" line="14"/>
+        <location filename="../options.ui" line="15"/>
         <source>Options</source>
         <extracomment>Window title</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../options.ui" line="30"/>
+        <location filename="../options.ui" line="31"/>
         <source>Always on top</source>
         <extracomment>Configuration option. The application window will stay on top of the other system windows</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../options.ui" line="37"/>
+        <location filename="../options.ui" line="38"/>
         <source>Hide to tray</source>
         <extracomment>Configuration option. Infinitive. Tray is a panel with small icons, usually in a right bottom corner, NOT taskbar</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../options.ui" line="79"/>
+        <location filename="../options.ui" line="80"/>
         <source>Language:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../options.ui" line="86"/>
+        <location filename="../options.ui" line="87"/>
         <source>Lists:</source>
         <extracomment>Means &quot;Number of lists:&quot;. It will look like &quot;Lists: 4&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../options.ui" line="95"/>
+        <location filename="../options.ui" line="96"/>
         <source>Restore &quot;Industries&quot; window at startup</source>
         <extracomment>Configuration option. Infinitive</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../options.ui" line="115"/>
+        <location filename="../options.ui" line="116"/>
         <source>Restore link points at startup</source>
         <extracomment>Configuration option. Infinitive</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../options.ui" line="122"/>
+        <location filename="../options.ui" line="123"/>
         <source>Save position and size</source>
         <extracomment>Configuration option. Infinitive</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../options.ui" line="136"/>
+        <location filename="../options.ui" line="137"/>
         <source>Automatically save tickers</source>
         <extracomment>Configuration option. Infinitive. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../options.ui" line="143"/>
+        <location filename="../options.ui" line="144"/>
         <source>Allow duplicates</source>
         <extracomment>Configuration option. Infinitive</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../options.ui" line="150"/>
+        <location filename="../options.ui" line="151"/>
         <source>Fast ticker entry</source>
         <extracomment>Configuration option. Noun. Means &quot;The small window where the user can quickly enter a ticker name&quot;. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../options.ui" line="157"/>
+        <location filename="../options.ui" line="158"/>
         <source>Show title</source>
         <extracomment>Configuration option. Infinitive</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../options.ui" line="164"/>
+        <location filename="../options.ui" line="165"/>
         <source>Automatically show ticker comments</source>
         <extracomment>Configuration option. Infinitive. Means &quot;Automatically show comments to the selected ticker&quot;. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../options.ui" line="184"/>
+        <location filename="../options.ui" line="185"/>
         <source>Show buttons</source>
         <extracomment>Configuration option. Infinitive</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../options.ui" line="198"/>
+        <location filename="../options.ui" line="199"/>
         <source>Ctrl+Alt+S to take screenshots</source>
         <extracomment>Configuration option</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../options.ui" line="205"/>
+        <location filename="../options.ui" line="206"/>
         <source>Ctrl+Alt+R to restore from tray</source>
         <extracomment>Configuration option. Tray is a panel with small icons, usually in a right bottom corner, NOT taskbar</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../options.ui" line="248"/>
+        <location filename="../options.ui" line="249"/>
         <source>Need restart</source>
         <extracomment>Means &quot;It is neccessary to restart the application&quot;</extracomment>
         <translation type="unfinished"></translation>
@@ -461,43 +461,43 @@
 <context>
     <name>PluginDetails</name>
     <message>
-        <location filename="../plugindetails.ui" line="14"/>
+        <location filename="../plugindetails.ui" line="15"/>
         <source>Plugin details</source>
         <extracomment>Window title</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugindetails.ui" line="22"/>
+        <location filename="../plugindetails.ui" line="23"/>
         <source>File:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugindetails.ui" line="45"/>
+        <location filename="../plugindetails.ui" line="46"/>
         <source>Name:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugindetails.ui" line="55"/>
+        <location filename="../plugindetails.ui" line="56"/>
         <source>UUID:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugindetails.ui" line="72"/>
+        <location filename="../plugindetails.ui" line="73"/>
         <source>Author:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugindetails.ui" line="106"/>
+        <location filename="../plugindetails.ui" line="107"/>
         <source>URL:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugindetails.ui" line="123"/>
+        <location filename="../plugindetails.ui" line="124"/>
         <source>Version:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugindetails.ui" line="133"/>
+        <location filename="../plugindetails.ui" line="134"/>
         <source>License:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -505,28 +505,28 @@
 <context>
     <name>PluginManager</name>
     <message>
-        <location filename="../pluginmanager.ui" line="14"/>
+        <location filename="../pluginmanager.ui" line="15"/>
         <source>Plugins</source>
         <extracomment>Window title</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pluginmanager.ui" line="27"/>
+        <location filename="../pluginmanager.ui" line="28"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pluginmanager.ui" line="32"/>
+        <location filename="../pluginmanager.ui" line="33"/>
         <source>Version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pluginmanager.ui" line="37"/>
+        <location filename="../pluginmanager.ui" line="38"/>
         <source>Author</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pluginmanager.ui" line="48"/>
+        <location filename="../pluginmanager.ui" line="49"/>
         <source>Details...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -590,24 +590,24 @@ right/middle mouse button to cancel.</source>
 <context>
     <name>SaveScreenshot</name>
     <message>
-        <location filename="../savescreenshot.ui" line="14"/>
+        <location filename="../savescreenshot.ui" line="15"/>
         <source>Save to</source>
         <extracomment>Window title. User is asked to save a screenshot to a file or clipboard</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../savescreenshot.ui" line="20"/>
+        <location filename="../savescreenshot.ui" line="21"/>
         <source>Edit...</source>
         <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../savescreenshot.ui" line="34"/>
+        <location filename="../savescreenshot.ui" line="35"/>
         <source>Clipboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../savescreenshot.ui" line="41"/>
+        <location filename="../savescreenshot.ui" line="42"/>
         <source>File...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -632,29 +632,29 @@ right/middle mouse button to cancel.</source>
 <context>
     <name>ScreenshotCommentInput</name>
     <message>
-        <location filename="../screenshotcommentinput.ui" line="14"/>
+        <location filename="../screenshotcommentinput.ui" line="15"/>
         <source>Enter text</source>
         <extracomment>Appeal to the user. Means &quot;Please enter text here:&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../screenshotcommentinput.ui" line="29"/>
+        <location filename="../screenshotcommentinput.ui" line="30"/>
         <source>Alignment:</source>
         <extracomment>Means &quot;Text alignment:&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../screenshotcommentinput.ui" line="88"/>
+        <location filename="../screenshotcommentinput.ui" line="89"/>
         <source>Size:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../screenshotcommentinput.ui" line="118"/>
+        <location filename="../screenshotcommentinput.ui" line="119"/>
         <source>Color:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../screenshotcommentinput.ui" line="145"/>
+        <location filename="../screenshotcommentinput.ui" line="146"/>
         <source>Background color:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -662,53 +662,53 @@ right/middle mouse button to cancel.</source>
 <context>
     <name>ScreenshotEditor</name>
     <message>
-        <location filename="../screenshoteditor.ui" line="14"/>
+        <location filename="../screenshoteditor.ui" line="15"/>
         <source>Trade editor</source>
         <extracomment>Noun. Means &quot;The editor of the trade on the stock market&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="49"/>
+        <location filename="../screenshoteditor.ui" line="50"/>
         <source>Ellipse</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="84"/>
+        <location filename="../screenshoteditor.ui" line="85"/>
         <source>Delete</source>
         <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="91"/>
+        <location filename="../screenshoteditor.ui" line="92"/>
         <source>Text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="98"/>
+        <location filename="../screenshoteditor.ui" line="99"/>
         <source>Select all</source>
         <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="105"/>
+        <location filename="../screenshoteditor.ui" line="106"/>
         <source>Sale</source>
         <extracomment>Noun</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="116"/>
+        <location filename="../screenshoteditor.ui" line="117"/>
         <source>Buy</source>
         <extracomment>Noun</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="127"/>
+        <location filename="../screenshoteditor.ui" line="128"/>
         <source>Stop</source>
         <extracomment>Noun. Means &quot;Stop-loss order&quot;, see http://www.investopedia.com/terms/s/stoporder.asp</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../screenshoteditor.ui" line="138"/>
+        <location filename="../screenshoteditor.ui" line="139"/>
         <source>The fill color of the ellipse</source>
         <translation type="unfinished"></translation>
     </message>
@@ -716,13 +716,13 @@ right/middle mouse button to cancel.</source>
 <context>
     <name>THT</name>
     <message>
-        <location filename="../tht.ui" line="64"/>
+        <location filename="../tht.ui" line="65"/>
         <source>THT is ready</source>
         <extracomment>&quot;THT&quot; is the name of the application</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="96"/>
+        <location filename="../tht.ui" line="97"/>
         <source>THT is busy</source>
         <extracomment>&quot;THT&quot; is the name of the application</extracomment>
         <translation type="unfinished"></translation>
@@ -832,7 +832,7 @@ right/middle mouse button to cancel.</source>
 <context>
     <name>TickerCommentInput</name>
     <message>
-        <location filename="../tickercommentinput.ui" line="14"/>
+        <location filename="../tickercommentinput.ui" line="15"/>
         <source>Comment</source>
         <extracomment>Noun</extracomment>
         <translation type="unfinished"></translation>
@@ -841,13 +841,13 @@ right/middle mouse button to cancel.</source>
 <context>
     <name>TickerInput</name>
     <message>
-        <location filename="../tickerinput.ui" line="14"/>
+        <location filename="../tickerinput.ui" line="15"/>
         <source>Enter a ticker</source>
         <extracomment>Appeal to the user. Means &quot;Please enter a ticker here:&quot;. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tickerinput.ui" line="20"/>
+        <location filename="../tickerinput.ui" line="21"/>
         <source>Ticker:</source>
         <extracomment>Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation type="unfinished"></translation>
@@ -856,19 +856,19 @@ right/middle mouse button to cancel.</source>
 <context>
     <name>TickerNeighbors</name>
     <message>
-        <location filename="../tickerneighbors.ui" line="14"/>
+        <location filename="../tickerneighbors.ui" line="15"/>
         <source>Industries</source>
         <extracomment>Noun in the plural</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tickerneighbors.ui" line="109"/>
+        <location filename="../tickerneighbors.ui" line="110"/>
         <source>By capitalization</source>
         <extracomment>Means &quot;Sort by capitalization&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tickerneighbors.ui" line="122"/>
+        <location filename="../tickerneighbors.ui" line="123"/>
         <source>U.S. only</source>
         <translation type="unfinished"></translation>
     </message>

@@ -34,7 +34,7 @@ StocksInPlayLinkSelector::StocksInPlayLinkSelector(QWidget *parent) :
 
     ui->pushAdd->setText(Tools::addTitle());
 
-    const QList<StocksInPlayUrl> urls = SETTINGS_GET_STOCKSINPLAY_URLS(SETTING_STOCKSINPLAY_URLS);
+    const QList<StocksInPlayUrl> urls = SETTINGS_GET_STOCKSINPLAY_HASHES(SETTING_STOCKSINPLAY_HASHES);
 
     foreach(StocksInPlayUrl su, urls)
     {

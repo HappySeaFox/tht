@@ -19,30 +19,30 @@
 <context>
     <name>StocksInPlayAccessSetup</name>
     <message>
-        <location filename="../stocksinplayaccesssetup.ui" line="14"/>
+        <location filename="../stocksinplayaccesssetup.ui" line="15"/>
         <source>Stocks In Play access setup</source>
         <extracomment>Window title. Stocks In Play - Stock Screener, http://stocksinplay.ru. It&apos;s ok not to translate &quot;Stocks In Play&quot; (e.g. you can just copy-paste &quot;Stocks In Play&quot; to your translation). Means &quot;Configuring access to your Stocks In Play account&quot;</extracomment>
         <translation>Stocks In Play 访问设置</translation>
     </message>
     <message>
-        <location filename="../stocksinplayaccesssetup.ui" line="22"/>
+        <location filename="../stocksinplayaccesssetup.ui" line="23"/>
         <source>ID:</source>
         <translation>账号：</translation>
     </message>
     <message>
-        <location filename="../stocksinplayaccesssetup.ui" line="35"/>
+        <location filename="../stocksinplayaccesssetup.ui" line="36"/>
         <source>Hash:</source>
         <extracomment>Means &quot;Hash key&quot; as in computer science</extracomment>
         <translation>井号键：</translation>
     </message>
     <message>
-        <location filename="../stocksinplayaccesssetup.ui" line="99"/>
+        <location filename="../stocksinplayaccesssetup.ui" line="100"/>
         <source>Fill in...</source>
         <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>填写...</translation>
     </message>
     <message>
-        <location filename="../stocksinplayaccesssetup.ui" line="72"/>
+        <location filename="../stocksinplayaccesssetup.ui" line="73"/>
         <source>If you have a premium Stocks In Play account, you can enter your account information for access to the premium features</source>
         <extracomment>Stocks In Play - Stock Screener, http://stocksinplay.ru. It&apos;s ok not to translate &quot;Stocks In Play&quot; (e.g. you can just copy-paste &quot;Stocks In Play&quot; to your translation)</extracomment>
         <translation>如果您拥有 Stocks In Play 高级账号，您可输入您的账号信息以使用高级特性</translation>
@@ -51,19 +51,19 @@
 <context>
     <name>StocksInPlayCredentials</name>
     <message>
-        <location filename="../stocksinplaycredentials.ui" line="14"/>
+        <location filename="../stocksinplaycredentials.ui" line="15"/>
         <source>Credentials</source>
         <extracomment>Means &quot;Login and password to access the website&quot;</extracomment>
         <translation>凭证</translation>
     </message>
     <message>
-        <location filename="../stocksinplaycredentials.ui" line="20"/>
+        <location filename="../stocksinplaycredentials.ui" line="21"/>
         <source>Login:</source>
         <extracomment>Noun. Means &quot;Login name&quot;</extracomment>
         <translation>登录：</translation>
     </message>
     <message>
-        <location filename="../stocksinplaycredentials.ui" line="33"/>
+        <location filename="../stocksinplaycredentials.ui" line="34"/>
         <source>Password:</source>
         <translation>密码：</translation>
     </message>

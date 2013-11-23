@@ -4,23 +4,23 @@
 <context>
     <name>FinvizAccessSetup</name>
     <message>
-        <location filename="../finvizaccesssetup.ui" line="14"/>
+        <location filename="../finvizaccesssetup.ui" line="15"/>
         <source>Finviz access setup</source>
         <extracomment>Window title. Finviz - Stock Screener, http://finviz.com. It&apos;s ok not to translate &quot;Finviz&quot; (e.g. you can just copy-paste &quot;Finviz&quot; to your translation). Means &quot;Configuring access to your Finviz account&quot;</extracomment>
         <translation>Réglage d&apos;accès Finviz</translation>
     </message>
     <message>
-        <location filename="../finvizaccesssetup.ui" line="22"/>
+        <location filename="../finvizaccesssetup.ui" line="23"/>
         <source>E-mail:</source>
         <translation>E-mail :</translation>
     </message>
     <message>
-        <location filename="../finvizaccesssetup.ui" line="35"/>
+        <location filename="../finvizaccesssetup.ui" line="36"/>
         <source>Password:</source>
         <translation>Mot de passe :</translation>
     </message>
     <message>
-        <location filename="../finvizaccesssetup.ui" line="92"/>
+        <location filename="../finvizaccesssetup.ui" line="93"/>
         <source>If you have a FINVIZ*Elite account, you can enter your account information for access to the premium features</source>
         <extracomment>Finviz - Stock Screener, http://finviz.com. It&apos;s ok not to translate &quot;Finviz&quot; (or &quot;FINVIZ*Elite&quot;) (e.g. you can just copy-paste &quot;Finviz&quot; (or &quot;FINVIZ*Elite&quot;) to your translation)</extracomment>
         <translation>Si vous avez un compte FINVIZ*Elite, vous pouvez entrer vos informations de compte pour accéder aux fonctionnalités premium</translation>

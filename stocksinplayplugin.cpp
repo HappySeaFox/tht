@@ -40,9 +40,9 @@ StocksInPlayPlugin::StocksInPlayPlugin() :
 bool StocksInPlayPlugin::init()
 {
     // default StocksInPlay urls
-    if(!Settings::instance()->contains("/" SETTING_STOCKSINPLAY_URLS))
+    if(!Settings::instance()->contains("/" SETTING_STOCKSINPLAY_HASHES))
     {
-        SETTINGS_SET_STOCKSINPLAY_URLS(SETTING_STOCKSINPLAY_URLS,
+        SETTINGS_SET_STOCKSINPLAY_HASHES(SETTING_STOCKSINPLAY_HASHES,
                       QList<StocksInPlayUrl>()
                         << StocksInPlayUrl("NYSE >1$ >300k By Ticker",            "U0VMRUNUICogRlJPTSBxX2JhemEgTEVGVCBKT0lOIHFfbGV2ZWwxIFVTSU5HICh0aWNrZXIpIFdIRVJFIHByaWNlPj0nMScgQU5EIGU9JzEnIEFORCBgYXZ2b2A+PTMwMCBPUkRFUiBCWSB0aWNrZXIgQVND")
                         << StocksInPlayUrl("NYSE >1$ >300k New High",             "U0VMRUNUICosIElGKG9wPTAsMCxUUlVOQ0FURSgocHJpY2Uvb3AqMTAwLTEwMCksMikpIGFzIGBjaHBvYCBGUk9NIHFfYmF6YSBMRUZUIEpPSU4gcV9sZXZlbDEgVVNJTkcgKHRpY2tlcikgV0hFUkUgcHJpY2U+PScxJyBBTkQgZT0nMScgQU5EIGBhdnZvYD49MzAwIEFORCAoaGktcHJpY2UpIDw9IDAuMDEgT1JERVIgQlkgY2hwbyBERVND")
@@ -115,7 +115,7 @@ void StocksInPlayPlugin::rebuildMenu(QMenu *menu)
 
     menu->clear();
 
-    QList<StocksInPlayUrl> urls = SETTINGS_GET_STOCKSINPLAY_URLS(SETTING_STOCKSINPLAY_URLS);
+    QList<StocksInPlayUrl> urls = SETTINGS_GET_STOCKSINPLAY_HASHES(SETTING_STOCKSINPLAY_HASHES);
 
     foreach(StocksInPlayUrl su, urls)
     {
@@ -156,7 +156,7 @@ void StocksInPlayPlugin::slotManageUrls()
 
     if(mgr.exec() == QDialog::Accepted && mgr.changed())
     {
-        SETTINGS_SET_STOCKSINPLAY_URLS(SETTING_STOCKSINPLAY_URLS, mgr.urls());
+        SETTINGS_SET_STOCKSINPLAY_HASHES(SETTING_STOCKSINPLAY_HASHES, mgr.urls());
         const PluginImportExport::Embeds &emb = embeds();
 
         Embeds::const_iterator itEnd = emb.end();
