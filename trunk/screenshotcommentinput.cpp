@@ -60,7 +60,7 @@ ScreenshotCommentInput::ScreenshotCommentInput(QWidget *parent) :
     setBackgroundColor(SETTINGS_GET_COLOR(SETTING_SCREENSHOT_BACKGROUND_COLOR));
 
     // text alignment
-    m_align = SETTINGS_GET_ALIGNMENT(SETTING_SCREENSHOT_TEXT_ALIGNMENT);
+    m_align = SETTINGS_GET_ALIGNMENT_FLAG(SETTING_SCREENSHOT_TEXT_ALIGNMENT);
 
     switch(m_align)
     {
@@ -145,7 +145,7 @@ QPixmap ScreenshotCommentInput::pixmap() const
 
 void ScreenshotCommentInput::saveSettings() const
 {
-    SETTINGS_SET_ALIGNMENT(SETTING_SCREENSHOT_TEXT_ALIGNMENT, m_align, Settings::NoSync);
+    SETTINGS_SET_ALIGNMENT_FLAG(SETTING_SCREENSHOT_TEXT_ALIGNMENT, m_align, Settings::NoSync);
     SETTINGS_SET_INT(SETTING_SCREENSHOT_TEXT_SIZE, ui->text->font().pointSize(), Settings::NoSync);
     SETTINGS_SET_COLOR(SETTING_SCREENSHOT_TEXT_COLOR, m_color, Settings::NoSync);
     SETTINGS_SET_BOOL(SETTING_SCREENSHOT_USE_BACKGROUND_COLOR, ui->checkBackgroundColor->isChecked(), Settings::NoSync);

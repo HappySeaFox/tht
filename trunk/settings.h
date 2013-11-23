@@ -88,8 +88,8 @@ Q_DECLARE_METATYPE(Qt::AlignmentFlag)
 #define SETTINGS_GET_COLOR Settings::instance()->value<QColor>
 #define SETTINGS_SET_COLOR Settings::instance()->setValue<QColor>
 
-#define SETTINGS_GET_ALIGNMENT Settings::instance()->value<Qt::AlignmentFlag>
-#define SETTINGS_SET_ALIGNMENT Settings::instance()->setValue<Qt::AlignmentFlag>
+#define SETTINGS_GET_ALIGNMENT_FLAG Settings::instance()->value<Qt::AlignmentFlag>
+#define SETTINGS_SET_ALIGNMENT_FLAG Settings::instance()->setValue<Qt::AlignmentFlag>
 
 #define SETTINGS_GET_POINTS Settings::instance()->value<QList<QPoint> >
 #define SETTINGS_SET_POINTS Settings::instance()->setValue<QList<QPoint> >
