@@ -20,6 +20,7 @@
 
 #include <QDialog>
 
+class QString;
 class QUrl;
 
 namespace Ui

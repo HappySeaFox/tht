@@ -16,6 +16,7 @@
  */
 
 #include <QDesktopServices>
+#include <QString>
 
 #include "messagedialog.h"
 #include "ui_messagedialog.h"

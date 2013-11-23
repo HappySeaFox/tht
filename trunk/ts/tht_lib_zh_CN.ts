@@ -4,18 +4,18 @@
 <context>
     <name>DataManagerBase</name>
     <message>
-        <location filename="../datamanagerbase.ui" line="33"/>
+        <location filename="../datamanagerbase.ui" line="34"/>
         <source>Name</source>
         <translation>名称</translation>
     </message>
     <message>
-        <location filename="../datamanagerbase.ui" line="49"/>
+        <location filename="../datamanagerbase.ui" line="50"/>
         <source>Delete</source>
         <extracomment>This is the label on a button that user pushes to issue the command. Means &quot;Delete the current item&quot;</extracomment>
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../datamanagerbase.ui" line="79"/>
+        <location filename="../datamanagerbase.ui" line="80"/>
         <source>Clear</source>
         <extracomment>This is the label on a button that user pushes to issue the command. Means &quot;Delete all items&quot;</extracomment>
         <translation>清除</translation>
@@ -24,7 +24,7 @@
 <context>
     <name>NetworkAccessDialog</name>
     <message>
-        <location filename="../networkaccessdialog.ui" line="27"/>
+        <location filename="../networkaccessdialog.ui" line="28"/>
         <source>Close</source>
         <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>关闭</translation>

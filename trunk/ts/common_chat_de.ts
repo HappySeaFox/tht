@@ -4,43 +4,43 @@
 <context>
     <name>ChatOptions</name>
     <message>
-        <location filename="../chatoptions.ui" line="14"/>
+        <location filename="../chatoptions.ui" line="15"/>
         <source>Options</source>
         <extracomment>Window title</extracomment>
         <translation>Optionen</translation>
     </message>
     <message>
-        <location filename="../chatoptions.ui" line="22"/>
+        <location filename="../chatoptions.ui" line="23"/>
         <source>Autologin</source>
         <extracomment>Configuration option</extracomment>
         <translation>Autologin</translation>
     </message>
     <message>
-        <location filename="../chatoptions.ui" line="29"/>
+        <location filename="../chatoptions.ui" line="30"/>
         <source>Save rooms</source>
         <extracomment>Configuration option. Infinitive</extracomment>
         <translation>Räume speichern</translation>
     </message>
     <message>
-        <location filename="../chatoptions.ui" line="49"/>
+        <location filename="../chatoptions.ui" line="50"/>
         <source>Autologin to rooms</source>
         <extracomment>Configuration option</extracomment>
         <translation>Autologin in Räume</translation>
     </message>
     <message>
-        <location filename="../chatoptions.ui" line="56"/>
+        <location filename="../chatoptions.ui" line="57"/>
         <source>Restore chat at startup</source>
         <extracomment>Configuration option. Infinitive</extracomment>
         <translation>Den Chat beim Startup wiederherstellen</translation>
     </message>
     <message>
-        <location filename="../chatoptions.ui" line="63"/>
+        <location filename="../chatoptions.ui" line="64"/>
         <source>Show time of message</source>
         <extracomment>Configuration option. Infinitive</extracomment>
         <translation>Zeitpunkt der Nachricht anzeigen</translation>
     </message>
     <message>
-        <location filename="../chatoptions.ui" line="72"/>
+        <location filename="../chatoptions.ui" line="73"/>
         <source>Font size:</source>
         <translation>Schriftgröße:</translation>
     </message>
@@ -48,34 +48,34 @@
 <context>
     <name>ChatPage</name>
     <message>
-        <location filename="../chatpage.ui" line="53"/>
+        <location filename="../chatpage.ui" line="54"/>
         <source>Room:</source>
         <translation>Raum:</translation>
     </message>
     <message>
-        <location filename="../chatpage.ui" line="66"/>
+        <location filename="../chatpage.ui" line="67"/>
         <source>Nick:</source>
         <extracomment>Means &quot;Nick name:&quot;</extracomment>
         <translation>Nick:</translation>
     </message>
     <message>
-        <location filename="../chatpage.ui" line="92"/>
+        <location filename="../chatpage.ui" line="93"/>
         <source>Password:</source>
         <translation>Passwort:</translation>
     </message>
     <message>
-        <location filename="../chatpage.ui" line="109"/>
+        <location filename="../chatpage.ui" line="110"/>
         <source>Join</source>
         <extracomment>This is the label on a button that user pushes to issue the command. Means &quot;Join the selected chat room&quot;</extracomment>
         <translation>Beitreten</translation>
     </message>
     <message>
-        <location filename="../chatpage.ui" line="116"/>
+        <location filename="../chatpage.ui" line="117"/>
         <source>Cancel</source>
         <translation>Abbrechen</translation>
     </message>
     <message>
-        <location filename="../chatpage.ui" line="162"/>
+        <location filename="../chatpage.ui" line="163"/>
         <source>Subject</source>
         <extracomment>Noun</extracomment>
         <translation>Betreff</translation>
@@ -366,25 +366,25 @@
 <context>
     <name>ChatWindow</name>
     <message>
-        <location filename="../chatwindow.ui" line="42"/>
+        <location filename="../chatwindow.ui" line="43"/>
         <source>JID:</source>
         <extracomment>JID is a Jabber Identifier, http://en.wikipedia.org/wiki/XMPP#Decentralization_and_addressing . It&apos;s ok not to translate &quot;JID&quot;, e.g. you can just copy-paste &quot;JID&quot; to your translation</extracomment>
         <translation>JID:</translation>
     </message>
     <message>
-        <location filename="../chatwindow.ui" line="55"/>
+        <location filename="../chatwindow.ui" line="56"/>
         <location filename="../chatwindow.cpp" line="442"/>
         <source>Password:</source>
         <translation>Passwort:</translation>
     </message>
     <message>
-        <location filename="../chatwindow.ui" line="72"/>
+        <location filename="../chatwindow.ui" line="73"/>
         <source>Sign In</source>
         <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>Anmelden</translation>
     </message>
     <message>
-        <location filename="../chatwindow.ui" line="79"/>
+        <location filename="../chatwindow.ui" line="80"/>
         <source>Cancel</source>
         <translation>Abbrechen</translation>
     </message>
@@ -520,70 +520,70 @@
 <context>
     <name>ConfigureRoom</name>
     <message>
-        <location filename="../configureroom.ui" line="14"/>
+        <location filename="../configureroom.ui" line="15"/>
         <source>Configure room</source>
         <extracomment>Window title. The user is able to configure the chat room in this window</extracomment>
         <translation>Raum konfigurieren</translation>
     </message>
     <message>
-        <location filename="../configureroom.ui" line="24"/>
+        <location filename="../configureroom.ui" line="25"/>
         <source>Affiliations</source>
         <extracomment>Can be translated as &quot;Participants&quot;</extracomment>
         <translation>Mitglieder</translation>
     </message>
     <message>
-        <location filename="../configureroom.ui" line="42"/>
+        <location filename="../configureroom.ui" line="43"/>
         <source>Reason</source>
         <translation>Grund</translation>
     </message>
     <message>
-        <location filename="../configureroom.ui" line="47"/>
+        <location filename="../configureroom.ui" line="48"/>
         <source>Owners</source>
         <translation>Eigentümer</translation>
     </message>
     <message>
-        <location filename="../configureroom.ui" line="69"/>
+        <location filename="../configureroom.ui" line="70"/>
         <source>Members</source>
         <extracomment>Can be translated as &quot;Registered&quot; (in the plural, meaning &quot;Registered users&quot;)</extracomment>
         <translation>Mitglieder</translation>
     </message>
     <message>
-        <location filename="../configureroom.ui" line="80"/>
+        <location filename="../configureroom.ui" line="81"/>
         <source>Banned</source>
         <extracomment>In the plural. Means &quot;Banned users&quot;</extracomment>
         <translation>Ausgeschlossen</translation>
     </message>
     <message>
-        <location filename="../configureroom.ui" line="200"/>
+        <location filename="../configureroom.ui" line="201"/>
         <source>Apply</source>
         <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>Anwenden</translation>
     </message>
     <message>
-        <location filename="../configureroom.ui" line="207"/>
+        <location filename="../configureroom.ui" line="208"/>
         <source>Close</source>
         <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>Schließen</translation>
     </message>
     <message>
-        <location filename="../configureroom.ui" line="58"/>
+        <location filename="../configureroom.ui" line="59"/>
         <source>Administrators</source>
         <translation>Administratoren</translation>
     </message>
     <message>
-        <location filename="../configureroom.ui" line="91"/>
+        <location filename="../configureroom.ui" line="92"/>
         <source>Others</source>
         <extracomment>In the plural. Means &quot;Other affiliations&quot;</extracomment>
         <translation>Andere</translation>
     </message>
     <message>
-        <location filename="../configureroom.ui" line="115"/>
+        <location filename="../configureroom.ui" line="116"/>
         <source>Remove</source>
         <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>Entfernen</translation>
     </message>
     <message>
-        <location filename="../configureroom.ui" line="136"/>
+        <location filename="../configureroom.ui" line="137"/>
         <source>General</source>
         <extracomment>In the plural. Means &quot;General options&quot;</extracomment>
         <translation>Allgemein</translation>
@@ -616,7 +616,7 @@
 <context>
     <name>MessageDialog</name>
     <message>
-        <location filename="../messagedialog.ui" line="14"/>
+        <location filename="../messagedialog.ui" line="15"/>
         <source>Message</source>
         <extracomment>Noun. Means &quot;A message from the chat&quot;</extracomment>
         <translation>Nachricht</translation>
@@ -681,36 +681,36 @@
 <context>
     <name>SendInvitations</name>
     <message>
-        <location filename="../sendinvitations.ui" line="17"/>
+        <location filename="../sendinvitations.ui" line="18"/>
         <source>List of JIDs, one per line:</source>
         <extracomment>JID is a Jabber Identifier, http://en.wikipedia.org/wiki/XMPP#Decentralization_and_addressing . It&apos;s ok not to translate &quot;JID&quot;, e.g. you can just copy-paste &quot;JID&quot; to your translation</extracomment>
         <translation>Liste der JIDs, eine pro Zeile:</translation>
     </message>
     <message>
-        <location filename="../sendinvitations.ui" line="42"/>
+        <location filename="../sendinvitations.ui" line="43"/>
         <source>Send</source>
         <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>Senden</translation>
     </message>
     <message>
-        <location filename="../sendinvitations.ui" line="49"/>
+        <location filename="../sendinvitations.ui" line="50"/>
         <source>Close</source>
         <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>Schließen</translation>
     </message>
     <message>
-        <location filename="../sendinvitations.cpp" line="78"/>
+        <location filename="../sendinvitations.cpp" line="77"/>
         <source>Error sending invitation to %1</source>
         <extracomment>Message displayed to the user. %1 will be replaced with the user name by the application. It will look like &quot;Error sending invitation to mic@jabber.ru&quot;</extracomment>
         <translation>Fehler beim Versenden der Einladung an %1</translation>
     </message>
     <message>
-        <location filename="../sendinvitations.cpp" line="91"/>
+        <location filename="../sendinvitations.cpp" line="90"/>
         <source>Information</source>
         <translation>Information</translation>
     </message>
     <message>
-        <location filename="../sendinvitations.cpp" line="93"/>
+        <location filename="../sendinvitations.cpp" line="92"/>
         <source>Please remember that the server can decline your invitations depending on its configuration</source>
         <extracomment>Message displayed to the user</extracomment>
         <translation>Bitte denken Sie daran, dass der Server Ihre Einladungen in Abhängigkeit von seiner Konfiguration ablehnen kann</translation>
