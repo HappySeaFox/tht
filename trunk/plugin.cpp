@@ -45,6 +45,7 @@ bool Plugin::init()
 
 QWidget *Plugin::topLevelWidget() const
 {
+    // this is not thread-safe, but do we need a thread safety for this at all?
     static QWidget *topLevelWidget = 0;
 
     if(!topLevelWidget)
