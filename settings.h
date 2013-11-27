@@ -29,8 +29,6 @@
 #include <QHash>
 #include <QMap>
 
-#include <windows.h>
-
 Q_DECLARE_METATYPE(QList<QPoint>)
 Q_DECLARE_METATYPE(Qt::AlignmentFlag)
 
@@ -146,8 +144,8 @@ class SettingsPrivate;
 
 /*
  *  Class to query the application settings. You can use
- *  the macroses above to query the appropriate types
- *  of values like that:
+ *  the macroses above to query the appropriate values
+ *  like that:
  *
  *      qDebug() << SETTINGS_GET_STRING(SETTING_TRANSLATION);
  */
@@ -249,7 +247,7 @@ public:
     bool contains(const QString &key) const;
 
     /*
-     *  Remove the specified key
+     *  Remove the specified key from the section "settings"
      */
     void remove(const QString &key, SyncType sync = Sync);
 
@@ -262,11 +260,6 @@ public:
      *  Available translations, hardcoded
      */
     QMap<QString, QString> translations();
-
-    /*
-     *  Current Windows version
-     */
-    OSVERSIONINFO windowsVersion() const;
 
     void rereadTimestamps();
 

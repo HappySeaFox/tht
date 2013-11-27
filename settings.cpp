@@ -59,7 +59,6 @@ class SettingsPrivate
 {
 public:
     QSettings *settings;
-    OSVERSIONINFO windowsVersion;
     QString persistentDatabaseName;
     QString persistentDatabasePath;
     QString mutableDatabaseName;
@@ -91,21 +90,6 @@ Settings::Settings()
     d->settings->setValue("version", NVER_STRING);
 
     d->databaseTimestampFormat = "yyyy-MM-dd hh:mm:ss.zzz";
-
-    memset(&d->windowsVersion, 0, sizeof(OSVERSIONINFO));
-    d->windowsVersion.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
-
-    if(!GetVersionEx(&d->windowsVersion))
-    {
-        qDebug("Cannot get system version (%ld), falling back to XP", GetLastError());
-
-        // fallback to XP
-        d->windowsVersion.dwMajorVersion = 5;
-        d->windowsVersion.dwMinorVersion = 1;
-        d->windowsVersion.dwPlatformId = VER_PLATFORM_WIN32_NT;
-    }
-    else
-        qDebug("Windows version %ld.%ld", d->windowsVersion.dwMajorVersion, d->windowsVersion.dwMinorVersion);
 
     // databases
     d->persistentDatabaseName = "persistent";
@@ -327,11 +311,6 @@ QMap<QString, QString> Settings::translations()
         fillTranslations();
 
     return d->translations;
-}
-
-OSVERSIONINFO Settings::windowsVersion() const
-{
-    return d->windowsVersion;
 }
 
 void Settings::rereadTimestamps()
