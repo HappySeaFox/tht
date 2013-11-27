@@ -64,6 +64,7 @@ THT_PLUGIN_AUTHOR="Dmitry Baryshev"
 THT_PLUGIN_UUID="6064096F-223C-45E7-A971-0CCBD395F054"
 THT_PLUGIN_COPYRIGHT="(C) 2013 $$THT_PLUGIN_AUTHOR"
 THT_PLUGIN_URL="http://sourceforge.net/projects/tht"
+THT_PLUGIN_LICENSE_TEXT="GNU GPLv3+. See http://www.gnu.org/licenses/gpl-3.0.txt"
 
 include(THT-common.pri)
 include(THT-plugins.pri)

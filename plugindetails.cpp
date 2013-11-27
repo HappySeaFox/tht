@@ -53,6 +53,8 @@ PluginDetails::PluginDetails(const QString &uuid, QWidget *parent) :
 
         if(fr.open(QIODevice::ReadOnly))
             ui->plainLicense->setPlainText(fr.readAll());
+        else
+            ui->plainLicense->setPlainText(plugin->property(THT_PLUGIN_PROPERTY_LICENSE_TEXT).toString());
     }
 }
 

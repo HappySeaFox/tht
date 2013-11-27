@@ -31,6 +31,7 @@ DEFINES += THT_PLUGIN_UUID=$$sprintf("\"\\\"%1\\\"\"", $$THT_PLUGIN_UUID)
 DEFINES += THT_PLUGIN_DEPRECATES_UUIDS=$$sprintf("\"\\\"%1\\\"\"", $$THT_PLUGIN_DEPRECATES_UUIDS)
 DEFINES += THT_PLUGIN_URL=$$sprintf("\"\\\"%1\\\"\"", $$THT_PLUGIN_URL)
 DEFINES += THT_PLUGIN_COPYRIGHT=$$sprintf("\"\\\"%1\\\"\"", $$THT_PLUGIN_COPYRIGHT)
+DEFINES += THT_PLUGIN_LICENSE_TEXT=$$sprintf("\"\\\"%1\\\"\"", $$THT_PLUGIN_LICENSE_TEXT)
 
 defineReplace(copyFilesToZip) {
     q=$$1
