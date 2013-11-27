@@ -7,13 +7,13 @@
         <location filename="../about.ui" line="94"/>
         <source>THT helps you do your trading home task. It can link different trading platforms and charts, and manage lists of tickers. Send your requests and report errors to our bug tracker. Also visit:</source>
         <extracomment>&quot;THT&quot; is the name of the application. The URL to visit will be added in runtime. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
-        <translation>THT 帮您在家完成交易任务。THT 可以链接不同交易平台和图表，并管理股票列表。将您的请求发送至问题跟踪系统并报错。还可访问：</translation>
+        <translation>THT 帮您在家完成交易任务。THT 可以链接不同交易平台和图表软件，并管理股票列表。将您的请求发送至问题跟踪系统并报错。还可访问：</translation>
     </message>
     <message>
         <location filename="../about.ui" line="175"/>
         <source>THT is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</source>
         <extracomment>See https://www.gnu.org/licenses/gpl-2.0.txt . &quot;THT&quot; is the name of the application</extracomment>
-        <translation>希望 THT 的分发能为您起到帮助，但不包含任何担保；对于适销性或特定目的的适用性，也不提供任何暗含的担保。</translation>
+        <translation>希望 THT 的分发能为您起到帮助，但不包含任何保证；对于适销性或特定目的的适用性，也不提供任何默示保证。</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="46"/>
@@ -45,7 +45,7 @@
         <location filename="../about.cpp" line="76"/>
         <source>Persistent database</source>
         <extracomment>Means &quot;Fixed database on the hard drive&quot;</extracomment>
-        <translation>永久数据库</translation>
+        <translation>本地数据库</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="79"/>
@@ -74,7 +74,7 @@
     <message>
         <location filename="../about.cpp" line="157"/>
         <source>Checking for updates...</source>
-        <translation>检查更新……</translation>
+        <translation>检查更新…</translation>
     </message>
 </context>
 <context>
@@ -164,17 +164,17 @@
     <message>
         <location filename="../dropboxuploader.cpp" line="202"/>
         <source>Requesting new token...</source>
-        <translation>请求新令牌……</translation>
+        <translation>请求新令牌…</translation>
     </message>
     <message>
         <location filename="../dropboxuploader.cpp" line="222"/>
         <source>Requesting new access token...</source>
-        <translation>请求新访问令牌……</translation>
+        <translation>请求新访问令牌…</translation>
     </message>
     <message>
         <location filename="../dropboxuploader.cpp" line="236"/>
         <source>Uploading...</source>
-        <translation>上载……</translation>
+        <translation>上载…</translation>
     </message>
     <message>
         <location filename="../dropboxuploader.cpp" line="249"/>
@@ -186,7 +186,7 @@
     <message>
         <location filename="../dropboxuploader.cpp" line="255"/>
         <source>Requesting link...</source>
-        <translation>请求链接……</translation>
+        <translation>请求链接…</translation>
     </message>
     <message>
         <location filename="../dropboxuploader.cpp" line="127"/>
@@ -201,7 +201,7 @@
         <location filename="../excellinkingdetails.ui" line="15"/>
         <source>Cell address</source>
         <extracomment>Window title. Means &quot;address of cell in Excel sheet&quot;</extracomment>
-        <translation>单元地址</translation>
+        <translation>单元格地址</translation>
     </message>
     <message>
         <location filename="../excellinkingdetails.ui" line="21"/>
@@ -219,7 +219,7 @@
         <location filename="../excellinkingdetails.ui" line="54"/>
         <source>Cell:</source>
         <extracomment>In the terms of Microsoft Excel</extracomment>
-        <translation>单元：</translation>
+        <translation>单元格：</translation>
     </message>
 </context>
 <context>
@@ -243,7 +243,7 @@
         <location filename="../list.ui" line="194"/>
         <source>Save tickers</source>
         <extracomment>This is the label on a button that user pushes to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
-        <translation>保存代码</translation>
+        <translation>保存股票</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="105"/>
@@ -273,13 +273,13 @@
         <location filename="../list.cpp" line="121"/>
         <source>Add one ticker...</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
-        <translation>添加一直股票……</translation>
+        <translation>添加一只股票…</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="124"/>
         <source>Add from file...</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
-        <translation>从文件添加...</translation>
+        <translation>从文件添加…</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="126"/>
@@ -291,7 +291,7 @@
         <location filename="../list.cpp" line="133"/>
         <source>Export to file...</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
-        <translation>导出至文件……</translation>
+        <translation>导出至文件…</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="135"/>
@@ -396,7 +396,7 @@
         <location filename="../options.ui" line="151"/>
         <source>Fast ticker entry</source>
         <extracomment>Configuration option. Noun. Means &quot;The small window where the user can quickly enter a ticker name&quot;. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
-        <translation>快速输入代码</translation>
+        <translation>快速输入股票</translation>
     </message>
     <message>
         <location filename="../options.ui" line="158"/>
@@ -408,7 +408,7 @@
         <location filename="../options.ui" line="165"/>
         <source>Automatically show ticker comments</source>
         <extracomment>Configuration option. Infinitive. Means &quot;Automatically show comments to the selected ticker&quot;. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
-        <translation>自动显示股票评论</translation>
+        <translation>自动显示股票注释</translation>
     </message>
     <message>
         <location filename="../options.ui" line="185"/>
@@ -444,7 +444,7 @@
         <location filename="../options.cpp" line="43"/>
         <source>General</source>
         <extracomment>Means &quot;General options&quot;, in the plural</extracomment>
-        <translation>一般</translation>
+        <translation>常规</translation>
     </message>
     <message>
         <location filename="../options.cpp" line="45"/>
@@ -528,7 +528,7 @@
     <message>
         <location filename="../pluginmanager.ui" line="49"/>
         <source>Details...</source>
-        <translation>详情……</translation>
+        <translation>详情…</translation>
     </message>
     <message>
         <location filename="../pluginmanager.cpp" line="80"/>
@@ -599,7 +599,7 @@ right/middle mouse button to cancel.</source>
         <location filename="../savescreenshot.ui" line="21"/>
         <source>Edit...</source>
         <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
-        <translation>编辑……</translation>
+        <translation>编辑…</translation>
     </message>
     <message>
         <location filename="../savescreenshot.ui" line="35"/>
@@ -609,7 +609,7 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../savescreenshot.ui" line="42"/>
         <source>File...</source>
-        <translation>文件……</translation>
+        <translation>文件…</translation>
     </message>
     <message>
         <location filename="../savescreenshot.cpp" line="89"/>
@@ -665,7 +665,7 @@ right/middle mouse button to cancel.</source>
         <location filename="../screenshoteditor.ui" line="15"/>
         <source>Trade editor</source>
         <extracomment>Noun. Means &quot;The editor of the trade on the stock market&quot;</extracomment>
-        <translation>交易员</translation>
+        <translation>交易编辑器</translation>
     </message>
     <message>
         <location filename="../screenshoteditor.ui" line="50"/>
@@ -693,7 +693,7 @@ right/middle mouse button to cancel.</source>
         <location filename="../screenshoteditor.ui" line="106"/>
         <source>Sale</source>
         <extracomment>Noun</extracomment>
-        <translation>出售</translation>
+        <translation>卖</translation>
     </message>
     <message>
         <location filename="../screenshoteditor.ui" line="117"/>
@@ -705,7 +705,7 @@ right/middle mouse button to cancel.</source>
         <location filename="../screenshoteditor.ui" line="128"/>
         <source>Stop</source>
         <extracomment>Noun. Means &quot;Stop-loss order&quot;, see http://www.investopedia.com/terms/s/stoporder.asp</extracomment>
-        <translation>停止</translation>
+        <translation>停损</translation>
     </message>
     <message>
         <location filename="../screenshoteditor.ui" line="139"/>
@@ -730,13 +730,13 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../tht.cpp" line="252"/>
         <source>Options...</source>
-        <translation>选项……</translation>
+        <translation>选项…</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="255"/>
         <location filename="../tht.cpp" line="333"/>
         <source>Take screenshot...</source>
-        <translation>屏幕截图……</translation>
+        <translation>屏幕截图…</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="259"/>
@@ -761,12 +761,12 @@ right/middle mouse button to cancel.</source>
         <location filename="../tht.cpp" line="276"/>
         <source>About Qt...</source>
         <extracomment>Qt is a C++ crossplatform toolkit http://qt-project.org</extracomment>
-        <translation>关于 Qt...</translation>
+        <translation>关于 Qt…</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="277"/>
         <source>Plugins...</source>
-        <translation>插件……</translation>
+        <translation>插件…</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="279"/>
@@ -806,7 +806,7 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../tht.cpp" line="1571"/>
         <source>New points</source>
-        <translation>新点数</translation>
+        <translation>新连接点</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="2152"/>
@@ -835,7 +835,7 @@ right/middle mouse button to cancel.</source>
         <location filename="../tickercommentinput.ui" line="15"/>
         <source>Comment</source>
         <extracomment>Noun</extracomment>
-        <translation>评论</translation>
+        <translation>注释</translation>
     </message>
 </context>
 <context>
@@ -886,7 +886,7 @@ right/middle mouse button to cancel.</source>
     <message>
         <location filename="../updatechecker.cpp" line="59"/>
         <source>Server answer is broken</source>
-        <translation>服务器回答被打断</translation>
+        <translation>服务器响应中断</translation>
     </message>
 </context>
 </TS>
