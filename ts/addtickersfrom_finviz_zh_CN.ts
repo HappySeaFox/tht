@@ -37,7 +37,7 @@
     <message>
         <location filename="../finvizdownloader.cpp" line="103"/>
         <source>Incorrect answer (fields: %1, required: %2)</source>
-        <translation>错误的回答（字段：%1，请求：%2）</translation>
+        <translation>错误的回答 (字段：%1，请求：%2)</translation>
     </message>
 </context>
 <context>
@@ -58,7 +58,7 @@
         <location filename="../finvizurlmanager.cpp" line="55"/>
         <source>Access...</source>
         <extracomment>Noun</extracomment>
-        <translation>访问……</translation>
+        <translation>访问…</translation>
     </message>
 </context>
 <context>

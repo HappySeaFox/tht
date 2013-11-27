@@ -36,13 +36,13 @@
         <location filename="../tools.cpp" line="164"/>
         <source>Open YouTube tutorial</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Open a video tutorial on YouTube&quot;</extracomment>
-        <translation>打开 YouTube 指南</translation>
+        <translation>打开 YouTube 教程</translation>
     </message>
     <message>
         <location filename="../tools.cpp" line="170"/>
         <source>Downloading tickers...</source>
         <extracomment>Window title. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
-        <translation>下载股票……</translation>
+        <translation>下载股票…</translation>
     </message>
     <message>
         <location filename="../tools.cpp" line="176"/>
@@ -71,7 +71,7 @@
         <location filename="../tools.cpp" line="199"/>
         <source>Customize</source>
         <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
-        <translation>定制</translation>
+        <translation>自定义</translation>
     </message>
     <message>
         <location filename="../tools.cpp" line="205"/>

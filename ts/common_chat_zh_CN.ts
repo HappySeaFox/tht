@@ -19,7 +19,7 @@
         <location filename="../chatoptions.ui" line="30"/>
         <source>Save rooms</source>
         <extracomment>Configuration option. Infinitive</extracomment>
-        <translation>保存房间</translation>
+        <translation>保存聊天室</translation>
     </message>
     <message>
         <location filename="../chatoptions.ui" line="50"/>
@@ -50,7 +50,7 @@
     <message>
         <location filename="../chatpage.ui" line="54"/>
         <source>Room:</source>
-        <translation>房间：</translation>
+        <translation>聊天室：</translation>
     </message>
     <message>
         <location filename="../chatpage.ui" line="67"/>
@@ -89,7 +89,7 @@
         <location filename="../chatpage.cpp" line="138"/>
         <source>General</source>
         <extracomment>Means &quot;General chat&quot;</extracomment>
-        <translation>一般的</translation>
+        <translation>常规</translation>
     </message>
     <message>
         <location filename="../chatpage.cpp" line="153"/>
@@ -100,12 +100,12 @@
         <location filename="../chatpage.cpp" line="155"/>
         <source>Exchange:</source>
         <extracomment>Noun. Means &quot;Market exchange:&quot;, http://www.investopedia.com/terms/e/exchange.asp</extracomment>
-        <translation>交换：</translation>
+        <translation>交易所：</translation>
     </message>
     <message>
         <location filename="../chatpage.cpp" line="156"/>
         <source>Sector:</source>
-        <translation>部分：</translation>
+        <translation>板块：</translation>
     </message>
     <message>
         <location filename="../chatpage.cpp" line="157"/>
@@ -309,7 +309,7 @@
         <location filename="../chatpage.cpp" line="88"/>
         <source>Kick with reason...</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Kick the selected user with the following reason&quot;</extracomment>
-        <translation>踢出原因...</translation>
+        <translation>踢出原因…</translation>
     </message>
     <message>
         <location filename="../chatpage.cpp" line="96"/>
@@ -321,7 +321,7 @@
         <location filename="../chatpage.cpp" line="100"/>
         <source>Ban with reason...</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Ban the selected user with the following reason&quot;</extracomment>
-        <translation>屏蔽原因...</translation>
+        <translation>屏蔽原因…</translation>
     </message>
     <message>
         <location filename="../chatpage.cpp" line="372"/>
@@ -404,7 +404,7 @@
     <message>
         <location filename="../chatwindow.cpp" line="109"/>
         <source>Options...</source>
-        <translation>选项……</translation>
+        <translation>选项…</translation>
     </message>
     <message>
         <location filename="../chatwindow.cpp" line="201"/>
@@ -413,7 +413,7 @@
         <location filename="../chatwindow.cpp" line="458"/>
         <location filename="../chatwindow.cpp" line="492"/>
         <source>Room</source>
-        <translation>房间</translation>
+        <translation>聊天室</translation>
     </message>
     <message>
         <location filename="../chatwindow.cpp" line="289"/>
@@ -424,7 +424,7 @@
     <message>
         <location filename="../chatwindow.cpp" line="303"/>
         <source>Connecting...</source>
-        <translation>连接……</translation>
+        <translation>连接…</translation>
     </message>
     <message>
         <location filename="../chatwindow.cpp" line="312"/>
@@ -554,6 +554,12 @@
         <translation>被禁止的</translation>
     </message>
     <message>
+        <location filename="../configureroom.ui" line="92"/>
+        <source>Others</source>
+        <extracomment>In the plural. Means &quot;Other affiliations&quot;</extracomment>
+        <translation>其它</translation>
+    </message>
+    <message>
         <location filename="../configureroom.ui" line="201"/>
         <source>Apply</source>
         <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
@@ -571,12 +577,6 @@
         <translation>管理者</translation>
     </message>
     <message>
-        <location filename="../configureroom.ui" line="92"/>
-        <source>Others</source>
-        <extracomment>In the plural. Means &quot;Other affiliations&quot;</extracomment>
-        <translation>其它</translation>
-    </message>
-    <message>
         <location filename="../configureroom.ui" line="116"/>
         <source>Remove</source>
         <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
@@ -586,7 +586,7 @@
         <location filename="../configureroom.ui" line="137"/>
         <source>General</source>
         <extracomment>In the plural. Means &quot;General options&quot;</extracomment>
-        <translation>一般的</translation>
+        <translation>常规</translation>
     </message>
     <message>
         <location filename="../configureroom.cpp" line="430"/>

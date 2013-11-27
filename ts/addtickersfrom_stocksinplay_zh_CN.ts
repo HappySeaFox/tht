@@ -39,7 +39,7 @@
         <location filename="../stocksinplayaccesssetup.ui" line="100"/>
         <source>Fill in...</source>
         <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
-        <translation>填写...</translation>
+        <translation>填写…</translation>
     </message>
     <message>
         <location filename="../stocksinplayaccesssetup.ui" line="73"/>
@@ -73,7 +73,7 @@
     <message>
         <location filename="../stocksinplaylogin.cpp" line="30"/>
         <source>Accessing...</source>
-        <translation>正在访问...</translation>
+        <translation>正在访问…</translation>
     </message>
     <message>
         <location filename="../stocksinplaylogin.cpp" line="55"/>
@@ -99,7 +99,7 @@
         <location filename="../stocksinplayurlmanager.cpp" line="51"/>
         <source>Access...</source>
         <extracomment>Noun</extracomment>
-        <translation>访问……</translation>
+        <translation>访问…</translation>
     </message>
 </context>
 </TS>
