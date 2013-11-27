@@ -31,9 +31,10 @@ class PluginPrivate;
 #define THT_PLUGIN_PROPERTY_URL              "url"
 #define THT_PLUGIN_PROPERTY_UUID             "uuid"
 #define THT_PLUGIN_PROPERTY_DEPRECATES_UUIDS "deprecates-uuids"
+#define THT_PLUGIN_PROPERTY_LICENSE_TEXT     "license-text"
 
 // set by the plugin loader
-#define THT_PLUGIN_PROPERTY_LICENSE_FILE "license"
+#define THT_PLUGIN_PROPERTY_LICENSE_FILE "license-file"
 #define THT_PLUGIN_PROPERTY_FILENAME     "filename"
 
 /*
@@ -116,12 +117,13 @@ void plugin_destroy(Plugin *pl)   \
     delete pl;                    \
 }
 
-#define THT_PLUGIN_INTERFACE_IMPLEMENTATION                   \
-setProperty(THT_PLUGIN_PROPERTY_NAME, THT_PLUGIN_NAME);       \
-setProperty(THT_PLUGIN_PROPERTY_AUTHOR, THT_PLUGIN_AUTHOR);   \
-setProperty(THT_PLUGIN_PROPERTY_VERSION, THT_PLUGIN_VERSION); \
-setProperty(THT_PLUGIN_PROPERTY_URL, THT_PLUGIN_URL);         \
-setProperty(THT_PLUGIN_PROPERTY_UUID, THT_PLUGIN_UUID);       \
-setProperty(THT_PLUGIN_PROPERTY_DEPRECATES_UUIDS, THT_PLUGIN_DEPRECATES_UUIDS);
+#define THT_PLUGIN_INTERFACE_IMPLEMENTATION                                     \
+setProperty(THT_PLUGIN_PROPERTY_NAME, THT_PLUGIN_NAME);                         \
+setProperty(THT_PLUGIN_PROPERTY_AUTHOR, THT_PLUGIN_AUTHOR);                     \
+setProperty(THT_PLUGIN_PROPERTY_VERSION, THT_PLUGIN_VERSION);                   \
+setProperty(THT_PLUGIN_PROPERTY_URL, THT_PLUGIN_URL);                           \
+setProperty(THT_PLUGIN_PROPERTY_UUID, THT_PLUGIN_UUID);                         \
+setProperty(THT_PLUGIN_PROPERTY_DEPRECATES_UUIDS, THT_PLUGIN_DEPRECATES_UUIDS); \
+setProperty(THT_PLUGIN_PROPERTY_LICENSE_TEXT, THT_PLUGIN_LICENSE_TEXT);
 
 #endif // PLUGIN_H
