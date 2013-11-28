@@ -45,6 +45,8 @@ SaveScreenshot::SaveScreenshot(const QPixmap &px, QWidget *parent) :
 {
     ui->setupUi(this);
 
+    ui->pushDropbox->setWhatsThis(QString("<a href=\"http://www.youtube.com/watch?v=KcHkzeHIjjw\">%1</a>").arg(Tools::openYoutubeTutorialTitle()));
+
     // some hotkeys
     ui->pushEdit->setShortcut(Qt::Key_E);
     ui->pushClipboard->setShortcut(Qt::Key_C);
