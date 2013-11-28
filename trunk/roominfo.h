@@ -40,8 +40,8 @@ struct RoomInfo
 Q_DECLARE_METATYPE(RoomInfo)
 Q_DECLARE_METATYPE(QList<RoomInfo>)
 
-#define SETTINGS_GET_ROOMS_INFO Settings::instance()->value<QList<RoomInfo> >
-#define SETTINGS_SET_ROOMS_INFO Settings::instance()->setValue<QList<RoomInfo> >
+#define SETTINGS_GET_ROOMS_INFO Settings::instance()->binaryValue<QList<RoomInfo> >
+#define SETTINGS_SET_ROOMS_INFO Settings::instance()->setBinaryValue<QList<RoomInfo> >
 
 QDataStream &operator<<(QDataStream &out, const RoomInfo &ri);
 QDataStream &operator>>(QDataStream &in, RoomInfo &ri);
