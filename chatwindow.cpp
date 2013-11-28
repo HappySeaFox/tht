@@ -581,7 +581,8 @@ void ChatWindow::slotHelp()
                                      "<tr><td align=center>//Gold=D</td><td>%5</td></tr>"
                                      "<tr><td align=center>//Gold=N</td><td>%6</td></tr>"
                                      "<tr><td align=center>//Gold=ND</td><td>%7</td></tr>"
-                                     "</table>")
+                                     "</table>"
+                                     "<p align=right><a href=\"http://www.youtube.com/watch?v=2VRvOkWX1ZI\">%8</a></p>")
                              //: Don't translate "ABC" - this is a fixed ticker name (e.g. copy-paste "ABC" to your translation). Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow "ticker" from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)
                              .arg(tr("Send the ticker \"ABC\" to the chat. User can click on it and it will be loaded into all the linked windows"))
                              //: Don't translate "ABC" - this is a fixed ticker name (e.g. copy-paste "ABC" to your translation). Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow "ticker" from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)
@@ -592,6 +593,7 @@ void ChatWindow::slotHelp()
                              .arg(QString(showTickersString).replace("AMEX", "NASDAQ"))
                              .arg(QString(showTickersString).replace("AMEX", "NYSE"))
                              .arg(QString(showTickersString).replace("AMEX", "NYSE+NASDAQ"))
+                             .arg(Tools::openYoutubeTutorialTitle())
                              );
 }
 
