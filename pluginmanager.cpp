@@ -100,7 +100,7 @@ void PluginManager::slotDetails()
 {
     QTreeWidgetItem *i = ui->treePlugins->currentItem();
 
-    if(!i || i->childCount())
+    if(!i || !i->data(0, Qt::UserRole).isValid())
         return;
 
     PluginDetails pd(i->data(0, Qt::UserRole).toString(), this);
