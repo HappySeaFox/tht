@@ -36,7 +36,7 @@ StocksInPlayUrlManager::StocksInPlayUrlManager(QWidget *parent) :
 
     //: Means "Hash key" as in computer science
     t->headerItem()->setText(1, tr("Hash"));
-    t->setWhatsThis(QString("<a href=\"http://www.youtube.com/watch?v=Daoa0Xftp7M\">%1</a>").arg(Tools::openYoutubeTutorialTitle()));
+    t->setWhatsThis(QString("<a href=\"http://www.youtube.com/watch?v=NCQZb5OiY3o\">%1</a>").arg(Tools::openYoutubeTutorialTitle()));
 
     const QList<StocksInPlayUrl> urls = SETTINGS_GET_STOCKSINPLAY_HASHES(SETTING_STOCKSINPLAY_HASHES);
 
