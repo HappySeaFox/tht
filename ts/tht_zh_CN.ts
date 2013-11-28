@@ -884,7 +884,7 @@ right/middle mouse button to cancel.</source>
 <context>
     <name>UpdateChecker</name>
     <message>
-        <location filename="../updatechecker.cpp" line="59"/>
+        <location filename="../updatechecker.cpp" line="60"/>
         <source>Server answer is broken</source>
         <translation>服务器响应中断</translation>
     </message>

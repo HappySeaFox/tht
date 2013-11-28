@@ -171,7 +171,8 @@ QMap<QString, QStringList> SqlTools::sectorsAndIndustriesReal()
         QStringList industries;
 
         QList<QVariantList> lists = SqlTools::query("SELECT DISTINCT industry FROM tickers WHERE sector = :sector",
-                                                   ":sector", sector);
+                                                   ":sector",
+                                                    sector);
 
         foreach(QVariantList l, lists)
         {

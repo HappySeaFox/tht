@@ -32,6 +32,7 @@ UpdateChecker::UpdateChecker(QObject *parent) :
     m_url = QUrl(SVNROOT_FOR_DOWNLOAD "/THT-version.tag?format=raw");
 
     m_rxVersion = QRegExp("^(\\d+)\\.(\\d+)\\.(\\d+)$");
+    m_rxNewLine = QRegExp("\\r?\\n");
 
     m_net = new NetworkAccess(this);
 
@@ -51,7 +52,7 @@ void UpdateChecker::slotFinished()
         return;
     }
 
-    QStringList list = QString(m_net->data()).split(QRegExp("\\r?\\n"), QString::SkipEmptyParts);
+    QStringList list = QString(m_net->data()).split(m_rxNewLine, QString::SkipEmptyParts);
 
     if(list.isEmpty() || !m_rxVersion.exactMatch(list[0]))
     {

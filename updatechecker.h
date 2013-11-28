@@ -47,6 +47,7 @@ private:
     NetworkAccess *m_net;
     QString m_lastVersion;
     QRegExp m_rxVersion;
+    QRegExp m_rxNewLine;
     QUrl m_url;
 };
 

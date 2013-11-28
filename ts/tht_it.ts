@@ -886,7 +886,7 @@ il pulsante destro/di centro del mouse per cancellare.</translation>
 <context>
     <name>UpdateChecker</name>
     <message>
-        <location filename="../updatechecker.cpp" line="59"/>
+        <location filename="../updatechecker.cpp" line="60"/>
         <source>Server answer is broken</source>
         <translation>Il server non risponde</translation>
     </message>

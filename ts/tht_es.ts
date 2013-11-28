@@ -886,7 +886,7 @@ en el botón derecho/central del ratón para cancelar.</translation>
 <context>
     <name>UpdateChecker</name>
     <message>
-        <location filename="../updatechecker.cpp" line="59"/>
+        <location filename="../updatechecker.cpp" line="60"/>
         <source>Server answer is broken</source>
         <translation>Respuesta del servidor interrumpida</translation>
     </message>
