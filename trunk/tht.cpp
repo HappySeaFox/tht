@@ -354,7 +354,7 @@ THT::THT() :
     mappings.clear();
     mappings.insert(LinkTypeMBTDesktop,    "$DJI");
     mappings.insert(LinkTypeMBTDesktopPro, "$DJI");
-    mappings.insert(LinkTypeThinkorswim,   "DJX");
+    mappings.insert(LinkTypeThinkorswim,   "$DJI");
     m_predefined.insert("$INDU", PredefinedTicker(Qt::Key_I, mappings));
 
     // S&P 500 Index
