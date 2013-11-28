@@ -25,7 +25,7 @@ NumericLabel::NumericLabel(QWidget *parent)
     init(0);
 }
 
-NumericLabel::NumericLabel(uint value, QWidget *parent)
+NumericLabel::NumericLabel(int value, QWidget *parent)
     : QLabel(parent)
 {
     init(value);
@@ -34,9 +34,9 @@ NumericLabel::NumericLabel(uint value, QWidget *parent)
 NumericLabel::~NumericLabel()
 {}
 
-void NumericLabel::setValue(uint val)
+void NumericLabel::setValue(int val)
 {
-    if(m_value == val || (m_value > 20 && val > 20))
+    if(val < 0 || m_value == val || (m_value > 20 && val > 20))
         return;
 
     m_value = val;
@@ -55,8 +55,10 @@ void NumericLabel::setValue(uint val)
     setPixmap(pixmap);
 }
 
-void NumericLabel::init(uint value)
+void NumericLabel::init(int value)
 {
+    m_value = -1;
+
     setContentsMargins(0, 0, 0, 0);
     setValue(value);
 
