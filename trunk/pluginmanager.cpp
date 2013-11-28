@@ -100,9 +100,14 @@ void PluginManager::slotDetails()
 {
     QTreeWidgetItem *i = ui->treePlugins->currentItem();
 
-    if(!i || !i->data(0, Qt::UserRole).isValid())
+    if(!i)
         return;
 
-    PluginDetails pd(i->data(0, Qt::UserRole).toString(), this);
+    QString uuid = i->data(0, Qt::UserRole).toString();
+
+    if(uuid.isEmpty())
+        return;
+
+    PluginDetails pd(uuid, this);
     pd.exec();
 }
