@@ -27,22 +27,25 @@ class NumericLabel : public QLabel
 {
 public:
     NumericLabel(QWidget *parent = 0);
-    NumericLabel(uint value = 0, QWidget *parent = 0);
+    NumericLabel(int value, QWidget *parent = 0);
     ~NumericLabel();
 
-    void setValue(uint val);
-    uint value() const;
+    /*
+     *  Only [0...20] values are accepted
+     */
+    void setValue(int val);
+    int value() const;
 
 private:
-    void init(uint val);
+    void init(int val);
 
 private:
-    uint m_value;
+    int m_value;
     QHash<uint, QPixmap> m_cache;
 };
 
 inline
-uint NumericLabel::value() const
+int NumericLabel::value() const
 {
     return m_value;
 }
