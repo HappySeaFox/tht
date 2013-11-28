@@ -614,18 +614,18 @@ prawy/środkowy przycisk myszy, aby anulować.</translation>
         <translation>Plik...</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="89"/>
+        <location filename="../savescreenshot.cpp" line="91"/>
         <source>Image %1 (*.%2)</source>
         <translation>Obraz %1 (*.%2)</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="97"/>
+        <location filename="../savescreenshot.cpp" line="99"/>
         <source>Save as</source>
         <translation>Zapisz jako</translation>
     </message>
     <message>
-        <location filename="../savescreenshot.cpp" line="119"/>
-        <location filename="../savescreenshot.cpp" line="143"/>
+        <location filename="../savescreenshot.cpp" line="121"/>
+        <location filename="../savescreenshot.cpp" line="145"/>
         <source>Cannot save screenshot</source>
         <extracomment>Message displayed to the user</extracomment>
         <translation>Nie można zapisać zrzutu ekranu</translation>
