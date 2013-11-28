@@ -19,13 +19,15 @@
 
 #include "numericlabel.h"
 
+static const uint THT_NUMERIC_LABEL_MAX = 20;
+
 NumericLabel::NumericLabel(QWidget *parent)
     : QLabel(parent)
 {
     init(0);
 }
 
-NumericLabel::NumericLabel(int value, QWidget *parent)
+NumericLabel::NumericLabel(uint value, QWidget *parent)
     : QLabel(parent)
 {
     init(value);
@@ -34,20 +36,23 @@ NumericLabel::NumericLabel(int value, QWidget *parent)
 NumericLabel::~NumericLabel()
 {}
 
-void NumericLabel::setValue(int val)
+void NumericLabel::setValue(uint val)
 {
-    if(val < 0 || m_value == val || (m_value > 20 && val > 20))
+    if(m_value == val || (m_value > THT_NUMERIC_LABEL_MAX && val > THT_NUMERIC_LABEL_MAX))
         return;
 
     m_value = val;
 
-    QHash<uint, QPixmap>::iterator it = m_cache.find(m_value > 20 ? 21 : m_value);
+    QHash<uint, QPixmap>::iterator it = m_cache.find(m_value > THT_NUMERIC_LABEL_MAX ? (THT_NUMERIC_LABEL_MAX+1) : m_value);
     QPixmap pixmap;
 
     if(it == m_cache.end())
     {
-        pixmap = QPixmap(m_value > 20 ? ":/images/counters/20+.png" : QString(":/images/counters/%1.png").arg(m_value));
-        m_cache.insert(m_value > 20 ? 21 : m_value, pixmap);
+        pixmap = QPixmap(m_value > THT_NUMERIC_LABEL_MAX
+                         ? QString(":/images/counters/%1+.png").arg(THT_NUMERIC_LABEL_MAX)
+                         : QString(":/images/counters/%1.png").arg(m_value));
+
+        m_cache.insert(m_value > THT_NUMERIC_LABEL_MAX ? (THT_NUMERIC_LABEL_MAX+1) : m_value, pixmap);
     }
     else
         pixmap = it.value();
@@ -55,14 +60,15 @@ void NumericLabel::setValue(int val)
     setPixmap(pixmap);
 }
 
-void NumericLabel::init(int value)
+void NumericLabel::init(uint value)
 {
-    m_value = -1;
+    // initial invalid value
+    m_value = THT_NUMERIC_LABEL_MAX + 1;
 
     setContentsMargins(0, 0, 0, 0);
     setValue(value);
 
-    QImage im(":/images/counters/20+.png");
+    QImage im(QString(":/images/counters/%1+.png").arg(THT_NUMERIC_LABEL_MAX));
 
     if(!im.isNull())
         setFixedSize(im.size());
