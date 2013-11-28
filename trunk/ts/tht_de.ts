@@ -886,7 +886,7 @@ oder klicken Sie die rechte/mittlere Maustaste, um abzubrechen.</translation>
 <context>
     <name>UpdateChecker</name>
     <message>
-        <location filename="../updatechecker.cpp" line="59"/>
+        <location filename="../updatechecker.cpp" line="60"/>
         <source>Server answer is broken</source>
         <translation>Die Antwort des Servers ist fehlerhaft</translation>
     </message>

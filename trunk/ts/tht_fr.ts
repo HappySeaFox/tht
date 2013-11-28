@@ -886,7 +886,7 @@ sur le bouton central/droit de la souris pour annuler.</translation>
 <context>
     <name>UpdateChecker</name>
     <message>
-        <location filename="../updatechecker.cpp" line="59"/>
+        <location filename="../updatechecker.cpp" line="60"/>
         <source>Server answer is broken</source>
         <translation>La réponse du serveur est rompue</translation>
     </message>

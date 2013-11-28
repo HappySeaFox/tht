@@ -145,7 +145,8 @@ bool Tools::hasOption(const QString &opt)
 
 QString Tools::nonBreakable(const QString &str)
 {
-    return QString(str).replace(QRegExp("\\s"), "&nbsp;");
+    static QRegExp rxSpace("\\s");
+    return QString(str).replace(rxSpace, "&nbsp;");
 }
 
 void Tools::raiseWindow(QWidget *w)

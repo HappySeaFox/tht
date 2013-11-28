@@ -886,7 +886,7 @@ prawy/środkowy przycisk myszy, aby anulować.</translation>
 <context>
     <name>UpdateChecker</name>
     <message>
-        <location filename="../updatechecker.cpp" line="59"/>
+        <location filename="../updatechecker.cpp" line="60"/>
         <source>Server answer is broken</source>
         <translation>Odpowiedź z serwera jest podzielona</translation>
     </message>

@@ -886,7 +886,7 @@ chuột phải/chuột giữa để hủy bỏ.</translation>
 <context>
     <name>UpdateChecker</name>
     <message>
-        <location filename="../updatechecker.cpp" line="59"/>
+        <location filename="../updatechecker.cpp" line="60"/>
         <source>Server answer is broken</source>
         <translation>Phản hồi từ máy chủ hiện đã bị hỏng</translation>
     </message>
