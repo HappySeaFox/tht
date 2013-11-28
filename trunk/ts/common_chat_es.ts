@@ -493,19 +493,19 @@
         <translation>Mensaje:</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="586"/>
+        <location filename="../chatwindow.cpp" line="587"/>
         <source>Send the ticker &quot;ABC&quot; to the chat. User can click on it and it will be loaded into all the linked windows</source>
         <extracomment>Don&apos;t translate &quot;ABC&quot; - this is a fixed ticker name (e.g. copy-paste &quot;ABC&quot; to your translation). Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Enviar el símbolo &quot;ABC&quot; al chat. El usuario puede hacer clic en él y será descargado en todas las ventanas vinculadas</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="588"/>
+        <location filename="../chatwindow.cpp" line="589"/>
         <source>Show the ticker information about the ticker &quot;ABC&quot;</source>
         <extracomment>Don&apos;t translate &quot;ABC&quot; - this is a fixed ticker name (e.g. copy-paste &quot;ABC&quot; to your translation). Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Mostrar la información detallada del símbolo &quot;ABC&quot;</translation>
     </message>
     <message>
-        <location filename="../chatwindow.cpp" line="590"/>
+        <location filename="../chatwindow.cpp" line="591"/>
         <source>Show the tickers from the industry &quot;Gold&quot; (all exchanges, tickers are sorted by capitalization)</source>
         <extracomment>Don&apos;t translate &quot;Gold&quot; - this is a fixed industry name (e.g. copy-paste &quot;Gold&quot; to your translation). &quot;Exchange&quot; is a market exchange. &quot;Capitalization&quot; is a &quot;company capitalization&quot; as in finance industry. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Mostrar los símbolos de la industria &quot;Gold&quot; (todas las bolsas, los tickers están ordenador por capitalización)</translation>
