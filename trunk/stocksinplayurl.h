@@ -45,7 +45,6 @@ QDataStream &operator>>(QDataStream &in, StocksInPlayUrl &su);
 #define SETTINGS_GET_STOCKSINPLAY_HASHES Settings::instance()->binaryValue<QList<StocksInPlayUrl> >
 #define SETTINGS_SET_STOCKSINPLAY_HASHES Settings::instance()->setBinaryValue<QList<StocksInPlayUrl> >
 
-#define SETTING_STOCKSINPLAY_ID     "stocksinplay-id"
 #define SETTING_STOCKSINPLAY_HASH   "stocksinplay-hash"
 #define SETTING_STOCKSINPLAY_HASHES "stocksinplay-urls"
 

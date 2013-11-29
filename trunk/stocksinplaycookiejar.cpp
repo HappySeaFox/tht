@@ -34,16 +34,11 @@ QList<QNetworkCookie> StocksInPlayCookieJar::cookiesForUrl(const QUrl &url) cons
 
     if(h == STOCKSINPLAY)
     {
-        QString id = SETTINGS_GET_STRING(SETTING_STOCKSINPLAY_ID);
         QString hash = StocksInPlayTools::cachedHash();
 
-        if(!id.isEmpty() && !hash.isEmpty())
+        if(!hash.isEmpty())
         {
-            QNetworkCookie cookieId("id", id.toLatin1());
-            initCookie(&cookieId);
-            cookies.append(cookieId);
-
-            QNetworkCookie cookieHash("hash", hash.toLatin1());
+            QNetworkCookie cookieHash("PHPSESSID", hash.toLatin1());
             initCookie(&cookieHash);
             cookies.append(cookieHash);
         }

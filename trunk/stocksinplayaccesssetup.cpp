@@ -34,19 +34,12 @@ StocksInPlayAccessSetup::StocksInPlayAccessSetup(QWidget *parent) :
     ui->setupUi(this);
 
     ui->labelNotePixmap->setPixmap(style()->standardIcon(QStyle::SP_MessageBoxInformation).pixmap(16, 16));
-
-    ui->lineId->setText(SETTINGS_GET_STRING(SETTING_STOCKSINPLAY_ID));
     ui->lineHash->setText(StocksInPlayTools::cachedHash());
 }
 
 StocksInPlayAccessSetup::~StocksInPlayAccessSetup()
 {
     delete ui;
-}
-
-QString StocksInPlayAccessSetup::id() const
-{
-    return ui->lineId->text();
 }
 
 QString StocksInPlayAccessSetup::hash() const
@@ -63,9 +56,6 @@ void StocksInPlayAccessSetup::slotFillIn()
         StocksInPlayLogin sipl(sipc.login(), sipc.password(), this);
 
         if(sipl.exec() == QDialog::Accepted)
-        {
-            ui->lineId->setText(sipl.id());
             ui->lineHash->setText(sipl.hash());
-        }
     }
 }

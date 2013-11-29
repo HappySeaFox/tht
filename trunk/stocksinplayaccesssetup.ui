@@ -8,51 +8,34 @@
     <x>0</x>
     <y>0</y>
     <width>328</width>
-    <height>143</height>
+    <height>118</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string extracomment="Window title. Stocks In Play - Stock Screener, http://stocksinplay.ru. It's ok not to translate &quot;Stocks In Play&quot; (e.g. you can just copy-paste &quot;Stocks In Play&quot; to your translation). Means &quot;Configuring access to your Stocks In Play account&quot;">Stocks In Play access setup</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout_3">
+  <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
-    <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="0">
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>ID:</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QLineEdit" name="lineId"/>
-     </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="label_2">
-       <property name="text">
-        <string extracomment="Means &quot;Hash key&quot; as in computer science">Hash:</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QLineEdit" name="lineHash"/>
-     </item>
-    </layout>
+    <widget class="QLabel" name="label_2">
+     <property name="text">
+      <string extracomment="Means &quot;Hash key&quot; as in computer science">Hash:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     </property>
+    </widget>
    </item>
-   <item row="1" column="0">
+   <item row="0" column="1">
+    <widget class="QLineEdit" name="lineHash"/>
+   </item>
+   <item row="1" column="0" colspan="2">
     <widget class="Line" name="line">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
     </widget>
    </item>
-   <item row="2" column="0">
+   <item row="2" column="0" colspan="2">
     <layout class="QGridLayout" name="gridLayout_2">
      <item row="0" column="0">
       <widget class="QLabel" name="labelNotePixmap">
@@ -92,7 +75,7 @@
      </property>
     </spacer>
    </item>
-   <item row="4" column="0">
+   <item row="4" column="0" colspan="2">
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QPushButton" name="pushFillIn">
@@ -129,7 +112,6 @@
   </layout>
  </widget>
  <tabstops>
-  <tabstop>lineId</tabstop>
   <tabstop>lineHash</tabstop>
   <tabstop>pushFillIn</tabstop>
   <tabstop>buttonBox</tabstop>

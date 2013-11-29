@@ -36,7 +36,7 @@ StocksInPlayUrlManager::StocksInPlayUrlManager(QWidget *parent) :
 
     //: Means "Hash key" as in computer science
     t->headerItem()->setText(1, tr("Hash"));
-    t->setWhatsThis(QString("<a href=\"http://www.youtube.com/watch?v=NCQZb5OiY3o\">%1</a>").arg(Tools::openYoutubeTutorialTitle()));
+    t->setWhatsThis(QString("<a href=\"http://www.youtube.com/watch?v=JvAScfrZFmE\">%1</a>").arg(Tools::openYoutubeTutorialTitle()));
 
     const QList<StocksInPlayUrl> urls = SETTINGS_GET_STOCKSINPLAY_HASHES(SETTING_STOCKSINPLAY_HASHES);
 
@@ -88,7 +88,6 @@ void StocksInPlayUrlManager::slotAccessClicked()
 
     if(sip.exec() == QDialog::Accepted)
     {
-        SETTINGS_SET_STRING(SETTING_STOCKSINPLAY_ID, sip.id(), Settings::NoSync);
         SETTINGS_SET_BYTE_ARRAY(SETTING_STOCKSINPLAY_HASH, Tools::encrypt(sip.hash().toUtf8()));
         StocksInPlayTools::setCachedHash(sip.hash());
     }

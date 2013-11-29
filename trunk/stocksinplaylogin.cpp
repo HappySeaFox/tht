@@ -47,10 +47,9 @@ StocksInPlayLogin::~StocksInPlayLogin()
 
 bool StocksInPlayLogin::finished()
 {
-    m_id = m_cookieJar->id();
     m_hash = m_cookieJar->hash();
 
-    if(m_id.isEmpty() || m_hash.isEmpty())
+    if(m_hash.isEmpty())
     {
         showError(tr("Failed to get account details"));
         return false;
