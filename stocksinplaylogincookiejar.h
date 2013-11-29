@@ -27,7 +27,6 @@ class StocksInPlayLoginCookieJar : public QNetworkCookieJar
 public:
     StocksInPlayLoginCookieJar(QObject *parent = 0);
 
-    QString id() const;
     QString hash() const;
 
 private:
@@ -35,15 +34,9 @@ private:
 };
 
 inline
-QString StocksInPlayLoginCookieJar::id() const
-{
-    return stringValue("id");
-}
-
-inline
 QString StocksInPlayLoginCookieJar::hash() const
 {
-    return stringValue("hash");
+    return stringValue("PHPSESSID");
 }
 
 #endif // STOCKSINPLAYLOGINCOOKIEJAR_H

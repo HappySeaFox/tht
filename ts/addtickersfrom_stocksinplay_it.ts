@@ -25,24 +25,19 @@
         <translation>Configurazione accesso Stocks In Play</translation>
     </message>
     <message>
-        <location filename="../stocksinplayaccesssetup.ui" line="23"/>
-        <source>ID:</source>
-        <translation>ID:</translation>
-    </message>
-    <message>
-        <location filename="../stocksinplayaccesssetup.ui" line="36"/>
+        <location filename="../stocksinplayaccesssetup.ui" line="21"/>
         <source>Hash:</source>
         <extracomment>Means &quot;Hash key&quot; as in computer science</extracomment>
         <translation>Cancelletto:</translation>
     </message>
     <message>
-        <location filename="../stocksinplayaccesssetup.ui" line="100"/>
+        <location filename="../stocksinplayaccesssetup.ui" line="83"/>
         <source>Fill in...</source>
         <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>Inserisci...</translation>
     </message>
     <message>
-        <location filename="../stocksinplayaccesssetup.ui" line="73"/>
+        <location filename="../stocksinplayaccesssetup.ui" line="56"/>
         <source>If you have a premium Stocks In Play account, you can enter your account information for access to the premium features</source>
         <extracomment>Stocks In Play - Stock Screener, http://stocksinplay.ru. It&apos;s ok not to translate &quot;Stocks In Play&quot; (e.g. you can just copy-paste &quot;Stocks In Play&quot; to your translation)</extracomment>
         <translation>Se hai un account Stocks In Play premium, puoi inserire le informazioni del tuo account per accedere alle funzioni premium</translation>
@@ -76,7 +71,7 @@
         <translation>Accesso in corso...</translation>
     </message>
     <message>
-        <location filename="../stocksinplaylogin.cpp" line="55"/>
+        <location filename="../stocksinplaylogin.cpp" line="54"/>
         <source>Failed to get account details</source>
         <translation>Impossibile ricevere i dettagli dell&apos;account</translation>
     </message>

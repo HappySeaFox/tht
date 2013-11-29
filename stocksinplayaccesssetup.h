@@ -34,7 +34,6 @@ public:
     explicit StocksInPlayAccessSetup(QWidget *parent = 0);
     ~StocksInPlayAccessSetup();
 
-    QString id() const;
     QString hash() const;
 
 private slots:

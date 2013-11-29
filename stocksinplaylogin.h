@@ -32,7 +32,6 @@ public:
     explicit StocksInPlayLogin(const QString &login, const QString &password, QWidget *parent = 0);
     ~StocksInPlayLogin();
 
-    QString id() const;
     QString hash() const;
 
 protected:
@@ -42,12 +41,6 @@ private:
     QString m_id, m_hash;
     StocksInPlayLoginCookieJar *m_cookieJar;
 };
-
-inline
-QString StocksInPlayLogin::id() const
-{
-    return m_id;
-}
 
 inline
 QString StocksInPlayLogin::hash() const
