@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <author>Dmitry Baryshev</author>
+ <class>ConfigureRoom</class>
+ <widget class="QDialog" name="ConfigureRoom">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>550</width>
+    <height>350</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string extracomment="Window title. The user is able to configure the chat room in this window">Configure room</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QTabWidget" name="tabsConfiguration">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="tab">
+      <attribute name="title">
+       <string extracomment="Can be translated as &quot;Participants&quot;">Affiliations</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0" rowspan="3">
+        <widget class="QTreeWidget" name="treeAffiliations">
+         <property name="rootIsDecorated">
+          <bool>false</bool>
+         </property>
+         <property name="allColumnsShowFocus">
+          <bool>true</bool>
+         </property>
+         <column>
+          <property name="text">
+           <string notr="true">JID</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Reason</string>
+          </property>
+         </column>
+         <item>
+          <property name="text">
+           <string>Owners</string>
+          </property>
+          <property name="font">
+           <font>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Administrators</string>
+          </property>
+          <property name="font">
+           <font>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string extracomment="Can be translated as &quot;Registered&quot; (in the plural, meaning &quot;Registered users&quot;)">Members</string>
+          </property>
+          <property name="font">
+           <font>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string extracomment="In the plural. Means &quot;Banned users&quot;">Banned</string>
+          </property>
+          <property name="font">
+           <font>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string extracomment="In the plural. Means &quot;Other affiliations&quot;">Others</string>
+          </property>
+          <property name="font">
+           <font>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QPushButton" name="pushAddJid">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QPushButton" name="pushRemoveJid">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="text">
+          <string extracomment="This is the label on a button that user pushes to issue the command">Remove</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>0</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_2">
+      <attribute name="title">
+       <string extracomment="In the plural. Means &quot;General options&quot;">General</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_3">
+       <property name="margin">
+        <number>0</number>
+       </property>
+       <item row="0" column="0">
+        <widget class="QScrollArea" name="scrollArea">
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>100</width>
+            <height>30</height>
+           </rect>
+          </property>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="labelLoading">
+       <property name="minimumSize">
+        <size>
+         <width>16</width>
+         <height>16</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16</width>
+         <height>16</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>0</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushApply">
+       <property name="text">
+        <string extracomment="This is the label on a button that user pushes to issue the command">Apply</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushClose">
+       <property name="text">
+        <string extracomment="This is the label on a button that user pushes to issue the command">Close</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>tabsConfiguration</tabstop>
+  <tabstop>treeAffiliations</tabstop>
+  <tabstop>pushAddJid</tabstop>
+  <tabstop>pushRemoveJid</tabstop>
+  <tabstop>scrollArea</tabstop>
+  <tabstop>pushApply</tabstop>
+  <tabstop>pushClose</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>pushAddJid</sender>
+   <signal>clicked()</signal>
+   <receiver>ConfigureRoom</receiver>
+   <slot>slotAddJid()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>508</x>
+     <y>55</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>587</x>
+     <y>55</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushRemoveJid</sender>
+   <signal>clicked()</signal>
+   <receiver>ConfigureRoom</receiver>
+   <slot>slotRemoveJid()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>509</x>
+     <y>83</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>588</x>
+     <y>83</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>treeAffiliations</sender>
+   <signal>currentItemChanged(QTreeWidgetItem*,QTreeWidgetItem*)</signal>
+   <receiver>ConfigureRoom</receiver>
+   <slot>slotCurrentItemChanged(QTreeWidgetItem*,QTreeWidgetItem*)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>331</x>
+     <y>209</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>641</x>
+     <y>221</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushApply</sender>
+   <signal>clicked()</signal>
+   <receiver>ConfigureRoom</receiver>
+   <slot>slotApply()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>433</x>
+     <y>334</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>433</x>
+     <y>369</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushClose</sender>
+   <signal>clicked()</signal>
+   <receiver>ConfigureRoom</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>501</x>
+     <y>329</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>500</x>
+     <y>372</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>slotCurrentTabChanged(int)</slot>
+  <slot>slotAddJid()</slot>
+  <slot>slotRemoveJid()</slot>
+  <slot>slotCurrentItemChanged(QTreeWidgetItem*,QTreeWidgetItem*)</slot>
+  <slot>slotApply()</slot>
+ </slots>
+</ui>

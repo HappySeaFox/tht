@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/finviz.png</file>
+        <file>images/finviz-customize.png</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <author>Dmitry Baryshev</author>
+ <class>ScreenshotEditor</class>
+ <widget class="QDialog" name="ScreenshotEditor">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>530</width>
+    <height>325</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string extracomment="Noun. Means &quot;The editor of the trade on the stock market&quot;">Trade editor</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="10" column="1" colspan="2">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Maximum">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+   <item row="9" column="1" colspan="2">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>0</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="4" column="1" colspan="2">
+    <widget class="QPushButton" name="pushEllipse">
+     <property name="text">
+      <string>Ellipse</string>
+     </property>
+     <property name="icon">
+      <iconset resource="tht.qrc">
+       <normaloff>:/images/ellipse.png</normaloff>:/images/ellipse.png</iconset>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0" rowspan="11">
+    <widget class="QScrollArea" name="scrollArea">
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="ScreenshotEditorWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>429</width>
+        <height>305</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+   </item>
+   <item row="6" column="1" colspan="2">
+    <widget class="Line" name="line">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="1" colspan="2">
+    <widget class="QPushButton" name="pushDelete">
+     <property name="text">
+      <string extracomment="This is the label on a button that user pushes to issue the command">Delete</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1" colspan="2">
+    <widget class="QPushButton" name="pushText">
+     <property name="text">
+      <string>Text</string>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="1" colspan="2">
+    <widget class="QPushButton" name="pushSelectAll">
+     <property name="text">
+      <string extracomment="This is the label on a button that user pushes to issue the command">Select all</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1" colspan="2">
+    <widget class="QPushButton" name="pushShort">
+     <property name="text">
+      <string extracomment="Noun">Sale</string>
+     </property>
+     <property name="icon">
+      <iconset resource="tht.qrc">
+       <normaloff>:/images/cursor-sale.png</normaloff>:/images/cursor-sale.png</iconset>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1" colspan="2">
+    <widget class="QPushButton" name="pushLong">
+     <property name="text">
+      <string extracomment="Noun">Buy</string>
+     </property>
+     <property name="icon">
+      <iconset resource="tht.qrc">
+       <normaloff>:/images/cursor-buy.png</normaloff>:/images/cursor-buy.png</iconset>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1" colspan="2">
+    <widget class="QPushButton" name="pushStop">
+     <property name="text">
+      <string extracomment="Noun. Means &quot;Stop-loss order&quot;, see http://www.investopedia.com/terms/s/stoporder.asp">Stop</string>
+     </property>
+     <property name="icon">
+      <iconset resource="tht.qrc">
+       <normaloff>:/images/cursor-stop.png</normaloff>:/images/cursor-stop.png</iconset>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="2">
+    <widget class="QPushButton" name="pushEllipseFill">
+     <property name="toolTip">
+      <string>The fill color of the ellipse</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>ScreenshotEditorWidget</class>
+   <extends>QWidget</extends>
+   <header>screenshoteditorwidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>scrollArea</tabstop>
+  <tabstop>pushText</tabstop>
+  <tabstop>pushLong</tabstop>
+  <tabstop>pushShort</tabstop>
+  <tabstop>pushStop</tabstop>
+  <tabstop>pushEllipse</tabstop>
+  <tabstop>pushEllipseFill</tabstop>
+  <tabstop>pushSelectAll</tabstop>
+  <tabstop>pushDelete</tabstop>
+  <tabstop>buttonBox</tabstop>
+ </tabstops>
+ <resources>
+  <include location="tht.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>ScreenshotEditor</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>540</x>
+     <y>320</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>534</x>
+     <y>245</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>ScreenshotEditor</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>468</x>
+     <y>277</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>539</x>
+     <y>276</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushEllipseFill</sender>
+   <signal>clicked()</signal>
+   <receiver>ScreenshotEditor</receiver>
+   <slot>slotEllipseFillColor()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>521</x>
+     <y>173</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>585</x>
+     <y>174</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>slotEllipseBorderColor()</slot>
+  <slot>slotEllipseFillColor()</slot>
+ </slots>
+</ui>
