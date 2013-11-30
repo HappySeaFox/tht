@@ -1,6 +1,10 @@
 TARGET = THT
 TEMPLATE = app
 
+NVER1=2
+NVER2=0
+NVER3=1
+
 QT += core gui network xml
 
 INCLUDEPATH += qtsingleapplication qtdropbox
@@ -133,7 +137,6 @@ OTHER_FILES += \
 
 RC_FILE = tht.rc
 
-include(THT-version.pri)
 include(THT-common.pri)
 
 # network data

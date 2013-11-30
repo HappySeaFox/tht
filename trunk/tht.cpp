@@ -227,9 +227,6 @@ THT::THT() :
 
     setAcceptDrops(true);
 
-    // NYSE only
-    ui->checkNyse->setChecked(SETTINGS_GET_BOOL(SETTING_NYSE_ONLY));
-
     // global shortcuts
     m_takeScreen = new QxtGlobalShortcut(QKeySequence(Qt::CTRL + Qt::ALT + Qt::Key_S), this);
     connect(m_takeScreen, SIGNAL(activated()), this, SLOT(slotTakeScreenshotFromGlobal()));
@@ -410,8 +407,6 @@ THT::THT() :
 
 THT::~THT()
 {
-    SETTINGS_SET_BOOL(SETTING_NYSE_ONLY, ui->checkNyse->isChecked(), Settings::NoSync);
-
     if(SETTINGS_GET_BOOL(SETTING_SAVE_GEOMETRY))
     {
         QSize size(width(), height());
@@ -1190,7 +1185,6 @@ void THT::slotCheckActive()
     {
         qDebug("Found window, sending data");
 
-        QString add;
         bool okToLoad = false;
 
         if(link.subControl)
@@ -1237,14 +1231,7 @@ void THT::slotCheckActive()
 
         // load ticker
         if(okToLoad)
-        {
-            if((link.type == LinkTypeAdvancedGet || link.type == LinkTypeEsignal)
-                && ui->checkNyse->isChecked()
-                && !m_ticker.startsWith(QChar('$')))
-            add = "=N";
-
-            sendString(ticker + add, link.type);
-        }
+            sendString(ticker, link.type);
 
         loadNextWindow();
     }

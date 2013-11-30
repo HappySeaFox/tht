@@ -27,7 +27,6 @@
 #define SETTING_TRAY_NOTICE_SEEN                "tray-notice-seen"
 #define SETTING_NEIGHBORS_SIZE                  "neighbors-size"
 #define SETTING_NEIGHBORS_POSITION              "neighbors-position"
-#define SETTING_NYSE_ONLY                       "nyse-only"
 #define SETTING_LAST_TICKER_INPUT               "last-ticker-input"
 #define SETTING_LAST_TICKER_DIRECTORY           "last-ticker-directory"
 

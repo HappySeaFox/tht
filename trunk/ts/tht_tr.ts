@@ -716,106 +716,106 @@ right/middle mouse button to cancel.</source>
 <context>
     <name>THT</name>
     <message>
-        <location filename="../tht.ui" line="65"/>
+        <location filename="../tht.ui" line="84"/>
         <source>THT is ready</source>
         <extracomment>&quot;THT&quot; is the name of the application</extracomment>
         <translation>THT hazır</translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="97"/>
+        <location filename="../tht.ui" line="116"/>
         <source>THT is busy</source>
         <extracomment>&quot;THT&quot; is the name of the application</extracomment>
         <translation>THT meşgul</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="252"/>
+        <location filename="../tht.cpp" line="249"/>
         <source>Options...</source>
         <translation>Seçenekler...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="255"/>
-        <location filename="../tht.cpp" line="333"/>
+        <location filename="../tht.cpp" line="252"/>
+        <location filename="../tht.cpp" line="330"/>
         <source>Take screenshot...</source>
         <translation>Ekran görüntüsü al...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="259"/>
+        <location filename="../tht.cpp" line="256"/>
         <source>Clear links</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Bağlantıları temizle</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="263"/>
+        <location filename="../tht.cpp" line="260"/>
         <source>Clear ticker lists</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Clear the lists with tickers&quot;. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Ticker listelerini temizle</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="265"/>
-        <location filename="../tht.cpp" line="266"/>
+        <location filename="../tht.cpp" line="262"/>
+        <location filename="../tht.cpp" line="263"/>
         <source>Load ticker</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Ticker yükle</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="276"/>
+        <location filename="../tht.cpp" line="273"/>
         <source>About Qt...</source>
         <extracomment>Qt is a C++ crossplatform toolkit http://qt-project.org</extracomment>
         <translation>Qt hakkında...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="277"/>
+        <location filename="../tht.cpp" line="274"/>
         <source>Plugins...</source>
         <translation>Eklenti...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="279"/>
-        <location filename="../tht.cpp" line="337"/>
+        <location filename="../tht.cpp" line="276"/>
+        <location filename="../tht.cpp" line="334"/>
         <source>Quit</source>
         <translation>Çıkış</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="332"/>
+        <location filename="../tht.cpp" line="329"/>
         <source>Restore</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Restore the application window from the system tray&quot;</extracomment>
         <translation>Onar</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="478"/>
+        <location filename="../tht.cpp" line="473"/>
         <source>Notice</source>
         <translation>Uyarı</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="480"/>
+        <location filename="../tht.cpp" line="475"/>
         <source>THT will continue to run in a system tray</source>
         <extracomment>&quot;THT&quot; is the name of the application. Tray is a panel with small icons, usually in a right bottom corner, NOT taskbar</extracomment>
         <translation>THT sistem tepsisinde çalışmaya devam edecek</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1006"/>
+        <location filename="../tht.cpp" line="1001"/>
         <source>Unknown</source>
         <extracomment>Means &quot;Unknown links&quot; (in the plural)</extracomment>
         <translation>Bilinmeyen</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1525"/>
+        <location filename="../tht.cpp" line="1512"/>
         <source>Cannot take screenshot</source>
         <extracomment>Message displayed to the user</extracomment>
         <translation>Ekran görüntüsü alınamıyor</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1571"/>
+        <location filename="../tht.cpp" line="1558"/>
         <source>New points</source>
         <translation>Yeni noktalar</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2152"/>
+        <location filename="../tht.cpp" line="2139"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <extracomment>Message displayed to the user in the April Fool&apos;s day. Preferably copy the translation from &quot;The Little Golden Calf&quot; by I.Ilf, E.Petrov, Chapter 10 &quot;A Telegram from the Brothers Karamazov&quot; (http://en.wikipedia.org/wiki/The_Little_Golden_Calf). If you don&apos;t have the book or its online translation then translate as usual</extracomment>
         <translation>Bütün büyük modern servetler en onursuz&lt;br&gt;şekilde kazanılmıştı.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2154"/>
+        <location filename="../tht.cpp" line="2141"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <extracomment>See http://en.wikipedia.org/wiki/The_Little_Golden_Calf</extracomment>
         <translation>&quot;Küçük Altın Buzağı&quot;  I.Ilf, E.Petrov</translation>
