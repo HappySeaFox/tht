@@ -2,6 +2,10 @@ TARGET = THT-lib
 TARGET_EXT = .dll
 TEMPLATE = lib
 
+NVER1=2
+NVER2=0
+NVER3=0
+
 QT += core gui network sql
 
 SOURCES += datamanagerbase.cpp \
@@ -51,5 +55,4 @@ FORMS += datamanagerbase.ui \
 
 RC_FILE = tht-lib.rc
 
-include(THT-version.pri)
 include(THT-common.pri)
