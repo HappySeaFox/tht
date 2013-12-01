@@ -381,7 +381,7 @@
         <location filename="../chatwindow.ui" line="73"/>
         <source>Sign In</source>
         <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
-        <translation>注册</translation>
+        <translation>登录</translation>
     </message>
     <message>
         <location filename="../chatwindow.ui" line="80"/>
@@ -429,7 +429,7 @@
     <message>
         <location filename="../chatwindow.cpp" line="312"/>
         <source>Sign in cancelled</source>
-        <translation>注册被取消</translation>
+        <translation>登录被取消</translation>
     </message>
     <message>
         <location filename="../chatwindow.cpp" line="362"/>
