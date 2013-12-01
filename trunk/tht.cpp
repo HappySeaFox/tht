@@ -179,6 +179,7 @@ THT::THT() :
     if(!oldLinks.isEmpty())
     {
         qDebug("Migrating link points from 1.5.2 to 2.0.0");
+
         QList<LinkPointSession> linkPointSessions;
         LinkPointSession linkPointSession;
 
@@ -198,7 +199,6 @@ THT::THT() :
         qDebug("Migrated link points: %d", linkPointSessions.size());
 
         SETTINGS_SET_LINKS(SETTING_LINKS, linkPointSessions, Settings::NoSync);
-
         SETTINGS_REMOVE(SETTING_LINKS_152);
     }
 
