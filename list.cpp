@@ -1099,6 +1099,7 @@ void List::embedPlugins(Plugin::Type type, QMenu *menu)
             continue;
 
         pie->embed(m_section, menu);
+
         connect(pie, SIGNAL(sendTickers(int,QStringList)), this, SLOT(slotSentTickersFromPlugin(int,QStringList)));
         connect(pie, SIGNAL(requestTickers(int)), this, SLOT(slotRequestedTickersFromPlugin(int)));
 
