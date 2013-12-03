@@ -300,32 +300,32 @@
         <translation>Xuất dữ liệu ra bộ nhớ ảo</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1290"/>
-        <location filename="../list.cpp" line="1368"/>
+        <location filename="../list.cpp" line="1291"/>
+        <location filename="../list.cpp" line="1369"/>
         <source>Choose a file</source>
         <extracomment>Appeal to the user. Means &quot;Please choose a file:&quot;</extracomment>
         <translation>Chọn một tập tin</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1292"/>
-        <location filename="../list.cpp" line="1370"/>
+        <location filename="../list.cpp" line="1293"/>
+        <location filename="../list.cpp" line="1371"/>
         <source>Text files (*.txt)</source>
         <translation>Tập tin văn bản (*.txt)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1294"/>
-        <location filename="../list.cpp" line="1372"/>
+        <location filename="../list.cpp" line="1295"/>
+        <location filename="../list.cpp" line="1373"/>
         <source>All files (*.*)</source>
         <translation>Tất cả tập tin (*.*)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1332"/>
+        <location filename="../list.cpp" line="1333"/>
         <source>Cannot open the following files: %1</source>
         <extracomment>Message displayed to the user. %1 will be replaced with the list of files by the application</extracomment>
         <translation>Không thể mở những tập tin sau đây: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1385"/>
+        <location filename="../list.cpp" line="1386"/>
         <source>Cannot save to file %1</source>
         <extracomment>Message displayed to the user. %1 will be replaced with the file name by the application</extracomment>
         <translation>Không thể lưu dữ liệu vào tập tin %1</translation>
