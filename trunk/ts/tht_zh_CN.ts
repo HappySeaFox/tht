@@ -300,32 +300,32 @@
         <translation>导出至剪贴板</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1291"/>
-        <location filename="../list.cpp" line="1369"/>
+        <location filename="../list.cpp" line="1302"/>
+        <location filename="../list.cpp" line="1380"/>
         <source>Choose a file</source>
         <extracomment>Appeal to the user. Means &quot;Please choose a file:&quot;</extracomment>
         <translation>选择一个文件</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1293"/>
-        <location filename="../list.cpp" line="1371"/>
+        <location filename="../list.cpp" line="1304"/>
+        <location filename="../list.cpp" line="1382"/>
         <source>Text files (*.txt)</source>
         <translation>文本文件 (*.txt)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1295"/>
-        <location filename="../list.cpp" line="1373"/>
+        <location filename="../list.cpp" line="1306"/>
+        <location filename="../list.cpp" line="1384"/>
         <source>All files (*.*)</source>
         <translation>所有文件 (*.*)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1333"/>
+        <location filename="../list.cpp" line="1344"/>
         <source>Cannot open the following files: %1</source>
         <extracomment>Message displayed to the user. %1 will be replaced with the list of files by the application</extracomment>
         <translation>无法打开下列文件： %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1386"/>
+        <location filename="../list.cpp" line="1397"/>
         <source>Cannot save to file %1</source>
         <extracomment>Message displayed to the user. %1 will be replaced with the file name by the application</extracomment>
         <translation>无法保存至文件 %1</translation>

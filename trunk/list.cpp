@@ -152,6 +152,17 @@ List::List(int group, QWidget *parent) :
 
 List::~List()
 {
+    QList<Plugin *> plugins = PluginLoader::instance()->byType(Plugin::AddTickersFrom)
+                                + PluginLoader::instance()->byType(Plugin::ExportTickersTo);
+
+    foreach(Plugin *p, plugins)
+    {
+        PluginImportExport *pie = qobject_cast<PluginImportExport *>(p);
+
+        if(pie)
+            pie->unembed(m_section);
+    }
+
     delete m_numbers;
     delete ui;
 }
@@ -1335,7 +1346,7 @@ void List::slotAddFromFile()
 
 void List::clear()
 {
-    qDebug("Clear tickers for section \"%d\"", m_section);
+    qDebug("Clear tickers for section #%d", m_section);
 
     // nothing to do
     if(!ui->list->count())

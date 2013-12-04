@@ -47,6 +47,21 @@ PluginImportExport::~PluginImportExport()
     delete d;
 }
 
+bool PluginImportExport::unembed(int list)
+{
+    Embeds::iterator it = d->embeds.find(list);
+
+    if(it == d->embeds.end())
+        return false;
+
+    qDebug("Unembedding plugin \"%s\" from list #%d", qPrintable(property(THT_PLUGIN_PROPERTY_NAME).toString()), list);
+
+    delete it.value();
+    d->embeds.erase(it);
+
+    return true;
+}
+
 QList<Hotkey> PluginImportExport::supportedHotkeysInList() const
 {
     return QList<Hotkey>();
