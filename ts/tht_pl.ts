@@ -300,32 +300,32 @@
         <translation>Eksportuj do schowka</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1291"/>
-        <location filename="../list.cpp" line="1369"/>
+        <location filename="../list.cpp" line="1302"/>
+        <location filename="../list.cpp" line="1380"/>
         <source>Choose a file</source>
         <extracomment>Appeal to the user. Means &quot;Please choose a file:&quot;</extracomment>
         <translation>Wybierz plik</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1293"/>
-        <location filename="../list.cpp" line="1371"/>
+        <location filename="../list.cpp" line="1304"/>
+        <location filename="../list.cpp" line="1382"/>
         <source>Text files (*.txt)</source>
         <translation>Pliki tekstowe (*.*)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1295"/>
-        <location filename="../list.cpp" line="1373"/>
+        <location filename="../list.cpp" line="1306"/>
+        <location filename="../list.cpp" line="1384"/>
         <source>All files (*.*)</source>
         <translation>Wszystkie pliki (*.*)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1333"/>
+        <location filename="../list.cpp" line="1344"/>
         <source>Cannot open the following files: %1</source>
         <extracomment>Message displayed to the user. %1 will be replaced with the list of files by the application</extracomment>
         <translation>Nie można otworzyć następujących plików: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1386"/>
+        <location filename="../list.cpp" line="1397"/>
         <source>Cannot save to file %1</source>
         <extracomment>Message displayed to the user. %1 will be replaced with the file name by the application</extracomment>
         <translation>Nie można zapisać do pliku %1</translation>

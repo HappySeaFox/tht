@@ -50,6 +50,12 @@ public:
     virtual bool embed(int list, QMenu *menu) = 0;
 
     /*
+     *  Method to unembed plugin from menus. It deletes the QObject* value
+     *  associated with list number in embeds() map
+     */
+    bool unembed(int list);
+
+    /*
      *  Plugin can support hotkeys. When the user activates
      *  the supported hotkey, THT will call listHotkeyActivated().
      *  Please remember that if the hotkey duplicates the hotkey
