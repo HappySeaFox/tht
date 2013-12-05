@@ -40,7 +40,7 @@ About::About(QWidget *parent) :
     ui->pushOk->setText(Tools::oKTitle());
 
     ui->label->setPixmap(QIcon(":/images/chart.ico").pixmap(48, 48));
-    ui->labelVersion->setText(QString("THT %1").arg(NVER_STRING));
+    ui->labelVersion->setText(QString("THT %1 (THT-lib %2)").arg(NVER_STRING).arg(Tools::thtLibVersion()));
 
     ui->labelCopyright->setText(QString("(C) 2012 %1 &lt;<a href=\"mailto:linuxsquirrel.dev@gmail.com\">"
                                         "linuxsquirrel.dev@gmail.com</a>&gt;").arg(tr("Dmitry Baryshev")));

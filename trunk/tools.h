@@ -124,6 +124,11 @@ public:
     static QByteArray decrypt(const QByteArray &data);
 
     /*
+     *  Returns the x.y.z version of THT-lib
+     */
+    static QString thtLibVersion();
+
+    /*
      *  Invalid QPoint
      */
     static const QPoint invalidQPoint;
