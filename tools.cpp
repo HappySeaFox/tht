@@ -248,5 +248,10 @@ QByteArray Tools::decrypt(const QByteArray &data)
     return (crypto.lastError() == SimpleCrypt::ErrorNoError ? decoded : QByteArray());
 }
 
+QString Tools::thtLibVersion()
+{
+    return NVER_STRING;
+}
+
 Tools::Tools()
 {}
