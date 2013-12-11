@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <author>Dmitry Baryshev</author>
+ <class>ChatPage</class>
+ <widget class="QWidget" name="ChatPage">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>402</width>
+    <height>539</height>
+   </rect>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <item row="0" column="0">
+    <widget class="QStackedWidget" name="stack">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="page">
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="2">
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>0</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="1" column="0">
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Room:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2" colspan="2">
+        <widget class="QLineEdit" name="lineRoom"/>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string extracomment="Means &quot;Nick name:&quot;">Nick:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="2" colspan="2">
+        <widget class="QLineEdit" name="lineNick"/>
+       </item>
+       <item row="2" column="4">
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="3" column="1">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>Password:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="2" colspan="2">
+        <widget class="QLineEdit" name="linePassword">
+         <property name="echoMode">
+          <enum>QLineEdit::Password</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="2">
+        <widget class="QPushButton" name="pushJoin">
+         <property name="text">
+          <string extracomment="This is the label on a button that user pushes to issue the command. Means &quot;Join the selected chat room&quot;">Join</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="3">
+        <widget class="QPushButton" name="pushCancel">
+         <property name="text">
+          <string>Cancel</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="2" colspan="2">
+        <widget class="QLabel" name="labelStatus"/>
+       </item>
+       <item row="6" column="2" colspan="2">
+        <widget class="ClickableLabel" name="labelUnreadMessages">
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="2">
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>0</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page_2">
+      <layout class="QGridLayout" name="gridLayout_3">
+       <item row="0" column="0">
+        <widget class="QLineEdit" name="lineSubject">
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="contextMenuPolicy">
+          <enum>Qt::ActionsContextMenu</enum>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="placeholderText">
+          <string extracomment="Noun">Subject</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QTabWidget" name="tabsChats">
+         <property name="tabPosition">
+          <enum>QTabWidget::South</enum>
+         </property>
+         <property name="elideMode">
+          <enum>Qt::ElideRight</enum>
+         </property>
+         <property name="tabsClosable">
+          <bool>true</bool>
+         </property>
+         <property name="movable">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QPlainTextEdit" name="plainMessage">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>100</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ClickableLabel</class>
+   <extends>QLabel</extends>
+   <header>clickablelabel.h</header>
+   <slots>
+    <signal>clicked()</signal>
+   </slots>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>lineRoom</tabstop>
+  <tabstop>lineNick</tabstop>
+  <tabstop>linePassword</tabstop>
+  <tabstop>pushJoin</tabstop>
+  <tabstop>pushCancel</tabstop>
+  <tabstop>tabsChats</tabstop>
+  <tabstop>plainMessage</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>pushJoin</sender>
+   <signal>clicked()</signal>
+   <receiver>ChatPage</receiver>
+   <slot>slotJoin()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>201</x>
+     <y>282</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>455</x>
+     <y>341</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushCancel</sender>
+   <signal>clicked()</signal>
+   <receiver>ChatPage</receiver>
+   <slot>slotCancel()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>306</x>
+     <y>300</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>421</x>
+     <y>391</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lineRoom</sender>
+   <signal>returnPressed()</signal>
+   <receiver>ChatPage</receiver>
+   <slot>slotJoin()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>306</x>
+     <y>219</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>412</x>
+     <y>308</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>linePassword</sender>
+   <signal>returnPressed()</signal>
+   <receiver>ChatPage</receiver>
+   <slot>slotJoin()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>306</x>
+     <y>271</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>440</x>
+     <y>281</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>labelUnreadMessages</sender>
+   <signal>clicked()</signal>
+   <receiver>ChatPage</receiver>
+   <slot>slotUnreadMessagesClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>293</x>
+     <y>338</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>450</x>
+     <y>412</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tabsChats</sender>
+   <signal>tabCloseRequested(int)</signal>
+   <receiver>ChatPage</receiver>
+   <slot>slotTabCloseRequested(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>90</x>
+     <y>14</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>440</x>
+     <y>258</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tabsChats</sender>
+   <signal>currentChanged(int)</signal>
+   <receiver>ChatPage</receiver>
+   <slot>slotCurrentTabChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>90</x>
+     <y>14</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>439</x>
+     <y>399</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lineNick</sender>
+   <signal>returnPressed()</signal>
+   <receiver>ChatPage</receiver>
+   <slot>slotJoin()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>226</x>
+     <y>240</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>518</x>
+     <y>237</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>slotJoin()</slot>
+  <slot>slotCancel()</slot>
+  <slot>slotAnchorClicked(QUrl)</slot>
+  <slot>slotUnreadMessagesClicked()</slot>
+  <slot>slotTabCloseRequested(int)</slot>
+  <slot>slotCurrentTabChanged(int)</slot>
+ </slots>
+</ui>

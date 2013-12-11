@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <author>Dmitry Baryshev</author>
+ <class>SaveScreenshot</class>
+ <widget class="QDialog" name="SaveScreenshot">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>45</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string extracomment="Window title. User is asked to save a screenshot to a file or clipboard">Save to</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QPushButton" name="pushEdit">
+     <property name="text">
+      <string extracomment="This is the label on a button that user pushes to issue the command">Edit...</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="Line" name="line">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="2">
+    <widget class="QPushButton" name="pushClipboard">
+     <property name="text">
+      <string>Clipboard</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="3">
+    <widget class="QPushButton" name="pushFile">
+     <property name="text">
+      <string>File...</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="4">
+    <widget class="QPushButton" name="pushDropbox">
+     <property name="text">
+      <string notr="true">Dropbox...</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>pushEdit</tabstop>
+  <tabstop>pushClipboard</tabstop>
+  <tabstop>pushFile</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>pushClipboard</sender>
+   <signal>clicked()</signal>
+   <receiver>SaveScreenshot</receiver>
+   <slot>slotClipboard()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>174</x>
+     <y>33</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>56</x>
+     <y>44</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushFile</sender>
+   <signal>clicked()</signal>
+   <receiver>SaveScreenshot</receiver>
+   <slot>slotFile()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>282</x>
+     <y>33</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>155</x>
+     <y>44</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushDropbox</sender>
+   <signal>clicked()</signal>
+   <receiver>SaveScreenshot</receiver>
+   <slot>slotDropbox()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>344</x>
+     <y>22</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>351</x>
+     <y>100</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>slotClipboard()</slot>
+  <slot>slotFile()</slot>
+  <slot>slotDropbox()</slot>
+ </slots>
+</ui>

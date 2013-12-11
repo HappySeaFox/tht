@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>tickersdb.ico</file>
+    </qresource>
+</RCC>

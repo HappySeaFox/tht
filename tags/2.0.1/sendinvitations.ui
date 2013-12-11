@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <author>Dmitry Baryshev</author>
+ <class>SendInvitations</class>
+ <widget class="QDialog" name="SendInvitations">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>245</width>
+    <height>221</height>
+   </rect>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string extracomment="JID is a Jabber Identifier, http://en.wikipedia.org/wiki/XMPP#Decentralization_and_addressing . It's ok not to translate &quot;JID&quot;, e.g. you can just copy-paste &quot;JID&quot; to your translation">List of JIDs, one per line:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QPlainTextEdit" name="plainTextEdit"/>
+   </item>
+   <item row="2" column="0">
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>0</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushSend">
+       <property name="text">
+        <string extracomment="This is the label on a button that user pushes to issue the command">Send</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushClose">
+       <property name="text">
+        <string extracomment="This is the label on a button that user pushes to issue the command">Close</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>plainTextEdit</tabstop>
+  <tabstop>pushSend</tabstop>
+  <tabstop>pushClose</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>pushClose</sender>
+   <signal>clicked()</signal>
+   <receiver>SendInvitations</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>264</x>
+     <y>249</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>267</x>
+     <y>303</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushSend</sender>
+   <signal>clicked()</signal>
+   <receiver>SendInvitations</receiver>
+   <slot>slotSend()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>164</x>
+     <y>248</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>165</x>
+     <y>281</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>slotSend()</slot>
+ </slots>
+</ui>
