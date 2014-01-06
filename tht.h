@@ -216,7 +216,7 @@ private:
     bool m_wasVisible;
     bool m_useKeyboardInRegion;
     bool m_locked;
-    QWidget *m_lastActiveWindow;
+    QWidget *m_lastActiveOurWindow;
     typedef QMap<QString, PredefinedTicker> PredefinedTickers;
     PredefinedTickers m_predefined;
     QPointer<TickerNeighbors> m_sectors;
@@ -224,7 +224,7 @@ private:
     HWND m_drawnWindow;
     bool m_linksChanged;
     MasterLoadingPolicy m_checkForMaster;
-    HWND m_wasActive;
+    HWND m_wasActiveForeignWindow;
     bool m_justTitle;
     int m_lastHeightBeforeSqueezing;
     QAxObject *m_excel, *m_cell;

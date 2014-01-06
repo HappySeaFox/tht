@@ -147,11 +147,11 @@ THT::THT() :
     m_windows(&m_windowsLoad),
     m_running(false),
     m_locked(false),
-    m_lastActiveWindow(0),
+    m_lastActiveOurWindow(0),
     m_drawnWindow(0),
     m_linksChanged(false),
     m_checkForMaster(MasterPolicyAuto),
-    m_wasActive(0),
+    m_wasActiveForeignWindow(0),
     m_justTitle(false),
     m_lastHeightBeforeSqueezing(0),
     m_excel(0),
@@ -446,7 +446,7 @@ void THT::setVisible(bool vis)
 {
     if(!vis)
     {
-        m_lastActiveWindow = qApp->activeWindow();
+        m_lastActiveOurWindow = qApp->activeWindow();
 
         if(m_sectors)
             m_sectors->hide();
@@ -1071,7 +1071,7 @@ void THT::loadNextWindow()
         busy(false);
         activateRightWindowAtEnd();
 
-        m_wasActive = 0;
+        m_wasActiveForeignWindow = 0;
         m_running = false;
     }
     else
@@ -1093,7 +1093,7 @@ void THT::loadTicker(const QString &ticker, MasterLoadingPolicy masterPolicy)
     if(isBusy() || ticker.isEmpty())
         return;
 
-    if(m_sectors && sender() != m_sectors)
+    if(m_sectors && sender() != m_sectors && masterPolicy != MasterPolicySkip)
         m_sectors->showTicker(ticker);
 
     checkWindows();
@@ -1108,8 +1108,8 @@ void THT::loadTicker(const QString &ticker, MasterLoadingPolicy masterPolicy)
     m_currentWindow = 0;
     m_checkForMaster = masterPolicy;
 
-    if(!m_wasActive)
-        m_wasActive = reinterpret_cast<HWND>(winId());
+    if(!m_wasActiveForeignWindow)
+        m_wasActiveForeignWindow = reinterpret_cast<HWND>(winId());
 
     nextLoadableWindowIndex();
 
@@ -1117,7 +1117,7 @@ void THT::loadTicker(const QString &ticker, MasterLoadingPolicy masterPolicy)
     {
         qDebug("Cannot find where to load the ticker");
         activateRightWindowAtEnd();
-        m_wasActive = 0;
+        m_wasActiveForeignWindow = 0;
         return;
     }
 
@@ -1126,7 +1126,7 @@ void THT::loadTicker(const QString &ticker, MasterLoadingPolicy masterPolicy)
 
     busy(true);
 
-    m_lastActiveWindow = qApp->activeWindow();
+    m_lastActiveOurWindow = qApp->activeWindow();
 
     m_timerLoadToNextWindow->start();
 }
@@ -1154,12 +1154,12 @@ void THT::activate()
 
     Tools::raiseWindow(this);
 
-    if(m_lastActiveWindow)
-        m_lastActiveWindow->activateWindow();
+    if(m_lastActiveOurWindow)
+        m_lastActiveOurWindow->activateWindow();
     else
         activateWindow();
 
-    m_lastActiveWindow = 0;
+    m_lastActiveOurWindow = 0;
 }
 
 void THT::slotAdjustSize()
@@ -1714,6 +1714,8 @@ void THT::unhookEverybody()
 
 void THT::bringToFront(HWND window)
 {
+    qDebug("Bring to front %p", window);
+
     // window flags to set
     int flags = SW_SHOWNORMAL;
 
@@ -1748,42 +1750,41 @@ void THT::masterHasBeenChanged(HWND hwnd, const QString &ticker)
     }
 
     // attach to master and set focus to us
-    HWND foregroundWindow = GetForegroundWindow();
+    DWORD foregroundProcessId;
 
-    if(foregroundWindow != reinterpret_cast<HWND>(winId()))
+    const HWND foregroundWindow = GetForegroundWindow();
+    const DWORD foregroundThreadId = GetWindowThreadProcessId(foregroundWindow, &foregroundProcessId);
+
+    if(!m_wasActiveForeignWindow)
+        m_wasActiveForeignWindow = foregroundWindow;
+
+    if(GetCurrentProcessId() != foregroundProcessId)
     {
-        if(!m_wasActive)
-            m_wasActive = foregroundWindow;
-
         const DWORD currentThreadId = GetCurrentThreadId();
-        DWORD threadId = GetWindowThreadProcessId(foregroundWindow, 0);
 
-        if(!AttachThreadInput(threadId, currentThreadId, TRUE))
+        if(!AttachThreadInput(foregroundThreadId, currentThreadId, TRUE))
         {
-            qWarning("Cannot attach to the thread %ld (%ld)", threadId, GetLastError());
+            qWarning("Cannot attach to the thread %ld (%ld)", foregroundThreadId, GetLastError());
             return;
         }
 
         activate();
         SetForegroundWindow(reinterpret_cast<HWND>(winId()));
 
-        AttachThreadInput(threadId, currentThreadId, FALSE);
+        AttachThreadInput(foregroundThreadId, currentThreadId, FALSE);
     }
     else
-    {
-        m_wasActive = 0;
         activate();
-    }
 
     loadTicker(ticker, MasterPolicySkip);
 }
 
 void THT::activateRightWindowAtEnd()
 {
-    qDebug("Activating %p (this %p)", m_wasActive, reinterpret_cast<HWND>(winId()));
+    qDebug("Activating %p (this %p)", m_wasActiveForeignWindow, reinterpret_cast<HWND>(winId()));
 
-    if(m_wasActive && m_wasActive != reinterpret_cast<HWND>(winId()))
-        bringToFront(m_wasActive);
+    if(m_wasActiveForeignWindow && m_wasActiveForeignWindow != reinterpret_cast<HWND>(winId()))
+        bringToFront(m_wasActiveForeignWindow);
     else
         activate();
 }
