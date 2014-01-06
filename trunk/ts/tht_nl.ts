@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="vi">
+<TS version="2.0" language="nl">
 <context>
     <name>About</name>
     <message>
         <location filename="../about.ui" line="94"/>
         <source>THT helps you do your trading home task. It can link different trading platforms and charts, and manage lists of tickers. Send your requests and report errors to our bug tracker. Also visit:</source>
         <extracomment>&quot;THT&quot; is the name of the application. The URL to visit will be added in runtime. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
-        <translation>THT giúp bạn theo dõi các tác vụ giao dịch ngay tại nhà. Chương trình có thể kết nối đến các sàn giao dịch cũng như đưa ra các biểu đồ, quản lý danh sách các giao dịch. Gửi yêu cầu hay báo cáo lỗi nếu bạn gặp phải khi sử dụng. Đồng thời, hãy truy cập:</translation>
+        <translation>THT helpt u bij het handelen van thuis uit. Het verbindt verschillende handelsplatformen en -grafieken en beheert tikkerlijsten. Verzend uw verzoeken en meld fouten aan onze bugtracker. Bezoek ook:</translation>
     </message>
     <message>
         <location filename="../about.ui" line="175"/>
         <source>THT is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</source>
         <extracomment>See https://www.gnu.org/licenses/gpl-2.0.txt . &quot;THT&quot; is the name of the application</extracomment>
-        <translation>THT is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY ; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</translation>
+        <translation>THT kan worden gebruikt om een nuttige bijdrage te leveren, maar ZONDER ENIGE VORM VAN GARANTIE; zelfs zonder de impliciete garantie van VERHANDELBAARHEID of BRUIKBAARHEID VOOR EEN SPECIFIEK DOELEINDE.</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="46"/>
@@ -23,18 +23,18 @@
     <message>
         <location filename="../about.cpp" line="50"/>
         <source>Documentation</source>
-        <translation>Tài liệu hướng dẫn</translation>
+        <translation>Documentatie</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="53"/>
         <source>Downloads</source>
         <extracomment>Noun in the plural</extracomment>
-        <translation>Tải</translation>
+        <translation>Downloads</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="55"/>
         <source>Translations</source>
-        <translation>Dịch</translation>
+        <translation>Vertalingen</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="57"/>
@@ -45,36 +45,36 @@
         <location filename="../about.cpp" line="76"/>
         <source>Persistent database</source>
         <extracomment>Means &quot;Fixed database on the hard drive&quot;</extracomment>
-        <translation>Cơ sở dữ liệu liên tục</translation>
+        <translation>Persistente database</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="79"/>
         <source>Downloadable database</source>
         <extracomment>Means &quot;Database which is downloaded from the website&quot;</extracomment>
-        <translation>Cơ sở dữ liệu có thể được tải về</translation>
+        <translation>Downloadbare database</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="120"/>
         <source>Update available</source>
         <extracomment>Means &quot;A new version of THT is availabe at the website&quot;</extracomment>
-        <translation>Hiện đã có phiên bản mới</translation>
+        <translation>Update beschikbaar</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="129"/>
         <source>THT is up to date</source>
         <extracomment>&quot;THT&quot; is the name of the application. THT will check for updates and show this message when there are no new version available</extracomment>
-        <translation>Đây là phiên bản mới nhất</translation>
+        <translation>THT is up-to-date</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="142"/>
         <source>Cannot check for updates (%1)</source>
         <extracomment>%1 will be replaced with the error code by the application. It will look like &quot;Cannot check for updates (Server is unavailable)&quot;</extracomment>
-        <translation>Không thể kiểm tra cập nhật (%1)</translation>
+        <translation>Kan niet controleren op updates (%1)</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="157"/>
         <source>Checking for updates...</source>
-        <translation>Đang kiểm tra cập nhật...</translation>
+        <translation>Controleren op updates...</translation>
     </message>
 </context>
 <context>
@@ -82,117 +82,117 @@
     <message>
         <location filename="../dropboxuploader.ui" line="38"/>
         <source>Cancel</source>
-        <translation>Hủy Bỏ</translation>
+        <translation>Annuleren</translation>
     </message>
     <message>
         <location filename="../dropboxuploader.cpp" line="85"/>
         <source>Network error</source>
-        <translation>Lỗi mạng</translation>
+        <translation>Netwerkfout</translation>
     </message>
     <message>
         <location filename="../dropboxuploader.cpp" line="86"/>
         <source>Used API version is not supported</source>
-        <translation>Phiên bản API được sử dụng không được hỗ trợ</translation>
+        <translation>Gebruikte API-versie niet ondersteund</translation>
     </message>
     <message>
         <location filename="../dropboxuploader.cpp" line="87"/>
         <source>Used authentication method is not supported</source>
-        <translation>Phương pháp xác thực đã dùng không được hỗ trợ</translation>
+        <translation>Gebruikte authenticatiemethode wordt niet ondersteund</translation>
     </message>
     <message>
         <location filename="../dropboxuploader.cpp" line="88"/>
         <source>Unexpected response</source>
-        <translation>Phản hồi không mong đợi</translation>
+        <translation>Onverwacht antwoord</translation>
     </message>
     <message>
         <location filename="../dropboxuploader.cpp" line="89"/>
         <source>API error</source>
-        <translation>Lỗi API</translation>
+        <translation>API-fout</translation>
     </message>
     <message>
         <location filename="../dropboxuploader.cpp" line="90"/>
         <source>Unknown query method</source>
-        <translation>Phương pháp truy vấn chưa rõ định dạng</translation>
+        <translation>Onbekende verzoekmethode</translation>
     </message>
     <message>
         <location filename="../dropboxuploader.cpp" line="91"/>
         <source>Bad parameter</source>
-        <translation>Thông số sai</translation>
+        <translation>Slechte parameter</translation>
     </message>
     <message>
         <location filename="../dropboxuploader.cpp" line="92"/>
         <source>Bad oAuth request</source>
-        <translation>Yêu cầu oAuth chưa đúng</translation>
+        <translation>Slecht oAuth-verzoek</translation>
     </message>
     <message>
         <location filename="../dropboxuploader.cpp" line="93"/>
         <source>Bad HTTP method</source>
-        <translation>Phương pháp HTTP chưa đúng</translation>
+        <translation>Slechte HTTP-methode</translation>
     </message>
     <message>
         <location filename="../dropboxuploader.cpp" line="94"/>
         <source>Maximum amount of requests exceeded</source>
-        <translation>Số lượng tối đa các yêu cầu đã vượt ngưỡng</translation>
+        <translation>Maximaal aantal verzoeken overschreden</translation>
     </message>
     <message>
         <location filename="../dropboxuploader.cpp" line="95"/>
         <source>Quota exceeded</source>
-        <translation>Dung lượng đã vượt mức</translation>
+        <translation>Quota overschreden</translation>
     </message>
     <message>
         <location filename="../dropboxuploader.cpp" line="96"/>
         <source>Token has expired</source>
-        <translation>Token đã hết hạn</translation>
+        <translation>Token is verlopen</translation>
     </message>
     <message>
         <location filename="../dropboxuploader.cpp" line="99"/>
         <source>Unknown error</source>
-        <translation>Lỗi không rõ nguyên nhân</translation>
+        <translation>Onbekende fout</translation>
     </message>
     <message>
         <location filename="../dropboxuploader.cpp" line="138"/>
         <source>You need to authorize THT in your Dropbox profile. Click &apos;OK&apos; to open the link in a browser. Then open this dialog again</source>
         <extracomment>Message displayed to the user. &quot;THT&quot; is the name of the application. &quot;Dropbox&quot; is an online storage service, see http://www.dropbox.com</extracomment>
-        <translation>Bạn cần xác nhận THT trong hồ sơ tại dịch vụ Dropbox của mình. Click &apos;Đồng Ý&apos; để mở liên kết trong trình duyệt. Sau đó, mở lại hộp điều khiển này một lần nữa</translation>
+        <translation>U moet THT toegang geven tot uw Dropbox-profiel. Klik op &quot;OK&quot; om de link in een browser te openen. Open daarna deze dialoog opnieuw</translation>
     </message>
     <message>
         <location filename="../dropboxuploader.cpp" line="176"/>
         <source>Cannot get the link to the file</source>
         <extracomment>Means &quot;Cannot get the link to the file from the remote server&quot;</extracomment>
-        <translation>Không thể nhận được liên kết đến tập tin</translation>
+        <translation>Kan de link naar het bestand niet vinden</translation>
     </message>
     <message>
         <location filename="../dropboxuploader.cpp" line="202"/>
         <source>Requesting new token...</source>
-        <translation>Đang gửi yêu cầu nhận token mới...</translation>
+        <translation>Nieuwe token aanvragen...</translation>
     </message>
     <message>
         <location filename="../dropboxuploader.cpp" line="222"/>
         <source>Requesting new access token...</source>
-        <translation>Đang gửi yêu cầu truy cập token mới...</translation>
+        <translation>Een nieuwe toegangstoken aanvragen...</translation>
     </message>
     <message>
         <location filename="../dropboxuploader.cpp" line="236"/>
         <source>Uploading...</source>
-        <translation>Đang tải lên...</translation>
+        <translation>Uploaden...</translation>
     </message>
     <message>
         <location filename="../dropboxuploader.cpp" line="249"/>
         <location filename="../dropboxuploader.cpp" line="262"/>
         <source>Cannot upload file (%1)</source>
         <extracomment>%1 will be replaced with the error code by the application. It will look like &quot;Cannot upload file (Server is not responding)</extracomment>
-        <translation>Không thể tải lên tập tin (%1)</translation>
+        <translation>Kan bestand niet uploaden (%1)</translation>
     </message>
     <message>
         <location filename="../dropboxuploader.cpp" line="255"/>
         <source>Requesting link...</source>
-        <translation>Đang gửi yêu cầu đường liên kết...</translation>
+        <translation>Link opvragen...</translation>
     </message>
     <message>
         <location filename="../dropboxuploader.cpp" line="127"/>
         <source>Close</source>
         <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
-        <translation>Đóng Lại</translation>
+        <translation>Afsluiten</translation>
     </message>
 </context>
 <context>
@@ -201,25 +201,25 @@
         <location filename="../excellinkingdetails.ui" line="15"/>
         <source>Cell address</source>
         <extracomment>Window title. Means &quot;address of cell in Excel sheet&quot;</extracomment>
-        <translation>Địa chỉ ô</translation>
+        <translation>Celadres</translation>
     </message>
     <message>
         <location filename="../excellinkingdetails.ui" line="21"/>
         <source>Book:</source>
         <extracomment>Noun. In the terms of Microsoft Excel</extracomment>
-        <translation>Đặt:</translation>
+        <translation>Werkmap:</translation>
     </message>
     <message>
         <location filename="../excellinkingdetails.ui" line="41"/>
         <source>Sheet:</source>
         <extracomment>In the terms of Microsoft Excel</extracomment>
-        <translation>Bảng:</translation>
+        <translation>Werkblad:</translation>
     </message>
     <message>
         <location filename="../excellinkingdetails.ui" line="54"/>
         <source>Cell:</source>
         <extracomment>In the terms of Microsoft Excel</extracomment>
-        <translation>Ô:</translation>
+        <translation>Cel:</translation>
     </message>
 </context>
 <context>
@@ -228,7 +228,7 @@
         <location filename="../linkpointmanager.cpp" line="37"/>
         <source>Add current</source>
         <extracomment>Means &quot;Add current link points&quot; (in the plural)</extracomment>
-        <translation>Thêm vào hiện tại</translation>
+        <translation>Huidige toevoegen</translation>
     </message>
 </context>
 <context>
@@ -237,98 +237,98 @@
         <location filename="../list.ui" line="106"/>
         <source>List</source>
         <extracomment>Noun</extracomment>
-        <translation>Danh sách</translation>
+        <translation>Lijst</translation>
     </message>
     <message>
         <location filename="../list.ui" line="182"/>
         <source>Save tickers</source>
         <extracomment>This is the label on a button that user pushes to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
-        <translation>Lưu lại ticker</translation>
+        <translation>Tikkers opslaan</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="105"/>
         <source>Clear</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
-        <translation>Dọn trống</translation>
+        <translation>Wissen</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="108"/>
         <source>Sort</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
-        <translation>Sắp xếp</translation>
+        <translation>Sorteren</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="110"/>
         <source>Change title</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
-        <translation>Đổi tiêu đề</translation>
+        <translation>Titel wijzigen</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="113"/>
         <source>Reset priorities</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
-        <translation>Cài đặt lại chế độ ưu tiên</translation>
+        <translation>Prioriteiten resetten</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="121"/>
         <source>Add one ticker...</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
-        <translation>Thêm một ticker...</translation>
+        <translation>Een tikker toevoegen...</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="124"/>
         <source>Add from file...</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
-        <translation>Thêm từ tập tin...</translation>
+        <translation>Toevoegen vanuit bestand...</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="126"/>
         <source>Add from clipboard</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
-        <translation>Thêm từ bộ nhớ ảo</translation>
+        <translation>Toevoegen vanaf klembord</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="133"/>
         <source>Export to file...</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
-        <translation>Xuất dữ liệu ra tập tin...</translation>
+        <translation>Exporteren naar bestand...</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="135"/>
         <source>Export to clipboard</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
-        <translation>Xuất dữ liệu ra bộ nhớ ảo</translation>
+        <translation>Exporteren naar klembord</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="1302"/>
         <location filename="../list.cpp" line="1380"/>
         <source>Choose a file</source>
         <extracomment>Appeal to the user. Means &quot;Please choose a file:&quot;</extracomment>
-        <translation>Chọn một tập tin</translation>
+        <translation>Een bestand kiezen</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="1304"/>
         <location filename="../list.cpp" line="1382"/>
         <source>Text files (*.txt)</source>
-        <translation>Tập tin văn bản (*.txt)</translation>
+        <translation>Tekstbestanden (*.txt)</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="1306"/>
         <location filename="../list.cpp" line="1384"/>
         <source>All files (*.*)</source>
-        <translation>Tất cả tập tin (*.*)</translation>
+        <translation>Alle bestanden (*.*)</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="1344"/>
         <source>Cannot open the following files: %1</source>
         <extracomment>Message displayed to the user. %1 will be replaced with the list of files by the application</extracomment>
-        <translation>Không thể mở những tập tin sau đây: %1</translation>
+        <translation>Kan de volgende bestanden niet openen: %1</translation>
     </message>
     <message>
         <location filename="../list.cpp" line="1397"/>
         <source>Cannot save to file %1</source>
         <extracomment>Message displayed to the user. %1 will be replaced with the file name by the application</extracomment>
-        <translation>Không thể lưu dữ liệu vào tập tin %1</translation>
+        <translation>Kan niet opslaan naar bestand %1</translation>
     </message>
 </context>
 <context>
@@ -337,125 +337,125 @@
         <location filename="../options.ui" line="15"/>
         <source>Options</source>
         <extracomment>Window title</extracomment>
-        <translation>Tuỳ chọn</translation>
+        <translation>Opties</translation>
     </message>
     <message>
         <location filename="../options.ui" line="31"/>
         <source>Always on top</source>
         <extracomment>Configuration option. The application window will stay on top of the other system windows</extracomment>
-        <translation>Luôn luôn đặt trên cùng</translation>
+        <translation>Altijd op voorgrond</translation>
     </message>
     <message>
         <location filename="../options.ui" line="38"/>
         <source>Hide to tray</source>
         <extracomment>Configuration option. Infinitive. Tray is a panel with small icons, usually in a right bottom corner, NOT taskbar</extracomment>
-        <translation>Ẩn xuống khay hệ thống</translation>
+        <translation>Minimaliseren naar systeemvak</translation>
     </message>
     <message>
         <location filename="../options.ui" line="80"/>
         <source>Language:</source>
-        <translation>Ngôn ngữ:</translation>
+        <translation>Taal:</translation>
     </message>
     <message>
         <location filename="../options.ui" line="87"/>
         <source>Lists:</source>
         <extracomment>Means &quot;Number of lists:&quot;. It will look like &quot;Lists: 4&quot;</extracomment>
-        <translation>Danh sách:</translation>
+        <translation>Lijsten:</translation>
     </message>
     <message>
         <location filename="../options.ui" line="96"/>
         <source>Restore &quot;Industries&quot; window at startup</source>
         <extracomment>Configuration option. Infinitive</extracomment>
-        <translation>Khôi phục cửa sổ &quot;Công Nghiệp&quot; khi khởi chạy</translation>
+        <translation>Het venster &quot;Industrieën&quot; herstellen bij opstarten</translation>
     </message>
     <message>
         <location filename="../options.ui" line="116"/>
         <source>Restore link points at startup</source>
         <extracomment>Configuration option. Infinitive</extracomment>
-        <translation>Khôi phục điểm liên kết khi khởi chạy</translation>
+        <translation>Linkpunten herstellen bij opstarten</translation>
     </message>
     <message>
         <location filename="../options.ui" line="123"/>
         <source>Save position and size</source>
         <extracomment>Configuration option. Infinitive</extracomment>
-        <translation>Lưu lại vị trí và kích thước</translation>
+        <translation>Positie en afmetingen opslaan</translation>
     </message>
     <message>
         <location filename="../options.ui" line="137"/>
         <source>Automatically save tickers</source>
         <extracomment>Configuration option. Infinitive. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
-        <translation>Tự động lưu lại các ticker</translation>
+        <translation>Tikkers automatisch opslaan</translation>
     </message>
     <message>
         <location filename="../options.ui" line="144"/>
         <source>Allow duplicates</source>
         <extracomment>Configuration option. Infinitive</extracomment>
-        <translation>Cho phép trùng lặp</translation>
+        <translation>Duplicaten toestaan</translation>
     </message>
     <message>
         <location filename="../options.ui" line="151"/>
         <source>Fast ticker entry</source>
         <extracomment>Configuration option. Noun. Means &quot;The small window where the user can quickly enter a ticker name&quot;. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
-        <translation>Mục ticker nhanh</translation>
+        <translation>Snel een tikker zoeken</translation>
     </message>
     <message>
         <location filename="../options.ui" line="158"/>
         <source>Show title</source>
         <extracomment>Configuration option. Infinitive</extracomment>
-        <translation>Hiển thị tiêu đề</translation>
+        <translation>Titel weergeven</translation>
     </message>
     <message>
         <location filename="../options.ui" line="165"/>
         <source>Automatically show ticker comments</source>
         <extracomment>Configuration option. Infinitive. Means &quot;Automatically show comments to the selected ticker&quot;. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
-        <translation>Tự động hiển thị bình luận về ticker</translation>
+        <translation>Opmerkingen bij tikkers automatisch weergeven</translation>
     </message>
     <message>
         <location filename="../options.ui" line="185"/>
         <source>Show buttons</source>
         <extracomment>Configuration option. Infinitive</extracomment>
-        <translation>Hiển thị nút điều khiển</translation>
+        <translation>Knoppen weergeven</translation>
     </message>
     <message>
         <location filename="../options.ui" line="199"/>
         <source>Ctrl+Alt+S to take screenshots</source>
         <extracomment>Configuration option</extracomment>
-        <translation>Ctrl+Alt+S để chụp ảnh màn hình</translation>
+        <translation>Ctrl+Alt+S om schermafbeeldingen te maken</translation>
     </message>
     <message>
         <location filename="../options.ui" line="206"/>
         <source>Ctrl+Alt+R to restore from tray</source>
         <extracomment>Configuration option. Tray is a panel with small icons, usually in a right bottom corner, NOT taskbar</extracomment>
-        <translation>Ctrl + Alt + R để mở lại chương trình từ khay hệ thống</translation>
+        <translation>Ctrl+Alt+R om te herstellen vanuit de systeemvak</translation>
     </message>
     <message>
         <location filename="../options.ui" line="249"/>
         <source>Need restart</source>
         <extracomment>Means &quot;It is neccessary to restart the application&quot;</extracomment>
-        <translation>Cần tắt mở lại</translation>
+        <translation>Herstart vereist</translation>
     </message>
     <message>
         <location filename="../options.cpp" line="37"/>
         <source>System</source>
         <extracomment>Means &quot;The system language&quot;</extracomment>
-        <translation>Hệ thống</translation>
+        <translation>Systeem</translation>
     </message>
     <message>
         <location filename="../options.cpp" line="43"/>
         <source>General</source>
         <extracomment>Means &quot;General options&quot;, in the plural</extracomment>
-        <translation>Tổng quan</translation>
+        <translation>Algemeen</translation>
     </message>
     <message>
         <location filename="../options.cpp" line="45"/>
         <source>List</source>
         <extracomment>Noun</extracomment>
-        <translation>Danh sách</translation>
+        <translation>Lijst</translation>
     </message>
     <message>
         <location filename="../options.cpp" line="46"/>
         <source>Hotkeys</source>
-        <translation>Phím tắt</translation>
+        <translation>Sneltoetsen</translation>
     </message>
 </context>
 <context>
@@ -464,17 +464,17 @@
         <location filename="../plugindetails.ui" line="15"/>
         <source>Plugin details</source>
         <extracomment>Window title</extracomment>
-        <translation>Chi tiết về tiện ích</translation>
+        <translation>Details van de plug-in</translation>
     </message>
     <message>
         <location filename="../plugindetails.ui" line="23"/>
         <source>File:</source>
-        <translation>Tập tin:</translation>
+        <translation>Bestand:</translation>
     </message>
     <message>
         <location filename="../plugindetails.ui" line="46"/>
         <source>Name:</source>
-        <translation>Tên:</translation>
+        <translation>Naam:</translation>
     </message>
     <message>
         <location filename="../plugindetails.ui" line="56"/>
@@ -484,7 +484,7 @@
     <message>
         <location filename="../plugindetails.ui" line="73"/>
         <source>Author:</source>
-        <translation>Tác giả:</translation>
+        <translation>Auteur:</translation>
     </message>
     <message>
         <location filename="../plugindetails.ui" line="107"/>
@@ -494,12 +494,12 @@
     <message>
         <location filename="../plugindetails.ui" line="124"/>
         <source>Version:</source>
-        <translation>Phiên bản:</translation>
+        <translation>Versie:</translation>
     </message>
     <message>
         <location filename="../plugindetails.ui" line="134"/>
         <source>License:</source>
-        <translation>Giấy phép:</translation>
+        <translation>Licentie:</translation>
     </message>
 </context>
 <context>
@@ -508,39 +508,39 @@
         <location filename="../pluginmanager.ui" line="15"/>
         <source>Plugins</source>
         <extracomment>Window title</extracomment>
-        <translation>Tiện ích</translation>
+        <translation>Plug-ins</translation>
     </message>
     <message>
         <location filename="../pluginmanager.ui" line="28"/>
         <source>Name</source>
-        <translation>Tên</translation>
+        <translation>Naam</translation>
     </message>
     <message>
         <location filename="../pluginmanager.ui" line="33"/>
         <source>Version</source>
-        <translation>Phiên bản</translation>
+        <translation>Versie</translation>
     </message>
     <message>
         <location filename="../pluginmanager.ui" line="38"/>
         <source>Author</source>
-        <translation>Tác giả</translation>
+        <translation>Auteur</translation>
     </message>
     <message>
         <location filename="../pluginmanager.ui" line="49"/>
         <source>Details...</source>
-        <translation>Chi tiết...</translation>
+        <translation>Details...</translation>
     </message>
     <message>
         <location filename="../pluginmanager.cpp" line="80"/>
         <source>Common</source>
         <extracomment>Means &quot;Common plugins&quot; (in the plural)</extracomment>
-        <translation>Hay dùng</translation>
+        <translation>Standaard</translation>
     </message>
     <message>
         <location filename="../pluginmanager.cpp" line="90"/>
         <source>Unknown</source>
         <extracomment>Means &quot;Unknown plugins&quot; (in the plural)</extracomment>
-        <translation>Chưa rõ</translation>
+        <translation>Onbekend</translation>
     </message>
 </context>
 <context>
@@ -549,25 +549,25 @@
         <location filename="../thttools.h" line="43"/>
         <source>Points of connection</source>
         <extracomment>Noun in the plural</extracomment>
-        <translation>Điểm kết nối</translation>
+        <translation>Connectiepunten</translation>
     </message>
     <message>
         <location filename="../thttools.h" line="50"/>
         <source>Add tickers</source>
         <extracomment>This is the label on a button that user pushes to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
-        <translation>Thêm ticker</translation>
+        <translation>Tikkers toevoegen</translation>
     </message>
     <message>
         <location filename="../thttools.h" line="57"/>
         <source>Export tickers</source>
         <extracomment>This is the label on a button that user pushes to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
-        <translation>Xuất dữ liệu từ ticker</translation>
+        <translation>Tikkers exporteren</translation>
     </message>
     <message>
         <location filename="../thttools.h" line="64"/>
         <source>About THT</source>
         <extracomment>&quot;THT&quot; is the name of the application</extracomment>
-        <translation>Về THT</translation>
+        <translation>Over THT</translation>
     </message>
 </context>
 <context>
@@ -577,16 +577,16 @@
         <source>Using the mouse, select the rectangle, or click
 any keyboard button or right/middle mouse button to cancel.</source>
         <extracomment>Appeal to the user</extracomment>
-        <translation>Sử dụng chuột, chọn một hình chữ nhật, hoặc click
-bất kỳ nút nào hoặc click chuột phải/chuột giữa để hủy bỏ.</translation>
+        <translation>Selecteer de rechthoek met behulp van de muis, of druk op
+een willekeurige toets op het toetsenbord of op de rechter-/middelste muisknop om te annuleren.</translation>
     </message>
     <message>
         <location filename="../regionselect.cpp" line="121"/>
         <source>Using the mouse, select the rectangle, or click
 right/middle mouse button to cancel.</source>
         <extracomment>Appeal to the user</extracomment>
-        <translation>Sử dụng chuột, chọn một hình chữ nhật, hoặc click
-chuột phải/chuột giữa để hủy bỏ.</translation>
+        <translation>Selecteer de rechthoek met behulp van de muis, of
+op de rechter-/middelste muisknop om te annuleren.</translation>
     </message>
 </context>
 <context>
@@ -595,40 +595,40 @@ chuột phải/chuột giữa để hủy bỏ.</translation>
         <location filename="../savescreenshot.ui" line="15"/>
         <source>Save to</source>
         <extracomment>Window title. User is asked to save a screenshot to a file or clipboard</extracomment>
-        <translation>Lưu vào</translation>
+        <translation>Opslaan naar</translation>
     </message>
     <message>
         <location filename="../savescreenshot.ui" line="21"/>
         <source>Edit...</source>
         <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
-        <translation>Chỉnh sửa...</translation>
+        <translation>Aanpassen...</translation>
     </message>
     <message>
         <location filename="../savescreenshot.ui" line="35"/>
         <source>Clipboard</source>
-        <translation>Bộ nhớ ảo</translation>
+        <translation>Klembord</translation>
     </message>
     <message>
         <location filename="../savescreenshot.ui" line="42"/>
         <source>File...</source>
-        <translation>Tập tin...</translation>
+        <translation>Bestand...</translation>
     </message>
     <message>
         <location filename="../savescreenshot.cpp" line="91"/>
         <source>Image %1 (*.%2)</source>
-        <translation>Hình ảnh %1 (*.%2)</translation>
+        <translation>Afbeelding %1 (*.%2)</translation>
     </message>
     <message>
         <location filename="../savescreenshot.cpp" line="99"/>
         <source>Save as</source>
-        <translation>Lưu dưới dạng</translation>
+        <translation>Opslaan als</translation>
     </message>
     <message>
         <location filename="../savescreenshot.cpp" line="121"/>
         <location filename="../savescreenshot.cpp" line="145"/>
         <source>Cannot save screenshot</source>
         <extracomment>Message displayed to the user</extracomment>
-        <translation>Không thể lưu ảnh chụp màn hình</translation>
+        <translation>Kan schermafbeelding niet opslaan</translation>
     </message>
 </context>
 <context>
@@ -637,28 +637,28 @@ chuột phải/chuột giữa để hủy bỏ.</translation>
         <location filename="../screenshotcommentinput.ui" line="15"/>
         <source>Enter text</source>
         <extracomment>Appeal to the user. Means &quot;Please enter text here:&quot;</extracomment>
-        <translation>Nhập vào văn bản</translation>
+        <translation>Tekst invoeren</translation>
     </message>
     <message>
         <location filename="../screenshotcommentinput.ui" line="30"/>
         <source>Alignment:</source>
         <extracomment>Means &quot;Text alignment:&quot;</extracomment>
-        <translation>Canh lề:</translation>
+        <translation>Uitlijning:</translation>
     </message>
     <message>
         <location filename="../screenshotcommentinput.ui" line="89"/>
         <source>Size:</source>
-        <translation>Kích thước:</translation>
+        <translation>Afmetingen:</translation>
     </message>
     <message>
         <location filename="../screenshotcommentinput.ui" line="119"/>
         <source>Color:</source>
-        <translation>Màu sắc:</translation>
+        <translation>Kleur:</translation>
     </message>
     <message>
         <location filename="../screenshotcommentinput.ui" line="146"/>
         <source>Background color:</source>
-        <translation>Màu nền:</translation>
+        <translation>Achtergrondkleur:</translation>
     </message>
 </context>
 <context>
@@ -667,52 +667,52 @@ chuột phải/chuột giữa để hủy bỏ.</translation>
         <location filename="../screenshoteditor.ui" line="15"/>
         <source>Trade editor</source>
         <extracomment>Noun. Means &quot;The editor of the trade on the stock market&quot;</extracomment>
-        <translation>Chỉnh sửa giao dịch</translation>
+        <translation>Handelseditor</translation>
     </message>
     <message>
         <location filename="../screenshoteditor.ui" line="50"/>
         <source>Ellipse</source>
-        <translation>Hình bầu dục</translation>
+        <translation>Ellips</translation>
     </message>
     <message>
         <location filename="../screenshoteditor.ui" line="85"/>
         <source>Delete</source>
         <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
-        <translation>Xoá</translation>
+        <translation>Verwijderen</translation>
     </message>
     <message>
         <location filename="../screenshoteditor.ui" line="92"/>
         <source>Text</source>
-        <translation>Văn bản</translation>
+        <translation>Tekst</translation>
     </message>
     <message>
         <location filename="../screenshoteditor.ui" line="99"/>
         <source>Select all</source>
         <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
-        <translation>Chọn tất cả</translation>
+        <translation>Alles selecteren</translation>
     </message>
     <message>
         <location filename="../screenshoteditor.ui" line="106"/>
         <source>Sale</source>
         <extracomment>Noun</extracomment>
-        <translation>Bán</translation>
+        <translation>Verkoop</translation>
     </message>
     <message>
         <location filename="../screenshoteditor.ui" line="117"/>
         <source>Buy</source>
         <extracomment>Noun</extracomment>
-        <translation>Mua</translation>
+        <translation>Koop</translation>
     </message>
     <message>
         <location filename="../screenshoteditor.ui" line="128"/>
         <source>Stop</source>
         <extracomment>Noun. Means &quot;Stop-loss order&quot;, see http://www.investopedia.com/terms/s/stoporder.asp</extracomment>
-        <translation>Dừng lại</translation>
+        <translation>Stop</translation>
     </message>
     <message>
         <location filename="../screenshoteditor.ui" line="139"/>
         <source>The fill color of the ellipse</source>
-        <translation>Tô màu hình bầu dục</translation>
+        <translation>De achtergrondkleur van de ellips</translation>
     </message>
 </context>
 <context>
@@ -721,106 +721,106 @@ chuột phải/chuột giữa để hủy bỏ.</translation>
         <location filename="../tht.ui" line="84"/>
         <source>THT is ready</source>
         <extracomment>&quot;THT&quot; is the name of the application</extracomment>
-        <translation>Chương trình đã sẵn sàng</translation>
+        <translation>THT is klaar</translation>
     </message>
     <message>
         <location filename="../tht.ui" line="116"/>
         <source>THT is busy</source>
         <extracomment>&quot;THT&quot; is the name of the application</extracomment>
-        <translation>Chương trình hiện đang bận</translation>
+        <translation>THT is bezig</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="249"/>
         <source>Options...</source>
-        <translation>Tùy chọn...</translation>
+        <translation>Opties...</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="252"/>
         <location filename="../tht.cpp" line="330"/>
         <source>Take screenshot...</source>
-        <translation>Chụp màn hình...</translation>
+        <translation>Schermafbeelding maken...</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="256"/>
         <source>Clear links</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
-        <translation>Dọn dẹp liên kết</translation>
+        <translation>Links wissen</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="260"/>
         <source>Clear ticker lists</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Clear the lists with tickers&quot;. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
-        <translation>Dọn dẹp danh sách ticker</translation>
+        <translation>Tikkerlijsten wissen</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="262"/>
         <location filename="../tht.cpp" line="263"/>
         <source>Load ticker</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
-        <translation>Tải ticker</translation>
+        <translation>Tikker laden</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="273"/>
         <source>About Qt...</source>
         <extracomment>Qt is a C++ crossplatform toolkit http://qt-project.org</extracomment>
-        <translation>Về Qt...</translation>
+        <translation>Over Qt...</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="274"/>
         <source>Plugins...</source>
-        <translation>Tiện ích...</translation>
+        <translation>Plug-ins...</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="276"/>
         <location filename="../tht.cpp" line="334"/>
         <source>Quit</source>
-        <translation>Thoát</translation>
+        <translation>Afsluiten</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="329"/>
         <source>Restore</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Restore the application window from the system tray&quot;</extracomment>
-        <translation>Khôi phục</translation>
+        <translation>Herstellen</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="473"/>
         <source>Notice</source>
-        <translation>Chú ý</translation>
+        <translation>Aankondiging</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="475"/>
         <source>THT will continue to run in a system tray</source>
         <extracomment>&quot;THT&quot; is the name of the application. Tray is a panel with small icons, usually in a right bottom corner, NOT taskbar</extracomment>
-        <translation>Chương trình sẽ tiếp tục chạy ở khay hệ thống</translation>
+        <translation>THT blijft actief in de systeemvak</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="1001"/>
         <source>Unknown</source>
         <extracomment>Means &quot;Unknown links&quot; (in the plural)</extracomment>
-        <translation>Chưa rõ</translation>
+        <translation>Onbekend</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="1512"/>
         <source>Cannot take screenshot</source>
         <extracomment>Message displayed to the user</extracomment>
-        <translation>Không thể chụp ảnh màn hình</translation>
+        <translation>Kan geen schermafbeelding maken</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="1558"/>
         <source>New points</source>
-        <translation>Điểm mới</translation>
+        <translation>Nieuwe punten</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="2140"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <extracomment>Message displayed to the user in the April Fool&apos;s day. Preferably copy the translation from &quot;The Little Golden Calf&quot; by I.Ilf, E.Petrov, Chapter 10 &quot;A Telegram from the Brothers Karamazov&quot; (http://en.wikipedia.org/wiki/The_Little_Golden_Calf). If you don&apos;t have the book or its online translation then translate as usual</extracomment>
-        <translation>Tất cả các vận may hiện tại cần phải có&lt;br&gt;theo cách nhục nhất có thể.</translation>
+        <translation>Alle grote hedendaagse fortuinen werden&lt;br&gt;op een meest oneerlijke manier vergaard.</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="2142"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <extracomment>See http://en.wikipedia.org/wiki/The_Little_Golden_Calf</extracomment>
-        <translation>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</translation>
+        <translation>&quot;Het Gouden Kalf&quot; I.Ilf, E.Petrov</translation>
     </message>
 </context>
 <context>
@@ -828,7 +828,7 @@ chuột phải/chuột giữa để hủy bỏ.</translation>
     <message>
         <location filename="../target.cpp" line="46"/>
         <source>Drag and drop this target to the window you need to create a link to</source>
-        <translation>Kéo và thả mục tiêu đến cửa sổ bạn muốn tạo một liên kết đến</translation>
+        <translation>Deze link slepen naar het venster waarvan u een link wil maken</translation>
     </message>
 </context>
 <context>
@@ -837,7 +837,7 @@ chuột phải/chuột giữa để hủy bỏ.</translation>
         <location filename="../tickercommentinput.ui" line="15"/>
         <source>Comment</source>
         <extracomment>Noun</extracomment>
-        <translation>Bình luận</translation>
+        <translation>Opmerking</translation>
     </message>
 </context>
 <context>
@@ -846,13 +846,13 @@ chuột phải/chuột giữa để hủy bỏ.</translation>
         <location filename="../tickerinput.ui" line="15"/>
         <source>Enter a ticker</source>
         <extracomment>Appeal to the user. Means &quot;Please enter a ticker here:&quot;. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
-        <translation>Điền vào một ticker</translation>
+        <translation>Een tikker ingeven</translation>
     </message>
     <message>
         <location filename="../tickerinput.ui" line="21"/>
         <source>Ticker:</source>
         <extracomment>Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
-        <translation>Ticker:</translation>
+        <translation>Tikker:</translation>
     </message>
 </context>
 <context>
@@ -861,18 +861,18 @@ chuột phải/chuột giữa để hủy bỏ.</translation>
         <location filename="../tickerneighbors.ui" line="15"/>
         <source>Industries</source>
         <extracomment>Noun in the plural</extracomment>
-        <translation>Công Nghiệp</translation>
+        <translation>Industrieën</translation>
     </message>
     <message>
         <location filename="../tickerneighbors.ui" line="110"/>
         <source>By capitalization</source>
         <extracomment>Means &quot;Sort by capitalization&quot;</extracomment>
-        <translation>Theo tỉ lệ vốn hóa</translation>
+        <translation>Op kapitalisatie</translation>
     </message>
     <message>
         <location filename="../tickerneighbors.ui" line="123"/>
         <source>U.S. only</source>
-        <translation>Chỉ áp dụng tại Hoa Kỳ</translation>
+        <translation>Enkel V.S.</translation>
     </message>
     <message>
         <location filename="../tickerneighbors.cpp" line="52"/>
@@ -880,7 +880,7 @@ chuột phải/chuột giữa để hủy bỏ.</translation>
         <location filename="../tickerneighbors.cpp" line="277"/>
         <source>Copy</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
-        <translation>Sao chép</translation>
+        <translation>Kopiëren</translation>
     </message>
 </context>
 <context>
@@ -888,7 +888,7 @@ chuột phải/chuột giữa để hủy bỏ.</translation>
     <message>
         <location filename="../updatechecker.cpp" line="60"/>
         <source>Server answer is broken</source>
-        <translation>Phản hồi từ máy chủ hiện đã bị hỏng</translation>
+        <translation>Verkeerd antwoord van server</translation>
     </message>
 </context>
 </TS>
