@@ -824,7 +824,7 @@ right/middle mouse button to cancel.</source>
 <context>
     <name>Target</name>
     <message>
-        <location filename="../target.cpp" line="46"/>
+        <location filename="../target.cpp" line="44"/>
         <source>Drag and drop this target to the window you need to create a link to</source>
         <translation>将该目标拖拽到您需要创建链接的窗口</translation>
     </message>
@@ -884,7 +884,7 @@ right/middle mouse button to cancel.</source>
 <context>
     <name>UpdateChecker</name>
     <message>
-        <location filename="../updatechecker.cpp" line="60"/>
+        <location filename="../updatechecker.cpp" line="57"/>
         <source>Server answer is broken</source>
         <translation>服务器响应中断</translation>
     </message>

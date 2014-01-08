@@ -73,7 +73,6 @@ void Tools::moveWindow(QWidget *w, const QPoint &pt)
 BOOL CALLBACK Tools::FindBestChildProc(HWND hwnd, LPARAM lParam)
 {
     RECT rect;
-    DWORD a;
     POINT pt;
 
     pt.x = (short)LOWORD(lParam);
@@ -83,7 +82,7 @@ BOOL CALLBACK Tools::FindBestChildProc(HWND hwnd, LPARAM lParam)
 
     if(PtInRect(&rect, pt))
     {
-        a = (rect.right - rect.left) * (rect.bottom - rect.top);
+        DWORD a = (rect.right - rect.left) * (rect.bottom - rect.top);
 
         if(a < ToolsPrivate::dwArea && IsWindowVisible(hwnd))
         {

@@ -826,7 +826,7 @@ en el botón derecho/central del ratón para cancelar.</translation>
 <context>
     <name>Target</name>
     <message>
-        <location filename="../target.cpp" line="46"/>
+        <location filename="../target.cpp" line="44"/>
         <source>Drag and drop this target to the window you need to create a link to</source>
         <translation>Arrastrar y soltar este objetivo hasta la ventana donde necesite crear un enlace</translation>
     </message>
@@ -886,7 +886,7 @@ en el botón derecho/central del ratón para cancelar.</translation>
 <context>
     <name>UpdateChecker</name>
     <message>
-        <location filename="../updatechecker.cpp" line="60"/>
+        <location filename="../updatechecker.cpp" line="57"/>
         <source>Server answer is broken</source>
         <translation>Respuesta del servidor interrumpida</translation>
     </message>

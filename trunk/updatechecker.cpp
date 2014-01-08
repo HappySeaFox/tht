@@ -25,15 +25,12 @@
 #include "tools.h"
 
 UpdateChecker::UpdateChecker(QObject *parent) :
-    QObject(parent)
+    QObject(parent),
+    m_lastVersion(NVER_STRING),
+    m_rxVersion("^(\\d+)\\.(\\d+)\\.(\\d+)$"),
+    m_rxNewLine("\\r?\\n"),
+    m_url(SVNROOT_FOR_DOWNLOAD "/THT-version.tag?format=raw")
 {
-    m_lastVersion = NVER_STRING;
-
-    m_url = QUrl(SVNROOT_FOR_DOWNLOAD "/THT-version.tag?format=raw");
-
-    m_rxVersion = QRegExp("^(\\d+)\\.(\\d+)\\.(\\d+)$");
-    m_rxNewLine = QRegExp("\\r?\\n");
-
     m_net = new NetworkAccess(this);
 
     connect(m_net, SIGNAL(finished()), this, SLOT(slotFinished()));

@@ -826,7 +826,7 @@ il pulsante destro/di centro del mouse per cancellare.</translation>
 <context>
     <name>Target</name>
     <message>
-        <location filename="../target.cpp" line="46"/>
+        <location filename="../target.cpp" line="44"/>
         <source>Drag and drop this target to the window you need to create a link to</source>
         <translation>Trascina e rilascia l&apos;oggetto scelto nella finestra per la quale vuoi creare un link</translation>
     </message>
@@ -886,7 +886,7 @@ il pulsante destro/di centro del mouse per cancellare.</translation>
 <context>
     <name>UpdateChecker</name>
     <message>
-        <location filename="../updatechecker.cpp" line="60"/>
+        <location filename="../updatechecker.cpp" line="57"/>
         <source>Server answer is broken</source>
         <translation>Il server non risponde</translation>
     </message>

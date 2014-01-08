@@ -826,7 +826,7 @@ sur le bouton central/droit de la souris pour annuler.</translation>
 <context>
     <name>Target</name>
     <message>
-        <location filename="../target.cpp" line="46"/>
+        <location filename="../target.cpp" line="44"/>
         <source>Drag and drop this target to the window you need to create a link to</source>
         <translation>Déplacer la cible vers la fenêtre dans laquelle vous avez besoin de créer un lien</translation>
     </message>
@@ -886,7 +886,7 @@ sur le bouton central/droit de la souris pour annuler.</translation>
 <context>
     <name>UpdateChecker</name>
     <message>
-        <location filename="../updatechecker.cpp" line="60"/>
+        <location filename="../updatechecker.cpp" line="57"/>
         <source>Server answer is broken</source>
         <translation>La réponse du serveur est rompue</translation>
     </message>
