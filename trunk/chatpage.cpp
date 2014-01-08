@@ -148,17 +148,6 @@ ChatPage::ChatPage(QXmppClient *client,
 
     m_unreadMesagesAnimation = new ColorAnimation(ui->labelUnreadMessages, this);
 
-    m_companyTemplate =
-            QString("<br><table>")
-            + "<tr><td>" + tr("Company:")        + "</td><td>%1</td></tr>"
-            //: Noun. Means "Market exchange:", http://www.investopedia.com/terms/e/exchange.asp
-            + "<tr><td>" + tr("Exchange:")       + "</td><td>%2</td></tr>"
-            + "<tr><td>" + tr("Sector:")         + "</td><td>%3</td></tr>"
-            + "<tr><td>" + tr("Industry:")       + "</td><td>%4</td></tr>"
-            //: Means "Company capitalization" as in finance industry
-            + "<tr><td>" + tr("Capitalization:") + "</td><td>%L5 %6</td></tr>"
-            + "</table><br>";
-
     // exchange binds
     m_exchangeBinds.insert("N", "NYSE");
     m_exchangeBinds.insert("D", "NASD");
@@ -1119,16 +1108,16 @@ QPair<QString, QString> ChatPage::formatMessage(const QXmppMessage &msg)
 
                         body = tickerToLink(ticker)
                                 + ':'
-                                + m_companyTemplate
-                                                .arg(company)
-                                                .arg(values.at(1).toString())
-                                                .arg(values.at(2).toString())
-                                                .arg(QString("<a href=\"chat-industry://%1@\">%2</a>")
-                                                     .arg(escapeDog(industry))
-                                                     .arg(industry)
-                                                    )
-                                                .arg(cap, 0, 'f', cap > 100 ? 1 : 2)
-                                                .arg(capRank);
+                                + ChatTools::companyInfoTemplate()
+                                      .arg(company)
+                                      .arg(values.at(1).toString())
+                                      .arg(values.at(2).toString())
+                                      .arg(QString("<a href=\"chat-industry://%1@\">%2</a>")
+                                                   .arg(escapeDog(industry))
+                                                   .arg(industry)
+                                                   )
+                                      .arg(cap, 0, 'f', cap > 100 ? 1 : 2)
+                                      .arg(capRank);
                     }
                 }
             }

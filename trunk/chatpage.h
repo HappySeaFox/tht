@@ -151,7 +151,6 @@ private:
     QString m_lastMessage;
     QStringList m_unreadMessages;
     ColorAnimation *m_unreadMesagesAnimation;
-    QString m_companyTemplate;
     QTabBar *m_bar;
     QTextBrowser *m_generalMessages;
     ChatMessages *m_generalPage;

@@ -53,6 +53,8 @@ public:
 
     static QString sendInvitationsTitle();
 
+    static QString companyInfoTemplate();
+
 private:
     ChatTools();
 
@@ -64,6 +66,7 @@ private:
     static QIcon m_chatIcon;
     static QIcon m_unreadIcon;
     static QHash<QXmppPresence::AvailableStatusType, QIcon> m_statusIcons;
+    static QString m_companyInfoTemplate;
 };
 
 inline

@@ -27,6 +27,7 @@ QRegExp ChatTools::m_rxLink;
 QIcon ChatTools::m_chatIcon;
 QIcon ChatTools::m_unreadIcon;
 QHash<QXmppPresence::AvailableStatusType, QIcon> ChatTools::m_statusIcons;
+QString ChatTools::m_companyInfoTemplate;
 
 void ChatTools::init()
 {
@@ -59,6 +60,17 @@ void ChatTools::init()
     ChatTools::m_statusIcons.insert(QXmppPresence::XA,        QIcon(":/images/status-away.png"));
     ChatTools::m_statusIcons.insert(QXmppPresence::DND,       QIcon(":/images/status-offline.png"));
     ChatTools::m_statusIcons.insert(QXmppPresence::Invisible, QIcon(":/images/status-invisible.png"));
+
+    ChatTools::m_companyInfoTemplate =
+                QString("<br><table>")
+                + "<tr><td>" + QObject::tr("Company:")        + "</td><td>%1</td></tr>"
+                //: Noun. Means "Market exchange:", http://www.investopedia.com/terms/e/exchange.asp
+                + "<tr><td>" + QObject::tr("Exchange:")       + "</td><td>%2</td></tr>"
+                + "<tr><td>" + QObject::tr("Sector:")         + "</td><td>%3</td></tr>"
+                + "<tr><td>" + QObject::tr("Industry:")       + "</td><td>%4</td></tr>"
+                //: Means "Company capitalization" as in finance industry
+                + "<tr><td>" + QObject::tr("Capitalization:") + "</td><td>%L5 %6</td></tr>"
+                + "</table><br>";
 
     qsrand(time(0) + QCoreApplication::applicationPid());
 }
@@ -115,4 +127,9 @@ QString ChatTools::cssForLinksReal()
     css.squeeze();
 
     return css;
+}
+
+QString ChatTools::companyInfoTemplate()
+{
+    return ChatTools::m_companyInfoTemplate;
 }
