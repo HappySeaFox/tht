@@ -28,13 +28,11 @@
 #include "tools.h"
 
 Target::Target(QWidget *parent) :
-    QWidget(parent)
+    QWidget(parent),
+    m_dragging(false),
+    m_drag_black(":/images/drag.png"),
+    m_drag_red(":/images/drag_red.png")
 {
-    m_dragging = false;
-
-    m_drag_black = QPixmap(":/images/drag.png");
-    m_drag_red = QPixmap(":/images/drag_red.png");
-
     QHBoxLayout *l = new QHBoxLayout;
     l->setContentsMargins(0, 0, 0, 0);
     l->setSpacing(0);

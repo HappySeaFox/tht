@@ -824,7 +824,7 @@ right/middle mouse button to cancel.</source>
 <context>
     <name>Target</name>
     <message>
-        <location filename="../target.cpp" line="46"/>
+        <location filename="../target.cpp" line="44"/>
         <source>Drag and drop this target to the window you need to create a link to</source>
         <translation>このターゲットをリンクの作成が必要なウィンドウにドラッグ・アンド・ドロップ</translation>
     </message>
@@ -884,7 +884,7 @@ right/middle mouse button to cancel.</source>
 <context>
     <name>UpdateChecker</name>
     <message>
-        <location filename="../updatechecker.cpp" line="60"/>
+        <location filename="../updatechecker.cpp" line="57"/>
         <source>Server answer is broken</source>
         <translation>サーバーの回答が不完全です</translation>
     </message>

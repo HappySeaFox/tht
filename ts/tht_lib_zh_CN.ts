@@ -33,54 +33,54 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../tools.cpp" line="165"/>
+        <location filename="../tools.cpp" line="164"/>
         <source>Open YouTube tutorial</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Open a video tutorial on YouTube&quot;</extracomment>
         <translation>打开 YouTube 教程</translation>
     </message>
     <message>
-        <location filename="../tools.cpp" line="171"/>
+        <location filename="../tools.cpp" line="170"/>
         <source>Downloading tickers...</source>
         <extracomment>Window title. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>下载股票…</translation>
     </message>
     <message>
-        <location filename="../tools.cpp" line="177"/>
+        <location filename="../tools.cpp" line="176"/>
         <source>&lt;Paste url here&gt;</source>
         <extracomment>Command addressed to the user. Means &quot;Please paste some URL here&quot;. &quot;URL&quot; can be translated as &quot;link&quot;</extracomment>
         <translation>&lt;将链接粘至此处&gt;</translation>
     </message>
     <message>
-        <location filename="../tools.cpp" line="183"/>
+        <location filename="../tools.cpp" line="182"/>
         <source>Tickers</source>
         <extracomment>Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>股票</translation>
     </message>
     <message>
-        <location filename="../tools.cpp" line="189"/>
+        <location filename="../tools.cpp" line="188"/>
         <source>Add</source>
         <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>添加</translation>
     </message>
     <message>
-        <location filename="../tools.cpp" line="194"/>
+        <location filename="../tools.cpp" line="193"/>
         <source>Error</source>
         <translation>错误</translation>
     </message>
     <message>
-        <location filename="../tools.cpp" line="200"/>
+        <location filename="../tools.cpp" line="199"/>
         <source>Customize</source>
         <extracomment>This is the label on a button that user pushes to issue the command</extracomment>
         <translation>自定义</translation>
     </message>
     <message>
-        <location filename="../tools.cpp" line="206"/>
+        <location filename="../tools.cpp" line="205"/>
         <source>OK</source>
         <extracomment>This is the label on a button</extracomment>
         <translation>好的</translation>
     </message>
     <message>
-        <location filename="../tools.cpp" line="212"/>
+        <location filename="../tools.cpp" line="211"/>
         <source>Network error #%1</source>
         <extracomment>%1 will be replaced with the error code by the application. It will look like &quot;Network error #16&quot;</extracomment>
         <translation>网络错误 #%1</translation>

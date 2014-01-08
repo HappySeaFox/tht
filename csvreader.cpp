@@ -33,14 +33,13 @@
 class CsvReaderPrivate
 {
 public:
-    CsvReaderPrivate()
-    {
-        pos = 0;
-        delim = QChar(',');
-        encl = QChar('"');
-        term = '\n';
-        altTerm = "\r\n";
-    }
+    CsvReaderPrivate() :
+        pos(0),
+        delim(','),
+        encl('"'),
+        term('\n'),
+        altTerm("\r\n")
+    {}
 
     QString src;
     int pos;
@@ -115,7 +114,7 @@ QStringList CsvReader::parseLine(bool trimSpace)
     QString firstSecond;
 
     int i = d->pos;
-    // ¦æ¦¬¦¦¦¬ ¦¬TÀ¦-TÅ¦-¦+¦- ¦¬¦- ¦+¦-¦-¦-TË¦-
+
     while (i < d->src.size()) {
         first = d->src.at(i);
         if (i < d->src.size() - 1)
@@ -126,7 +125,6 @@ QStringList CsvReader::parseLine(bool trimSpace)
         firstSecond.append(first);
         firstSecond.append(second);
 
-        //
         if (isEnclosed) {
             if (first == d->encl) {
                 if (second == d->encl) {

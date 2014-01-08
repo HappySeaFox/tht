@@ -826,7 +826,7 @@ op de rechter-/middelste muisknop om te annuleren.</translation>
 <context>
     <name>Target</name>
     <message>
-        <location filename="../target.cpp" line="46"/>
+        <location filename="../target.cpp" line="44"/>
         <source>Drag and drop this target to the window you need to create a link to</source>
         <translation>Deze link slepen naar het venster waarvan u een link wil maken</translation>
     </message>
@@ -886,7 +886,7 @@ op de rechter-/middelste muisknop om te annuleren.</translation>
 <context>
     <name>UpdateChecker</name>
     <message>
-        <location filename="../updatechecker.cpp" line="60"/>
+        <location filename="../updatechecker.cpp" line="57"/>
         <source>Server answer is broken</source>
         <translation>Verkeerd antwoord van server</translation>
     </message>

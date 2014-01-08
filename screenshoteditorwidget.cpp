@@ -165,13 +165,11 @@ void ScreenshotEditorWidget::startEllipse()
 void ScreenshotEditorWidget::deleteSelected()
 {
     QList<SelectableLabel *> toDelete;
-
     QMutableListIterator<SelectableLabel *> it(m_labels);
-    SelectableLabel *l;
 
     while(it.hasNext())
     {
-        l = it.next();
+        SelectableLabel *l = it.next();
 
         if(l->selected())
         {

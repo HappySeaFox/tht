@@ -826,7 +826,7 @@ chuột phải/chuột giữa để hủy bỏ.</translation>
 <context>
     <name>Target</name>
     <message>
-        <location filename="../target.cpp" line="46"/>
+        <location filename="../target.cpp" line="44"/>
         <source>Drag and drop this target to the window you need to create a link to</source>
         <translation>Kéo và thả mục tiêu đến cửa sổ bạn muốn tạo một liên kết đến</translation>
     </message>
@@ -886,7 +886,7 @@ chuột phải/chuột giữa để hủy bỏ.</translation>
 <context>
     <name>UpdateChecker</name>
     <message>
-        <location filename="../updatechecker.cpp" line="60"/>
+        <location filename="../updatechecker.cpp" line="57"/>
         <source>Server answer is broken</source>
         <translation>Phản hồi từ máy chủ hiện đã bị hỏng</translation>
     </message>
