@@ -60,8 +60,6 @@ ChatPlugin::ChatPlugin() :
 
     Settings::instance()->addDefaultValues(defaultValues);
 
-    ChatTools::init();
-
     if(qgetenv("THT_CHAT_QXMPP_LOG") == "1")
     {
         QXmppLogger::getLogger()->setLoggingType(QXmppLogger::FileLogging);
@@ -87,6 +85,8 @@ ChatPlugin::~ChatPlugin()
 
 bool ChatPlugin::init()
 {
+    ChatTools::init();
+
     m_button = new QToolButton;
 
     if(!m_button)
