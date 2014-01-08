@@ -3,7 +3,7 @@ TEMPLATE = app
 
 NVER1=2
 NVER2=0
-NVER3=2
+NVER3=3
 
 QT += core gui network xml
 
