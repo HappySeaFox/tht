@@ -792,7 +792,7 @@ QPixmap List::createDragCursor()
     QFontMetrics fm(fnt);
     QSize dragCursorSize = fm.boundingRect(m_startDragTicker.ticker).adjusted(0,0, 10,4).size();
 
-    QColor textColor = palette().color(QPalette::WindowText);
+    QColor textColor = Qt::black;
     QColor borderColor = QColor::fromRgb(0xffefef);
 
     QPixmap px(dragCursorSize);
