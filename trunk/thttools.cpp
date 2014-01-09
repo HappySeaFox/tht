@@ -16,9 +16,11 @@
  */
 
 #include <QApplication>
+#include <QRegExp>
+#include <QFile>
 #include <QDir>
 
-#include "stylereader.h"
+#include "styledescriptionreader.h"
 #include "settings.h"
 #include "thttools.h"
 
@@ -26,7 +28,7 @@ bool THTTools::m_isStyleApplied = false;
 
 THTTools::THTTools()
 {}
-
+#include <QDebug>
 void THTTools::resetStyle(ResetStyleOnErrorType rt)
 {
     QString style = SETTINGS_GET_STRING(SETTING_STYLE);
@@ -35,20 +37,20 @@ void THTTools::resetStyle(ResetStyleOnErrorType rt)
 
     if(!style.isEmpty())
     {
-        StyleReader reader;
+        QFile file(QCoreApplication::applicationDirPath()
+                    + QDir::separator()
+                    + "styles"
+                    + QDir::separator()
+                    + style.replace(QRegExp("ini$"), "qss"));
 
-        if(reader.parse(QCoreApplication::applicationDirPath()
-                            + QDir::separator()
-                            + "styles"
-                            + QDir::separator()
-                            + style))
+        if(file.open(QIODevice::ReadOnly))
         {
-            qApp->setStyleSheet(reader.css());
+            qApp->setStyleSheet(file.readAll());
             THTTools::m_isStyleApplied = true;
         }
         else
         {
-            qWarning("Style \"%s\" is not found, error: %s", qPrintable(style), qPrintable(reader.error()));
+            qWarning("Style \"%s\" is not found, error: %s", qPrintable(style), qPrintable(file.errorString()));
 
             if(rt == ResetStyleOnError)
             {

@@ -54,8 +54,8 @@ SOURCES += main.cpp\
     linkedwindow.cpp \
     linkpointsession.cpp \
     linkpoint.cpp \
-    stylereader.cpp \
-    kde/kcolorcombo.cpp
+    kde/kcolorcombo.cpp \
+    styledescriptionreader.cpp
 
 HEADERS += tht.h \
     list.h \
@@ -103,8 +103,8 @@ HEADERS += tht.h \
     linkpointsession.h \
     linkpoint.h \
     thtsettings.h \
-    stylereader.h \
-    kde/kcolorcombo.h
+    kde/kcolorcombo.h \
+    styledescriptionreader.h
 
 FORMS += tht.ui \
     list.ui \

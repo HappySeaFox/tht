@@ -15,33 +15,27 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef STYLEREADER_H
-#define STYLEREADER_H
+#include <QSettings>
+#include <QFile>
 
-#include <QXmlSimpleReader>
-#include <QString>
-#include <QColor>
+#include "styledescriptionreader.h"
 
-class StyleReaderHandler;
-
-class StyleReader : private QXmlSimpleReader
+StyleDescriptionReader::StyleDescriptionReader()
 {
-public:
-    StyleReader();
-    ~StyleReader();
+}
 
-    bool parse(const QString &filePath);
+StyleDescriptionReader::~StyleDescriptionReader()
+{}
 
-    QString error() const;
+bool StyleDescriptionReader::parse(const QString &filePath)
+{
+    if(!QFile::exists(filePath))
+        return false;
 
-    QColor previewColor() const;
+    QSettings settings(filePath, QSettings::IniFormat);
 
-    QString name();
+    m_name = settings.value("name").toString();
+    m_previewColor = QColor(settings.value("preview-color").toString());
 
-    QString css();
-
-private:
-    StyleReaderHandler *m_handler;
-};
-
-#endif // STYLEREADER_H
+    return true;
+}

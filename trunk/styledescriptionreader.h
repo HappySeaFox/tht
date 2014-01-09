@@ -15,40 +15,39 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef OPTIONS_H
-#define OPTIONS_H
+#ifndef STYLEDESCRIPTIONREADER_H
+#define STYLEDESCRIPTIONREADER_H
 
-#include <QDialog>
+#include <QString>
+#include <QColor>
 
-namespace Ui
+class StyleDescriptionReader
 {
-    class Options;
-}
-
-class QListWidgetItem;
-
-class Options : public QDialog
-{
-    Q_OBJECT
-
 public:
-    explicit Options(QWidget *parent = 0);
-    ~Options();
+    StyleDescriptionReader();
+    ~StyleDescriptionReader();
 
-    void saveSettings() const;
+    bool parse(const QString &filePath);
 
-private:
-    void load();
-    void setIcon(QListWidgetItem *i, const QString &rcIcon, int width);
+    QString name() const;
 
-private slots:
-    void slotSomethingImportantChanged();
+    QColor previewColor() const;
 
 private:
-    Ui::Options *ui;
-    int m_startTranslationIndex;
-    int m_startStyleIndex;
-    QString m_currentStyle;
+    QString m_name;
+    QColor m_previewColor;
 };
 
-#endif // OPTIONS_H
+inline
+QString StyleDescriptionReader::name() const
+{
+    return m_name;
+}
+
+inline
+QColor StyleDescriptionReader::previewColor() const
+{
+    return m_previewColor;
+}
+
+#endif // STYLEREADER_H
