@@ -28,7 +28,7 @@ bool THTTools::m_isStyleApplied = false;
 
 THTTools::THTTools()
 {}
-#include <QDebug>
+
 void THTTools::resetStyle(ResetStyleOnErrorType rt)
 {
     QString style = SETTINGS_GET_STRING(SETTING_STYLE);
