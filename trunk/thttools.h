@@ -32,8 +32,15 @@ public:
 
     static QString aboutThtTitle();
 
+    enum ResetStyleOnErrorType { ResetStyleOnError, DontResetStyleOnError };
+
+    static bool isStyleApplied();
+
 private:
     THTTools();
+
+private:
+    static bool m_isStyleApplied;
 };
 
 inline

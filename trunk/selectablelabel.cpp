@@ -16,6 +16,7 @@
  */
 
 #include <QMouseEvent>
+#include <QPainter>
 #include <QPalette>
 #include <QPixmap>
 
@@ -30,7 +31,7 @@ SelectableLabel::SelectableLabel(const QPixmap &px, const QPoint &startPoint, co
     m_vectorEnd(endPoint),
     m_vectorColor(cl)
 {
-    setAlignment(Qt::AlignCenter);
+    setAttribute(Qt::WA_TranslucentBackground);
     setPixmap(px);
     setLineWidth(SL_MARGIN);
     setFrameStyle(QFrame::Box);
@@ -61,9 +62,7 @@ void SelectableLabel::setSelected(bool s, bool loud)
 
     m_selected = s;
 
-    QPalette pal = palette();
-    pal.setColor(QPalette::Foreground, m_selected ? m_vectorColor : Qt::transparent);
-    setPalette(pal);
+    update();
 
     if(loud)
         emit selected(m_selected);
@@ -84,4 +83,19 @@ void SelectableLabel::mouseReleaseEvent(QMouseEvent *e)
         setSelected(true);
 
     m_wasPress = false;
+}
+
+void SelectableLabel::paintEvent(QPaintEvent *event)
+{
+    QPainter painter(this);
+
+    painter.setClipRect(event->rect());
+
+    if(m_selected)
+    {
+        painter.setPen(QPen(m_vectorColor, SL_MARGIN*2));
+        painter.drawRect(rect());
+    }
+
+    painter.drawPixmap(SL_MARGIN, SL_MARGIN, *pixmap());
 }

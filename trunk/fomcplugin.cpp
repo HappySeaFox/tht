@@ -62,9 +62,7 @@ bool FomcPlugin::init()
     f.setBold(true);
     m_label->setFont(f);
 
-    QPalette pal = m_label->palette();
-    pal.setColor(QPalette::WindowText, Qt::red);
-    m_label->setPalette(pal);
+    m_label->setStyleSheet("QLabel { color: red; }");
 
     connect(m_label, SIGNAL(clicked()), this, SLOT(slotClicked()));
 

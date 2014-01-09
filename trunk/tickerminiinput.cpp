@@ -15,6 +15,7 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <QApplication>
 #include <QKeySequence>
 #include <QKeyEvent>
 #include <QTimer>
@@ -23,6 +24,7 @@
 
 #include "uppercasevalidator.h"
 #include "tickerminiinput.h"
+#include "thttools.h"
 #include "settings.h"
 
 #include "ui_tickerminiinput.h"
@@ -38,10 +40,10 @@ TickerMiniInput::TickerMiniInput(QWidget *parent) :
     m_timer->setSingleShot(true);
     connect(m_timer, SIGNAL(timeout()), this, SLOT(slotRevertPalette()));
 
-    setFocusProxy(ui->line);
+    setFocusProxy(ui->lineTickerMiniInput);
 
-    ui->line->setValidator(new UpperCaseValidator(ui->line));
-    ui->line->installEventFilter(this);
+    ui->lineTickerMiniInput->setValidator(new UpperCaseValidator(ui->lineTickerMiniInput));
+    ui->lineTickerMiniInput->installEventFilter(this);
 }
 
 TickerMiniInput::~TickerMiniInput()
@@ -51,9 +53,17 @@ TickerMiniInput::~TickerMiniInput()
 
 void TickerMiniInput::flash()
 {
-    QPalette p = ui->line->palette();
-    p.setBrush(QPalette::Base, p.brush(QPalette::ToolTipBase));
-    ui->line->setPalette(p);
+    if(THTTools::isStyleApplied())
+    {
+        ui->lineTickerMiniInput->setProperty("flash", true);
+        ui->lineTickerMiniInput->setStyleSheet("/* */");
+    }
+    else
+    {
+        QPalette p = ui->lineTickerMiniInput->palette();
+        p.setBrush(QPalette::Base, p.brush(QPalette::ToolTipBase));
+        ui->lineTickerMiniInput->setPalette(p);
+    }
 
     m_timer->start();
 }
@@ -61,12 +71,12 @@ void TickerMiniInput::flash()
 void TickerMiniInput::setFocusAndSelect()
 {
     setFocus();
-    ui->line->selectAll();
+    ui->lineTickerMiniInput->selectAll();
 }
 
 bool TickerMiniInput::eventFilter(QObject *watched, QEvent *e)
 {
-    if(watched == ui->line)
+    if(watched == ui->lineTickerMiniInput)
     {
         switch(e->type())
         {
@@ -83,18 +93,18 @@ bool TickerMiniInput::eventFilter(QObject *watched, QEvent *e)
                     break;
 
                     case Qt::Key_Space:
-                        emit addTicker(ui->line->text());
-                        ui->line->clear();
+                        emit addTicker(ui->lineTickerMiniInput->text());
+                        ui->lineTickerMiniInput->clear();
                     break;
 
                     case Qt::Key_Return:
                     case Qt::Key_Enter:
-                        emit loadTicker(ui->line->text());
-                        ui->line->selectAll();
+                        emit loadTicker(ui->lineTickerMiniInput->text());
+                        ui->lineTickerMiniInput->selectAll();
                     break;
 
                     case Qt::Key_Escape:
-                        ui->line->clear();
+                        ui->lineTickerMiniInput->clear();
                     break;
 
                     default:
@@ -117,5 +127,11 @@ bool TickerMiniInput::eventFilter(QObject *watched, QEvent *e)
 
 void TickerMiniInput::slotRevertPalette()
 {
-    ui->line->setPalette(QApplication::palette(ui->line->metaObject()->className()));
+    if(THTTools::isStyleApplied())
+    {
+        ui->lineTickerMiniInput->setProperty("flash", QVariant());
+        ui->lineTickerMiniInput->setStyleSheet("/* */");
+    }
+    else
+        ui->lineTickerMiniInput->setPalette(QApplication::palette(ui->lineTickerMiniInput->metaObject()->className()));
 }
