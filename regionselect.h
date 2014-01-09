@@ -36,7 +36,7 @@ class QMouseEvent;
 class QPainter;
 class QLabel;
 
-class RegionSelect : public QDialog        
+class RegionSelect : public QDialog
 {
     Q_OBJECT
 
@@ -65,8 +65,6 @@ class RegionSelect : public QDialog
 
         QPoint selStartPoint;
         QPoint selEndPoint;
-
-        bool palBackground;
 
         QPixmap desktopPixmapBkg;
         QPixmap desktopPixmapClr;

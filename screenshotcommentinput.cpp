@@ -33,6 +33,8 @@ ScreenshotCommentInput::ScreenshotCommentInput(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    ensurePolished();
+
     m_originalBackgroundColor = ui->text->palette().color(QPalette::Base);
 
     QWidgetList buttons = QWidgetList()
@@ -162,12 +164,8 @@ void ScreenshotCommentInput::setColor(const QColor &c)
 
     ui->pushColor->setIcon(px);
 
-    QPalette pal = ui->text->palette();
-
-    pal.setColor(QPalette::WindowText, c);
-    pal.setColor(QPalette::Text, c);
-
-    ui->text->setPalette(pal);
+    m_textCss = QString("QTextEdit { color: %1; }").arg(c.name());
+    ui->text->setStyleSheet(m_textCss + m_backgroundCss);
 }
 
 void ScreenshotCommentInput::setBackgroundColor(const QColor &c)
@@ -227,9 +225,8 @@ void ScreenshotCommentInput::slotChangeBackgroundColor()
 
 void ScreenshotCommentInput::slotUseBackgroundColor(bool use)
 {
-    QPalette pal = ui->text->palette();
-    pal.setColor(QPalette::Base, use ? m_backgroundColor : m_originalBackgroundColor);
-    ui->text->setPalette(pal);
+    m_backgroundCss = QString("QTextEdit { background-color: %1; }").arg((use ? m_backgroundColor : m_originalBackgroundColor).name());
+    ui->text->setStyleSheet(m_textCss + m_backgroundCss);
 }
 
 void ScreenshotCommentInput::slotAlignChanged(bool checked)

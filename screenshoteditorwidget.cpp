@@ -29,6 +29,7 @@
 #include "selectablelabel.h"
 #include "thtsettings.h"
 #include "settings.h"
+#include "tools.h"
 
 ScreenshotEditorWidget::ScreenshotEditorWidget(QWidget *parent) :
     QLabel(parent),
@@ -217,7 +218,7 @@ void ScreenshotEditorWidget::mousePressEvent(QMouseEvent *e)
 {
     m_wasPress = true;
     m_startPoint = e->pos();
-    m_currentPoint = QPoint();
+    m_currentPoint = Tools::invalidQPoint;
 
     QWidget::mousePressEvent(e);
 }
@@ -304,10 +305,12 @@ void ScreenshotEditorWidget::paintEvent(QPaintEvent *pe)
             drawVector(&p, l->vectorColor(), l->vectorStart(), l->vectorEnd());
     }
 
-    if(m_wasPress && m_editType != None && m_editType != Text)
+    if(m_wasPress && m_currentPoint != Tools::invalidQPoint && m_editType != None && m_editType != Text)
     {
         if(m_editType != Ellipse)
+        {
             drawVector(&p, m_colors[m_editType], m_currentPoint, m_startPoint);
+        }
         else
             drawEllipse(&p, QRect(m_startPoint, m_currentPoint));
     }

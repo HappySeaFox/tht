@@ -43,21 +43,23 @@ ListDetails::ListDetails(QWidget *parent) :
     m_current = new QLabel(this);
     m_current->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
     m_current->setTextFormat(Qt::PlainText);
+    m_current->setAttribute(Qt::WA_TranslucentBackground);
+    m_current->setStyleSheet("QLabel { color: black; }");
     l->addWidget(m_current);
 
     // separator
     QFrame *line = new QFrame(this);
     line->setFrameShape(QFrame::Box);
     line->setFixedHeight(1);
-    QPalette pal = line->palette();
-    pal.setColor(QPalette::Foreground, Qt::gray);
-    line->setPalette(pal);
+    line->setStyleSheet("QFrame { background-color: gray; }");
     l->addWidget(line);
 
     // total tickers
     m_total = new QLabel(this);
     m_total->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
     m_total->setTextFormat(Qt::PlainText);
+    m_total->setAttribute(Qt::WA_TranslucentBackground);
+    m_total->setStyleSheet("QLabel { color: black; }");
     l->addWidget(m_total);
 }
 

@@ -59,6 +59,7 @@ private:
     QColor m_color;
     QColor m_backgroundColor, m_originalBackgroundColor;
     Qt::AlignmentFlag m_align;
+    QString m_textCss, m_backgroundCss;
 };
 
 #endif // SCREENSHOTCOMMENTINPUT_H

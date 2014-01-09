@@ -35,7 +35,7 @@
 RegionSelect::RegionSelect(KeyboardInteraction _ki, QWidget *parent) :
     QDialog(parent),
     ki(_ki)
-{    
+{
     setWindowFlags(Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
     setWindowState(Qt::WindowFullScreen);
     setCursor(Qt::CrossCursor);
@@ -84,12 +84,11 @@ bool RegionSelect::event(QEvent *event)
 
 void RegionSelect::paintEvent(QPaintEvent *event)
 {
-    Q_UNUSED(event)
-
     QPainter painter(this);
 
-    if(!palBackground)
-      painter.drawPixmap(QPoint(0, 0), desktopPixmapBkg);
+    painter.setClipRect(event->rect());
+
+    painter.drawPixmap(QPoint(0, 0), desktopPixmapBkg);
 
     drawRectSelection(painter);
 }
@@ -112,7 +111,7 @@ void RegionSelect::drawBackGround()
 
     // draw rect of desktop size in poainter
     painter.drawRect(QApplication::desktop()->rect());
-        
+
     QRect txtRect = QApplication::desktop()->screenGeometry(QApplication::desktop()->primaryScreen());
     QString txtTip = ki == UseKeyboard
             //: Appeal to the user
@@ -137,16 +136,6 @@ void RegionSelect::drawBackGround()
     // Draw the text
     painter.setPen(QPen(Qt::black)); // black color pen
     painter.drawText(txtBgRect, Qt::AlignCenter, txtTip);
-
-    palBackground = (qApp->desktop()->numScreens() > 1);
-
-    // set bkg to pallette widget
-    if (palBackground)
-    {
-        QPalette newPalette = palette();
-        newPalette.setBrush(QPalette::Window, QBrush(desktopPixmapBkg));
-        setPalette(newPalette);
-    }
 }
 
 void RegionSelect::drawRectSelection(QPainter &painter)
@@ -164,4 +153,4 @@ void RegionSelect::drawRectSelection(QPainter &painter)
 QPixmap RegionSelect::selection() const
 {
     return selectRect.isValid() ? desktopPixmapClr.copy(selectRect) : QPixmap();
-}   
+}

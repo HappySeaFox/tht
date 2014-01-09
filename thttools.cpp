@@ -15,8 +15,20 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <QApplication>
+#include <QDir>
+
+#include "stylereader.h"
+#include "settings.h"
 #include "thttools.h"
 
+bool THTTools::m_isStyleApplied = false;
+
 THTTools::THTTools()
+{}
+
+bool THTTools::isStyleApplied()
 {
+    return THTTools::m_isStyleApplied;
 }
+

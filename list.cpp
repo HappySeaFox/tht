@@ -753,9 +753,7 @@ void List::slotSqueezed(bool s)
 
 void List::showSaved(bool isSaved)
 {
-    QPalette pal = ui->labelUnsaved->palette();
-    pal.setColor(QPalette::Window, isSaved ? palette().color(QPalette::Window) : Qt::red);
-    ui->labelUnsaved->setPalette(pal);
+    ui->labelUnsaved->setStyleSheet(QString("QLabel { background-color: %1; }").arg(isSaved ? "transparent" : "red"));
 }
 
 void List::showTickerInfo()
