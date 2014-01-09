@@ -2,13 +2,13 @@ TARGET = THT
 TEMPLATE = app
 
 NVER1=2
-NVER2=0
-NVER3=3
+NVER2=1
+NVER3=0
 
 QT += core gui network xml
 
-INCLUDEPATH += qtsingleapplication qtdropbox
-DEPENDPATH += qtsingleapplication qtdropbox
+INCLUDEPATH += qtsingleapplication qtdropbox kde
+DEPENDPATH += qtsingleapplication qtdropbox kde
 
 SOURCES += main.cpp\
     tht.cpp \
@@ -53,7 +53,9 @@ SOURCES += main.cpp\
     thttools.cpp \
     linkedwindow.cpp \
     linkpointsession.cpp \
-    linkpoint.cpp
+    linkpoint.cpp \
+    stylereader.cpp \
+    kde/kcolorcombo.cpp
 
 HEADERS += tht.h \
     list.h \
@@ -100,7 +102,9 @@ HEADERS += tht.h \
     linkedwindow.h \
     linkpointsession.h \
     linkpoint.h \
-    thtsettings.h
+    thtsettings.h \
+    stylereader.h \
+    kde/kcolorcombo.h
 
 FORMS += tht.ui \
     list.ui \
@@ -218,6 +222,8 @@ QMAKE_EXTRA_TARGETS += tag
 # copy database
 QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite\" \"$${OUT_PWD}/$(DESTDIR_TARGET)/..\")
 QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite.timestamp\" \"$${OUT_PWD}/$(DESTDIR_TARGET)/..\")
+QMAKE_POST_LINK += $$mle(if not exist \"$${OUT_PWD}/$(DESTDIR_TARGET)/../styles\" mkdir \"$${OUT_PWD}/$(DESTDIR_TARGET)/../styles\")
+QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\styles\" \"$${OUT_PWD}/$(DESTDIR_TARGET)/../styles\")
 
 !isEmpty(ZIP) {
     message("7Z is found, will create custom dist targets")

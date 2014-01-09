@@ -7,8 +7,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>380</width>
-    <height>225</height>
+    <width>385</width>
+    <height>247</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,9 +22,83 @@
      </property>
      <widget class="QWidget" name="page">
       <layout class="QGridLayout" name="gridLayout_2">
-       <property name="margin">
+       <property name="leftMargin">
         <number>0</number>
        </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item row="0" column="0">
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <layout class="QGridLayout" name="gridLayout">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_2">
+             <property name="text">
+              <string>Language:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QComboBox" name="comboLang">
+             <property name="maxVisibleItems">
+              <number>15</number>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_3">
+             <property name="text">
+              <string>Style:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="KColorCombo" name="comboStyle"/>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label">
+             <property name="text">
+              <string extracomment="Means &quot;Number of lists:&quot;. It will look like &quot;Lists: 4&quot;">Lists:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QComboBox" name="comboNumberOfLists">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumContentsLength">
+              <number>2</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>0</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
        <item row="1" column="0">
         <widget class="QCheckBox" name="checkOnTop">
          <property name="text">
@@ -39,61 +113,24 @@
          </property>
         </widget>
        </item>
-       <item row="0" column="0">
-        <layout class="QGridLayout" name="gridLayout">
-         <item row="0" column="1">
-          <widget class="QComboBox" name="comboLang">
-           <property name="maxVisibleItems">
-            <number>15</number>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="2" rowspan="2">
-          <spacer name="horizontalSpacer_2">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>0</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item row="1" column="1">
-          <widget class="QComboBox" name="comboNumberOfLists">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="minimumContentsLength">
-            <number>2</number>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="0">
-          <widget class="QLabel" name="label_2">
-           <property name="text">
-            <string>Language:</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0">
-          <widget class="QLabel" name="label">
-           <property name="text">
-            <string extracomment="Means &quot;Number of lists:&quot;. It will look like &quot;Lists: 4&quot;">Lists:</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
        <item row="3" column="0">
         <widget class="QCheckBox" name="checkRestoreIndustries">
          <property name="text">
           <string extracomment="Configuration option. Infinitive">Restore &quot;Industries&quot; window at startup</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QCheckBox" name="checkRestoreLP">
+         <property name="text">
+          <string extracomment="Configuration option. Infinitive">Restore link points at startup</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QCheckBox" name="checkSave">
+         <property name="text">
+          <string extracomment="Configuration option. Infinitive">Save position and size</string>
          </property>
         </widget>
        </item>
@@ -110,25 +147,20 @@
          </property>
         </spacer>
        </item>
-       <item row="4" column="0">
-        <widget class="QCheckBox" name="checkRestoreLP">
-         <property name="text">
-          <string extracomment="Configuration option. Infinitive">Restore link points at startup</string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="0">
-        <widget class="QCheckBox" name="checkSave">
-         <property name="text">
-          <string extracomment="Configuration option. Infinitive">Save position and size</string>
-         </property>
-        </widget>
-       </item>
       </layout>
      </widget>
      <widget class="QWidget" name="page_2">
       <layout class="QGridLayout" name="gridLayout_3">
-       <property name="margin">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
         <number>0</number>
        </property>
        <item row="0" column="0">
@@ -190,7 +222,16 @@
      </widget>
      <widget class="QWidget" name="page_3">
       <layout class="QGridLayout" name="gridLayout_4">
-       <property name="margin">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
         <number>0</number>
        </property>
        <item row="0" column="0">
@@ -278,9 +319,17 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>KColorCombo</class>
+   <extends>QComboBox</extends>
+   <header>kcolorcombo.h</header>
+  </customwidget>
+ </customwidgets>
  <tabstops>
   <tabstop>list</tabstop>
   <tabstop>comboLang</tabstop>
+  <tabstop>comboStyle</tabstop>
   <tabstop>comboNumberOfLists</tabstop>
   <tabstop>checkOnTop</tabstop>
   <tabstop>checkTray</tabstop>
@@ -335,7 +384,7 @@
    <sender>comboLang</sender>
    <signal>currentIndexChanged(int)</signal>
    <receiver>Options</receiver>
-   <slot>slotLanguageChanged(int)</slot>
+   <slot>slotSomethingImportantChanged()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>266</x>
@@ -365,6 +414,6 @@
   </connection>
  </connections>
  <slots>
-  <slot>slotLanguageChanged(int)</slot>
+  <slot>slotSomethingImportantChanged()</slot>
  </slots>
 </ui>

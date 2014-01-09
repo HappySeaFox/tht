@@ -34,6 +34,8 @@ public:
 
     enum ResetStyleOnErrorType { ResetStyleOnError, DontResetStyleOnError };
 
+    static void resetStyle(ResetStyleOnErrorType rt);
+
     static bool isStyleApplied();
 
 private:

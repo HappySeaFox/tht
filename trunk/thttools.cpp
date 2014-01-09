@@ -27,6 +27,43 @@ bool THTTools::m_isStyleApplied = false;
 THTTools::THTTools()
 {}
 
+void THTTools::resetStyle(ResetStyleOnErrorType rt)
+{
+    QString style = SETTINGS_GET_STRING(SETTING_STYLE);
+
+    qDebug("Style \"%s\"", qPrintable(style));
+
+    if(!style.isEmpty())
+    {
+        StyleReader reader;
+
+        if(reader.parse(QCoreApplication::applicationDirPath()
+                            + QDir::separator()
+                            + "styles"
+                            + QDir::separator()
+                            + style))
+        {
+            qApp->setStyleSheet(reader.css());
+            THTTools::m_isStyleApplied = true;
+        }
+        else
+        {
+            qWarning("Style \"%s\" is not found, error: %s", qPrintable(style), qPrintable(reader.error()));
+
+            if(rt == ResetStyleOnError)
+            {
+                qApp->setStyleSheet(QString());
+                THTTools::m_isStyleApplied = false;
+            }
+        }
+    }
+    else
+    {
+        qApp->setStyleSheet(QString());
+        THTTools::m_isStyleApplied = false;
+    }
+}
+
 bool THTTools::isStyleApplied()
 {
     return THTTools::m_isStyleApplied;
