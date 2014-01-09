@@ -300,32 +300,32 @@
         <translation>クリップボードをエクスポート</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1302"/>
-        <location filename="../list.cpp" line="1380"/>
+        <location filename="../list.cpp" line="1300"/>
+        <location filename="../list.cpp" line="1378"/>
         <source>Choose a file</source>
         <extracomment>Appeal to the user. Means &quot;Please choose a file:&quot;</extracomment>
         <translation>ファイルを選択</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1304"/>
-        <location filename="../list.cpp" line="1382"/>
+        <location filename="../list.cpp" line="1302"/>
+        <location filename="../list.cpp" line="1380"/>
         <source>Text files (*.txt)</source>
         <translation>テキストファイル (*.txt)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1306"/>
-        <location filename="../list.cpp" line="1384"/>
+        <location filename="../list.cpp" line="1304"/>
+        <location filename="../list.cpp" line="1382"/>
         <source>All files (*.*)</source>
         <translation>すべてのファイル (*.*)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1344"/>
+        <location filename="../list.cpp" line="1342"/>
         <source>Cannot open the following files: %1</source>
         <extracomment>Message displayed to the user. %1 will be replaced with the list of files by the application</extracomment>
         <translation>次のファイルを開くことができません: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1397"/>
+        <location filename="../list.cpp" line="1395"/>
         <source>Cannot save to file %1</source>
         <extracomment>Message displayed to the user. %1 will be replaced with the file name by the application</extracomment>
         <translation>ファイル %1 に保存することはできません</translation>
@@ -340,120 +340,126 @@
         <translation>オプション</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="31"/>
+        <location filename="../options.ui" line="105"/>
         <source>Always on top</source>
         <extracomment>Configuration option. The application window will stay on top of the other system windows</extracomment>
         <translation>常に手前に表示</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="38"/>
+        <location filename="../options.ui" line="112"/>
         <source>Hide to tray</source>
         <extracomment>Configuration option. Infinitive. Tray is a panel with small icons, usually in a right bottom corner, NOT taskbar</extracomment>
         <translation>トレイに隠す</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="80"/>
+        <location filename="../options.ui" line="58"/>
+        <source>Style:</source>
+        <translation>スタイル：</translation>
+    </message>
+    <message>
+        <location filename="../options.ui" line="44"/>
         <source>Language:</source>
         <translation>言語:</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="87"/>
+        <location filename="../options.ui" line="68"/>
         <source>Lists:</source>
         <extracomment>Means &quot;Number of lists:&quot;. It will look like &quot;Lists: 4&quot;</extracomment>
         <translation>リスト:</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="96"/>
+        <location filename="../options.ui" line="119"/>
         <source>Restore &quot;Industries&quot; window at startup</source>
         <extracomment>Configuration option. Infinitive</extracomment>
         <translation>起動時に「業界」ウィンドウを復元</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="116"/>
+        <location filename="../options.ui" line="126"/>
         <source>Restore link points at startup</source>
         <extracomment>Configuration option. Infinitive</extracomment>
         <translation>起動時にリンクを復元</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="123"/>
+        <location filename="../options.ui" line="133"/>
         <source>Save position and size</source>
         <extracomment>Configuration option. Infinitive</extracomment>
         <translation>位置とサイズを保存</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="137"/>
+        <location filename="../options.ui" line="169"/>
         <source>Automatically save tickers</source>
         <extracomment>Configuration option. Infinitive. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>ティッカーを自動的に保存</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="144"/>
+        <location filename="../options.ui" line="176"/>
         <source>Allow duplicates</source>
         <extracomment>Configuration option. Infinitive</extracomment>
         <translation>重複を許可</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="151"/>
+        <location filename="../options.ui" line="183"/>
         <source>Fast ticker entry</source>
         <extracomment>Configuration option. Noun. Means &quot;The small window where the user can quickly enter a ticker name&quot;. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>ティッカーの高速エントリー</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="158"/>
+        <location filename="../options.ui" line="190"/>
         <source>Show title</source>
         <extracomment>Configuration option. Infinitive</extracomment>
         <translation>タイトルを表示</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="165"/>
+        <location filename="../options.ui" line="197"/>
         <source>Automatically show ticker comments</source>
         <extracomment>Configuration option. Infinitive. Means &quot;Automatically show comments to the selected ticker&quot;. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>ティッカーのコメントを自動的に表示</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="185"/>
+        <location filename="../options.ui" line="217"/>
         <source>Show buttons</source>
         <extracomment>Configuration option. Infinitive</extracomment>
         <translation>ボタンを表示</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="199"/>
+        <location filename="../options.ui" line="240"/>
         <source>Ctrl+Alt+S to take screenshots</source>
         <extracomment>Configuration option</extracomment>
         <translation>スクリーンショットを撮る場合は、Ctrl+Alt+S</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="206"/>
+        <location filename="../options.ui" line="247"/>
         <source>Ctrl+Alt+R to restore from tray</source>
         <extracomment>Configuration option. Tray is a panel with small icons, usually in a right bottom corner, NOT taskbar</extracomment>
         <translation>トレイから復元する場合は Ctrl+Alt+R</translation>
     </message>
     <message>
-        <location filename="../options.ui" line="249"/>
+        <location filename="../options.ui" line="290"/>
         <source>Need restart</source>
         <extracomment>Means &quot;It is neccessary to restart the application&quot;</extracomment>
         <translation>再起動が必要です</translation>
     </message>
     <message>
-        <location filename="../options.cpp" line="37"/>
+        <location filename="../options.cpp" line="41"/>
+        <location filename="../options.cpp" line="42"/>
         <source>System</source>
         <extracomment>Means &quot;The system language&quot;</extracomment>
         <translation>システム</translation>
     </message>
     <message>
-        <location filename="../options.cpp" line="43"/>
+        <location filename="../options.cpp" line="48"/>
         <source>General</source>
         <extracomment>Means &quot;General options&quot;, in the plural</extracomment>
         <translation>一般</translation>
     </message>
     <message>
-        <location filename="../options.cpp" line="45"/>
+        <location filename="../options.cpp" line="50"/>
         <source>List</source>
         <extracomment>Noun</extracomment>
         <translation>リスト</translation>
     </message>
     <message>
-        <location filename="../options.cpp" line="46"/>
+        <location filename="../options.cpp" line="51"/>
         <source>Hotkeys</source>
         <translation>ホットキー</translation>
     </message>
@@ -546,25 +552,25 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../thttools.h" line="43"/>
+        <location filename="../thttools.h" line="52"/>
         <source>Points of connection</source>
         <extracomment>Noun in the plural</extracomment>
         <translation>接続ポイント</translation>
     </message>
     <message>
-        <location filename="../thttools.h" line="50"/>
+        <location filename="../thttools.h" line="59"/>
         <source>Add tickers</source>
         <extracomment>This is the label on a button that user pushes to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>ティッカーを追加</translation>
     </message>
     <message>
-        <location filename="../thttools.h" line="57"/>
+        <location filename="../thttools.h" line="66"/>
         <source>Export tickers</source>
         <extracomment>This is the label on a button that user pushes to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>ティッカーをエクスポート</translation>
     </message>
     <message>
-        <location filename="../thttools.h" line="64"/>
+        <location filename="../thttools.h" line="73"/>
         <source>About THT</source>
         <extracomment>&quot;THT&quot; is the name of the application</extracomment>
         <translation>THT について</translation>
@@ -573,14 +579,14 @@
 <context>
     <name>RegionSelect</name>
     <message>
-        <location filename="../regionselect.cpp" line="119"/>
+        <location filename="../regionselect.cpp" line="118"/>
         <source>Using the mouse, select the rectangle, or click
 any keyboard button or right/middle mouse button to cancel.</source>
         <extracomment>Appeal to the user</extracomment>
         <translation>キャンセルする場合は、マウスで長方形を選択するか、キーボードの任意のキーまたはマウスの右/中央ボタンをクリックしてください。</translation>
     </message>
     <message>
-        <location filename="../regionselect.cpp" line="121"/>
+        <location filename="../regionselect.cpp" line="120"/>
         <source>Using the mouse, select the rectangle, or click
 right/middle mouse button to cancel.</source>
         <extracomment>Appeal to the user</extracomment>
@@ -716,106 +722,106 @@ right/middle mouse button to cancel.</source>
 <context>
     <name>THT</name>
     <message>
-        <location filename="../tht.ui" line="84"/>
+        <location filename="../tht.ui" line="93"/>
         <source>THT is ready</source>
         <extracomment>&quot;THT&quot; is the name of the application</extracomment>
         <translation>THT は準備完了です</translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="116"/>
+        <location filename="../tht.ui" line="134"/>
         <source>THT is busy</source>
         <extracomment>&quot;THT&quot; is the name of the application</extracomment>
         <translation>THT は使用中です</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="249"/>
+        <location filename="../tht.cpp" line="251"/>
         <source>Options...</source>
         <translation>オプション...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="252"/>
-        <location filename="../tht.cpp" line="330"/>
+        <location filename="../tht.cpp" line="254"/>
+        <location filename="../tht.cpp" line="332"/>
         <source>Take screenshot...</source>
         <translation>スクリーンショットを撮る...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="256"/>
+        <location filename="../tht.cpp" line="258"/>
         <source>Clear links</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>リンクをクリア</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="260"/>
+        <location filename="../tht.cpp" line="262"/>
         <source>Clear ticker lists</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Clear the lists with tickers&quot;. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>ティッカーリストをクリア</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="262"/>
-        <location filename="../tht.cpp" line="263"/>
+        <location filename="../tht.cpp" line="264"/>
+        <location filename="../tht.cpp" line="265"/>
         <source>Load ticker</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>ティッカーを読み込む</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="273"/>
+        <location filename="../tht.cpp" line="275"/>
         <source>About Qt...</source>
         <extracomment>Qt is a C++ crossplatform toolkit http://qt-project.org</extracomment>
         <translation>Qt について...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="274"/>
+        <location filename="../tht.cpp" line="276"/>
         <source>Plugins...</source>
         <translation>プラグイン...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="276"/>
-        <location filename="../tht.cpp" line="334"/>
+        <location filename="../tht.cpp" line="278"/>
+        <location filename="../tht.cpp" line="336"/>
         <source>Quit</source>
         <translation>終了</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="329"/>
+        <location filename="../tht.cpp" line="331"/>
         <source>Restore</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Restore the application window from the system tray&quot;</extracomment>
         <translation>復元する</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="473"/>
+        <location filename="../tht.cpp" line="475"/>
         <source>Notice</source>
         <translation>通知</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="475"/>
+        <location filename="../tht.cpp" line="477"/>
         <source>THT will continue to run in a system tray</source>
         <extracomment>&quot;THT&quot; is the name of the application. Tray is a panel with small icons, usually in a right bottom corner, NOT taskbar</extracomment>
         <translation>THT はシステムトレイ内で稼働を続けます</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1001"/>
+        <location filename="../tht.cpp" line="1003"/>
         <source>Unknown</source>
         <extracomment>Means &quot;Unknown links&quot; (in the plural)</extracomment>
         <translation>不明</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1512"/>
+        <location filename="../tht.cpp" line="1514"/>
         <source>Cannot take screenshot</source>
         <extracomment>Message displayed to the user</extracomment>
         <translation>スクリーンショットは撮れません</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1558"/>
+        <location filename="../tht.cpp" line="1560"/>
         <source>New points</source>
         <translation>新しいポイント</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2140"/>
+        <location filename="../tht.cpp" line="2142"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <extracomment>Message displayed to the user in the April Fool&apos;s day. Preferably copy the translation from &quot;The Little Golden Calf&quot; by I.Ilf, E.Petrov, Chapter 10 &quot;A Telegram from the Brothers Karamazov&quot; (http://en.wikipedia.org/wiki/The_Little_Golden_Calf). If you don&apos;t have the book or its online translation then translate as usual</extracomment>
         <translation>すべての莫大な現代資産は、最も不名誉な手段で &lt;br&gt; 取得されています。</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2142"/>
+        <location filename="../tht.cpp" line="2144"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <extracomment>See http://en.wikipedia.org/wiki/The_Little_Golden_Calf</extracomment>
         <translation>「黄金の仔牛」I・イリフ、E・ペトロフ</translation>

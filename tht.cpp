@@ -157,6 +157,8 @@ THT::THT() :
     m_excel(0),
     m_cell(0)
 {
+    setObjectName("THT");
+
     // add some default values
     QHash<QString, QVariant> defaultValues;
 

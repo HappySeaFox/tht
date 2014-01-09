@@ -19,8 +19,11 @@
 #include <QPainter>
 #include <QString>
 #include <QPixmap>
+#include <QDir>
 
 #include "persistentselectiondelegate.h"
+#include "thttools.h"
+#include "stylereader.h"
 #include "settings.h"
 #include "options.h"
 
@@ -29,12 +32,14 @@
 Options::Options(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Options),
-    m_startIndex(-1)
+    m_startTranslationIndex(-1),
+    m_startStyleIndex(-1)
 {
     ui->setupUi(this);
 
     //: Means "The system language"
     ui->comboLang->addItem('<' + tr("System") + '>');
+    ui->comboStyle->addItem('<' + tr("System") + '>');
 
     ui->list->setItemDelegate(new PersistentSelectionDelegate(ui->list));
     ui->labelRestart->hide();
@@ -86,6 +91,7 @@ void Options::load()
     ui->checkCtrlAltS->setChecked(SETTINGS_GET_BOOL(SETTING_GLOBAL_HOTKEY_SCREENSHOT));
     ui->checkCtrlAltR->setChecked(SETTINGS_GET_BOOL(SETTING_GLOBAL_HOTKEY_RESTORE));
 
+    // translations
     const QMap<QString, QString> tsmap = Settings::instance()->translations();
     QString ts = SETTINGS_GET_STRING(SETTING_TRANSLATION);
     QMap<QString, QString>::const_iterator itEnd = tsmap.end();
@@ -96,13 +102,42 @@ void Options::load()
 
         if(it.key() == ts)
         {
-            m_startIndex = ui->comboLang->count() - 1;
-            ui->comboLang->setCurrentIndex(m_startIndex);
+            m_startTranslationIndex = ui->comboLang->count() - 1;
+            ui->comboLang->setCurrentIndex(m_startTranslationIndex);
         }
     }
 
-    if(m_startIndex < 0)
-        m_startIndex = 0;
+    if(m_startTranslationIndex < 0)
+        m_startTranslationIndex = 0;
+
+    // styles
+    const QString currentStyle = SETTINGS_GET_STRING(SETTING_STYLE);
+    StyleReader reader;
+    QFileInfoList styles = QDir(QCoreApplication::applicationDirPath() + QDir::separator() + "styles")
+                            .entryInfoList(QStringList() << "*.xml", QDir::Files | QDir::Readable, QDir::Name);
+
+    QPixmap px(16, 12);
+
+    foreach(QFileInfo fi, styles)
+    {
+        if(!reader.parse(fi.absoluteFilePath()))
+            continue;
+
+        px.fill(reader.previewColor());
+
+        //ui->comboStyle->addItem(px, reader.name(), fi.fileName());
+        //ui->comboStyle->setItemData(ui->comboStyle->count() - 1, reader.previewColor(), Qt::BackgroundRole);
+        ui->comboStyle->addColor(reader.previewColor(), fi.fileName());
+
+        if(fi.fileName() == currentStyle)
+        {
+            m_startStyleIndex = ui->comboStyle->count() - 1;
+            ui->comboStyle->setCurrentIndex(m_startStyleIndex);
+        }
+    }
+
+    if(m_startStyleIndex < 0)
+        m_startStyleIndex = 0;
 }
 
 void Options::setIcon(QListWidgetItem *i, const QString &rcIcon, int width)
@@ -122,15 +157,16 @@ void Options::setIcon(QListWidgetItem *i, const QString &rcIcon, int width)
     i->setIcon(QIcon(result));
 }
 
-void Options::slotLanguageChanged(int index)
+void Options::slotSomethingImportantChanged()
 {
-    ui->labelRestart->setVisible(index != m_startIndex);
+    ui->labelRestart->setVisible(ui->comboLang->currentIndex() != m_startTranslationIndex);
 }
 
 void Options::saveSettings() const
 {
     Settings::instance()->setNumberOfLists(ui->comboNumberOfLists->currentIndex()+1, Settings::NoSync);
     SETTINGS_SET_STRING(SETTING_TRANSLATION, ui->comboLang->itemData(ui->comboLang->currentIndex()).toString(), Settings::NoSync);
+    SETTINGS_SET_STRING(SETTING_STYLE, ui->comboStyle->itemData(ui->comboStyle->currentIndex()).value<KColorComboItemDataType>().first, Settings::NoSync);
     SETTINGS_SET_BOOL(SETTING_ONTOP, ui->checkOnTop->isChecked(), Settings::NoSync);
     SETTINGS_SET_BOOL(SETTING_HIDE_TO_TRAY, ui->checkTray->isChecked(), Settings::NoSync);
     SETTINGS_SET_BOOL(SETTING_RESTORE_NEIGHBORS_AT_STARTUP, ui->checkRestoreIndustries->isChecked(), Settings::NoSync);
@@ -144,4 +180,6 @@ void Options::saveSettings() const
     SETTINGS_SET_BOOL(SETTING_RESTORE_LINKS_AT_STARTUP, ui->checkRestoreLP->isChecked(), Settings::NoSync);
     SETTINGS_SET_BOOL(SETTING_GLOBAL_HOTKEY_SCREENSHOT, ui->checkCtrlAltS->isChecked(), Settings::NoSync);
     SETTINGS_SET_BOOL(SETTING_GLOBAL_HOTKEY_RESTORE, ui->checkCtrlAltR->isChecked()); // also sync
+
+    THTTools::resetStyle(THTTools::ResetStyleOnError);
 }

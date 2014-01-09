@@ -45,6 +45,7 @@
 #include "linkedwindow.h"
 #include "linkpoint.h"
 #include "settings.h"
+#include "thttools.h"
 #include "tools.h"
 #include "tht.h"
 
@@ -199,6 +200,8 @@ int main(int argc, char *argv[])
     if(app.sendMessage("wake up"))
         return 0;
 
+    QDir::setCurrent(QCoreApplication::applicationDirPath());
+
     qRegisterMetaTypeStreamOperators<LinkPointSession>("LinkPointSession");
     qRegisterMetaTypeStreamOperators<QList<LinkPointSession> >("QList<LinkPointSession>");
 
@@ -218,6 +221,9 @@ int main(int argc, char *argv[])
 
     // reread database timestamps
     Settings::instance()->rereadTimestamps();
+
+    // application style
+    THTTools::resetStyle(THTTools::ResetStyleOnError);
 
     // load translations
     QString locale = QLocale::system().name();

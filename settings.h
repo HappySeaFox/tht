@@ -126,6 +126,7 @@ Q_DECLARE_METATYPE(Qt::AlignmentFlag)
 #define SETTING_LIST_HEADER                  "list-header"
 #define SETTING_LIST_BUTTONS                 "list-buttons"
 #define SETTING_TRANSLATION                  "translation"
+#define SETTING_STYLE                        "style"
 #define SETTING_RESTORE_NEIGHBORS_AT_STARTUP "restore-neighbors-at-startup"
 #define SETTING_SHOW_NEIGHBORS_AT_STARTUP    "neighbors-at-startup"
 #define SETTING_MINI_TICKER_ENTRY            "mini-ticker-entry"
