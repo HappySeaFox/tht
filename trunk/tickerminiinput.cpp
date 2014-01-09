@@ -56,7 +56,10 @@ void TickerMiniInput::flash()
     if(THTTools::isStyleApplied())
     {
         ui->lineTickerMiniInput->setProperty("flash", true);
-        ui->lineTickerMiniInput->setStyleSheet("/* */");
+
+        ui->lineTickerMiniInput->style()->unpolish(ui->lineTickerMiniInput);
+        ui->lineTickerMiniInput->style()->polish(ui->lineTickerMiniInput);
+        ui->lineTickerMiniInput->update();
     }
     else
     {
@@ -130,7 +133,10 @@ void TickerMiniInput::slotRevertPalette()
     if(THTTools::isStyleApplied())
     {
         ui->lineTickerMiniInput->setProperty("flash", QVariant());
-        ui->lineTickerMiniInput->setStyleSheet("/* */");
+
+        ui->lineTickerMiniInput->style()->unpolish(ui->lineTickerMiniInput);
+        ui->lineTickerMiniInput->style()->polish(ui->lineTickerMiniInput);
+        ui->lineTickerMiniInput->update();
     }
     else
         ui->lineTickerMiniInput->setPalette(QApplication::palette(ui->lineTickerMiniInput->metaObject()->className()));
