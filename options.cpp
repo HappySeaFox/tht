@@ -22,8 +22,8 @@
 #include <QDir>
 
 #include "persistentselectiondelegate.h"
+#include "styledescriptionreader.h"
 #include "thttools.h"
-#include "stylereader.h"
 #include "settings.h"
 #include "options.h"
 
@@ -111,25 +111,19 @@ void Options::load()
         m_startTranslationIndex = 0;
 
     // styles
-    const QString currentStyle = SETTINGS_GET_STRING(SETTING_STYLE);
-    StyleReader reader;
+    m_currentStyle = SETTINGS_GET_STRING(SETTING_STYLE);
+    StyleDescriptionReader reader;
     QFileInfoList styles = QDir(QCoreApplication::applicationDirPath() + QDir::separator() + "styles")
-                            .entryInfoList(QStringList() << "*.xml", QDir::Files | QDir::Readable, QDir::Name);
-
-    QPixmap px(16, 12);
+                            .entryInfoList(QStringList() << "*.ini", QDir::Files | QDir::Readable, QDir::Name);
 
     foreach(QFileInfo fi, styles)
     {
         if(!reader.parse(fi.absoluteFilePath()))
             continue;
 
-        px.fill(reader.previewColor());
-
-        //ui->comboStyle->addItem(px, reader.name(), fi.fileName());
-        //ui->comboStyle->setItemData(ui->comboStyle->count() - 1, reader.previewColor(), Qt::BackgroundRole);
         ui->comboStyle->addColor(reader.previewColor(), fi.fileName());
 
-        if(fi.fileName() == currentStyle)
+        if(fi.fileName() == m_currentStyle)
         {
             m_startStyleIndex = ui->comboStyle->count() - 1;
             ui->comboStyle->setCurrentIndex(m_startStyleIndex);
@@ -164,9 +158,11 @@ void Options::slotSomethingImportantChanged()
 
 void Options::saveSettings() const
 {
+    QString newStyle = ui->comboStyle->itemData(ui->comboStyle->currentIndex()).value<KColorComboItemDataType>().first;
+
     Settings::instance()->setNumberOfLists(ui->comboNumberOfLists->currentIndex()+1, Settings::NoSync);
     SETTINGS_SET_STRING(SETTING_TRANSLATION, ui->comboLang->itemData(ui->comboLang->currentIndex()).toString(), Settings::NoSync);
-    SETTINGS_SET_STRING(SETTING_STYLE, ui->comboStyle->itemData(ui->comboStyle->currentIndex()).value<KColorComboItemDataType>().first, Settings::NoSync);
+    SETTINGS_SET_STRING(SETTING_STYLE, newStyle, Settings::NoSync);
     SETTINGS_SET_BOOL(SETTING_ONTOP, ui->checkOnTop->isChecked(), Settings::NoSync);
     SETTINGS_SET_BOOL(SETTING_HIDE_TO_TRAY, ui->checkTray->isChecked(), Settings::NoSync);
     SETTINGS_SET_BOOL(SETTING_RESTORE_NEIGHBORS_AT_STARTUP, ui->checkRestoreIndustries->isChecked(), Settings::NoSync);
@@ -181,5 +177,6 @@ void Options::saveSettings() const
     SETTINGS_SET_BOOL(SETTING_GLOBAL_HOTKEY_SCREENSHOT, ui->checkCtrlAltS->isChecked(), Settings::NoSync);
     SETTINGS_SET_BOOL(SETTING_GLOBAL_HOTKEY_RESTORE, ui->checkCtrlAltR->isChecked()); // also sync
 
-    THTTools::resetStyle(THTTools::ResetStyleOnError);
+    if(m_currentStyle != newStyle)
+        THTTools::resetStyle(THTTools::ResetStyleOnError);
 }
