@@ -34,7 +34,8 @@ class KColorComboDelegate : public QAbstractItemDelegate
 {
     public:
         enum ItemRoles {
-            ColorRole = Qt::UserRole + 1
+            ColorRole = Qt::UserRole + 1,
+            TextColorRole = Qt::UserRole + 2
         };
 
         enum LayoutMetrics {
@@ -75,6 +76,7 @@ void KColorComboDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     QColor innercolor;
     bool isSelected = (option.state & QStyle::State_Selected);
     bool paletteBrush = (k_colorcombodelegate_brush(index, Qt::BackgroundRole).style() == Qt::NoBrush);
+
     if (isSelected) {
         innercolor = option.palette.color(QPalette::Highlight);
     } else {
@@ -107,13 +109,9 @@ void KColorComboDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     if (tv.type() == QVariant::String) {
         QString text = tv.toString();
         QColor textColor;
-        if (paletteBrush) {
-            if (isSelected) {
-                textColor = option.palette.color(QPalette::Text);
-            } else {
-                textColor = option.palette.color(QPalette::Text);
-            }
-        } else {
+        if (paletteBrush)
+            textColor = option.palette.color(QPalette::Text);
+        else {
             int unused, v;
             innercolor.getHsv(&unused, &unused, &v);
             if (v > 128) {
@@ -148,7 +146,15 @@ KColorCombo::~KColorCombo()
 void KColorCombo::addColor(const QColor &color, const QString &fileForData)
 {
     addItem(QString("#%1").arg(count()), QVariant::fromValue(KColorComboItemDataType(fileForData, color)));
+
+    // color
     setItemData(count()-1, color, KColorComboDelegate::ColorRole);
+
+    // text color
+    int h, s, v;
+    color.getHsv(&h, &s, &v);
+
+    setItemData(count()-1, v > 128 ? Qt::black : Qt::white, KColorComboDelegate::TextColorRole);
 }
 
 void KColorCombo::paintEvent(QPaintEvent *event)
@@ -175,6 +181,7 @@ void KColorCombo::paintEvent(QPaintEvent *event)
         painter.drawRoundedRect(frame.adjusted(1, 1, -1, -1), 2, 2);
 
         // text
+        painter.setPen(itemData(currentIndex(), KColorComboDelegate::TextColorRole).value<QColor>());
         painter.drawControl(QStyle::CE_ComboBoxLabel, opt);
     }
 }
