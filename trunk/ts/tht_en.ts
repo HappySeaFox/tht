@@ -234,13 +234,13 @@
 <context>
     <name>List</name>
     <message>
-        <location filename="../list.ui" line="106"/>
+        <location filename="../list.ui" line="133"/>
         <source>List</source>
         <extracomment>Noun</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../list.ui" line="182"/>
+        <location filename="../list.ui" line="209"/>
         <source>Save tickers</source>
         <extracomment>This is the label on a button that user pushes to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation type="unfinished"></translation>
