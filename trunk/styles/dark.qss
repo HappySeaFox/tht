@@ -805,3 +805,43 @@ QFrame#lineThtSeparator
 {
     color: darkRed;
 }
+
+QToolButton#pushList
+{
+    background: url($SD/dark-images/list.png) center no-repeat;
+}
+
+QToolButton#pushAdd
+{
+    background: url($SD/dark-images/add.png) center no-repeat;
+}
+
+QToolButton#pushSave
+{
+    background: url($SD/dark-images/save.png) center no-repeat;
+}
+
+QToolButton#pushExport
+{
+    background: url($SD/dark-images/export.png) center no-repeat;
+}
+
+QToolButton#pushLinkManager
+{
+    background: url($SD/dark-images/links-load.png) center no-repeat;
+}
+
+QLabel#labelBusy
+{
+    background: url($SD/dark-images/locked.png) center no-repeat;
+}
+
+QLabel#labelNotBusy
+{
+    background: url($SD/dark-images/ready.png) center no-repeat;
+}
+
+QLabel#target
+{
+    background: url($SD/dark-images/drag.png) center no-repeat;
+}
