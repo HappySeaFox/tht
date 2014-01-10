@@ -76,7 +76,7 @@ List::List(int group, QWidget *parent) :
 
     // header widgets
     ui->widgetEnterHeader->setMaximumLength(16);
-    ui->labelHeader->setText(Settings::instance()->headerForGroup(m_section));
+    ui->labelListHeader->setText(Settings::instance()->headerForGroup(m_section));
     ui->widgetSearch->setUseTickerValidator(true);
 
     reconfigureMiniTickerEntry();
@@ -89,7 +89,7 @@ List::List(int group, QWidget *parent) :
     ui->stack->widget(0)->setFocusProxy(ui->widgetInput);
     ui->stack->widget(1)->setFocusProxy(ui->widgetSearch);
 
-    ui->stackHeader->widget(0)->setFocusProxy(ui->labelHeader);
+    ui->stackHeader->widget(0)->setFocusProxy(ui->labelListHeader);
     ui->stackHeader->widget(1)->setFocusProxy(ui->widgetEnterHeader);
 
     m_persistentDelegate = new PersistentSelectionDelegate(ui->list);
@@ -145,7 +145,7 @@ List::List(int group, QWidget *parent) :
     // catch keyboard events
     ui->list->installEventFilter(this);
     ui->list->viewport()->installEventFilter(this);
-    ui->labelHeader->installEventFilter(this);
+    ui->labelListHeader->installEventFilter(this);
 
     m_numbers->show();
 }
@@ -640,7 +640,7 @@ bool List::eventFilter(QObject *obj, QEvent *event)
         else if(type == QEvent::Resize || type == QEvent::Move)
             moveNumbersLabel();
     }
-    else if(obj == ui->labelHeader)
+    else if(obj == ui->labelListHeader)
     {
         if(type == QEvent::MouseButtonDblClick)
             changeHeader();
@@ -722,8 +722,8 @@ void List::headerCancelled()
 
 void List::headerAccepted()
 {
-    ui->labelHeader->setText(ui->widgetEnterHeader->text());
-    Settings::instance()->setHeaderForGroup(m_section, ui->labelHeader->text());
+    ui->labelListHeader->setText(ui->widgetEnterHeader->text());
+    Settings::instance()->setHeaderForGroup(m_section, ui->labelListHeader->text());
 
     headerCancelled();
 }
@@ -733,7 +733,7 @@ void List::changeHeader()
     if(!SETTINGS_GET_BOOL(SETTING_LIST_HEADER))
         return;
 
-    ui->widgetEnterHeader->startEditing(ui->labelHeader->text(), true);
+    ui->widgetEnterHeader->startEditing(ui->labelListHeader->text(), true);
     ui->stackHeader->setCurrentIndex(1);
     ui->stackHeader->currentWidget()->setFocus();
 }
