@@ -18,12 +18,15 @@
 #ifndef TARGET_H
 #define TARGET_H
 
-#include <QPixmap>
 #include <QWidget>
 
 class QLabel;
 
 class NumericLabel;
+
+#define THT_TARGET_DEFAULT_STYLESHEET \
+"QLabel#target               { background: url(:/images/drag.png) center no-repeat; }" \
+"QLabel#target[alt=\"true\"] { background: url(:/images/drag_red.png) center no-repeat; }"
 
 class Target : public QWidget
 {
@@ -47,17 +50,19 @@ protected:
     virtual void resizeEvent(QResizeEvent *);
     virtual bool eventFilter(QObject *o, QEvent *e);
 
+private:
+    void changePixmap(bool alt);
+
 signals:
     void moving(const QPoint &);
     void dropped(const QPoint &);
     void cancelled();
     void middleClick();
-    
+
 private:
     QLabel *m_label;
     NumericLabel *m_number;
     bool m_dragging;
-    QPixmap m_drag_black, m_drag_red;
 };
 
 #endif // TARGET_H

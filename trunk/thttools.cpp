@@ -23,8 +23,22 @@
 #include "styledescriptionreader.h"
 #include "settings.h"
 #include "thttools.h"
+#include "target.h"
 
 bool THTTools::m_isStyleApplied = false;
+
+static const char * const THT_DEFAULT_STYLE =
+// buttons in the ticker list
+"QToolButton#pushList   { background: url(:/images/list.png)   center no-repeat; }"
+"QToolButton#pushAdd    { background: url(:/images/add.png)    center no-repeat; }"
+"QToolButton#pushSave   { background: url(:/images/save.png)   center no-repeat; }"
+"QToolButton#pushExport { background: url(:/images/export.png) center no-repeat; }"
+
+// "Links" button on the bottom
+"QToolButton#pushLinkManager { background: url(:/images/links-load.png) center no-repeat; }"
+
+THT_TARGET_DEFAULT_STYLESHEET
+;
 
 THTTools::THTTools()
 {}
@@ -47,11 +61,11 @@ void THTTools::resetStyle(ResetStyleOnErrorType rt)
         {
             QString css = file.readAll();
 
-            qApp->setStyleSheet(css
-                                .replace("$SD", dirWithStyles)
-                                );
-
             THTTools::m_isStyleApplied = true;
+
+            qApp->setStyleSheet(THT_DEFAULT_STYLE + css
+                                                    .replace("$SD", dirWithStyles)
+                                );
         }
         else
         {
@@ -59,16 +73,20 @@ void THTTools::resetStyle(ResetStyleOnErrorType rt)
 
             if(rt == ResetStyleOnError)
             {
-                qApp->setStyleSheet(QString());
                 THTTools::m_isStyleApplied = false;
+                qApp->setStyleSheet(QString());
             }
         }
     }
     else
     {
-        qApp->setStyleSheet(QString());
         THTTools::m_isStyleApplied = false;
+        qApp->setStyleSheet(QString());
     }
+
+    // notify widgets about style change
+    QEvent ste(static_cast<QEvent::Type>(THT_STYLE_CHANGE_EVENT_TYPE));
+    QApplication::sendEvent(qApp, &ste);
 }
 
 bool THTTools::isStyleApplied()

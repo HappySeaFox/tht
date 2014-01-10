@@ -20,6 +20,9 @@
 
 #include <QObject>
 #include <QString>
+#include <QEvent>
+
+static const int THT_STYLE_CHANGE_EVENT_TYPE = QEvent::User + 2;
 
 class THTTools
 {

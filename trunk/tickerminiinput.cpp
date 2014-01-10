@@ -21,6 +21,7 @@
 #include <QTimer>
 #include <QBrush>
 #include <QEvent>
+#include <QStyle>
 
 #include "uppercasevalidator.h"
 #include "tickerminiinput.h"

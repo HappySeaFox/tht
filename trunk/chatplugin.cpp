@@ -95,7 +95,7 @@ bool ChatPlugin::init()
         return false;
     }
 
-    m_button->setFixedSize(22, 22);
+    m_button->setFixedSize(24, 24);
     m_button->setIcon(ChatTools::chatIcon().pixmap(16, 16));
     m_button->setToolTip(ChatTools::chatTitle());
 

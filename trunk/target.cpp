@@ -19,19 +19,18 @@
 #include <QMouseEvent>
 #include <QHBoxLayout>
 #include <QCursor>
-#include <QPixmap>
 #include <QPoint>
 #include <QLabel>
+#include <QStyle>
 
 #include "numericlabel.h"
+#include "thttools.h"
 #include "target.h"
 #include "tools.h"
 
 Target::Target(QWidget *parent) :
     QWidget(parent),
-    m_dragging(false),
-    m_drag_black(":/images/drag.png"),
-    m_drag_red(":/images/drag_red.png")
+    m_dragging(false)
 {
     QHBoxLayout *l = new QHBoxLayout;
     l->setContentsMargins(0, 0, 0, 0);
@@ -39,9 +38,10 @@ Target::Target(QWidget *parent) :
     setLayout(l);
 
     m_label = new QLabel(this);
+    m_label->setObjectName("target");
     m_label->setFixedSize(32, 32);
-    m_label->setPixmap(m_drag_black);
     m_label->setToolTip(tr("Drag and drop this target to the window you need to create a link to"));
+    changePixmap(false);
 
     m_number = new NumericLabel(this);
 
@@ -93,7 +93,10 @@ void Target::mousePressEvent(QMouseEvent *event)
     if(event->button() == Qt::LeftButton)
     {
         qDebug("Start dragging");
-        QApplication::setOverrideCursor(QCursor(*m_label->pixmap()));
+        QPixmap pixmap(m_label->size());
+        pixmap.fill(Qt::transparent);
+        m_label->render(&pixmap, QPoint(), QRegion(m_label->rect()), QWidget::DrawChildren);
+        QApplication::setOverrideCursor(QCursor(pixmap));
         m_dragging = true;
     }
     else if(event->button() == Qt::MiddleButton)
@@ -147,27 +150,46 @@ bool Target::eventFilter(QObject *o, QEvent *e)
         if(type == QEvent::Enter)
         {
             if(mayBeMaster())
-                m_label->setPixmap(m_drag_red);
+                changePixmap(true);
 
             return true;
         }
         else if(type == QEvent::Leave)
         {
-            m_label->setPixmap(m_drag_black);
+            changePixmap(false);
             return true;
         }
     }
-    else if(type == QEvent::KeyPress || type == QEvent::KeyRelease)
+    else
     {
-        QKeyEvent *ke = static_cast<QKeyEvent *>(e);
-        QPoint cursorPos = mapFromGlobal(QCursor::pos());
-
-        if(ke && m_label->rect().contains(cursorPos) && ke->key() == Qt::Key_Alt)
+        if(o == qApp)
         {
-            m_label->setPixmap((type == QEvent::KeyPress) ? m_drag_red : m_drag_black);
-            return true;
+            if(type == THT_STYLE_CHANGE_EVENT_TYPE)
+            {
+                setStyleSheet(THTTools::isStyleApplied() ? QString() : THT_TARGET_DEFAULT_STYLESHEET);
+            }
+        }
+        else if(type == QEvent::KeyPress || type == QEvent::KeyRelease)
+        {
+            QKeyEvent *ke = static_cast<QKeyEvent *>(e);
+            QPoint cursorPos = mapFromGlobal(QCursor::pos());
+
+            if(ke && m_label->rect().contains(cursorPos) && ke->key() == Qt::Key_Alt)
+            {
+                changePixmap(type == QEvent::KeyPress);
+                return true;
+            }
         }
     }
 
     return QObject::eventFilter(o, e);
+}
+
+void Target::changePixmap(bool alt)
+{
+    m_label->setProperty("alt", alt ? true : QVariant());
+
+    m_label->style()->unpolish(m_label);
+    m_label->style()->polish(m_label);
+    m_label->update();
 }
