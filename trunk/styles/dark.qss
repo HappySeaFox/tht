@@ -353,7 +353,7 @@ QMainWindow::separator:hover
 QMenu::separator
 {
     height: 1px;
-    background-color: #3A3939;
+    background-color: rgb(78,77,77);
     color: white;
     padding-left: 4px;
     margin-left: 10px;
