@@ -798,30 +798,30 @@ right/middle mouse button to cancel.</source>
         <translation>THT はシステムトレイ内で稼働を続けます</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1042"/>
+        <location filename="../tht.cpp" line="1045"/>
         <source>Unknown</source>
         <extracomment>Means &quot;Unknown links&quot; (in the plural)</extracomment>
         <translation>不明</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1553"/>
+        <location filename="../tht.cpp" line="1556"/>
         <source>Cannot take screenshot</source>
         <extracomment>Message displayed to the user</extracomment>
         <translation>スクリーンショットは撮れません</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1599"/>
+        <location filename="../tht.cpp" line="1602"/>
         <source>New points</source>
         <translation>新しいポイント</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2181"/>
+        <location filename="../tht.cpp" line="2184"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <extracomment>Message displayed to the user in the April Fool&apos;s day. Preferably copy the translation from &quot;The Little Golden Calf&quot; by I.Ilf, E.Petrov, Chapter 10 &quot;A Telegram from the Brothers Karamazov&quot; (http://en.wikipedia.org/wiki/The_Little_Golden_Calf). If you don&apos;t have the book or its online translation then translate as usual</extracomment>
         <translation>すべての莫大な現代資産は、最も不名誉な手段で &lt;br&gt; 取得されています。</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2183"/>
+        <location filename="../tht.cpp" line="2186"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <extracomment>See http://en.wikipedia.org/wiki/The_Little_Golden_Calf</extracomment>
         <translation>「黄金の仔牛」I・イリフ、E・ペトロフ</translation>
