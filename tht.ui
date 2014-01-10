@@ -92,9 +92,6 @@
          <property name="toolTip">
           <string extracomment="&quot;THT&quot; is the name of the application">THT is ready</string>
          </property>
-         <property name="pixmap">
-          <pixmap resource="tht.qrc">:/images/ready.png</pixmap>
-         </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
          </property>
@@ -132,9 +129,6 @@
          </property>
          <property name="toolTip">
           <string extracomment="&quot;THT&quot; is the name of the application">THT is busy</string>
-         </property>
-         <property name="pixmap">
-          <pixmap resource="tht.qrc">:/images/locked.png</pixmap>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -196,9 +190,7 @@
  <tabstops>
   <tabstop>pushLinkManager</tabstop>
  </tabstops>
- <resources>
-  <include location="tht.qrc"/>
- </resources>
+ <resources/>
  <connections>
   <connection>
    <sender>target</sender>

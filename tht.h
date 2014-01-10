@@ -36,6 +36,7 @@ class QxtGlobalShortcut;
 
 class QGridLayout;
 class QAxObject;
+class QAction;
 class QPoint;
 class QTimer;
 class QMenu;
@@ -228,6 +229,7 @@ private:
     bool m_justTitle;
     int m_lastHeightBeforeSqueezing;
     QAxObject *m_excel, *m_cell;
+    QAction *m_actionCustomizeLinks;
 };
 
 #endif // THT_H

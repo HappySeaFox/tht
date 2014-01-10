@@ -18,11 +18,14 @@
 #ifndef THTTOOLS_H
 #define THTTOOLS_H
 
-#include <QObject>
+#include <QPixmap>
 #include <QString>
 #include <QEvent>
+#include <QSize>
 
 static const int THT_STYLE_CHANGE_EVENT_TYPE = QEvent::User + 2;
+
+class QWidget;
 
 class THTTools
 {
@@ -40,6 +43,8 @@ public:
     static void resetStyle(ResetStyleOnErrorType rt);
 
     static bool isStyleApplied();
+
+    static QPixmap renderButtonWithPencil(QWidget *button, const QSize &size = QSize(16, 16));
 
 private:
     THTTools();
