@@ -123,7 +123,7 @@ void KColorComboDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
             }
         }
         painter->setPen(textColor);
-        painter->drawText(innerrect.adjusted(1, 1, -1, -1), text);
+        painter->drawText(innerrect.adjusted(1, 1, -1, -1), Qt::AlignVCenter, text);
     }
 }
 
@@ -147,8 +147,8 @@ KColorCombo::~KColorCombo()
 
 void KColorCombo::addColor(const QColor &color, const QString &fileForData)
 {
-    addItem(QString(), QVariant::fromValue(KColorComboItemDataType(fileForData, color)));
-    setItemData(count() - 1, color, KColorComboDelegate::ColorRole);
+    addItem(QString("#%1").arg(count()), QVariant::fromValue(KColorComboItemDataType(fileForData, color)));
+    setItemData(count()-1, color, KColorComboDelegate::ColorRole);
 }
 
 void KColorCombo::paintEvent(QPaintEvent *event)
@@ -162,14 +162,19 @@ void KColorCombo::paintEvent(QPaintEvent *event)
         QStylePainter painter(this);
         painter.setPen(palette().color(QPalette::Text));
 
+        // style
         QStyleOptionComboBox opt;
         initStyleOption(&opt);
         painter.drawComplexControl(QStyle::CC_ComboBox, opt);
 
+        // color rectangle
         QRect frame = style()->subControlRect(QStyle::CC_ComboBox, &opt, QStyle::SC_ComboBoxEditField, this);
         painter.setRenderHint(QPainter::Antialiasing);
         painter.setPen(Qt::transparent);
         painter.setBrush(QBrush(var.value<KColorComboItemDataType>().second));
         painter.drawRoundedRect(frame.adjusted(1, 1, -1, -1), 2, 2);
+
+        // text
+        painter.drawControl(QStyle::CE_ComboBoxLabel, opt);
     }
 }
