@@ -552,25 +552,25 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../thttools.h" line="55"/>
+        <location filename="../thttools.h" line="60"/>
         <source>Points of connection</source>
         <extracomment>Noun in the plural</extracomment>
         <translation>Pontos de ligação</translation>
     </message>
     <message>
-        <location filename="../thttools.h" line="62"/>
+        <location filename="../thttools.h" line="67"/>
         <source>Add tickers</source>
         <extracomment>This is the label on a button that user pushes to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Adicionar tickers</translation>
     </message>
     <message>
-        <location filename="../thttools.h" line="69"/>
+        <location filename="../thttools.h" line="74"/>
         <source>Export tickers</source>
         <extracomment>This is the label on a button that user pushes to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Exportar tickers</translation>
     </message>
     <message>
-        <location filename="../thttools.h" line="76"/>
+        <location filename="../thttools.h" line="81"/>
         <source>About THT</source>
         <extracomment>&quot;THT&quot; is the name of the application</extracomment>
         <translation>Acerca da THT</translation>
@@ -728,100 +728,100 @@ right/middle mouse button to cancel.</source>
         <translation>A THT está pronta</translation>
     </message>
     <message>
-        <location filename="../tht.ui" line="134"/>
+        <location filename="../tht.ui" line="131"/>
         <source>THT is busy</source>
         <extracomment>&quot;THT&quot; is the name of the application</extracomment>
         <translation>A THT está ocupada</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="254"/>
+        <location filename="../tht.cpp" line="256"/>
         <source>Options...</source>
         <translation>Opções...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="257"/>
-        <location filename="../tht.cpp" line="335"/>
+        <location filename="../tht.cpp" line="259"/>
+        <location filename="../tht.cpp" line="337"/>
         <source>Take screenshot...</source>
         <translation>Captar imagem...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="261"/>
+        <location filename="../tht.cpp" line="263"/>
         <source>Clear links</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>Limpar links</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="265"/>
+        <location filename="../tht.cpp" line="267"/>
         <source>Clear ticker lists</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Clear the lists with tickers&quot;. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Limpar listas de ticker</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="267"/>
-        <location filename="../tht.cpp" line="268"/>
+        <location filename="../tht.cpp" line="269"/>
+        <location filename="../tht.cpp" line="270"/>
         <source>Load ticker</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Carregar ticker</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="278"/>
+        <location filename="../tht.cpp" line="280"/>
         <source>About Qt...</source>
         <extracomment>Qt is a C++ crossplatform toolkit http://qt-project.org</extracomment>
         <translation>Acerca do Qt...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="279"/>
+        <location filename="../tht.cpp" line="281"/>
         <source>Plugins...</source>
         <translation>Plugins...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="281"/>
-        <location filename="../tht.cpp" line="339"/>
+        <location filename="../tht.cpp" line="283"/>
+        <location filename="../tht.cpp" line="341"/>
         <source>Quit</source>
         <translation>Sair</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="334"/>
+        <location filename="../tht.cpp" line="336"/>
         <source>Restore</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Restore the application window from the system tray&quot;</extracomment>
         <translation>Restaurar</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="478"/>
+        <location filename="../tht.cpp" line="480"/>
         <source>Notice</source>
         <translation>Aviso</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="480"/>
+        <location filename="../tht.cpp" line="482"/>
         <source>THT will continue to run in a system tray</source>
         <extracomment>&quot;THT&quot; is the name of the application. Tray is a panel with small icons, usually in a right bottom corner, NOT taskbar</extracomment>
         <translation>A THT irá continuar a ser executada numa bandeja do sistema</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1011"/>
+        <location filename="../tht.cpp" line="1042"/>
         <source>Unknown</source>
         <extracomment>Means &quot;Unknown links&quot; (in the plural)</extracomment>
         <translation>Desconhecido</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1522"/>
+        <location filename="../tht.cpp" line="1553"/>
         <source>Cannot take screenshot</source>
         <extracomment>Message displayed to the user</extracomment>
         <translation>Não é possível captar imagem</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1568"/>
+        <location filename="../tht.cpp" line="1599"/>
         <source>New points</source>
         <translation>Novos pontos</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2150"/>
+        <location filename="../tht.cpp" line="2181"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <extracomment>Message displayed to the user in the April Fool&apos;s day. Preferably copy the translation from &quot;The Little Golden Calf&quot; by I.Ilf, E.Petrov, Chapter 10 &quot;A Telegram from the Brothers Karamazov&quot; (http://en.wikipedia.org/wiki/The_Little_Golden_Calf). If you don&apos;t have the book or its online translation then translate as usual</extracomment>
         <translation>Todas as grandes fortunas contemporâneas foram adquiridas&lt;br&gt;da forma menos honrosa.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2152"/>
+        <location filename="../tht.cpp" line="2183"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <extracomment>See http://en.wikipedia.org/wiki/The_Little_Golden_Calf</extracomment>
         <translation>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</translation>

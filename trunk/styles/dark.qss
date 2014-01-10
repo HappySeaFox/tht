@@ -795,3 +795,13 @@ QFrame#lineThtSeparator
 {
     background-color: #4A4949;
 }
+
+#html-link
+{
+    color: red;
+}
+
+#html-link-visited
+{
+    color: darkRed;
+}

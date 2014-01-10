@@ -40,6 +40,7 @@
 #include <QDateTime>
 #include <QMimeData>
 #include <QPalette>
+#include <QPainter>
 #include <QColor>
 #include <QEvent>
 #include <QTimer>
@@ -155,7 +156,8 @@ THT::THT() :
     m_justTitle(false),
     m_lastHeightBeforeSqueezing(0),
     m_excel(0),
-    m_cell(0)
+    m_cell(0),
+    m_actionCustomizeLinks(0)
 {
     setObjectName("THT");
 
@@ -522,7 +524,36 @@ bool THT::eventFilter(QObject *o, QEvent *e)
     else if(type == THT_STYLE_CHANGE_EVENT_TYPE)
     {
         ui->pushLinkManager->setIcon(THTTools::isStyleApplied() ? QIcon() : QIcon(":/images/links-load.png"));
-        qDebug() << ui->pushLinkManager->menu()->findChildren<QWidget *>();
+        m_actionCustomizeLinks->setIcon(THTTools::renderButtonWithPencil(ui->pushLinkManager));
+
+        ui->labelNotBusy->setPixmap(THTTools::isStyleApplied() ? QPixmap() : QPixmap(":/images/ready.png"));
+        ui->labelBusy->setPixmap(THTTools::isStyleApplied() ? QPixmap() : QPixmap(":/images/locked.png"));
+
+        if(THTTools::isStyleApplied())
+        {
+            // links inside labels are styled with QPalette
+            QLabel ltmp(this);
+            QPalette pal = qApp->palette();
+
+            ltmp.setObjectName("html-link");
+            ltmp.ensurePolished();
+            pal.setColor(QPalette::Link, ltmp.palette().color(QPalette::WindowText));
+
+            ltmp.setObjectName("html-link-visited");
+            ltmp.ensurePolished();
+            pal.setColor(QPalette::LinkVisited, ltmp.palette().color(QPalette::WindowText));
+
+            qApp->setPalette(pal);
+        }
+        else
+        {
+            QPalette pal = qApp->palette();
+
+            pal.setColor(QPalette::Link, Qt::blue);
+            pal.setColor(QPalette::LinkVisited, Qt::magenta);
+
+            qApp->setPalette(pal);
+        }
     }
 
     return QObject::eventFilter(o, e);
@@ -2204,7 +2235,7 @@ void THT::rebuildLinks()
     if(!links.isEmpty())
         menu->addSeparator();
 
-    menu->addAction(QIcon(":/images/links-customize.png"), Tools::customizeTitle() + "...", this, SLOT(slotManageLinks()));
+    m_actionCustomizeLinks = menu->addAction(Tools::customizeTitle() + "...", this, SLOT(slotManageLinks()));
 }
 
 void THT::Link::unhook()

@@ -17,7 +17,6 @@
         <file>images/cancel.png</file>
         <file>images/query.png</file>
         <file>images/links-load.png</file>
-        <file>images/links-customize.png</file>
         <file>images/arrow-down.png</file>
         <file>images/arrow-up.png</file>
         <file>images/ok.png</file>
@@ -80,5 +79,6 @@
         <file>images/counters/19.png</file>
         <file>images/counters/20.png</file>
         <file>images/counters/20+.png</file>
+        <file>images/pencil.png</file>
     </qresource>
 </RCC>

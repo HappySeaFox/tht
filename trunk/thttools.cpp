@@ -16,6 +16,8 @@
  */
 
 #include <QApplication>
+#include <QPainter>
+#include <QWidget>
 #include <QRegExp>
 #include <QFile>
 #include <QDir>
@@ -36,6 +38,10 @@ static const char * const THT_DEFAULT_STYLE =
 
 // "Links" button on the bottom
 "QToolButton#pushLinkManager { background: url(:/images/links-load.png) center no-repeat; }"
+
+// busy/not busy icons
+"QLabel#labelBusy    { background: url(:/images/locked.png) center no-repeat; }"
+"QLabel#labelNotBusy { background: url(:/images/ready.png)  center no-repeat; }"
 
 THT_TARGET_DEFAULT_STYLESHEET
 ;
@@ -94,3 +100,26 @@ bool THTTools::isStyleApplied()
     return THTTools::m_isStyleApplied;
 }
 
+QPixmap THTTools::renderButtonWithPencil(QWidget *button, const QSize &size)
+{
+    QPixmap pixmap(size);
+    pixmap.fill(Qt::transparent);
+
+    QPainter p(&pixmap);
+
+    button->render(&p,
+                   QPoint(0, 0),
+                   QRegion((button->width() - size.width())/2,
+                           (button->height() - size.height())/2,
+                           size.width(),
+                           size.height()),
+                   QWidget::DrawChildren);
+
+    static QPixmap pencil(":/images/pencil.png");
+
+    p.drawPixmap(pixmap.width() - pencil.width(), pixmap.height() - pencil.height(), pencil);
+
+    p.end();
+
+    return pixmap;
+}
