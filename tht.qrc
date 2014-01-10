@@ -80,5 +80,6 @@
         <file>images/counters/20.png</file>
         <file>images/counters/20+.png</file>
         <file>images/pencil.png</file>
+        <file>images/links-customize.png</file>
     </qresource>
 </RCC>

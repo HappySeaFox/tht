@@ -524,7 +524,10 @@ bool THT::eventFilter(QObject *o, QEvent *e)
     else if(type == THT_STYLE_CHANGE_EVENT_TYPE)
     {
         ui->pushLinkManager->setIcon(THTTools::isStyleApplied() ? QIcon() : QIcon(":/images/links-load.png"));
-        m_actionCustomizeLinks->setIcon(THTTools::renderButtonWithPencil(ui->pushLinkManager));
+
+        m_actionCustomizeLinks->setIcon(THTTools::isStyleApplied()
+                                        ? THTTools::renderButtonWithPencil(ui->pushLinkManager)
+                                        : QIcon(":/images/links-customize.png"));
 
         ui->labelNotBusy->setPixmap(THTTools::isStyleApplied() ? QPixmap() : QPixmap(":/images/ready.png"));
         ui->labelBusy->setPixmap(THTTools::isStyleApplied() ? QPixmap() : QPixmap(":/images/locked.png"));

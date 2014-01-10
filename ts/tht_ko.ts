@@ -800,30 +800,30 @@ right/middle mouse button to cancel.</source>
         <translation>THT가 시스템 트레이에 계속 실행될 것입니다</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1042"/>
+        <location filename="../tht.cpp" line="1045"/>
         <source>Unknown</source>
         <extracomment>Means &quot;Unknown links&quot; (in the plural)</extracomment>
         <translation>알려지지 않은</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1553"/>
+        <location filename="../tht.cpp" line="1556"/>
         <source>Cannot take screenshot</source>
         <extracomment>Message displayed to the user</extracomment>
         <translation>스크린샷을 찍을 수 없습니다</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1599"/>
+        <location filename="../tht.cpp" line="1602"/>
         <source>New points</source>
         <translation>새 포인트</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2181"/>
+        <location filename="../tht.cpp" line="2184"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <extracomment>Message displayed to the user in the April Fool&apos;s day. Preferably copy the translation from &quot;The Little Golden Calf&quot; by I.Ilf, E.Petrov, Chapter 10 &quot;A Telegram from the Brothers Karamazov&quot; (http://en.wikipedia.org/wiki/The_Little_Golden_Calf). If you don&apos;t have the book or its online translation then translate as usual</extracomment>
         <translation>현대의 모든 큰 재물들은 가장 불명예스러운&lt;br&gt;방법으로 취득되었다</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2183"/>
+        <location filename="../tht.cpp" line="2186"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <extracomment>See http://en.wikipedia.org/wiki/The_Little_Golden_Calf</extracomment>
         <translation>&quot;작은 황금 송아지&quot; I.Ilf, E.Petrov</translation>
