@@ -35,7 +35,7 @@ QProgressBar::chunk:horizontal {
 
 QToolTip
 {
-    border: 1px solid #3A3939;
+    border: 1px solid rgb(78,77,77);
     background-color: rgb(90, 102, 117);
     color: white;
     padding: 1px;
@@ -92,7 +92,7 @@ QMenuBar::item:pressed
 
 QMenu
 {
-    border: 1px solid #3A3939;
+    border: 1px solid rgb(78,77,77);
     color: silver;
 }
 
