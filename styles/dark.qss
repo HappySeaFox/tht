@@ -706,6 +706,7 @@ QTreeView, QListView, QTableView
 {
     border: 1px solid #3A3939;
     background-color: #201F1F;
+    outline: none;
 }
 
 QTreeView:branch:selected, QTreeView:branch:hover
