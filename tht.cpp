@@ -206,7 +206,7 @@ THT::THT() :
 
     ui->setupUi(this);
 
-    ui->pushLinks->setToolTip(THTTools::pointsOfConnectionTitle());
+    ui->pushLinkManager->setToolTip(THTTools::pointsOfConnectionTitle());
 
     // containers for plugins' widgets
     QHBoxLayout *l;
@@ -222,6 +222,9 @@ THT::THT() :
 
     qDebug("Registered master data event type: %s",
            (QEvent::registerEventType(THT_MASTER_DATA_EVENT_TYPE) == THT_MASTER_DATA_EVENT_TYPE) ? "yes" : "no");
+
+    qDebug("Registered style change event type: %s",
+           (QEvent::registerEventType(THT_STYLE_CHANGE_EVENT_TYPE) == THT_STYLE_CHANGE_EVENT_TYPE) ? "yes" : "no");
 
     // initialize all plugins
     PluginLoader::instance()->init();
@@ -397,8 +400,8 @@ THT::THT() :
         QTimer::singleShot(0, this, SLOT(slotFoolsDay()));
 
     // link points
-    QMenu *linkPointsMenu = new QMenu(ui->pushLinks);
-    ui->pushLinks->setMenu(linkPointsMenu);
+    QMenu *linkPointsMenu = new QMenu(ui->pushLinkManager);
+    ui->pushLinkManager->setMenu(linkPointsMenu);
 
     rebuildLinks();
     QTimer::singleShot(0, this, SLOT(slotRestoreLinks()));
@@ -515,6 +518,11 @@ bool THT::eventFilter(QObject *o, QEvent *e)
             masterHasBeenChanged(mde->hwnd(), mde->ticker());
 
         return true;
+    }
+    else if(type == THT_STYLE_CHANGE_EVENT_TYPE)
+    {
+        ui->pushLinkManager->setIcon(THTTools::isStyleApplied() ? QIcon() : QIcon(":/images/links-load.png"));
+        qDebug() << ui->pushLinkManager->menu()->findChildren<QWidget *>();
     }
 
     return QObject::eventFilter(o, e);
@@ -2183,7 +2191,7 @@ void THT::rebuildLinks()
 
     QList<LinkPointSession> links = SETTINGS_GET_LINKS(SETTING_LINKS);
 
-    QMenu *menu = ui->pushLinks->menu();
+    QMenu *menu = ui->pushLinkManager->menu();
 
     menu->clear();
 

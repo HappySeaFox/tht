@@ -72,7 +72,7 @@ List::List(int group, QWidget *parent) :
     ui->setupUi(this);
 
     ui->pushAdd->setToolTip(THTTools::addTickersTitle());
-    ui->pushSaveAs->setToolTip(THTTools::exportTickersTitle());
+    ui->pushExport->setToolTip(THTTools::exportTickersTitle());
 
     // header widgets
     ui->widgetEnterHeader->setMaximumLength(16);
@@ -133,7 +133,7 @@ List::List(int group, QWidget *parent) :
     menu->addAction(file_icon, tr("Export to file...") + "\tE", this, SLOT(slotExportToFile()));
     //: This is the label on a menu item that user clicks to issue the command
     menu->addAction(tr("Export to clipboard") + "\tC", this, SLOT(slotExportToClipboard()));
-    ui->pushSaveAs->setMenu(menu);
+    ui->pushExport->setMenu(menu);
 
     embedPlugins(Plugin::ExportTickersTo, menu);
 
@@ -146,6 +146,7 @@ List::List(int group, QWidget *parent) :
     ui->list->installEventFilter(this);
     ui->list->viewport()->installEventFilter(this);
     ui->labelListHeader->installEventFilter(this);
+    qApp->installEventFilter(this);
 
     m_numbers->show();
 }
@@ -546,13 +547,15 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                         if(ke->key() == hotkey.key && ke->modifiers() == hotkey.modifiers)
                         {
                             p->listHotkeyActivated(m_section, hotkey);
+                            ate = true;
                             break;
                         }
                     }
                 }
             }
 
-            return true;
+            if(ate)
+                return true;
         }
         else if(type == QEvent::FocusIn)
             ui->list->setAlternatingRowColors(true);
@@ -644,6 +647,16 @@ bool List::eventFilter(QObject *obj, QEvent *event)
     {
         if(type == QEvent::MouseButtonDblClick)
             changeHeader();
+    }
+    else if(obj == qApp)
+    {
+        if(type == THT_STYLE_CHANGE_EVENT_TYPE)
+        {
+            ui->pushList->setIcon(THTTools::isStyleApplied() ? QIcon() : QIcon(":/images/list.png"));
+            ui->pushAdd->setIcon(THTTools::isStyleApplied() ? QIcon() : QIcon(":/images/add.png"));
+            ui->pushSave->setIcon(THTTools::isStyleApplied() ? QIcon() : QIcon(":/images/save.png"));
+            ui->pushExport->setIcon(THTTools::isStyleApplied() ? QIcon() : QIcon(":/images/export.png"));
+        }
     }
 
     return QObject::eventFilter(obj, event);

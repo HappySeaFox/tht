@@ -240,7 +240,7 @@
         <translation>목록</translation>
     </message>
     <message>
-        <location filename="../list.ui" line="209"/>
+        <location filename="../list.ui" line="197"/>
         <source>Save tickers</source>
         <extracomment>This is the label on a button that user pushes to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>자막 저장</translation>
@@ -300,32 +300,32 @@
         <translation>클립보드로 내보내기</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1300"/>
-        <location filename="../list.cpp" line="1378"/>
+        <location filename="../list.cpp" line="1313"/>
+        <location filename="../list.cpp" line="1391"/>
         <source>Choose a file</source>
         <extracomment>Appeal to the user. Means &quot;Please choose a file:&quot;</extracomment>
         <translation>파일을 선택하세요</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1302"/>
-        <location filename="../list.cpp" line="1380"/>
+        <location filename="../list.cpp" line="1315"/>
+        <location filename="../list.cpp" line="1393"/>
         <source>Text files (*.txt)</source>
         <translation>텍스트 파일 (*.txt)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1304"/>
-        <location filename="../list.cpp" line="1382"/>
+        <location filename="../list.cpp" line="1317"/>
+        <location filename="../list.cpp" line="1395"/>
         <source>All files (*.*)</source>
         <translation>모든 파일 (*.*)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1342"/>
+        <location filename="../list.cpp" line="1355"/>
         <source>Cannot open the following files: %1</source>
         <extracomment>Message displayed to the user. %1 will be replaced with the list of files by the application</extracomment>
         <translation>아래의 파일을 열 수 없습니다: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1395"/>
+        <location filename="../list.cpp" line="1408"/>
         <source>Cannot save to file %1</source>
         <extracomment>Message displayed to the user. %1 will be replaced with the file name by the application</extracomment>
         <translation>%1 파일에 저장할 수 없습니다</translation>
@@ -552,25 +552,25 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../thttools.h" line="52"/>
+        <location filename="../thttools.h" line="55"/>
         <source>Points of connection</source>
         <extracomment>Noun in the plural</extracomment>
         <translation>연결의 지점</translation>
     </message>
     <message>
-        <location filename="../thttools.h" line="59"/>
+        <location filename="../thttools.h" line="62"/>
         <source>Add tickers</source>
         <extracomment>This is the label on a button that user pushes to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>자막 추가</translation>
     </message>
     <message>
-        <location filename="../thttools.h" line="66"/>
+        <location filename="../thttools.h" line="69"/>
         <source>Export tickers</source>
         <extracomment>This is the label on a button that user pushes to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>자막 내보내기</translation>
     </message>
     <message>
-        <location filename="../thttools.h" line="73"/>
+        <location filename="../thttools.h" line="76"/>
         <source>About THT</source>
         <extracomment>&quot;THT&quot; is the name of the application</extracomment>
         <translation>THT에 대하여</translation>
@@ -736,94 +736,94 @@ right/middle mouse button to cancel.</source>
         <translation>THT가 사용 중입니다</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="251"/>
+        <location filename="../tht.cpp" line="254"/>
         <source>Options...</source>
         <translation>옵션...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="254"/>
-        <location filename="../tht.cpp" line="332"/>
+        <location filename="../tht.cpp" line="257"/>
+        <location filename="../tht.cpp" line="335"/>
         <source>Take screenshot...</source>
         <translation>스크린샷 찍기...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="258"/>
+        <location filename="../tht.cpp" line="261"/>
         <source>Clear links</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>링크 클리어</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="262"/>
+        <location filename="../tht.cpp" line="265"/>
         <source>Clear ticker lists</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Clear the lists with tickers&quot;. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>자막목록 클리어</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="264"/>
-        <location filename="../tht.cpp" line="265"/>
+        <location filename="../tht.cpp" line="267"/>
+        <location filename="../tht.cpp" line="268"/>
         <source>Load ticker</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>자막 로딩</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="275"/>
+        <location filename="../tht.cpp" line="278"/>
         <source>About Qt...</source>
         <extracomment>Qt is a C++ crossplatform toolkit http://qt-project.org</extracomment>
         <translation>Qt에 대하여...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="276"/>
+        <location filename="../tht.cpp" line="279"/>
         <source>Plugins...</source>
         <translation>플러그인...</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="278"/>
-        <location filename="../tht.cpp" line="336"/>
+        <location filename="../tht.cpp" line="281"/>
+        <location filename="../tht.cpp" line="339"/>
         <source>Quit</source>
         <translation>나가기</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="331"/>
+        <location filename="../tht.cpp" line="334"/>
         <source>Restore</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Means &quot;Restore the application window from the system tray&quot;</extracomment>
         <translation>복구</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="475"/>
+        <location filename="../tht.cpp" line="478"/>
         <source>Notice</source>
         <translation>알림</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="477"/>
+        <location filename="../tht.cpp" line="480"/>
         <source>THT will continue to run in a system tray</source>
         <extracomment>&quot;THT&quot; is the name of the application. Tray is a panel with small icons, usually in a right bottom corner, NOT taskbar</extracomment>
         <translation>THT가 시스템 트레이에 계속 실행될 것입니다</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1003"/>
+        <location filename="../tht.cpp" line="1011"/>
         <source>Unknown</source>
         <extracomment>Means &quot;Unknown links&quot; (in the plural)</extracomment>
         <translation>알려지지 않은</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1514"/>
+        <location filename="../tht.cpp" line="1522"/>
         <source>Cannot take screenshot</source>
         <extracomment>Message displayed to the user</extracomment>
         <translation>스크린샷을 찍을 수 없습니다</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1560"/>
+        <location filename="../tht.cpp" line="1568"/>
         <source>New points</source>
         <translation>새 포인트</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2142"/>
+        <location filename="../tht.cpp" line="2150"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <extracomment>Message displayed to the user in the April Fool&apos;s day. Preferably copy the translation from &quot;The Little Golden Calf&quot; by I.Ilf, E.Petrov, Chapter 10 &quot;A Telegram from the Brothers Karamazov&quot; (http://en.wikipedia.org/wiki/The_Little_Golden_Calf). If you don&apos;t have the book or its online translation then translate as usual</extracomment>
         <translation>현대의 모든 큰 재물들은 가장 불명예스러운&lt;br&gt;방법으로 취득되었다</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2144"/>
+        <location filename="../tht.cpp" line="2152"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <extracomment>See http://en.wikipedia.org/wiki/The_Little_Golden_Calf</extracomment>
         <translation>&quot;작은 황금 송아지&quot; I.Ilf, E.Petrov</translation>
@@ -832,7 +832,7 @@ right/middle mouse button to cancel.</source>
 <context>
     <name>Target</name>
     <message>
-        <location filename="../target.cpp" line="44"/>
+        <location filename="../target.cpp" line="43"/>
         <source>Drag and drop this target to the window you need to create a link to</source>
         <translation>이 타겟을 윈도우로 끌어놓기 하여 링크를 생성해야 합니다</translation>
     </message>

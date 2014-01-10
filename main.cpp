@@ -220,9 +220,6 @@ int main(int argc, char *argv[])
     // reread database timestamps
     Settings::instance()->rereadTimestamps();
 
-    // application style
-    THTTools::resetStyle(THTTools::ResetStyleOnError);
-
     // load translations
     QString locale = QLocale::system().name();
 
@@ -254,6 +251,9 @@ int main(int argc, char *argv[])
     w.show();
 
     QObject::connect(&app, SIGNAL(messageReceived(QString)), &w, SLOT(slotMessageReceived(QString)));
+
+    // application style
+    THTTools::resetStyle(THTTools::ResetStyleOnError);
 
     qDebug("Initialized in %ld ms.", static_cast<long int>(QDateTime::currentMSecsSinceEpoch() - v));
 
