@@ -200,8 +200,6 @@ int main(int argc, char *argv[])
     if(app.sendMessage("wake up"))
         return 0;
 
-    QDir::setCurrent(QCoreApplication::applicationDirPath());
-
     qRegisterMetaTypeStreamOperators<LinkPointSession>("LinkPointSession");
     qRegisterMetaTypeStreamOperators<QList<LinkPointSession> >("QList<LinkPointSession>");
 

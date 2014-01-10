@@ -37,15 +37,20 @@ void THTTools::resetStyle(ResetStyleOnErrorType rt)
 
     if(!style.isEmpty())
     {
-        QFile file(QCoreApplication::applicationDirPath()
-                    + QDir::separator()
-                    + "styles"
+        const QString dirWithStyles = QDir::fromNativeSeparators(QCoreApplication::applicationDirPath() + QDir::separator()) + "styles";
+
+        QFile file(dirWithStyles
                     + QDir::separator()
                     + style.replace(QRegExp("ini$"), "qss"));
 
         if(file.open(QIODevice::ReadOnly))
         {
-            qApp->setStyleSheet(file.readAll());
+            QString css = file.readAll();
+
+            qApp->setStyleSheet(css
+                                .replace("$SD", dirWithStyles)
+                                );
+
             THTTools::m_isStyleApplied = true;
         }
         else
