@@ -74,7 +74,7 @@ void NumericLabel::init(uint value)
         setFixedSize(im.size());
     else
     {
-        qWarning("The reference \"20+\" image is broken");
+        qWarning("The reference \"%d+\" image is broken", THT_NUMERIC_LABEL_MAX);
         setFixedSize(15, 9);
     }
 }
