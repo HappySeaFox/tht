@@ -16,63 +16,63 @@
         <translation>希望 THT 的分发能为您起到帮助，但不包含任何保证；对于适销性或特定目的的适用性，也不提供任何默示保证。</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="46"/>
+        <location filename="../about.cpp" line="47"/>
         <source>Dmitry Baryshev</source>
         <translation>德米特里·巴雷舍夫</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="50"/>
+        <location filename="../about.cpp" line="51"/>
         <source>Documentation</source>
         <translation>文档</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="53"/>
+        <location filename="../about.cpp" line="54"/>
         <source>Downloads</source>
         <extracomment>Noun in the plural</extracomment>
         <translation>下载</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="55"/>
+        <location filename="../about.cpp" line="56"/>
         <source>Translations</source>
         <translation>翻译</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="57"/>
+        <location filename="../about.cpp" line="58"/>
         <source>Youtube</source>
         <translation>Youtube网站</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="76"/>
+        <location filename="../about.cpp" line="77"/>
         <source>Persistent database</source>
         <extracomment>Means &quot;Fixed database on the hard drive&quot;</extracomment>
         <translation>本地数据库</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="79"/>
+        <location filename="../about.cpp" line="80"/>
         <source>Downloadable database</source>
         <extracomment>Means &quot;Database which is downloaded from the website&quot;</extracomment>
         <translation>可下载的数据库</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="120"/>
+        <location filename="../about.cpp" line="122"/>
         <source>Update available</source>
         <extracomment>Means &quot;A new version of THT is availabe at the website&quot;</extracomment>
         <translation>可用更新</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="129"/>
+        <location filename="../about.cpp" line="131"/>
         <source>THT is up to date</source>
         <extracomment>&quot;THT&quot; is the name of the application. THT will check for updates and show this message when there are no new version available</extracomment>
         <translation>THT 是最新的</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="142"/>
+        <location filename="../about.cpp" line="144"/>
         <source>Cannot check for updates (%1)</source>
         <extracomment>%1 will be replaced with the error code by the application. It will look like &quot;Cannot check for updates (Server is unavailable)&quot;</extracomment>
         <translation>无法检查更新 (%1)</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="157"/>
+        <location filename="../about.cpp" line="159"/>
         <source>Checking for updates...</source>
         <translation>检查更新…</translation>
     </message>

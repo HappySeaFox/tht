@@ -16,63 +16,63 @@
         <translation>THT는 보급될 때 유용한 역할 할 것을 기대합니다. 하지만 어떠한 보증도 없으며 매매가능여부 혹은 특정 목적을 위한 적합성에 대한 간접적 보증도 있지 않습니다.</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="46"/>
+        <location filename="../about.cpp" line="47"/>
         <source>Dmitry Baryshev</source>
         <translation>드미트리 Baryshev</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="50"/>
+        <location filename="../about.cpp" line="51"/>
         <source>Documentation</source>
         <translation>문서화</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="53"/>
+        <location filename="../about.cpp" line="54"/>
         <source>Downloads</source>
         <extracomment>Noun in the plural</extracomment>
         <translation>다운로드</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="55"/>
+        <location filename="../about.cpp" line="56"/>
         <source>Translations</source>
         <translation>번역</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="57"/>
+        <location filename="../about.cpp" line="58"/>
         <source>Youtube</source>
         <translation>유튜브</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="76"/>
+        <location filename="../about.cpp" line="77"/>
         <source>Persistent database</source>
         <extracomment>Means &quot;Fixed database on the hard drive&quot;</extracomment>
         <translation>지속적인 데이터베이스</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="79"/>
+        <location filename="../about.cpp" line="80"/>
         <source>Downloadable database</source>
         <extracomment>Means &quot;Database which is downloaded from the website&quot;</extracomment>
         <translation>다운로드가능한 데이터베이스</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="120"/>
+        <location filename="../about.cpp" line="122"/>
         <source>Update available</source>
         <extracomment>Means &quot;A new version of THT is availabe at the website&quot;</extracomment>
         <translation>업데이트 가능</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="129"/>
+        <location filename="../about.cpp" line="131"/>
         <source>THT is up to date</source>
         <extracomment>&quot;THT&quot; is the name of the application. THT will check for updates and show this message when there are no new version available</extracomment>
         <translation>THT는 최신입니다</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="142"/>
+        <location filename="../about.cpp" line="144"/>
         <source>Cannot check for updates (%1)</source>
         <extracomment>%1 will be replaced with the error code by the application. It will look like &quot;Cannot check for updates (Server is unavailable)&quot;</extracomment>
         <translation>업데이트 체크를 할 수 없습니다 (%1)</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="157"/>
+        <location filename="../about.cpp" line="159"/>
         <source>Checking for updates...</source>
         <translation>업데이트를 확인 중...</translation>
     </message>
