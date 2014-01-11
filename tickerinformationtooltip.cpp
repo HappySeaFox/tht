@@ -367,7 +367,7 @@ void TickerInformationToolTip::showTextPrivate(const QPoint &pos, const QString 
                                           QApplication::desktop()->screen(TickerInformationToolTipLabel::getTipScreen(pos)));
 
         TickerInformationToolTipLabel::instance->placeTip(pos);
-        TickerInformationToolTipLabel::instance->setObjectName(QLatin1String("qtooltip_label"));
+        TickerInformationToolTipLabel::instance->setObjectName(QLatin1String("tooltip"));
         TickerInformationToolTipLabel::instance->show();
 
         if(!ticker && persist)
