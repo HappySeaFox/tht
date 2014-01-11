@@ -222,8 +222,7 @@ QMAKE_EXTRA_TARGETS += tag
 # copy database
 QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite\" \"$${OUT_PWD}/$(DESTDIR_TARGET)/..\")
 QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite.timestamp\" \"$${OUT_PWD}/$(DESTDIR_TARGET)/..\")
-QMAKE_POST_LINK += $$mle(if not exist \"$${OUT_PWD}/$(DESTDIR_TARGET)/../styles\" mkdir \"$${OUT_PWD}/$(DESTDIR_TARGET)/../styles\")
-QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\styles\" \"$${OUT_PWD}/$(DESTDIR_TARGET)/../styles\")
+QMAKE_POST_LINK += $$mle(if not exist \"$${OUT_PWD}/$(DESTDIR_TARGET)/../styles\" xcopy /e /y \"$${_PRO_FILE_PWD_}\\styles\" \"$${OUT_PWD}/$(DESTDIR_TARGET)/../styles\")
 
 !isEmpty(ZIP) {
     message("7Z is found, will create custom dist targets")
@@ -248,6 +247,7 @@ QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\styles\" \"$${OUT_PWD}/$(
     distbin.commands += $$mle(mkdir \"$$T/sqldrivers\")
     distbin.commands += $$mle(mkdir \"$$T/translations\")
     distbin.commands += $$mle(mkdir \"$$T/plugins\")
+    distbin.commands += $$mle(mkdir \"$$T/styles\")
 
     # binary & necessary files
     distbin.commands += $$mle(copy /y \"$${OUT_PWD}/$(DESTDIR_TARGET)\" \"$$T\")
@@ -311,6 +311,8 @@ QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\styles\" \"$${OUT_PWD}/$(
 
     distbin.commands += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite\" \"$$T\")
     distbin.commands += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite.timestamp\" \"$$T\")
+
+    distbin.commands += $$mle(xcopy \"$$replace(_PRO_FILE_PWD_, /, \\)\\styles\" \"$$replace(T, /, \\)\\styles\" /s /q /y /i)
 
     # compress
     distbin.commands += $$mle(del /F /Q tht-standalone-$${VERSION}$${HOST64}.zip)
@@ -434,6 +436,7 @@ exists($$INNO) {
     iss.commands += $$mle(echo Source: \"$${OUT_PWD}/$(DESTDIR_TARGET)/../THT-lib.dll\"; DestDir: \"{app}\"; Flags: ignoreversion >> $$ISS)
     iss.commands += $$mle(echo Source: \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite\"; DestDir: \"{app}\"; Flags: ignoreversion >> $$ISS)
     iss.commands += $$mle(echo Source: \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite.timestamp\"; DestDir: \"{app}\"; Flags: ignoreversion >> $$ISS)
+    iss.commands += $$mle(echo Source: \"$${_PRO_FILE_PWD_}\\styles\\*\"; DestDir: \"{app}/styles\"; Flags: ignoreversion recursesubdirs >> $$ISS)
 
     for(lc, LICENSES) {
         iss.commands += $$mle(echo Source: \"$${_PRO_FILE_PWD_}\\$$lc\"; DestDir: \"{app}\"; Flags: ignoreversion >> $$ISS)
