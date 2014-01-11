@@ -62,6 +62,8 @@ void NumericLabel::setValue(uint val)
 
 void NumericLabel::init(uint value)
 {
+    setObjectName("numericLabel");
+
     // initial invalid value
     m_value = THT_NUMERIC_LABEL_MAX + 1;
 

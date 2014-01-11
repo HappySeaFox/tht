@@ -32,6 +32,8 @@ Target::Target(QWidget *parent) :
     QWidget(parent),
     m_dragging(false)
 {
+    setObjectName("targetContainer");
+
     QHBoxLayout *l = new QHBoxLayout;
     l->setContentsMargins(0, 0, 0, 0);
     l->setSpacing(0);
