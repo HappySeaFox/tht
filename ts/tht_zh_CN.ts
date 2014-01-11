@@ -246,86 +246,86 @@
         <translation>保存股票</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="105"/>
+        <location filename="../list.cpp" line="110"/>
         <source>Clear</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>清除</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="108"/>
+        <location filename="../list.cpp" line="113"/>
         <source>Sort</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>排序</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="110"/>
+        <location filename="../list.cpp" line="115"/>
         <source>Change title</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>修改标题</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="113"/>
+        <location filename="../list.cpp" line="118"/>
         <source>Reset priorities</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>重设优先级</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="121"/>
+        <location filename="../list.cpp" line="126"/>
         <source>Add one ticker...</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>添加一只股票…</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="124"/>
+        <location filename="../list.cpp" line="129"/>
         <source>Add from file...</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>从文件添加…</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="126"/>
+        <location filename="../list.cpp" line="131"/>
         <source>Add from clipboard</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>从剪贴板添加</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="133"/>
+        <location filename="../list.cpp" line="138"/>
         <source>Export to file...</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>导出至文件…</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="135"/>
+        <location filename="../list.cpp" line="140"/>
         <source>Export to clipboard</source>
         <extracomment>This is the label on a menu item that user clicks to issue the command</extracomment>
         <translation>导出至剪贴板</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1313"/>
-        <location filename="../list.cpp" line="1391"/>
+        <location filename="../list.cpp" line="1328"/>
+        <location filename="../list.cpp" line="1406"/>
         <source>Choose a file</source>
         <extracomment>Appeal to the user. Means &quot;Please choose a file:&quot;</extracomment>
         <translation>选择一个文件</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1315"/>
-        <location filename="../list.cpp" line="1393"/>
+        <location filename="../list.cpp" line="1330"/>
+        <location filename="../list.cpp" line="1408"/>
         <source>Text files (*.txt)</source>
         <translation>文本文件 (*.txt)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1317"/>
-        <location filename="../list.cpp" line="1395"/>
+        <location filename="../list.cpp" line="1332"/>
+        <location filename="../list.cpp" line="1410"/>
         <source>All files (*.*)</source>
         <translation>所有文件 (*.*)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1355"/>
+        <location filename="../list.cpp" line="1370"/>
         <source>Cannot open the following files: %1</source>
         <extracomment>Message displayed to the user. %1 will be replaced with the list of files by the application</extracomment>
         <translation>无法打开下列文件： %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1408"/>
+        <location filename="../list.cpp" line="1423"/>
         <source>Cannot save to file %1</source>
         <extracomment>Message displayed to the user. %1 will be replaced with the file name by the application</extracomment>
         <translation>无法保存至文件 %1</translation>
@@ -830,7 +830,7 @@ right/middle mouse button to cancel.</source>
 <context>
     <name>Target</name>
     <message>
-        <location filename="../target.cpp" line="43"/>
+        <location filename="../target.cpp" line="45"/>
         <source>Drag and drop this target to the window you need to create a link to</source>
         <translation>将该目标拖拽到您需要创建链接的窗口</translation>
     </message>

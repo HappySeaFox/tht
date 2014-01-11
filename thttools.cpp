@@ -43,6 +43,16 @@ static const char * const THT_DEFAULT_STYLE =
 "QLabel#labelBusy    { background: url(:/images/locked.png) center no-repeat; }"
 "QLabel#labelNotBusy { background: url(:/images/ready.png)  center no-repeat; }"
 
+// containers for plugins
+"QWidget#containerLeft { background-color: transparent; }"
+"QWidget#containerRight { background-color: transparent; }"
+
+// the number of links
+"QLabel#numericLabel { background-color: transparent; }"
+
+// stack with busy/ready icons
+"#stackBusy, #stackBusy * { background-color: transparent; }"
+
 THT_TARGET_DEFAULT_STYLESHEET
 ;
 

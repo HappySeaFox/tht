@@ -20,6 +20,7 @@
 #include <QLinearGradient>
 #include <QApplication>
 #include <QFontMetrics>
+#include <QStyleOption>
 #include <QFileDialog>
 #include <QInputEvent>
 #include <QMessageBox>
@@ -33,6 +34,7 @@
 #include <QKeyEvent>
 #include <QPalette>
 #include <QPainter>
+#include <QStyle>
 #include <QTimer>
 #include <QLabel>
 #include <QEvent>
@@ -70,6 +72,9 @@ List::List(int group, QWidget *parent) :
     m_scrollPos(-1)
 {
     ui->setupUi(this);
+
+    setObjectName("listContainer");
+    setProperty("listContainerId", m_section);
 
     ui->pushAdd->setToolTip(THTTools::addTickersTitle());
     ui->pushExport->setToolTip(THTTools::exportTickersTitle());
@@ -665,6 +670,16 @@ bool List::eventFilter(QObject *obj, QEvent *event)
 void List::moveEvent(QMoveEvent *)
 {
     moveNumbersLabel();
+}
+
+void List::paintEvent(QPaintEvent *event)
+{
+    Q_UNUSED(event)
+
+    QStyleOption opt;
+    opt.initFrom(this);
+    QPainter p(this);
+    style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
 
 void List::numberOfItemsChanged()
