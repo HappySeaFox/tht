@@ -16,63 +16,63 @@
         <translation>THT kan worden gebruikt om een nuttige bijdrage te leveren, maar ZONDER ENIGE VORM VAN GARANTIE; zelfs zonder de impliciete garantie van VERHANDELBAARHEID of BRUIKBAARHEID VOOR EEN SPECIFIEK DOELEINDE.</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="46"/>
+        <location filename="../about.cpp" line="47"/>
         <source>Dmitry Baryshev</source>
         <translation>Dmitry Baryshev</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="50"/>
+        <location filename="../about.cpp" line="51"/>
         <source>Documentation</source>
         <translation>Documentatie</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="53"/>
+        <location filename="../about.cpp" line="54"/>
         <source>Downloads</source>
         <extracomment>Noun in the plural</extracomment>
         <translation>Downloads</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="55"/>
+        <location filename="../about.cpp" line="56"/>
         <source>Translations</source>
         <translation>Vertalingen</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="57"/>
+        <location filename="../about.cpp" line="58"/>
         <source>Youtube</source>
         <translation>Youtube</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="76"/>
+        <location filename="../about.cpp" line="77"/>
         <source>Persistent database</source>
         <extracomment>Means &quot;Fixed database on the hard drive&quot;</extracomment>
         <translation>Persistente database</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="79"/>
+        <location filename="../about.cpp" line="80"/>
         <source>Downloadable database</source>
         <extracomment>Means &quot;Database which is downloaded from the website&quot;</extracomment>
         <translation>Downloadbare database</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="120"/>
+        <location filename="../about.cpp" line="122"/>
         <source>Update available</source>
         <extracomment>Means &quot;A new version of THT is availabe at the website&quot;</extracomment>
         <translation>Update beschikbaar</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="129"/>
+        <location filename="../about.cpp" line="131"/>
         <source>THT is up to date</source>
         <extracomment>&quot;THT&quot; is the name of the application. THT will check for updates and show this message when there are no new version available</extracomment>
         <translation>THT is up-to-date</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="142"/>
+        <location filename="../about.cpp" line="144"/>
         <source>Cannot check for updates (%1)</source>
         <extracomment>%1 will be replaced with the error code by the application. It will look like &quot;Cannot check for updates (Server is unavailable)&quot;</extracomment>
         <translation>Kan niet controleren op updates (%1)</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="157"/>
+        <location filename="../about.cpp" line="159"/>
         <source>Checking for updates...</source>
         <translation>Controleren op updates...</translation>
     </message>

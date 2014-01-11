@@ -23,6 +23,7 @@
 #include <QDir>
 
 #include "styledescriptionreader.h"
+#include "listdetails.h"
 #include "settings.h"
 #include "thttools.h"
 #include "target.h"
@@ -54,6 +55,7 @@ static const char * const THT_DEFAULT_STYLE =
 "#stackBusy, #stackBusy * { background-color: transparent; }"
 
 THT_TARGET_DEFAULT_STYLESHEET
+THT_LIST_DETAILS_DEFAULT_STYLESHEET
 ;
 
 THTTools::THTTools()

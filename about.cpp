@@ -33,6 +33,7 @@ About::About(QWidget *parent) :
     ui(new Ui::About),
     m_showExt(true)
 {
+    setObjectName("about");
     setWindowTitle(THTTools::aboutThtTitle());
 
     ui->setupUi(this);
@@ -80,6 +81,7 @@ About::About(QWidget *parent) :
                                .arg(Settings::instance()->mutableDatabaseTimestamp().toString(Settings::instance()->databaseTimestampFormat()))
                                );
 
+    label->setObjectName("aboutExtension");
     label->setContentsMargins(0, 0, 0, 12);
 
     setOrientation(Qt::Vertical);

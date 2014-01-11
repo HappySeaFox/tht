@@ -71,10 +71,10 @@ List::List(int group, QWidget *parent) :
     m_currentItemBeforeSearch(0),
     m_scrollPos(-1)
 {
-    ui->setupUi(this);
-
     setObjectName("listContainer");
     setProperty("listContainerId", m_section);
+
+    ui->setupUi(this);
 
     ui->pushAdd->setToolTip(THTTools::addTickersTitle());
     ui->pushExport->setToolTip(THTTools::exportTickersTitle());

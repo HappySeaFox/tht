@@ -15,20 +15,20 @@
  * along with THT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <QLinearGradient>
+#include <QApplication>
 #include <QVBoxLayout>
-#include <QPalette>
-#include <QPainter>
-#include <QPixmap>
+#include <QEvent>
 #include <QFrame>
-#include <QRect>
 
 #include "listdetails.h"
+#include "thttools.h"
 
 ListDetails::ListDetails(QWidget *parent) :
     QLabel(parent)
 {
-    setObjectName("ListDetails");
+    setObjectName("listDetails");
+
+    setStyleSheet(THT_LIST_DETAILS_DEFAULT_STYLESHEET);
 
     QVBoxLayout *l = new QVBoxLayout(this);
     l->setSpacing(2);
@@ -41,50 +41,38 @@ ListDetails::ListDetails(QWidget *parent) :
 
     // current ticker
     m_current = new QLabel(this);
+    m_current->setObjectName("currentTicker");
     m_current->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
     m_current->setTextFormat(Qt::PlainText);
     m_current->setAttribute(Qt::WA_TranslucentBackground);
-    m_current->setStyleSheet("QLabel { color: black; }");
     l->addWidget(m_current);
 
     // separator
-    QFrame *line = new QFrame(this);
-    line->setFrameShape(QFrame::Box);
+    QLabel *line = new QLabel(this);
+    line->setObjectName("lineTickersSeparator");
     line->setFixedHeight(1);
-    line->setStyleSheet("QFrame { background-color: gray; }");
     l->addWidget(line);
 
     // total tickers
     m_total = new QLabel(this);
+    m_total->setObjectName("totalTickers");
     m_total->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
     m_total->setTextFormat(Qt::PlainText);
     m_total->setAttribute(Qt::WA_TranslucentBackground);
-    m_total->setStyleSheet("QLabel { color: black; }");
     l->addWidget(m_total);
+
+    qApp->installEventFilter(this);
 }
 
-void ListDetails::resetBackground()
+bool ListDetails::eventFilter(QObject *obj, QEvent *e)
 {
-    QPixmap px(size());
-    QPainter p(&px);
+    if(obj == qApp)
+    {
+        if(e->type() == THT_STYLE_CHANGE_EVENT_TYPE)
+        {
+            setStyleSheet(THTTools::isStyleApplied() ? QString() : THT_LIST_DETAILS_DEFAULT_STYLESHEET);
+        }
+    }
 
-    // gradient
-    QLinearGradient gradient(0, 0, 0, height());
-
-    gradient.setColorAt(0.0,  QColor(0xFF, 0xEF, 0xEF));
-    gradient.setColorAt(0.35, QColor(0xF7, 0xDB, 0x45));
-    gradient.setColorAt(0.65, QColor(0xF7, 0xDB, 0x45));
-    gradient.setColorAt(1.0,  QColor(0xFF, 0xEF, 0xEF));
-
-    p.fillRect(rect(), gradient);
-
-    // border
-    p.setPen(QColor(128, 128, 128));
-
-    QRect rc = rect();
-    rc.setBottomRight(rc.bottomRight() - QPoint(1,1));
-    p.drawRect(rc);
-
-    setPixmap(px);
+    return QObject::eventFilter(obj, e);
 }
-

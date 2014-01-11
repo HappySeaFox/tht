@@ -18,8 +18,13 @@
 #ifndef LISTDETAILS_H
 #define LISTDETAILS_H
 
-#include <QResizeEvent>
 #include <QLabel>
+
+#define THT_LIST_DETAILS_DEFAULT_STYLESHEET \
+"QLabel#listDetails { border: 1px solid gray; background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #ffefef, stop:0.35 #f7db45, stop:0.65 #f7db45, stop:1 #ffefef); }" \
+"QLabel#listDetails QLabel#currentTicker { color: black; }" \
+"QLabel#listDetails QLabel#lineTickersSeparator { background-color: gray; }" \
+"QLabel#listDetails QLabel#totalTickers { color: black; }"
 
 class ListDetails : public QLabel
 {
@@ -42,15 +47,7 @@ public:
     }
 
 protected:
-    virtual void resizeEvent(QResizeEvent *e)
-    {
-        Q_UNUSED(e)
-
-        resetBackground();
-    }
-
-private:
-    void resetBackground();
+    virtual bool eventFilter(QObject *obj, QEvent *e);
 
 private:
     QLabel *m_total, *m_current;
