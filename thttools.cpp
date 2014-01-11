@@ -57,7 +57,7 @@ void THTTools::resetStyle(ResetStyleOnErrorType rt)
 
     if(!style.isEmpty())
     {
-        const QString dirWithStyles = QDir::fromNativeSeparators(QCoreApplication::applicationDirPath() + QDir::separator()) + "styles";
+        QString dirWithStyles = QDir::fromNativeSeparators(QCoreApplication::applicationDirPath() + QDir::separator()) + "styles";
 
         QFile file(dirWithStyles
                     + QDir::separator()
@@ -70,7 +70,7 @@ void THTTools::resetStyle(ResetStyleOnErrorType rt)
             THTTools::m_isStyleApplied = true;
 
             qApp->setStyleSheet(THT_DEFAULT_STYLE + css
-                                                    .replace("$SD", dirWithStyles)
+                                                    .replace("$SD", dirWithStyles.replace('\'', "\\'"))
                                 );
         }
         else
