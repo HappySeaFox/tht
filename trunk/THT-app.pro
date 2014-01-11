@@ -222,7 +222,7 @@ QMAKE_EXTRA_TARGETS += tag
 # copy database
 QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite\" \"$${OUT_PWD}/$(DESTDIR_TARGET)/..\")
 QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite.timestamp\" \"$${OUT_PWD}/$(DESTDIR_TARGET)/..\")
-QMAKE_POST_LINK += $$mle(if not exist \"$${OUT_PWD}/$(DESTDIR_TARGET)/../styles\" xcopy /e /y \"$${_PRO_FILE_PWD_}\\styles\" \"$${OUT_PWD}/$(DESTDIR_TARGET)/../styles\")
+QMAKE_POST_LINK += $$mle(if not exist \"$${OUT_PWD}/$(DESTDIR_TARGET)/../styles\" xcopy \"$$replace(_PRO_FILE_PWD_, /, \\)\\styles\" \"$${OUT_PWD}/$(DESTDIR_TARGET)/../styles\" /s /q /y /i)
 
 !isEmpty(ZIP) {
     message("7Z is found, will create custom dist targets")
