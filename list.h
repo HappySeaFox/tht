@@ -115,6 +115,7 @@ private:
                     MoveItemPageUp, MoveItemPageDown };
 
     void moveItem(MoveItem);
+    void resetStyle();
 
 signals:
     void copyLeft(const Ticker &ticker);

@@ -300,32 +300,32 @@
         <translation>Esporta negli appunti</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1328"/>
-        <location filename="../list.cpp" line="1406"/>
+        <location filename="../list.cpp" line="1333"/>
+        <location filename="../list.cpp" line="1411"/>
         <source>Choose a file</source>
         <extracomment>Appeal to the user. Means &quot;Please choose a file:&quot;</extracomment>
         <translation>Scegli un file</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1330"/>
-        <location filename="../list.cpp" line="1408"/>
+        <location filename="../list.cpp" line="1335"/>
+        <location filename="../list.cpp" line="1413"/>
         <source>Text files (*.txt)</source>
         <translation>File di testo (*.txt)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1332"/>
-        <location filename="../list.cpp" line="1410"/>
+        <location filename="../list.cpp" line="1337"/>
+        <location filename="../list.cpp" line="1415"/>
         <source>All files (*.*)</source>
         <translation>Tutti i file (*.*)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1370"/>
+        <location filename="../list.cpp" line="1375"/>
         <source>Cannot open the following files: %1</source>
         <extracomment>Message displayed to the user. %1 will be replaced with the list of files by the application</extracomment>
         <translation>Impossibile aprire i seguenti file: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1423"/>
+        <location filename="../list.cpp" line="1428"/>
         <source>Cannot save to file %1</source>
         <extracomment>Message displayed to the user. %1 will be replaced with the file name by the application</extracomment>
         <translation>Impossibile salvare il file %1</translation>
@@ -789,41 +789,41 @@ il pulsante destro/di centro del mouse per cancellare.</translation>
         <translation>Ripristina</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="480"/>
+        <location filename="../tht.cpp" line="482"/>
         <source>Notice</source>
         <translation>Avviso</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="482"/>
+        <location filename="../tht.cpp" line="484"/>
         <source>THT will continue to run in a system tray</source>
         <extracomment>&quot;THT&quot; is the name of the application. Tray is a panel with small icons, usually in a right bottom corner, NOT taskbar</extracomment>
         <translation>THT continua a funzionare in un vassoio di sistema</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1045"/>
+        <location filename="../tht.cpp" line="1012"/>
         <source>Unknown</source>
         <extracomment>Means &quot;Unknown links&quot; (in the plural)</extracomment>
         <translation>Non validi</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1556"/>
+        <location filename="../tht.cpp" line="1523"/>
         <source>Cannot take screenshot</source>
         <extracomment>Message displayed to the user</extracomment>
         <translation>Impossibile fare lo screenshot</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1602"/>
+        <location filename="../tht.cpp" line="1569"/>
         <source>New points</source>
         <translation>Nuovi punti</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2184"/>
+        <location filename="../tht.cpp" line="2189"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <extracomment>Message displayed to the user in the April Fool&apos;s day. Preferably copy the translation from &quot;The Little Golden Calf&quot; by I.Ilf, E.Petrov, Chapter 10 &quot;A Telegram from the Brothers Karamazov&quot; (http://en.wikipedia.org/wiki/The_Little_Golden_Calf). If you don&apos;t have the book or its online translation then translate as usual</extracomment>
         <translation>Tutte le grandi ricchezze moderne sono state raggiunte&lt;br&gt;nel modo più disonorevole.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2186"/>
+        <location filename="../tht.cpp" line="2191"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <extracomment>See http://en.wikipedia.org/wiki/The_Little_Golden_Calf</extracomment>
         <translation>&quot;Il vitello d&apos;oro&quot; I.Ilf, E.Petrov</translation>

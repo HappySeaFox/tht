@@ -300,32 +300,32 @@
         <translation>Xuất dữ liệu ra bộ nhớ ảo</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1328"/>
-        <location filename="../list.cpp" line="1406"/>
+        <location filename="../list.cpp" line="1333"/>
+        <location filename="../list.cpp" line="1411"/>
         <source>Choose a file</source>
         <extracomment>Appeal to the user. Means &quot;Please choose a file:&quot;</extracomment>
         <translation>Chọn một tập tin</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1330"/>
-        <location filename="../list.cpp" line="1408"/>
+        <location filename="../list.cpp" line="1335"/>
+        <location filename="../list.cpp" line="1413"/>
         <source>Text files (*.txt)</source>
         <translation>Tập tin văn bản (*.txt)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1332"/>
-        <location filename="../list.cpp" line="1410"/>
+        <location filename="../list.cpp" line="1337"/>
+        <location filename="../list.cpp" line="1415"/>
         <source>All files (*.*)</source>
         <translation>Tất cả tập tin (*.*)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1370"/>
+        <location filename="../list.cpp" line="1375"/>
         <source>Cannot open the following files: %1</source>
         <extracomment>Message displayed to the user. %1 will be replaced with the list of files by the application</extracomment>
         <translation>Không thể mở những tập tin sau đây: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1423"/>
+        <location filename="../list.cpp" line="1428"/>
         <source>Cannot save to file %1</source>
         <extracomment>Message displayed to the user. %1 will be replaced with the file name by the application</extracomment>
         <translation>Không thể lưu dữ liệu vào tập tin %1</translation>
@@ -789,41 +789,41 @@ chuột phải/chuột giữa để hủy bỏ.</translation>
         <translation>Khôi phục</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="480"/>
+        <location filename="../tht.cpp" line="482"/>
         <source>Notice</source>
         <translation>Chú ý</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="482"/>
+        <location filename="../tht.cpp" line="484"/>
         <source>THT will continue to run in a system tray</source>
         <extracomment>&quot;THT&quot; is the name of the application. Tray is a panel with small icons, usually in a right bottom corner, NOT taskbar</extracomment>
         <translation>Chương trình sẽ tiếp tục chạy ở khay hệ thống</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1045"/>
+        <location filename="../tht.cpp" line="1012"/>
         <source>Unknown</source>
         <extracomment>Means &quot;Unknown links&quot; (in the plural)</extracomment>
         <translation>Chưa rõ</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1556"/>
+        <location filename="../tht.cpp" line="1523"/>
         <source>Cannot take screenshot</source>
         <extracomment>Message displayed to the user</extracomment>
         <translation>Không thể chụp ảnh màn hình</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1602"/>
+        <location filename="../tht.cpp" line="1569"/>
         <source>New points</source>
         <translation>Điểm mới</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2184"/>
+        <location filename="../tht.cpp" line="2189"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <extracomment>Message displayed to the user in the April Fool&apos;s day. Preferably copy the translation from &quot;The Little Golden Calf&quot; by I.Ilf, E.Petrov, Chapter 10 &quot;A Telegram from the Brothers Karamazov&quot; (http://en.wikipedia.org/wiki/The_Little_Golden_Calf). If you don&apos;t have the book or its online translation then translate as usual</extracomment>
         <translation>Tất cả các vận may hiện tại cần phải có&lt;br&gt;theo cách nhục nhất có thể.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2186"/>
+        <location filename="../tht.cpp" line="2191"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <extracomment>See http://en.wikipedia.org/wiki/The_Little_Golden_Calf</extracomment>
         <translation>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</translation>

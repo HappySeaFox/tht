@@ -155,6 +155,7 @@ private:
     void activateRightWindowAtEnd();
     void squeeze(bool);
     bool isBusy() const;
+    void resetStyle();
 
 signals:
     void beforeSqueeze();

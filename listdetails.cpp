@@ -61,6 +61,8 @@ ListDetails::ListDetails(QWidget *parent) :
     m_total->setAttribute(Qt::WA_TranslucentBackground);
     l->addWidget(m_total);
 
+    resetStyle();
+
     qApp->installEventFilter(this);
 }
 
@@ -69,10 +71,13 @@ bool ListDetails::eventFilter(QObject *obj, QEvent *e)
     if(obj == qApp)
     {
         if(e->type() == THT_STYLE_CHANGE_EVENT_TYPE)
-        {
-            setStyleSheet(THTTools::isStyleApplied() ? QString() : THT_LIST_DETAILS_DEFAULT_STYLESHEET);
-        }
+            resetStyle();
     }
 
     return QObject::eventFilter(obj, e);
+}
+
+void ListDetails::resetStyle()
+{
+    setStyleSheet(THTTools::isStyleApplied() ? QString() : THT_LIST_DETAILS_DEFAULT_STYLESHEET);
 }

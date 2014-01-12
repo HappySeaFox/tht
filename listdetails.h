@@ -50,6 +50,9 @@ protected:
     virtual bool eventFilter(QObject *obj, QEvent *e);
 
 private:
+    void resetStyle();
+
+private:
     QLabel *m_total, *m_current;
 };
 

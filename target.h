@@ -52,6 +52,7 @@ protected:
 
 private:
     void changePixmap(bool alt);
+    void resetStyle();
 
 signals:
     void moving(const QPoint &);
