@@ -300,32 +300,32 @@
         <translation>클립보드로 내보내기</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1328"/>
-        <location filename="../list.cpp" line="1406"/>
+        <location filename="../list.cpp" line="1333"/>
+        <location filename="../list.cpp" line="1411"/>
         <source>Choose a file</source>
         <extracomment>Appeal to the user. Means &quot;Please choose a file:&quot;</extracomment>
         <translation>파일을 선택하세요</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1330"/>
-        <location filename="../list.cpp" line="1408"/>
+        <location filename="../list.cpp" line="1335"/>
+        <location filename="../list.cpp" line="1413"/>
         <source>Text files (*.txt)</source>
         <translation>텍스트 파일 (*.txt)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1332"/>
-        <location filename="../list.cpp" line="1410"/>
+        <location filename="../list.cpp" line="1337"/>
+        <location filename="../list.cpp" line="1415"/>
         <source>All files (*.*)</source>
         <translation>모든 파일 (*.*)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1370"/>
+        <location filename="../list.cpp" line="1375"/>
         <source>Cannot open the following files: %1</source>
         <extracomment>Message displayed to the user. %1 will be replaced with the list of files by the application</extracomment>
         <translation>아래의 파일을 열 수 없습니다: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1423"/>
+        <location filename="../list.cpp" line="1428"/>
         <source>Cannot save to file %1</source>
         <extracomment>Message displayed to the user. %1 will be replaced with the file name by the application</extracomment>
         <translation>%1 파일에 저장할 수 없습니다</translation>
@@ -789,41 +789,41 @@ right/middle mouse button to cancel.</source>
         <translation>복구</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="480"/>
+        <location filename="../tht.cpp" line="482"/>
         <source>Notice</source>
         <translation>알림</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="482"/>
+        <location filename="../tht.cpp" line="484"/>
         <source>THT will continue to run in a system tray</source>
         <extracomment>&quot;THT&quot; is the name of the application. Tray is a panel with small icons, usually in a right bottom corner, NOT taskbar</extracomment>
         <translation>THT가 시스템 트레이에 계속 실행될 것입니다</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1045"/>
+        <location filename="../tht.cpp" line="1012"/>
         <source>Unknown</source>
         <extracomment>Means &quot;Unknown links&quot; (in the plural)</extracomment>
         <translation>알려지지 않은</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1556"/>
+        <location filename="../tht.cpp" line="1523"/>
         <source>Cannot take screenshot</source>
         <extracomment>Message displayed to the user</extracomment>
         <translation>스크린샷을 찍을 수 없습니다</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1602"/>
+        <location filename="../tht.cpp" line="1569"/>
         <source>New points</source>
         <translation>새 포인트</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2184"/>
+        <location filename="../tht.cpp" line="2189"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <extracomment>Message displayed to the user in the April Fool&apos;s day. Preferably copy the translation from &quot;The Little Golden Calf&quot; by I.Ilf, E.Petrov, Chapter 10 &quot;A Telegram from the Brothers Karamazov&quot; (http://en.wikipedia.org/wiki/The_Little_Golden_Calf). If you don&apos;t have the book or its online translation then translate as usual</extracomment>
         <translation>현대의 모든 큰 재물들은 가장 불명예스러운&lt;br&gt;방법으로 취득되었다</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2186"/>
+        <location filename="../tht.cpp" line="2191"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <extracomment>See http://en.wikipedia.org/wiki/The_Little_Golden_Calf</extracomment>
         <translation>&quot;작은 황금 송아지&quot; I.Ilf, E.Petrov</translation>

@@ -147,13 +147,15 @@ List::List(int group, QWidget *parent) :
     load();
     numberOfItemsChanged();
 
+    resetStyle();
+
+    m_numbers->show();
+
     // catch keyboard events
     ui->list->installEventFilter(this);
     ui->list->viewport()->installEventFilter(this);
     ui->labelListHeader->installEventFilter(this);
     qApp->installEventFilter(this);
-
-    m_numbers->show();
 }
 
 List::~List()
@@ -656,12 +658,7 @@ bool List::eventFilter(QObject *obj, QEvent *event)
     else if(obj == qApp)
     {
         if(type == THT_STYLE_CHANGE_EVENT_TYPE)
-        {
-            ui->pushList->setIcon(THTTools::isStyleApplied() ? QIcon() : QIcon(":/images/list.png"));
-            ui->pushAdd->setIcon(THTTools::isStyleApplied() ? QIcon() : QIcon(":/images/add.png"));
-            ui->pushSave->setIcon(THTTools::isStyleApplied() ? QIcon() : QIcon(":/images/save.png"));
-            ui->pushExport->setIcon(THTTools::isStyleApplied() ? QIcon() : QIcon(":/images/export.png"));
-        }
+            resetStyle();
     }
 
     return QObject::eventFilter(obj, event);
@@ -1283,6 +1280,14 @@ void List::moveItem(MoveItem mi)
     ui->list->setCurrentItem(item);
 
     save();
+}
+
+void List::resetStyle()
+{
+    ui->pushList->setIcon(THTTools::isStyleApplied() ? QIcon() : QIcon(":/images/list.png"));
+    ui->pushAdd->setIcon(THTTools::isStyleApplied() ? QIcon() : QIcon(":/images/add.png"));
+    ui->pushSave->setIcon(THTTools::isStyleApplied() ? QIcon() : QIcon(":/images/save.png"));
+    ui->pushExport->setIcon(THTTools::isStyleApplied() ? QIcon() : QIcon(":/images/export.png"));
 }
 
 void List::focusMiniTickerEntry()

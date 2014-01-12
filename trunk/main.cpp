@@ -246,14 +246,14 @@ int main(int argc, char *argv[])
 
     app.setQuitOnLastWindowClosed(false);
 
+    // application style
+    THTTools::resetStyle(THTTools::ResetStyleOnError);
+
     // main window
     THT w;
     w.show();
 
     QObject::connect(&app, SIGNAL(messageReceived(QString)), &w, SLOT(slotMessageReceived(QString)));
-
-    // application style
-    THTTools::resetStyle(THTTools::ResetStyleOnError);
 
     qDebug("Initialized in %ld ms.", static_cast<long int>(QDateTime::currentMSecsSinceEpoch() - v));
 

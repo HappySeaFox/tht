@@ -408,6 +408,8 @@ THT::THT() :
     rebuildLinks();
     QTimer::singleShot(0, this, SLOT(slotRestoreLinks()));
 
+    resetStyle();
+
     // watch for QWhatsThisClickedEvent
     qApp->installEventFilter(this);
 }
@@ -522,42 +524,7 @@ bool THT::eventFilter(QObject *o, QEvent *e)
         return true;
     }
     else if(type == THT_STYLE_CHANGE_EVENT_TYPE)
-    {
-        ui->pushLinkManager->setIcon(THTTools::isStyleApplied() ? QIcon() : QIcon(":/images/links-load.png"));
-
-        m_actionCustomizeLinks->setIcon(THTTools::isStyleApplied()
-                                        ? THTTools::renderButtonWithPencil(ui->pushLinkManager)
-                                        : QIcon(":/images/links-customize.png"));
-
-        ui->labelNotBusy->setPixmap(THTTools::isStyleApplied() ? QPixmap() : QPixmap(":/images/ready.png"));
-        ui->labelBusy->setPixmap(THTTools::isStyleApplied() ? QPixmap() : QPixmap(":/images/locked.png"));
-
-        if(THTTools::isStyleApplied())
-        {
-            // links inside labels are styled with QPalette
-            QLabel ltmp(this);
-            QPalette pal = qApp->palette();
-
-            ltmp.setObjectName("html-link");
-            ltmp.ensurePolished();
-            pal.setColor(QPalette::Link, ltmp.palette().color(QPalette::WindowText));
-
-            ltmp.setObjectName("html-link-visited");
-            ltmp.ensurePolished();
-            pal.setColor(QPalette::LinkVisited, ltmp.palette().color(QPalette::WindowText));
-
-            qApp->setPalette(pal);
-        }
-        else
-        {
-            QPalette pal = qApp->palette();
-
-            pal.setColor(QPalette::Link, Qt::blue);
-            pal.setColor(QPalette::LinkVisited, Qt::magenta);
-
-            qApp->setPalette(pal);
-        }
-    }
+        resetStyle();
 
     return QObject::eventFilter(o, e);
 }
@@ -1871,6 +1838,44 @@ bool THT::isBusy() const
     }
 
     return false;
+}
+
+void THT::resetStyle()
+{
+    ui->pushLinkManager->setIcon(THTTools::isStyleApplied() ? QIcon() : QIcon(":/images/links-load.png"));
+
+    m_actionCustomizeLinks->setIcon(THTTools::isStyleApplied()
+                                    ? THTTools::renderButtonWithPencil(ui->pushLinkManager)
+                                    : QIcon(":/images/links-customize.png"));
+
+    ui->labelNotBusy->setPixmap(THTTools::isStyleApplied() ? QPixmap() : QPixmap(":/images/ready.png"));
+    ui->labelBusy->setPixmap(THTTools::isStyleApplied() ? QPixmap() : QPixmap(":/images/locked.png"));
+
+    if(THTTools::isStyleApplied())
+    {
+        // links inside labels are styled with QPalette
+        QLabel ltmp(this);
+        QPalette pal = qApp->palette();
+
+        ltmp.setObjectName("html-link");
+        ltmp.ensurePolished();
+        pal.setColor(QPalette::Link, ltmp.palette().color(QPalette::WindowText));
+
+        ltmp.setObjectName("html-link-visited");
+        ltmp.ensurePolished();
+        pal.setColor(QPalette::LinkVisited, ltmp.palette().color(QPalette::WindowText));
+
+        qApp->setPalette(pal);
+    }
+    else
+    {
+        QPalette pal = qApp->palette();
+
+        pal.setColor(QPalette::Link, Qt::blue);
+        pal.setColor(QPalette::LinkVisited, Qt::magenta);
+
+        qApp->setPalette(pal);
+    }
 }
 
 void THT::slotRestoreLinks()
