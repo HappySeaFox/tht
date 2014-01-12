@@ -530,7 +530,7 @@ QComboBox::down-arrow:focus
     image: url($SD/dark-images/down_arrow.png);
 }
 
-QPushButton:pressed,QToolButton:pressed
+QPushButton:pressed,QToolButton:pressed,QPushButton:on,QToolButton:on
 {
     background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1,
     stop: 0 #302F2F, stop: 1 #484846);
