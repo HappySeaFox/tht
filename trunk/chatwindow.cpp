@@ -54,7 +54,7 @@ ChatWindow::ChatWindow(QWidget *parent) :
     setWindowTitle(ChatTools::chatTitle());
 
     //: Means "Based on <some technology>". The technology will be added in runtime by the application
-    ui->labelBasedOn->setText(tr("Based on") + " <a href=\"http://xmpp.org\">XMPP</a>");
+    ui->labelBasedOn->setText(tr("Based on") + " <a href=\"http://wikipedia.org/wiki/XMPP\">XMPP</a>");
 
     // XMPP client
     m_xmppClient = new QXmppClient(this);
