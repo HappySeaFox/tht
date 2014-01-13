@@ -23,6 +23,7 @@
 #include <QLabel>
 #include <QStyle>
 
+#include "defaultstyles.h"
 #include "numericlabel.h"
 #include "thttools.h"
 #include "target.h"
@@ -59,8 +60,6 @@ Target::Target(QWidget *parent) :
 
     setWhatsThis(QString("<a href=\"http://www.youtube.com/playlist?list=PL5FURm9nDau8oTXumieXJl3DNDRTUlBSm\">%1</a>")
                  .arg(Tools::openYoutubeTutorialTitle()));
-
-    resetStyle();
 
     qApp->installEventFilter(this);
     m_label->installEventFilter(this);
@@ -166,12 +165,7 @@ bool Target::eventFilter(QObject *o, QEvent *e)
     }
     else
     {
-        if(o == qApp)
-        {
-            if(type == THT_STYLE_CHANGE_EVENT_TYPE)
-                resetStyle();
-        }
-        else if(type == QEvent::KeyPress || type == QEvent::KeyRelease)
+        if(type == QEvent::KeyPress || type == QEvent::KeyRelease)
         {
             QKeyEvent *ke = static_cast<QKeyEvent *>(e);
             QPoint cursorPos = mapFromGlobal(QCursor::pos());
@@ -194,9 +188,4 @@ void Target::changePixmap(bool alt)
     m_label->style()->unpolish(m_label);
     m_label->style()->polish(m_label);
     m_label->update();
-}
-
-void Target::resetStyle()
-{
-    setStyleSheet(THTTools::isStyleApplied() ? QString() : THT_TARGET_DEFAULT_STYLESHEET);
 }

@@ -104,7 +104,8 @@ HEADERS += tht.h \
     linkpoint.h \
     thtsettings.h \
     kde/kcolorcombo.h \
-    styledescriptionreader.h
+    styledescriptionreader.h \
+    defaultstyles.h
 
 FORMS += tht.ui \
     list.ui \

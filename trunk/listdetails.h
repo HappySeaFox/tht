@@ -20,12 +20,6 @@
 
 #include <QLabel>
 
-#define THT_LIST_DETAILS_DEFAULT_STYLESHEET \
-"QLabel#listDetails { border: 1px solid gray; background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #ffefef, stop:0.35 #f7db45, stop:0.65 #f7db45, stop:1 #ffefef); }" \
-"QLabel#listDetails QLabel#currentTicker { color: black; }" \
-"QLabel#listDetails QLabel#lineTickersSeparator { background-color: gray; }" \
-"QLabel#listDetails QLabel#totalTickers { color: black; }"
-
 class ListDetails : public QLabel
 {
 public:
@@ -45,12 +39,6 @@ public:
     {
         m_current->setNum(current);
     }
-
-protected:
-    virtual bool eventFilter(QObject *obj, QEvent *e);
-
-private:
-    void resetStyle();
 
 private:
     QLabel *m_total, *m_current;

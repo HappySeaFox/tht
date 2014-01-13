@@ -807,7 +807,7 @@ QFrame#lineThtSeparator
 
 QLabel#target
 {
-    background: url($SD/dark-images/drag.png) center no-repeat;
+    qproperty-pixmap: url($SD/dark-images/drag.png);
 }
 
 QLabel#listDetails

@@ -17,9 +17,9 @@
 
 #include <QApplication>
 #include <QVBoxLayout>
-#include <QEvent>
 #include <QFrame>
 
+#include "defaultstyles.h"
 #include "listdetails.h"
 #include "thttools.h"
 
@@ -27,8 +27,6 @@ ListDetails::ListDetails(QWidget *parent) :
     QLabel(parent)
 {
     setObjectName("listDetails");
-
-    setStyleSheet(THT_LIST_DETAILS_DEFAULT_STYLESHEET);
 
     QVBoxLayout *l = new QVBoxLayout(this);
     l->setSpacing(2);
@@ -60,24 +58,4 @@ ListDetails::ListDetails(QWidget *parent) :
     m_total->setTextFormat(Qt::PlainText);
     m_total->setAttribute(Qt::WA_TranslucentBackground);
     l->addWidget(m_total);
-
-    resetStyle();
-
-    qApp->installEventFilter(this);
-}
-
-bool ListDetails::eventFilter(QObject *obj, QEvent *e)
-{
-    if(obj == qApp)
-    {
-        if(e->type() == THT_STYLE_CHANGE_EVENT_TYPE)
-            resetStyle();
-    }
-
-    return QObject::eventFilter(obj, e);
-}
-
-void ListDetails::resetStyle()
-{
-    setStyleSheet(THTTools::isStyleApplied() ? QString() : THT_LIST_DETAILS_DEFAULT_STYLESHEET);
 }
