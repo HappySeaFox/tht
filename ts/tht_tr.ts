@@ -300,32 +300,32 @@
         <translation>Panoya dışarı çıkart</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1333"/>
-        <location filename="../list.cpp" line="1411"/>
+        <location filename="../list.cpp" line="1317"/>
+        <location filename="../list.cpp" line="1395"/>
         <source>Choose a file</source>
         <extracomment>Appeal to the user. Means &quot;Please choose a file:&quot;</extracomment>
         <translation>Bir dosya seç</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1335"/>
-        <location filename="../list.cpp" line="1413"/>
+        <location filename="../list.cpp" line="1319"/>
+        <location filename="../list.cpp" line="1397"/>
         <source>Text files (*.txt)</source>
         <translation>Yazı dosyası (*.txt)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1337"/>
-        <location filename="../list.cpp" line="1415"/>
+        <location filename="../list.cpp" line="1321"/>
+        <location filename="../list.cpp" line="1399"/>
         <source>All files (*.*)</source>
         <translation>Tüm dosyalar (*.*)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1375"/>
+        <location filename="../list.cpp" line="1359"/>
         <source>Cannot open the following files: %1</source>
         <extracomment>Message displayed to the user. %1 will be replaced with the list of files by the application</extracomment>
         <translation>Sıradaki dosyalar açılamıyor: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1428"/>
+        <location filename="../list.cpp" line="1412"/>
         <source>Cannot save to file %1</source>
         <extracomment>Message displayed to the user. %1 will be replaced with the file name by the application</extracomment>
         <translation>Dosyaya kaydedilemiyor %1</translation>
@@ -815,13 +815,13 @@ right/middle mouse button to cancel.</source>
         <translation>Yeni noktalar</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2189"/>
+        <location filename="../tht.cpp" line="2184"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <extracomment>Message displayed to the user in the April Fool&apos;s day. Preferably copy the translation from &quot;The Little Golden Calf&quot; by I.Ilf, E.Petrov, Chapter 10 &quot;A Telegram from the Brothers Karamazov&quot; (http://en.wikipedia.org/wiki/The_Little_Golden_Calf). If you don&apos;t have the book or its online translation then translate as usual</extracomment>
         <translation>Bütün büyük modern servetler en onursuz&lt;br&gt;şekilde kazanılmıştı.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2191"/>
+        <location filename="../tht.cpp" line="2186"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <extracomment>See http://en.wikipedia.org/wiki/The_Little_Golden_Calf</extracomment>
         <translation>&quot;Küçük Altın Buzağı&quot;  I.Ilf, E.Petrov</translation>
@@ -830,7 +830,7 @@ right/middle mouse button to cancel.</source>
 <context>
     <name>Target</name>
     <message>
-        <location filename="../target.cpp" line="45"/>
+        <location filename="../target.cpp" line="46"/>
         <source>Drag and drop this target to the window you need to create a link to</source>
         <translation>Bu hedefi bağlantı kurmak istediğiniz pencereye sürükleyip bırakın</translation>
     </message>

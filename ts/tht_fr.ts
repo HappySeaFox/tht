@@ -300,32 +300,32 @@
         <translation>Exporter dans le presse-papier</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1333"/>
-        <location filename="../list.cpp" line="1411"/>
+        <location filename="../list.cpp" line="1317"/>
+        <location filename="../list.cpp" line="1395"/>
         <source>Choose a file</source>
         <extracomment>Appeal to the user. Means &quot;Please choose a file:&quot;</extracomment>
         <translation>Choisir un fichier</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1335"/>
-        <location filename="../list.cpp" line="1413"/>
+        <location filename="../list.cpp" line="1319"/>
+        <location filename="../list.cpp" line="1397"/>
         <source>Text files (*.txt)</source>
         <translation>Fichiers texte (*.txt)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1337"/>
-        <location filename="../list.cpp" line="1415"/>
+        <location filename="../list.cpp" line="1321"/>
+        <location filename="../list.cpp" line="1399"/>
         <source>All files (*.*)</source>
         <translation>Ajouter des fichiers (*.*)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1375"/>
+        <location filename="../list.cpp" line="1359"/>
         <source>Cannot open the following files: %1</source>
         <extracomment>Message displayed to the user. %1 will be replaced with the list of files by the application</extracomment>
         <translation>Impossible d&apos;ouvrir les fichiers suivants : %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1428"/>
+        <location filename="../list.cpp" line="1412"/>
         <source>Cannot save to file %1</source>
         <extracomment>Message displayed to the user. %1 will be replaced with the file name by the application</extracomment>
         <translation>Impossible de sauvegarder le fichier vers %1</translation>
@@ -817,13 +817,13 @@ sur le bouton central/droit de la souris pour annuler.</translation>
         <translation>Nouveaux points</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2189"/>
+        <location filename="../tht.cpp" line="2184"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <extracomment>Message displayed to the user in the April Fool&apos;s day. Preferably copy the translation from &quot;The Little Golden Calf&quot; by I.Ilf, E.Petrov, Chapter 10 &quot;A Telegram from the Brothers Karamazov&quot; (http://en.wikipedia.org/wiki/The_Little_Golden_Calf). If you don&apos;t have the book or its online translation then translate as usual</extracomment>
         <translation>Toutes les fortunes contemporaines ont été acquises&lt;br&gt;de la manière la plus répréhensible.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2191"/>
+        <location filename="../tht.cpp" line="2186"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <extracomment>See http://en.wikipedia.org/wiki/The_Little_Golden_Calf</extracomment>
         <translation>« Le Veau d&apos;Or » I.Ilf, E.Petrov</translation>
@@ -832,7 +832,7 @@ sur le bouton central/droit de la souris pour annuler.</translation>
 <context>
     <name>Target</name>
     <message>
-        <location filename="../target.cpp" line="45"/>
+        <location filename="../target.cpp" line="46"/>
         <source>Drag and drop this target to the window you need to create a link to</source>
         <translation>Déplacer la cible vers la fenêtre dans laquelle vous avez besoin de créer un lien</translation>
     </message>

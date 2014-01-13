@@ -23,6 +23,7 @@
 #include <QDir>
 
 #include "styledescriptionreader.h"
+#include "defaultstyles.h"
 #include "listdetails.h"
 #include "settings.h"
 #include "thttools.h"
@@ -30,20 +31,7 @@
 
 bool THTTools::m_isStyleApplied = false;
 
-static const char * const THT_DEFAULT_STYLE =
-// buttons in the ticker list
-"QToolButton#pushList   { background: url(:/images/list.png)   center no-repeat; }"
-"QToolButton#pushAdd    { background: url(:/images/add.png)    center no-repeat; }"
-"QToolButton#pushSave   { background: url(:/images/save.png)   center no-repeat; }"
-"QToolButton#pushExport { background: url(:/images/export.png) center no-repeat; }"
-
-// "Links" button on the bottom
-"QToolButton#pushLinkManager { background: url(:/images/links-load.png) center no-repeat; }"
-
-// busy/not busy icons
-"QLabel#labelBusy    { background: url(:/images/locked.png) center no-repeat; }"
-"QLabel#labelNotBusy { background: url(:/images/ready.png)  center no-repeat; }"
-
+static const char * const THT_DEFAULT_STYLESHEET_FOR_STYLE =
 // containers for plugins
 "QWidget#containerLeft { background-color: transparent; }"
 "QWidget#containerRight { background-color: transparent; }"
@@ -54,6 +42,20 @@ static const char * const THT_DEFAULT_STYLE =
 // stack with busy/ready icons
 "#stackBusy, #stackBusy * { background-color: transparent; }"
 
+"QLabel#target               { background-color: transparent; }"
+"QToolButton#pushLinkManager { background-color: transparent; }"
+
+THT_BUSY_ICONS_DEFAULT_STYLESHEET
+THT_LIST_BUTTONS_DEFAULT_STYLESHEET
+THT_BUTTON_LINK_MANAGER_DEFAULT_STYLESHEET
+THT_TARGET_DEFAULT_STYLESHEET
+THT_LIST_DETAILS_DEFAULT_STYLESHEET
+;
+
+static const char * const THT_DEFAULT_STYLE =
+THT_BUSY_ICONS_DEFAULT_STYLESHEET
+THT_LIST_BUTTONS_DEFAULT_STYLESHEET
+THT_BUTTON_LINK_MANAGER_DEFAULT_STYLESHEET
 THT_TARGET_DEFAULT_STYLESHEET
 THT_LIST_DETAILS_DEFAULT_STYLESHEET
 ;
@@ -81,8 +83,8 @@ void THTTools::resetStyle(ResetStyleOnErrorType rt)
 
             THTTools::m_isStyleApplied = true;
 
-            qApp->setStyleSheet(THT_DEFAULT_STYLE + css
-                                                    .replace("$SD", dirWithStyles.replace('\'', "\\'"))
+            qApp->setStyleSheet(THT_DEFAULT_STYLESHEET_FOR_STYLE
+                                + css.replace("$SD", dirWithStyles.replace('\'', "\\'"))
                                 );
         }
         else
@@ -92,14 +94,14 @@ void THTTools::resetStyle(ResetStyleOnErrorType rt)
             if(rt == ResetStyleOnError)
             {
                 THTTools::m_isStyleApplied = false;
-                qApp->setStyleSheet(QString());
+                qApp->setStyleSheet(THT_DEFAULT_STYLE);
             }
         }
     }
     else
     {
         THTTools::m_isStyleApplied = false;
-        qApp->setStyleSheet(QString());
+        qApp->setStyleSheet(THT_DEFAULT_STYLE);
     }
 
     // notify widgets about style change

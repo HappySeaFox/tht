@@ -24,10 +24,6 @@ class QLabel;
 
 class NumericLabel;
 
-#define THT_TARGET_DEFAULT_STYLESHEET \
-"QLabel#target               { background: url(:/images/drag.png) center no-repeat; }" \
-"QLabel#target[alt=\"true\"] { background: url(:/images/drag_red.png) center no-repeat; }"
-
 class Target : public QWidget
 {
     Q_OBJECT
@@ -52,7 +48,6 @@ protected:
 
 private:
     void changePixmap(bool alt);
-    void resetStyle();
 
 signals:
     void moving(const QPoint &);
