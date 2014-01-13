@@ -31,34 +31,20 @@
 
 bool THTTools::m_isStyleApplied = false;
 
-static const char * const THT_DEFAULT_STYLESHEET_FOR_STYLE =
-// containers for plugins
-"QWidget#containerLeft { background-color: transparent; }"
-"QWidget#containerRight { background-color: transparent; }"
-
-// the number of links
-"QLabel#numericLabel { background-color: transparent; }"
-
-// stack with busy/ready icons
-"#stackBusy, #stackBusy * { background-color: transparent; }"
-
-"QLabel#target               { background-color: transparent; }"
+#define THT_DEFAULT_STYLESHEET_FOR_STYLE                         \
+"QWidget#containerLeft { background-color: transparent; }"       \
+"QWidget#containerRight { background-color: transparent; }"      \
+"QLabel#numericLabel { background-color: transparent; }"         \
+"#stackBusy, #stackBusy * { background-color: transparent; }"    \
+"QLabel#target { background-color: transparent; }"               \
 "QToolButton#pushLinkManager { background-color: transparent; }"
 
-THT_BUSY_ICONS_DEFAULT_STYLESHEET
-THT_LIST_BUTTONS_DEFAULT_STYLESHEET
-THT_BUTTON_LINK_MANAGER_DEFAULT_STYLESHEET
-THT_TARGET_DEFAULT_STYLESHEET
+#define THT_DEFAULT_STYLE                  \
+THT_BUSY_ICONS_DEFAULT_STYLESHEET          \
+THT_LIST_BUTTONS_DEFAULT_STYLESHEET        \
+THT_BUTTON_LINK_MANAGER_DEFAULT_STYLESHEET \
+THT_TARGET_DEFAULT_STYLESHEET              \
 THT_LIST_DETAILS_DEFAULT_STYLESHEET
-;
-
-static const char * const THT_DEFAULT_STYLE =
-THT_BUSY_ICONS_DEFAULT_STYLESHEET
-THT_LIST_BUTTONS_DEFAULT_STYLESHEET
-THT_BUTTON_LINK_MANAGER_DEFAULT_STYLESHEET
-THT_TARGET_DEFAULT_STYLESHEET
-THT_LIST_DETAILS_DEFAULT_STYLESHEET
-;
 
 THTTools::THTTools()
 {}
@@ -83,7 +69,8 @@ void THTTools::resetStyle(ResetStyleOnErrorType rt)
 
             THTTools::m_isStyleApplied = true;
 
-            qApp->setStyleSheet(THT_DEFAULT_STYLESHEET_FOR_STYLE
+            qApp->setStyleSheet(THT_DEFAULT_STYLE
+                                THT_DEFAULT_STYLESHEET_FOR_STYLE
                                 + css.replace("$SD", dirWithStyles.replace('\'', "\\'"))
                                 );
         }
