@@ -51,15 +51,13 @@ QWidget
 
 QWidget:item:hover
 {
-    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1,
-    stop: 0 #78879b, stop: 1 #78879b);
+    background-color: #78879b;
     color: black;
 }
 
 QWidget:item:selected
 {
-    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1,
-    stop: 0 #78879b, stop: 1 #78879b);
+    background-color: #78879b;
 }
 
 QMenuBar
@@ -502,8 +500,7 @@ QComboBox QAbstractItemView
     background-color: #201F1F;
     border-radius: 3px;
     border: 1px solid #3A3939;
-    selection-background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1,
-      stop: 0 #78879b, stop: 1 #78879b);
+    selection-background-color: #78879b;
 }
 
 QComboBox::drop-down
