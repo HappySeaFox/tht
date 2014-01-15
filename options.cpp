@@ -121,7 +121,7 @@ void Options::load()
         if(!reader.parse(fi.absoluteFilePath()))
             continue;
 
-        ui->comboStyle->addColor(reader.previewColor(), fi.fileName());
+        ui->comboStyle->addColor(reader.previewColor(), reader.name(), fi.fileName());
 
         if(fi.fileName() == m_currentStyle)
         {
