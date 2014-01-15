@@ -143,9 +143,9 @@ KColorCombo::KColorCombo( QWidget *parent )
 KColorCombo::~KColorCombo()
 {}
 
-void KColorCombo::addColor(const QColor &color, const QString &fileForData)
+void KColorCombo::addColor(const QColor &color, const QString &name, const QString &fileForData)
 {
-    addItem(QString("#%1").arg(count()), QVariant::fromValue(KColorComboItemDataType(fileForData, color)));
+    addItem(name, QVariant::fromValue(KColorComboItemDataType(fileForData, color)));
 
     // color
     setItemData(count()-1, color, KColorComboDelegate::ColorRole);
@@ -178,7 +178,7 @@ void KColorCombo::paintEvent(QPaintEvent *event)
         painter.setRenderHint(QPainter::Antialiasing);
         painter.setPen(Qt::transparent);
         painter.setBrush(QBrush(var.value<KColorComboItemDataType>().second));
-        painter.drawRoundedRect(frame.adjusted(1, 1, -1, -1), 2, 2);
+        painter.drawRoundedRect(frame, 2, 2);
 
         // text
         painter.setPen(itemData(currentIndex(), KColorComboDelegate::TextColorRole).value<QColor>());

@@ -50,7 +50,7 @@ public:
     explicit KColorCombo(QWidget *parent = 0);
     ~KColorCombo();
 
-    void addColor(const QColor &color, const QString &fileForData);
+    void addColor(const QColor &color, const QString &name, const QString &fileForData);
 
 protected:
     virtual void paintEvent(QPaintEvent *event);
