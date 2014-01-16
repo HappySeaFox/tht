@@ -377,7 +377,14 @@ exists($$INNO) {
         !isEmpty(lng) {
             lngname=$$lng
             lngname ~= s/\\./x
-            iss.commands += $$mle(echo Name: \"$$lngname\"; MessagesFile: \"compiler:Languages\\$$lng\" >> $$ISS)
+
+            exists($${_PRO_FILE_PWD_}\\isl\\$$lng) {
+                F=,$${_PRO_FILE_PWD_}\\isl\\$$lng
+            } else {
+                F=
+            }
+
+            iss.commands += $$mle(echo Name: \"$$lngname\"; MessagesFile: \"compiler:Languages\\$$lng$$F\" >> $$ISS)
         }
     }
 
@@ -387,9 +394,12 @@ exists($$INNO) {
     iss.commands += $$mle(echo Name: \"full\"; Description: \"{code:FullInstall}\" >> $$ISS)
     iss.commands += $$mle(echo Name: \"custom\"; Description: \"{code:CustomInstall}\"; Flags: isCustom >> $$ISS)
 
+    iss.commands += $$mle(echo [CustomMessages] >> $$ISS)
+    iss.commands += $$mle(echo english.Plugins=Plugins >> $$ISS)
+
     # Components
     iss.commands += $$mle(echo [Components] >> $$ISS)
-    iss.commands += $$mle(echo Name: "plugins"; Description: \"{code:ReadyMemoComponents}\"; Types: full >> $$ISS)
+    iss.commands += $$mle(echo Name: "plugins"; Description: \"{cm:Plugins}\"; Types: full >> $$ISS)
 
     for(c, COMPONENTS) {
         eval(COMPONENT=\$\${COMPONENT$$c})
