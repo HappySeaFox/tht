@@ -94,8 +94,8 @@ List::List(int group, QWidget *parent) :
     ui->stack->widget(0)->setFocusProxy(ui->widgetInput);
     ui->stack->widget(1)->setFocusProxy(ui->widgetSearch);
 
-    ui->stackHeader->widget(0)->setFocusProxy(ui->labelListHeader);
-    ui->stackHeader->widget(1)->setFocusProxy(ui->widgetEnterHeader);
+    ui->stackListHeader->widget(0)->setFocusProxy(ui->labelListHeader);
+    ui->stackListHeader->widget(1)->setFocusProxy(ui->widgetEnterHeader);
 
     m_persistentDelegate = new PersistentSelectionDelegate(ui->list);
     m_oldDelegate = ui->list->itemDelegate();
@@ -731,7 +731,7 @@ void List::paste()
 
 void List::headerCancelled()
 {
-    ui->stackHeader->setCurrentIndex(0);
+    ui->stackListHeader->setCurrentIndex(0);
 
     if(window()->focusWidget()->objectName() != "list")
         setFocus();
@@ -751,8 +751,8 @@ void List::changeHeader()
         return;
 
     ui->widgetEnterHeader->startEditing(ui->labelListHeader->text(), true);
-    ui->stackHeader->setCurrentIndex(1);
-    ui->stackHeader->currentWidget()->setFocus();
+    ui->stackListHeader->setCurrentIndex(1);
+    ui->stackListHeader->currentWidget()->setFocus();
 }
 
 void List::slotBeforeSqueeze()

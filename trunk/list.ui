@@ -46,7 +46,7 @@
        <number>0</number>
       </property>
       <item row="0" column="0">
-       <widget class="QStackedWidget" name="stackHeader">
+       <widget class="QStackedWidget" name="stackListHeader">
         <property name="currentIndex">
          <number>0</number>
         </property>
