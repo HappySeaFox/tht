@@ -12,7 +12,16 @@
    </rect>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <property name="margin">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
     <number>0</number>
    </property>
    <property name="spacing">
@@ -22,7 +31,7 @@
     <widget class="QLineEdit" name="line"/>
    </item>
    <item row="0" column="1">
-    <widget class="QToolButton" name="pushClose">
+    <widget class="QToolButton" name="pushCloseInlineTextInput">
      <property name="minimumSize">
       <size>
        <width>22</width>

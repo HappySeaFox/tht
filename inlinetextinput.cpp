@@ -33,10 +33,10 @@ InlineTextInput::InlineTextInput(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    ui->pushClose->setFocusProxy(ui->line);
+    ui->pushCloseInlineTextInput->setFocusProxy(ui->line);
     setFocusProxy(ui->line);
 
-    connect(ui->pushClose, SIGNAL(clicked()), this, SIGNAL(cancel()));
+    connect(ui->pushCloseInlineTextInput, SIGNAL(clicked()), this, SIGNAL(cancel()));
     connect(ui->line, SIGNAL(textChanged(QString)), this, SIGNAL(textChanged(QString)));
 
     ui->line->installEventFilter(this);

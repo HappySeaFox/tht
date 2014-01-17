@@ -31,13 +31,16 @@
 
 bool THTTools::m_isStyleApplied = false;
 
-#define THT_DEFAULT_STYLESHEET_FOR_STYLE                         \
-"QWidget#containerLeft { background-color: transparent; }"       \
-"QWidget#containerRight { background-color: transparent; }"      \
-"QLabel#numericLabel { background-color: transparent; }"         \
-"#stackBusy, #stackBusy * { background-color: transparent; }"    \
-"QLabel#target { background-color: transparent; }"               \
-"QToolButton#pushLinkManager { background-color: transparent; }"
+#define THT_DEFAULT_STYLESHEET_FOR_STYLE                                       \
+"QWidget#stackListHeader, QWidget#stackListHeader > QWidget { border: none; }" \
+"QToolButton#pushCloseInlineTextInput { background-color: transparent; }"      \
+"QWidget#listContainer { border: none; }"                                      \
+"QWidget#containerLeft { background-color: transparent; }"                     \
+"QWidget#containerRight { background-color: transparent; }"                    \
+"QLabel#target { background-color: transparent; }"                             \
+"QLabel#numericLabel { background-color: transparent; }"                       \
+"QToolButton#pushLinkManager { background-color: transparent; }"               \
+"QWidget#stackBusy, QWidget#stackBusy * { background-color: transparent; }"
 
 #define THT_DEFAULT_STYLE                  \
 THT_BUSY_ICONS_DEFAULT_STYLESHEET          \
