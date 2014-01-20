@@ -852,7 +852,7 @@ på højre/midt musetast for at afbryde.</translation>
         <location filename="../tickerinput.ui" line="15"/>
         <source>Enter a ticker</source>
         <extracomment>Appeal to the user. Means &quot;Please enter a ticker here:&quot;. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
-        <translation>angiv en ticker</translation>
+        <translation>Angiv en ticker</translation>
     </message>
     <message>
         <location filename="../tickerinput.ui" line="21"/>
