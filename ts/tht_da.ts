@@ -769,7 +769,7 @@ på højre/midt musetast for at afbryde.</translation>
         <location filename="../tht.cpp" line="280"/>
         <source>About Qt...</source>
         <extracomment>Qt is a C++ crossplatform toolkit http://qt-project.org</extracomment>
-        <translation>om Qt...</translation>
+        <translation>Om Qt...</translation>
     </message>
     <message>
         <location filename="../tht.cpp" line="281"/>
