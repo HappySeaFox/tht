@@ -254,7 +254,7 @@ void Settings::fillTranslations()
     d->translations.insert("en", "English");
 
     // http://www.loc.gov/standards/iso639-2/php/code_list.php
-    //d->translations.insert("da", QString::fromUtf8("Dansk"));
+    d->translations.insert("da",    QString::fromUtf8("Dansk"));
     d->translations.insert("de",    QString::fromUtf8("Deutsch"));
     d->translations.insert("es",    QString::fromUtf8("Español"));
     //d->translations.insert("es_MX", QString::fromUtf8("Español Mexicano"));
@@ -264,7 +264,7 @@ void Settings::fillTranslations()
     d->translations.insert("it",    QString::fromUtf8("Italiano"));
     d->translations.insert("ja",    QString::fromUtf8("日本語"));
     d->translations.insert("ko",    QString::fromUtf8("조선말"));
-    d->translations.insert("nl", QString::fromUtf8("Nederlands"));
+    d->translations.insert("nl",    QString::fromUtf8("Nederlands"));
     //d->translations.insert("no", QString::fromUtf8("Norsk"));
     d->translations.insert("pl",    QString::fromUtf8("Polski"));
     d->translations.insert("pt",    QString::fromUtf8("Português"));
