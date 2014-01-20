@@ -15,7 +15,7 @@ DEPENDPATH += . qxt
 #QMAKE_LFLAGS += -flto
 
 # translation languages. This list should match the translations set in Settings::fillTranslations()
-LANGUAGES=de en es fr it ja ko nl pl pt ru tr uk vi zh_CN
+LANGUAGES=da de en es fr it ja ko nl pl pt ru tr uk vi zh_CN
 
 CONFIG += warn_on
 QMAKE_CXXFLAGS_WARN_ON *= -Wextra
