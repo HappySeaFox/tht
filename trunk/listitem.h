@@ -20,7 +20,6 @@
 
 #include <QListWidgetItem>
 #include <QString>
-#include <QBrush>
 
 #include "ticker.h"
 
@@ -37,7 +36,6 @@ public:
     QString comment() const;
     void setComment(const QString &c);
 
-    void removePriority();
     void resetPriority();
 
     virtual bool operator<(const QListWidgetItem &other) const;
@@ -51,12 +49,6 @@ inline
 Ticker::Priority ListItem::priority() const
 {
     return m_priority;
-}
-
-inline
-void ListItem::removePriority()
-{
-    setBackground(QBrush());
 }
 
 inline
