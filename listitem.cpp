@@ -16,6 +16,7 @@
  */
 
 #include <QColor>
+#include <QBrush>
 
 #include "listitem.h"
 #include "settings.h"
@@ -23,16 +24,12 @@
 ListItem::ListItem(QListWidget *parent) :
     QListWidgetItem(parent),
     m_priority(Ticker::PriorityNormal)
-{
-    setPriority(m_priority, true);
-}
+{}
 
 ListItem::ListItem(const QString &text, QListWidget *parent) :
     QListWidgetItem(text, parent),
     m_priority(Ticker::PriorityNormal)
-{
-    setPriority(m_priority, true);
-}
+{}
 
 ListItem::~ListItem()
 {}
@@ -44,27 +41,32 @@ void ListItem::setPriority(Ticker::Priority p, bool force)
 
     m_priority = p;
 
-    QBrush brush;
+    QColor color;
 
     switch(m_priority)
     {
         case Ticker::PriorityMedium:
-            brush = QColor(255, 215, 68);
+            color = QColor(255, 215, 68);
         break;
 
         case Ticker::PriorityHigh:
-            brush = QColor(30, 245, 65);
+            color = QColor(30, 245, 65);
         break;
 
         case Ticker::PriorityHighest:
-            brush = QColor(255, 89, 95);
+            color = QColor(255, 89, 95);
         break;
 
         default:
         break;
     }
 
-    setBackground(brush);
+    setBackground(color.isValid() ? QBrush(color) : QBrush());
+
+    if(color.isValid())
+        setForeground(Qt::black);
+    else
+        setData(Qt::ForegroundRole, QVariant());
 }
 
 bool ListItem::operator<(const QListWidgetItem &other) const
