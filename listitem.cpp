@@ -62,11 +62,7 @@ void ListItem::setPriority(Ticker::Priority p, bool force)
     }
 
     setBackground(color.isValid() ? QBrush(color) : QBrush());
-
-    if(color.isValid())
-        setForeground(Qt::black);
-    else
-        setData(Qt::ForegroundRole, QVariant());
+    setData(Qt::ForegroundRole, color.isValid() ? QBrush(Qt::black) : QVariant());
 }
 
 bool ListItem::operator<(const QListWidgetItem &other) const
