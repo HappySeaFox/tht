@@ -61,7 +61,7 @@ void ListItem::setPriority(Ticker::Priority p, bool force)
         break;
     }
 
-    setBackground(color.isValid() ? QBrush(color) : QBrush());
+    setData(Qt::BackgroundRole, color.isValid() ? QBrush(color) : QVariant());
     setData(Qt::ForegroundRole, color.isValid() ? QBrush(Qt::black) : QVariant());
 }
 
