@@ -186,6 +186,7 @@ int main(int argc, char *argv[])
 
     QCoreApplication::setApplicationName("THT");
     QCoreApplication::setOrganizationName("THT");
+    QCoreApplication::setApplicationVersion(NVER_STRING);
 
     QtSingleApplication app(argc, argv);
 
