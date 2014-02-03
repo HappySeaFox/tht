@@ -1,0 +1,2 @@
+[CustomMessages] 
+Plugins=תוספים
