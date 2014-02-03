@@ -369,7 +369,9 @@ exists($$INNO) {
     }
 
     iss.commands += $$mle(echo [Languages] >> $$ISS)
-    iss.commands += $$mle(echo Name: \"english\"; MessagesFile: \"compiler:Default.isl\" >> $$ISS)
+    # we need this dirty hack with AAA because INNO sorts the list of languages
+    F=,$${_PRO_FILE_PWD_}\\isl\\English.isl
+    iss.commands += $$mle(echo Name: \"AAAenglish\"; MessagesFile: \"compiler:Default.isl$$F\" >> $$ISS)
 
     for(lng, LANGS) {
         lng = $$find(lng, .isl$)
@@ -393,9 +395,6 @@ exists($$INNO) {
 
     iss.commands += $$mle(echo Name: \"full\"; Description: \"{code:FullInstall}\" >> $$ISS)
     iss.commands += $$mle(echo Name: \"custom\"; Description: \"{code:CustomInstall}\"; Flags: isCustom >> $$ISS)
-
-    iss.commands += $$mle(echo [CustomMessages] >> $$ISS)
-    iss.commands += $$mle(echo english.Plugins=Plugins >> $$ISS)
 
     # Components
     iss.commands += $$mle(echo [Components] >> $$ISS)
