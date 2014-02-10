@@ -2,11 +2,11 @@ Trader's Home Task
 ------------------
 
 Author: Dmitry Baryshev <linuxsquirrel.dev@gmail.com>
-License: GPLv3+ (see LICENSE.txt),
-         Qxt parts are under LGPL 2.1 (see LICENSE-LGPL-2.1.txt) or CPL 1.0,
-         THT-lib is under LGPL 2.1 (see LICENSE-LGPL-2.1.txt),
-         QtDropbox is under LGPL v3 (see LICENSE-LGPL-3.txt),
-         QXMPP is under LGPL v2.1+ (see LICENSE-LGPL-2.1.txt),
+License: GNU GPLv3+ (see LICENSE.txt),
+         Qxt parts are under GNU LGPL 2.1 (see LICENSE-LGPL-2.1.txt) or CPL 1.0,
+         THT-lib is under GNU LGPL 2.1 (see LICENSE-LGPL-2.1.txt),
+         QtDropbox is under GNU LGPL v3 (see LICENSE-LGPL-3.txt),
+         QXMPP is under GNU LGPL v2.1+ (see LICENSE-LGPL-2.1.txt),
          all UI files are licensed in the same manner as the project
          in which they are included
 
@@ -80,7 +80,7 @@ License: Free for use
 http://www.iconfinder.com/icondetails/21556/16/
 
 Author: GNOME Project
-License: GPL
+License: GNU GPL
 
 * "Chat" icon is taken from
 
