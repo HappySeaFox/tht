@@ -46,8 +46,8 @@
              <bold>true</bold>
             </font>
            </property>
-           <property name="openExternalLinks">
-            <bool>false</bool>
+           <property name="textInteractionFlags">
+            <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
            </property>
           </widget>
          </item>
