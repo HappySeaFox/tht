@@ -175,7 +175,8 @@ void Widget::slotGet()
         ui->list->addItem("Need to update FOMC");
         m_fomcDates.clear();
         connect(m_net, SIGNAL(finished()), this, SLOT(slotFinishedFomc()));
-        m_net->get(QUrl(QString("http://mam.econoday.com/release_dates.asp?cust=mam&year=%1").arg(year)));
+        m_net->startRequest(QNetworkAccessManager::GetOperation,
+                            QNetworkRequest(QUrl(QString("http://mam.econoday.com/release_dates.asp?cust=mam&year=%1").arg(year))));
     }
     else
     {
@@ -378,7 +379,8 @@ void Widget::slotFinished()
 
         m_tickersForExchange.clear();
 
-        m_net->get(QUrl(QString("http://finviz.com/export.ashx?v=110&f=exch_%1").arg(ex.toLower())));
+        m_net->startRequest(QNetworkAccessManager::GetOperation,
+                            QNetworkRequest(QUrl(QString("http://finviz.com/export.ashx?v=110&f=exch_%1").arg(ex.toLower()))));
 
         eventLoop.exec();
 
@@ -651,7 +653,7 @@ void Widget::proceedToTickers()
     disconnect(m_net, SIGNAL(finished()), this, 0);
     connect(m_net, SIGNAL(finished()), this, SLOT(slotFinished()));
 
-    m_net->get(QUrl("http://finviz.com/export.ashx?v=150&o=ticker"));
+    m_net->startRequest(QNetworkAccessManager::GetOperation, QNetworkRequest(QUrl("http://finviz.com/export.ashx?v=150&o=ticker")));
 }
 
 bool Widget::addFomcDates(const QString &data, const QString &title)
