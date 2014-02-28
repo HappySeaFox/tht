@@ -4,7 +4,7 @@ TEMPLATE = lib
 
 NVER1=2
 NVER2=0
-NVER3=1
+NVER3=2
 
 QT += core gui network sql
 

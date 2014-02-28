@@ -140,4 +140,12 @@ private:
     static BOOL CALLBACK FindBestChildProc(HWND hwnd, LPARAM lParam);
 };
 
+/*
+ *  Usage:
+ *
+ *  int name[MAX_PATH];
+ *  qDebug() << THT_SIZE_OF_ARRAY(name);
+ */
+#define THT_SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
 #endif // TOOLS_H
