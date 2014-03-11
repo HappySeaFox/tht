@@ -46,6 +46,9 @@ public:
 
     static QPixmap renderButtonWithPencil(QWidget *button, const QSize &size = QSize(16, 16));
 
+    template<typename T>
+    static void *pointerToVoidPointer(const T *p);
+
 private:
     THTTools();
 
@@ -79,6 +82,12 @@ QString THTTools::aboutThtTitle()
 {
     //: "THT" is the name of the application
     return QObject::tr("About THT");
+}
+
+template<typename T>
+void *THTTools::pointerToVoidPointer(const T *p)
+{
+    return reinterpret_cast<void *>(const_cast<T *>(p));
 }
 
 #endif // THTTOOLS_H

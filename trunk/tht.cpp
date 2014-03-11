@@ -108,7 +108,7 @@ static void CALLBACK WinEventProcCallback(HWINEVENTHOOK hWinEventHook,
 
     if(!GetWindowText(hwnd, title, THT_SIZE_OF_ARRAY(title)))
     {
-        qWarning("Cannot get window text in window %p (%ld)", hwnd, GetLastError());
+        qWarning("Cannot get window text in window %p (%ld)", THTTools::pointerToVoidPointer(hwnd), GetLastError());
         return;
     }
 
@@ -804,7 +804,7 @@ void THT::checkWindow(Link *link)
     QString cname;
 
     if(!GetClassName(link->hwnd, name, THT_SIZE_OF_ARRAY(name)))
-        qWarning("Cannot get a class name for window %p (%ld)", link->hwnd, GetLastError());
+        qWarning("Cannot get a class name for window %p (%ld)", THTTools::pointerToVoidPointer(link->hwnd), GetLastError());
     else
         cname =
 #ifdef UNICODE
@@ -813,7 +813,7 @@ void THT::checkWindow(Link *link)
             QString::fromUtf8(name);
 #endif
 
-    qDebug("Process name of %p is \"%s\", class name is \"%s\"", link->hwnd,
+    qDebug("Process name of %p is \"%s\", class name is \"%s\"", THTTools::pointerToVoidPointer(link->hwnd),
                                                                     qPrintable(sname),
                                                                     qPrintable(cname));
 
@@ -854,7 +854,7 @@ void THT::checkWindow(Link *link)
         link->type = LinkTypeOther;
 
     if(link->type != LinkTypeNotInitialized)
-        qDebug("Window under cursor is %p", link->hwnd);
+        qDebug("Window under cursor is %p", THTTools::pointerToVoidPointer(link->hwnd));
 
     CloseHandle(h);
 }
@@ -913,13 +913,15 @@ THT::Link THT::checkTargetWindow(const QPoint &p, bool allowThisWindow)
         {
             if((*it).subControl == link.subControl)
             {
-                qDebug("Window %p/%p is already linked", hwnd, link.subControl);
+                qDebug("Window %p/%p is already linked", THTTools::pointerToVoidPointer(hwnd),
+                                                         THTTools::pointerToVoidPointer(link.subControl));
+
                 return Link();
             }
         }
         else if(!(*it).subControl && (*it).hwnd == link.hwnd)
         {
-            qDebug("Window %p is already linked", hwnd);
+            qDebug("Window %p is already linked", THTTools::pointerToVoidPointer(hwnd));
             return Link();
         }
     }
@@ -929,12 +931,12 @@ THT::Link THT::checkTargetWindow(const QPoint &p, bool allowThisWindow)
         TCHAR name[MAX_PATH];
 
         if(!GetClassName(link.subControl, name, THT_SIZE_OF_ARRAY(name)))
-            qWarning("Cannot get a class name for subcontrol %p (%ld)", link.subControl, GetLastError());
+            qWarning("Cannot get a class name for subcontrol %p (%ld)", THTTools::pointerToVoidPointer(link.subControl), GetLastError());
         else if(!lstrcmp(name, TEXT("Edit")) || !lstrcmp(name, TEXT("TEdit")))
             link.subControlSupportsClearing = true;
     }
 
-    qDebug("Subcontrol: %p", link.subControl);
+    qDebug("Subcontrol: %p", THTTools::pointerToVoidPointer(link.subControl));
 
     return link;
 }
@@ -950,7 +952,7 @@ void THT::checkWindows()
         // remove dead windows
         if(!IsWindow((*it).hwnd))
         {
-            qDebug("Window id %p is not valid, removing", (*it).hwnd);
+            qDebug("Window id %p is not valid, removing", THTTools::pointerToVoidPointer((*it).hwnd));
             it = m_windows->erase(it);
             itEnd = m_windows->end();
         }
@@ -1461,7 +1463,7 @@ void THT::slotLoadToNextWindow()
 {
     HWND window = m_windows->at(m_currentWindow).hwnd;
 
-    qDebug("Trying window %p", window);
+    qDebug("Trying window %p", THTTools::pointerToVoidPointer(window));
 
     bringToFront(window);
 
@@ -1725,7 +1727,7 @@ void THT::unhookEverybody()
 
 void THT::bringToFront(HWND window)
 {
-    qDebug("Bring to front %p", window);
+    qDebug("Bring to front %p", THTTools::pointerToVoidPointer(window));
 
     // window flags to set
     int flags = SW_SHOWNORMAL;
@@ -1740,7 +1742,7 @@ void THT::bringToFront(HWND window)
 
 void THT::masterHasBeenChanged(HWND hwnd, const QString &ticker)
 {
-    qDebug("Master has been changed in window %p with ticker \"%s\"", hwnd, qPrintable(ticker));
+    qDebug("Master has been changed in window %p with ticker \"%s\"", THTTools::pointerToVoidPointer(hwnd), qPrintable(ticker));
 
     if(isBusy())
         return;
@@ -1752,7 +1754,8 @@ void THT::masterHasBeenChanged(HWND hwnd, const QString &ticker)
         {
             if(l.hwnd != hwnd)
             {
-                qDebug("Master has a different window id: existing(%p), changed(%p)", l.hwnd, hwnd);
+                qDebug("Master has a different window id: existing(%p), changed(%p)", THTTools::pointerToVoidPointer(l.hwnd),
+                                                                                      THTTools::pointerToVoidPointer(hwnd));
                 return;
             }
             else
@@ -1792,7 +1795,8 @@ void THT::masterHasBeenChanged(HWND hwnd, const QString &ticker)
 
 void THT::activateRightWindowAtEnd()
 {
-    qDebug("Activating %p (this %p)", m_wasActiveForeignWindow, reinterpret_cast<HWND>(winId()));
+    qDebug("Activating %p, this is %s window", THTTools::pointerToVoidPointer(m_wasActiveForeignWindow),
+                                      (m_wasActiveForeignWindow == reinterpret_cast<HWND>(winId()) ? "THT" : "foreign"));
 
     if(m_wasActiveForeignWindow && m_wasActiveForeignWindow != reinterpret_cast<HWND>(winId()))
         bringToFront(m_wasActiveForeignWindow);
@@ -1901,7 +1905,7 @@ void THT::slotCellChanged()
             hwnd = l.hwnd;
     }
 
-    qDebug("Excel data: %p, %s", hwnd, qPrintable(ticker));
+    qDebug("Excel data: %p, %s", THTTools::pointerToVoidPointer(hwnd), qPrintable(ticker));
 
     if(hwnd && !ticker.isEmpty())
         masterHasBeenChanged(hwnd, ticker);
@@ -2210,11 +2214,11 @@ bool THT::setForeignFocus(const Link &link)
 
     if(!hwnd)
     {
-        qWarning("Cannot set focus to the window %p (%ld)", link.subControl, GetLastError());
+        qWarning("Cannot set focus to the window %p (%ld)", THTTools::pointerToVoidPointer(link.subControl), GetLastError());
         return false;
     }
     else
-        qDebug("Set focus to the window %p", link.subControl);
+        qDebug("Set focus to the window %p", THTTools::pointerToVoidPointer(link.subControl));
 
     return true;
 }
