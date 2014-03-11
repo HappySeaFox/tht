@@ -50,8 +50,8 @@
 
 QT_BEGIN_NAMESPACE
 
-Q_GLOBAL_STATIC(QDnsLookupThreadPool, theDnsLookupThreadPool);
-Q_GLOBAL_STATIC(QThreadStorage<bool *>, theDnsLookupSeedStorage);
+Q_GLOBAL_STATIC(QDnsLookupThreadPool, theDnsLookupThreadPool)
+Q_GLOBAL_STATIC(QThreadStorage<bool *>, theDnsLookupSeedStorage)
 
 static bool qt_qdnsmailexchangerecord_less_than(const QDnsMailExchangeRecord &r1, const QDnsMailExchangeRecord &r2)
 {

@@ -14,6 +14,9 @@ DEPENDPATH += . qxt
 #QMAKE_CXXFLAGS += -flto
 #QMAKE_LFLAGS += -flto
 
+# for testing
+#QMAKE_CXXFLAGS += -pedantic -std=c++11
+
 # translation languages. This list should match the translations set in Settings::fillTranslations()
 LANGUAGES=da de en es fr it ja ko nl pl pt ru tr uk vi zh_CN
 

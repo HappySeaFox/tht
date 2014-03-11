@@ -552,25 +552,25 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../thttools.h" line="60"/>
+        <location filename="../thttools.h" line="63"/>
         <source>Points of connection</source>
         <extracomment>Noun in the plural</extracomment>
         <translation>Link-Punkte</translation>
     </message>
     <message>
-        <location filename="../thttools.h" line="67"/>
+        <location filename="../thttools.h" line="70"/>
         <source>Add tickers</source>
         <extracomment>This is the label on a button that user pushes to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Tickersymbole hinzufügen</translation>
     </message>
     <message>
-        <location filename="../thttools.h" line="74"/>
+        <location filename="../thttools.h" line="77"/>
         <source>Export tickers</source>
         <extracomment>This is the label on a button that user pushes to issue the command. Ticker is a short company name, see http://www.investopedia.com/terms/t/tickersymbol.asp . The common practice is to borrow &quot;ticker&quot; from English and incorporate into your language (see http://en.wikipedia.org/wiki/Loanword)</extracomment>
         <translation>Tickersymbole exportieren</translation>
     </message>
     <message>
-        <location filename="../thttools.h" line="81"/>
+        <location filename="../thttools.h" line="84"/>
         <source>About THT</source>
         <extracomment>&quot;THT&quot; is the name of the application</extracomment>
         <translation>Über THT</translation>
@@ -800,30 +800,30 @@ oder klicken Sie die rechte/mittlere Maustaste, um abzubrechen.</translation>
         <translation>THT wird im Benachrichtigungsfeld weiter ausgeführt</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1012"/>
+        <location filename="../tht.cpp" line="1014"/>
         <source>Unknown</source>
         <extracomment>Means &quot;Unknown links&quot; (in the plural)</extracomment>
         <translation>Unbekannt</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1523"/>
+        <location filename="../tht.cpp" line="1525"/>
         <source>Cannot take screenshot</source>
         <extracomment>Message displayed to the user</extracomment>
         <translation>Konnte keinen Screenshot machen</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1569"/>
+        <location filename="../tht.cpp" line="1571"/>
         <source>New points</source>
         <translation>Neue Punkte</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2184"/>
+        <location filename="../tht.cpp" line="2188"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <extracomment>Message displayed to the user in the April Fool&apos;s day. Preferably copy the translation from &quot;The Little Golden Calf&quot; by I.Ilf, E.Petrov, Chapter 10 &quot;A Telegram from the Brothers Karamazov&quot; (http://en.wikipedia.org/wiki/The_Little_Golden_Calf). If you don&apos;t have the book or its online translation then translate as usual</extracomment>
         <translation>Alle großen Vermögen heutzutage wurden&lt;br&gt;auf die unehrenhafteste Weise erworben.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2186"/>
+        <location filename="../tht.cpp" line="2190"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <extracomment>See http://en.wikipedia.org/wiki/The_Little_Golden_Calf</extracomment>
         <translation>&quot;Das goldene Kalb&quot; I.Ilf, E.Petrov</translation>
