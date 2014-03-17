@@ -175,9 +175,7 @@ int Settings::numberOfLists()
     bool ok;
     int nlists = d->settings->value("settings/number-of-lists", defaultNumber).toUInt(&ok);
 
-    if(!ok)
-        nlists = defaultNumber;
-    else if(nlists < 1 || nlists > maximumNumberOfLists())
+    if(!ok || nlists < 1 || nlists > maximumNumberOfLists())
         nlists = defaultNumber;
 
     return nlists;
