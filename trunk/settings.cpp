@@ -108,7 +108,7 @@ Settings::Settings()
     d->mutableDatabasePath = mutablePath + QDir::separator() + "tickers.sqlite";
 
     if(!QDir().mkpath(mutablePath))
-        qDebug("Cannot create a directory for mutable database");
+        qWarning("Cannot create a directory for mutable database");
 
     // default values
     d->defaultValues.insert(SETTING_RESTORE_NEIGHBORS_AT_STARTUP, true);
@@ -170,11 +170,10 @@ void Settings::setNumberOfLists(int n, SyncType sync)
 
 int Settings::numberOfLists()
 {
-    bool ok;
-
     const int defaultNumber = 3;
 
-    int nlists = d->settings->value("settings/number-of-lists", 3).toUInt(&ok);
+    bool ok;
+    int nlists = d->settings->value("settings/number-of-lists", defaultNumber).toUInt(&ok);
 
     if(!ok)
         nlists = defaultNumber;
