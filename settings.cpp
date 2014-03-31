@@ -241,7 +241,11 @@ QDateTime Settings::readTimestamp(const QString &fileName) const
     QFile file(fileName + ".timestamp");
 
     if(file.open(QIODevice::ReadOnly))
-        return QDateTime::fromString(file.readAll().trimmed(), d->databaseTimestampFormat);
+    {
+        QDateTime dt = QDateTime::fromString(file.readAll().trimmed(), d->databaseTimestampFormat);
+        dt.setTimeSpec(Qt::UTC);
+        return dt;
+    }
 
     return QDateTime();
 }
