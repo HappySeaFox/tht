@@ -2,10 +2,10 @@ TARGET = THT
 TEMPLATE = app
 
 NVER1=2
-NVER2=1
-NVER3=1
+NVER2=2
+NVER3=0
 
-QT += core gui network xml
+QT += core gui network xml sql
 
 INCLUDEPATH += qtsingleapplication qtdropbox kde
 DEPENDPATH += qtsingleapplication qtdropbox kde
@@ -55,7 +55,8 @@ SOURCES += main.cpp\
     linkpointsession.cpp \
     linkpoint.cpp \
     kde/kcolorcombo.cpp \
-    styledescriptionreader.cpp
+    styledescriptionreader.cpp \
+    idletimer.cpp
 
 HEADERS += tht.h \
     list.h \
@@ -105,7 +106,8 @@ HEADERS += tht.h \
     thtsettings.h \
     kde/kcolorcombo.h \
     styledescriptionreader.h \
-    defaultstyles.h
+    defaultstyles.h \
+    idletimer.h
 
 FORMS += tht.ui \
     list.ui \
