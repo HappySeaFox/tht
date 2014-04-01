@@ -18,11 +18,37 @@
 #ifndef TICKERSDATABASEUPDATER_H
 #define TICKERSDATABASEUPDATER_H
 
+#include <QStringList>
+#include <QByteArray>
 #include <QObject>
 #include <QString>
+#include <QList>
+#include <QDate>
+#include <QMap>
 
-class QByteArray;
+class IdleTimer;
 class NetworkAccess;
+
+struct TickerForDb
+{
+    TickerForDb()
+        : cap(0)
+    {}
+
+    QString ticker;
+    QString company;
+    QString sector;
+    QString industry;
+    QString exchange;
+    QString country;
+
+    double cap;
+};
+
+inline bool operator<(const TickerForDb &a, const TickerForDb &b)
+{
+    return a.ticker < b.ticker;
+}
 
 class TickersDatabaseUpdater : public QObject
 {
@@ -32,17 +58,23 @@ public:
     explicit TickersDatabaseUpdater(QObject *parent = 0);
 
 private:
-    bool writeData(const QString &file, const QByteArray &data);
+    void proceedToTickers();
+    bool addFomcDates(const QString &data, const QString &title);
+    bool nextExchange();
 
 private slots:
-    void startRequest();
+    void slotFinishedFomc();
     void slotFinished();
+    void slotStartRequest();
+    void slotParseAnswer();
 
 private:
     NetworkAccess *m_net;
-    QString m_baseurl;
-    QByteArray m_downloadedTimestamp;
-    bool m_downloadingData;
+    QList<QDate> m_fomcDates;
+    QString m_newDb, m_newTs;
+    QStringList m_exchanges;
+    IdleTimer *m_idleTimer;
+    QMap<QString, QByteArray> m_data;
 };
 
 #endif // TICKERSDATABASEUPDATER_H
