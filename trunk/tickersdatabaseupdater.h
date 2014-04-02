@@ -29,27 +29,6 @@
 class IdleTimer;
 class NetworkAccess;
 
-struct TickerForDb
-{
-    TickerForDb()
-        : cap(0)
-    {}
-
-    QString ticker;
-    QString company;
-    QString sector;
-    QString industry;
-    QString exchange;
-    QString country;
-
-    double cap;
-};
-
-inline bool operator<(const TickerForDb &a, const TickerForDb &b)
-{
-    return a.ticker < b.ticker;
-}
-
 class TickersDatabaseUpdater : public QObject
 {
     Q_OBJECT
