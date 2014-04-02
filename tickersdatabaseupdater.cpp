@@ -32,9 +32,31 @@
 #include "tickersdatabaseupdater.h"
 #include "idletimer.h"
 
+struct TickerForDb
+{
+    TickerForDb()
+        : cap(0)
+    {}
+
+    QString ticker;
+    QString company;
+    QString sector;
+    QString industry;
+    QString exchange;
+    QString country;
+
+    double cap;
+};
+
+inline bool operator<(const TickerForDb &a, const TickerForDb &b)
+{
+    return a.ticker < b.ticker;
+}
+
+/*******************************************/
+
 TickersDatabaseUpdater::TickersDatabaseUpdater(QObject *parent) :
-    QObject(parent),
-    m_idleTimer(0)
+    QObject(parent)
 {
     m_exchanges = QStringList() << "NYSE" << "NASD" << "AMEX";
 
