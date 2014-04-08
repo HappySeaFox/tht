@@ -26,8 +26,9 @@
 #include <QDate>
 #include <QMap>
 
-class IdleTimer;
 class NetworkAccess;
+
+class IdleTimer;
 
 class TickersDatabaseUpdater : public QObject
 {
