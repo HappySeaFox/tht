@@ -58,10 +58,6 @@ inline bool operator<(const TickerForDb &a, const TickerForDb &b)
 TickersDatabaseUpdater::TickersDatabaseUpdater(QObject *parent) :
     QObject(parent)
 {
-    m_exchanges = QStringList() << "NYSE" << "NASD" << "AMEX";
-
-    m_net = new NetworkAccess(this);
-
     if(!Settings::instance()->persistentDatabaseTimestamp().isValid())
     {
         qDebug("Persistent database timestamp is invalid");
@@ -91,6 +87,10 @@ TickersDatabaseUpdater::TickersDatabaseUpdater(QObject *parent) :
         qWarning("Cannot remove timestamp template");
         return;
     }
+
+    m_exchanges = QStringList() << "NYSE" << "NASD" << "AMEX";
+
+    m_net = new NetworkAccess(this);
 
     m_idleTimer = new IdleTimer(this);
     m_idleTimer->setEnabled(true);
