@@ -64,10 +64,10 @@ TickersDatabaseUpdater::TickersDatabaseUpdater(QObject *parent) :
         return;
     }
 
-    // don't update db more than once in 12 hours
+    // don't update db more than once in 24 hours
     if(Settings::instance()->mutableDatabaseTimestamp().isValid()
             && (QDateTime::currentMSecsSinceEpoch()
-                - Settings::instance()->mutableDatabaseTimestamp().toMSecsSinceEpoch()) < 12*3600*1000)
+                - Settings::instance()->mutableDatabaseTimestamp().toMSecsSinceEpoch()) < 24*3600*1000)
     {
         qDebug("Won't update tickers database right now");
         return;
