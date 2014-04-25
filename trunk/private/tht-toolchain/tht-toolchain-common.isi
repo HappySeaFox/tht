@@ -4,8 +4,8 @@
 #define MyAppURL "http://sourceforge.net/projects/tht"
 
 ; versions
-#define MyAppVersion "1.0.0"
-#define QtVersion    "4.8.5"
+#define MyAppVersion "1.1.0"
+#define QtVersion    "4.8.6"
 #define MinGWVersion "4.8.2"
 
 #define MyBaseSetupName 'THT-toolchain-' + MyAppVersion
