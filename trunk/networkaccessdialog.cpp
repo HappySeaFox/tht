@@ -121,6 +121,7 @@ void NetworkAccessDialog::showError(const QString &e)
 {
     d->ui->label->setText(e);
     d->ui->pushClose->show();
+    d->ui->pushClose->setFocus();
     d->ui->progressBar->setRange(0, 1);
     d->ui->progressBar->setValue(1);
 }
