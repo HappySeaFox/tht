@@ -83,7 +83,8 @@ begin
   if (CurStep = ssInstall) then begin
     if RegQueryStringValue(HKLM, UninstallQuery, 'UninstallString', Uninstall)
       or RegQueryStringValue(HKCU, UninstallQuery, 'UninstallString', Uninstall) then begin
-      if not Exec(RemoveQuotes(Uninstall), '/VERYSILENT', '', SW_SHOWNORMAL, ewWaitUntilTerminated, ResultCode) then begin
+      Uninstall := RemoveQuotes(Uninstall)
+      if (FileExists(Uninstall)) AND (not Exec(Uninstall, '/VERYSILENT', '', SW_SHOWNORMAL, ewWaitUntilTerminated, ResultCode)) then begin 
         MsgBox(SysErrorMessage(ResultCode), mbCriticalError, MB_OK);
         Abort();
       end;
