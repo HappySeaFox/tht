@@ -110,12 +110,12 @@ List::List(int group, QWidget *parent) :
     menu->addAction(QIcon(":/images/clear.png"), tr("Clear") + '\t' + QKeySequence(QKeySequence::New).toString(), this, SLOT(clear()));
     menu->addSeparator();
     //: This is the label on a menu item that user clicks to issue the command
-    menu->addAction(tr("Sort") + "\tR", this, SLOT(slotSortList()));
+    menu->addAction(tr("Sort") + "\tR", this, SLOT(sort()));
     //: This is the label on a menu item that user clicks to issue the command
     m_changeTitle = menu->addAction(tr("Change title") + "\tF2", this, SLOT(changeHeader()));
     menu->addSeparator();
     //: This is the label on a menu item that user clicks to issue the command
-    menu->addAction(tr("Reset priorities") + "\tAlt+U", this, SLOT(slotResetPriorities()));
+    menu->addAction(tr("Reset priorities") + "\tAlt+U", this, SLOT(resetPriorities()));
 
     ui->pushList->setMenu(menu);
 
@@ -383,17 +383,7 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                     break;
 
                     case Qt::Key_Delete:
-                    {
-                        QListWidgetItem *i = ui->list->currentItem();
-
-                        if(i)
-                        {
-                            delete i;
-                            numberOfItemsChanged();
-                            save();
-                            loadItem(LoadItemCurrent);
-                        }
-                    }
+                        deleteCurrent();
                     break;
 
                     case Qt::Key_Return:
@@ -402,7 +392,7 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                     break;
 
                     case Qt::Key_R:
-                        slotSortList();
+                        sort();
                     break;
 
                     // Finviz
@@ -516,7 +506,7 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                 switch(ke->key())
                 {
                     case Qt::Key_U:
-                        slotResetPriorities();
+                        resetPriorities();
                     break;
 
                     case Qt::Key_1:
@@ -1107,6 +1097,19 @@ Ticker List::currentTickerInfo() const
     return t;
 }
 
+void List::deleteCurrent()
+{
+    QListWidgetItem *i = ui->list->currentItem();
+
+    if(!i)
+        return;
+
+    delete i;
+    numberOfItemsChanged();
+    save();
+    loadItem(LoadItemCurrent);
+}
+
 void List::embedPlugins(Plugin::Type type, QMenu *menu)
 {
     if(!menu)
@@ -1427,13 +1430,13 @@ void List::slotExportToFile()
     t.flush();
 }
 
-void List::slotSortList()
+void List::sort()
 {
     ui->list->sortItems();
     save();
 }
 
-void List::slotResetPriorities()
+void List::resetPriorities()
 {
     int row = 0;
     ListItem *i;

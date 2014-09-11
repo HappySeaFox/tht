@@ -300,32 +300,32 @@
         <translation>클립보드로 내보내기</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1317"/>
-        <location filename="../list.cpp" line="1395"/>
+        <location filename="../list.cpp" line="1320"/>
+        <location filename="../list.cpp" line="1398"/>
         <source>Choose a file</source>
         <extracomment>Appeal to the user. Means &quot;Please choose a file:&quot;</extracomment>
         <translation>파일을 선택하세요</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1319"/>
-        <location filename="../list.cpp" line="1397"/>
+        <location filename="../list.cpp" line="1322"/>
+        <location filename="../list.cpp" line="1400"/>
         <source>Text files (*.txt)</source>
         <translation>텍스트 파일 (*.txt)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1321"/>
-        <location filename="../list.cpp" line="1399"/>
+        <location filename="../list.cpp" line="1324"/>
+        <location filename="../list.cpp" line="1402"/>
         <source>All files (*.*)</source>
         <translation>모든 파일 (*.*)</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1359"/>
+        <location filename="../list.cpp" line="1362"/>
         <source>Cannot open the following files: %1</source>
         <extracomment>Message displayed to the user. %1 will be replaced with the list of files by the application</extracomment>
         <translation>아래의 파일을 열 수 없습니다: %1</translation>
     </message>
     <message>
-        <location filename="../list.cpp" line="1412"/>
+        <location filename="../list.cpp" line="1415"/>
         <source>Cannot save to file %1</source>
         <extracomment>Message displayed to the user. %1 will be replaced with the file name by the application</extracomment>
         <translation>%1 파일에 저장할 수 없습니다</translation>
@@ -817,13 +817,13 @@ right/middle mouse button to cancel.</source>
         <translation>새 포인트</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2188"/>
+        <location filename="../tht.cpp" line="2336"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <extracomment>Message displayed to the user in the April Fool&apos;s day. Preferably copy the translation from &quot;The Little Golden Calf&quot; by I.Ilf, E.Petrov, Chapter 10 &quot;A Telegram from the Brothers Karamazov&quot; (http://en.wikipedia.org/wiki/The_Little_Golden_Calf). If you don&apos;t have the book or its online translation then translate as usual</extracomment>
         <translation>현대의 모든 큰 재물들은 가장 불명예스러운&lt;br&gt;방법으로 취득되었다</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2190"/>
+        <location filename="../tht.cpp" line="2338"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <extracomment>See http://en.wikipedia.org/wiki/The_Little_Golden_Calf</extracomment>
         <translation>&quot;작은 황금 송아지&quot; I.Ilf, E.Petrov</translation>

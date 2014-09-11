@@ -1763,34 +1763,8 @@ void THT::masterHasBeenChanged(HWND hwnd, const QString &ticker)
         }
     }
 
-    // attach to master and set focus to us
-    DWORD foregroundProcessId;
-
-    const HWND foregroundWindow = GetForegroundWindow();
-    const DWORD foregroundThreadId = GetWindowThreadProcessId(foregroundWindow, &foregroundProcessId);
-
-    if(!m_wasActiveForeignWindow)
-        m_wasActiveForeignWindow = foregroundWindow;
-
-    if(GetCurrentProcessId() != foregroundProcessId)
-    {
-        const DWORD currentThreadId = GetCurrentThreadId();
-
-        if(!AttachThreadInput(foregroundThreadId, currentThreadId, TRUE))
-        {
-            qWarning("Cannot attach to the thread %ld (%ld)", foregroundThreadId, GetLastError());
-            return;
-        }
-
-        activate();
-        SetForegroundWindow(reinterpret_cast<HWND>(winId()));
-
-        AttachThreadInput(foregroundThreadId, currentThreadId, FALSE);
-    }
-    else
-        activate();
-
-    loadTicker(ticker, MasterPolicySkip);
+    if(detectForegroundWindowAndActivate())
+        loadTicker(ticker, MasterPolicySkip);
 }
 
 void THT::activateRightWindowAtEnd()
@@ -1875,6 +1849,38 @@ void THT::resetStyle()
 
         qApp->setPalette(pal);
     }
+}
+
+bool THT::detectForegroundWindowAndActivate()
+{
+    // attach to master and set focus to us
+    DWORD foregroundProcessId;
+
+    const HWND foregroundWindow = GetForegroundWindow();
+    const DWORD foregroundThreadId = GetWindowThreadProcessId(foregroundWindow, &foregroundProcessId);
+
+    if(!m_wasActiveForeignWindow)
+        m_wasActiveForeignWindow = foregroundWindow;
+
+    if(GetCurrentProcessId() != foregroundProcessId)
+    {
+        const DWORD currentThreadId = GetCurrentThreadId();
+
+        if(!AttachThreadInput(foregroundThreadId, currentThreadId, TRUE))
+        {
+            qWarning("Cannot attach to the thread %ld (%ld)", foregroundThreadId, GetLastError());
+            return false;
+        }
+
+        activate();
+        SetForegroundWindow(reinterpret_cast<HWND>(winId()));
+
+        AttachThreadInput(foregroundThreadId, currentThreadId, FALSE);
+    }
+    else
+        activate();
+
+    return true;
 }
 
 void THT::slotRestoreLinks()
@@ -2110,8 +2116,150 @@ void THT::slotMessageReceived(const QString &msg)
 {
     qDebug("Got message \"%s\"", qPrintable(msg));
 
-    if(msg == "wake up")
-        activate();
+    const QRegExp rxCopyTo(QString("copy-to\\s+([1-%1])\\s*").arg(Settings::instance()->maximumNumberOfLists()));
+    const QRegExp rxPrioritySet("priority-set\\s+([1-4])\\s*");
+    const QRegExp rxLoad(QString("load\\s+(%1)\\s*").arg(Tools::tickerValidator().pattern()));
+    const QRegExp rxSetCurrentList(QString("set-current-list\\s+([1-%1]+)\\s*").arg(Settings::instance()->maximumNumberOfLists()));
+
+    /*
+     *  "clear" - clear the current list
+     *  "undo-clear" - undo clearing of the current list
+     *
+     *  "copy-left" - copy the current ticker to the list on the left
+     *  "copy-right" - copy the current ticker to the list on the right
+     *  "copy-to <list number>" - copy the current ticker to the list [1...N]
+     *
+     *  "delete" - delete the current ticker from the current list
+     *
+     *  "load-first" - load the first ticker in the list
+     *  "load-last" - load the last ticker in the list
+     *  "load-previous" - load the previous ticker in the list
+     *  "load-previous-page" - load the ticker on the previous page (like PageUp)
+     *  "load-next" - load the next ticker in the list
+     *  "load-next-page" - load the ticker on the next page (like PageDown)
+     *
+     *  "load <ticker>" - load the specified ticker
+     *       Example: load PG
+     *       Example: load MCD
+     *
+     *  "paste" - paste the tickers from the clipboard to the current list
+     *
+     *  "priority-up" - increase the current ticker's priority
+     *  "priority-down" - decrease the current ticker's priority
+     *  "priority-set <priority>" - set the current ticker's priority [1...4] (1 - normal, 4 - red)
+     *       Example: priority-set 2
+     *  "reset-priorities" - reset the priorities in the current list
+     *
+     *  "set-current-list <list number>" - set the keyboard focus to the specified list [1...N]
+     *       Example: set-current-list 1
+     *
+     *  "sort" - sort the current list
+     *
+     *  "activate-window" - bring the THT window to front (if the window is minimized, it will be restored)
+     *
+     *   Example:
+     *       1) run cmd
+     *       2) from cmd run THT: "C:\Program Files\Trader's Home Task\THT"
+     *       3) and load the ticker: "C:\Program Files\Trader's Home Task\THT" --ipc load PG
+     */
+
+    if(msg == "activate-window")
+    {
+        detectForegroundWindowAndActivate();
+        m_wasActiveForeignWindow = 0;
+    }
+    else if(rxLoad.exactMatch(msg))
+    {
+        if(isBusy())
+            return;
+
+        if(detectForegroundWindowAndActivate())
+            slotLoadTicker(rxLoad.cap(1).toUpper());
+    }
+    else if(rxSetCurrentList.exactMatch(msg))
+    {
+        int index = rxSetCurrentList.cap(1).toInt();
+
+        if(index < 1 || index > m_lists.size())
+            qWarning("Cannot set the keyboard focus to the wrong index %d", index);
+        else
+            m_lists.at(index-1)->setFocus();
+    }
+    else
+    {
+        if(!detectForegroundWindowAndActivate())
+            return;
+
+        List *list = 0;
+
+        foreach(List *l, m_lists)
+        {
+            if(l->hasFocus())
+            {
+                list = l;
+                break;
+            }
+        }
+
+        if(list)
+        {
+            if(msg == "clear")
+                list->clear();
+            else if(msg == "undo-clear")
+                list->undo();
+            else if(msg == "copy-left")
+                QMetaObject::invokeMethod(list, "copyLeft", Qt::AutoConnection, Q_ARG(Ticker, list->currentTickerInfo()));
+            else if(msg == "copy-right")
+                QMetaObject::invokeMethod(list, "copyRight", Qt::AutoConnection, Q_ARG(Ticker, list->currentTickerInfo()));
+            else if(rxCopyTo.exactMatch(msg))
+            {
+                int listN = rxCopyTo.cap(1).toInt();
+
+                if(listN < 1)
+                    qWarning("Cannot convert list number");
+                else
+                    QMetaObject::invokeMethod(list, "copyTo", Qt::AutoConnection, Q_ARG(Ticker, list->currentTickerInfo()), Q_ARG(int, listN-1));
+            }
+            else if(msg == "delete")
+                list->deleteCurrent();
+            else if(msg == "load-first")
+                list->loadItem(List::LoadItemFirst);
+            else if(msg == "load-last")
+                list->loadItem(List::LoadItemLast);
+            else if(msg == "load-previous")
+                list->loadItem(List::LoadItemPrevious);
+            else if(msg == "load-previous-page")
+                list->loadItem(List::LoadItemPageUp);
+            else if(msg == "load-next")
+                list->loadItem(List::LoadItemNext);
+            else if(msg == "load-next-page")
+                list->loadItem(List::LoadItemPageDown);
+            else if(msg == "paste")
+                list->paste();
+            else if(msg == "priority-up")
+                list->changePriority(+1);
+            else if(msg == "priority-down")
+                list->changePriority(-1);
+            else if(rxPrioritySet.exactMatch(msg))
+            {
+                int priority = rxPrioritySet.cap(1).toInt();
+
+                if(priority < 1)
+                    qWarning("Cannot convert priority value");
+                else if(list)
+                    list->setPriority(priority-1);
+            }
+            else if(msg == "reset-priorities")
+                list->resetPriorities();
+            else if(msg == "sort")
+                list->sort();
+        }
+        else
+            qWarning("Cannot determine the current list");
+
+        activateRightWindowAtEnd();
+        m_wasActiveForeignWindow = 0;
+    }
 }
 
 void THT::slotLoadPredefinedTicker()

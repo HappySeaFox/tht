@@ -156,6 +156,7 @@ private:
     void squeeze(bool);
     bool isBusy() const;
     void resetStyle();
+    bool detectForegroundWindowAndActivate();
 
 signals:
     void beforeSqueeze();
