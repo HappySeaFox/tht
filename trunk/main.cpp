@@ -169,10 +169,7 @@ int main(int argc, char *argv[])
 {
     setbuf(stderr, 0);
 
-    qint64 v = QDateTime::currentMSecsSinceEpoch();
-
-    // workaround to speed up the SSL initialization
-    const bool haveSsl = QSslSocket::supportsSsl();
+    const qint64 v = QDateTime::currentMSecsSinceEpoch();
 
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
     qInstallMessageHandler(thtOutput);
@@ -181,8 +178,6 @@ int main(int argc, char *argv[])
 #endif
 
     qDebug("Starting at %s", qPrintable(QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss")));
-
-    qDebug("SSL %s supported", haveSsl ? "is" : "is not");
 
     QCoreApplication::setApplicationName("THT");
     QCoreApplication::setOrganizationName("THT");
@@ -198,8 +193,30 @@ int main(int argc, char *argv[])
 
     AllowSetForegroundWindow(ASFW_ANY);
 
-    if(app.sendMessage("wake up"))
+    const int isIpc = app.arguments().indexOf("--ipc");
+
+    if(isIpc >= 0)
+    {
+        const QStringList arguments = app.arguments();
+        QStringList ipcArguments;
+
+        for(int i = isIpc+1;i < arguments.size();i++)
+        {
+            if(!arguments.at(i).startsWith('-'))
+                ipcArguments.append(arguments.at(i));
+        }
+
+        if(!ipcArguments.isEmpty())
+            return app.sendMessage(ipcArguments.join(" "));
+    }
+
+    if(app.sendMessage("activate-window"))
         return 0;
+
+    // workaround to speed up the SSL initialization
+    const bool haveSsl = QSslSocket::supportsSsl();
+
+    qDebug("SSL %s supported", haveSsl ? "is" : "is not");
 
     qRegisterMetaTypeStreamOperators<LinkPointSession>("LinkPointSession");
     qRegisterMetaTypeStreamOperators<QList<LinkPointSession> >("QList<LinkPointSession>");

@@ -78,6 +78,21 @@ public:
 
     void addTickers(const QStringList &tk, FixName fix);
 
+    void changePriority(int);
+
+    void setPriority(int);
+
+    Ticker currentTickerInfo() const;
+
+    void deleteCurrent();
+
+    void undo();
+
+    enum LoadItem { LoadItemCurrent,
+                    LoadItemNext, LoadItemPrevious,
+                    LoadItemFirst, LoadItemLast,
+                    LoadItemPageUp, LoadItemPageDown };
+
 protected:
     virtual bool eventFilter(QObject *obj, QEvent *event);
     virtual void moveEvent(QMoveEvent *);
@@ -94,21 +109,12 @@ private:
     QPixmap createDragCursor();
     enum CheckForDups { CheckDups, DontCheckDups };
     bool addItem(const QString &text, FixName, CheckForDups);
-    void changePriority(int);
-    void setPriority(int);
     void resizeNumberLabel();
     void moveNumbersLabel();
-    void undo();
     void openTickerInBrowser(const QString &baseUrl, const QString &ticker, FixName fix);
     void changeComment();
     void showComment();
-    Ticker currentTickerInfo() const;
     void embedPlugins(Plugin::Type, QMenu *menu);
-
-    enum LoadItem { LoadItemCurrent,
-                    LoadItemNext, LoadItemPrevious,
-                    LoadItemFirst, LoadItemLast,
-                    LoadItemPageUp, LoadItemPageDown };
 
     enum MoveItem { MoveItemNext, MoveItemPreviuos,
                     MoveItemFirst, MoveItemLast,
@@ -131,6 +137,10 @@ public slots:
     void clear();
     void startSearching();
     void stopSearching();
+    void loadItem(LoadItem = LoadItemCurrent);
+    void paste();
+    void sort();
+    void resetPriorities();
 
 private slots:
     void slotAddOne();
@@ -139,8 +149,6 @@ private slots:
     void slotSave();
     void slotExportToFile();
     void slotExportToClipboard();
-    void slotSortList();
-    void slotResetPriorities();
     void slotResetPriority();
     void slotSearchTicker(const QString &);
     void slotSearchTickerNext();
@@ -148,8 +156,6 @@ private slots:
     void slotCurrentRowChanged(int);
     void slotSentTickersFromPlugin(int, const QStringList &);
     void slotRequestedTickersFromPlugin(int);
-    void loadItem(LoadItem = LoadItemCurrent);
-    void paste();
     void headerCancelled();
     void headerAccepted();
     void changeHeader();
