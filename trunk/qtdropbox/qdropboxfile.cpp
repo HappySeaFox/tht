@@ -57,17 +57,17 @@ bool QDropboxFile::open(QIODevice::OpenMode mode)
     qDebug() << "QDropboxFile: opening file" << endl;
 #endif
 
-	// clear buffer and reset position if this file was opened in write mode
-	// with truncate - or if append was not set
-	if(isMode(QIODevice::WriteOnly) && 
-	   (isMode(QIODevice::Truncate) || !isMode(QIODevice::Append))
-	  )
+    // clear buffer and reset position if this file was opened in write mode
+    // with truncate - or if append was not set
+    if(isMode(QIODevice::WriteOnly) &&
+       (isMode(QIODevice::Truncate) || !isMode(QIODevice::Append))
+      )
     {
 #ifdef QTDROPBOX_DEBUG
     qDebug() << "QDropboxFile: _buffer cleared." << endl;
 #endif
         _buffer->clear();
-		_position = 0;
+        _position = 0;
     }
     else
     {
@@ -77,29 +77,29 @@ bool QDropboxFile::open(QIODevice::OpenMode mode)
         if(!getFileContent(_filename))
             return false;
 
-		if(isMode(QIODevice::WriteOnly)) // write mode here means append
-			_position = _buffer->size();
-		else if(isMode(QIODevice::ReadOnly)) // read mode here means start at the beginning
-			_position = 0;
+        if(isMode(QIODevice::WriteOnly)) // write mode here means append
+            _position = _buffer->size();
+        else if(isMode(QIODevice::ReadOnly)) // read mode here means start at the beginning
+            _position = 0;
     }
 
-	obtainMetadata();		 
+    obtainMetadata();
 
     return true;
 }
 
 void QDropboxFile::close()
 {
-	if(isMode(QIODevice::WriteOnly))
-		flush();
-	QIODevice::close();
-	return;
+    if(isMode(QIODevice::WriteOnly))
+        flush();
+    QIODevice::close();
+    return;
 }
 
 void QDropboxFile::setApi(QDropbox *dropbox)
 {
     _api = dropbox;
-	return;
+    return;
 }
 
 QDropbox *QDropboxFile::api()
@@ -168,21 +168,21 @@ qint64 QDropboxFile::readData(char *data, qint64 maxlen)
     qDebug() << "old size = " << _buffer->size() << endl;
 #endif
 
-	if(_buffer->size() == 0 || _position >= _buffer->size())
+    if(_buffer->size() == 0 || _position >= _buffer->size())
         return 0;
 
     if(_buffer->size() < maxlen)
         maxlen = _buffer->size();
 
-	QByteArray tmp = _buffer->mid(_position, maxlen);
-	memcpy(data, tmp.data(), maxlen);
-   
+    QByteArray tmp = _buffer->mid(_position, maxlen);
+    memcpy(data, tmp.data(), maxlen);
+
 #ifdef QTDROPBOX_DEBUG
     qDebug() << "new size = " << _buffer->size() << endl;
     qDebug() << "new bytes = " << _buffer->toHex() << endl;
 #endif
 
-	_position += maxlen;
+    _position += maxlen;
 
     return maxlen;
 }
@@ -193,7 +193,7 @@ qint64 QDropboxFile::writeData(const char *data, qint64 len)
     qDebug() << "old content: " << _buffer->toHex() << endl;
 #endif
 
-	qint64 oldlen = _buffer->size();
+    qint64 oldlen = _buffer->size();
     _buffer->insert(_position, data, len);
 
 #ifdef QTDROPBOX_DEBUG
@@ -204,12 +204,12 @@ qint64 QDropboxFile::writeData(const char *data, qint64 len)
     if(_buffer->size()%_bufferThreshold == 0)
         flush();
 
-	int written_bytes = len;
+    int written_bytes = len;
 
-	if(_buffer->size() != oldlen+len)
-		written_bytes = (oldlen-_buffer->size());
+    if(_buffer->size() != oldlen+len)
+        written_bytes = (oldlen-_buffer->size());
 
-	_position += written_bytes;
+    _position += written_bytes;
 
     return written_bytes;
 }
@@ -231,12 +231,12 @@ void QDropboxFile::networkRequestFinished(QNetworkReply *rply)
         stopEventLoop();
         break;
     case notWaiting:
-		break; // when we are not waiting for anything, we don't do anything - simple!
+        break; // when we are not waiting for anything, we don't do anything - simple!
     default:
 #ifdef QTDROPBOX_DEBUG
-		// debug information only - this should not happen, but if it does we 
-		// ignore replies when not waiting for anything
-		qDebug() << "QDropboxFile::networkRequestFinished(...) got reply in unknown state (" << _waitMode << ")" << endl;
+        // debug information only - this should not happen, but if it does we
+        // ignore replies when not waiting for anything
+        qDebug() << "QDropboxFile::networkRequestFinished(...) got reply in unknown state (" << _waitMode << ")" << endl;
 #endif
         break;
     }
@@ -296,15 +296,15 @@ bool QDropboxFile::getFileContent(QString filename)
 #ifdef QTDROPBOX_DEBUG
         qDebug() << "QDropboxFile::getFileContent ReadError: " << lastErrorCode << lastErrorMessage << endl;
 #endif
-		if(lastErrorCode ==  QDROPBOX_ERROR_FILE_NOT_FOUND)
-		{
-			_buffer->clear();
+        if(lastErrorCode ==  QDROPBOX_ERROR_FILE_NOT_FOUND)
+        {
+            _buffer->clear();
 #ifdef QTDROPBOX_DEBUG
         qDebug() << "QDropboxFile::getFileContent: file does not exist" << endl;
 #endif
-		}
-		else
-			return false;
+        }
+        else
+            return false;
     }
 
     return true;
@@ -455,7 +455,7 @@ bool QDropboxFile::putFile()
     QNetworkRequest rq(request);
     _conManager.put(rq, *_buffer);
 
-    _waitMode = waitForWrite;	
+    _waitMode = waitForWrite;
     startEventLoop();
 
     if(lastErrorCode != 0)
@@ -478,74 +478,74 @@ void QDropboxFile::_init(QDropbox *api, QString filename, qint64 bufferTh)
     _waitMode        = notWaiting;
     _bufferThreshold = bufferTh;
     _overwrite       = true;
-	_metadata        = NULL;
-	lastErrorCode    = 0;
-	lastErrorMessage = "";
-	_position        = 0;
+    _metadata        = NULL;
+    lastErrorCode    = 0;
+    lastErrorMessage = "";
+    _position        = 0;
     return;
 }
 
 
 QDropboxFileInfo QDropboxFile::metadata()
 {
-	if(_metadata == NULL)
-		obtainMetadata();
+    if(_metadata == NULL)
+        obtainMetadata();
 
-	return _api->requestMetadataAndWait(_filename);
+    return _api->requestMetadataAndWait(_filename);
 }
 
 bool QDropboxFile::hasChanged()
 {
-	if(_metadata == NULL)
-	{
-		if(!metadata().isValid()) // get metadata
-			return false;         // if metadata was invalid
-	}
+    if(_metadata == NULL)
+    {
+        if(!metadata().isValid()) // get metadata
+            return false;         // if metadata was invalid
+    }
 
-	QDropboxFileInfo serverMetadata = _api->requestMetadataAndWait(_filename);
+    QDropboxFileInfo serverMetadata = _api->requestMetadataAndWait(_filename);
 #ifdef QTDROPBOX_DEBUG
-	qDebug() << "QDropboxFile::hasChanged() local  revision hash = " << _metadata->revisionHash() << endl;
-	qDebug() << "QDropboxFile::hasChanged() remote revision hash = " << serverMetadata.revisionHash() << endl;
+    qDebug() << "QDropboxFile::hasChanged() local  revision hash = " << _metadata->revisionHash() << endl;
+    qDebug() << "QDropboxFile::hasChanged() remote revision hash = " << serverMetadata.revisionHash() << endl;
 #endif
-	return serverMetadata.revisionHash().compare(_metadata->revisionHash())!=0;
+    return serverMetadata.revisionHash().compare(_metadata->revisionHash())!=0;
 }
 
 void QDropboxFile::obtainMetadata()
 {
-	// get metadata of this file
-	_metadata = new QDropboxFileInfo(_api->requestMetadataAndWait(_filename).strContent(), this);
-	if(!_metadata->isValid())
-		_metadata->clear();
-	return;
+    // get metadata of this file
+    _metadata = new QDropboxFileInfo(_api->requestMetadataAndWait(_filename).strContent(), this);
+    if(!_metadata->isValid())
+        _metadata->clear();
+    return;
 }
 
 QList<QDropboxFileInfo> QDropboxFile::revisions(int max)
 {
-	QList<QDropboxFileInfo> revisions = _api->requestRevisionsAndWait(_filename, max);
-	if(_api->error() != QDropbox::NoError)
-		revisions.clear();
+    QList<QDropboxFileInfo> revisions = _api->requestRevisionsAndWait(_filename, max);
+    if(_api->error() != QDropbox::NoError)
+        revisions.clear();
 
-	return revisions;
+    return revisions;
 }
 
 bool QDropboxFile::seek(qint64 pos)
 {
-	if(pos > _buffer->size())
-		return false;
+    if(pos > _buffer->size())
+        return false;
 
-	QIODevice::seek(pos);
-	_position = pos;
-	return true;
+    QIODevice::seek(pos);
+    _position = pos;
+    return true;
 }
 
 qint64 QDropboxFile::pos() const
 {
-	return _position;
+    return _position;
 }
 
 bool QDropboxFile::reset()
 {
-	QIODevice::reset();
-	_position = 0;
-	return true;
+    QIODevice::reset();
+    _position = 0;
+    return true;
 }

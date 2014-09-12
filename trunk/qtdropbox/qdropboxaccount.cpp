@@ -1,17 +1,18 @@
 #include "qdropboxaccount.h"
 
 QDropboxAccount::QDropboxAccount(QObject *parent) :
-    QDropboxJson(parent)
+    QDropboxJson(parent),
+    _uid(0),
+    _quotaShared(0),
+    _quota(0),
+    _quotaNormal(0)
 {
-    _quotaShared = 0;
-    _quota       = 0;
-    _quotaNormal = 0;
 }
 
 QDropboxAccount::QDropboxAccount(QString jsonString, QObject *parent) :
     QDropboxJson(jsonString, parent)
 {
-	_init();
+    _init();
 }
 
 QDropboxAccount::QDropboxAccount(const QDropboxAccount& other) :
