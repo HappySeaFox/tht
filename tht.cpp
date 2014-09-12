@@ -2216,7 +2216,7 @@ void THT::slotMessageReceived(const QString &msg)
                 QMetaObject::invokeMethod(list, "copyRight", Qt::AutoConnection, Q_ARG(Ticker, list->currentTickerInfo()));
             else if(rxCopyTo.exactMatch(msg))
             {
-                int listN = rxCopyTo.cap(1).toInt();
+                const int listN = rxCopyTo.cap(1).toInt();
 
                 if(listN < 1)
                     qWarning("Cannot convert list number");
