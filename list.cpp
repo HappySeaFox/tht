@@ -137,7 +137,7 @@ List::List(int group, QWidget *parent) :
     //: This is the label on a menu item that user clicks to issue the command
     menu->addAction(file_icon, tr("Export to file...") + "\tE", this, SLOT(slotExportToFile()));
     //: This is the label on a menu item that user clicks to issue the command
-    menu->addAction(tr("Export to clipboard") + "\tC", this, SLOT(slotExportToClipboard()));
+    menu->addAction(tr("Export to clipboard") + "\tC", this, SLOT(exportToClipboard()));
     ui->pushExport->setMenu(menu);
 
     embedPlugins(Plugin::ExportTickersTo, menu);
@@ -362,7 +362,7 @@ bool List::eventFilter(QObject *obj, QEvent *event)
                     break;
 
                     case Qt::Key_C:
-                        slotExportToClipboard();
+                        exportToClipboard();
                     break;
 
                     case Qt::Key_E:
@@ -1554,7 +1554,7 @@ void List::slotRequestedTickersFromPlugin(int list)
     }
 }
 
-void List::slotExportToClipboard()
+void List::exportToClipboard()
 {
     qDebug("Exporting tickers to clipboard");
 

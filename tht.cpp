@@ -2125,6 +2125,7 @@ void THT::slotMessageReceived(const QString &msg)
      *  "clear" - clear the current list
      *  "undo-clear" - undo clearing of the current list
      *
+     *  "copy" - copy tickers from the current list to the clipboard
      *  "copy-left" - copy the current ticker to the list on the left
      *  "copy-right" - copy the current ticker to the list on the right
      *  "copy-to <list number>" - copy the current ticker to the list [1...N]
@@ -2207,6 +2208,8 @@ void THT::slotMessageReceived(const QString &msg)
                 list->clear();
             else if(msg == "undo-clear")
                 list->undo();
+            else if(msg == "copy")
+                list->exportToClipboard();
             else if(msg == "copy-left")
                 QMetaObject::invokeMethod(list, "copyLeft", Qt::AutoConnection, Q_ARG(Ticker, list->currentTickerInfo()));
             else if(msg == "copy-right")

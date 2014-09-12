@@ -141,6 +141,7 @@ public slots:
     void paste();
     void sort();
     void resetPriorities();
+    void exportToClipboard();
 
 private slots:
     void slotAddOne();
@@ -148,7 +149,6 @@ private slots:
     void slotAddFromFile();
     void slotSave();
     void slotExportToFile();
-    void slotExportToClipboard();
     void slotResetPriority();
     void slotSearchTicker(const QString &);
     void slotSearchTickerNext();
