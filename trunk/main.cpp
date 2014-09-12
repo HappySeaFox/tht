@@ -75,7 +75,8 @@ static void thtOutput(QtMsgType type, const char *msg)
                      QDesktopServices::storageLocation(QDesktopServices::TempLocation)
 #endif
                      + QDir::separator()
-                     + "tht.log");
+                     + QCoreApplication::applicationName()
+                     + ".log");
 
     static bool failed = false;
 
@@ -171,6 +172,10 @@ int main(int argc, char *argv[])
 
     const qint64 v = QDateTime::currentMSecsSinceEpoch();
 
+    QCoreApplication::setApplicationName("THT");
+    QCoreApplication::setOrganizationName("THT");
+    QCoreApplication::setApplicationVersion(NVER_STRING);
+
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
     qInstallMessageHandler(thtOutput);
 #else
@@ -178,10 +183,6 @@ int main(int argc, char *argv[])
 #endif
 
     qDebug("Starting at %s", qPrintable(QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss")));
-
-    QCoreApplication::setApplicationName("THT");
-    QCoreApplication::setOrganizationName("THT");
-    QCoreApplication::setApplicationVersion(NVER_STRING);
 
     QtSingleApplication app(argc, argv);
 
