@@ -75,7 +75,7 @@ static void thtOutput(QtMsgType type, const char *msg)
                      QDesktopServices::storageLocation(QDesktopServices::TempLocation)
 #endif
                      + QDir::separator()
-                     + QCoreApplication::applicationName()
+                     + QCoreApplication::applicationName().toLower()
                      + ".log");
 
     static bool failed = false;
