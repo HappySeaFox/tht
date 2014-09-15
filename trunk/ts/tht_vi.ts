@@ -66,13 +66,13 @@
         <translation>Đây là phiên bản mới nhất</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="144"/>
+        <location filename="../about.cpp" line="148"/>
         <source>Cannot check for updates (%1)</source>
         <extracomment>%1 will be replaced with the error code by the application. It will look like &quot;Cannot check for updates (Server is unavailable)&quot;</extracomment>
         <translation>Không thể kiểm tra cập nhật (%1)</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="159"/>
+        <location filename="../about.cpp" line="163"/>
         <source>Checking for updates...</source>
         <translation>Đang kiểm tra cập nhật...</translation>
     </message>

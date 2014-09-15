@@ -66,13 +66,13 @@
         <translation>THTは最新です</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="144"/>
+        <location filename="../about.cpp" line="148"/>
         <source>Cannot check for updates (%1)</source>
         <extracomment>%1 will be replaced with the error code by the application. It will look like &quot;Cannot check for updates (Server is unavailable)&quot;</extracomment>
         <translation>(%1) の更新情報を確認できません</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="159"/>
+        <location filename="../about.cpp" line="163"/>
         <source>Checking for updates...</source>
         <translation>更新情報をチェックしています...</translation>
     </message>
