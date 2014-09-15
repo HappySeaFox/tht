@@ -817,13 +817,13 @@ en el botón derecho/central del ratón para cancelar.</translation>
         <translation>Puntos nuevos</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2339"/>
+        <location filename="../tht.cpp" line="2362"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <extracomment>Message displayed to the user in the April Fool&apos;s day. Preferably copy the translation from &quot;The Little Golden Calf&quot; by I.Ilf, E.Petrov, Chapter 10 &quot;A Telegram from the Brothers Karamazov&quot; (http://en.wikipedia.org/wiki/The_Little_Golden_Calf). If you don&apos;t have the book or its online translation then translate as usual</extracomment>
         <translation>Todas las grandes fortunas actuales fueron obtenidas&lt;br&gt;de la manera más deshonrosa.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2341"/>
+        <location filename="../tht.cpp" line="2364"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <extracomment>See http://en.wikipedia.org/wiki/The_Little_Golden_Calf</extracomment>
         <translation>&quot;El becerro de oro&quot;, I.Ilf, E.Petrov</translation>
