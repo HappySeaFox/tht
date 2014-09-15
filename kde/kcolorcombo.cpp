@@ -148,7 +148,7 @@ void KColorCombo::addColor(const QColor &color, const QString &name, const QStri
 {
     addItem(name, QVariant::fromValue(KColorComboItemDataType(fileForData, color)));
 
-    // color
+    // colors
     setItemData(count()-1, color, KColorComboDelegate::ColorRole);
     setItemData(count()-1, QColor(color.value() > 128 ? Qt::black : Qt::white), KColorComboDelegate::TextColorRole);
 }
