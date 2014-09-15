@@ -27,8 +27,9 @@
 #include "kcolorcombo.h"
 
 #include <QAbstractItemDelegate>
-#include <QApplication>
 #include <QStylePainter>
+#include <QApplication>
+#include <QColor>
 
 class KColorComboDelegate : public QAbstractItemDelegate
 {
@@ -149,12 +150,7 @@ void KColorCombo::addColor(const QColor &color, const QString &name, const QStri
 
     // color
     setItemData(count()-1, color, KColorComboDelegate::ColorRole);
-
-    // text color
-    int h, s, v;
-    color.getHsv(&h, &s, &v);
-
-    setItemData(count()-1, v > 128 ? Qt::black : Qt::white, KColorComboDelegate::TextColorRole);
+    setItemData(count()-1, QColor(color.value() > 128 ? Qt::black : Qt::white), KColorComboDelegate::TextColorRole);
 }
 
 void KColorCombo::paintEvent(QPaintEvent *event)
