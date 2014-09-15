@@ -2202,6 +2202,8 @@ void THT::slotMessageReceived(const QString &msg)
             }
         }
 
+        bool reactivateWindow = true;
+
         if(list)
         {
             if(msg == "clear")
@@ -2225,18 +2227,6 @@ void THT::slotMessageReceived(const QString &msg)
             }
             else if(msg == "delete")
                 list->deleteCurrent();
-            else if(msg == "load-first")
-                list->loadItem(List::LoadItemFirst);
-            else if(msg == "load-last")
-                list->loadItem(List::LoadItemLast);
-            else if(msg == "load-previous")
-                list->loadItem(List::LoadItemPrevious);
-            else if(msg == "load-previous-page")
-                list->loadItem(List::LoadItemPageUp);
-            else if(msg == "load-next")
-                list->loadItem(List::LoadItemNext);
-            else if(msg == "load-next-page")
-                list->loadItem(List::LoadItemPageDown);
             else if(msg == "paste")
                 list->paste();
             else if(msg == "priority-up")
@@ -2245,7 +2235,7 @@ void THT::slotMessageReceived(const QString &msg)
                 list->changePriority(-1);
             else if(rxPrioritySet.exactMatch(msg))
             {
-                int priority = rxPrioritySet.cap(1).toInt();
+                const int priority = rxPrioritySet.cap(1).toInt();
 
                 if(priority < 1)
                     qWarning("Cannot convert priority value");
@@ -2256,12 +2246,45 @@ void THT::slotMessageReceived(const QString &msg)
                 list->resetPriorities();
             else if(msg == "sort")
                 list->sort();
+            else if(msg == "load-first")
+            {
+                list->loadItem(List::LoadItemFirst);
+                reactivateWindow = false;
+            }
+            else if(msg == "load-last")
+            {
+                list->loadItem(List::LoadItemLast);
+                reactivateWindow = false;
+            }
+            else if(msg == "load-previous")
+            {
+                list->loadItem(List::LoadItemPrevious);
+                reactivateWindow = false;
+            }
+            else if(msg == "load-previous-page")
+            {
+                list->loadItem(List::LoadItemPageUp);
+                reactivateWindow = false;
+            }
+            else if(msg == "load-next")
+            {
+                list->loadItem(List::LoadItemNext);
+                reactivateWindow = false;
+            }
+            else if(msg == "load-next-page")
+            {
+                list->loadItem(List::LoadItemPageDown);
+                reactivateWindow = false;
+            }
         }
         else
             qWarning("Cannot determine the current list");
 
-        activateRightWindowAtEnd();
-        m_wasActiveForeignWindow = 0;
+        if(reactivateWindow)
+        {
+            activateRightWindowAtEnd();
+            m_wasActiveForeignWindow = 0;
+        }
     }
 }
 
