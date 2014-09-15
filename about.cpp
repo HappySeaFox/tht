@@ -131,6 +131,8 @@ void About::slotNewVersion(const QString &newVersion)
         tooltip = tr("THT is up to date");
     }
 
+    delete ui->labelUpdate->movie();
+
     ui->labelUpdate->setText(text);
     ui->labelUpdate->setToolTip(tooltip);
 }
@@ -138,6 +140,8 @@ void About::slotNewVersion(const QString &newVersion)
 void About::slotError(const QString &err)
 {
     m_timer->stop();
+
+    delete ui->labelUpdate->movie();
 
     ui->labelUpdate->setPixmap(QPixmap(":/images/error.png"));
     //: %1 will be replaced with the error code by the application. It will look like "Cannot check for updates (Server is unavailable)"
