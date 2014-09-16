@@ -2276,6 +2276,8 @@ void THT::slotMessageReceived(const QString &msg)
                 list->loadItem(List::LoadItemPageDown);
                 reactivateWindow = false;
             }
+            else
+                qWarning("Unknown IPC command \"%s\"", qPrintable(msg));
         }
         else
             qWarning("Cannot determine the current list");

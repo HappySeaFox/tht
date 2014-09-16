@@ -815,13 +815,13 @@ right/middle mouse button to cancel.</source>
         <translation>新しいポイント</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2362"/>
+        <location filename="../tht.cpp" line="2364"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <extracomment>Message displayed to the user in the April Fool&apos;s day. Preferably copy the translation from &quot;The Little Golden Calf&quot; by I.Ilf, E.Petrov, Chapter 10 &quot;A Telegram from the Brothers Karamazov&quot; (http://en.wikipedia.org/wiki/The_Little_Golden_Calf). If you don&apos;t have the book or its online translation then translate as usual</extracomment>
         <translation>すべての莫大な現代資産は、最も不名誉な手段で &lt;br&gt; 取得されています。</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2364"/>
+        <location filename="../tht.cpp" line="2366"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <extracomment>See http://en.wikipedia.org/wiki/The_Little_Golden_Calf</extracomment>
         <translation>「黄金の仔牛」I・イリフ、E・ペトロフ</translation>
