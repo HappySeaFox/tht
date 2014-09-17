@@ -79,11 +79,11 @@ protected:
      *  plugins' widgets. The containters are created in the bootom of the
      *  THT window like that:
      *
-     *  |                                        |
-     *  |    +----------++----------+            |
-     *  | +  | LEFT     ||    RIGHT | [] =N  \/  |
-     *  |    +----------++----------+            |
-     *  +----------------------------------------+
+     *  |                                   |
+     *  |    +----------++----------+       |
+     *  | +  | LEFT     ||    RIGHT |   \/  |
+     *  |    +----------++----------+       |
+     *  +-----------------------------------+
      *
      *
      *  Any plugin can embed widgets to them
