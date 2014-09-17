@@ -203,8 +203,10 @@ int main(int argc, char *argv[])
 
         for(int i = isIpc+1;i < arguments.size();i++)
         {
-            if(!arguments.at(i).startsWith('-'))
-                ipcArguments.append(arguments.at(i));
+            if(arguments.at(i).startsWith('-'))
+                break;
+
+            ipcArguments.append(arguments.at(i));
         }
 
         if(!ipcArguments.isEmpty())
