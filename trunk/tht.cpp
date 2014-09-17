@@ -119,8 +119,8 @@ static void CALLBACK WinEventProcCallback(HWINEVENTHOOK hWinEventHook,
         QString::fromUtf8(title);
 #endif
 
-    static QRegExp rx1("[\\(\\[]{1}(" + Tools::tickerValidator().pattern() + ")[\\)\\]]{1}");
-    static QRegExp rx2("\\s*(" + Tools::tickerValidator().pattern() + ")[\\s,:;|/\\\\]+");
+    static const QRegExp rx1("[\\(\\[]{1}(" + Tools::tickerValidator().pattern() + ")[\\)\\]]{1}");
+    static const QRegExp rx2("\\s*(" + Tools::tickerValidator().pattern() + ")[\\s,:;|/\\\\]+");
 
     QString ticker;
 
