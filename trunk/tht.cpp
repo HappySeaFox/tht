@@ -2277,7 +2277,7 @@ void THT::slotMessageReceived(const QString &msg)
                 reactivateWindow = false;
             }
             else
-                qWarning("Unknown IPC command \"%s\"", qPrintable(msg));
+                qWarning("Unsupported IPC command \"%s\"", qPrintable(msg));
         }
         else
             qWarning("Cannot determine the current list");
