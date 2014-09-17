@@ -806,24 +806,24 @@ right/middle mouse button to cancel.</source>
         <translation>Неизвестные</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1525"/>
+        <location filename="../tht.cpp" line="1527"/>
         <source>Cannot take screenshot</source>
         <extracomment>Message displayed to the user</extracomment>
         <translation>Невозможно сделать снимок экрана</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="1571"/>
+        <location filename="../tht.cpp" line="1573"/>
         <source>New points</source>
         <translation>Новые точки</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2364"/>
+        <location filename="../tht.cpp" line="2366"/>
         <source>All large contemporary fortunes were acquired&lt;br&gt;in the most dishonorable way.</source>
         <extracomment>Message displayed to the user in the April Fool&apos;s day. Preferably copy the translation from &quot;The Little Golden Calf&quot; by I.Ilf, E.Petrov, Chapter 10 &quot;A Telegram from the Brothers Karamazov&quot; (http://en.wikipedia.org/wiki/The_Little_Golden_Calf). If you don&apos;t have the book or its online translation then translate as usual</extracomment>
         <translation>Все крупные современные состояния нажиты&lt;br&gt;самым бесчестным путём.</translation>
     </message>
     <message>
-        <location filename="../tht.cpp" line="2366"/>
+        <location filename="../tht.cpp" line="2368"/>
         <source>&quot;The Little Golden Calf&quot; I.Ilf, E.Petrov</source>
         <extracomment>See http://en.wikipedia.org/wiki/The_Little_Golden_Calf</extracomment>
         <translation>&quot;Золотой Телёнок&quot; И.Ильф, Е.Петров</translation>
