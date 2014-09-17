@@ -1114,6 +1114,8 @@ void THT::loadTicker(const QString &ticker, MasterLoadingPolicy masterPolicy)
     if(m_windows->isEmpty())
     {
         qDebug("No windows configured");
+        activateRightWindowAtEnd();
+        m_wasActiveForeignWindow = 0;
         return;
     }
 
