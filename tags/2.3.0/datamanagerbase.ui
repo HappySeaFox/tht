@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <author>Dmitry Baryshev</author>
+ <class>DataManagerBase</class>
+ <widget class="QDialog" name="DataManagerBase">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>477</width>
+    <height>220</height>
+   </rect>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0" rowspan="8">
+    <widget class="QTreeWidget" name="tree">
+     <property name="alternatingRowColors">
+      <bool>true</bool>
+     </property>
+     <property name="itemsExpandable">
+      <bool>false</bool>
+     </property>
+     <property name="allColumnsShowFocus">
+      <bool>true</bool>
+     </property>
+     <property name="columnCount">
+      <number>2</number>
+     </property>
+     <attribute name="headerVisible">
+      <bool>true</bool>
+     </attribute>
+     <column>
+      <property name="text">
+       <string>Name</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string/>
+      </property>
+     </column>
+    </widget>
+   </item>
+   <item row="0" column="1" colspan="2">
+    <widget class="QPushButton" name="pushAdd"/>
+   </item>
+   <item row="1" column="1" colspan="2">
+    <widget class="QPushButton" name="pushDelete">
+     <property name="text">
+      <string extracomment="This is the label on a button that user pushes to issue the command. Means &quot;Delete the current item&quot;">Delete</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QPushButton" name="pushUp">
+     <property name="icon">
+      <iconset resource="tht.qrc">
+       <normaloff>:/images/arrow-up.png</normaloff>:/images/arrow-up.png</iconset>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="2">
+    <widget class="QPushButton" name="pushDown">
+     <property name="icon">
+      <iconset resource="tht.qrc">
+       <normaloff>:/images/arrow-down.png</normaloff>:/images/arrow-down.png</iconset>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1" colspan="2">
+    <widget class="Line" name="line">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="1" colspan="2">
+    <widget class="QPushButton" name="pushClear">
+     <property name="text">
+      <string extracomment="This is the label on a button that user pushes to issue the command. Means &quot;Delete all items&quot;">Clear</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="1" colspan="2">
+    <widget class="QWidget" name="widgetButtons" native="true"/>
+   </item>
+   <item row="6" column="2">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>0</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="7" column="1" colspan="2">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="tht.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>pushClear</sender>
+   <signal>clicked()</signal>
+   <receiver>DataManagerBase</receiver>
+   <slot>slotClear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>370</x>
+     <y>151</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>596</x>
+     <y>145</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushUp</sender>
+   <signal>clicked()</signal>
+   <receiver>DataManagerBase</receiver>
+   <slot>slotUp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>348</x>
+     <y>111</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>355</x>
+     <y>359</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushDown</sender>
+   <signal>clicked()</signal>
+   <receiver>DataManagerBase</receiver>
+   <slot>slotDown()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>387</x>
+     <y>110</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>405</x>
+     <y>383</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushDelete</sender>
+   <signal>clicked()</signal>
+   <receiver>DataManagerBase</receiver>
+   <slot>slotDelete()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>367</x>
+     <y>78</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>646</x>
+     <y>72</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushAdd</sender>
+   <signal>clicked()</signal>
+   <receiver>DataManagerBase</receiver>
+   <slot>slotAdd()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>377</x>
+     <y>49</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>612</x>
+     <y>54</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>DataManagerBase</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>360</x>
+     <y>223</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>361</x>
+     <y>422</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>DataManagerBase</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>378</x>
+     <y>231</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>375</x>
+     <y>369</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tree</sender>
+   <signal>itemChanged(QTreeWidgetItem*,int)</signal>
+   <receiver>DataManagerBase</receiver>
+   <slot>slotItemChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>198</x>
+     <y>193</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>213</x>
+     <y>337</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>slotAdd()</slot>
+  <slot>slotDelete()</slot>
+  <slot>slotUp()</slot>
+  <slot>slotDown()</slot>
+  <slot>slotClear()</slot>
+  <slot>slotItemChanged()</slot>
+ </slots>
+</ui>
