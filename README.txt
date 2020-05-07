@@ -1,7 +1,7 @@
 Trader's Home Task
 ------------------
 
-Author: Dmitry Baryshev <linuxsquirrel.dev@gmail.com>
+Author: Dmitry Baryshev <dmitrymq@gmail.com>
 License: GNU GPLv3+ (see LICENSE.txt),
          Qxt parts are under GNU LGPL 2.1 (see LICENSE-LGPL-2.1.txt) or CPL 1.0,
          THT-lib is under GNU LGPL 2.1 (see LICENSE-LGPL-2.1.txt),

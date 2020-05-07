@@ -40,7 +40,7 @@
 
 /**********************************************************************
  *   Copyright (C) 2013 by Dmitry 'Krasu' Baryshev                    *
- *   linuxsquirrel.dev@gmail.com                                      *
+ *   dmitrymq@gmail.com                                               *
  **********************************************************************/
 
 #ifndef QTLOCALPEER_H

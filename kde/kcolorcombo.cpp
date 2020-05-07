@@ -21,7 +21,7 @@
 
 /**********************************************************************
  *   Copyright (C) 2014 by Dmitry 'Krasu' Baryshev                    *
- *   linuxsquirrel.dev@gmail.com                                      *
+ *   dmitrymq@gmail.com                                               *
  **********************************************************************/
 
 #include "kcolorcombo.h"

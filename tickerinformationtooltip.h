@@ -41,7 +41,7 @@
 
 /***************************************************************************
  *   Copyright (C) 2012 by Dmitry 'Krasu' Baryshev                         *
- *   linuxsquirrel.dev@gmail.com                                           *
+ *   dmitrymq@gmail.com                                                    *
  ***************************************************************************/
 
 #ifndef TICKERINFORMATIONTOOLTIP_H

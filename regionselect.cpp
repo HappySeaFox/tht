@@ -20,7 +20,7 @@
 
 /***************************************************************************
  *   Copyright (C) 2010,2012 by Dmitry 'Krasu' Baryshev                    *
- *   linuxsquirrel.dev@gmail.com                                           *
+ *   dmitrymq@gmail.com                                                    *
  ***************************************************************************/
 
 #include <QDesktopWidget>
