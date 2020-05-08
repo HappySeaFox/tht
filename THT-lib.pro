@@ -53,6 +53,8 @@ HEADERS += datamanagerbase.h \
 FORMS += datamanagerbase.ui \
     networkaccessdialog.ui
 
+LIBS += -lUser32 -lAdvapi32
+
 RC_FILE = tht-lib.rc
 
 include(THT-common.pri)
