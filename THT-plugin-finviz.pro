@@ -10,27 +10,30 @@ NVER3=0
 DEFINES += FINVIZ=\\\"finviz.com\\\"
 DEFINES += FINVIZ_ELITE=\\\"elite.finviz.com\\\"
 
-SOURCES += finvizurlmanager.cpp \
-    finvizdownloader.cpp \
-    finvizlinkselector.cpp \
-    finvizcookiejar.cpp \
-    finvizaccesssetup.cpp \
-    finvizplugin.cpp \
-    finviztools.cpp \
-    finvizurl.cpp
+INCLUDEPATH += ..
+DEPENDPATH += ..
 
-HEADERS += finvizurlmanager.h \
-    finvizdownloader.h \
-    finvizlinkselector.h \
-    finvizcookiejar.h \
-    finvizaccesssetup.h \
-    finvizplugin.h \
-    finvizurl.h \
-    finviztools.h
+SOURCES += plugins/finviz/finvizurlmanager.cpp \
+    plugins/finviz/finvizdownloader.cpp \
+    plugins/finviz/finvizlinkselector.cpp \
+    plugins/finviz/finvizcookiejar.cpp \
+    plugins/finviz/finvizaccesssetup.cpp \
+    plugins/finviz/finvizplugin.cpp \
+    plugins/finviz/finviztools.cpp \
+    plugins/finviz/finvizurl.cpp
+
+HEADERS += plugins/finviz/finvizurlmanager.h \
+    plugins/finviz/finvizdownloader.h \
+    plugins/finviz/finvizlinkselector.h \
+    plugins/finviz/finvizcookiejar.h \
+    plugins/finviz/finvizaccesssetup.h \
+    plugins/finviz/finvizplugin.h \
+    plugins/finviz/finvizurl.h \
+    plugins/finviz/finviztools.h
 
 FORMS += \
-    finvizlinkselector.ui \
-    finvizaccesssetup.ui
+    plugins/finviz/finvizlinkselector.ui \
+    plugins/finviz/finvizaccesssetup.ui
 
 RESOURCES += THT-plugin-finviz.qrc
 

@@ -7,11 +7,11 @@ NVER1=0
 NVER2=9
 NVER3=0
 
-SOURCES += briefingsplitsplugin.cpp \
-    briefingsplitsdownloader.cpp
+SOURCES += plugins/briefing/briefingsplitsplugin.cpp \
+    plugins/briefing/briefingsplitsdownloader.cpp
 
-HEADERS += briefingsplitsplugin.h \
-    briefingsplitsdownloader.h
+HEADERS += plugins/briefing/briefingsplitsplugin.h \
+    plugins/briefing/briefingsplitsdownloader.h
 
 RESOURCES += THT-plugin-briefing-splits.qrc
 

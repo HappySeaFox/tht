@@ -7,8 +7,8 @@ NVER1=0
 NVER2=8
 NVER3=1
 
-SOURCES += fomcplugin.cpp
-HEADERS += fomcplugin.h
+SOURCES += plugins/fomc/fomcplugin.cpp
+HEADERS += plugins/fomc/fomcplugin.h
 
 THT_PLUGIN_NAME="FOMC"
 THT_PLUGIN_AUTHOR="Dmitry Baryshev"

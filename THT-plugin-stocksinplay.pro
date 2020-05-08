@@ -9,34 +9,34 @@ NVER3=1
 
 DEFINES += STOCKSINPLAY=\\\"www.stocksinplay.ru\\\"
 
-SOURCES += stocksinplayurlmanager.cpp \
-    stocksinplaydownloader.cpp \
-    stocksinplaylinkselector.cpp \
-    stocksinplaycookiejar.cpp \
-    stocksinplayaccesssetup.cpp \
-    stocksinplayplugin.cpp \
-    stocksinplaylogincookiejar.cpp \
-    stocksinplaycredentials.cpp \
-    stocksinplaylogin.cpp \
-    stocksinplaytools.cpp \
-    stocksinplayurl.cpp
+SOURCES += plugins/stocksinplay/stocksinplayurlmanager.cpp \
+    plugins/stocksinplay/stocksinplaydownloader.cpp \
+    plugins/stocksinplay/stocksinplaylinkselector.cpp \
+    plugins/stocksinplay/stocksinplaycookiejar.cpp \
+    plugins/stocksinplay/stocksinplayaccesssetup.cpp \
+    plugins/stocksinplay/stocksinplayplugin.cpp \
+    plugins/stocksinplay/stocksinplaylogincookiejar.cpp \
+    plugins/stocksinplay/stocksinplaycredentials.cpp \
+    plugins/stocksinplay/stocksinplaylogin.cpp \
+    plugins/stocksinplay/stocksinplaytools.cpp \
+    plugins/stocksinplay/stocksinplayurl.cpp
 
-HEADERS += stocksinplayurlmanager.h \
-    stocksinplaydownloader.h \
-    stocksinplaylinkselector.h \
-    stocksinplaycookiejar.h \
-    stocksinplayaccesssetup.h \
-    stocksinplayplugin.h \
-    stocksinplayurl.h \
-    stocksinplaylogincookiejar.h \
-    stocksinplaycredentials.h \
-    stocksinplaylogin.h \
-    stocksinplaytools.h
+HEADERS += plugins/stocksinplay/stocksinplayurlmanager.h \
+    plugins/stocksinplay/stocksinplaydownloader.h \
+    plugins/stocksinplay/stocksinplaylinkselector.h \
+    plugins/stocksinplay/stocksinplaycookiejar.h \
+    plugins/stocksinplay/stocksinplayaccesssetup.h \
+    plugins/stocksinplay/stocksinplayplugin.h \
+    plugins/stocksinplay/stocksinplayurl.h \
+    plugins/stocksinplay/stocksinplaylogincookiejar.h \
+    plugins/stocksinplay/stocksinplaycredentials.h \
+    plugins/stocksinplay/stocksinplaylogin.h \
+    plugins/stocksinplay/stocksinplaytools.h
 
 FORMS += \
-    stocksinplaylinkselector.ui \
-    stocksinplayaccesssetup.ui \
-    stocksinplaycredentials.ui
+    plugins/stocksinplay/stocksinplaylinkselector.ui \
+    plugins/stocksinplay/stocksinplayaccesssetup.ui \
+    plugins/stocksinplay/stocksinplaycredentials.ui
 
 RESOURCES += THT-plugin-stocksinplay.qrc
 

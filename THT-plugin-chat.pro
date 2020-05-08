@@ -24,38 +24,38 @@ lessThan(QT_MAJOR_VERSION, 5) {
 }
 
 # chat files
-SOURCES += chatwindow.cpp \
-    chatpage.cpp \
-    roominfo.cpp \
-    messagedialog.cpp \
-    coloranimation.cpp \
-    chatplugin.cpp \
-    chatoptions.cpp \
-    chattools.cpp \
-    chatmessages.cpp \
-    configureroom.cpp \
-    sendinvitations.cpp
+SOURCES += plugins/chat/chatwindow.cpp \
+    plugins/chat/chatmessages.cpp \
+    plugins/chat/chatoptions.cpp \
+    plugins/chat/chatpage.cpp \
+    plugins/chat/chatplugin.cpp \
+    plugins/chat/chattools.cpp \
+    plugins/chat/coloranimation.cpp \
+    plugins/chat/configureroom.cpp \
+    plugins/chat/messagedialog.cpp \
+    plugins/chat/roominfo.cpp \
+    plugins/chat/sendinvitations.cpp
 
-HEADERS += chatwindow.h \
-    chatpage.h \
-    roominfo.h \
-    messagedialog.h \
-    coloranimation.h \
-    chatplugin.h \
-    chatsettings.h \
-    chatoptions.h \
-    chattools.h \
-    chatmessages.h \
-    configureroom.h \
-    sendinvitations.h
+HEADERS += plugins/chat/chatwindow.h \
+    plugins/chat/chatmessages.h \
+    plugins/chat/chatoptions.h \
+    plugins/chat/chatpage.h \
+    plugins/chat/chatplugin.h \
+    plugins/chat/chatsettings.h \
+    plugins/chat/chattools.h \
+    plugins/chat/coloranimation.h \
+    plugins/chat/configureroom.h \
+    plugins/chat/messagedialog.h \
+    plugins/chat/roominfo.h \
+    plugins/chat/sendinvitations.h
 
-FORMS += chatwindow.ui \
-    chatpage.ui \
-    messagedialog.ui \
-    chatoptions.ui \
-    chatmessages.ui \
-    configureroom.ui \
-    sendinvitations.ui
+FORMS += plugins/chat/chatwindow.ui \
+    plugins/chat/chatmessages.ui \
+    plugins/chat/chatoptions.ui \
+    plugins/chat/chatpage.ui \
+    plugins/chat/configureroom.ui \
+    plugins/chat/messagedialog.ui \
+    plugins/chat/sendinvitations.ui
 
 RESOURCES += THT-plugin-chat.qrc
 
