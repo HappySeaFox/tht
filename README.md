@@ -1,9 +1,11 @@
 # Trader's Home Task
 
-Trader's Home Task (THT) helps you to do your home task in preparation for a working day on the U.S. stock market.
+Trader's Home Task (THT) helps you preparing for a working day on the U.S. stock market.
 It can link Advanced Get/ESignal, Thinkorswim, MBT Desktop Pro, Arche Pro, Takion, Graybox, Laser and other trading
 platforms together (see howto), manage a list of tickers, take screenshots, hide in the system tray, show sector & industry
 information, add tickers directly from Finviz, and has a wide list of hotkeys.
+
+YouTube tutorials: [https://www.youtube.com/user/thtng](https://www.youtube.com/user/thtng).
 
 :warning: THT is no longer maintained.
 
