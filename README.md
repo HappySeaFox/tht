@@ -9,6 +9,8 @@ information, add tickers directly from Finviz, and has a wide list of hotkeys.
 
 Author: Dmitry Baryshev
 
+![THT](github/tht.png?raw=true)
+
 ## Features overview
 
 - Indirectly link Advanced Get/ESignal, Arche Pro, Graybox, Laser Trade, ROX, Sterling Trader Pro, Takion, Thinkorswim and other platforms
