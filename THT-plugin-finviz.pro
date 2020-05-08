@@ -10,9 +10,6 @@ NVER3=0
 DEFINES += FINVIZ=\\\"finviz.com\\\"
 DEFINES += FINVIZ_ELITE=\\\"elite.finviz.com\\\"
 
-INCLUDEPATH += ..
-DEPENDPATH += ..
-
 SOURCES += plugins/finviz/finvizurlmanager.cpp \
     plugins/finviz/finvizdownloader.cpp \
     plugins/finviz/finvizlinkselector.cpp \
