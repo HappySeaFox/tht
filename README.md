@@ -21,6 +21,21 @@ Author: Dmitry Baryshev
 - Up to 8 ticker lists with priorities
 - Styles
 
+## Outdated features
+
+THT is not maintained anymore. The following features no longer work correctly.
+
+- Dropbox support
+- Briefing Stock Splits plugin
+- Stocks In Play plugin
+
+## Build requirements
+
+- Windows
+- MinGW-based Qt 4.x
+- MinGW compiler in PATH
+- `lupdate` and `lrelease` Qt4 tools in PATH
+
 ## Licensing notes:
 
 - GNU GPLv3+ (see LICENSE.txt)
