@@ -61,7 +61,7 @@ PluginLoader::PluginLoader(QObject *parent) : QObject(parent)
 
         if(!p.plugin_create || !p.plugin_destroy)
         {
-            qWarning("Cannot load library (%s)", qPrintable(p.library->errorString()));
+            qWarning("Cannot load plugin (%s)", qPrintable(p.library->errorString()));
             p.library->unload();
             delete p.library;
         }
@@ -169,7 +169,7 @@ void PluginLoader::unload()
 
     for(iterator it = begin();it != itEnd;++it)
     {
-        qDebug("Removing plugin \"%s\"", qPrintable((*it).library->fileName()));
+        qDebug("Unloading plugin \"%s\"", qPrintable((*it).library->fileName()));
 
         delete (*it).translator;
         (*it).plugin_destroy((*it).plugin);
