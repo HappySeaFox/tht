@@ -44,7 +44,7 @@ THT_PLUGIN_NAME="Stocks In Play"
 THT_PLUGIN_AUTHOR="Dmitry Baryshev"
 THT_PLUGIN_UUID="A7EACD66-3936-476D-8D0C-125F60108603"
 THT_PLUGIN_COPYRIGHT="(C) 2013 $$THT_PLUGIN_AUTHOR"
-THT_PLUGIN_URL="http://sourceforge.net/projects/tht"
+THT_PLUGIN_URL="https://github.com/smoked-herring/tht"
 THT_PLUGIN_LICENSE_TEXT="GNU GPLv3+. See http://www.gnu.org/licenses/gpl-3.0.txt"
 
 include(THT-common.pri)

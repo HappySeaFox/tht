@@ -29,8 +29,10 @@ UpdateChecker::UpdateChecker(QObject *parent) :
     m_lastVersion(NVER_STRING),
     m_rxVersion("^(\\d+)\\.(\\d+)\\.(\\d+)$"),
     m_rxNewLine("\\r?\\n"),
-    m_url(SVNROOT_FOR_DOWNLOAD "/THT-version.tag?format=raw")
+    m_url(GITROOT_FOR_DOWNLOAD "/THT-version.tag")
 {
+    qDebug("Update checker URL: %s", qPrintable(m_url.toString()));
+
     m_net = new NetworkAccess(this);
 
     connect(m_net, SIGNAL(finished()), this, SLOT(slotFinished()));

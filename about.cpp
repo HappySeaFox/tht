@@ -47,14 +47,14 @@ About::About(QWidget *parent) :
                                         "dmitrymq@gmail.com</a>&gt;").arg(tr("Dmitry Baryshev")));
 
     ui->labelUrl->setText(QString("<a href=\"%1\">%2</a> <a href=\"%3\">%4</a> <a href=\"%5\">%6</a> <a href=\"%7\">%8</a>")
-                            .arg(HTTPROOT "/wiki/howto")
+                            .arg(HTTPROOT "/blob/master/HOWTO.md")
                             .arg(tr("Documentation"))
-                            .arg(DOWNLOADROOT "/files/THT")
+                            .arg(DOWNLOADROOT)
                             //: Noun in the plural
                             .arg(tr("Downloads"))
                             .arg("http://www.transifex.com/projects/p/traders-home-task")
                             .arg(tr("Translations"))
-                            .arg(HTTPROOT "/youtube")
+                            .arg("https://www.youtube.com/user/thtng")
                             .arg(tr("Youtube"))
                             );
 
@@ -114,7 +114,7 @@ void About::slotNewVersion(const QString &newVersion)
     if(!newVersion.isEmpty())
     {
         text = "<html><head><meta name=\"qrichtext\" content=\"1\" /></head>"
-                "<body><a href=\"" DOWNLOADROOT "/files/THT/binaries\">"
+                "<body><a href=\"" DOWNLOADROOT "\">"
                     "<img src=\":/images/update.png\"></img>"
                 "</a>"
                 "</body></html>";

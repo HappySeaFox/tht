@@ -41,7 +41,7 @@ THT_PLUGIN_NAME="Finviz"
 THT_PLUGIN_AUTHOR="Dmitry Baryshev"
 THT_PLUGIN_UUID="0DB2CEDA-9A88-4E31-9E76-2FD77BEF0993"
 THT_PLUGIN_COPYRIGHT="(C) 2013 $$THT_PLUGIN_AUTHOR"
-THT_PLUGIN_URL="http://sourceforge.net/projects/tht"
+THT_PLUGIN_URL="https://github.com/smoked-herring/tht"
 THT_PLUGIN_LICENSE_TEXT="GNU GPLv3+. See http://www.gnu.org/licenses/gpl-3.0.txt"
 
 include(THT-common.pri)

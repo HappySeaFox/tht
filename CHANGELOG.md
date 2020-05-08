@@ -1,5 +1,5 @@
 ## 2.3.0
-- THT now has a communication channel for a remote control, see documentation http://sourceforge.net/p/tht/wiki/howto_en
+- THT now has a communication channel for a remote control, see documentation [HOWTO.md](HOWTO.md)
 - database updates on the site for old versions of THT have been discontinued
 - Dropbox code has been synchronized with Github
 

@@ -147,10 +147,9 @@ RC_FILE = tht.rc
 include(THT-common.pri)
 
 # network data
-SVNROOT_FOR_COMMIT="svn+ssh://dmitrykx@svn.code.sf.net/p/tht/code"
-SVNROOT_FOR_DOWNLOAD="http://sourceforge.net/p/tht/code/HEAD/tree/trunk"
-HTTPROOT="http://sourceforge.net/p/tht"
-DOWNLOADROOT="http://sourceforge.net/projects/tht"
+GITROOT_FOR_DOWNLOAD="https://github.com/smoked-herring/tht/raw/master"
+HTTPROOT="https://github.com/smoked-herring/tht"
+DOWNLOADROOT="https://github.com/smoked-herring/tht/releases"
 
 # files to copy to the distribution
 IMAGEPLUGINS=qico4.dll qjpeg4.dll
@@ -213,14 +212,9 @@ for(l, LANGUAGES) {
 # list of components' suffixes to install
 COMPONENTS=1 2 3 4 5
 
-DEFINES += SVNROOT_FOR_DOWNLOAD=$$sprintf("\"\\\"%1\\\"\"", $$SVNROOT_FOR_DOWNLOAD)
+DEFINES += GITROOT_FOR_DOWNLOAD=$$sprintf("\"\\\"%1\\\"\"", $$GITROOT_FOR_DOWNLOAD)
 DEFINES += HTTPROOT=$$sprintf("\"\\\"%1\\\"\"", $$HTTPROOT)
 DEFINES += DOWNLOADROOT=$$sprintf("\"\\\"%1\\\"\"", $$DOWNLOADROOT)
-
-tag.commands += $$mle(echo "$$VERSION"> "\"$${_PRO_FILE_PWD_}/THT-version.tag\"")
-tag.commands += $$mle(svn -m "\"$$VERSION file tag\"" commit "\"$${_PRO_FILE_PWD_}/THT-version.tag\"")
-tag.commands += $$mle(svn -m "\"$$VERSION tag\"" copy "\"$$SVNROOT_FOR_COMMIT/trunk\"" "\"$$SVNROOT_FOR_COMMIT/tags/$$VERSION\"")
-QMAKE_EXTRA_TARGETS += tag
 
 # copy database
 QMAKE_POST_LINK += $$mle(copy /y \"$${_PRO_FILE_PWD_}\\tickersdb\\tickers.sqlite\" \"$${OUT_PWD}/$(DESTDIR_TARGET)/..\")

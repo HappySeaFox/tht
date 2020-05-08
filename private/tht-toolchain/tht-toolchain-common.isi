@@ -1,7 +1,7 @@
 #define MyAppName "THT toolchain"
 #define MyAppInstallDir "THT-toolchain"
 #define MyAppPublisher "Dmitry Baryshev"
-#define MyAppURL "http://sourceforge.net/projects/tht"
+#define MyAppURL "https://github.com/smoked-herring/tht"
 
 ; versions
 #define MyAppVersion "1.1.0"
