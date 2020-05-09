@@ -25,6 +25,11 @@ Author: Dmitry Baryshev
 - Up to 8 ticker lists with priorities
 - Styles
 
+## Finviz notice
+
+Finviz requires having an Elite account in order to give access to filters (new highs and lows etc.). You can enter your Elite account
+credentials in `Top toolbars -> Add tickers -> Add from Finviz -> Customize -> Access`.
+
 ## Outdated features
 
 THT is not maintained anymore. The following features no longer work correctly.
