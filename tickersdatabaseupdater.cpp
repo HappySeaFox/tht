@@ -118,7 +118,15 @@ void TickersDatabaseUpdater::slotFinished()
     if(m_net->error() != QNetworkReply::NoError)
         return;
 
+#if 0
+    // Force using a local file instead
+    QFile file(QString("%1.csv").arg(m_exchanges.first()));
+    file.open(QIODevice::ReadOnly);
+
+    m_data.insert(m_exchanges.takeFirst(), file.readAll());
+#else
     m_data.insert(m_exchanges.takeFirst(), m_net->data());
+#endif
 
     if(!nextExchange())
     {
