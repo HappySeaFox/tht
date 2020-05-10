@@ -1,3 +1,7 @@
+## 2.4.0
+- Updated links in the About dialog
+- Updated the tickers database
+
 ## 2.3.0
 - THT now has a communication channel for a remote control, see documentation [HOWTO.md](HOWTO.md)
 - database updates on the site for old versions of THT have been discontinued
