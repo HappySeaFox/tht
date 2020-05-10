@@ -1,11 +1,12 @@
 #define MyAppName "Trader's Home Task"
 #define MyAppPublisher "Dmitry Baryshev"
 #define MyAppURL "https://github.com/smoked-herring/tht"
+#define MyAppVersion "2.4.0"
 
 [Setup]
 AppId={{16AE5DDE-D073-4F5F-ABC3-11DD9FBF58E3}
 AppName={#MyAppName}
-AppVersion=2.4.0
+AppVersion={#MyAppVersion}
 AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
@@ -14,7 +15,7 @@ DefaultDirName={pf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 LicenseFile=LICENSE.txt
 OutputDir=.
-OutputBaseFilename=tht-setup-2.3.0
+OutputBaseFilename=tht-setup-{#MyAppVersion}
 SetupIconFile=chart.ico
 Compression=lzma
 SolidCompression=yes
