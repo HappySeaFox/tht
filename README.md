@@ -38,6 +38,15 @@ THT is not maintained anymore. The following features no longer work correctly.
 - Briefing Stock Splits plugin
 - Stocks In Play plugin
 
+## YouTube tutorials
+
+- [How to link Advanced Get and Graybox windows](https://www.youtube.com/watch?v=UBgSxmDNyBk)
+- [How to link Thinkorswim charts](https://www.youtube.com/watch?v=c6G5PbT8BzA)
+- [How to use external linking with Microsoft Excel](https://www.youtube.com/watch?v=JH2YuYexfxE)
+- [How to link Thinkorswim and ROX externally (in Russian)](https://www.youtube.com/watch?v=hV7C87Mj2-U)
+- [How to link Thinkorswim and Aurora externally](https://www.youtube.com/watch?v=L2KVOYLglE8)
+- See more [here](https://www.youtube.com/user/thtng)
+
 ## Build requirements
 
 - Windows 7 or later
