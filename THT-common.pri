@@ -21,7 +21,10 @@ DEPENDPATH += . qxt
 LANGUAGES=da de en es fr it ja ko nl pl pt ru tr uk vi zh_CN
 
 CONFIG += warn_on
-QMAKE_CXXFLAGS_WARN_ON *= -Wextra
+
+*-gcc {
+    QMAKE_CXXFLAGS_WARN_ON *= -Wextra
+}
 
 VERSION=$$sprintf("%1.%2.%3", $$NVER1, $$NVER2, $$NVER3)
 
@@ -58,17 +61,6 @@ defineReplace(findexe) {
 # escape command to allow multiple lines in Makefile
 defineReplace(mle) {
     return ( $$1$$escape_expand(\\n\\t) )
-}
-
-# check for svn
-SVN=$$findexe("svn.exe")
-
-# check for gcc
-GCC=$$findexe("gcc.exe")
-GCCDIR=$$dirname(GCC)
-
-isEmpty(GCC) {
-    error("MinGW is not found in PATH")
 }
 
 TS_PREFIX=$$lower($$TARGET)
@@ -128,14 +120,4 @@ RFC3161_SERVER="http://timestamp.comodoca.com/rfc3161"
 # sign
 !isEmpty(SIGNTOOL):exists($$CERT) {
     QMAKE_POST_LINK += $$mle($$SIGNTOOL sign /d \"Trader\'s Home Task\" /du \"$$HTTPROOT\" /f \"$$CERT\" /tr \"$$RFC3161_SERVER\" /v \"$${OUT_PWD}/$(DESTDIR_TARGET)\")
-}
-
-# check for 7z
-ZIP=$$findexe("7z.exe")
-
-# INNO setup
-INNO=$$system(echo %ProgramFiles(x86)%)\\Inno Setup 5\\iscc.exe
-
-!exists($$INNO) {
-    INNO=$$system(echo %ProgramFiles%)\\Inno Setup 5\\iscc.exe
 }
