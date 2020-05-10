@@ -2,7 +2,7 @@ TARGET = THT
 TEMPLATE = app
 
 NVER1=2
-NVER2=3
+NVER2=4
 NVER3=0
 
 QT += core gui network xml sql
