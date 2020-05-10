@@ -1,6 +1,7 @@
 ## 2.4.0
 - Updated links in the About dialog
 - Updated the tickers database
+- Qt distribution updated to 4.8.7
 
 ## 2.3.0
 - THT now has a communication channel for a remote control, see documentation [HOWTO.md](HOWTO.md)
