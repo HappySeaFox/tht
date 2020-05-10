@@ -92,20 +92,6 @@ for(ts, TRANSLATIONS) {
     QMAKE_POST_LINK += $$mle(copy /y \"$$ts\" \"$${OUT_PWD}/$(DESTDIR_TARGET)/../translations\")
 }
 
-# check for upx
-UPX=$$findexe("upx.exe")
-
-!isEmpty(USEUPX) {
-    isEmpty(HOST64):!isEmpty(UPX) {
-        message("UPX is found, will pack $$TARGET after linking")
-
-        QMAKE_POST_LINK += $$mle($$UPX -9 \"$${OUT_PWD}/$(DESTDIR_TARGET)\")
-        export(QMAKE_POST_LINK)
-    } else {
-        warning("UPX is not found, will not pack $$TARGET")
-    }
-}
-
 # check for signtool
 SIGNTOOL=$$findexe("signtool.exe")
 CERT=$$dirname(_PRO_FILE_)-certs\\cert.pfx
