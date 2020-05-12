@@ -15,11 +15,10 @@ Author: Dmitry Baryshev
 
 ## Features overview
 
-- Indirectly link Advanced Get/ESignal, Arche Pro, Graybox, Laser Trade, ROX, Sterling Trader Pro, Takion, Thinkorswim and other platforms
-- Select tickers from a specific sector or industry
-- Add tickers directly from Finviz
+- Indirectly links Advanced Get/ESignal, Arche Pro, Graybox, Laser Trade, ROX, Sterling Trader Pro, Takion, Thinkorswim and other platforms
 - External linking with certain applications including Thinkorswim and Excel
-- Plugins including FOMC reminder, Finviz, Stocks In Play
+- Selects tickers from a specific sector or industry
+- Adds tickers directly from Finviz (Elite account is required)
 - Tool to take screenshots, draw arrows and text comments on them
 - System tray support
 - Up to 8 ticker lists with priorities
