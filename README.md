@@ -27,7 +27,7 @@ Author: Dmitry Baryshev
 
 ## Finviz notice
 
-Finviz requires having an Elite account in order to give access to filters (new highs and lows etc.). You can enter your Elite account
+Finviz requires having an Elite account in order to give access to filters (new highs and lows etc.) and tickers. You can enter your Elite account
 credentials in `Top toolbars -> Add tickers -> Add from Finviz -> Customize -> Access`.
 
 ## Outdated features
