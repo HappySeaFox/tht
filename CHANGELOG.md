@@ -1,4 +1,4 @@
-# Changelog
+# ChangeLog
 
 Trader's Home Task (THT) helps you preparing for a working day on the U.S. stock market.
 
