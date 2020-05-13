@@ -1,3 +1,9 @@
+# Changelog
+
+Trader's Home Task (THT) helps you preparing for a working day on the U.S. stock market.
+
+See [HOWTO](HOWTO.md) and [README](README.md) for more.
+
 ## 2.4.0
 - Updated links in the About dialog
 - Updated the tickers database
