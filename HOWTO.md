@@ -53,7 +53,7 @@ credentials in `Top toolbars -> Add tickers -> Add from Finviz -> Customize -> A
 
 ## Outdated features
 
-THT is not maintained anymore. Pull requests to fix any issues are highly welcomed. The following features no longer work correctly:
+THT is no longer actively developed. Pull requests to fix any issues are highly welcomed. The following features no longer work correctly:
 
 - Dropbox support
 - Briefing Stock Splits plugin

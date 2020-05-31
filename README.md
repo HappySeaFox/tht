@@ -7,7 +7,7 @@ information, add tickers directly from Finviz, and has a wide list of hotkeys.
 
 YouTube tutorials: [https://www.youtube.com/user/thtng](https://www.youtube.com/user/thtng).
 
-:warning: THT is no longer maintained. Pull requests to fix any issues are highly welcomed.
+:warning: THT is no longer actively developed. Pull requests to fix any issues are highly welcomed.
 
 Author: Dmitry Baryshev
 
@@ -31,7 +31,7 @@ credentials in `Top toolbars -> Add tickers -> Add from Finviz -> Customize -> A
 
 ## Outdated features
 
-THT is not maintained anymore. Pull requests to fix any issues are highly welcomed. The following features no longer work correctly:
+THT is no longer actively developed. Pull requests to fix any issues are highly welcomed. The following features no longer work correctly:
 
 - Dropbox support
 - Briefing Stock Splits plugin
