@@ -1,7 +1,7 @@
 #define MyAppName "Trader's Home Task"
 #define MyAppPublisher "Dmitry Baryshev"
 #define MyAppURL "https://github.com/smoked-herring/tht"
-#define MyAppVersion "2.4.0"
+#define MyAppVersion "2.4.1"
 
 [Setup]
 AppId={{16AE5DDE-D073-4F5F-ABC3-11DD9FBF58E3}
