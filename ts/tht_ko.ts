@@ -579,7 +579,7 @@
 <context>
     <name>RegionSelect</name>
     <message>
-        <location filename="../regionselect.cpp" line="118"/>
+        <location filename="../regionselect.cpp" line="125"/>
         <source>Using the mouse, select the rectangle, or click
 any keyboard button or right/middle mouse button to cancel.</source>
         <extracomment>Appeal to the user</extracomment>
@@ -587,7 +587,7 @@ any keyboard button or right/middle mouse button to cancel.</source>
 버튼 혹은 오른쪽/중간 마우스 버튼을 이용하여 취소합니다.</translation>
     </message>
     <message>
-        <location filename="../regionselect.cpp" line="120"/>
+        <location filename="../regionselect.cpp" line="127"/>
         <source>Using the mouse, select the rectangle, or click
 right/middle mouse button to cancel.</source>
         <extracomment>Appeal to the user</extracomment>
@@ -892,7 +892,7 @@ right/middle mouse button to cancel.</source>
 <context>
     <name>UpdateChecker</name>
     <message>
-        <location filename="../updatechecker.cpp" line="57"/>
+        <location filename="../updatechecker.cpp" line="59"/>
         <source>Server answer is broken</source>
         <translation>서버 응답이 훼손되었습니다</translation>
     </message>

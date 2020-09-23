@@ -61,13 +61,14 @@ class RegionSelect : public QDialog
         KeyboardInteraction ki;
 
         QRect selectRect;
-        QSize sizeDesktop;
 
         QPoint selStartPoint;
         QPoint selEndPoint;
 
         QPixmap desktopPixmapBkg;
         QPixmap desktopPixmapClr;
+
+        QRect screenRect;
 };
 
 #endif // REGIONSELECT_H

@@ -40,17 +40,17 @@ RegionSelect::RegionSelect(KeyboardInteraction _ki, QWidget *parent) :
     setWindowState(Qt::WindowFullScreen);
     setCursor(Qt::CrossCursor);
 
-    QRect rc = QApplication::desktop()->screenGeometry(QCursor::pos());
-
-    sizeDesktop = rc.size();
-    resize(sizeDesktop);
+    screenRect = QApplication::desktop()->screenGeometry(QCursor::pos());
+    setGeometry(screenRect);
 
     desktopPixmapBkg = QPixmap::grabWindow(QApplication::desktop()->winId(),
-                                           rc.x(), rc.y(), rc.width(), rc.height());
+                                           screenRect.x(),
+                                           screenRect.y(),
+                                           screenRect.width(),
+                                           screenRect.height());
 
     desktopPixmapClr = desktopPixmapBkg;
 
-    move(rc.topLeft());
     drawBackGround();
 }
 
@@ -60,9 +60,14 @@ RegionSelect::~RegionSelect()
 bool RegionSelect::event(QEvent *event)
 {
     if(ki == UseKeyboard && event->type() == QEvent::KeyPress)
+    {
+        event->accept();
         reject();
+    }
     else if(event->type() == QEvent::MouseButtonRelease)
     {
+        event->accept();
+
         QMouseEvent *mouseEvent = static_cast<QMouseEvent*> (event);
 
         if(mouseEvent->button() == Qt::LeftButton)
@@ -70,6 +75,8 @@ bool RegionSelect::event(QEvent *event)
     }
     else if(event->type() == QEvent::MouseButtonPress)
     {
+        event->accept();
+
         QMouseEvent *mouseEvent = static_cast<QMouseEvent*> (event);
 
         if(mouseEvent->button() != Qt::LeftButton)
@@ -110,9 +117,9 @@ void RegionSelect::drawBackGround()
     painter.setBrush(QBrush(QColor(0, 0, 0, 85), Qt::SolidPattern));
 
     // draw rect of desktop size in poainter
-    painter.drawRect(QApplication::desktop()->rect());
+    painter.drawRect(rect());
 
-    QRect txtRect = QApplication::desktop()->screenGeometry(QApplication::desktop()->primaryScreen());
+    QRect txtRect = rect();
     QString txtTip = ki == UseKeyboard
             //: Appeal to the user
             ? tr("Using the mouse, select the rectangle, or click\nany keyboard button or right/middle mouse button to cancel.")

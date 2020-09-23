@@ -4,6 +4,9 @@ Trader's Home Task (THT) helps you preparing for a working day on the U.S. stock
 
 See [HOWTO](HOWTO.md) and [README](README.md) for more.
 
+## 2.4.1
+- Invoke screensot tool (Ctrl+Alt+S) on the screen where the mouse cursor is located
+
 ## 2.4.0
 - Updated links in the About dialog
 - Updated the tickers database

@@ -579,14 +579,14 @@
 <context>
     <name>RegionSelect</name>
     <message>
-        <location filename="../regionselect.cpp" line="118"/>
+        <location filename="../regionselect.cpp" line="125"/>
         <source>Using the mouse, select the rectangle, or click
 any keyboard button or right/middle mouse button to cancel.</source>
         <extracomment>Appeal to the user</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../regionselect.cpp" line="120"/>
+        <location filename="../regionselect.cpp" line="127"/>
         <source>Using the mouse, select the rectangle, or click
 right/middle mouse button to cancel.</source>
         <extracomment>Appeal to the user</extracomment>
@@ -890,7 +890,7 @@ right/middle mouse button to cancel.</source>
 <context>
     <name>UpdateChecker</name>
     <message>
-        <location filename="../updatechecker.cpp" line="57"/>
+        <location filename="../updatechecker.cpp" line="59"/>
         <source>Server answer is broken</source>
         <translation type="unfinished"></translation>
     </message>
