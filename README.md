@@ -1,4 +1,10 @@
-# Trader's Home Task
+<h1 align="center">Trader's Home Task</h1>
+<h3 align="center">The most popular tool to link stock trading platforms.</h3>
+<p align="center">
+  <a href="https://github.com/smoked-herring/tht/releases">
+    <img alt="Latest release" src="https://img.shields.io/github/v/release/smoked-herring/tht?include_prereleases"/>
+  </a>
+</p>
 
 Trader's Home Task (THT) helps you preparing for a working day on the U.S. stock market.
 It can link Advanced Get/ESignal, Thinkorswim, MBT Desktop Pro, Arche Pro, Takion, Graybox, Laser and other trading
