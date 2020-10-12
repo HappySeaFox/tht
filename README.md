@@ -7,7 +7,7 @@ information, add tickers directly from Finviz, and has a wide list of hotkeys.
 
 YouTube tutorials: [https://www.youtube.com/user/thtng](https://www.youtube.com/user/thtng).
 
-:warning: THT is no longer actively developed. Pull requests to fix any issues are highly welcomed.
+:star: If you like the project, please consider starring the repository.
 
 Author: Dmitry Baryshev
 
