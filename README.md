@@ -13,8 +13,6 @@ information, add tickers directly from Finviz, and has a wide list of hotkeys.
 
 YouTube tutorials: [https://www.youtube.com/user/thtng](https://www.youtube.com/user/thtng).
 
-:star: If you like THT, please consider starring the repository.
-
 Author: Dmitry Baryshev
 
 ![THT](.github/tht.png?raw=true)
