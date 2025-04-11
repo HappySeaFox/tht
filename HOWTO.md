@@ -39,12 +39,12 @@ Table of Contents
 
 - Indirectly links Advanced Get/ESignal, Arche Pro, Graybox, Laser Trade, ROX, Sterling Trader Pro, Takion, Thinkorswim and other platforms
 - External linking with certain applications including Thinkorswim and Excel
-- Selects tickers from a specific sector or industry
+- Selects tickers from a specific sector or industry (press the **K** hotkey)
 - Adds tickers directly from Finviz (Elite account is required)
-- Tool to take screenshots, draw arrows and text comments on them
+- Tool to take screenshots, draw arrows and text comments on them to document trades
 - System tray support
 - Up to 8 ticker lists with priorities
-- Styles
+- UI styles
 
 ## Finviz notice
 
