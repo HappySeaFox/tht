@@ -15,7 +15,7 @@ YouTube tutorials: [https://www.youtube.com/user/thtng](https://www.youtube.com/
 
 Author: Dmitry Baryshev
 
-![THT](.github/tht.png?raw=true)
+https://github.com/user-attachments/assets/6453119b-af66-4efd-9282-be5347c789dd
 
 ## Features overview
 
