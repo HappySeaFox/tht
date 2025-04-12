@@ -183,9 +183,13 @@ NOTE: When a ticker list is not saved, you will see a red line on top. Click "Sa
 
 ## Does THT support keyboard shortcuts?
 
-Yes, THT supports a rich set of keyboard shortcuts. Please continue reading for a list of shortcuts.
+Yes, THT supports a rich set of keyboard shortcuts. Please continue reading for the list of shortcuts.
 
 ### When navigating through a list:
+
+<p align="center">
+  <img alt="List shortcuts" src=".github/list-shortcuts-screenshot.jpg?raw=true"/>
+</p>
 
 - **Down Arrow** - load the next ticker to all linked windows
 - **Up Arrow** - load the previous ticker
