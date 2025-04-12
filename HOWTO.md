@@ -249,12 +249,20 @@ Yes, THT supports a rich set of keyboard shortcuts. Please continue reading for 
 
 ### Mini ticker entry shortcuts:
 
+<p align="center">
+  <img alt="Mini ticker entry shortcuts" src=".github/mini-entry-shortcuts-screenshot.jpg?raw=true"/>
+</p>
+
 - **Up Arrow** - set focus to the ticker list
 - **Space** - add ticker to the current list
 - **Enter** - load the ticker
 - **Escape** - clear entry
 
 ### Screenshot editor shortcuts:
+
+<p align="center">
+  <img alt="Screenshot editor shortcuts" src=".github/screenshot-editor-shortcuts-screenshot.jpg?raw=true"/>
+</p>
 
 - **T** - add text
 - **B** - add buy
@@ -267,6 +275,10 @@ Yes, THT supports a rich set of keyboard shortcuts. Please continue reading for 
 
 ### Screenshot editor shortcuts, text entering dialog:
 
+<p align="center">
+  <img alt="Screenshot editor shortcuts" src=".github/text-entering-shortcuts-screenshot.jpg?raw=true"/>
+</p>
+
 - **Ctrl+B** - change the background color
 - **Ctrl+L** - align text to the left
 - **Ctrl+E** - align text to the center
@@ -276,6 +288,8 @@ Yes, THT supports a rich set of keyboard shortcuts. Please continue reading for 
 - **Ctrl+K** - show the text color dialog
 
 ### Global shortcuts:
+
+Registered globally and can be activated from anywhere while THT is running.
 
 - **Ctrl+Alt+S** - take a screenshot of your trade
 - **Ctrl+Alt+R** - show the THT window (when the window is minimized or hidden in the tray)
