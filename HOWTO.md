@@ -233,6 +233,10 @@ Yes, THT supports a rich set of keyboard shortcuts. Please continue reading for 
 
 ### Window shortcuts:
 
+<p align="center">
+  <img alt="Window shortcuts" src=".github/window-shortcuts-screenshot.jpg?raw=true"/>
+</p>
+
 - **Q** - load "$COMPQ"
 - **I** - load "$INDU"
 - **S** - load "$SPX"
