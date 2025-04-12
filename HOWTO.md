@@ -125,7 +125,7 @@ Please view this YouTube tutorial to learn how to use the screenshot editor: [Yo
 ## How do I use ticker lists?
 
 Left-click on a ticker, or use the "up" and "down" arrows on your keyboard to navigate through the list.
-When the ticker is selected, THT will load it to all linked windows.
+When the ticker is selected, THT will load it into all linked windows.
 
 ## How do I export tickers?
 
@@ -255,8 +255,8 @@ Yes, THT supports a rich set of keyboard shortcuts. Please continue reading for 
 
 - **Up Arrow** - set focus to the ticker list
 - **Space** - add ticker to the current list
-- **Enter** - load the ticker
-- **Escape** - clear entry
+- **Enter** - load the ticker into all linked windows
+- **Escape** - clear
 
 ### Screenshot editor shortcuts:
 
